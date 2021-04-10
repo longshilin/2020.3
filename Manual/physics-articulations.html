@@ -1,0 +1,343 @@
+<!DOCTYPE html><html class="no-js" lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-5V25JL6');
+    </script><link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="twitter:card" content="summary">
+<meta property="og:title" content="Physics articulations - Unity 手册">
+<title>Physics articulations - Unity 手册</title>
+<meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/physics-articulation-concept.png">
+<meta name="description" content="A physics articulation is a set of Articulation Bodies organized in a logical tree where each parent-child relationship reflects mutually constrained relative motion.">
+<meta property="og:description" content="A physics articulation is a set of Articulation Bodies organized in a logical tree where each parent-child relationship reflects mutually constrained relative motion.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFiles/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFiles/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFiles/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFiles/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFiles/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFiles/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFiles/images/favicons/tileicon-144x144.png">
+<script type="text/javascript" src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" charset="UTF-8" data-domain-script="6e91be4c-3145-4ea2-aa64-89d716064836"></script><script type="text/javascript">
+        function OptanonWrapper() { }
+    </script><script>
+      var docs_type = 'Manual';
+      var lang = 'cn';
+      var page = 'physics-articulations';
+      if(!page) page = 'index';
+      var version = '2020.3';
+      var docs_versions = [{version: '2021.1',version_string: '2021.1',supported: true},{version: '2020.3',version_string: '2020.3',supported: true},{version: '2020.2',version_string: '2020.2',supported: false},{version: '2020.1',version_string: '2020.1',supported: false},{version: '2019.4',version_string: '2019.4',supported: true},{version: '2019.3',version_string: '2019.3',supported: false},{version: '2019.2',version_string: '2019.2',supported: false},{version: '2019.1',version_string: '2019.1',supported: false},{version: '2018.4',version_string: '2018.4',supported: true},{version: '2018.3',version_string: '2018.3',supported: false},{version: '2018.2',version_string: '2018.2',supported: false},{version: '2018.1',version_string: '2018.1',supported: false},{version: '2017.4',version_string: '2017.4',supported: false},{version: '2017.3',version_string: '2017.3',supported: false},{version: '2017.2',version_string: '2017.2',supported: false},{version: '2017.1',version_string: '2017.1',supported: false},{version: '5.6',version_string: '560',supported: false},];</script><script type="text/javascript" src="../StaticFiles/js/jquery.js"></script><script type="text/javascript" src="../StaticFiles/js/core.js"></script><script type="text/javascript" src="../StaticFiles/js/jquery.sidebar.min.js"></script><script type="text/javascript" src="docdata/toc.js"></script><script type="text/javascript" src=""></script><script type="text/javascript" src="../StaticFiles/js/custom.js"></script><link rel="stylesheet" type="text/css" href="../StaticFiles/css/core.css">
+<link rel="stylesheet" type="text/css" href="../StaticFiles/css/custom.css">
+<link rel="canonical" href="https://docs.unity3d.com/cn/2020.3/Manual/physics-articulations.html">
+<link rel="alternate" href="https://docs.unity3d.com/en/2020.3/Manual/physics-articulations.html" hreflang="en">
+<link rel="alternate" href="https://docs.unity3d.com/cn/2020.3/Manual/physics-articulations.html" hreflang="zh">
+<link rel="alternate" href="https://docs.unity3d.com/ja/2020.3/Manual/physics-articulations.html" hreflang="ja">
+<link rel="alternate" href="https://docs.unity3d.com/es/2020.3/Manual/physics-articulations.html" hreflang="es">
+<link rel="alternate" href="https://docs.unity3d.com/kr/2020.3/Manual/physics-articulations.html" hreflang="ko">
+<link rel="alternate" href="https://docs.unity3d.com/ru/2020.3/Manual/physics-articulations.html" hreflang="ru">
+<link rel="alternate" href="https://docs.unity3d.com/2020.3/Documentation/Manual/physics-articulations.html" hreflang="x-default">
+</head>
+<body>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5V25JL6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div id="nav-open" for="nav-input"><span></span></div>
+<div class="logo"><a href="./index.html"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="搜索手册..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul class="menu-items">
+<li class="menu-item"><a href="../Manual/index.html" class="selected">手册</a></li>
+<li class="menu-item"><a href="../ScriptReference/index.html" class="">脚本 API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="https://unity3d.com/">
+                unity3d.com
+              </a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-switcher">
+<div class="current toggle" data-target=".version-list"><div class="version-number">
+<div class="d-inline-block">
+          Version:
+          <b>2020.3</b>
+</div>
+<div class="d-inline-block arrow"></div>
+</div></div>
+<div class="version-list" style="display:none;">
+<ul class="versions">
+<li class="supported"><a class="docs_version_url_2021.1" href="/cn/2021.1/Manual/physics-articulations.html">2021.1</a></li>
+<li class="supported"><a class="docs_version_url_2020.3" href="/cn/2020.3/Manual/physics-articulations.html">2020.3</a></li>
+<li class=""><a class="docs_version_url_2020.2" href="/cn/2020.2/Manual/physics-articulations.html">2020.2</a></li>
+<li class=""><a class="docs_version_url_2020.1" href="/cn/2020.1/Manual/physics-articulations.html">2020.1</a></li>
+<li class="supported"><a class="docs_version_url_2019.4" href="/cn/2019.4/Manual/physics-articulations.html">2019.4</a></li>
+<li class=""><a class="docs_version_url_2019.3" href="/cn/2019.3/Manual/physics-articulations.html">2019.3</a></li>
+<li class=""><a class="docs_version_url_2019.2" href="/cn/2019.2/Manual/physics-articulations.html">2019.2</a></li>
+<li class=""><a class="docs_version_url_2019.1" href="/cn/2019.1/Manual/physics-articulations.html">2019.1</a></li>
+<li class="supported"><a class="docs_version_url_2018.4" href="/cn/2018.4/Manual/physics-articulations.html">2018.4</a></li>
+<li class=""><a class="docs_version_url_2018.3" href="/cn/2018.3/Manual/physics-articulations.html">2018.3</a></li>
+<li class=""><a class="docs_version_url_2018.2" href="/cn/2018.2/Manual/physics-articulations.html">2018.2</a></li>
+<li class=""><a class="docs_version_url_2018.1" href="/cn/2018.1/Manual/physics-articulations.html">2018.1</a></li>
+<li class=""><a class="docs_version_url_2017.4" href="/cn/2017.4/Manual/physics-articulations.html">2017.4</a></li>
+<li class=""><a class="docs_version_url_2017.3" href="/cn/2017.3/Manual/physics-articulations.html">2017.3</a></li>
+<li class=""><a class="docs_version_url_2017.2" href="/cn/2017.2/Manual/physics-articulations.html">2017.2</a></li>
+<li class=""><a class="docs_version_url_2017.1" href="/cn/2017.1/Manual/physics-articulations.html">2017.1</a></li>
+<li class=""><a class="docs_version_url_560" href="/cn/560/Manual/physics-articulations.html">5.6</a></li>
+<div class="versionsWithThisPage" style="display:none;"><li><p>包含此页的版本：</p></li></div>
+<div class="versionsWithoutThisPage" style="display:none;"><li><p>不含此页的版本：</p></li></div>
+</ul>
+<ul class="description">
+<li>
+<div class="supported-box"></div>受支持</li>
+<li>
+<div class="legacy-box"></div>旧版</li>
+</ul>
+</div>
+</div>
+<ul class="nav-menu-items">
+<li class="menu-item"><a href="../Manual/index.html" class="selected">手册</a></li>
+<li class="menu-item"><a href="../ScriptReference/index.html" class="">脚本 API</a></li>
+</ul>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">语言:
+        <span class="b">中文</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a data-lang="en" href="/2020.3/Documentation/Manual/physics-articulations.html">English</a></li>
+<li><a data-lang="cn" href="/cn/2020.3/Manual/physics-articulations.html">中文</a></li>
+<li><a data-lang="ja" href="/ja/2020.3/Manual/physics-articulations.html">日本語</a></li>
+<li><a data-lang="es" href="/es/2020.3/Manual/physics-articulations.html">Español</a></li>
+<li><a data-lang="kr" href="/kr/2020.3/Manual/physics-articulations.html">한국어</a></li>
+<li><a data-lang="ru" href="/ru/2020.3/Manual/physics-articulations.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar hidden"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc">
+<h2>手册</h2>
+<div class="version-switcher">
+<div class="current toggle" data-target=".version-list"><div class="version-number">
+<div class="d-inline-block">
+          Version:
+          <b>2020.3</b>
+</div>
+<div class="d-inline-block arrow"></div>
+</div></div>
+<div class="version-list" style="display:none;">
+<ul class="versions">
+<li class="supported"><a class="docs_version_url_2021.1" href="/cn/2021.1/Manual/physics-articulations.html">2021.1</a></li>
+<li class="supported"><a class="docs_version_url_2020.3" href="/cn/2020.3/Manual/physics-articulations.html">2020.3</a></li>
+<li class=""><a class="docs_version_url_2020.2" href="/cn/2020.2/Manual/physics-articulations.html">2020.2</a></li>
+<li class=""><a class="docs_version_url_2020.1" href="/cn/2020.1/Manual/physics-articulations.html">2020.1</a></li>
+<li class="supported"><a class="docs_version_url_2019.4" href="/cn/2019.4/Manual/physics-articulations.html">2019.4</a></li>
+<li class=""><a class="docs_version_url_2019.3" href="/cn/2019.3/Manual/physics-articulations.html">2019.3</a></li>
+<li class=""><a class="docs_version_url_2019.2" href="/cn/2019.2/Manual/physics-articulations.html">2019.2</a></li>
+<li class=""><a class="docs_version_url_2019.1" href="/cn/2019.1/Manual/physics-articulations.html">2019.1</a></li>
+<li class="supported"><a class="docs_version_url_2018.4" href="/cn/2018.4/Manual/physics-articulations.html">2018.4</a></li>
+<li class=""><a class="docs_version_url_2018.3" href="/cn/2018.3/Manual/physics-articulations.html">2018.3</a></li>
+<li class=""><a class="docs_version_url_2018.2" href="/cn/2018.2/Manual/physics-articulations.html">2018.2</a></li>
+<li class=""><a class="docs_version_url_2018.1" href="/cn/2018.1/Manual/physics-articulations.html">2018.1</a></li>
+<li class=""><a class="docs_version_url_2017.4" href="/cn/2017.4/Manual/physics-articulations.html">2017.4</a></li>
+<li class=""><a class="docs_version_url_2017.3" href="/cn/2017.3/Manual/physics-articulations.html">2017.3</a></li>
+<li class=""><a class="docs_version_url_2017.2" href="/cn/2017.2/Manual/physics-articulations.html">2017.2</a></li>
+<li class=""><a class="docs_version_url_2017.1" href="/cn/2017.1/Manual/physics-articulations.html">2017.1</a></li>
+<li class=""><a class="docs_version_url_560" href="/cn/560/Manual/physics-articulations.html">5.6</a></li>
+<div class="versionsWithThisPage" style="display:none;"><li><p>包含此页的版本：</p></li></div>
+<div class="versionsWithoutThisPage" style="display:none;"><li><p>不含此页的版本：</p></li></div>
+</ul>
+<ul class="description">
+<li>
+<div class="supported-box"></div>受支持</li>
+<li>
+<div class="legacy-box"></div>旧版</li>
+</ul>
+</div>
+</div>
+<div class="clear"></div>
+</div></div></div></div></div>
+<div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="PhysicsSection.html">物理系统</a></li>
+<li><a href="PhysicsOverview.html">面向对象的项目的 3D 物理系统</a></li>
+<li>Physics articulations</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="Joints.html"></a></span><div class="tip">关节</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="CharacterControllers.html"></a></span><div class="tip">角色控制器</div>
+</div>
+</div></div>
+<h1>Physics articulations</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>A physics articulation is a set of <a href="class-ArticulationBody.html">Articulation Bodies</a> organized in a logical tree where each parent-child relationship reflects mutually constrained relative motion.</p>
+
+<p>The main purpose of physics articulations is to provide a realistic physics behavior for non-gaming, industrial applications that involve joints. They make it a lot easier than the <a href="Joints.html">regular Joints</a> to simulate robotic arms and kinematic chains, for example.</p>
+
+<h2>Articulation setup vs. regular joints</h2>
+
+<p>In the most basic scenario to get two physical bodies linked with a single joint, you can either build an articulation or use regular joints, as described in the following table.</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"></th>
+	<th style="text-align:left;"><strong>Articulation setup</strong></th>
+	<th style="text-align:left;"><strong>Setup with regular joint</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">Hierarchy</td>
+	<td style="text-align:left;">• GameObject + Articulation Body<br>   • GameObject + Articulation Body</td>
+	<td style="text-align:left;">• GameObject + Rigid Body<br>• GameObject + Rigid Body + Joint</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Relationship</td>
+	<td style="text-align:left;">The GameObjects have a hierarchical relationship (parent-child).<br><strong>Note:</strong> The physics engine uses the Unity transform hierarchy to express the parent-child relationship.</td>
+	<td style="text-align:left;">The GameObjects don’t necessarily have a hierarchical relationship.<br><strong>Note:</strong> In more advanced scenarios, you can freely simulate kinematic loops.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Physical bodies</td>
+	<td style="text-align:left;">Both GameObjects have an Articulation Body component, which defines physical body properties (among others).</td>
+	<td style="text-align:left;">Both GameObjects have a RigidBody component, which defines physical body properties (among others).</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Joint</td>
+	<td style="text-align:left;">The Articulation Body of the child GameObject holds the joint properties, where you can select the joint type.</td>
+	<td style="text-align:left;">One of the GameObjects also has a Joint component. The joint properties depend on the type of Joint component that you add.</td>
+</tr>
+</tbody>
+</table>
+
+<p>However, the overall resulting behavior is not the same in both cases, especially if you extend this principle to multiple physical bodies and joints.</p>
+
+<p>If you try to use regular joints to model kinematic chains such as in a rag doll, robotic arm, or mechanism with several concurrent hinges, the physics engine might encounter unsolvable scenarios and leave certain constraints unsatisfied. This might result in stuttery and unrealistic motion. Not only would the joints look peculiar, but it would also be impossible to use them for simulating a real device, impeding efforts to model or prototype industrial designs.</p>
+
+<h2>Building an Articulation in Unity</h2>
+
+<p>To build a physics articulation in Unity, you must add an Articulation Body component to each GameObject that the articulation consists of. Each Articulation Body component allows you to configure in one single place:</p>
+
+<ul>
+<li><p>The physical body properties of the corresponding GameObject. Basically, its mass and the way it responds to the physics environment.</p></li>
+<li><p>The type and properties of the joint that links the GameObject to its parent GameObject (except for the root of the articulation).</p></li>
+</ul>
+
+<p>The example below shows a simple physics articulation that involves 3 physical bodies and 2 joints:</p>
+
+<figure>
+<img src="../uploads/Main/physics-articulation-concept.png" alt="">
+</figure>
+
+<p>To build such an articulation in Unity:</p>
+
+<ol>
+<li><p>Create a linear hierarchy of 3 GameObjects.</p></li>
+<li><p>Add an Articulation Body component to each of these 3 GameObjects.</p></li>
+<li><p>Configure each Articulation Body component (according to the above graphic):</p></li>
+</ol>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;">GameObject</th>
+	<th style="text-align:left;">Articulation Body component configuration</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">A (root)</td>
+	<td style="text-align:left;">You can only define physical body properties for GameObject A.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">B</td>
+	<td style="text-align:left;">You can define:<br>• Physical body properties for GameObject B.<br>• The type and properties of the joint with GameObject A.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">C</td>
+	<td style="text-align:left;">You can define:<br>• Physical body properties for GameObject C.<br>• The type and properties of the joint with GameObject B.</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Note:</strong> By definition, an articulation can only have one root and is not allowed to have kinematic loops. If you need kinematic loops, use <a href="Joints.html">regular joints</a>.</p>
+
+<p><strong>Limitation:</strong> If you want to build very long articulation chains, you must still be aware that Unity supports a maximum hierarchy depth of 64 GameObjects.</p>
+
+<h2>Articulation Joint types and degrees of freedom</h2>
+
+<p>There are four types of articulation joints that you can select and configure
+through an Articulation Body:</p>
+
+<ul>
+<li><p><strong>Fixed joint</strong>: sets a rigid, unbreakable and unstretchable link between bodies.</p></li>
+<li><p><strong>Prismatic joint</strong>: prevents all motion except sliding along a particular axis.</p></li>
+<li><p><strong>Revolute joint</strong>: allows rotation around a particular axis (like a hinge).</p></li>
+<li><p><strong>Spherical joint</strong>: anatomical joint, which allows two swings and one twist.</p></li>
+</ul>
+
+<p>All locked degrees of freedom in an articulation are unbreakable and unstretchable by design. To achieve this, the physics engine uses the reduced coordinate space, where bodies only have coordinates about unlocked axes of motion.</p>
+
+<p>In contrast, for the regular iterative joints, the physics engine enforces the maximal coordinate space, which only guarantees the satisfaction of constraints if the solver is able to converge after a set of iterations.</p>
+
+<h2>Physics articulation demo</h2>
+
+<p>Check out Unity’s <a href="https://github.com/Unity-Technologies/articulations-robot-demo">robotics demo project</a> to experiment with a serial link robot arm with articulation joints.</p>
+<!-- area:authoring -->
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="Joints.html"></a></span><div class="tip">关节</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="CharacterControllers.html"></a></span><div class="tip">角色控制器</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper">
+<div class="footer clear">
+<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="menu">
+<a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div>
+<div></div>
+</div>
+</div></div></div>
+</div>
+</body>
+</html>

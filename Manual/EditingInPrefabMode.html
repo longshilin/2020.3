@@ -1,0 +1,361 @@
+<!DOCTYPE html><html class="no-js" lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-5V25JL6');
+    </script><link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="twitter:card" content="summary">
+<meta property="og:title" content="Editing a Prefab in Prefab Mode - Unity 手册">
+<title>Editing a Prefab in Prefab Mode - Unity 手册</title>
+<meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/PrefabContextVsIsolation.png">
+<meta name="description" content="To edit a Prefab Asset, open it in Prefab Mode. Prefab Mode allows you to view and edit the contents of the Prefab Asset separately from any other GameObjects in your Scene. Changes that you make in Prefab Mode affect all instances of that Prefab.">
+<meta property="og:description" content="To edit a Prefab Asset, open it in Prefab Mode. Prefab Mode allows you to view and edit the contents of the Prefab Asset separately from any other GameObjects in your Scene. Changes that you make in Prefab Mode affect all instances of that Prefab.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFiles/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFiles/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFiles/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFiles/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFiles/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFiles/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFiles/images/favicons/tileicon-144x144.png">
+<script type="text/javascript" src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" charset="UTF-8" data-domain-script="6e91be4c-3145-4ea2-aa64-89d716064836"></script><script type="text/javascript">
+        function OptanonWrapper() { }
+    </script><script>
+      var docs_type = 'Manual';
+      var lang = 'cn';
+      var page = 'EditingInPrefabMode';
+      if(!page) page = 'index';
+      var version = '2020.3';
+      var docs_versions = [{version: '2021.1',version_string: '2021.1',supported: true},{version: '2020.3',version_string: '2020.3',supported: true},{version: '2020.2',version_string: '2020.2',supported: false},{version: '2020.1',version_string: '2020.1',supported: false},{version: '2019.4',version_string: '2019.4',supported: true},{version: '2019.3',version_string: '2019.3',supported: false},{version: '2019.2',version_string: '2019.2',supported: false},{version: '2019.1',version_string: '2019.1',supported: false},{version: '2018.4',version_string: '2018.4',supported: true},{version: '2018.3',version_string: '2018.3',supported: false},{version: '2018.2',version_string: '2018.2',supported: false},{version: '2018.1',version_string: '2018.1',supported: false},{version: '2017.4',version_string: '2017.4',supported: false},{version: '2017.3',version_string: '2017.3',supported: false},{version: '2017.2',version_string: '2017.2',supported: false},{version: '2017.1',version_string: '2017.1',supported: false},{version: '5.6',version_string: '560',supported: false},];</script><script type="text/javascript" src="../StaticFiles/js/jquery.js"></script><script type="text/javascript" src="../StaticFiles/js/core.js"></script><script type="text/javascript" src="../StaticFiles/js/jquery.sidebar.min.js"></script><script type="text/javascript" src="docdata/toc.js"></script><script type="text/javascript" src=""></script><script type="text/javascript" src="../StaticFiles/js/custom.js"></script><link rel="stylesheet" type="text/css" href="../StaticFiles/css/core.css">
+<link rel="stylesheet" type="text/css" href="../StaticFiles/css/custom.css">
+<link rel="canonical" href="https://docs.unity3d.com/cn/2020.3/Manual/EditingInPrefabMode.html">
+<link rel="alternate" href="https://docs.unity3d.com/en/2020.3/Manual/EditingInPrefabMode.html" hreflang="en">
+<link rel="alternate" href="https://docs.unity3d.com/cn/2020.3/Manual/EditingInPrefabMode.html" hreflang="zh">
+<link rel="alternate" href="https://docs.unity3d.com/ja/2020.3/Manual/EditingInPrefabMode.html" hreflang="ja">
+<link rel="alternate" href="https://docs.unity3d.com/es/2020.3/Manual/EditingInPrefabMode.html" hreflang="es">
+<link rel="alternate" href="https://docs.unity3d.com/kr/2020.3/Manual/EditingInPrefabMode.html" hreflang="ko">
+<link rel="alternate" href="https://docs.unity3d.com/ru/2020.3/Manual/EditingInPrefabMode.html" hreflang="ru">
+<link rel="alternate" href="https://docs.unity3d.com/2020.3/Documentation/Manual/EditingInPrefabMode.html" hreflang="x-default">
+</head>
+<body>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5V25JL6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div id="nav-open" for="nav-input"><span></span></div>
+<div class="logo"><a href="./index.html"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="搜索手册..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul class="menu-items">
+<li class="menu-item"><a href="../Manual/index.html" class="selected">手册</a></li>
+<li class="menu-item"><a href="../ScriptReference/index.html" class="">脚本 API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="https://unity3d.com/">
+                unity3d.com
+              </a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-switcher">
+<div class="current toggle" data-target=".version-list"><div class="version-number">
+<div class="d-inline-block">
+          Version:
+          <b>2020.3</b>
+</div>
+<div class="d-inline-block arrow"></div>
+</div></div>
+<div class="version-list" style="display:none;">
+<ul class="versions">
+<li class="supported"><a class="docs_version_url_2021.1" href="/cn/2021.1/Manual/EditingInPrefabMode.html">2021.1</a></li>
+<li class="supported"><a class="docs_version_url_2020.3" href="/cn/2020.3/Manual/EditingInPrefabMode.html">2020.3</a></li>
+<li class=""><a class="docs_version_url_2020.2" href="/cn/2020.2/Manual/EditingInPrefabMode.html">2020.2</a></li>
+<li class=""><a class="docs_version_url_2020.1" href="/cn/2020.1/Manual/EditingInPrefabMode.html">2020.1</a></li>
+<li class="supported"><a class="docs_version_url_2019.4" href="/cn/2019.4/Manual/EditingInPrefabMode.html">2019.4</a></li>
+<li class=""><a class="docs_version_url_2019.3" href="/cn/2019.3/Manual/EditingInPrefabMode.html">2019.3</a></li>
+<li class=""><a class="docs_version_url_2019.2" href="/cn/2019.2/Manual/EditingInPrefabMode.html">2019.2</a></li>
+<li class=""><a class="docs_version_url_2019.1" href="/cn/2019.1/Manual/EditingInPrefabMode.html">2019.1</a></li>
+<li class="supported"><a class="docs_version_url_2018.4" href="/cn/2018.4/Manual/EditingInPrefabMode.html">2018.4</a></li>
+<li class=""><a class="docs_version_url_2018.3" href="/cn/2018.3/Manual/EditingInPrefabMode.html">2018.3</a></li>
+<li class=""><a class="docs_version_url_2018.2" href="/cn/2018.2/Manual/EditingInPrefabMode.html">2018.2</a></li>
+<li class=""><a class="docs_version_url_2018.1" href="/cn/2018.1/Manual/EditingInPrefabMode.html">2018.1</a></li>
+<li class=""><a class="docs_version_url_2017.4" href="/cn/2017.4/Manual/EditingInPrefabMode.html">2017.4</a></li>
+<li class=""><a class="docs_version_url_2017.3" href="/cn/2017.3/Manual/EditingInPrefabMode.html">2017.3</a></li>
+<li class=""><a class="docs_version_url_2017.2" href="/cn/2017.2/Manual/EditingInPrefabMode.html">2017.2</a></li>
+<li class=""><a class="docs_version_url_2017.1" href="/cn/2017.1/Manual/EditingInPrefabMode.html">2017.1</a></li>
+<li class=""><a class="docs_version_url_560" href="/cn/560/Manual/EditingInPrefabMode.html">5.6</a></li>
+<div class="versionsWithThisPage" style="display:none;"><li><p>包含此页的版本：</p></li></div>
+<div class="versionsWithoutThisPage" style="display:none;"><li><p>不含此页的版本：</p></li></div>
+</ul>
+<ul class="description">
+<li>
+<div class="supported-box"></div>受支持</li>
+<li>
+<div class="legacy-box"></div>旧版</li>
+</ul>
+</div>
+</div>
+<ul class="nav-menu-items">
+<li class="menu-item"><a href="../Manual/index.html" class="selected">手册</a></li>
+<li class="menu-item"><a href="../ScriptReference/index.html" class="">脚本 API</a></li>
+</ul>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">语言:
+        <span class="b">中文</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a data-lang="en" href="/2020.3/Documentation/Manual/EditingInPrefabMode.html">English</a></li>
+<li><a data-lang="cn" href="/cn/2020.3/Manual/EditingInPrefabMode.html">中文</a></li>
+<li><a data-lang="ja" href="/ja/2020.3/Manual/EditingInPrefabMode.html">日本語</a></li>
+<li><a data-lang="es" href="/es/2020.3/Manual/EditingInPrefabMode.html">Español</a></li>
+<li><a data-lang="kr" href="/kr/2020.3/Manual/EditingInPrefabMode.html">한국어</a></li>
+<li><a data-lang="ru" href="/ru/2020.3/Manual/EditingInPrefabMode.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar hidden"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc">
+<h2>手册</h2>
+<div class="version-switcher">
+<div class="current toggle" data-target=".version-list"><div class="version-number">
+<div class="d-inline-block">
+          Version:
+          <b>2020.3</b>
+</div>
+<div class="d-inline-block arrow"></div>
+</div></div>
+<div class="version-list" style="display:none;">
+<ul class="versions">
+<li class="supported"><a class="docs_version_url_2021.1" href="/cn/2021.1/Manual/EditingInPrefabMode.html">2021.1</a></li>
+<li class="supported"><a class="docs_version_url_2020.3" href="/cn/2020.3/Manual/EditingInPrefabMode.html">2020.3</a></li>
+<li class=""><a class="docs_version_url_2020.2" href="/cn/2020.2/Manual/EditingInPrefabMode.html">2020.2</a></li>
+<li class=""><a class="docs_version_url_2020.1" href="/cn/2020.1/Manual/EditingInPrefabMode.html">2020.1</a></li>
+<li class="supported"><a class="docs_version_url_2019.4" href="/cn/2019.4/Manual/EditingInPrefabMode.html">2019.4</a></li>
+<li class=""><a class="docs_version_url_2019.3" href="/cn/2019.3/Manual/EditingInPrefabMode.html">2019.3</a></li>
+<li class=""><a class="docs_version_url_2019.2" href="/cn/2019.2/Manual/EditingInPrefabMode.html">2019.2</a></li>
+<li class=""><a class="docs_version_url_2019.1" href="/cn/2019.1/Manual/EditingInPrefabMode.html">2019.1</a></li>
+<li class="supported"><a class="docs_version_url_2018.4" href="/cn/2018.4/Manual/EditingInPrefabMode.html">2018.4</a></li>
+<li class=""><a class="docs_version_url_2018.3" href="/cn/2018.3/Manual/EditingInPrefabMode.html">2018.3</a></li>
+<li class=""><a class="docs_version_url_2018.2" href="/cn/2018.2/Manual/EditingInPrefabMode.html">2018.2</a></li>
+<li class=""><a class="docs_version_url_2018.1" href="/cn/2018.1/Manual/EditingInPrefabMode.html">2018.1</a></li>
+<li class=""><a class="docs_version_url_2017.4" href="/cn/2017.4/Manual/EditingInPrefabMode.html">2017.4</a></li>
+<li class=""><a class="docs_version_url_2017.3" href="/cn/2017.3/Manual/EditingInPrefabMode.html">2017.3</a></li>
+<li class=""><a class="docs_version_url_2017.2" href="/cn/2017.2/Manual/EditingInPrefabMode.html">2017.2</a></li>
+<li class=""><a class="docs_version_url_2017.1" href="/cn/2017.1/Manual/EditingInPrefabMode.html">2017.1</a></li>
+<li class=""><a class="docs_version_url_560" href="/cn/560/Manual/EditingInPrefabMode.html">5.6</a></li>
+<div class="versionsWithThisPage" style="display:none;"><li><p>包含此页的版本：</p></li></div>
+<div class="versionsWithoutThisPage" style="display:none;"><li><p>不含此页的版本：</p></li></div>
+</ul>
+<ul class="description">
+<li>
+<div class="supported-box"></div>受支持</li>
+<li>
+<div class="legacy-box"></div>旧版</li>
+</ul>
+</div>
+</div>
+<div class="clear"></div>
+</div></div></div></div></div>
+<div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityOverview.html">在 Unity 中操作</a></li>
+<li><a href="CreatingGameplay.html">创建游戏玩法</a></li>
+<li><a href="Prefabs.html">预制件</a></li>
+<li>Editing a Prefab in Prefab Mode</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="CreatingPrefabs.html"></a></span><div class="tip">创建预制件</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="PrefabInstanceOverrides.html"></a></span><div class="tip">实例覆盖</div>
+</div>
+</div></div>
+<h1>Editing a Prefab in Prefab Mode</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>To edit a Prefab Asset, open it in <strong>Prefab Mode</strong>. Prefab Mode allows you to view and edit the contents of the Prefab Asset separately from any other GameObjects in your Scene. Changes that you make in Prefab Mode affect all instances of that Prefab.</p>
+
+<p><a name="EnteringAndExiting"></a></p>
+
+<h2>进入和退出预制件模式</h2>
+
+<p>You can edit a Prefab Asset <strong>in isolation</strong>, or <strong>in context</strong>.</p>
+
+<figure>
+<img src="../uploads/Main/PrefabContextVsIsolation.png" alt="Left: editing a Prefab in isolation. Right: editing a *Prefab in context.">
+<figcaption>Left: editing a Prefab in isolation. Right: editing a *Prefab in context.</figcaption>
+</figure>
+
+<ul>
+<li><p><strong>In isolation:</strong> When you edit a Prefab in isolation, Unity hides the rest of your current working Scene, and you only see the GameObjects that relate to the Prefab itself (plus, optionally, a pre-set <strong>editing environment </strong>- see below).</p></li>
+<li><p><strong>In context:</strong> When you edit a Prefab in context, the rest of your current working Scene remains visible, but locked for editing. </p></li>
+</ul>
+
+<h3>Editing in isolation</h3>
+
+<p>You can begin to edit a Prefab in Prefab Mode in several ways. To open a Prefab Asset and edit it <strong>in isolation</strong> you can do it in the following ways:</p>
+
+<ul>
+<li>Double-click the Prefab Asset in the Project window</li>
+<li>Select a Prefab Asset in the Project window and click the <strong>Open Prefab</strong> button in the <strong>Inspector</strong> window</li>
+</ul>
+
+<figure>
+<img src="../uploads/Main/PrefabAssetOpenPrefabButton.png" alt="A Prefab Asset selected in the Project window (left), and the Open Prefab button visible in the inspector (right)">
+<figcaption>A Prefab Asset selected in the Project window (left), and the Open Prefab button visible in the inspector (right)</figcaption>
+</figure>
+
+<p>When you enter Prefab Mode in isolation, Unity only shows the contents of that Prefab in the <strong>Scene view</strong> and the Hierarchy window. In the following image, the root of the Prefab is a regular <strong>GameObject</strong> - it doesn’t have the blue Prefab instance icon.</p>
+
+<figure>
+<img src="../uploads/Main/PrefabsSceneAndHierarchyInPrefabMode.png" alt="The Scene view and Hierarchy, with Prefab Mode in isolation">
+<figcaption>The Scene view and Hierarchy, with Prefab Mode in isolation</figcaption>
+</figure>
+
+<p>In Prefab Mode, the <strong>Scene</strong> view displays a breadcrumb bar at the top. The rightmost entry is the currently open Prefab. Use the breadcrumb bar to navigate back to the main Scenes or other Prefab Assets that you might have opened.</p>
+
+<figure>
+<img src="../uploads/Main/PrefabsBreadcrumbBar.png" alt="Scene 视图顶部的示踪导航栏，在预制件模式下可见">
+<figcaption>Scene 视图顶部的示踪导航栏，在预制件模式下可见</figcaption>
+</figure>
+
+<p>The <strong>Hierarchy</strong> window displays a Prefab header bar at the top which shows the currently open Prefab. You can use the back arrow in the header bar to navigate back one step, which is equivalent to clicking the previous breadcrumb in the breadcrumb bar in the Scene view.</p>
+
+<figure>
+<img src="../uploads/Main/PrefabsBackArrow.png" alt="Hierarchy 窗口的标题栏中的后退箭头，在预制件模式下可见">
+<figcaption>Hierarchy 窗口的标题栏中的后退箭头，在预制件模式下可见</figcaption>
+</figure>
+
+<h3>Editing in context</h3>
+
+<p>Alternatively, you can open a Prefab Asset <strong>in Context</strong> via an instance of that Prefab. Ways of doing that include:</p>
+
+<ul>
+<li>Select a Prefab instance in the Hierarchy window and click the <strong>Open</strong> button in the Inspector window</li>
+<li>Select a Prefab instance in the Hierarchy window and press <strong>P</strong> on the keyboard. This is the default <a href="UnityHotkeys.html">keyboard binding</a>
+</li>
+<li>Use the <strong>arrow button</strong> next to the Prefab instance in the Hierarchy window</li>
+</ul>
+
+<figure>
+<img src="../uploads/Main/PrefabInstanceInspectorOpenButton.png" alt="The Open button in the Inspector when a Prefab Instance is selected">
+<figcaption>The Open button in the Inspector when a Prefab Instance is selected</figcaption>
+</figure>
+
+<figure>
+<img src="../uploads/Main/PrefabHierarchyOpenArrow.png" alt="The arrow button next to a Prefab in the Hierarchy window">
+<figcaption>The arrow button next to a Prefab in the Hierarchy window</figcaption>
+</figure>
+
+<p>By default, Unity displays the visual representation of the context in gray scale to visually distinguish it from the Prefab contents you edit. However, you can use the <strong>Context:</strong> control in the Prefab bar to set it to any of the following states:</p>
+
+<ul>
+<li>
+<strong>Normal</strong> - Shows the context with its normal colors</li>
+<li>
+<strong>Gray</strong> - Shows the context in gray scale</li>
+<li>
+<strong>Hidden</strong> - Hides the context entirely so only the Prefab content is visible</li>
+</ul>
+
+<figure>
+<img src="../uploads/Main/PrefabModeContextControl.png" alt="The Prefab Mode controls in the Prefab bar in at the top of the Scene view, including the Context control and the Show Overrides toggle">
+<figcaption>The Prefab Mode controls in the Prefab bar in at the top of the Scene view, including the Context control and the Show Overrides toggle</figcaption>
+</figure>
+
+<p>You cannot select the GameObjects that are part of the context, nor do they show in the Hierarchy. This is so you can focus on editing your Prefab without accidentally selecting other unrelated GameObjects, and without having a cluttered Hierarchy window. However, when you move GameObjects around that are part of the Prefab contents, you can use the snapping features in Unity to snap to GameObjects in the context, provided the context is not set to <strong>Hidden</strong>.</p>
+
+<p>In Prefab Mode in Context, Unity displays the Prefab contents at a position that matches that of the Prefab instance it was opened through. This means that you might preview the root Transform of the Prefab contents with different position and rotation values than the Prefab Asset actually has. </p>
+
+<p>You cannot edit these values in Prefab Mode in Context. If you need to edit them, you can either open the Prefab in isolation, or select the Prefab Asset in the Project window and edit the values in the Inspector.</p>
+
+<p>Apart from the root Transform properties, you can also override other properties of a Prefab instance, which might drastically change its appearance compared to the Prefab Asset it’s an instance of. To preview these overridden values from the Prefab instance, while in Prefab Mode in Context enable the <strong>Show Overrides</strong> toggle in the Prefab bar. While this setting is enabled, any properties that ayou override on the Prefab instance are previewed the same way on the Prefab contexts and you cannot edit them. To edit those properties, disable the <strong>Show Overrides</strong> toggle again.</p>
+
+<p><a name="AutoSave"></a></p>
+
+<h2>Auto Save</h2>
+
+<p>Prefab Mode has an <strong>Auto Save</strong> setting in the top right corner of the Scene view. When it is enabled, Unity automatically saves any changes that you make to a Prefab to the Prefab Asset. <strong>Auto Save</strong> is on by default.</p>
+
+<figure>
+<img src="../uploads/Main/PrefabsAutoSave.png" alt="The Auto Save toggle in the upper right corner of the Scene view in Prefab Mode">
+<figcaption>The Auto Save toggle in the upper right corner of the Scene view in Prefab Mode</figcaption>
+</figure>
+
+<p>If you want to make changes without automatically saving those changes to the Preset Asset, disable the <strong>Auto Save</strong> checkbox. In this case, Unity asks you if you want to save unsaved changes or not when you exit Prefab Mode for the current Prefab. If editing a Prefab in Prefab Mode seems slow, turning off <strong>Auto Save</strong> might help.</p>
+
+<h2>Changing between isolation or in context mode</h2>
+
+<p>When you open Prefab Mode via a Prefab Asset, Unity displays the contents of the Prefab in isolation. However, when you open Prefab Mode via a Prefab instance in the Hierarchy window, this opens <strong>Prefab Mode in Context</strong>. </p>
+
+<p>When you open Prefab Mode this way, you can see the context of the Prefab instance in the Scene view even though you are not editing the instance but rather the Prefab Asset itself. For example, if you open Prefab Mode in Context via a Prefab instance in a Scene, then you can see the surroundings in that Scene while you edit the Prefab. The Prefab is also shown with the same lighting conditions as in the Scene.</p>
+
+<figure>
+<img src="../uploads/Main/PrefabModeContextView.png" alt="A Prefab opened in Prefab Mode in Context, with the surrounding context displayed in gray scale">
+<figcaption>A Prefab opened in Prefab Mode in Context, with the surrounding context displayed in gray scale</figcaption>
+</figure>
+
+<p>If you have a Prefab instance that you do not want to open in context, but want to open in isolation, hold down the <strong>Alt</strong> key and click the <strong>Open</strong> button or the arrow button to open Prefab Mode. You can also set up a custom shortcut in the <strong>Shortcuts</strong> window for the command <strong>Stage &gt; Edit Prefab in Isolation</strong>.</p>
+
+<p><a name="Undo"></a></p>
+
+<h2>撤消</h2>
+
+<p>在预制件模式下对预制件资源进行更改时，只能在仍处于预制件模式下时才能撤消这些更改。在给定的预制件资源退出预制件模式后，与该预制件资源有关的编辑在撤消历史记录中将不再可用。</p>
+
+<p><a name="Environment"></a></p>
+
+<h2>编辑环境</h2>
+
+<p>You can assign a Scene as an <strong>editing environment</strong> to be used with Prefab Mode in Isolation. This allows you to edit your Prefab against a backdrop of your choosing rather than an empty Scene. This can be useful fto see how your Prefab looks against a specific scenery of your choice. Unity only uses this editing environment when you open Prefab Mode in Isolation.</p>
+
+<p>You cannot select the GameObjects in the Scene that you assign as the editing environment when in Prefab Mode, nor do they show in the Hierarchy. This is so you can focus on editing your Prefab without accidentally selecting other unrelated GameObjects, and without having a cluttered Hierarchy window.</p>
+
+<p>To set a Scene as the editing environment, open the<a href="https://docs.unity3d.com/Manual/class-EditorManager.html"> Editor</a> window (top menu: <strong>Edit &gt; Project Settings</strong>, then select the <strong>Editor</strong> category) and go to the <strong>Prefab Editing Environment</strong> section. Use the <strong>Regular Environment</strong> setting for “non-UI” Prefabs, and the <strong>UI Environment</strong> setting for UI Prefabs. UI Prefabs are those which have a <a href="https://docs.unity3d.com/Manual/class-RectTransform.html">Rect Transform</a> component on the root, rather than a regular Transform component. “non-UI” Prefabs are those which have a regular Transform component.</p>
+
+<figure>
+<img src="../uploads/Main/PrefabsEnvironmentSettings1.png" alt="Editor Project Settings 中的预制件编辑环境设置">
+<figcaption>Editor Project Settings 中的预制件编辑环境设置</figcaption>
+</figure>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="CreatingPrefabs.html"></a></span><div class="tip">创建预制件</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="PrefabInstanceOverrides.html"></a></span><div class="tip">实例覆盖</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper">
+<div class="footer clear">
+<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="menu">
+<a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div>
+<div></div>
+</div>
+</div></div></div>
+</div>
+</body>
+</html>

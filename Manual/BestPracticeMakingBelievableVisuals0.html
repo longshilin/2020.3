@@ -1,0 +1,427 @@
+<!DOCTYPE html><html class="no-js" lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-5V25JL6');
+    </script><link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="twitter:card" content="summary">
+<meta property="og:title" content="Update: believable visuals in URP and HDRP - Unity 手册">
+<title>Update: believable visuals in URP and HDRP - Unity 手册</title>
+<meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/believable-visuals-update-0.png">
+<meta name="description" content="This page contains supplementary information for the Making believable visuals in Unity guide. While the general concepts in that guide still apply, this page contains updated guidance on converting a similar project to the Universal Render Pipeline (URP) and the High Definition Render Pipeline (HDRP), and highlights some key differences between Unity&amp;#8217;s render pipelines.">
+<meta property="og:description" content="This page contains supplementary information for the Making believable visuals in Unity guide. While the general concepts in that guide still apply, this page contains updated guidance on converting a similar project to the Universal Render Pipeline (URP) and the High Definition Render Pipeline (HDRP), and highlights some key differences between Unity&amp;#8217;s render pipelines.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFiles/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFiles/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFiles/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFiles/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFiles/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFiles/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFiles/images/favicons/tileicon-144x144.png">
+<script type="text/javascript" src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" charset="UTF-8" data-domain-script="6e91be4c-3145-4ea2-aa64-89d716064836"></script><script type="text/javascript">
+        function OptanonWrapper() { }
+    </script><script>
+      var docs_type = 'Manual';
+      var lang = 'cn';
+      var page = 'BestPracticeMakingBelievableVisuals0';
+      if(!page) page = 'index';
+      var version = '2020.3';
+      var docs_versions = [{version: '2021.1',version_string: '2021.1',supported: true},{version: '2020.3',version_string: '2020.3',supported: true},{version: '2020.2',version_string: '2020.2',supported: false},{version: '2020.1',version_string: '2020.1',supported: false},{version: '2019.4',version_string: '2019.4',supported: true},{version: '2019.3',version_string: '2019.3',supported: false},{version: '2019.2',version_string: '2019.2',supported: false},{version: '2019.1',version_string: '2019.1',supported: false},{version: '2018.4',version_string: '2018.4',supported: true},{version: '2018.3',version_string: '2018.3',supported: false},{version: '2018.2',version_string: '2018.2',supported: false},{version: '2018.1',version_string: '2018.1',supported: false},{version: '2017.4',version_string: '2017.4',supported: false},{version: '2017.3',version_string: '2017.3',supported: false},{version: '2017.2',version_string: '2017.2',supported: false},{version: '2017.1',version_string: '2017.1',supported: false},{version: '5.6',version_string: '560',supported: false},];</script><script type="text/javascript" src="../StaticFiles/js/jquery.js"></script><script type="text/javascript" src="../StaticFiles/js/core.js"></script><script type="text/javascript" src="../StaticFiles/js/jquery.sidebar.min.js"></script><script type="text/javascript" src="docdata/toc.js"></script><script type="text/javascript" src=""></script><script type="text/javascript" src="../StaticFiles/js/custom.js"></script><link rel="stylesheet" type="text/css" href="../StaticFiles/css/core.css">
+<link rel="stylesheet" type="text/css" href="../StaticFiles/css/custom.css">
+<link rel="canonical" href="https://docs.unity3d.com/cn/2020.3/Manual/BestPracticeMakingBelievableVisuals0.html">
+<link rel="alternate" href="https://docs.unity3d.com/en/2020.3/Manual/BestPracticeMakingBelievableVisuals0.html" hreflang="en">
+<link rel="alternate" href="https://docs.unity3d.com/cn/2020.3/Manual/BestPracticeMakingBelievableVisuals0.html" hreflang="zh">
+<link rel="alternate" href="https://docs.unity3d.com/ja/2020.3/Manual/BestPracticeMakingBelievableVisuals0.html" hreflang="ja">
+<link rel="alternate" href="https://docs.unity3d.com/es/2020.3/Manual/BestPracticeMakingBelievableVisuals0.html" hreflang="es">
+<link rel="alternate" href="https://docs.unity3d.com/kr/2020.3/Manual/BestPracticeMakingBelievableVisuals0.html" hreflang="ko">
+<link rel="alternate" href="https://docs.unity3d.com/ru/2020.3/Manual/BestPracticeMakingBelievableVisuals0.html" hreflang="ru">
+<link rel="alternate" href="https://docs.unity3d.com/2020.3/Documentation/Manual/BestPracticeMakingBelievableVisuals0.html" hreflang="x-default">
+</head>
+<body>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5V25JL6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div id="nav-open" for="nav-input"><span></span></div>
+<div class="logo"><a href="./index.html"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="搜索手册..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul class="menu-items">
+<li class="menu-item"><a href="../Manual/index.html" class="selected">手册</a></li>
+<li class="menu-item"><a href="../ScriptReference/index.html" class="">脚本 API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="https://unity3d.com/">
+                unity3d.com
+              </a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-switcher">
+<div class="current toggle" data-target=".version-list"><div class="version-number">
+<div class="d-inline-block">
+          Version:
+          <b>2020.3</b>
+</div>
+<div class="d-inline-block arrow"></div>
+</div></div>
+<div class="version-list" style="display:none;">
+<ul class="versions">
+<li class="supported"><a class="docs_version_url_2021.1" href="/cn/2021.1/Manual/BestPracticeMakingBelievableVisuals0.html">2021.1</a></li>
+<li class="supported"><a class="docs_version_url_2020.3" href="/cn/2020.3/Manual/BestPracticeMakingBelievableVisuals0.html">2020.3</a></li>
+<li class=""><a class="docs_version_url_2020.2" href="/cn/2020.2/Manual/BestPracticeMakingBelievableVisuals0.html">2020.2</a></li>
+<li class=""><a class="docs_version_url_2020.1" href="/cn/2020.1/Manual/BestPracticeMakingBelievableVisuals0.html">2020.1</a></li>
+<li class="supported"><a class="docs_version_url_2019.4" href="/cn/2019.4/Manual/BestPracticeMakingBelievableVisuals0.html">2019.4</a></li>
+<li class=""><a class="docs_version_url_2019.3" href="/cn/2019.3/Manual/BestPracticeMakingBelievableVisuals0.html">2019.3</a></li>
+<li class=""><a class="docs_version_url_2019.2" href="/cn/2019.2/Manual/BestPracticeMakingBelievableVisuals0.html">2019.2</a></li>
+<li class=""><a class="docs_version_url_2019.1" href="/cn/2019.1/Manual/BestPracticeMakingBelievableVisuals0.html">2019.1</a></li>
+<li class="supported"><a class="docs_version_url_2018.4" href="/cn/2018.4/Manual/BestPracticeMakingBelievableVisuals0.html">2018.4</a></li>
+<li class=""><a class="docs_version_url_2018.3" href="/cn/2018.3/Manual/BestPracticeMakingBelievableVisuals0.html">2018.3</a></li>
+<li class=""><a class="docs_version_url_2018.2" href="/cn/2018.2/Manual/BestPracticeMakingBelievableVisuals0.html">2018.2</a></li>
+<li class=""><a class="docs_version_url_2018.1" href="/cn/2018.1/Manual/BestPracticeMakingBelievableVisuals0.html">2018.1</a></li>
+<li class=""><a class="docs_version_url_2017.4" href="/cn/2017.4/Manual/BestPracticeMakingBelievableVisuals0.html">2017.4</a></li>
+<li class=""><a class="docs_version_url_2017.3" href="/cn/2017.3/Manual/BestPracticeMakingBelievableVisuals0.html">2017.3</a></li>
+<li class=""><a class="docs_version_url_2017.2" href="/cn/2017.2/Manual/BestPracticeMakingBelievableVisuals0.html">2017.2</a></li>
+<li class=""><a class="docs_version_url_2017.1" href="/cn/2017.1/Manual/BestPracticeMakingBelievableVisuals0.html">2017.1</a></li>
+<li class=""><a class="docs_version_url_560" href="/cn/560/Manual/BestPracticeMakingBelievableVisuals0.html">5.6</a></li>
+<div class="versionsWithThisPage" style="display:none;"><li><p>包含此页的版本：</p></li></div>
+<div class="versionsWithoutThisPage" style="display:none;"><li><p>不含此页的版本：</p></li></div>
+</ul>
+<ul class="description">
+<li>
+<div class="supported-box"></div>受支持</li>
+<li>
+<div class="legacy-box"></div>旧版</li>
+</ul>
+</div>
+</div>
+<ul class="nav-menu-items">
+<li class="menu-item"><a href="../Manual/index.html" class="selected">手册</a></li>
+<li class="menu-item"><a href="../ScriptReference/index.html" class="">脚本 API</a></li>
+</ul>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">语言:
+        <span class="b">中文</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a data-lang="en" href="/2020.3/Documentation/Manual/BestPracticeMakingBelievableVisuals0.html">English</a></li>
+<li><a data-lang="cn" href="/cn/2020.3/Manual/BestPracticeMakingBelievableVisuals0.html">中文</a></li>
+<li><a data-lang="ja" href="/ja/2020.3/Manual/BestPracticeMakingBelievableVisuals0.html">日本語</a></li>
+<li><a data-lang="es" href="/es/2020.3/Manual/BestPracticeMakingBelievableVisuals0.html">Español</a></li>
+<li><a data-lang="kr" href="/kr/2020.3/Manual/BestPracticeMakingBelievableVisuals0.html">한국어</a></li>
+<li><a data-lang="ru" href="/ru/2020.3/Manual/BestPracticeMakingBelievableVisuals0.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar hidden"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc">
+<h2>手册</h2>
+<div class="version-switcher">
+<div class="current toggle" data-target=".version-list"><div class="version-number">
+<div class="d-inline-block">
+          Version:
+          <b>2020.3</b>
+</div>
+<div class="d-inline-block arrow"></div>
+</div></div>
+<div class="version-list" style="display:none;">
+<ul class="versions">
+<li class="supported"><a class="docs_version_url_2021.1" href="/cn/2021.1/Manual/BestPracticeMakingBelievableVisuals0.html">2021.1</a></li>
+<li class="supported"><a class="docs_version_url_2020.3" href="/cn/2020.3/Manual/BestPracticeMakingBelievableVisuals0.html">2020.3</a></li>
+<li class=""><a class="docs_version_url_2020.2" href="/cn/2020.2/Manual/BestPracticeMakingBelievableVisuals0.html">2020.2</a></li>
+<li class=""><a class="docs_version_url_2020.1" href="/cn/2020.1/Manual/BestPracticeMakingBelievableVisuals0.html">2020.1</a></li>
+<li class="supported"><a class="docs_version_url_2019.4" href="/cn/2019.4/Manual/BestPracticeMakingBelievableVisuals0.html">2019.4</a></li>
+<li class=""><a class="docs_version_url_2019.3" href="/cn/2019.3/Manual/BestPracticeMakingBelievableVisuals0.html">2019.3</a></li>
+<li class=""><a class="docs_version_url_2019.2" href="/cn/2019.2/Manual/BestPracticeMakingBelievableVisuals0.html">2019.2</a></li>
+<li class=""><a class="docs_version_url_2019.1" href="/cn/2019.1/Manual/BestPracticeMakingBelievableVisuals0.html">2019.1</a></li>
+<li class="supported"><a class="docs_version_url_2018.4" href="/cn/2018.4/Manual/BestPracticeMakingBelievableVisuals0.html">2018.4</a></li>
+<li class=""><a class="docs_version_url_2018.3" href="/cn/2018.3/Manual/BestPracticeMakingBelievableVisuals0.html">2018.3</a></li>
+<li class=""><a class="docs_version_url_2018.2" href="/cn/2018.2/Manual/BestPracticeMakingBelievableVisuals0.html">2018.2</a></li>
+<li class=""><a class="docs_version_url_2018.1" href="/cn/2018.1/Manual/BestPracticeMakingBelievableVisuals0.html">2018.1</a></li>
+<li class=""><a class="docs_version_url_2017.4" href="/cn/2017.4/Manual/BestPracticeMakingBelievableVisuals0.html">2017.4</a></li>
+<li class=""><a class="docs_version_url_2017.3" href="/cn/2017.3/Manual/BestPracticeMakingBelievableVisuals0.html">2017.3</a></li>
+<li class=""><a class="docs_version_url_2017.2" href="/cn/2017.2/Manual/BestPracticeMakingBelievableVisuals0.html">2017.2</a></li>
+<li class=""><a class="docs_version_url_2017.1" href="/cn/2017.1/Manual/BestPracticeMakingBelievableVisuals0.html">2017.1</a></li>
+<li class=""><a class="docs_version_url_560" href="/cn/560/Manual/BestPracticeMakingBelievableVisuals0.html">5.6</a></li>
+<div class="versionsWithThisPage" style="display:none;"><li><p>包含此页的版本：</p></li></div>
+<div class="versionsWithoutThisPage" style="display:none;"><li><p>不含此页的版本：</p></li></div>
+</ul>
+<ul class="description">
+<li>
+<div class="supported-box"></div>受支持</li>
+<li>
+<div class="legacy-box"></div>旧版</li>
+</ul>
+</div>
+</div>
+<div class="clear"></div>
+</div></div></div></div></div>
+<div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="Graphics.html">图形</a></li>
+<li><a href="GraphicsTutorials.html">图形教程</a></li>
+<li><a href="BestPracticeMakingBelievableVisuals.html">在 Unity 中制作可信的视觉效果</a></li>
+<li>Update: believable visuals in URP and HDRP</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="BestPracticeMakingBelievableVisuals.html"></a></span><div class="tip">在 Unity 中制作可信的视觉效果</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="BestPracticeMakingBelievableVisuals1.html"></a></span><div class="tip">Believable visuals: preparing assets</div>
+</div>
+</div></div>
+<h1>Update: believable visuals in URP and HDRP</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>This page contains supplementary information for the <a href="BestPracticeMakingBelievableVisuals.html">Making believable visuals in Unity</a> guide. While the general concepts in that guide still apply, this page contains updated guidance on converting a similar project to the Universal Render Pipeline (URP) and the High Definition Render Pipeline (HDRP), and highlights some key differences between Unity’s render pipelines.</p>
+
+<p>Note that URP and HDRP are in active development, and new features are frequently added. See the latest versions of the <a href="universal-render-pipeline.html">URP documentation</a> and the <a href="high-definition-render-pipeline.html">HDRP documentation</a> for further information.</p>
+
+<h2>Downloadable example projects</h2>
+
+<p>Here are example projects for each render pipeline. You can download these to understand how to create similar visual effects in the different render pipelines, and to explore the different settings:</p>
+
+<ol>
+<li><a href="https://drive.google.com/open?id=1zo9BHEZg12LW8asMxNeIBw0jJ0gLY7jf">Spotlight Tunnel using the Built-In Render Pipeline</a></li>
+<li><a href="https://drive.google.com/open?id=1lCyadRYluAUiAegGB1WCcjOmhR88McYb">Spotlight Tunnel using URP</a></li>
+<li><a href="https://drive.google.com/open?id=1CorLQcD46FWbjsdJVAc4L9FN6ccO4qvZ">Spotlight Tunnel using HDRP</a></li>
+</ol>
+
+<figure>
+<img src="../uploads/Main/believable-visuals-update-0.png" alt="">
+</figure>
+
+<h2>Converting your project from the Built-in Render Pipeline to URP or HDRP</h2>
+
+<p>Before you convert a project from the Built-in Render Pipeline, you should carefully read this page in full.</p>
+
+<p>You should then perform these steps in order:</p>
+
+<ol>
+<li>Project preparation</li>
+<li>Removing incompatible plug-ins and assets</li>
+<li>Upgrading shaders and materials</li>
+<li>Upgrading post-processing</li>
+<li>Upgrading lighting</li>
+</ol>
+
+<h3>1. Project preparation</h3>
+
+<p>Make a backup of your existing project before upgrading.</p>
+
+<p>It is risky to upgrade your version of Unity and change your project’s render pipeline at the same time. If you need to do both, upgrade your project to the new version of Unity first, and then switch to a new render pipeline. This allows you to fix any issues with the upgrade and ensure you have the correct package versions.</p>
+
+<h3>2. Removing incompatible plug-ins and assets</h3>
+
+<p>Plug-ins or Asset Store assets that relate to lit shaders or perform rendering modifications in the Built-in Render Pipeline are not typically compatible with URP or HDRP out of the box, unless noted by the author. Remove any incompatible plug-ins and assets from your Project.</p>
+
+<h3>3. Upgrading shaders and materials</h3>
+
+<h4>Lit shaders</h4>
+
+<p>Materials that work with Unity’s Standard Shader (or any shaders that are lit per pixel) do not work in URP or HDRP. They either render as pink, or not render at all.</p>
+
+<p>You must replace these Materials with the equivalent shaders in the render pipeline you are using. The URP replacement for the Standard Shader is UniversalRP/Lit. The HDRP replacement for the Standard Shader is HDRP/Lit.</p>
+
+<figure>
+<img src="../uploads/Main/believable-visuals-update-1.png" alt="">
+</figure>
+
+<p>Alternatively, you can use the Render Pipeline Wizard to perform Material conversion:</p>
+
+<ul>
+<li>In URP, go to <strong>Edit &gt; Render Pipeline &gt; Universal Render Pipeline &gt; Upgrade Project Materials to UniversalRP Materials</strong>.</li>
+<li>In HDRP, go to <strong>Edit &gt; Render Pipeline &gt; Upgrade Project Materials to High Definition Materials</strong>.</li>
+</ul>
+
+<h4>Unlit shaders</h4>
+
+<p>Some unlit shaders might work in URP or HDRP, but this is not guaranteed and might not be consistent across render pipelines. For example, the Skybox Material is transferable to URP but not HDRP. To ensure forward compatibility, it is best to replace these shaders with their unlit equivalent for your new render pipeline.</p>
+
+<h4>Custom shaders</h4>
+
+<p>You must recreate custom Surface Shaders and custom lit shaders in Shader Graph for them to work properly in URP or HDRP. For information on Shader Graph, see the <a href="https://docs.unity3d.com/Packages/com.unity.shadergraph@latest/index.html">Shader Graph documentation</a>.</p>
+
+<h3>4. Upgrading post-processing</h3>
+
+<p>The Built-in Render Pipeline works with the Post Processing Stack V2 package, and the now-deprecated Post Processing V1 solution. URP and HDRP contain their own integrated post-processing solutions.</p>
+
+<p>To prepare to convert your post-processing solution from Post Processing Stack V1 to URP or HDRP:</p>
+
+<ul>
+<li>Remove the Post Processing Behaviour component from all Cameras.</li>
+</ul>
+
+<p>To prepare to convert your post-processing solution from Post Processing Stack V2 to URP or HDRP:</p>
+
+<ul>
+<li>Remove the Post-process Layer component from all Cameras.</li>
+<li>Remove all Post-process Volume components, and delete the Profile Assets from the project.</li>
+</ul>
+
+<p>To begin working with the integrated post-processing solution in URP or HDRP:</p>
+
+<ol>
+<li>Create a new Global Volume, and assign a new Volume Profile to it.</li>
+</ol>
+
+<figure>
+<img src="../uploads/Main/believable-visuals-update-2.png" alt="">
+</figure>
+
+<ol>
+<li><p>Configure the Volume Profile by adding overrides for the desired post-processing effects.</p></li>
+<li><p><strong>URP only</strong>: Select the Camera your application uses and make sure “Render Post Processing” is enabled. You can enable Anti-Aliasing for the in game camera without adding additional components.</p></li>
+</ol>
+
+<figure>
+<img src="../uploads/Main/believable-visuals-update-3.png" alt="">
+</figure>
+
+<ol>
+<li>
+<strong>HDRP only</strong>: You can enable different types of Anti-Aliasing in the viewport unrelated to what you use on the game camera.</li>
+</ol>
+
+<figure>
+<img src="../uploads/Main/believable-visuals-update-4.png" alt="">
+</figure>
+
+<h4>Post-processing effects</h4>
+
+<p>Some post-processing effects are available in HDRP, but not URP. Some are in development while others are not suitable for the particular render pipeline. You should check which post-processing effects are available in the render pipeline that you are using, and determine how to recreate the visual effects in your project.</p>
+
+<p>In Spotlight Tunnel, the most important post-processing effect is the Tonemapper. This effect works the same in URP and HDRP.</p>
+
+<p>Key differences in post-processing between URP and HDRP that affect this update to the Spotlight Tunnel project:</p>
+
+<ul>
+<li>Bloom works differently in URP and HDRP, and requires different settings. For more information, see the <a href="universal-render-pipeline.html">URP documentation</a> and the <a href="high-definition-render-pipeline.html">HDRP documentation</a>.</li>
+<li>The Screen Space Reflections effect is not available in URP.</li>
+<li>Screen Space Ambient Occlusion was not avilable in URP at the time this update was created.</li>
+</ul>
+
+<h3>5. Upgrading lighting</h3>
+
+<h4>Lighting strategy</h4>
+
+<p>Support for lighting features varies considerably between render pipelines. For example, the Built-in Render Pipeline supports <a href="realtime-gi-using-enlighten.html">Realtime Global Illumination</a>, but URP and HDRP do not. The different render pipelines also support different Lighting Modes for Mixed Lights; for example, HDRP does not support Subtractive Lighting Mode, and URP does not support Shadowmask Lighting Mode. For full details of which render pipeline supports which lighting features, see <a href="BestPracticeLightingPipelines.html">Setting up the lighting pipeline</a>.</p>
+
+<p>Before you convert your project to a different render pipeline, you should choose a lighting strategy that is compatible with your desired render pipeline and works well on your target hardware. The different lighting strategies in the URP and HDRP versions of Spotlight Tunnel demonstrate this.</p>
+
+<p>The URP version of Spotlight Tunnel focuses on runtime performance:</p>
+
+<figure>
+<img src="../uploads/Main/believable-visuals-update-5.png" alt="">
+</figure>
+
+<ul>
+<li>Baked Global Illumination is enabled, with the CPU Progressive Lightmapper as a backend.</li>
+<li>Most Lights have their <strong>Mode</strong> set to <strong>Baked</strong>; a minimal number of Lights have their <strong>Mode</strong> set to <strong>Realtime</strong>.</li>
+<li>The Main Directional Light (sun) has its <strong>Mode</strong> set to <strong>Mixed</strong> to cast real-time shadows while still producing bounce lighting.</li>
+</ul>
+
+<p>The HDRP version of Spotlight Tunnel focuses on high fidelity rendering:</p>
+
+<figure>
+<img src="../uploads/Main/believable-visuals-update-6.png" alt="">
+</figure>
+
+<ul>
+<li>Baked Global Illumination is enabled, with the CPU Progressive Lightmapper as a backend.</li>
+<li>Most Lights have their <strong>Mode</strong> set to <strong>Mixed</strong> to preserve high quality specular lighting on stationary lights; Lights with their <strong>Mode</strong> set to <strong>Realtime</strong> are used wherever they are needed for consistent shadowing.</li>
+</ul>
+
+<p>Note that, depending on your hardware configuration, the GPU Progressive Lightmapper might result in faster lightmap baking than the CPU Progressive Lightmapper.</p>
+
+<h4>Light types</h4>
+
+<p>In addition to choosing an overall lighting strategy, you should be aware of the differences in Light types between different render pipelines.</p>
+
+<p>Differences between the Built-in Render Pipeline and URP:</p>
+
+<ul>
+<li>In the Built-in Render Pipeline, the distance fall-off for Spot and Point Lights doesn’t follow any physical laws. In URP, the distance fall-off for Spot and Point Lights follows the inverse square law. Generally speaking, Lights lose more intensity over distance in URP, and you need to amend your Scene’s lighting accordingly.</li>
+<li>To convert the <strong>Intensity</strong> value of Directional Lights from the Built-in Render Pipeline to URP, use the following formula: URP Directional Light Intensity = (Built-in Renderer Pipeline Directional Light Intensity)^2.2. For example, a value of 7.5 in the Built-in Render Pipeline is equivalent to a value of 84.17 in URP.</li>
+</ul>
+
+<p>Differences between the Built-in Render Pipeline and HDRP:</p>
+
+<ul>
+<li>HDRP uses a physically based lighting unit and fall-off for all Light types. You must completely recreate your lighting using physically based values.</li>
+<li>HDRP supports additional Light types, such as Spotlight Pyramid/Box, Realtime Tube, and Realtime Rectangular lights. These can help you achieve different realistic effects.</li>
+</ul>
+
+<figure>
+<img src="../uploads/Main/believable-visuals-update-7.png" alt="">
+</figure>
+
+<h4>Reflection</h4>
+
+<p>Each render pipeline has slight differences in how they handle reflection capturing and reflection blending, and it is likely that you will have to change the position and distribution of the Reflection Probes in your Scene.</p>
+
+<p>For comparison are the reflection systems used in the different versions of Spotlight Tunnel:</p>
+
+<ul>
+<li>Built-in Render Pipeline: Reflection Probe (Deferred w/blending), ScreenSpace Reflection, Skybox.</li>
+<li>URP: Reflection Probe (Forward), Skybox.</li>
+<li>HDRP: Reflection Probe w/blending. ScreenSpace Reflection, Skybox. In URP:</li>
+</ul>
+
+<p>Converting from the Built-in Render Pipeline’s Deferred reflection to URP requires some manual work, as URP’s Forward Reflection Probe doesn’t blend. Converting from Built-in Render Pipeline’s Deferred reflection to HDRP reflection is straight forward as they both have equivalent blending methods.</p>
+
+<h2>Converting your project between URP and HDRP</h2>
+
+<p>Conversion from HDRP to URP and vice versa is possible, but it is not automatic and the manual process may be difficult. How difficult the process is mainly depends on how complex your project’s shaders are; if your project mostly uses the render pipeline’s built-in shaders, the process is much easier.</p>
+
+<p>Spotlight Tunnel project was successfully converted from HDRP to URP, with these caveats:</p>
+
+<ul>
+<li>There is no wizard to assist with Material conversion, but you can select multiple Materials and switch them to the new render pipeline shader. Most of the Materials in Spotlight Tunnel HDRP are HDRP Lit with basic Texture packing, and in most cases they translated to URP Lit without problems. Note that not all texture assignments can transfer directly, because there are many shader features that are different between URP and HDRP; double check each material to make sure texture assignments are properly set.</li>
+<li>Post-processing profiles and settings are different between URP and HDRP. Post-processing effects needed to be manually recreated.</li>
+<li>Some Light types from HDRP are not available in URP.</li>
+<li>The Lighting Unit in URP is different to that in HDRP. Lighting effects needed to be manually recreated.</li>
+<li>The Skybox Material is not compatible between URP and HDRP. We replaced the HDRP Skybox Material with one suitable for URP.</li>
+</ul>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="BestPracticeMakingBelievableVisuals.html"></a></span><div class="tip">在 Unity 中制作可信的视觉效果</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="BestPracticeMakingBelievableVisuals1.html"></a></span><div class="tip">Believable visuals: preparing assets</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper">
+<div class="footer clear">
+<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="menu">
+<a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div>
+<div></div>
+</div>
+</div></div></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html><html class="no-js" lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-5V25JL6');
+    </script><link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="twitter:card" content="summary">
+<meta property="og:title" content="Package states and lifecycle - Unity 手册">
+<title>Package states and lifecycle - Unity 手册</title>
+<meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/iconPreview.png">
+<meta name="description" content="After developing a package to the point where it is ready for Unity users to test it and provide feedback, a package enters the preview state. Packages in this state usually appear in the Unity Editor with the  label and often use preview as part of their version.">
+<meta property="og:description" content="After developing a package to the point where it is ready for Unity users to test it and provide feedback, a package enters the preview state. Packages in this state usually appear in the Unity Editor with the  label and often use preview as part of their version.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFiles/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFiles/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFiles/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFiles/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFiles/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFiles/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFiles/images/favicons/tileicon-144x144.png">
+<script type="text/javascript" src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" charset="UTF-8" data-domain-script="6e91be4c-3145-4ea2-aa64-89d716064836"></script><script type="text/javascript">
+        function OptanonWrapper() { }
+    </script><script>
+      var docs_type = 'Manual';
+      var lang = 'cn';
+      var page = 'upm-lifecycle';
+      if(!page) page = 'index';
+      var version = '2020.3';
+      var docs_versions = [{version: '2021.1',version_string: '2021.1',supported: true},{version: '2020.3',version_string: '2020.3',supported: true},{version: '2020.2',version_string: '2020.2',supported: false},{version: '2020.1',version_string: '2020.1',supported: false},{version: '2019.4',version_string: '2019.4',supported: true},{version: '2019.3',version_string: '2019.3',supported: false},{version: '2019.2',version_string: '2019.2',supported: false},{version: '2019.1',version_string: '2019.1',supported: false},{version: '2018.4',version_string: '2018.4',supported: true},{version: '2018.3',version_string: '2018.3',supported: false},{version: '2018.2',version_string: '2018.2',supported: false},{version: '2018.1',version_string: '2018.1',supported: false},{version: '2017.4',version_string: '2017.4',supported: false},{version: '2017.3',version_string: '2017.3',supported: false},{version: '2017.2',version_string: '2017.2',supported: false},{version: '2017.1',version_string: '2017.1',supported: false},{version: '5.6',version_string: '560',supported: false},];</script><script type="text/javascript" src="../StaticFiles/js/jquery.js"></script><script type="text/javascript" src="../StaticFiles/js/core.js"></script><script type="text/javascript" src="../StaticFiles/js/jquery.sidebar.min.js"></script><script type="text/javascript" src="docdata/toc.js"></script><script type="text/javascript" src=""></script><script type="text/javascript" src="../StaticFiles/js/custom.js"></script><link rel="stylesheet" type="text/css" href="../StaticFiles/css/core.css">
+<link rel="stylesheet" type="text/css" href="../StaticFiles/css/custom.css">
+<link rel="canonical" href="https://docs.unity3d.com/cn/2020.3/Manual/upm-lifecycle.html">
+<link rel="alternate" href="https://docs.unity3d.com/en/2020.3/Manual/upm-lifecycle.html" hreflang="en">
+<link rel="alternate" href="https://docs.unity3d.com/cn/2020.3/Manual/upm-lifecycle.html" hreflang="zh">
+<link rel="alternate" href="https://docs.unity3d.com/ja/2020.3/Manual/upm-lifecycle.html" hreflang="ja">
+<link rel="alternate" href="https://docs.unity3d.com/es/2020.3/Manual/upm-lifecycle.html" hreflang="es">
+<link rel="alternate" href="https://docs.unity3d.com/kr/2020.3/Manual/upm-lifecycle.html" hreflang="ko">
+<link rel="alternate" href="https://docs.unity3d.com/ru/2020.3/Manual/upm-lifecycle.html" hreflang="ru">
+<link rel="alternate" href="https://docs.unity3d.com/2020.3/Documentation/Manual/upm-lifecycle.html" hreflang="x-default">
+</head>
+<body>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5V25JL6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div id="nav-open" for="nav-input"><span></span></div>
+<div class="logo"><a href="./index.html"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="搜索手册..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul class="menu-items">
+<li class="menu-item"><a href="../Manual/index.html" class="selected">手册</a></li>
+<li class="menu-item"><a href="../ScriptReference/index.html" class="">脚本 API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="https://unity3d.com/">
+                unity3d.com
+              </a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-switcher">
+<div class="current toggle" data-target=".version-list"><div class="version-number">
+<div class="d-inline-block">
+          Version:
+          <b>2020.3</b>
+</div>
+<div class="d-inline-block arrow"></div>
+</div></div>
+<div class="version-list" style="display:none;">
+<ul class="versions">
+<li class="supported"><a class="docs_version_url_2021.1" href="/cn/2021.1/Manual/upm-lifecycle.html">2021.1</a></li>
+<li class="supported"><a class="docs_version_url_2020.3" href="/cn/2020.3/Manual/upm-lifecycle.html">2020.3</a></li>
+<li class=""><a class="docs_version_url_2020.2" href="/cn/2020.2/Manual/upm-lifecycle.html">2020.2</a></li>
+<li class=""><a class="docs_version_url_2020.1" href="/cn/2020.1/Manual/upm-lifecycle.html">2020.1</a></li>
+<li class="supported"><a class="docs_version_url_2019.4" href="/cn/2019.4/Manual/upm-lifecycle.html">2019.4</a></li>
+<li class=""><a class="docs_version_url_2019.3" href="/cn/2019.3/Manual/upm-lifecycle.html">2019.3</a></li>
+<li class=""><a class="docs_version_url_2019.2" href="/cn/2019.2/Manual/upm-lifecycle.html">2019.2</a></li>
+<li class=""><a class="docs_version_url_2019.1" href="/cn/2019.1/Manual/upm-lifecycle.html">2019.1</a></li>
+<li class="supported"><a class="docs_version_url_2018.4" href="/cn/2018.4/Manual/upm-lifecycle.html">2018.4</a></li>
+<li class=""><a class="docs_version_url_2018.3" href="/cn/2018.3/Manual/upm-lifecycle.html">2018.3</a></li>
+<li class=""><a class="docs_version_url_2018.2" href="/cn/2018.2/Manual/upm-lifecycle.html">2018.2</a></li>
+<li class=""><a class="docs_version_url_2018.1" href="/cn/2018.1/Manual/upm-lifecycle.html">2018.1</a></li>
+<li class=""><a class="docs_version_url_2017.4" href="/cn/2017.4/Manual/upm-lifecycle.html">2017.4</a></li>
+<li class=""><a class="docs_version_url_2017.3" href="/cn/2017.3/Manual/upm-lifecycle.html">2017.3</a></li>
+<li class=""><a class="docs_version_url_2017.2" href="/cn/2017.2/Manual/upm-lifecycle.html">2017.2</a></li>
+<li class=""><a class="docs_version_url_2017.1" href="/cn/2017.1/Manual/upm-lifecycle.html">2017.1</a></li>
+<li class=""><a class="docs_version_url_560" href="/cn/560/Manual/upm-lifecycle.html">5.6</a></li>
+<div class="versionsWithThisPage" style="display:none;"><li><p>包含此页的版本：</p></li></div>
+<div class="versionsWithoutThisPage" style="display:none;"><li><p>不含此页的版本：</p></li></div>
+</ul>
+<ul class="description">
+<li>
+<div class="supported-box"></div>受支持</li>
+<li>
+<div class="legacy-box"></div>旧版</li>
+</ul>
+</div>
+</div>
+<ul class="nav-menu-items">
+<li class="menu-item"><a href="../Manual/index.html" class="selected">手册</a></li>
+<li class="menu-item"><a href="../ScriptReference/index.html" class="">脚本 API</a></li>
+</ul>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">语言:
+        <span class="b">中文</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a data-lang="en" href="/2020.3/Documentation/Manual/upm-lifecycle.html">English</a></li>
+<li><a data-lang="cn" href="/cn/2020.3/Manual/upm-lifecycle.html">中文</a></li>
+<li><a data-lang="ja" href="/ja/2020.3/Manual/upm-lifecycle.html">日本語</a></li>
+<li><a data-lang="es" href="/es/2020.3/Manual/upm-lifecycle.html">Español</a></li>
+<li><a data-lang="kr" href="/kr/2020.3/Manual/upm-lifecycle.html">한국어</a></li>
+<li><a data-lang="ru" href="/ru/2020.3/Manual/upm-lifecycle.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar hidden"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc">
+<h2>手册</h2>
+<div class="version-switcher">
+<div class="current toggle" data-target=".version-list"><div class="version-number">
+<div class="d-inline-block">
+          Version:
+          <b>2020.3</b>
+</div>
+<div class="d-inline-block arrow"></div>
+</div></div>
+<div class="version-list" style="display:none;">
+<ul class="versions">
+<li class="supported"><a class="docs_version_url_2021.1" href="/cn/2021.1/Manual/upm-lifecycle.html">2021.1</a></li>
+<li class="supported"><a class="docs_version_url_2020.3" href="/cn/2020.3/Manual/upm-lifecycle.html">2020.3</a></li>
+<li class=""><a class="docs_version_url_2020.2" href="/cn/2020.2/Manual/upm-lifecycle.html">2020.2</a></li>
+<li class=""><a class="docs_version_url_2020.1" href="/cn/2020.1/Manual/upm-lifecycle.html">2020.1</a></li>
+<li class="supported"><a class="docs_version_url_2019.4" href="/cn/2019.4/Manual/upm-lifecycle.html">2019.4</a></li>
+<li class=""><a class="docs_version_url_2019.3" href="/cn/2019.3/Manual/upm-lifecycle.html">2019.3</a></li>
+<li class=""><a class="docs_version_url_2019.2" href="/cn/2019.2/Manual/upm-lifecycle.html">2019.2</a></li>
+<li class=""><a class="docs_version_url_2019.1" href="/cn/2019.1/Manual/upm-lifecycle.html">2019.1</a></li>
+<li class="supported"><a class="docs_version_url_2018.4" href="/cn/2018.4/Manual/upm-lifecycle.html">2018.4</a></li>
+<li class=""><a class="docs_version_url_2018.3" href="/cn/2018.3/Manual/upm-lifecycle.html">2018.3</a></li>
+<li class=""><a class="docs_version_url_2018.2" href="/cn/2018.2/Manual/upm-lifecycle.html">2018.2</a></li>
+<li class=""><a class="docs_version_url_2018.1" href="/cn/2018.1/Manual/upm-lifecycle.html">2018.1</a></li>
+<li class=""><a class="docs_version_url_2017.4" href="/cn/2017.4/Manual/upm-lifecycle.html">2017.4</a></li>
+<li class=""><a class="docs_version_url_2017.3" href="/cn/2017.3/Manual/upm-lifecycle.html">2017.3</a></li>
+<li class=""><a class="docs_version_url_2017.2" href="/cn/2017.2/Manual/upm-lifecycle.html">2017.2</a></li>
+<li class=""><a class="docs_version_url_2017.1" href="/cn/2017.1/Manual/upm-lifecycle.html">2017.1</a></li>
+<li class=""><a class="docs_version_url_560" href="/cn/560/Manual/upm-lifecycle.html">5.6</a></li>
+<div class="versionsWithThisPage" style="display:none;"><li><p>包含此页的版本：</p></li></div>
+<div class="versionsWithoutThisPage" style="display:none;"><li><p>不含此页的版本：</p></li></div>
+</ul>
+<ul class="description">
+<li>
+<div class="supported-box"></div>受支持</li>
+<li>
+<div class="legacy-box"></div>旧版</li>
+</ul>
+</div>
+</div>
+<div class="clear"></div>
+</div></div></div></div></div>
+<div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="PackagesList.html">包</a></li>
+<li><a href="Packages.html">Unity 的 Package Manager</a></li>
+<li><a href="upm-concepts.html">概念</a></li>
+<li>Package states and lifecycle</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="upm-concepts.html"></a></span><div class="tip">概念</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="upm-dependencies.html"></a></span><div class="tip">Dependency and resolution</div>
+</div>
+</div></div>
+<h1>Package states and lifecycle</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>After developing a package to the point where it is ready for Unity users to test it and provide feedback, a package enters the <a href="#Preview">preview</a> state. Packages in this state usually appear in the Unity Editor with the <img src="../uploads/Main/iconPreview.png" alt=""> label and often use <code>preview</code> as part of their <a href="upm-semver.html">version</a>.</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;">
+<strong>注意</strong>：</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">In addition to the preview packages that are discoverable in the Package Manager window, there are some preview packages that are on Unity’s package registry server but don’t appear in the <a href="upm-ui-filter.html">Unity Registry</a> context. These packages are not discoverable in the Package Manager window because:<br><br>- They are considered to be somewhat experimental, and therefore too risky to use in production. Some of these packages require a lot of training and expertise and are therefore recommended only in specific circumstances.<br>- They are support packages, meaning that you shouldn’t use them on their own because they are designed to provide shared or additional functionality to existing packages.<br><br>Undiscoverable packages can still appear in the Package Manager window if they were previously installed in your project. However, they are hidden so that users don’t discover them by accident and use them without realizing the risks.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Unity’s release management only grants a package the <a href="#Verified">verified</a> status after it passes several testing stages and validation procedures, which also include checks for appropriate documentation, changelog, and license files. Packages in this state may appear in the Unity Editor with the <img src="/Users/amylouise/Documents/unitydoc_pacman/content/uploads/Main/iconVerified.png" alt=""> label and never use <code>preview</code> as part of their <a href="upm-semver.html">version</a>.</p>
+
+<p>If the package developer introduces changing or breaking changes to a package (either by introducing a change that breaks an API or affects its usage), that package returns to the preview state and the Package Manager does not suggest the new preview package as a possible update for the verified version.</p>
+
+<figure>
+<img src="../uploads/Main/upm-lifecycle.svg" alt="Unity Package Manager 中的包生命周期">
+<figcaption>Unity Package Manager 中的包生命周期</figcaption>
+</figure>
+
+<p>These states match where the package is in the development cycle:</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>状态</strong></th>
+	<th style="text-align:left;"><strong>描述</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">
+<a name="Develop"></a><strong>开发中 (In Development)</strong>
+</td>
+	<td style="text-align:left;">包开发者创建包。通常，这相当于将包嵌入到开发者的项目中。</td>
+</tr>
+<tr>
+	<td style="text-align:left;">
+<a name="Preview"></a><strong>预览 (Preview)</strong>
+</td>
+	<td style="text-align:left;">When the package is ready for testing, the Unity package developer makes sure there is some basic test coverage, and that the package passes testing with the <a href="https://docs.unity3d.com/Packages/com.unity.package-validation-suite@latest">package validation suite</a>. The package also needs at least preliminary documentation, an updated changelog, and licensing before the Unity package developer can apply to publish the package on Unity’s official package registry.<br><br>At this point, the package is available for testing, so that any eligible Unity user can provide the developer with feedback. Most packages are available to any Unity users, although a few packages are limited to Unity IDs with specific entitlements. <br><br>Preview packages can go through many changes before they are ready to be verified for a specific version of Unity. At some point in the future, they might pass <a href="pack-safe.html">the verification requirements</a>; however, they might also be deprecated instead. Because there is no guarantee for future support, you should not use preview packages in production. For a list of preview packages available for this version, see <a href="pack-preview.html">Preview packages</a>.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">
+<a name="Verified"></a><strong>已验证 (Verified)</strong>
+</td>
+	<td style="text-align:left;">该包已经过严格的测试，通过了验证并可以安全地在特定 Unity 版本上使用，也可以和其他已针对同一版本进行了验证的包一起使用。此状态仅适用于 Unity 内部开发的包。对于第三方的包，请与相应的开发者联系，以询问有关其特定流程的信息。<br><br>当某个包针对某一 Unity 版本经过验证后，Unity 保证在该 Unity 版本的存续期间支持这个经验证的包（在整个长期支持周期内），并且不允许进行任何主要或次要更新（即，那些会<a href="upm-semver.html">破坏或更改 API</a> 的更改）。对于每个新的 Unity 版本，每个已验证的包都必须再次经历验证过程，然后 Package Manager 才将其视为已验证。<br><br>要查看已针对此 Unity 版本验证过的包列表，请参阅<a href="pack-safe.html">已验证包</a>。<br><br><a name="Production"></a><strong>注意</strong>：有些包既不是已验证的包，也不是预览包。在许多情况下，这是因为包在 Unity 的之前版本中进行了验证，但尚未针对当前版本完成验证过程。有些包已发布到 Unity Package Manager 注册表是因为它们被认为可以安全使用，但实际上从未经过验证。在上述两种情况下，这些包在实际生产中都可以安全使用。</td>
+</tr>
+</tbody>
+</table>
+
+<p>The Package Manager window displays a <a href="upm-ui-details.html#Tags">tag</a> that corresponds to some of these states.</p>
+
+<p><br> </p>
+
+<hr>
+
+<ul>
+<li><span class="page-history">Some advanced or support packages are no longer discoverable in the Package Manager window <a href="https://docs.unity3d.com/2020.1/Documentation/Manual/30_search.html?q=newin20201">2020.1</a> <span class="search-words">NewIn20201</span></span></li>
+</ul>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="upm-concepts.html"></a></span><div class="tip">概念</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="upm-dependencies.html"></a></span><div class="tip">Dependency and resolution</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper">
+<div class="footer clear">
+<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="menu">
+<a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div>
+<div></div>
+</div>
+</div></div></div>
+</div>
+</body>
+</html>
