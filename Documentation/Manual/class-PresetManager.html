@@ -1,0 +1,395 @@
+<!DOCTYPE html><html class="no-js" lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-5V25JL6');
+    </script><link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="twitter:card" content="summary">
+<meta property="og:title" content="Preset Manager - Unity 手册">
+<title>Preset Manager - Unity 手册</title>
+<meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/preset-reference.png">
+<meta name="description" content="The Preset Manager is a window in Project Settings (menu: Edit &gt; Project Settings &gt; Preset Manager) that allows you to manage custom Presets you create to specify default properties when you add a component to a GameObject or a new Asset to your project. The default Presets you define override Unity&amp;#8217;s default settings.">
+<meta property="og:description" content="The Preset Manager is a window in Project Settings (menu: Edit &gt; Project Settings &gt; Preset Manager) that allows you to manage custom Presets you create to specify default properties when you add a component to a GameObject or a new Asset to your project. The default Presets you define override Unity&amp;#8217;s default settings.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFiles/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFiles/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFiles/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFiles/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFiles/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFiles/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFiles/images/favicons/tileicon-144x144.png">
+<script type="text/javascript" src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" charset="UTF-8" data-domain-script="6e91be4c-3145-4ea2-aa64-89d716064836"></script><script type="text/javascript">
+        function OptanonWrapper() { }
+    </script><script>
+      var docs_type = 'Manual';
+      var lang = 'cn';
+      var page = 'class-PresetManager';
+      if(!page) page = 'index';
+      var version = '2020.3';
+      var docs_versions = [{version: '2021.1',version_string: '2021.1',supported: true},{version: '2020.3',version_string: '2020.3',supported: true},{version: '2020.2',version_string: '2020.2',supported: false},{version: '2020.1',version_string: '2020.1',supported: false},{version: '2019.4',version_string: '2019.4',supported: true},{version: '2019.3',version_string: '2019.3',supported: false},{version: '2019.2',version_string: '2019.2',supported: false},{version: '2019.1',version_string: '2019.1',supported: false},{version: '2018.4',version_string: '2018.4',supported: true},{version: '2018.3',version_string: '2018.3',supported: false},{version: '2018.2',version_string: '2018.2',supported: false},{version: '2018.1',version_string: '2018.1',supported: false},{version: '2017.4',version_string: '2017.4',supported: false},{version: '2017.3',version_string: '2017.3',supported: false},{version: '2017.2',version_string: '2017.2',supported: false},{version: '2017.1',version_string: '2017.1',supported: false},{version: '5.6',version_string: '560',supported: false},];</script><script type="text/javascript" src="../StaticFiles/js/jquery.js"></script><script type="text/javascript" src="../StaticFiles/js/core.js"></script><script type="text/javascript" src="../StaticFiles/js/jquery.sidebar.min.js"></script><script type="text/javascript" src="docdata/toc.js"></script><script type="text/javascript" src=""></script><script type="text/javascript" src="../StaticFiles/js/custom.js"></script><link rel="stylesheet" type="text/css" href="../StaticFiles/css/core.css">
+<link rel="stylesheet" type="text/css" href="../StaticFiles/css/custom.css">
+<link rel="canonical" href="https://docs.unity3d.com/cn/2020.3/Manual/class-PresetManager.html">
+<link rel="alternate" href="https://docs.unity3d.com/en/2020.3/Manual/class-PresetManager.html" hreflang="en">
+<link rel="alternate" href="https://docs.unity3d.com/cn/2020.3/Manual/class-PresetManager.html" hreflang="zh">
+<link rel="alternate" href="https://docs.unity3d.com/ja/2020.3/Manual/class-PresetManager.html" hreflang="ja">
+<link rel="alternate" href="https://docs.unity3d.com/es/2020.3/Manual/class-PresetManager.html" hreflang="es">
+<link rel="alternate" href="https://docs.unity3d.com/kr/2020.3/Manual/class-PresetManager.html" hreflang="ko">
+<link rel="alternate" href="https://docs.unity3d.com/ru/2020.3/Manual/class-PresetManager.html" hreflang="ru">
+<link rel="alternate" href="https://docs.unity3d.com/2020.3/Documentation/Manual/class-PresetManager.html" hreflang="x-default">
+</head>
+<body>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5V25JL6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div id="nav-open" for="nav-input"><span></span></div>
+<div class="logo"><a href="./index.html"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="搜索手册..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul class="menu-items">
+<li class="menu-item"><a href="../Manual/index.html" class="selected">手册</a></li>
+<li class="menu-item"><a href="../ScriptReference/index.html" class="">脚本 API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="https://unity3d.com/">
+                unity3d.com
+              </a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-switcher">
+<div class="current toggle" data-target=".version-list"><div class="version-number">
+<div class="d-inline-block">
+          Version:
+          <b>2020.3</b>
+</div>
+<div class="d-inline-block arrow"></div>
+</div></div>
+<div class="version-list" style="display:none;">
+<ul class="versions">
+<li class="supported"><a class="docs_version_url_2021.1" href="/cn/2021.1/Manual/class-PresetManager.html">2021.1</a></li>
+<li class="supported"><a class="docs_version_url_2020.3" href="/cn/2020.3/Manual/class-PresetManager.html">2020.3</a></li>
+<li class=""><a class="docs_version_url_2020.2" href="/cn/2020.2/Manual/class-PresetManager.html">2020.2</a></li>
+<li class=""><a class="docs_version_url_2020.1" href="/cn/2020.1/Manual/class-PresetManager.html">2020.1</a></li>
+<li class="supported"><a class="docs_version_url_2019.4" href="/cn/2019.4/Manual/class-PresetManager.html">2019.4</a></li>
+<li class=""><a class="docs_version_url_2019.3" href="/cn/2019.3/Manual/class-PresetManager.html">2019.3</a></li>
+<li class=""><a class="docs_version_url_2019.2" href="/cn/2019.2/Manual/class-PresetManager.html">2019.2</a></li>
+<li class=""><a class="docs_version_url_2019.1" href="/cn/2019.1/Manual/class-PresetManager.html">2019.1</a></li>
+<li class="supported"><a class="docs_version_url_2018.4" href="/cn/2018.4/Manual/class-PresetManager.html">2018.4</a></li>
+<li class=""><a class="docs_version_url_2018.3" href="/cn/2018.3/Manual/class-PresetManager.html">2018.3</a></li>
+<li class=""><a class="docs_version_url_2018.2" href="/cn/2018.2/Manual/class-PresetManager.html">2018.2</a></li>
+<li class=""><a class="docs_version_url_2018.1" href="/cn/2018.1/Manual/class-PresetManager.html">2018.1</a></li>
+<li class=""><a class="docs_version_url_2017.4" href="/cn/2017.4/Manual/class-PresetManager.html">2017.4</a></li>
+<li class=""><a class="docs_version_url_2017.3" href="/cn/2017.3/Manual/class-PresetManager.html">2017.3</a></li>
+<li class=""><a class="docs_version_url_2017.2" href="/cn/2017.2/Manual/class-PresetManager.html">2017.2</a></li>
+<li class=""><a class="docs_version_url_2017.1" href="/cn/2017.1/Manual/class-PresetManager.html">2017.1</a></li>
+<li class=""><a class="docs_version_url_560" href="/cn/560/Manual/class-PresetManager.html">5.6</a></li>
+<div class="versionsWithThisPage" style="display:none;"><li><p>包含此页的版本：</p></li></div>
+<div class="versionsWithoutThisPage" style="display:none;"><li><p>不含此页的版本：</p></li></div>
+</ul>
+<ul class="description">
+<li>
+<div class="supported-box"></div>受支持</li>
+<li>
+<div class="legacy-box"></div>旧版</li>
+</ul>
+</div>
+</div>
+<ul class="nav-menu-items">
+<li class="menu-item"><a href="../Manual/index.html" class="selected">手册</a></li>
+<li class="menu-item"><a href="../ScriptReference/index.html" class="">脚本 API</a></li>
+</ul>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">语言:
+        <span class="b">中文</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a data-lang="en" href="/2020.3/Documentation/Manual/class-PresetManager.html">English</a></li>
+<li><a data-lang="cn" href="/cn/2020.3/Manual/class-PresetManager.html">中文</a></li>
+<li><a data-lang="ja" href="/ja/2020.3/Manual/class-PresetManager.html">日本語</a></li>
+<li><a data-lang="es" href="/es/2020.3/Manual/class-PresetManager.html">Español</a></li>
+<li><a data-lang="kr" href="/kr/2020.3/Manual/class-PresetManager.html">한국어</a></li>
+<li><a data-lang="ru" href="/ru/2020.3/Manual/class-PresetManager.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar hidden"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc">
+<h2>手册</h2>
+<div class="version-switcher">
+<div class="current toggle" data-target=".version-list"><div class="version-number">
+<div class="d-inline-block">
+          Version:
+          <b>2020.3</b>
+</div>
+<div class="d-inline-block arrow"></div>
+</div></div>
+<div class="version-list" style="display:none;">
+<ul class="versions">
+<li class="supported"><a class="docs_version_url_2021.1" href="/cn/2021.1/Manual/class-PresetManager.html">2021.1</a></li>
+<li class="supported"><a class="docs_version_url_2020.3" href="/cn/2020.3/Manual/class-PresetManager.html">2020.3</a></li>
+<li class=""><a class="docs_version_url_2020.2" href="/cn/2020.2/Manual/class-PresetManager.html">2020.2</a></li>
+<li class=""><a class="docs_version_url_2020.1" href="/cn/2020.1/Manual/class-PresetManager.html">2020.1</a></li>
+<li class="supported"><a class="docs_version_url_2019.4" href="/cn/2019.4/Manual/class-PresetManager.html">2019.4</a></li>
+<li class=""><a class="docs_version_url_2019.3" href="/cn/2019.3/Manual/class-PresetManager.html">2019.3</a></li>
+<li class=""><a class="docs_version_url_2019.2" href="/cn/2019.2/Manual/class-PresetManager.html">2019.2</a></li>
+<li class=""><a class="docs_version_url_2019.1" href="/cn/2019.1/Manual/class-PresetManager.html">2019.1</a></li>
+<li class="supported"><a class="docs_version_url_2018.4" href="/cn/2018.4/Manual/class-PresetManager.html">2018.4</a></li>
+<li class=""><a class="docs_version_url_2018.3" href="/cn/2018.3/Manual/class-PresetManager.html">2018.3</a></li>
+<li class=""><a class="docs_version_url_2018.2" href="/cn/2018.2/Manual/class-PresetManager.html">2018.2</a></li>
+<li class=""><a class="docs_version_url_2018.1" href="/cn/2018.1/Manual/class-PresetManager.html">2018.1</a></li>
+<li class=""><a class="docs_version_url_2017.4" href="/cn/2017.4/Manual/class-PresetManager.html">2017.4</a></li>
+<li class=""><a class="docs_version_url_2017.3" href="/cn/2017.3/Manual/class-PresetManager.html">2017.3</a></li>
+<li class=""><a class="docs_version_url_2017.2" href="/cn/2017.2/Manual/class-PresetManager.html">2017.2</a></li>
+<li class=""><a class="docs_version_url_2017.1" href="/cn/2017.1/Manual/class-PresetManager.html">2017.1</a></li>
+<li class=""><a class="docs_version_url_560" href="/cn/560/Manual/class-PresetManager.html">5.6</a></li>
+<div class="versionsWithThisPage" style="display:none;"><li><p>包含此页的版本：</p></li></div>
+<div class="versionsWithoutThisPage" style="display:none;"><li><p>不含此页的版本：</p></li></div>
+</ul>
+<ul class="description">
+<li>
+<div class="supported-box"></div>受支持</li>
+<li>
+<div class="legacy-box"></div>旧版</li>
+</ul>
+</div>
+</div>
+<div class="clear"></div>
+</div></div></div></div></div>
+<div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityOverview.html">在 Unity 中操作</a></li>
+<li><a href="EditorFeatures.html">编辑器功能</a></li>
+<li><a href="comp-ManagerGroup.html">Project Settings</a></li>
+<li>Preset Manager</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="class-PlayerSettingsSplashScreen.html"></a></span><div class="tip">启动画面 (Splash Screen)</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="class-QualitySettings.html"></a></span><div class="tip">Quality</div>
+</div>
+</div></div>
+<h1>Preset Manager</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>The Preset Manager is a window in Project Settings (menu: <strong>Edit</strong> &gt; <strong>Project Settings</strong> &gt; <strong>Preset Manager</strong>) that allows you to manage custom <a href="Presets.html">Presets</a> you create to specify default properties when you add a component to a GameObject or a new Asset to your project. The default Presets you define override Unity’s default settings. </p>
+
+<p><strong>Note:</strong> You cannot set the default properties for Project settings, Preferences settings, or native Assets such as Materials, Animations, or SpriteSheets.</p>
+
+<p>In addition to using default Presets when creating new components and importing Assets, Unity applies default Presets when you use the <strong>Reset</strong> command in the Component Context Menu in the <a href="UsingTheInspector.html">Inspector</a> window.</p>
+
+<h2>Preset Manager reference</h2>
+
+<figure>
+<img src="../uploads/Main/preset-reference.png" alt="Preset Manager window">
+<figcaption>Preset Manager window</figcaption>
+</figure>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;">属性</th>
+	<th style="text-align:left;">描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>Filter</strong></td>
+	<td style="text-align:left;">Use the <strong>Filter</strong> field to define which components or importers the Preset is applied to.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Preset</strong></td>
+	<td style="text-align:left;">Use the <strong>Preset</strong> field to set the Preset you want to use. By default, a Preset applies to all components or asset importers of that Preset type once you create it. If you want to only apply it to specific components or asset types, use the <strong>Filter</strong> field to define when to apply the Preset.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Add Default Preset</strong></td>
+	<td style="text-align:left;">Select this button choose the <strong>Importer</strong>, <strong>Component</strong>, or <strong>ScriptableObject</strong>) to add a Preset to. If you choose <strong>Importer</strong> or <strong>Component</strong>, select the type of asset importer or component you want to create a Preset for.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>Assigning a Preset for default settings</h2>
+
+<p>To specify a Preset to use for default settings in the Preset Manager:</p>
+
+<p>1.如果项目中还没有用于默认设置的预设，请<a href="Presets.html">创建一个</a>。</p>
+
+<ol>
+<li><p>Open the Preset Manager by choosing <strong>Edit &gt; Project Settings</strong>, and selecting the <strong>Preset Manager</strong>.</p></li>
+<li><p>Select <strong>Add Default Preset</strong> and select a default type.<br>The Preset type you choose appears in the <strong>Preset Manager</strong> list.<br>
+<img src="../uploads/Main/preset-manager-add-type.png" alt="Select a Preset type"></p></li>
+<li><p>In the Preset field, click the <strong>Preset selector</strong> (circle icon).</p></li>
+<li><p>From the <strong>Select Preset</strong> window, choose a Preset for this Preset type. <br> Alternatively, you can also drag and drop a Preset from the <strong>Project</strong> window into the Preset field. <br></p></li>
+<li><p>If you want to add another Preset field to the list, click the <strong>Add</strong> (<strong>+</strong>) tab.<br>
+ <img src="../uploads/Main/preset-manager-add-default-presets.png" alt="Choose a Preset"></p></li>
+</ol>
+
+<p><strong>Note:</strong> If you set a default Preset for Transform components, Unity does not use the Position values when you create a new GameObject. Instead, it sets the default Position values to the center of the Scene view. To set the Position values to those of the default Preset, select the Transform component’s <strong>More items</strong> button (<strong>⋮</strong>) and select <strong>Reset</strong>.</p>
+
+<h2>Assigning Presets via the Inspector window</h2>
+
+<p>You can also add and remove Presets to use for default settings via the <strong>Inspector</strong> window.</p>
+
+<p>To add a default Preset:</p>
+
+<p>1.在 <strong>Project</strong> 窗口中选择一个预设。</p>
+
+<ol>
+<li>In the <strong>Inspector</strong> window, click <strong>Add to default</strong>.<br> Unity adds your default Preset to the <strong>Preset Manager</strong>.</li>
+<li>Open the <strong>Preset Manager</strong> to add filters to the Preset or reorder your Preset list.<br>
+<img src="../uploads/Main/presets-add-to-default-from-inspector.png" alt="Add to default (red) in the Inspector window">
+</li>
+</ol>
+
+<p>To remove a default Preset:</p>
+
+<p>1.在 <strong>Project</strong> 窗口中选择一个预设。
+2. In the <strong>Inspector</strong> window, click <strong>Remove from</strong>.</p>
+
+<h2>Adding filters</h2>
+
+<p>By default, a Preset applies to all components or asset importers of that Preset type once it is created. If you want to only apply it to specific components or asset types, you can use the Filter field to define when to apply the Preset.</p>
+
+<p>Filters allow you to create multiple Presets for a given type, and apply them to specific components or importers based on whether those components and importers meet the filter criteria. You can filter by file names, directories, and file extensions.<br>
+<br>You can also apply <a href="Presets.html">partial Presets</a> that affect only properties you specify in your components or assets.</p>
+
+<p><strong>Note:</strong> Default Presets in a Preset Type are applied in order from top to bottom. This means that filters at the bottom of the list can override previous filters if not logically ordered.</p>
+
+<p>1.通过选择 <strong>Edit &gt; Project Settings__，然后选择 </strong>Preset Manager__ 类别来打开 Preset Manager。
+2. Find the default Preset you want to filter, and enter the search string in the <strong>Filter</strong> field.</p>
+
+<h4>Advanced filter search</h4>
+
+<p>Presets can use glob search, which is a way to use symbols in your filters to allow for more inclusive import filters. See the table below for a list of symbols you can use. A glob search filter is case-sensitive.<br>
+To create a glob search filter, the syntax is <code>glob:"yoursearchpatternhere".</code>Your filter field must begin <code>glob:</code>, and the search term must be in quotation mark characters. For example, <code>glob:"example-folder/*.fbx"</code> filters for any .fbx file in a folder called example-folder.</p>
+
+<p>Supported symbols:</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;">Symbol</th>
+	<th style="text-align:left;">描述</th>
+	<th style="text-align:left;">示例</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">*</td>
+	<td style="text-align:left;">Matches 0 or more characters in a single path portion (a single path portion is defined as any suite of characters excluding / )</td>
+	<td style="text-align:left;">
+<code>glob:"foldername/*.fbx</code> <br>searches for any .fbx file located in a folder named <em>foldername</em>.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">?</td>
+	<td style="text-align:left;">Matches 1 character</td>
+	<td style="text-align:left;">
+<code>glob:"foldername/filename-?.fbx"</code> <br>searches for any .fbx file located in a folder named <em>foldername</em> that has the name <em>filename-</em> followed by one single character <br>(for example, this would include <em>filename–1.fbx</em>, <em>filename–2.fbx</em>, but not <em>filename–01.fbx</em>).</td>
+</tr>
+<tr>
+	<td style="text-align:left;">[…]</td>
+	<td style="text-align:left;">Matches a range of characters, similar to a RegExp range. If the first character of the range is ! or ^ then it matches any character not in the range.</td>
+	<td style="text-align:left;">
+<code>glob:"foldername/file[...]1.fbx"</code> <br>searches for any .fbx file located in a folder named <em>foldername</em> that has a name that begins file and ends with <em>1</em> <br>(for example, this would include <em>file–1.fbx</em>, <em>file–01.fbx</em>, but not <em>file–2.fbx</em>).</td>
+</tr>
+<tr>
+	<td style="text-align:left;">(pattern|pat*|pat?erN)</td>
+	<td style="text-align:left;">Use searches inside parentheses, separated by a vertical pipe character (meaning “or”), to indicate that filter results can match one of the search patterns.</td>
+	<td style="text-align:left;">
+<code>glob:("foldername/*.fbx"\|"foldername/filename-?.fbx")</code> <br>searches for any .fbx file located in a folder named <em>foldername</em>, or any .fbx file located in a folder named <em>foldername</em> that has the name <em>filename-</em> followed by one single character.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">**</td>
+	<td style="text-align:left;">Matches zero or more directories and subdirectories searching for matches.</td>
+	<td style="text-align:left;">
+<code>glob:"foldername/**.fbx</code> <br>searches for any .fbx file located in a folder named <em>foldername</em>. or its subfolders.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>Editing the list of default Presets</h2>
+
+<p>This section describes how to toggle, move and remove Presets in the Preset Manager’s default Preset list for each Preset type.</p>
+
+<ul>
+<li>
+<strong>Reorder a Preset list:</strong> Select the handle (<strong>=</strong>) of the default Preset that you want to move, and drag it to the new position.</li>
+<li>
+<strong>Remove a Preset:</strong> Select the handle (<strong>=</strong>) of the default Preset that you want to remove, then click the Remove (<strong>-</strong>) button to remove the selected Preset.</li>
+<li>
+<strong>Remove a Preset type:</strong> Remove all Presets assigned to that default Preset type.</li>
+</ul>
+
+<h2>Disabling and enabling default Presets</h2>
+
+<p>You can temporarily disable/enable a default Preset without losing filter settings.</p>
+
+<ol>
+<li><p>Open the Preset Manager by choosing <strong>Edit &gt; Project Settings</strong>, and then selecting the <strong>Preset Manager</strong> category.</p></li>
+<li><p>Clear the check box to the left of the default Preset to disable the Preset. Select the check box to enable.<br>
+<img src="../uploads/Main/preset-manager-enable-preset.png" alt="Disable or enable a Preset"></p></li>
+</ol>
+
+<hr>
+
+<ul>
+<li><span class="page-edit"> 2017–03–27 页面已发布</span></li>
+<li><span class="page-history"><a href="https://docs.unity3d.com/2018.1/Documentation/Manual/30_search.html?q=newin20181">2018.1</a> 中的新功能 <span class="search-words">NewIn20181</span></span></li>
+</ul>
+<!-- area:authoring -->
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="class-PlayerSettingsSplashScreen.html"></a></span><div class="tip">启动画面 (Splash Screen)</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="class-QualitySettings.html"></a></span><div class="tip">Quality</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper">
+<div class="footer clear">
+<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="menu">
+<a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div>
+<div></div>
+</div>
+</div></div></div>
+</div>
+</body>
+</html>

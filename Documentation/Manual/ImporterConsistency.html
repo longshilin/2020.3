@@ -1,0 +1,320 @@
+<!DOCTYPE html><html class="no-js" lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-5V25JL6');
+    </script><link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="twitter:card" content="summary">
+<meta property="og:title" content="Importer Consistency - Unity 手册">
+<title>Importer Consistency - Unity 手册</title>
+<meta name="description" content="Asset importers, including any scripted importers that you write, should produce consistent (deterministic) results. This means they should always produce the same output from the same input and set of dependencies.">
+<meta property="og:description" content="Asset importers, including any scripted importers that you write, should produce consistent (deterministic) results. This means they should always produce the same output from the same input and set of dependencies.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFiles/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFiles/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFiles/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFiles/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFiles/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFiles/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFiles/images/favicons/tileicon-144x144.png">
+<script type="text/javascript" src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" charset="UTF-8" data-domain-script="6e91be4c-3145-4ea2-aa64-89d716064836"></script><script type="text/javascript">
+        function OptanonWrapper() { }
+    </script><script>
+      var docs_type = 'Manual';
+      var lang = 'cn';
+      var page = 'ImporterConsistency';
+      if(!page) page = 'index';
+      var version = '2020.3';
+      var docs_versions = [{version: '2021.1',version_string: '2021.1',supported: true},{version: '2020.3',version_string: '2020.3',supported: true},{version: '2020.2',version_string: '2020.2',supported: false},{version: '2020.1',version_string: '2020.1',supported: false},{version: '2019.4',version_string: '2019.4',supported: true},{version: '2019.3',version_string: '2019.3',supported: false},{version: '2019.2',version_string: '2019.2',supported: false},{version: '2019.1',version_string: '2019.1',supported: false},{version: '2018.4',version_string: '2018.4',supported: true},{version: '2018.3',version_string: '2018.3',supported: false},{version: '2018.2',version_string: '2018.2',supported: false},{version: '2018.1',version_string: '2018.1',supported: false},{version: '2017.4',version_string: '2017.4',supported: false},{version: '2017.3',version_string: '2017.3',supported: false},{version: '2017.2',version_string: '2017.2',supported: false},{version: '2017.1',version_string: '2017.1',supported: false},{version: '5.6',version_string: '560',supported: false},];</script><script type="text/javascript" src="../StaticFiles/js/jquery.js"></script><script type="text/javascript" src="../StaticFiles/js/core.js"></script><script type="text/javascript" src="../StaticFiles/js/jquery.sidebar.min.js"></script><script type="text/javascript" src="docdata/toc.js"></script><script type="text/javascript" src=""></script><script type="text/javascript" src="../StaticFiles/js/custom.js"></script><link rel="stylesheet" type="text/css" href="../StaticFiles/css/core.css">
+<link rel="stylesheet" type="text/css" href="../StaticFiles/css/custom.css">
+<link rel="canonical" href="https://docs.unity3d.com/cn/2020.3/Manual/ImporterConsistency.html">
+<link rel="alternate" href="https://docs.unity3d.com/en/2020.3/Manual/ImporterConsistency.html" hreflang="en">
+<link rel="alternate" href="https://docs.unity3d.com/cn/2020.3/Manual/ImporterConsistency.html" hreflang="zh">
+<link rel="alternate" href="https://docs.unity3d.com/ja/2020.3/Manual/ImporterConsistency.html" hreflang="ja">
+<link rel="alternate" href="https://docs.unity3d.com/es/2020.3/Manual/ImporterConsistency.html" hreflang="es">
+<link rel="alternate" href="https://docs.unity3d.com/kr/2020.3/Manual/ImporterConsistency.html" hreflang="ko">
+<link rel="alternate" href="https://docs.unity3d.com/ru/2020.3/Manual/ImporterConsistency.html" hreflang="ru">
+<link rel="alternate" href="https://docs.unity3d.com/2020.3/Documentation/Manual/ImporterConsistency.html" hreflang="x-default">
+</head>
+<body>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5V25JL6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div id="nav-open" for="nav-input"><span></span></div>
+<div class="logo"><a href="./index.html"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="搜索手册..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul class="menu-items">
+<li class="menu-item"><a href="../Manual/index.html" class="selected">手册</a></li>
+<li class="menu-item"><a href="../ScriptReference/index.html" class="">脚本 API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="https://unity3d.com/">
+                unity3d.com
+              </a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-switcher">
+<div class="current toggle" data-target=".version-list"><div class="version-number">
+<div class="d-inline-block">
+          Version:
+          <b>2020.3</b>
+</div>
+<div class="d-inline-block arrow"></div>
+</div></div>
+<div class="version-list" style="display:none;">
+<ul class="versions">
+<li class="supported"><a class="docs_version_url_2021.1" href="/cn/2021.1/Manual/ImporterConsistency.html">2021.1</a></li>
+<li class="supported"><a class="docs_version_url_2020.3" href="/cn/2020.3/Manual/ImporterConsistency.html">2020.3</a></li>
+<li class=""><a class="docs_version_url_2020.2" href="/cn/2020.2/Manual/ImporterConsistency.html">2020.2</a></li>
+<li class=""><a class="docs_version_url_2020.1" href="/cn/2020.1/Manual/ImporterConsistency.html">2020.1</a></li>
+<li class="supported"><a class="docs_version_url_2019.4" href="/cn/2019.4/Manual/ImporterConsistency.html">2019.4</a></li>
+<li class=""><a class="docs_version_url_2019.3" href="/cn/2019.3/Manual/ImporterConsistency.html">2019.3</a></li>
+<li class=""><a class="docs_version_url_2019.2" href="/cn/2019.2/Manual/ImporterConsistency.html">2019.2</a></li>
+<li class=""><a class="docs_version_url_2019.1" href="/cn/2019.1/Manual/ImporterConsistency.html">2019.1</a></li>
+<li class="supported"><a class="docs_version_url_2018.4" href="/cn/2018.4/Manual/ImporterConsistency.html">2018.4</a></li>
+<li class=""><a class="docs_version_url_2018.3" href="/cn/2018.3/Manual/ImporterConsistency.html">2018.3</a></li>
+<li class=""><a class="docs_version_url_2018.2" href="/cn/2018.2/Manual/ImporterConsistency.html">2018.2</a></li>
+<li class=""><a class="docs_version_url_2018.1" href="/cn/2018.1/Manual/ImporterConsistency.html">2018.1</a></li>
+<li class=""><a class="docs_version_url_2017.4" href="/cn/2017.4/Manual/ImporterConsistency.html">2017.4</a></li>
+<li class=""><a class="docs_version_url_2017.3" href="/cn/2017.3/Manual/ImporterConsistency.html">2017.3</a></li>
+<li class=""><a class="docs_version_url_2017.2" href="/cn/2017.2/Manual/ImporterConsistency.html">2017.2</a></li>
+<li class=""><a class="docs_version_url_2017.1" href="/cn/2017.1/Manual/ImporterConsistency.html">2017.1</a></li>
+<li class=""><a class="docs_version_url_560" href="/cn/560/Manual/ImporterConsistency.html">5.6</a></li>
+<div class="versionsWithThisPage" style="display:none;"><li><p>包含此页的版本：</p></li></div>
+<div class="versionsWithoutThisPage" style="display:none;"><li><p>不含此页的版本：</p></li></div>
+</ul>
+<ul class="description">
+<li>
+<div class="supported-box"></div>受支持</li>
+<li>
+<div class="legacy-box"></div>旧版</li>
+</ul>
+</div>
+</div>
+<ul class="nav-menu-items">
+<li class="menu-item"><a href="../Manual/index.html" class="selected">手册</a></li>
+<li class="menu-item"><a href="../ScriptReference/index.html" class="">脚本 API</a></li>
+</ul>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">语言:
+        <span class="b">中文</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a data-lang="en" href="/2020.3/Documentation/Manual/ImporterConsistency.html">English</a></li>
+<li><a data-lang="cn" href="/cn/2020.3/Manual/ImporterConsistency.html">中文</a></li>
+<li><a data-lang="ja" href="/ja/2020.3/Manual/ImporterConsistency.html">日本語</a></li>
+<li><a data-lang="es" href="/es/2020.3/Manual/ImporterConsistency.html">Español</a></li>
+<li><a data-lang="kr" href="/kr/2020.3/Manual/ImporterConsistency.html">한국어</a></li>
+<li><a data-lang="ru" href="/ru/2020.3/Manual/ImporterConsistency.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar hidden"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc">
+<h2>手册</h2>
+<div class="version-switcher">
+<div class="current toggle" data-target=".version-list"><div class="version-number">
+<div class="d-inline-block">
+          Version:
+          <b>2020.3</b>
+</div>
+<div class="d-inline-block arrow"></div>
+</div></div>
+<div class="version-list" style="display:none;">
+<ul class="versions">
+<li class="supported"><a class="docs_version_url_2021.1" href="/cn/2021.1/Manual/ImporterConsistency.html">2021.1</a></li>
+<li class="supported"><a class="docs_version_url_2020.3" href="/cn/2020.3/Manual/ImporterConsistency.html">2020.3</a></li>
+<li class=""><a class="docs_version_url_2020.2" href="/cn/2020.2/Manual/ImporterConsistency.html">2020.2</a></li>
+<li class=""><a class="docs_version_url_2020.1" href="/cn/2020.1/Manual/ImporterConsistency.html">2020.1</a></li>
+<li class="supported"><a class="docs_version_url_2019.4" href="/cn/2019.4/Manual/ImporterConsistency.html">2019.4</a></li>
+<li class=""><a class="docs_version_url_2019.3" href="/cn/2019.3/Manual/ImporterConsistency.html">2019.3</a></li>
+<li class=""><a class="docs_version_url_2019.2" href="/cn/2019.2/Manual/ImporterConsistency.html">2019.2</a></li>
+<li class=""><a class="docs_version_url_2019.1" href="/cn/2019.1/Manual/ImporterConsistency.html">2019.1</a></li>
+<li class="supported"><a class="docs_version_url_2018.4" href="/cn/2018.4/Manual/ImporterConsistency.html">2018.4</a></li>
+<li class=""><a class="docs_version_url_2018.3" href="/cn/2018.3/Manual/ImporterConsistency.html">2018.3</a></li>
+<li class=""><a class="docs_version_url_2018.2" href="/cn/2018.2/Manual/ImporterConsistency.html">2018.2</a></li>
+<li class=""><a class="docs_version_url_2018.1" href="/cn/2018.1/Manual/ImporterConsistency.html">2018.1</a></li>
+<li class=""><a class="docs_version_url_2017.4" href="/cn/2017.4/Manual/ImporterConsistency.html">2017.4</a></li>
+<li class=""><a class="docs_version_url_2017.3" href="/cn/2017.3/Manual/ImporterConsistency.html">2017.3</a></li>
+<li class=""><a class="docs_version_url_2017.2" href="/cn/2017.2/Manual/ImporterConsistency.html">2017.2</a></li>
+<li class=""><a class="docs_version_url_2017.1" href="/cn/2017.1/Manual/ImporterConsistency.html">2017.1</a></li>
+<li class=""><a class="docs_version_url_560" href="/cn/560/Manual/ImporterConsistency.html">5.6</a></li>
+<div class="versionsWithThisPage" style="display:none;"><li><p>包含此页的版本：</p></li></div>
+<div class="versionsWithoutThisPage" style="display:none;"><li><p>不含此页的版本：</p></li></div>
+</ul>
+<ul class="description">
+<li>
+<div class="supported-box"></div>受支持</li>
+<li>
+<div class="legacy-box"></div>旧版</li>
+</ul>
+</div>
+</div>
+<div class="clear"></div>
+</div></div></div></div></div>
+<div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="AssetWorkflow.html">资源工作流程</a></li>
+<li><a href="ImportingAssets.html">导入</a></li>
+<li><a href="ScriptedImporters.html">脚本化导入器 (Scripted Importer)</a></li>
+<li>Importer Consistency</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="ScriptedImporters.html"></a></span><div class="tip">脚本化导入器 (Scripted Importer)</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="AssetDatabase.html"></a></span><div class="tip">资源数据库</div>
+</div>
+</div></div>
+<h1>Importer Consistency</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>Asset importers, including any scripted importers that you write, should produce consistent (deterministic) results. This means they should always produce the same output from the same input and set of dependencies.</p>
+
+<p>To verify that this is the case for your importers, the Asset Database has two ways that you can check the consistency of the import results of the assets currently in your project. The two ways to check consistency are:</p>
+
+<ul>
+<li><p>Manually reimport one or more assets in the Editor</p></li>
+<li><p>Use the <strong>-consistencyCheck</strong> command line argument to open the Editor</p></li>
+</ul>
+
+<h2>Manual reimport consistency checks</h2>
+
+<p>Manually reimporting an asset causes Unity to check whether a new import result matches the previous cached import results.</p>
+
+<p>To start a manual reimport, right-click on an asset and select <strong>Reimport</strong> from the context menu.</p>
+
+<p>Unity then checks the resulting import for consistency. If it detects inconsistent results, Unity prints a warning in the Console window with details about which importer caused the issue, such as:</p>
+
+<p><code>Importer(&lt;name of importer&gt;) generated inconsistent result for asset(guid:&lt;guid of the asset&gt;) "&lt;name of asset&gt;"</code></p>
+
+<p>When you reimport a root asset, Unity also reimports and performs the consistency check on its child assets.</p>
+
+<h2>Command line consistency checks</h2>
+
+<p>The second way of doing the consistency check is to open Unity with the <strong>-consistencyCheck</strong> command line argument. This performs a consistency check on all assets and importers in the project.</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;">Command line argument</th>
+	<th style="text-align:left;">描述</th>
+	<th style="text-align:left;">Example(s)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><code>-consistencyCheck</code></td>
+	<td style="text-align:left;">Tells the Editor to perform a consistency check on startup. By default it performs a “local” check (see below).</td>
+	<td style="text-align:left;">-consistencyCheck</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><code>-consistencyCheckSourceMode string</code></td>
+	<td style="text-align:left;">Sets the source for the consistency checker to check against when it compares the asset imports. There are two possible values: “local” or “cacheserver”.<br><br>“local” means that it forces a reimport of all assets locally and checks if imports differ from the previous import.<br><br>“cacheserver” means that it asks the cacheserver for the metadata for the assets and compares if the results locally match what is on the cacheserver. In this case reimporting all assets does not happen.</td>
+	<td style="text-align:left;">
+<code>-consistencyCheckSourceMode local</code> <br>-consistencyCheckSourceMode cacheserver</td>
+</tr>
+</tbody>
+</table>
+
+<p>Any inconsistencies found during startup are logged to the Console, as well as the Editor log file.</p>
+
+<p>The consistency checker only checks asset imports that are cacheable. So if you disable caching for your ScriptedImporter then the consistency check for that import will also be disabled. See <a href="../ScriptReference/AssetImporters.ScriptedImporterAttribute.html">AssetImporters.ScriptedImporterAttribute</a> for details on how to disable caching for a scripted importer. </p>
+
+<p>To use the cache server as validation source, see the <a href="UnityAccelerator.html">Unity Accelerator</a> documentation.</p>
+
+<h3>Editor log</h3>
+
+<p>When importer inconsistencies are detected, you can find more information about the issue in the Editor log. This includes:</p>
+
+<ul>
+<li><p>Which asset caused the failed consistency check</p></li>
+<li><p>The GUID of that asset</p></li>
+<li><p>The content hash for the asset import result</p></li>
+<li><p>How it compares to the previous revision of the asset</p></li>
+</ul>
+
+<p>The following is an example of an Editor log that shows importer inconsistencies:</p>
+
+<pre><code>ConsistencyChecker - guid: a1945cd7aab67441ba89015f97494624, dependenciesHash.value: fb8cfb407bba82d4daded6031688ba9b, artifactid: 07078a054d3f597b4c2cc47e8e4c0bde, producedFiles[0].extension: , producedFiles[0].contentHash: 8490a5ed35a4361d679e6055a386969e
+
+ConsistencyChecker - guid: a1945cd7aab67441ba89015f97494624, dependenciesHash.value: fb8cfb407bba82d4daded6031688ba9b, artifactid: 07078a054d3f597b4c2cc47e8e4c0bde, producedFiles[1].extension: .info, producedFiles[1].contentHash: 4bd9140e19d2e44782f1131172e514ba
+
+ConsistencyChecker - guid: a1945cd7aab67441ba89015f97494624, dependenciesHash.value: fb8cfb407bba82d4daded6031688ba9b, artifactid: 646d6432767729ea7d288c636183de97, producedFiles[0].extension: , producedFiles[0].contentHash: 5ca760170f85012ce16aa8c22e8d9ea1
+
+ConsistencyChecker - guid: a1945cd7aab67441ba89015f97494624, dependenciesHash.value: fb8cfb407bba82d4daded6031688ba9b, artifactid: 646d6432767729ea7d288c636183de97, producedFiles[1].extension: .info, producedFiles[1].contentHash: 4bd9140e19d2e44782f1131172e514ba
+
+Importer(ScriptedImporter:Assembly-CSharp::RandomImporter) generated inconsistent result for asset(guid:a1945cd7aab67441ba89015f97494624) "Assets/first.rand"
+</code></pre>
+
+<p>If the cache server is not available, the consistency checker prints out warnings in the Editor log.</p>
+
+<p>If a cache server hasn’t been set up for the project, the following message is printed.</p>
+
+<p><code>ConsistencyChecker - Cacheserver is not enabled</code></p>
+
+<p>If Unity cannot connect to the cache server, this message is printed.</p>
+
+<p><code>ConsistencyChecker - Not connected to accelerator/cacheserver</code></p>
+
+<h2>Debugging</h2>
+
+<p>You can use the tool ‘binary2text’, located in the Data/Tools folder in your Unity Editor installation, to examine the contents of the library folder to see exactly what the importer generated. </p>
+
+<p>例如：</p>
+
+<p><code>./Data/Tools/binary2text ./myProject/Library/Artifacts/84/8490a5ed35a4361d679e6055a386969e output_file</code></p>
+
+<p>The hash value is the asset’s content hash. To find the reported inconsistency and see what content was generated during the check, look at the Editor log.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="ScriptedImporters.html"></a></span><div class="tip">脚本化导入器 (Scripted Importer)</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="AssetDatabase.html"></a></span><div class="tip">资源数据库</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper">
+<div class="footer clear">
+<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="menu">
+<a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div>
+<div></div>
+</div>
+</div></div></div>
+</div>
+</body>
+</html>

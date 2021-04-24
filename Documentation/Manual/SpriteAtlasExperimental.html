@@ -1,0 +1,269 @@
+<!DOCTYPE html><html class="no-js" lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-5V25JL6');
+    </script><link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="twitter:card" content="summary">
+<meta property="og:title" content="Sprite Atlas version 2 (Experimental) - Unity 手册">
+<title>Sprite Atlas version 2 (Experimental) - Unity 手册</title>
+<meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/SprAtlasV2_ProjectSettings.png">
+<meta name="description" content="The current Sprite Atlas packs Textures (from Sprites, Sprites within Textures, and Sprites in folders) into an Atlas Texture. It packs these Textures when it enters Play Mode, or when it builds the Player or an AssetBundle.">
+<meta property="og:description" content="The current Sprite Atlas packs Textures (from Sprites, Sprites within Textures, and Sprites in folders) into an Atlas Texture. It packs these Textures when it enters Play Mode, or when it builds the Player or an AssetBundle.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFiles/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFiles/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFiles/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFiles/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFiles/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFiles/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFiles/images/favicons/tileicon-144x144.png">
+<script type="text/javascript" src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" charset="UTF-8" data-domain-script="6e91be4c-3145-4ea2-aa64-89d716064836"></script><script type="text/javascript">
+        function OptanonWrapper() { }
+    </script><script>
+      var docs_type = 'Manual';
+      var lang = 'cn';
+      var page = 'SpriteAtlasExperimental';
+      if(!page) page = 'index';
+      var version = '2020.3';
+      var docs_versions = [{version: '2021.1',version_string: '2021.1',supported: true},{version: '2020.3',version_string: '2020.3',supported: true},{version: '2020.2',version_string: '2020.2',supported: false},{version: '2020.1',version_string: '2020.1',supported: false},{version: '2019.4',version_string: '2019.4',supported: true},{version: '2019.3',version_string: '2019.3',supported: false},{version: '2019.2',version_string: '2019.2',supported: false},{version: '2019.1',version_string: '2019.1',supported: false},{version: '2018.4',version_string: '2018.4',supported: true},{version: '2018.3',version_string: '2018.3',supported: false},{version: '2018.2',version_string: '2018.2',supported: false},{version: '2018.1',version_string: '2018.1',supported: false},{version: '2017.4',version_string: '2017.4',supported: false},{version: '2017.3',version_string: '2017.3',supported: false},{version: '2017.2',version_string: '2017.2',supported: false},{version: '2017.1',version_string: '2017.1',supported: false},{version: '5.6',version_string: '560',supported: false},];</script><script type="text/javascript" src="../StaticFiles/js/jquery.js"></script><script type="text/javascript" src="../StaticFiles/js/core.js"></script><script type="text/javascript" src="../StaticFiles/js/jquery.sidebar.min.js"></script><script type="text/javascript" src="docdata/toc.js"></script><script type="text/javascript" src=""></script><script type="text/javascript" src="../StaticFiles/js/custom.js"></script><link rel="stylesheet" type="text/css" href="../StaticFiles/css/core.css">
+<link rel="stylesheet" type="text/css" href="../StaticFiles/css/custom.css">
+<link rel="canonical" href="https://docs.unity3d.com/cn/2020.3/Manual/SpriteAtlasExperimental.html">
+<link rel="alternate" href="https://docs.unity3d.com/en/2020.3/Manual/SpriteAtlasExperimental.html" hreflang="en">
+<link rel="alternate" href="https://docs.unity3d.com/cn/2020.3/Manual/SpriteAtlasExperimental.html" hreflang="zh">
+<link rel="alternate" href="https://docs.unity3d.com/ja/2020.3/Manual/SpriteAtlasExperimental.html" hreflang="ja">
+<link rel="alternate" href="https://docs.unity3d.com/es/2020.3/Manual/SpriteAtlasExperimental.html" hreflang="es">
+<link rel="alternate" href="https://docs.unity3d.com/kr/2020.3/Manual/SpriteAtlasExperimental.html" hreflang="ko">
+<link rel="alternate" href="https://docs.unity3d.com/ru/2020.3/Manual/SpriteAtlasExperimental.html" hreflang="ru">
+<link rel="alternate" href="https://docs.unity3d.com/2020.3/Documentation/Manual/SpriteAtlasExperimental.html" hreflang="x-default">
+</head>
+<body>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5V25JL6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div id="nav-open" for="nav-input"><span></span></div>
+<div class="logo"><a href="./index.html"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="搜索手册..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul class="menu-items">
+<li class="menu-item"><a href="../Manual/index.html" class="selected">手册</a></li>
+<li class="menu-item"><a href="../ScriptReference/index.html" class="">脚本 API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="https://unity3d.com/">
+                unity3d.com
+              </a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-switcher">
+<div class="current toggle" data-target=".version-list"><div class="version-number">
+<div class="d-inline-block">
+          Version:
+          <b>2020.3</b>
+</div>
+<div class="d-inline-block arrow"></div>
+</div></div>
+<div class="version-list" style="display:none;">
+<ul class="versions">
+<li class="supported"><a class="docs_version_url_2021.1" href="/cn/2021.1/Manual/SpriteAtlasExperimental.html">2021.1</a></li>
+<li class="supported"><a class="docs_version_url_2020.3" href="/cn/2020.3/Manual/SpriteAtlasExperimental.html">2020.3</a></li>
+<li class=""><a class="docs_version_url_2020.2" href="/cn/2020.2/Manual/SpriteAtlasExperimental.html">2020.2</a></li>
+<li class=""><a class="docs_version_url_2020.1" href="/cn/2020.1/Manual/SpriteAtlasExperimental.html">2020.1</a></li>
+<li class="supported"><a class="docs_version_url_2019.4" href="/cn/2019.4/Manual/SpriteAtlasExperimental.html">2019.4</a></li>
+<li class=""><a class="docs_version_url_2019.3" href="/cn/2019.3/Manual/SpriteAtlasExperimental.html">2019.3</a></li>
+<li class=""><a class="docs_version_url_2019.2" href="/cn/2019.2/Manual/SpriteAtlasExperimental.html">2019.2</a></li>
+<li class=""><a class="docs_version_url_2019.1" href="/cn/2019.1/Manual/SpriteAtlasExperimental.html">2019.1</a></li>
+<li class="supported"><a class="docs_version_url_2018.4" href="/cn/2018.4/Manual/SpriteAtlasExperimental.html">2018.4</a></li>
+<li class=""><a class="docs_version_url_2018.3" href="/cn/2018.3/Manual/SpriteAtlasExperimental.html">2018.3</a></li>
+<li class=""><a class="docs_version_url_2018.2" href="/cn/2018.2/Manual/SpriteAtlasExperimental.html">2018.2</a></li>
+<li class=""><a class="docs_version_url_2018.1" href="/cn/2018.1/Manual/SpriteAtlasExperimental.html">2018.1</a></li>
+<li class=""><a class="docs_version_url_2017.4" href="/cn/2017.4/Manual/SpriteAtlasExperimental.html">2017.4</a></li>
+<li class=""><a class="docs_version_url_2017.3" href="/cn/2017.3/Manual/SpriteAtlasExperimental.html">2017.3</a></li>
+<li class=""><a class="docs_version_url_2017.2" href="/cn/2017.2/Manual/SpriteAtlasExperimental.html">2017.2</a></li>
+<li class=""><a class="docs_version_url_2017.1" href="/cn/2017.1/Manual/SpriteAtlasExperimental.html">2017.1</a></li>
+<li class=""><a class="docs_version_url_560" href="/cn/560/Manual/SpriteAtlasExperimental.html">5.6</a></li>
+<div class="versionsWithThisPage" style="display:none;"><li><p>包含此页的版本：</p></li></div>
+<div class="versionsWithoutThisPage" style="display:none;"><li><p>不含此页的版本：</p></li></div>
+</ul>
+<ul class="description">
+<li>
+<div class="supported-box"></div>受支持</li>
+<li>
+<div class="legacy-box"></div>旧版</li>
+</ul>
+</div>
+</div>
+<ul class="nav-menu-items">
+<li class="menu-item"><a href="../Manual/index.html" class="selected">手册</a></li>
+<li class="menu-item"><a href="../ScriptReference/index.html" class="">脚本 API</a></li>
+</ul>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">语言:
+        <span class="b">中文</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a data-lang="en" href="/2020.3/Documentation/Manual/SpriteAtlasExperimental.html">English</a></li>
+<li><a data-lang="cn" href="/cn/2020.3/Manual/SpriteAtlasExperimental.html">中文</a></li>
+<li><a data-lang="ja" href="/ja/2020.3/Manual/SpriteAtlasExperimental.html">日本語</a></li>
+<li><a data-lang="es" href="/es/2020.3/Manual/SpriteAtlasExperimental.html">Español</a></li>
+<li><a data-lang="kr" href="/kr/2020.3/Manual/SpriteAtlasExperimental.html">한국어</a></li>
+<li><a data-lang="ru" href="/ru/2020.3/Manual/SpriteAtlasExperimental.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar hidden"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc">
+<h2>手册</h2>
+<div class="version-switcher">
+<div class="current toggle" data-target=".version-list"><div class="version-number">
+<div class="d-inline-block">
+          Version:
+          <b>2020.3</b>
+</div>
+<div class="d-inline-block arrow"></div>
+</div></div>
+<div class="version-list" style="display:none;">
+<ul class="versions">
+<li class="supported"><a class="docs_version_url_2021.1" href="/cn/2021.1/Manual/SpriteAtlasExperimental.html">2021.1</a></li>
+<li class="supported"><a class="docs_version_url_2020.3" href="/cn/2020.3/Manual/SpriteAtlasExperimental.html">2020.3</a></li>
+<li class=""><a class="docs_version_url_2020.2" href="/cn/2020.2/Manual/SpriteAtlasExperimental.html">2020.2</a></li>
+<li class=""><a class="docs_version_url_2020.1" href="/cn/2020.1/Manual/SpriteAtlasExperimental.html">2020.1</a></li>
+<li class="supported"><a class="docs_version_url_2019.4" href="/cn/2019.4/Manual/SpriteAtlasExperimental.html">2019.4</a></li>
+<li class=""><a class="docs_version_url_2019.3" href="/cn/2019.3/Manual/SpriteAtlasExperimental.html">2019.3</a></li>
+<li class=""><a class="docs_version_url_2019.2" href="/cn/2019.2/Manual/SpriteAtlasExperimental.html">2019.2</a></li>
+<li class=""><a class="docs_version_url_2019.1" href="/cn/2019.1/Manual/SpriteAtlasExperimental.html">2019.1</a></li>
+<li class="supported"><a class="docs_version_url_2018.4" href="/cn/2018.4/Manual/SpriteAtlasExperimental.html">2018.4</a></li>
+<li class=""><a class="docs_version_url_2018.3" href="/cn/2018.3/Manual/SpriteAtlasExperimental.html">2018.3</a></li>
+<li class=""><a class="docs_version_url_2018.2" href="/cn/2018.2/Manual/SpriteAtlasExperimental.html">2018.2</a></li>
+<li class=""><a class="docs_version_url_2018.1" href="/cn/2018.1/Manual/SpriteAtlasExperimental.html">2018.1</a></li>
+<li class=""><a class="docs_version_url_2017.4" href="/cn/2017.4/Manual/SpriteAtlasExperimental.html">2017.4</a></li>
+<li class=""><a class="docs_version_url_2017.3" href="/cn/2017.3/Manual/SpriteAtlasExperimental.html">2017.3</a></li>
+<li class=""><a class="docs_version_url_2017.2" href="/cn/2017.2/Manual/SpriteAtlasExperimental.html">2017.2</a></li>
+<li class=""><a class="docs_version_url_2017.1" href="/cn/2017.1/Manual/SpriteAtlasExperimental.html">2017.1</a></li>
+<li class=""><a class="docs_version_url_560" href="/cn/560/Manual/SpriteAtlasExperimental.html">5.6</a></li>
+<div class="versionsWithThisPage" style="display:none;"><li><p>包含此页的版本：</p></li></div>
+<div class="versionsWithoutThisPage" style="display:none;"><li><p>不含此页的版本：</p></li></div>
+</ul>
+<ul class="description">
+<li>
+<div class="supported-box"></div>受支持</li>
+<li>
+<div class="legacy-box"></div>旧版</li>
+</ul>
+</div>
+</div>
+<div class="clear"></div>
+</div></div></div></div></div>
+<div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="Unity2D.html">2D</a></li>
+<li><a href="Sprites.html">精灵</a></li>
+<li><a href="class-SpriteAtlas.html">精灵图集</a></li>
+<li>Sprite Atlas version 2 (Experimental)</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="SpritePackerModes.html"></a></span><div class="tip">Sprite Packer 模式</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="SpritePacker.html"></a></span><div class="tip">Sprite Packer</div>
+</div>
+</div></div>
+<h1>Sprite Atlas version 2 (Experimental)</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>The current Sprite Atlas packs Textures (from Sprites, Sprites within Textures, and Sprites in folders) into an Atlas Texture. It packs these Textures when it enters Play Mode, or when it builds the Player or an AssetBundle. </p>
+
+<p>To configure the packing behavior, go to <strong>Edit &gt; Project Settings &gt; Editor &gt; Sprite Packer </strong>and select an option from the <strong>Mode</strong> drop-down menu.</p>
+
+<p><img src="../uploads/Main/SprAtlasV2_ProjectSettings.png" alt=""><br>Setting the <strong>Sprite Packer Mode</strong> to Sprite Atlas V2 Experimental.</p>
+
+<p><a href="AssetDatabase.html">AssetDatabase V1</a> cannot have dependencies, and has no Importer support for named objects, so Unity packs its Sprite Atlases through a custom mechanism and stores the output data of Textures and render data in the <em>Library/AtlasCache</em> folder. </p>
+
+<p>However, Sprite Atlas version 1 does not support the <a href="CacheServer.html">Cache Server</a>. Unity can only cache <a href="AssetDatabase.html">Artifacts</a> (data generated through the import process) stored in the Library folder. As it does not use an <a href="ScriptedImporters.html">importer</a>, the current system cannot use some of the functionalities exposed by <a href="https://docs.unity3d.com/2019.3/Documentation/Manual/AssetDatabase.html">AssetDatabase V2</a> (ADBV2) such as Cache Server support.</p>
+
+<p>The v2 experimental system is developed with the following criteria in mind:</p>
+
+<ol>
+<li><p>Use an Importer workflow that supports Cache Server and other ADBV2 features. </p></li>
+<li><p>No changes to the Sprite Atlas Runtime Object.</p></li>
+<li><p>Ensure that there is a migration path between current Sprite Atlases to Sprite Atlas V2.</p></li>
+<li><p>No major changes to the UX workflow.</p></li>
+</ol>
+
+<h2>Sprite Atlas version 2 Inspector properties</h2>
+
+<p>There are no changes to the Inspector properties and settings from that of Sprite Atlas v1 except for the following :</p>
+
+<ol>
+<li><p>You cannot drag a folder directly onto <strong>Objects for Packing</strong> to add the contents for packing in Sprite Atlas v2, however dragging Sprites and Textures directly onto the window is still supported.</p></li>
+<li><p>The imported Sprite Atlas object is displayed at the bottom of the Inspector.</p></li>
+</ol>
+
+<p><img src="../uploads/Main/SprAtlasV2_Inspector.png" alt=""><br>Updated Inspector properties.</p>
+
+<p>To enable the experimental Sprite Atlas v2 mode, go to <strong>Edit &gt; Project Settings &gt; Sprite Packer</strong>, open the <strong>Mode</strong> drop-down menu and select <strong>Sprite Atlas V2 (Experimental) - Enabled</strong>.</p>
+
+<figure>
+<img src="../uploads/Main/SprAtlasV2_ProjectSettings.png" alt="">
+</figure>
+
+<p>When you enable the experimental Sprite Atlas v2:</p>
+
+<ol>
+<li><p>It becomes the default Mode when you create a Sprite Atlas through the Assets menu (<strong>Assets &gt; Create &gt; Sprite Atlas</strong>).</p></li>
+<li><p>Unity automatically migrates all existing Sprite Atlas v1 Assets to Sprite Atlas v2.</p></li>
+</ol>
+
+<p>Due to the automatic migration, you should make a backup of your v1 Sprite Atlases before you enable Sprite Atlas v2. Assets converted to v2 are incompatible with v1, and cannot be converted back.</p>
+
+<p>Editing Sprite Atlas v2 via scripting is currently not supported.</p>
+
+<hr>
+
+<ul>
+<li><span class="page-history">Sprite Atlas version 2 Experimental has been added for <a href="https://docs.unity3d.com/2020.1/Documentation/Manual/30_search.html?q=newin20201">2020.1</a> <span class="search-words">NewIn20201</span></span></li>
+</ul>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="SpritePackerModes.html"></a></span><div class="tip">Sprite Packer 模式</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="SpritePacker.html"></a></span><div class="tip">Sprite Packer</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper">
+<div class="footer clear">
+<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="menu">
+<a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div>
+<div></div>
+</div>
+</div></div></div>
+</div>
+</body>
+</html>

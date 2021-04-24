@@ -1,0 +1,492 @@
+<!DOCTYPE html><html class="no-js" lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-5V25JL6');
+    </script><link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="twitter:card" content="summary">
+<meta property="og:title" content="Editing properties - Unity 手册">
+<title>Editing properties - Unity 手册</title>
+<meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/PropertiesExample.png">
+<meta name="description" content="Properties are settings and options for GameObject components and Assets. You edit properties in an Inspector window.">
+<meta property="og:description" content="Properties are settings and options for GameObject components and Assets. You edit properties in an Inspector window.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFiles/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFiles/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFiles/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFiles/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFiles/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFiles/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFiles/images/favicons/tileicon-144x144.png">
+<script type="text/javascript" src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" charset="UTF-8" data-domain-script="6e91be4c-3145-4ea2-aa64-89d716064836"></script><script type="text/javascript">
+        function OptanonWrapper() { }
+    </script><script>
+      var docs_type = 'Manual';
+      var lang = 'cn';
+      var page = 'EditingValueProperties';
+      if(!page) page = 'index';
+      var version = '2020.3';
+      var docs_versions = [{version: '2021.1',version_string: '2021.1',supported: true},{version: '2020.3',version_string: '2020.3',supported: true},{version: '2020.2',version_string: '2020.2',supported: false},{version: '2020.1',version_string: '2020.1',supported: false},{version: '2019.4',version_string: '2019.4',supported: true},{version: '2019.3',version_string: '2019.3',supported: false},{version: '2019.2',version_string: '2019.2',supported: false},{version: '2019.1',version_string: '2019.1',supported: false},{version: '2018.4',version_string: '2018.4',supported: true},{version: '2018.3',version_string: '2018.3',supported: false},{version: '2018.2',version_string: '2018.2',supported: false},{version: '2018.1',version_string: '2018.1',supported: false},{version: '2017.4',version_string: '2017.4',supported: false},{version: '2017.3',version_string: '2017.3',supported: false},{version: '2017.2',version_string: '2017.2',supported: false},{version: '2017.1',version_string: '2017.1',supported: false},{version: '5.6',version_string: '560',supported: false},];</script><script type="text/javascript" src="../StaticFiles/js/jquery.js"></script><script type="text/javascript" src="../StaticFiles/js/core.js"></script><script type="text/javascript" src="../StaticFiles/js/jquery.sidebar.min.js"></script><script type="text/javascript" src="docdata/toc.js"></script><script type="text/javascript" src=""></script><script type="text/javascript" src="../StaticFiles/js/custom.js"></script><link rel="stylesheet" type="text/css" href="../StaticFiles/css/core.css">
+<link rel="stylesheet" type="text/css" href="../StaticFiles/css/custom.css">
+<link rel="canonical" href="https://docs.unity3d.com/cn/2020.3/Manual/EditingValueProperties.html">
+<link rel="alternate" href="https://docs.unity3d.com/en/2020.3/Manual/EditingValueProperties.html" hreflang="en">
+<link rel="alternate" href="https://docs.unity3d.com/cn/2020.3/Manual/EditingValueProperties.html" hreflang="zh">
+<link rel="alternate" href="https://docs.unity3d.com/ja/2020.3/Manual/EditingValueProperties.html" hreflang="ja">
+<link rel="alternate" href="https://docs.unity3d.com/es/2020.3/Manual/EditingValueProperties.html" hreflang="es">
+<link rel="alternate" href="https://docs.unity3d.com/kr/2020.3/Manual/EditingValueProperties.html" hreflang="ko">
+<link rel="alternate" href="https://docs.unity3d.com/ru/2020.3/Manual/EditingValueProperties.html" hreflang="ru">
+<link rel="alternate" href="https://docs.unity3d.com/2020.3/Documentation/Manual/EditingValueProperties.html" hreflang="x-default">
+</head>
+<body>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5V25JL6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div id="nav-open" for="nav-input"><span></span></div>
+<div class="logo"><a href="./index.html"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="搜索手册..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul class="menu-items">
+<li class="menu-item"><a href="../Manual/index.html" class="selected">手册</a></li>
+<li class="menu-item"><a href="../ScriptReference/index.html" class="">脚本 API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="https://unity3d.com/">
+                unity3d.com
+              </a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-switcher">
+<div class="current toggle" data-target=".version-list"><div class="version-number">
+<div class="d-inline-block">
+          Version:
+          <b>2020.3</b>
+</div>
+<div class="d-inline-block arrow"></div>
+</div></div>
+<div class="version-list" style="display:none;">
+<ul class="versions">
+<li class="supported"><a class="docs_version_url_2021.1" href="/cn/2021.1/Manual/EditingValueProperties.html">2021.1</a></li>
+<li class="supported"><a class="docs_version_url_2020.3" href="/cn/2020.3/Manual/EditingValueProperties.html">2020.3</a></li>
+<li class=""><a class="docs_version_url_2020.2" href="/cn/2020.2/Manual/EditingValueProperties.html">2020.2</a></li>
+<li class=""><a class="docs_version_url_2020.1" href="/cn/2020.1/Manual/EditingValueProperties.html">2020.1</a></li>
+<li class="supported"><a class="docs_version_url_2019.4" href="/cn/2019.4/Manual/EditingValueProperties.html">2019.4</a></li>
+<li class=""><a class="docs_version_url_2019.3" href="/cn/2019.3/Manual/EditingValueProperties.html">2019.3</a></li>
+<li class=""><a class="docs_version_url_2019.2" href="/cn/2019.2/Manual/EditingValueProperties.html">2019.2</a></li>
+<li class=""><a class="docs_version_url_2019.1" href="/cn/2019.1/Manual/EditingValueProperties.html">2019.1</a></li>
+<li class="supported"><a class="docs_version_url_2018.4" href="/cn/2018.4/Manual/EditingValueProperties.html">2018.4</a></li>
+<li class=""><a class="docs_version_url_2018.3" href="/cn/2018.3/Manual/EditingValueProperties.html">2018.3</a></li>
+<li class=""><a class="docs_version_url_2018.2" href="/cn/2018.2/Manual/EditingValueProperties.html">2018.2</a></li>
+<li class=""><a class="docs_version_url_2018.1" href="/cn/2018.1/Manual/EditingValueProperties.html">2018.1</a></li>
+<li class=""><a class="docs_version_url_2017.4" href="/cn/2017.4/Manual/EditingValueProperties.html">2017.4</a></li>
+<li class=""><a class="docs_version_url_2017.3" href="/cn/2017.3/Manual/EditingValueProperties.html">2017.3</a></li>
+<li class=""><a class="docs_version_url_2017.2" href="/cn/2017.2/Manual/EditingValueProperties.html">2017.2</a></li>
+<li class=""><a class="docs_version_url_2017.1" href="/cn/2017.1/Manual/EditingValueProperties.html">2017.1</a></li>
+<li class=""><a class="docs_version_url_560" href="/cn/560/Manual/EditingValueProperties.html">5.6</a></li>
+<div class="versionsWithThisPage" style="display:none;"><li><p>包含此页的版本：</p></li></div>
+<div class="versionsWithoutThisPage" style="display:none;"><li><p>不含此页的版本：</p></li></div>
+</ul>
+<ul class="description">
+<li>
+<div class="supported-box"></div>受支持</li>
+<li>
+<div class="legacy-box"></div>旧版</li>
+</ul>
+</div>
+</div>
+<ul class="nav-menu-items">
+<li class="menu-item"><a href="../Manual/index.html" class="selected">手册</a></li>
+<li class="menu-item"><a href="../ScriptReference/index.html" class="">脚本 API</a></li>
+</ul>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">语言:
+        <span class="b">中文</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a data-lang="en" href="/2020.3/Documentation/Manual/EditingValueProperties.html">English</a></li>
+<li><a data-lang="cn" href="/cn/2020.3/Manual/EditingValueProperties.html">中文</a></li>
+<li><a data-lang="ja" href="/ja/2020.3/Manual/EditingValueProperties.html">日本語</a></li>
+<li><a data-lang="es" href="/es/2020.3/Manual/EditingValueProperties.html">Español</a></li>
+<li><a data-lang="kr" href="/kr/2020.3/Manual/EditingValueProperties.html">한국어</a></li>
+<li><a data-lang="ru" href="/ru/2020.3/Manual/EditingValueProperties.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar hidden"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc">
+<h2>手册</h2>
+<div class="version-switcher">
+<div class="current toggle" data-target=".version-list"><div class="version-number">
+<div class="d-inline-block">
+          Version:
+          <b>2020.3</b>
+</div>
+<div class="d-inline-block arrow"></div>
+</div></div>
+<div class="version-list" style="display:none;">
+<ul class="versions">
+<li class="supported"><a class="docs_version_url_2021.1" href="/cn/2021.1/Manual/EditingValueProperties.html">2021.1</a></li>
+<li class="supported"><a class="docs_version_url_2020.3" href="/cn/2020.3/Manual/EditingValueProperties.html">2020.3</a></li>
+<li class=""><a class="docs_version_url_2020.2" href="/cn/2020.2/Manual/EditingValueProperties.html">2020.2</a></li>
+<li class=""><a class="docs_version_url_2020.1" href="/cn/2020.1/Manual/EditingValueProperties.html">2020.1</a></li>
+<li class="supported"><a class="docs_version_url_2019.4" href="/cn/2019.4/Manual/EditingValueProperties.html">2019.4</a></li>
+<li class=""><a class="docs_version_url_2019.3" href="/cn/2019.3/Manual/EditingValueProperties.html">2019.3</a></li>
+<li class=""><a class="docs_version_url_2019.2" href="/cn/2019.2/Manual/EditingValueProperties.html">2019.2</a></li>
+<li class=""><a class="docs_version_url_2019.1" href="/cn/2019.1/Manual/EditingValueProperties.html">2019.1</a></li>
+<li class="supported"><a class="docs_version_url_2018.4" href="/cn/2018.4/Manual/EditingValueProperties.html">2018.4</a></li>
+<li class=""><a class="docs_version_url_2018.3" href="/cn/2018.3/Manual/EditingValueProperties.html">2018.3</a></li>
+<li class=""><a class="docs_version_url_2018.2" href="/cn/2018.2/Manual/EditingValueProperties.html">2018.2</a></li>
+<li class=""><a class="docs_version_url_2018.1" href="/cn/2018.1/Manual/EditingValueProperties.html">2018.1</a></li>
+<li class=""><a class="docs_version_url_2017.4" href="/cn/2017.4/Manual/EditingValueProperties.html">2017.4</a></li>
+<li class=""><a class="docs_version_url_2017.3" href="/cn/2017.3/Manual/EditingValueProperties.html">2017.3</a></li>
+<li class=""><a class="docs_version_url_2017.2" href="/cn/2017.2/Manual/EditingValueProperties.html">2017.2</a></li>
+<li class=""><a class="docs_version_url_2017.1" href="/cn/2017.1/Manual/EditingValueProperties.html">2017.1</a></li>
+<li class=""><a class="docs_version_url_560" href="/cn/560/Manual/EditingValueProperties.html">5.6</a></li>
+<div class="versionsWithThisPage" style="display:none;"><li><p>包含此页的版本：</p></li></div>
+<div class="versionsWithoutThisPage" style="display:none;"><li><p>不含此页的版本：</p></li></div>
+</ul>
+<ul class="description">
+<li>
+<div class="supported-box"></div>受支持</li>
+<li>
+<div class="legacy-box"></div>旧版</li>
+</ul>
+</div>
+</div>
+<div class="clear"></div>
+</div></div></div></div></div>
+<div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityOverview.html">在 Unity 中操作</a></li>
+<li><a href="UsingTheEditor.html">Unity 的界面</a></li>
+<li>Editing properties</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="InspectorFocused.html"></a></span><div class="tip">Focused Inspectors</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="Toolbar.html"></a></span><div class="tip">工具栏</div>
+</div>
+</div></div>
+<h1>Editing properties</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>Properties are settings and options for GameObject components and Assets. You edit properties in an <a href="UsingTheInspector.html">Inspector window</a>.</p>
+
+<figure>
+<img src="../uploads/Main/PropertiesExample.png" alt="光源组件显示了各种值和引用属性">
+<figcaption>光源组件显示了各种值和引用属性</figcaption>
+</figure>
+
+<p>Properties fall into the following major categories:</p>
+
+<ul>
+<li>
+<strong>References:</strong> links to other GameObjects and Assets.</li>
+<li>
+<strong>Values:</strong> numbers, colors, on/off settings, text, and so on.</li>
+</ul>
+
+<h2>引用</h2>
+
+<p>Reference properties take compatible Project Assets or GameObjects in the Scene as inputs. For example, the <a href="class-MeshFilter.html">Mesh Filter</a> component refers to a <a href="class-Mesh.html">Mesh</a> Asset somewhere in the Project.</p>
+
+<p>When you create a component, its reference properties are unassigned.</p>
+
+<figure>
+<img src="../uploads/Main/RefPropUnassigned.png" alt="">
+</figure>
+
+<p>You assign references to properties by <a href="#ref-assign-dnd">dragging and dropping</a> objects and Assets onto reference property fields, or using an <a href="#ref-assign-objectpicker">Object Picker window</a>.</p>
+
+<p>Some reference properties accept specific types of components (for example, <a href="class-Transform.html">Transform</a>). When you assign a GameObject to those properties, Unity locates the first component of the required type on the GameObject, and assigns it to the reference property. If the GameObject doesn’t have any components of the right type, you cannot assign the GameObject to the property.</p>
+
+<p><a name="ref-assign-dnd"></a></p>
+
+<h3>Assigning references by dragging and dropping</h3>
+
+<p>To assign a reference to a property, drag and drop a compatible GameObject or Asset onto the property field in the Inspector.</p>
+
+<figure>
+<img src="../uploads/Main/inspector-refprop-dragdrop.png" alt="">
+</figure>
+
+<p><a name="ref-assign-objectpicker"></a></p>
+
+<h3>Assigning references with the Object Picker window</h3>
+
+<p>Use the Object Picker window to find and select a reference object to assign.</p>
+
+<figure>
+<img src="../uploads/Main/inspector-refprop-picker.png" alt="">
+</figure>
+
+<ol>
+<li>Click the small circle icon to the right of the property in the Inspector to open an Object Picker window.</li>
+<li>Find the object or Asset you want to reference, and double click it to assign it to the property.</li>
+</ol>
+
+<h2>值</h2>
+
+<p>You edit most value properties using simple controls. For example:</p>
+
+<p><strong>Fields</strong> where you enter text and numeric values.</p>
+
+<figure>
+<img src="../uploads/Main/inspector-property-numeric.png" alt="">
+</figure>
+
+<p>You can type numeric values directly in a property field, or click and drag the property label to increase and decrease the value.</p>
+
+<figure>
+<img src="../uploads/Main/inspector-property-numeric-drag.png" alt="">
+</figure>
+
+<p>Some properties also have <strong>sliders</strong> for adjusting numeric values.</p>
+
+<figure>
+<img src="../uploads/Main/inspector-property-slider.png" alt="">
+</figure>
+
+<p><strong>Check boxes</strong> where you toggle properties on and off.</p>
+
+<figure>
+<img src="../uploads/Main/inspector-property-checkbox.png" alt="">
+</figure>
+
+<p><strong>Drop-downs</strong> and <strong>pop-ups</strong> where you choose one of multiple possible values.</p>
+
+<figure>
+<img src="../uploads/Main/inspector-property-popup.png" alt="">
+</figure>
+
+<p>Some GameObjects and Assets have more complex properties that you edit with specialized controls or dedicated editors. The rest of this section describes how to set these complex properties.</p>
+
+<p><a name="color-values"></a></p>
+
+<h3>Color values</h3>
+
+<p>The Inspector window displays color properties as swatches.</p>
+
+<figure>
+<img src="../uploads/Main/inspector-property-color.png" alt="">
+</figure>
+
+<p>Click any swatch to open a color picker or an HDR color picker, depending on the context. For example, Unity displays the HDR Color Picker window when you edit the <strong>emission</strong> color property in the <a href="shader-StandardShader.html">standard shader</a>.</p>
+
+<figure>
+<img src="../uploads/Main/color-pickers.png" alt="The Unity Color Picker window (left) and HDR color picker (right)">
+<figcaption>The Unity Color Picker window (left) and HDR color picker (right)</figcaption>
+</figure>
+
+<p>You can also use the eyedropper tool to pick color values from anywhere on the screen.</p>
+
+<figure>
+<img src="../uploads/Main/inspector-property-color-eyedropper.png" alt="">
+</figure>
+
+<p>To pick a color, click the eyedropper button next to a color property, then click anywhere on the screen. Unity sets the color property to the color of the pixel you clicked.</p>
+
+<p>You can save the colors you set in reusable <a href="#swatch-libraries">swatch libraries</a> that you can share between projects.</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>Tip:</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">On macOS, you can choose to use the system color picker instead of Unity’s built-in color picker. From the <a href="Preferences.html">Preferences</a> (menu: <strong>Unity &gt; Preferences</strong>) open the <strong>General</strong> panel and select <strong>macOS Color Picker</strong>.</td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="gradient-values"></a></p>
+
+<h3>Gradient values</h3>
+
+<p>A gradient is a visual representation of a color progression. They are useful for blending one color gradually into another, over space or time.</p>
+
+<p>In Unity, you set some gradients by setting two or more color properties.</p>
+
+<p>Other gradients provide dedicated editors to control the relative amount of each color.</p>
+
+<figure>
+<img src="../uploads/Main/inspector-gradient-editor.png" alt="The Particle System gradient editor">
+<figcaption>The Particle System gradient editor</figcaption>
+</figure>
+
+<p>A dedicated gradient editor shows the main colors, called <em>stops</em>, and all the intermediate shades between them in the gradient bar (1).</p>
+
+<p>Upward-pointing arrows along the bottom of the gradient bar represent color stops (2).</p>
+
+<ul>
+<li>Click a stop to select it. Unity displays its color value in the <strong>Color field</strong>.
+
+<ul>
+<li>Click the color swatch (3) to edit the color using a standard <a href="#color-values">color picker</a>.</li>
+<li>You can also use the eyedropper tool (4) to pick color values from anywhere on the screen. Click the eyedropper button then click anywhere on the screen. Unity sets the color property to the color of the pixel you clicked.</li>
+</ul>
+</li>
+<li>Click an empty area under the gradient bar to add a stop.</li>
+<li>Click and drag a stop to move it.</li>
+<li>To delete a stop, select it and use the <strong>Ctrl/Cmd + Delete</strong> shortcut.</li>
+</ul>
+
+<p>Downward-pointing arrows above the gradient bar represent alpha stops (5) that control the gradient’s transparency at a given point. You add and edit alpha stops the same way you edit color stops. When you select an alpha stop, the gradient editor displays an <strong>Alpha</strong> slider instead of the <strong>Color</strong> field.</p>
+
+<p>By default, a gradient has two stops set to 100% alpha, which makes the gradient fully opaque. You can edit a stop to adjust the transparency, and add additional stops as needed.</p>
+
+<p><a name="curves"></a></p>
+
+<h3>曲线</h3>
+
+<p>A <strong>Curve</strong> is a line graph that shows the response (on the y axis) to the varying value of an input (on the x axis).</p>
+
+<figure>
+<img src="../uploads/Main/CurveEditor.png" alt="Animation 窗口中的曲线编辑器">
+<figcaption>Animation 窗口中的曲线编辑器</figcaption>
+</figure>
+
+<p>Unity uses curves in a variety of different contexts, especially in animation. Curve editors have a number of different options and tools. For details, see <a href="EditingCurves.html">Editing Curves</a>.</p>
+
+<h3>Bar sliders</h3>
+
+<p>A bar slider is a specialized control that lets you allocate a particular resource visually. For example, the <a href="class-LODGroup.html">LOD Group component</a> uses a bar slider to define transitions between GameObject LOD levels.</p>
+
+<figure>
+<img src="../uploads/Main/LODGroup-SpeedTreeModels.png" alt="The LOD Group selection bar is a type of bar slider control">
+<figcaption>The LOD Group selection bar is a type of bar slider control</figcaption>
+</figure>
+
+<p>You adjust the relative values of each segment in the bar by dragging the segment edges. Some bar sliders also have draggable handles.</p>
+
+<h3>数组</h3>
+
+<p>When a script exposes an array as a public variable, the Inspector displays a control that lets you edit both the number of items in the array (<strong>Size</strong>) and the values or references within it.</p>
+
+<figure>
+<img src="../uploads/Main/ArrayInspector.png" alt="A script with a Vector3 array property">
+<figcaption>A script with a Vector3 array property</figcaption>
+</figure>
+
+<p>When you decrease the <strong>Size</strong> value, Unity removes values from the end of the array.
+When you increase the <strong>Size</strong> value, Unity copies the current last value into all the new elements it adds.</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;">Tip:</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">To set up an array whose values are mostly the same, add the first element and then change the size to copy its value to subsequent elements.</td>
+</tr>
+</tbody>
+</table>
+
+<p><a name="swatch-libraries"></a></p>
+
+<h2>Creating swatch libraries</h2>
+
+<p>Use swatch libraries to reuse, save, and share colors, gradients, and animation curves. You can save and choose swatches in the <a href="#color-values">Color Picker</a>, <a href="#gradient-values">Gradient Editor</a>, and <a href="#curves">Curve Editor</a>.</p>
+
+<figure>
+<img src="../uploads/Main/PresetLibrary.png" alt="Swatches section in the Unity Color Picker">
+<figcaption>Swatches section in the Unity Color Picker</figcaption>
+</figure>
+
+<p>样本库是保存在文件中的样本集合。Swatches 部分一次显示一个样本库。</p>
+
+<p>要保存样本，请执行以下操作：</p>
+
+<p>1.打开拾色器、渐变编辑器或曲线编辑器。例如，在 <a href="Hierarchy.html">Hierarchy</a> 窗口中选择 <strong>Main Camera</strong>。
+1.在 <a href="UsingTheInspector.html">Inspector</a> 窗口中，单击 <strong>Background Color</strong>。
+1.在拾色器窗口中，根据喜好调整颜色、渐变或曲线。
+1.在 <strong>Swatches</strong> 中，单击轮廓框。
+1.如果视图处于 List 模式，则可以选择输入样本的名称。</p>
+
+<figure>
+<img src="../uploads/Main/SwatchSaving.png" alt="在 Grid 视图中保存颜色的示例">
+<figcaption>在 Grid 视图中保存颜色的示例</figcaption>
+</figure>
+
+<p>拖放样本可更改其顺序。右键单击样本可将其移动到顶部、对进行替换、重命名或删除。也可以通过按住 Alt/Option 并单击样本来将其删除。</p>
+
+<p>使用 <strong>Swatches</strong> 中的下拉菜单：</p>
+
+<ul>
+<li>选择 <strong>List</strong> 或 <strong>Grid</strong> 来更改视图。List 视图还显示样本的名称。</li>
+<li>选择一个样本库。</li>
+<li>选择 <strong>Create a Library</strong> 可创建新的样本库以及保存该样本库的位置。</li>
+<li>选择 <strong>Reveal Current Library Location</strong> 可在 Windows 资源管理器/Mac OS Finder 中查看当前库。</li>
+</ul>
+
+<p>默认情况下，Unity 将样本库保存在用户偏好设置中。也可以在项目中保存样本库。Unity 将项目样本库保存在 <em>Assets</em> 文件夹的 <em>Editor</em> 文件夹中。要在用户之间共享项目样本库，或将样本库包含在资源包中，请将它们添加到修订控制存储库中。</p>
+
+<p>要编辑项目样本库，请执行以下操作：</p>
+
+<p>1.在 <a href="ProjectView.html">Project</a> 窗口中选择样本库。
+2.在 <a href="UsingTheInspector.html">Inspector</a> 窗口中，单击 <strong>Edit</strong>。</p>
+
+<hr>
+
+<ul>
+<li><span class="page-history">Reorganized Inspector section pages in Unity 2020.1</span></li>
+</ul>
+<!-- area:authoring -->
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="InspectorFocused.html"></a></span><div class="tip">Focused Inspectors</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="Toolbar.html"></a></span><div class="tip">工具栏</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper">
+<div class="footer clear">
+<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="menu">
+<a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div>
+<div></div>
+</div>
+</div></div></div>
+</div>
+</body>
+</html>

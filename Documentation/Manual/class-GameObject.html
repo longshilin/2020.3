@@ -1,0 +1,459 @@
+<!DOCTYPE html><html class="no-js" lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-5V25JL6');
+    </script><link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="twitter:card" content="summary">
+<meta property="og:title" content="Important Classes - GameObject - Unity 手册">
+<title>Important Classes - GameObject - Unity 手册</title>
+<meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/GameObjectSceneStatusProperties.png">
+<meta name="description" content="Unity’s GameObject class is used to represent anything which can exist in a Scene.">
+<meta property="og:description" content="Unity’s GameObject class is used to represent anything which can exist in a Scene.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFiles/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFiles/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFiles/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFiles/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFiles/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFiles/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFiles/images/favicons/tileicon-144x144.png">
+<script type="text/javascript" src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" charset="UTF-8" data-domain-script="6e91be4c-3145-4ea2-aa64-89d716064836"></script><script type="text/javascript">
+        function OptanonWrapper() { }
+    </script><script>
+      var docs_type = 'Manual';
+      var lang = 'cn';
+      var page = 'class-GameObject';
+      if(!page) page = 'index';
+      var version = '2020.3';
+      var docs_versions = [{version: '2021.1',version_string: '2021.1',supported: true},{version: '2020.3',version_string: '2020.3',supported: true},{version: '2020.2',version_string: '2020.2',supported: false},{version: '2020.1',version_string: '2020.1',supported: false},{version: '2019.4',version_string: '2019.4',supported: true},{version: '2019.3',version_string: '2019.3',supported: false},{version: '2019.2',version_string: '2019.2',supported: false},{version: '2019.1',version_string: '2019.1',supported: false},{version: '2018.4',version_string: '2018.4',supported: true},{version: '2018.3',version_string: '2018.3',supported: false},{version: '2018.2',version_string: '2018.2',supported: false},{version: '2018.1',version_string: '2018.1',supported: false},{version: '2017.4',version_string: '2017.4',supported: false},{version: '2017.3',version_string: '2017.3',supported: false},{version: '2017.2',version_string: '2017.2',supported: false},{version: '2017.1',version_string: '2017.1',supported: false},{version: '5.6',version_string: '560',supported: false},];</script><script type="text/javascript" src="../StaticFiles/js/jquery.js"></script><script type="text/javascript" src="../StaticFiles/js/core.js"></script><script type="text/javascript" src="../StaticFiles/js/jquery.sidebar.min.js"></script><script type="text/javascript" src="docdata/toc.js"></script><script type="text/javascript" src=""></script><script type="text/javascript" src="../StaticFiles/js/custom.js"></script><link rel="stylesheet" type="text/css" href="../StaticFiles/css/core.css">
+<link rel="stylesheet" type="text/css" href="../StaticFiles/css/custom.css">
+<link rel="canonical" href="https://docs.unity3d.com/cn/2020.3/Manual/class-GameObject.html">
+<link rel="alternate" href="https://docs.unity3d.com/en/2020.3/Manual/class-GameObject.html" hreflang="en">
+<link rel="alternate" href="https://docs.unity3d.com/cn/2020.3/Manual/class-GameObject.html" hreflang="zh">
+<link rel="alternate" href="https://docs.unity3d.com/ja/2020.3/Manual/class-GameObject.html" hreflang="ja">
+<link rel="alternate" href="https://docs.unity3d.com/es/2020.3/Manual/class-GameObject.html" hreflang="es">
+<link rel="alternate" href="https://docs.unity3d.com/kr/2020.3/Manual/class-GameObject.html" hreflang="ko">
+<link rel="alternate" href="https://docs.unity3d.com/ru/2020.3/Manual/class-GameObject.html" hreflang="ru">
+<link rel="alternate" href="https://docs.unity3d.com/2020.3/Documentation/Manual/class-GameObject.html" hreflang="x-default">
+</head>
+<body>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5V25JL6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div id="nav-open" for="nav-input"><span></span></div>
+<div class="logo"><a href="./index.html"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="搜索手册..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul class="menu-items">
+<li class="menu-item"><a href="../Manual/index.html" class="selected">手册</a></li>
+<li class="menu-item"><a href="../ScriptReference/index.html" class="">脚本 API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="https://unity3d.com/">
+                unity3d.com
+              </a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-switcher">
+<div class="current toggle" data-target=".version-list"><div class="version-number">
+<div class="d-inline-block">
+          Version:
+          <b>2020.3</b>
+</div>
+<div class="d-inline-block arrow"></div>
+</div></div>
+<div class="version-list" style="display:none;">
+<ul class="versions">
+<li class="supported"><a class="docs_version_url_2021.1" href="/cn/2021.1/Manual/class-GameObject.html">2021.1</a></li>
+<li class="supported"><a class="docs_version_url_2020.3" href="/cn/2020.3/Manual/class-GameObject.html">2020.3</a></li>
+<li class=""><a class="docs_version_url_2020.2" href="/cn/2020.2/Manual/class-GameObject.html">2020.2</a></li>
+<li class=""><a class="docs_version_url_2020.1" href="/cn/2020.1/Manual/class-GameObject.html">2020.1</a></li>
+<li class="supported"><a class="docs_version_url_2019.4" href="/cn/2019.4/Manual/class-GameObject.html">2019.4</a></li>
+<li class=""><a class="docs_version_url_2019.3" href="/cn/2019.3/Manual/class-GameObject.html">2019.3</a></li>
+<li class=""><a class="docs_version_url_2019.2" href="/cn/2019.2/Manual/class-GameObject.html">2019.2</a></li>
+<li class=""><a class="docs_version_url_2019.1" href="/cn/2019.1/Manual/class-GameObject.html">2019.1</a></li>
+<li class="supported"><a class="docs_version_url_2018.4" href="/cn/2018.4/Manual/class-GameObject.html">2018.4</a></li>
+<li class=""><a class="docs_version_url_2018.3" href="/cn/2018.3/Manual/class-GameObject.html">2018.3</a></li>
+<li class=""><a class="docs_version_url_2018.2" href="/cn/2018.2/Manual/class-GameObject.html">2018.2</a></li>
+<li class=""><a class="docs_version_url_2018.1" href="/cn/2018.1/Manual/class-GameObject.html">2018.1</a></li>
+<li class=""><a class="docs_version_url_2017.4" href="/cn/2017.4/Manual/class-GameObject.html">2017.4</a></li>
+<li class=""><a class="docs_version_url_2017.3" href="/cn/2017.3/Manual/class-GameObject.html">2017.3</a></li>
+<li class=""><a class="docs_version_url_2017.2" href="/cn/2017.2/Manual/class-GameObject.html">2017.2</a></li>
+<li class=""><a class="docs_version_url_2017.1" href="/cn/2017.1/Manual/class-GameObject.html">2017.1</a></li>
+<li class=""><a class="docs_version_url_560" href="/cn/560/Manual/class-GameObject.html">5.6</a></li>
+<div class="versionsWithThisPage" style="display:none;"><li><p>包含此页的版本：</p></li></div>
+<div class="versionsWithoutThisPage" style="display:none;"><li><p>不含此页的版本：</p></li></div>
+</ul>
+<ul class="description">
+<li>
+<div class="supported-box"></div>受支持</li>
+<li>
+<div class="legacy-box"></div>旧版</li>
+</ul>
+</div>
+</div>
+<ul class="nav-menu-items">
+<li class="menu-item"><a href="../Manual/index.html" class="selected">手册</a></li>
+<li class="menu-item"><a href="../ScriptReference/index.html" class="">脚本 API</a></li>
+</ul>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">语言:
+        <span class="b">中文</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a data-lang="en" href="/2020.3/Documentation/Manual/class-GameObject.html">English</a></li>
+<li><a data-lang="cn" href="/cn/2020.3/Manual/class-GameObject.html">中文</a></li>
+<li><a data-lang="ja" href="/ja/2020.3/Manual/class-GameObject.html">日本語</a></li>
+<li><a data-lang="es" href="/es/2020.3/Manual/class-GameObject.html">Español</a></li>
+<li><a data-lang="kr" href="/kr/2020.3/Manual/class-GameObject.html">한국어</a></li>
+<li><a data-lang="ru" href="/ru/2020.3/Manual/class-GameObject.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar hidden"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc">
+<h2>手册</h2>
+<div class="version-switcher">
+<div class="current toggle" data-target=".version-list"><div class="version-number">
+<div class="d-inline-block">
+          Version:
+          <b>2020.3</b>
+</div>
+<div class="d-inline-block arrow"></div>
+</div></div>
+<div class="version-list" style="display:none;">
+<ul class="versions">
+<li class="supported"><a class="docs_version_url_2021.1" href="/cn/2021.1/Manual/class-GameObject.html">2021.1</a></li>
+<li class="supported"><a class="docs_version_url_2020.3" href="/cn/2020.3/Manual/class-GameObject.html">2020.3</a></li>
+<li class=""><a class="docs_version_url_2020.2" href="/cn/2020.2/Manual/class-GameObject.html">2020.2</a></li>
+<li class=""><a class="docs_version_url_2020.1" href="/cn/2020.1/Manual/class-GameObject.html">2020.1</a></li>
+<li class="supported"><a class="docs_version_url_2019.4" href="/cn/2019.4/Manual/class-GameObject.html">2019.4</a></li>
+<li class=""><a class="docs_version_url_2019.3" href="/cn/2019.3/Manual/class-GameObject.html">2019.3</a></li>
+<li class=""><a class="docs_version_url_2019.2" href="/cn/2019.2/Manual/class-GameObject.html">2019.2</a></li>
+<li class=""><a class="docs_version_url_2019.1" href="/cn/2019.1/Manual/class-GameObject.html">2019.1</a></li>
+<li class="supported"><a class="docs_version_url_2018.4" href="/cn/2018.4/Manual/class-GameObject.html">2018.4</a></li>
+<li class=""><a class="docs_version_url_2018.3" href="/cn/2018.3/Manual/class-GameObject.html">2018.3</a></li>
+<li class=""><a class="docs_version_url_2018.2" href="/cn/2018.2/Manual/class-GameObject.html">2018.2</a></li>
+<li class=""><a class="docs_version_url_2018.1" href="/cn/2018.1/Manual/class-GameObject.html">2018.1</a></li>
+<li class=""><a class="docs_version_url_2017.4" href="/cn/2017.4/Manual/class-GameObject.html">2017.4</a></li>
+<li class=""><a class="docs_version_url_2017.3" href="/cn/2017.3/Manual/class-GameObject.html">2017.3</a></li>
+<li class=""><a class="docs_version_url_2017.2" href="/cn/2017.2/Manual/class-GameObject.html">2017.2</a></li>
+<li class=""><a class="docs_version_url_2017.1" href="/cn/2017.1/Manual/class-GameObject.html">2017.1</a></li>
+<li class=""><a class="docs_version_url_560" href="/cn/560/Manual/class-GameObject.html">5.6</a></li>
+<div class="versionsWithThisPage" style="display:none;"><li><p>包含此页的版本：</p></li></div>
+<div class="versionsWithoutThisPage" style="display:none;"><li><p>不含此页的版本：</p></li></div>
+</ul>
+<ul class="description">
+<li>
+<div class="supported-box"></div>受支持</li>
+<li>
+<div class="legacy-box"></div>旧版</li>
+</ul>
+</div>
+</div>
+<div class="clear"></div>
+</div></div></div></div></div>
+<div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="ScriptingSection.html">Scripting</a></li>
+<li><a href="ScriptingImportantClasses.html">Important Classes </a></li>
+<li>Important Classes - GameObject</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="ScriptingImportantClasses.html"></a></span><div class="tip">Important Classes </div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="class-MonoBehaviour.html"></a></span><div class="tip">Important Classes - MonoBehaviour</div>
+</div>
+</div></div>
+<h1>Important Classes - GameObject</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>Unity’s GameObject class is used to represent anything which can exist in a <strong>Scene</strong>.</p>
+
+<p>This page relates to <strong>scripting</strong> with Unity’s GameObject class. To learn about using GameObjects in the Scene and Hierarchy in the Unity Editor, see the <a href="GameObjects.html">GameObjects section of the user manual</a>. For an exhaustive reference of every member of the GameObject class, see the <a href="../ScriptReference/GameObject.html">GameObject script reference</a>.</p>
+
+<p>GameObjects are the building blocks for scenes in Unity, and act as a container for functional components which determine how the GameObject looks, and what the GameObject does.</p>
+
+<p>In scripting, the <a href="../ScriptReference/GameObject.html">GameObject class</a> provides a collection of methods which allow you to work with them in your code, including finding, making connections and sending messages between GameObjects, as well as adding or removing components attached to the GameObject, and setting values relating to their status within the scene.</p>
+
+<h2>Scene Status properties</h2>
+
+<p>There are a number of properties you can modify via script which relate to the GameObject’s status in the scene. These typically correspond to the controls visible near the top of the inspector when you have a GameObject selected in the Editor.</p>
+
+<p>They don’t relate to any particular component, and are visible in the inspector of a GameObject at the top, above the list of components.</p>
+
+<figure>
+<img src="../uploads/Main/GameObjectSceneStatusProperties.png" alt="A typical GameObject viewed in the Inspector. In this case, a directional light. The Scene status properties are outlined in red.">
+<figcaption>A typical GameObject viewed in the Inspector. In this case, a directional light. The Scene status properties are outlined in red.</figcaption>
+</figure>
+
+<p>All GameObjects share a set of controls at the top of the inspector relating to the GameObject’s status within the scene, and these can be controlled via the GameObject’s scripting API.</p>
+
+<p>If you want a quick list of all the available API for the GameObject class, see the <a href="https://docs.unity3d.com/ScriptReference/GameObject.html">GameObject Script Reference</a>.</p>
+
+<h2>Active Status</h2>
+
+<figure>
+<img src="../uploads/Main/GOInspectorActiveSetting.png" alt="The Active status of a GameObject">
+<figcaption>The Active status of a GameObject</figcaption>
+</figure>
+
+<p>GameObjects are active by default, but can be deactivated, which turns off all components attached to the GameObject. This generally means it will become invisible, and not receive any of the normal callbacks or events such as <a href="../ScriptReference/MonoBehaviour.Update.html"><code>Update</code></a> or <a href="../ScriptReference/MonoBehaviour.FixedUpdate.html"><code>FixedUpdate</code></a>.</p>
+
+<p>The GameObject’s <strong>active</strong> status is represented by the checkbox to the left of the GameObject’s name. You can control this using <a href="../ScriptReference/GameObject.SetActive.html"><code>GameObject.SetActive</code></a>.</p>
+
+<p>You can also read the current active state using <a href="../ScriptReference/GameObject-activeSelf.html"><code>GameObject.activeSelf</code></a>, and whether or not the GameObject is actually active in the scene using <a href="../ScriptReference/GameObject-activeInHierarchy.html"><code>GameObject.activeInHierarchy</code></a>. The latter of these two is necessary because whether a GameObject is actually active is determined by its own active state, plus the active state of all of its parents. If any of its parents are not active, then it will not be active despite its own active setting.</p>
+
+<h2>Static Status</h2>
+
+<figure>
+<img src="../uploads/Main/GOInspectorStaticSetting.png" alt="The Static status of a GameObject">
+<figcaption>The Static status of a GameObject</figcaption>
+</figure>
+
+<p>Some of Unity’s systems, such as Global Illumination, Occlusion, Batching, Navigation, and Reflection Probes, rely on the static status of a GameObject. You can control which of Unity’s systems consider the GameObject to be <strong>static</strong> by using <a href="../ScriptReference/GameObjectUtility.SetStaticEditorFlags.html"><code>GameObjectUtility.SetStaticEditorFlags</code></a>. Read more about <a href="https://docs.unity3d.com/Manual/StaticObjects.html">Static GameObjects here</a>.</p>
+
+<h2>Tags and Layers</h2>
+
+<figure>
+<img src="../uploads/Main/GOInspectorTagsAndLayers.png" alt="The Static status of a GameObject">
+<figcaption>The Static status of a GameObject</figcaption>
+</figure>
+
+<p><strong>Tags</strong> provide a way of marking and identifying types of GameObject in your scene and <strong>Layers</strong> provide a similar but distinct way of including or excluding groups of GameObjects from certain built-in actions, such as <a href="class-MeshRenderer.html">rendering</a> or <a href="CollidersOverview.html">physics collisions</a>.</p>
+
+<p>For more information about how to use Tags and Layers in the editor, see the main user manual pages for <a href="Tags.html">Tags</a> and <a href="Layers.html">Layers</a>.</p>
+
+<p>You can modify tag and layer values via script using the <a href="../ScriptReference/GameObject-tag.html"><code>GameObject.tag</code></a> and <a href="../ScriptReference/GameObject-layer.html"><code>GameObject.layer</code></a> properties. You can also check a GameObject’s tag efficiently by using the <a href="../ScriptReference/GameObject.CompareTag.html"><code>CompareTag</code></a> method, which includes validation of whether the tag exists, and does not cause any memory allocation.</p>
+
+<h2>Adding and Removing components</h2>
+
+<p>You can add or remove components at runtime, which can be useful for procedurally creating GameObjects, or modifying how a GameObject behaves. Note, you can also <a href="../ScriptReference/Behaviour-enabled.html"><code>enable</code> or <code>disable</code></a> script components, and some types of built-in component, via script without destroying them.</p>
+
+<p>The best way to add a component at runtime is to use <a href="../ScriptReference/GameObject.AddComponent.html"><code>AddComponent&lt;Type&gt;</code></a>, specifying the type of component within angle brackets as shown. To remove a component, you must use <a href="../ScriptReference/Object.Destroy.html"><code>Object.Destroy</code></a> method on the component itself.</p>
+
+<h2>Accessing components</h2>
+
+<p>The simplest case is where a script on a GameObject needs to access another Component attached to the same GameObject (remember, other scripts attached to a GameObject are also Components themselves). To do this, the first step is to get a reference to the Component instance you want to work with. This is done with the <a href="../ScriptReference/Component.GetComponent.html">GetComponent</a> method. Typically, you want to assign the Component object to a variable, which is done in using the following code. In this example the script is getting a reference to a Rigidbody component on the same GameObject:</p>
+
+<pre><code>void Start ()
+{
+    Rigidbody rb = GetComponent&lt;Rigidbody&gt;();
+}
+</code></pre>
+
+<p>获得对组件实例的引用后，可以像在 Inspector 中一样设置其属性的值：</p>
+
+<pre><code>void Start ()
+{
+    Rigidbody rb = GetComponent&lt;Rigidbody&gt;();
+
+    // Change the mass of the object's Rigidbody.
+    rb.mass = 10f;
+}
+</code></pre>
+
+<p>You can also call methods on the Component reference, for example:</p>
+
+<pre><code>void Start ()
+{
+    Rigidbody rb = GetComponent&lt;Rigidbody&gt;();
+
+    // Add a force to the Rigidbody.
+    rb.AddForce(Vector3.up * 10f);
+}
+</code></pre>
+
+<p>Note: you can have multiple custom scripts attached to the same GameObject. If you need to access one script from another, you can use GetComponent as usual and just use the name of the script class (or the filename) to specify the Component type you want.</p>
+
+<p>If you attempt to retrieve a Component type that hasn’t actually been added to the GameObject then GetComponent will return null; you will get a null reference error at runtime if you try to change any values on a null object.</p>
+
+<h2>Accessing components on other GameObjects</h2>
+
+<p>Although they sometimes operate in isolation, it is common for scripts to keep track of other GameObjects, or more commonly, components on other GameObjects. For example, in a cooking game, a chef might need to know the position of the stove. Unity provides a number of different ways to retrieve other objects, each appropriate to certain situations.</p>
+
+<h3>Linking to GameObjects with variables in the inspector</h3>
+
+<p>查找相关游戏对象的最直接方法是向脚本添加公共的游戏对象变量：</p>
+
+<pre><code>public class Chef : MonoBehaviour
+{
+    public GameObject stove;
+
+    // Other variables and functions...
+}
+</code></pre>
+
+<p>This variable will be visible in the Inspector, as a <strong>GameObject field</strong>.</p>
+
+<p>You can now drag an object from the scene or Hierarchy panel onto this variable to assign it.</p>
+
+<figure>
+<img src="../uploads/Main/PrefabDragIntoField.png" alt="Dragging a Prefab from the Project window into a GameObject field in the Inspector window">
+<figcaption>Dragging a Prefab from the Project window into a GameObject field in the Inspector window</figcaption>
+</figure>
+
+<p>The GetComponent function and Component access variables are available for this object as with any other, so you can use code like the following:</p>
+
+<pre><code>public class Chef : MonoBehaviour {
+
+    public GameObject stove;
+
+    void Start() {
+        // Start the chef 2 units in front of the stove.
+        transform.position = stove.transform.position + Vector3.forward * 2f;
+    }
+}
+</code></pre>
+
+<p>此外，如果在脚本中声明组件类型的公共变量，则可以拖动已附加该组件的任何游戏对象。这样可以直接访问组件而不是游戏对象本身。</p>
+
+<pre><code>public Transform playerTransform; 
+</code></pre>
+
+<p>在处理具有永久连接的单个对象时，将对象与变量链接在一起是最有用的方法。可以使用数组变量来链接同一类型的多个对象，但仍然必须在 Unity Editor 中（而不是在运行时）进行连接。在运行时定位对象通常很方便，因此 Unity 提供了两种基本方法来执行此操作，如下所述。</p>
+
+<h3>Finding child GameObjects</h3>
+
+<p>Sometimes, a game Scene makes use of a number of GameObjects of the same type, such as collectibles, waypoints and obstacles. These may need to be tracked by a particular script that supervises or reacts to them (for example, all waypoints might need to be available to a pathfinding script). Using variables to link these GameObjects is a possibility but it makes the design process tedious if each new waypoint has to be dragged to a variable on a script. Likewise, if a waypoint is deleted, then it is a nuisance to have to remove the variable reference to the missing GameObject. In cases like this, it is often better to manage a set of GameObjects by making them all children of one parent GameObject. The child GameObjects can be retrieved using the parent’s Transform component (because all GameObjects implicitly have a Transform):</p>
+
+<pre><code>using UnityEngine;
+
+public class WaypointManager : MonoBehaviour {
+    public Transform[] waypoints;
+
+    void Start()
+    {
+        waypoints = new Transform[transform.childCount];
+        int i = 0;
+
+        foreach (Transform t in transform)
+        {
+            waypoints[i++] = t;
+        }
+    }
+}
+</code></pre>
+
+<p>You can also locate a specific child object by name using the <a href="../ScriptReference/Transform.Find.html">Transform.Find</a> method:
+<code>
+transform.Find("Frying Pan");
+</code></p>
+
+<p>This can be useful when a GameObject has a child GameObject that can be added and removed during gameplay. A tool or utensil that can be picked up and put down during gameplay is a good example of this.</p>
+
+<h2>Sending and Broadcasting messages</h2>
+
+<p>While editing your project you can set up references between GameObjects in the Inspector. However, sometimes it is impossible to set up these in advance (for example, finding the nearest item to a character in your game, or making references to GameObjects that were instantiated after the Scene loaded). In these cases, you can find references and send messages between GameObjects at runtime.</p>
+
+<p><a href="../ScriptReference/GameObject.BroadcastMessage.html"><code>BroadcastMessage</code></a> allows you to send out a call to a named method, without being specific about where that method should be implemented. You can use it to call a named method on every MonoBehaviour on a particular GameObject or any of its children. You can optionally choose to enforce that there must be at least one receiver (or an error is generated).</p>
+
+<p><a href="../ScriptReference/GameObject.SendMessage.html"><code>SendMessage</code></a> is a little more specific, and only sends the call to a named method on the GameObject itself, and not its children.</p>
+
+<p><a href="../ScriptReference/GameObject.SendMessageUpwards.html"><code>SendMessageUpwards</code></a> is similar, but sends out the call to a named method on the GameObject and all its <em>parents</em>.</p>
+
+<h2>Finding GameObjects by Name or Tag</h2>
+
+<p>只要有某种信息可以识别游戏对象，就可以在场景层级视图中的任何位置找到该游戏对象。可使用 <a href="../ScriptReference/GameObject.Find.html">GameObject.Find</a> 函数按名称检索各个对象：</p>
+
+<pre><code>GameObject player;
+
+void Start()
+{
+    player = GameObject.Find("MainHeroCharacter");
+}
+</code></pre>
+
+<p>An object or a collection of objects can also be located by their tag using the <a href="../ScriptReference/GameObject.FindWithTag.html">GameObject.FindWithTag</a> and <a href="../ScriptReference/GameObject.FindGameObjectsWithTag.html">GameObject.FindGameObjectsWithTag</a> methods.</p>
+
+<p>For example, in a cooking game with one chef character, and multiple stoves in the kitchen (each tagged “Stove”):</p>
+
+<pre><code>GameObject chef;
+GameObject[] stoves;
+
+void Start()
+{
+    chef = GameObject.FindWithTag("Chef");
+    stoves = GameObject.FindGameObjectsWithTag("Stove");
+}
+</code></pre>
+
+<h2>Creating and Destroying GameObjects</h2>
+
+<p>You can create and destroy GameObjects while your project is running. In Unity, a GameObject can be created using the <a href="../ScriptReference/Object.Instantiate.html">Instantiate</a> method which makes a new copy of an existing object.</p>
+
+<p>For a full description and examples of how to instantiate GameObjects, see <a href="InstantiatingPrefabs.html">Instantiating Prefabs at Runtime</a>.</p>
+
+<p>There is also a <a href="../ScriptReference/Object.Destroy.html">Destroy</a> method that will destroy an object after the frame update has finished or optionally after a short time delay:</p>
+
+<pre><code>void OnCollisionEnter(Collision otherObj) {
+    if (otherObj.gameObject.tag == "Garbage can") {
+        Destroy(gameObject, 0.5f);
+    }
+}
+
+</code></pre>
+
+<p>Note that the Destroy function can destroy individual components without affecting the GameObject itself. A common mistake is to write this, assuming it will destroy the GameObject the script it’s attached to…</p>
+
+<pre><code> Destroy(this);
+</code></pre>
+
+<p>…whereas, because “this” represents the script, and not the GameObject, it will actually just destroy the script component that calls it, leaving the GameObject behind, with the script component removed.</p>
+
+<h2>Primitives</h2>
+
+<p>The GameObject class offers script-based alternatives to the options available in Unity’s GameObject menu that allows you to create <a href="PrimitiveObjects.html">primitive objects</a>.</p>
+
+<p>To create instances of Unity’s built-in primitives, use <a href="../ScriptReference/GameObject.CreatePrimitive.html">GameObject.CreatePrimitive</a>, which instantiates a primitive of the type that you specify. The available primitive types are <a href="../ScriptReference/PrimitiveType.Sphere.html">Sphere</a>, <a href="../ScriptReference/PrimitiveType.Capsule.html">Capsule</a>, <a href="../ScriptReference/PrimitiveType.Cylinder.html">Cylinder</a>, <a href="../ScriptReference/PrimitiveType.Cube.html">Cube</a>, <a href="../ScriptReference/PrimitiveType.Plane.html">Plane</a> and <a href="../ScriptReference/PrimitiveType.Quad.html">Quad</a>.</p>
+
+<figure>
+<img src="../uploads/Main/AllPrimitives.png" alt="The Primitive shapes available in Unitys GameObject menu">
+<figcaption>The Primitive shapes available in Unity’s GameObject menu</figcaption>
+</figure>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="ScriptingImportantClasses.html"></a></span><div class="tip">Important Classes </div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="class-MonoBehaviour.html"></a></span><div class="tip">Important Classes - MonoBehaviour</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper">
+<div class="footer clear">
+<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="menu">
+<a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div>
+<div></div>
+</div>
+</div></div></div>
+</div>
+</body>
+</html>
