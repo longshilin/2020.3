@@ -193,11 +193,11 @@
 
 <p>Use Roslyn analyzers and ruleset files in Unity projects to inspect your code for style, quality, and other issues.</p>
 
-<p>You can use existing analyzer libraries to inspect your code, as well as write your own analyzers to promote the best practices or conventions within your organization. This page explains how to use Roslyn analyzers in an empty Unity Project.</p>
+<p>You can use existing analyzer libraries to inspect your code, and write your own analyzers to promote the best practices or conventions within your organization. This page explains how to use Roslyn analyzers in an empty Unity Project.</p>
 
 <h2>Using an existing Roslyn analyzer library</h2>
 
-<p>To use an existing Roslyn analyzer library, <a href="https://www.nuget.org/packages/ErrorProne.NET.CoreAnalyzers/">install the ErrorProne.NET.CoreAnalyzers library from NuGet</a> inside your project. Then open the <code>.csproj</code> file. There are three .dll files included in the project as analyzers:</p>
+<p>To use an existing Roslyn analyzer library, <a href="https://www.nuget.org/packages/ErrorProne.NET.CoreAnalyzers/">install the ErrorProne.NET.CoreAnalyzers library from NuGet</a> inside your project. Then open the <code>.csproj</code> file. The project has three .dll files included as analyzers:</p>
 
 <pre><code>  &lt;ItemGroup&gt;
     &lt;Analyzer Include="packages\ErrorProne.NET.CoreAnalyzers.0.1.2\analyzers\dotnet\cs\ErrorProne.NET.Core.dll" /&gt;
@@ -206,9 +206,9 @@
   &lt;/ItemGroup&gt;
 </code></pre>
 
-<p>Move the three .dll files into the <code>Assets</code> folder (or any folder nested in the <code>Assets</code> folder) in your Unity project. In the Editor, select the .dll file. In the <a href="PluginInspector.html">Plugin Inspector</a>, under <strong>Select platforms for plugin</strong>, disable <strong>Any Platform</strong>. Under <strong>Include platforms</strong>, disable <strong>Editor</strong> and <strong>Standalone</strong> platforms. Then, give all of the DLLs a new label called <code>RoslynAnalyzer</code>.</p>
+<p>Move the three .dll files into the <code>Assets</code> folder (or any folder nested in the <code>Assets</code> folder) in your Unity project. In the Editor, select the .dll file. In the <a href="PluginInspector.html">Plugin Inspector</a>, under <strong>Select platforms for plugin</strong>, disable <strong>Any Platform</strong>. Under <strong>Include platforms</strong>, disable <strong>Editor</strong> and <strong>Standalone</strong> platforms. Then, give all the DLLs a new <a href="Searching.html">Asset Label</a> called <code>RoslynAnalyzer</code>.</p>
 
-<p>To test that everything works correctly, save a file named <code>RethrowError.cs</code> with the following code in your project’s <code>Assets</code> folder. This code causes <code>ErrorProne.NET</code> to raise warnings about incorrect exception propagation and suspicious exception handling:</p>
+<p>To test that everything works, save a file named <code>RethrowError.cs</code> with the following code in your project’s <code>Assets</code> folder. This code causes <code>ErrorProne.NET</code> to raise warnings about incorrect exception propagation and suspicious exception handling:</p>
 
 <pre><code class="language-csharp">using System;
 using UnityEngine;
@@ -243,7 +243,7 @@ Assets\RethrowError.cs(15,19): warning ERP021: Incorrect exception propagation. 
 
 <h2>Analyzer scope</h2>
 
-<p>Analyzers apply globally to any assembly in your project if they are in the <code>Assets</code> folder, or in a subfolder that does not contain an <a href="ScriptCompilationAssemblyDefinitionFiles.html">assembly definition file</a> in any of their parent folders. If an analyzer is in a folder that contains an assembly definition, or a subfolder of such a folder, the analyzer only applies to the assembly generated from that assembly definition, and to any other assembly that references it.</p>
+<p>Analyzers apply globally to any assembly in your project if they’re in the <code>Assets</code> folder, or in a subfolder that doesn’t contain an <a href="ScriptCompilationAssemblyDefinitionFiles.html">assembly definition file</a> in any of their parent folders. If an analyzer is in a folder that contains an assembly definition, or a subfolder of such a folder, the analyzer only applies to the assembly generated from that assembly definition, and to any other assembly that references it.</p>
 
 <p>This means that a <a href="PackagesList.html">package</a> can supply analyzers that only apply to code that uses the package, for example to help guide package users to use the package API correctly.</p>
 
@@ -251,9 +251,9 @@ Assets\RethrowError.cs(15,19): warning ERP021: Incorrect exception propagation. 
 
 <p>To define your own rules on how to handle the various warnings and errors that the analyzers in your project raise, you can create a ruleset file. For more information on how to create a custom ruleset, see Microsoft’s Visual Studio documentation on <a href="https://docs.microsoft.com/en-us/visualstudio/code-quality/how-to-create-a-custom-rule-set?view=vs-2019">how to create a custom rule set</a>.</p>
 
-<p>In the <code>Assets</code> root folder, place a ruleset file named <code>Default.ruleset</code>. The rules you define in <code>Default.ruleset</code> apply to all predefined assemblies (for example <code>Assembly-CSharp.dll</code>), as well as all assemblies that are built using <code>.asmdef</code> files. </p>
+<p>In the <code>Assets</code> root folder, place a ruleset file named <code>Default.ruleset</code>. The rules you define in <code>Default.ruleset</code> apply to all predefined assemblies (for example <code>Assembly-CSharp.dll</code>), and all assemblies that are built using <code>.asmdef</code> files. </p>
 
-<p>To override the rules in <code>Default.ruleset</code> for a predefined assembly, create a <code>.ruleset</code> file in the root folder with the name <code>[PredefinedAssemblyName].ruleset</code>. For example, the rules in <code>Assembly-CSharp.ruleset</code> apply to the code in <code>Assembly-CSharp.dll</code>. Only these <code>.ruleset</code> files are permitted inside the root folder:</p>
+<p>To override the rules in <code>Default.ruleset</code> for a predefined assembly, create a <code>.ruleset</code> file in the root folder with the name <code>[PredefinedAssemblyName].ruleset</code>. For example, the rules in <code>Assembly-CSharp.ruleset</code> apply to the code in <code>Assembly-CSharp.dll</code>. Only these <code>.ruleset</code> files are allowed inside the root folder:</p>
 
 <ul>
 <li><code>Default.ruleset</code></li>

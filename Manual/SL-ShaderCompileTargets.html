@@ -11,16 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="着色器编译目标级别 - Unity 手册">
-<title>着色器编译目标级别 - Unity 手册</title>
-<meta name="description" content="编写表面着色器或常规
-着色器程序时，HLSL 源代码可以
-编译到不同&amp;#8220;着色器模型&amp;#8221;中。
-为了支持使用更现代的 GPI 功能，必须使用更高的着色器编译目标。">
-<meta property="og:description" content="编写表面着色器或常规
-着色器程序时，HLSL 源代码可以
-编译到不同&amp;#8220;着色器模型&amp;#8221;中。
-为了支持使用更现代的 GPI 功能，必须使用更高的着色器编译目标。">
+<meta property="og:title" content="Shader compilation: targeting shader models and GPU features - Unity 手册">
+<title>Shader compilation: targeting shader models and GPU features - Unity 手册</title>
+<meta name="description" content="In HLSL, shader models are a way of describing the capabilities of a GPU. You can tell Unity to compile shaders for GPUs with certain capabilities, either by specifying the shader model that the GPU must support, or by specifying individual features that the GPU must support.">
+<meta property="og:description" content="In HLSL, shader models are a way of describing the capabilities of a GPU. You can tell Unity to compile shaders for GPUs with certain capabilities, either by specifying the shader model that the GPU must support, or by specifying individual features that the GPU must support.">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -186,32 +180,36 @@
 <li><a href="ShadersOverview.html">编写着色器</a></li>
 <li><a href="SL-Reference.html">着色器参考</a></li>
 <li><a href="SL-ShaderPrograms.html">编写顶点和片元着色器</a></li>
-<li>着色器编译目标级别</li>
+<li>Shader compilation: targeting shader models and GPU features</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-ShadingLanguage.html"></a></span><div class="tip">Unity 中使用的着色语言</div>
+<span class="prev"><a href="SL-PragmaDirectives.html"></a></span><div class="tip">Shader compilation: pragma directives</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-DataTypesAndPrecision.html"></a></span><div class="tip">着色器数据类型和精度</div>
+<span class="next"><a href="SL-ShaderCompilationAPIs.html"></a></span><div class="tip">Shader compilation: targeting graphics APIs</div>
 </div>
 </div></div>
-<h1>着色器编译目标级别</h1>
+<h1>Shader compilation: targeting shader models and GPU features</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>编写<a href="SL-SurfaceShaders.html">表面着色器</a>或常规
-<a href="SL-ShaderPrograms.html">着色器程序</a>时，HLSL 源代码可以
-编译到不同“着色器模型”中。
-为了支持使用更现代的 GPI 功能，必须使用更高的着色器编译目标。</p>
+<p>In HLSL, shader models are a way of describing the capabilities of a GPU. You can tell Unity to compile shaders for GPUs with certain capabilities, either by specifying the shader model that the GPU must support, or by specifying individual features that the GPU must support.</p>
 
-<p><strong>注意</strong>：使用更高的着色器编译目标可能会阻止着色器在较旧的 GPU 或平台上运行。</p>
+<p>For general information on shader models in HLSL, see the Microsoft documentation: <a href="https://docs.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl-models">Shader Models vs Shader Profiles
+</a>.</p>
 
-<p>应使用 <code>#pragma target</code> <em>名称</em> 指令或更具体的 <code>#pragma require</code> <em>功能 …</em> 指令来指示编译目标。例如：</p>
+<h2>Specifying a shader model or GPU feature</h2>
+
+<p>To specify a shader model or GPU feature that your Unity shader requires, you use pragma directives in your HLSL code. You can indicate the shader model by using the <code>#pragma target</code> <em>name</em> directive, and you can indicate features using the <code>#pragma require</code> <em>feature …</em> directive.</p>
+
+<p>例如：</p>
 
 <pre><code># pragma target 3.5
 # pragma require integers 2darray instancing
 </code></pre>
+
+<p>For more information on pragma directives, see <a href="SL-PragmaDirectives.html">HLSL pragma directives</a>.</p>
 
 <h2>默认编译目标</h2>
 
@@ -385,10 +383,10 @@
 <!-- area:graphics -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-ShadingLanguage.html"></a></span><div class="tip">Unity 中使用的着色语言</div>
+<span class="prev"><a href="SL-PragmaDirectives.html"></a></span><div class="tip">Shader compilation: pragma directives</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-DataTypesAndPrecision.html"></a></span><div class="tip">着色器数据类型和精度</div>
+<span class="next"><a href="SL-ShaderCompilationAPIs.html"></a></span><div class="tip">Shader compilation: targeting graphics APIs</div>
 </div>
 </div>
 </div>

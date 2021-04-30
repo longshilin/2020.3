@@ -243,7 +243,18 @@
 
 <p>我们建议您使用<a href="VideoPlayer.html">视频播放器</a>播放视频文件。该组件取代了早期的电影纹理功能。</p>
 
-<hr>
+<h3>Known video compatibility issues</h3>
+
+<ul>
+<li><p>Not all devices support resolutions greater than 640 × 360. Runtime checks verify device support and don’t play the movie if there’s a failure.</p></li>
+<li><p>对于 Android Lollipop（5.0 和 5.1.1）及更高版本，您可以使用任何分辨率或任意数量的音频通道，只要目标设备支持即可。</p></li>
+<li><p>Unity supports playback from asset bundles for uncompressed bundles, read directly from disk.</p></li>
+<li><p>Playback support for compressed asset bundles is available for Android 9 and later.</p></li>
+<li><p>格式兼容性问题会显示在 <code>adb logcat</code> 输出中，并且始终以 <code>AndroidVideoMedia</code> 为前缀。</p></li>
+<li><p>Watch for device-specific error messages located near the error messages in Unity: they’re not available to the engine, but often explain what the compatibility issue is.</p></li>
+</ul>
+
+<h2>* Unity doesn’t support native webM/VP8 transparency. You must transcode VP8-encoded webM clips for transparency to function on Android.</h2>
 
 <ul>
 <li><span class="page-history">针对 Unity 2019.3 更新了页面内容</span></li>

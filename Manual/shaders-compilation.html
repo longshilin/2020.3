@@ -208,7 +208,7 @@
 
 <p>You can use <a href="SL-BuiltinMacros.html">predefined shader macros</a> to identify which compiler Unity is using. You might want to use this if you use HLSL syntax that is supported by only one compiler, or to work around a compiler bug.</p>
 
-<p>You can configure various shader compiler settings using [SL-Programs](compilation directives).</p>
+<p>You can configure various shader compiler settings using <a href="SL-PragmaDirectives.html">pragma directives</a>.</p>
 
 <h2>The Caching Shader Preprocessor (Experimental)</h2>
 
@@ -219,6 +219,18 @@
 <p>Note that the Caching Shader Preprocessor is experimental; it is still in active development. You can provide feedback on this experimental feature in the <a href="https://forum.unity.com/threads/new-shader-preprocessor.790328/">Unity forum</a>.</p>
 
 <p>You can enable or disable the Caching Shader Preprocessor using the <strong>Caching Shader Preprocessor (Experimental)</strong> checkbox in the <strong>Shader Compilation</strong> section of the <a href="class-EditorManager.html">Editor settings</a> window. You can also enable or disable this feature in a C# script, using the <a href="../ScriptReference/EditorSettings-cachingShaderPreprocessor.html">EditorSettings.cachingShaderPreprocessor</a> API.</p>
+
+<h2>构建时剥离</h2>
+
+<p>在构建游戏时，Unity 可能检测到游戏不使用某些内部着色器变体，并从构建数据中排除（“剥离”）它们。构建时剥离将用于以下各项：</p>
+
+<ul>
+<li>对于使用 <code>#pragma shader_feature</code> 的着色器，Unity 会自动检查是否使用了变体。如果构建中的材质都不使用某个变体，则该变体不会包含在构建中。请参阅<a href="SL-MultipleProgramVariants.html">内部着色器变体</a>文档。<a href="shader-StandardShader.html">标准着色器</a>会使用此功能。</li>
+<li>任何场景未使用的可处理雾效和光照贴图模式的着色器变体不会包含在游戏数据中。如果要覆盖此行为，请参阅 <a href="class-GraphicsSettings.html">Graphics</a> 窗口。</li>
+<li>还可以手动识别变体并使用 <a href="../ScriptReference/IPreprocessShaders.OnProcessShader.html">OnProcessShader</a> API 告诉 Unity 将这些变体从构建中排除。</li>
+</ul>
+
+<p>上述的组合通常会大大减小着色器数据大小。例如，完全编译后的标准着色器将占用几百兆字节，但在典型的项目中，通常最终仅占用几兆字节（并且通常会由应用程序打包过程进一步压缩）。</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="SL-AdvancedTopics.html"></a></span><div class="tip">高级 ShaderLab 主题</div>

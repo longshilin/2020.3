@@ -209,7 +209,7 @@
 <li><a href="#Built-in">Built-in shader settings</a></li>
 <li><a href="#Always">Always-included Shaders</a></li>
 <li><a href="#stripping">Shader stripping</a></li>
-<li><a href="#preloading">Shader preloading</a></li>
+<li><a href="#shader-loading">Shader loading</a></li>
 </ul>
 
 <p><a name="SRLoop"></a></p>
@@ -555,37 +555,60 @@
 </tbody>
 </table>
 
-<p><a name="preloading"></a></p>
+<p><a name="shader-loading"></a></p>
 
-<h2>Shader preloading</h2>
+<h2>Shader loading</h2>
 
-<p>指定要在加载游戏时预加载的着色器变体集合资源的列表。此列表中指定的着色器变体会在应用程序的整个生命周期内加载。可使用此属性来预加载使用频率极高的着色器。有关详细信息，请参阅<a href="OptimizingShaderLoadTime.html">优化着色器加载时间</a>页面。</p>
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
 
-<p>要将着色器变体集合添加到此列表，请增大 <strong>Size</strong> 属性中的值。</p>
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>属性</strong></th>
+	<th style="text-align:left;"><strong>功能</strong></th>
+</tr>
+</thead>
 
-<h2>另请参阅</h2>
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>Preloaded shaders</strong></td>
+	<td style="text-align:left;">The <a href="shader-variant-collections.html">shader variant collections</a> to prewarm on application start. For information on prewarming, including important information about graphics API support, see <a href="shader-loading.html#prewarming-shader-variants">Shader loading: Prewarming shader variants</a>.</td>
+</tr>
+</tbody>
+</table>
 
-<ul>
-<li><a href="OptimizingShaderLoadTime.html">优化着色器加载时间</a></li>
-<li><a href="OptimizingGraphicsPerformance.html">优化图形性能</a></li>
-<li><a href="SL-Shader.html">着色器参考</a></li>
-</ul>
+<h3>Tracked shader variants</h3>
 
-<hr>
+<p>The Unity Editor which shader variants your application uses when it runs. You can use this information to build <a href="shader-variant-collections.html">shader variant collections</a>.</p>
 
-<ul>
-<li><span class="page-edit">10–01–2018 页面已修订</span></li>
-<li>
-<span class="page-history">统一设置 (Unified Settings) 变更的更新</span><br>
-</li>
-<li>
-<span class="page-history">更新了 Tier Setting 的描述</span><br>
-</li>
-<li>
-<span class="page-history">5.6 版中添加了新功能</span><br>
-</li>
-</ul>
-<!-- area:graphics -->
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>控件</strong></th>
+	<th style="text-align:left;"><strong>功能</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>Create asset</strong></td>
+	<td style="text-align:left;">Creates a new shader variant collection asset using the currently tracked shader variants.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Clear</strong></td>
+	<td style="text-align:left;">Clear tracked shader variants.</td>
+</tr>
+</tbody>
+</table>
+
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="class-EditorManager.html"></a></span><div class="tip">Editor</div>

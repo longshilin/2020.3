@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="支持的模型文件格式 - Unity 手册">
-<title>支持的模型文件格式 - Unity 手册</title>
-<meta name="description" content="注意：本节提供有关使用 FBX 转换的专有文件格式的信息。但是，有两种文件格式不使用 FBX 作为中介格式：SketchUp 和 SpeedTree。有关导入这些文件格式的更多信息，请参阅 SketchUp 设置和 SpeedTree 主题。">
-<meta property="og:description" content="注意：本节提供有关使用 FBX 转换的专有文件格式的信息。但是，有两种文件格式不使用 FBX 作为中介格式：SketchUp 和 SpeedTree。有关导入这些文件格式的更多信息，请参阅 SketchUp 设置和 SpeedTree 主题。">
+<meta property="og:title" content="Supported model file formats - Unity 手册">
+<title>Supported model file formats - Unity 手册</title>
+<meta name="description" content="Unity uses the .fbx file format as its importing chain. It is best practice to use the .fbx file format when you import any type of model into Unity; however, you can also import Meshes and animation from the following types of files:">
+<meta property="og:description" content="Unity uses the .fbx file format as its importing chain. It is best practice to use the .fbx file format when you import any type of model into Unity; however, you can also import Meshes and animation from the following types of files:">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -177,7 +177,7 @@
 <li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
 <li><a href="AssetWorkflow.html">资源工作流程</a></li>
 <li><a href="ImportingAssets.html">导入</a></li>
-<li>支持的模型文件格式</li>
+<li>Supported model file formats</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -187,81 +187,104 @@
 <span class="next"><a href="Presets.html"></a></span><div class="tip">预设</div>
 </div>
 </div></div>
-<h1>支持的模型文件格式</h1>
+<h1>Supported model file formats</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p><strong>注意：</strong>本节提供有关使用 FBX 转换的专有文件格式的信息。但是，有两种文件格式不使用 FBX 作为中介格式：<a href="https://www.sketchup.com/">SketchUp</a> 和 <a href="https://store.speedtree.com/unity/">SpeedTree</a>。有关导入这些文件格式的更多信息，请参阅 <a href="class-SketchUpImporter.html">SketchUp 设置</a>和 <a href="SpeedTree.html">SpeedTree</a> 主题。</p>
-
-<p>Unity 支持从两种不同类型的文件导入<a href="class-Mesh.html">网格</a>和<a href="AnimationClips.html">动画</a>：</p>
+<p>Unity uses the .fbx file format as its importing chain. It is best practice to use the .fbx file format when you import any type of model into Unity; however, you can also import <a href="class-Mesh.html">Meshes</a> and <a href="AnimationClips.html">animation</a> from the following types of files:</p>
 
 <ul>
-<li><p><a href="#Exported3DFiles">导出的 3D 文件格式</a>，如 .fbx 或 .obj。您可以使用通用格式从 3D 建模软件导出文件，此类格式的文件可以由各种不同的软件导入和编辑。</p></li>
-<li><p><a href="#Proprietary3DappFiles">专有的 3D 或 DCC（数字内容创作）应用程序文件</a>，例如来自 <a href="https://www.autodesk.com/products/3ds-max/overview">Autodesk® 3ds Max®</a> 或 <a href="https://www.blender.org/">Blender</a> 的 .max 和 .blend 文件格式。只能在创建专有文件的软件中编辑这些文件。专有文件通常无法在未经转换和导入的情况下直接由其他软件编辑。</p></li>
+<li>
+<strong>Exported 3D file formats.</strong> Unity can read the file formats <a href="https://www.autodesk.com/products/fbx/overview">.fbx</a>, <a href="https://www.khronos.org/collada/">.dae (Collada)</a>, .dxf, and .obj.</li>
+<li>
+<strong>Proprietary 3D or digital content creation (DCC) application files.</strong> Unity can import proprietary files from <a href="https://www.autodesk.com/products/maya/overview">Autodesk® Maya®</a>, <a href="https://www.blender.org/">Blender</a>, <a href="https://www.foundry.com/products/modo">Modo</a>, and <a href="https://www.cheetah3d.com/">Cheetah3D</a>.</li>
 </ul>
 
-<p>Unity 可以导入和使用这两种类型的文件，每种文件都有各自的优缺点。</p>
+<p>The following applications do not use .fbx as an intermediary. Unity converts them into the .fbx file format before importing them into the Editor:</p>
 
-<p><a name="Exported3DFiles"></a> </p>
+<ul>
+<li><a href="https://www.sketchup.com/">SketchUp</a></li>
+<li><a href="https://store.speedtree.com/unity/">SpeedTree</a></li>
+<li><a href="https://www.autodesk.com/products/3ds-max/overview">Autodesk® 3ds Max®</a></li>
+</ul>
+
+<p>For more information about importing these file formats, see the documentation on <a href="class-SketchUpImporter.html">SketchUp Import Settings</a> and <a href="class-SpeedTreeImporter.html">SpeedTree Import Settings</a>.</p>
 
 <h2>导出的 3D 格式</h2>
 
-<p>Unity 可读取 <a href="https://www.autodesk.com/products/fbx/overview">.fbx</a>、<a href="https://www.khronos.org/collada/">.dae (Collada)</a>、.3ds、.dxf 和 .obj 文件。有关导出 3D 文件的信息，请参阅<a href="HOWTO-exportFBX.html">在其他应用程序中使用 FBX 文件</a>或阅读 3D 建模软件的文档。</p>
+<p>Unity can read <a href="https://www.autodesk.com/products/fbx/overview">.fbx</a>, <a href="https://www.khronos.org/collada/">.dae (Collada)</a>, .dxf, and .obj files. These are the easiest files to import into Unity, because you can import them from software that Unity does not directly support, and you can also re-import exported .fbx or .obj files into your 3D modeling software of choice to check that all of the information has been exported correctly.</p>
 
-<p><strong>优点：</strong></p>
-
-<ul>
-<li>可以只导入所需的模型部分，而无需将整个模型导入 Unity。</li>
-<li>导出的通用文件通常小于专有的同等文件。</li>
-<li>使用导出的通用文件有利于采用模块化方法（例如，为碰撞类型或交互使用不同的组件）。</li>
-<li>可以从 Unity 不直接支持的软件导入这些文件。</li>
-<li>可以将已导出的 3D 文件（.fbx、.obj）重新导入 3D 建模软件，以此确保所有信息都已正确导出。</li>
-</ul>
-
-<p><strong>缺点：</strong></p>
-
-<ul>
-<li>如果原始文件发生更改，则必须手动重新导入模型。</li>
-<li>需要跟踪源文件和导入 Unity 的文件之间的版本。</li>
-</ul>
-
-<p><a name="Proprietary3DappFiles"></a> </p>
+<p>These kinds of files are also often smaller than the proprietary equivalent, which makes your project size smaller, and faster to iterate over.</p>
 
 <h2>专用的 3D 应用程序文件</h2>
 
-<p>Unity 可以从以下 3D 建模软件导入专有文件：</p>
+<p>It is best practice to export to .fbx instead of directly saving your application files in your project, and you should not use native file formats directly in production. However, sometimes you might need to include these files as part of your project. Unity can import proprietary files from the following 3D modeling software, and convert them into .fbx files:</p>
 
 <ul>
-<li><a href="https://www.autodesk.com/products/3ds-max/overview">Autodesk® 3ds Max®</a></li>
-<li><a href="https://www.autodesk.com/products/maya/overview">Autodesk® Maya®</a></li>
+<li><a href="https://www.autodesk.com/products/maya/overview">Autodesk Maya</a></li>
 <li><a href="https://www.blender.org/">Blender</a></li>
 <li><a href="https://www.foundry.com/products/modo">Modo</a></li>
 <li><a href="https://www.cheetah3d.com/">Cheetah3D</a></li>
 </ul>
 
-<p><strong>警告：</strong>Unity 在导入过程中将专有文件转换为 .fbx 文件。但是，建议导出 FBX，而不是直接保存为工程应用中的默认格式。建议不要在生产中直接使用原生文件格式。</p>
+<h3>异常</h3>
 
-<p><strong>Note:</strong> As of Unity 2019.3, Unity no longer provides built-in support for Cinema4D files. To continue using Cinema4D files in Unity for versions 2019.3 and later, install <a href="https://assetstore.unity.com/packages/tools/integration/cineware-by-maxon-158381">Maxon’s Cinema4D importer</a>. Alternatively, you can export an FBX file from Cinema4D instead.</p>
+<p>Unity does not provide built-in support for Cinema4D files. To use Cinema4D files in Unity, you should export them from the proprietary software as .fbx files.</p>
 
-<p><strong>优点：</strong></p>
+<p>Assets saved as .ma, .mb, .max, .c4d, or .blend files fail to import unless you have the corresponding 3D modeling software installed on your computer. This means that everybody working on your Unity project must have the correct software installed. For example, if you use <a href="https://www.autodesk.com/products/maya-lt/overview">the Autodesk Maya LT license</a> to create an .mb file and copy it into your project, anyone else that opens your project also needs to have Autodesk Maya LT installed on their computer.</p>
 
-<ul>
-<li>如果原始模型更改，Unity 会自动重新导入文件。</li>
-<li>这最初很简单；但是在开发后期会变得更复杂。</li>
-</ul>
+<h2>Optimizing your files</h2>
 
-<p><strong>缺点：</strong></p>
+<p>Before you import your files into Unity, there are a number of steps you should follow to ensure that your files are optimized in the best way.</p>
 
-<ul>
-<li>必须在使用 Unity 项目的每台计算机上安装所用软件的授权副本。</li>
-<li>使用 Unity 项目的每台计算机上的软件版本应相同。使用不同的软件版本可能会在导入 3D 模型时导致错误或意外行为。</li>
-<li>文件可能会因不必要的数据而变得臃肿。</li>
-<li>大文件可能会降低 Unity 项目导入或资源重新导入的速度，因为在将模型导入 Unity 时必须运行 3D 建模软件作为后台进程。</li>
-<li>在导入过程中，Unity 会在内部将专有文件导出到 .fbx。因此难以验证 .fbx 数据和进行故障排除。</li>
-</ul>
+<p>Think about what you want to export: some scene objects are essential but others might be unnecessary, so you can optimize the data in Unity by keeping only the essential objects. This helps remove unwanted data from your scene, and also means you can use a preset or custom scene exporter to automate or simplify the export process.</p>
 
-<p><strong>注意：</strong>除非在计算机上安装了相应的 3D 建模软件，否则保存为 .ma、.mb、.max、.c4d 或 .blend 文件的资源将无法导入。这意味着，处理 Unity 项目的每个人都必须安装正确的软件。例如，如果您使用 <a href="https://www.autodesk.com/products/maya-lt/overview">Autodesk® Maya LT™ 许可证</a>来创建 <code>ExampleModel.mb</code> 并将其复制到项目中，那么任何打开该项目的用户也需要在他们的计算机上安装 Autodesk® Maya LT™。</p>
-<!-- area:authoring -->
+<h3>Preparing what you need to include</h3>
+
+<p>The following table outlines special considerations you should make for each asset type to work most optimally in Unity:</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>Object</strong></th>
+	<th style="text-align:left;"><strong>Preparations</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>Meshes</strong></td>
+	<td style="text-align:left;">必须将所有 NURBS、NURMS、样条曲线、面片和细分曲面转换为多边形（三角形剖分或四边形剖分）</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>烘焙变形体 (Bake deformers)</strong></td>
+	<td style="text-align:left;">Make sure that you bake deformers onto the models in your application before exporting to the .fbx file format. For example, if you want to export a complex rig from Maya, you can bake the deformation onto skin weights before you export the Model to .fbx.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Textures</strong></td>
+	<td style="text-align:left;">Make sure the textures in your application are either sourced from your Unity Project, or copy them into a folder called <code>Textures</code> inside your Unity Project. <br><br><strong>Note:</strong> Don’t use the <strong>Embed Media</strong> option to embed textures into the .fbx file. Because Unity has to extract the textures before it uses them, embedding them enlarges your project and slows the import process.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Smoothing</strong></td>
+	<td style="text-align:left;">If you want to import blend shape normals, you must have smoothing groups in the .fbx file.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Setting the .fbx export options</h3>
+
+<p>Before you export the .fbx file, make sure that you use the latest .fbx exporter version that your 3D modeling application supports. When you export to .fbx, make a note of each setting in the export dialog of your 3D modeling application so that you can match up the .fbx import settings in Unity. Most .fbx exporters allow you to enable or disable exporting of certain animations, cameras, and lighting effects, so if anything is missing when you import it into Unity, check to see if it was exported. </p>
+
+<h2>验证并导入到 Unity</h2>
+
+<p>Before importing your .fbx file into Unity, verify the size of your exported file. Perform a sanity check on the file size (for example, to see if it is larger than 10KB). Re-import your .fbx file back into the 3D modeling software you used to generate it (for example, into a new scene). Check to make sure it is what you expected.</p>
+
+<p>要将文件导入 Unity，请遵循有关<a href="ImportingModelFiles.html">导入操作</a>的说明，务必记住您在 3D 建模软件中的导出选项设置。</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="ImportingAssets.html"></a></span><div class="tip">导入</div>

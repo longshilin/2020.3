@@ -507,7 +507,7 @@
 <tbody>
 <tr>
 	<td style="text-align:left;" colspan="2"><strong>Keep Quads</strong></td>
-	<td style="text-align:left;">启用此属性可使 Unity 停止将包含四个顶点的多边形转换为三角形。例如，如果您正在使用<a href="SL-SurfaceShaderTessellation.html">曲面细分着色器</a>，可能会希望启用此选项，因为四边形的曲面细分要比多边形的曲面细分效率更高。<br><br>Unity 可以导入任意类型的多边形（三角形到 N 边形）。顶点数量<em>超过</em>四个的多边形将始终转换为三角形，无论此设置如何。然而，如果一个网格有四边形和三角形（或者转换为三角形的 N 边形），那么 Unity 会创建两个子网格来分离四边形和三角形。每个子网格要么只包含三角形，要么只包含四边形。<br><br><strong>提示：</strong>如果想从 3ds Max 中将四边形导入到 Unity 中，必须<a href="HOWTO-exportFBX.html#Quads">将其导出为可编辑多边形</a>。</td>
+	<td style="text-align:left;">Enable this to stop Unity from converting polygons that have four vertices to triangles. For example, if you are using <a href="SL-SurfaceShaderTessellation.html">Tessellation Shaders</a>, you may want to enable this option because tessellating quads may be more efficient than tessellating polygons. <br><br>Unity can import any type of polygon (triangle to N-gon). Polygons that have <em>more</em> than four vertices are always converted to triangles regardless of this setting. However, if a mesh has quads and triangles (or N-gons that get converted to triangles), Unity creates two submeshes to separate quads and triangles. Each submesh contains either triangles only or quads only. <br><br><strong>Tip:</strong> If you want to import quads into Unity from 3ds Max, you have to export it as an Editable Poly.</td>
 </tr>
 <tr>
 	<td style="text-align:left;" colspan="2"><strong>Weld Vertices</strong></td>

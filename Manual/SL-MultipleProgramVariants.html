@@ -184,10 +184,10 @@
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-UnityShaderVariables.html"></a></span><div class="tip">内置着色器变量</div>
+<span class="prev"><a href="SL-ShaderCompilationAPIs.html"></a></span><div class="tip">Shader compilation: targeting graphics APIs</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-GLSLShaderPrograms.html"></a></span><div class="tip">GLSL 着色器程序</div>
+<span class="next"><a href="SL-ShaderSemantics.html"></a></span><div class="tip">着色器语义</div>
 </div>
 </div></div>
 <h1>着色器变体和关键字</h1>
@@ -204,7 +204,7 @@
 
 <h3>创建着色器变体</h3>
 
-<p>要创建着色器变体，请将以下指令之一添加到<a href="SL-ShaderPrograms.html">着色器代码片段</a>：</p>
+<p>To create shader variants, you use one of the following <a href="SL-PragmaDirectives.html">pragma directives</a>:</p>
 
 <ul>
 <li><code>#pragma multi_compile</code></li>
@@ -213,7 +213,9 @@
 <li><code>#pragma shader_feature_local</code></li>
 </ul>
 
-<p>可以将这些指令用于常规着色器（包括<a href="SL-SurfaceShaders.html">表面着色器</a>）和<a href="class-ComputeShader.html">计算着色器</a>。</p>
+<p>You can use these directives in Unity shaders (including <a href="SL-SurfaceShaders.html">surface shaders</a>) and <a href="class-ComputeShader.html">compute shaders</a>.</p>
+
+<p>If a keyword affects only a single shader stage, you can add a suffix to these directives to reduce redundant shader compilation work. For more information, see <a href="#stage-specific-keyword-directives">Stage-specific keyword directives</a>.</p>
 
 <p>然后，Unity 使用不同的预处理器指令来多次编译同一着色器代码。</p>
 
@@ -352,9 +354,34 @@ Private void Start()
 }
 </code></pre>
 
+<p><a name="stage-specific-keyword-directives"></a></p>
+
+<h2>Stage-specific keyword directives</h2>
+
+<p>When you create shader variants, the Unity Editor’s default behavior is to generate every stage of the shader program in every variant. For example, if your shader program contains a vertex stage and a fragment stage, Unity generates a vertex stage and a fragment stage for every keyword combination.</p>
+
+<p>If a keyword does not affect all stages, this default behavior results in redundant work. For example, if a keyword affects only the fragment stage, the Editor generates an identical vertex stage for each variant. Unity identifies and removes duplicates afterwards, so this redundant work does not affect build sizes or runtime performance; however, if you have a lot of stages and/or variants, the time wasted during shader compilation can be significant.</p>
+
+<p>To avoid this problem, you can use stage-specific keyword directives. These are suffixes that you apply to regular keyword directives. They tell the Editor which shader stage a given keyword affects, so it can skip the redundant work when building shaders for supported graphics APIs.</p>
+
+<h3>Supported graphics APIs</h3>
+
+<p>Unity does not fully support the use of stage-specific keyword directives with all graphics APIs.</p>
+
+<ul>
+<li>When compiling shaders for OpenGL and Vulkan, the Editor automatically reverts any stage-specific keyword directives to regular keyword directives.</li>
+<li>When compiling shaders for Metal, any keyword targeting vertex stages will also affect tessellation stages, and vice versa.</li>
+</ul>
+
+<h3>Using stage-specific keyword directives</h3>
+
+<p>The available suffixes are <code>_vertex</code>, <code>_fragment</code>, <code>_hull</code>, <code>_domain</code>, <code>_geometry</code>, and <code>_raytracing</code>. You apply the suffix at the end of a keyword directive, for example: <code>multi_compile_fragment</code>, or <code>shader_feature_local_vertex</code>. To target multiple shader stages, you use multiple stage-specific keyword directives declaring the same keywords.</p>
+
+<p><strong>Note:</strong> you are responsible for ensuring that the keywords are only used in the specified shader stages.</p>
+
 <h2>内置 multi_compile 快捷方式</h2>
 
-<p>有几个“快捷方式”符号用于编译多个着色器变体。这些变体主要处理 Unity 中的不同光源、阴影和光照贴图类型。请参阅有关<a href="SL-RenderPipeline.html">渲染管线</a>的文档以了解详细信息。</p>
+<p>In the Built-in Render Pipeline, ther are several “shortcut” notations for compiling multiple shader variants. These are mostly to deal with different light, shadow and lightmap types in Unity. See documentation on <a href="SL-RenderPipeline.html">rendering paths and shaders</a> for details.</p>
 
 <ul>
 <li>
@@ -381,7 +408,7 @@ Private void Start()
 
 <p>该功能仅与内置渲染管线兼容。它不兼容通用渲染管线 (URP)、高清渲染管线 (HDRP) 或自定义的可编程渲染管线。</p>
 
-<p>要启用此功能，请添加 <code>#pragma hardware_tier_variants renderer</code>，其中 <code>renderer</code> 是有效的<a href="SL-ShaderPrograms.html">渲染平台</a>，如下所示：</p>
+<p>To enable this feature, add <code>#pragma hardware_tier_variants renderer</code>, where <code>renderer</code> is a valid <a href="SL-ShaderCompilationAPIs.html">graphics API</a>, like this:</p>
 
 <pre><code># pragma hardware_tier_variants gles3
 </code></pre>
@@ -410,26 +437,12 @@ UNITY_HARDWARE_TIER3
 <p>该功能仅与内置渲染管线兼容。它不兼容通用渲染管线 (URP)、高清渲染管线 (HDRP) 或自定义的可编程渲染管线。</p>
 
 <p>请注意，如果您为给定的 <code>BuildTarget</code> 的不同 <code>GraphicsTier</code> 提供不同的 <code>TierSettings</code> 值，即使您未向着色器代码添加 <code>#pragma hardware_tier_variants</code>，Unity 也会为着色器生成层变体。</p>
-
-<h3>另请参阅</h3>
-
-<ul>
-<li><a href="OptimizingShaderLoadTime.html">优化着色器加载时间</a></li>
-</ul>
-
-<hr>
-
-<ul>
-<li><span class="page-history">[Multiple variants for compute shaders] added in <a href="https://docs.unity3d.com/2020.1/Documentation/Manual/30_search.html?q=newin20201">2020.1</a> <span class="search-words">NewIn20201</span></span></li>
-<li><span class="page-history">Shader variant stripping for compute shaders added in <a href="https://docs.unity3d.com/2020.2/Documentation/Manual/30_search.html?q=newin20202">2020.2</a> <span class="search-words">NewIn20202</span></span></li>
-</ul>
-<!-- area:graphics -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-UnityShaderVariables.html"></a></span><div class="tip">内置着色器变量</div>
+<span class="prev"><a href="SL-ShaderCompilationAPIs.html"></a></span><div class="tip">Shader compilation: targeting graphics APIs</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-GLSLShaderPrograms.html"></a></span><div class="tip">GLSL 着色器程序</div>
+<span class="next"><a href="SL-ShaderSemantics.html"></a></span><div class="tip">着色器语义</div>
 </div>
 </div>
 </div>

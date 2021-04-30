@@ -220,19 +220,45 @@
 
 <h2>限制</h2>
 
-<p>For Mip Map Streaming, you need to assign each Texture to a Unity Renderer to allow the system to calculate the required mip level, unless a script requests manual mip levels (see documentation on <a href="https://docs.unity3d.com/ScriptReference/Texture2D-requestedMipmapLevel.html">Texture2D.requestedMipmapLevel</a>). If you do not assign a Texture to a Renderer (and do not set a manually requested mip), the system cannot calculate what mip to use. This results in Unity loading the Texture with reduced mips, which look blurry when close to the Camera. </p>
+<p>You can instruct Mipmap Streaming to calculate the required mipmap levels using one of the following methods: </p>
 
-<p>The following systems don’t use standard Renderers, so you should disable Mip Map Streaming on Textures associated with them:</p>
+<ul>
+<li>Assign each Texture to a Material which is itself set on a Unity Renderer.</li>
+<li>Request mip levels manually using <a href="../ScriptReference/Texture2D-requestedMipmapLevel.html">Texture2D.requestedMipmapLevel</a>.</li>
+</ul>
+
+<p>If you don’t instruct Mipmap Streaming to calculate mipmap levels using one of these methods, Unity can’t calculate which mip level to use. This causes Unity to load the texture using low-quality mips that appear blurry.</p>
+
+<p>The following systems don’t use standard Renderers. This means you must manually set the requested mipmaps for these systems or Unity loads the textures they use at low resolution:</p>
 
 <ul>
 <li>贴花投影器 (Decal Projector) 纹理。</li>
-<li>反射探针纹理。这些纹理与较低 Mip 级别的不同材质属性相关，因此流式传输这些纹理没有意义。</li>
-<li>Textures in Unity’s Terrain system. Unity does not support Mip Map Streaming on Terrain Textures, because the system usually blends these Textures over the whole Terrain, so they should stay on the GPU.</li>
-<li>在着色器中具有复杂纹理混合的系统。</li>
+<li>Reflection probe Textures: Lower resolution mipmaps are a lookup table for roughness. Therefore, if Unity uses a lower mipmap level, it renders materials using the wrong roughness.</li>
+<li>Textures in Unity’s Terrain system: Unity does not support Mipmap Streaming on Terrain Textures. This is because Terrain Textures need to be available at full resolution at all times to allow Unity to tile and blend the textures.</li>
+<li>Shaders that handle texture UV coordinates differently from the Unity built-in shaders. Unity always assumes the textures are sampled using UV0 as stored in the Msh. Any shader based modifications of the texture coordinates, except for the scale and translation (see below), or the use of UV1, are not taken into account.</li>
 </ul>
 
-<p>When Unity renders a streamed Texture directly with an API (such as <a href="https://docs.unity3d.com/ScriptReference/Graphics.DrawMeshNow.html">Graphics.DrawMeshNow</a>) the system has no renderer bounds information to calculate the mip level, so you need to set the Texture mip level explicitly (or disable Mip Map Streaming on this Texture). See documentation on <a href="https://docs.unity3d.com/ScriptReference/Texture2D-requestedMipmapLevel.html">Texture2D.requestedMipmapLevel</a> for more details.</p>
-<!-- area:graphics -->
+<p>When a renderer is active, the mesh that renderer uses requires valid UV distribution metrics to calculate the desired mipmap level. Unity calculates distribution metrics automatically as part of the mesh importing process. You can also calculate this in a script using <a href="../ScriptReference/Mesh.GetUVDistributionMetric.html">Mesh.GetUVDistributionMetric</a>. </p>
+
+<p>When Unity renders a streamed Texture directly with an API (such as <a href="https://docs.unity3d.com/ScriptReference/Graphics.DrawMeshNow.html">Graphics.DrawMeshNow</a>) the system has no renderer bounds or other information to calculate the mip level, so you need to set the Texture mip level explicitly (or disable Mipmap Streaming on this Texture). See documentation on <a href="https://docs.unity3d.com/ScriptReference/Texture2D-requestedMipmapLevel.html">Texture2D.requestedMipmapLevel</a> for more details on how to manually set the mip to load.</p>
+
+<p><a name="Debugging"> </a></p>
+
+<h2>Debugging Mipmap Streaming</h2>
+
+<p>Unity has a built-in Mipmap Streaming debugging view mode. To access it, click the <a href="ViewModes.html">Scene view control drop-down</a> and select <strong>Texture Streaming</strong>. This view mode tints GameObjects the following colours, depending on their status in the Mipmap Streaming system:</p>
+
+<ul>
+<li>
+<strong>Green</strong> for Textures that have reduced mipmaps due to the Mipmap Streaming system.</li>
+<li>
+<strong>Red</strong> for Textures that have fewer mipmaps because the Mipmap Streaming system does not have enough resources to load them all.</li>
+<li>__蓝色__表示未设置为串流的纹理，或者在没有渲染器计算 Mip 级别的情况下的纹理。</li>
+</ul>
+
+<p>You can also write your own custom debug tools and visualizations using the <a href="TextureStreaming-API.html#DebuggingAPI">Debugging API</a></p>
+
+<p><strong>Important</strong> : If you flag a main texture in your shader using the <a href="https://docs.unity3d.com/ScriptReference/Material-mainTexture.html">MainTexture</a> property attribute, these textures will not be visible in debug mode. To work around this, always use a texture property named <code>_Maintex</code> to indicate the main texture of a material.</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="FrameDebugger.html"></a></span><div class="tip">帧调试器</div>

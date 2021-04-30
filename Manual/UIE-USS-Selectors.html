@@ -194,7 +194,7 @@
 
 <p>Selectors determine which elements USS rules affect. When Unity applies a style sheet to a visual tree, it matches elements to selectors. If an element matches a selector, Unity applies the selector’s style rule to the element.</p>
 
-<p>USS supports several types of <a href="UIE-USS-Selectors-Simple.md">simple</a> and <a href="UIE-USS-Selectors-Complex.md">complex</a> selectors that match elements based on different criteria, such as:</p>
+<p>USS supports several types of <a href="UIE-USS-Selectors-Simple.html">simple</a> and <a href="UIE-USS-Selectors-Complex.html">complex</a> selectors that match elements based on different criteria, such as:</p>
 
 <ul>
 <li>C# class name</li>
@@ -203,7 +203,7 @@
 <li>The element’s position in the visual tree and its relationship to other elements.</li>
 </ul>
 
-<p>It also supports <a href="uss-selectors-pseudo-classes.md">pseudo classes</a> that you can use with selectors to target elements that are in a specific state.</p>
+<p>It also supports <a href="uss-selectors-pseudo-classes">pseudo classes</a> that you can use with selectors to target elements that are in a specific state.</p>
 
 <p>If an element matches more than one selector, Unity applies the styles from whichever selector <a href="#determining-selector-precedence">takes precedence</a>.</p>
 
@@ -213,7 +213,7 @@
 
 <h3>Simple selectors</h3>
 
-<p>The table below provides a quick reference of USS simple selectors. For details, see <a href="UIE-USS-Selectors-Simple.md">Simple selectors</a>.</p>
+<p>The table below provides a quick reference of USS simple selectors. For details, see <a href="UIE-USS-Selectors-Simple.html">Simple selectors</a>.</p>
 
 <table>
 <colgroup>
@@ -256,7 +256,7 @@
 
 <h3>Complex selectors</h3>
 
-<p>The table below provides a quick reference of USS complex selectors. For details, see <a href="UIE-USS-Selectors-Complex.md">Complex selectors</a>.</p>
+<p>The table below provides a quick reference of USS complex selectors. For details, see <a href="UIE-USS-Selectors-Complex.html">Complex selectors</a>.</p>
 
 <table>
 <colgroup>
@@ -295,7 +295,7 @@
 
 <h3>Pseudo-classes</h3>
 
-<p>The table below provides a quick reference of USS simple selectors. For details, see <a href="UIE-USS-Selectors-Pseudo-Classes.md">Pseudo-classes</a>.</p>
+<p>The table below provides a quick reference of USS simple selectors. For details, see <a href="UIE-USS-Selectors-Pseudo-Classes.html">Pseudo-classes</a>.</p>
 
 <table>
 <colgroup>
@@ -356,7 +356,7 @@
 
 <p><strong>Syntax:</strong></p>
 
-<pre><code class="css">selector1, selector2 {...}
+<pre><code class="lang-css">selector1, selector2 {...}
 </code></pre>
 
 <p>A selector list is equivalent to multiple selectors that each declare the same style rule.</p>
@@ -365,13 +365,13 @@
 
 <p>For the <a href="#selector-example">example UXML document</a> above, the following two USS snippets have the same effect.</p>
 
-<pre><code class="css">#container2, Button {
+<pre><code class="lang-css">#container2, Button {
    background-color: pink;
      border-radius: 10px;
  }
 </code></pre>
 
-<pre><code class="css">#container2 {
+<pre><code class="lang-css">#container2 {
   background-color: pink;
   border-radius: 10px;
 }

@@ -193,7 +193,7 @@
 
 <p>Use the <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics.html">AsyncReadManagerMetrics</a> class to monitor runtime asset loading and file reading performance. This class records data about all the file read operations managed by the <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManager.html">AsyncReadManager</a>. </p>
 
-<p>The Unity Engine uses the [AsyncReadManager] to read most files at runtime. The files loaded with the AsyncReadManager include AssetBundles, Addressables and Resources. In addition, you can load files from scripts using <a href="../ScriptReference/IO.LowLevel.Unsafe.AsyncReadManager.Read.html">Unity.IO.LowLevel.Unsafe.AsyncReadManager.Read</a>. </p>
+<p>The Unity Engine uses the <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManager.html">AsyncReadManager</a> to read most files at runtime. The files loaded with the AsyncReadManager include AssetBundles, Addressables and Resources. In addition, you can load files from scripts using <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManager.Read.html">AsyncReadManager.Read</a>. </p>
 
 <p>The <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics.html">AsyncReadManagerMetrics</a> class allows you to enable metrics collection and retrieve the recorded metrics data. You can also filter and summarize the recorded data to help your analysis. This metrics information can help you identify problem areas involving asset loading as well as measure the impact that your changes have on asset loading performance. </p>
 
@@ -218,7 +218,7 @@
 
 <h2>Getting metric data</h2>
 
-<p>Retrieve the metrics collected by the <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics.html">AsyncReadManagerMetrics</a> class by calling <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics.GetMetrics.html">GetMetrics</a>. Pass an <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics.flag.html">AsyncReadManagerMetrics.flag</a> to this function to specify whether or not to clear the metrics after retrieval. Clear the metrics to remove all the completed (including cancelled and failed) reads from the stored metrics. Clearing doesn’t affect any queued or in-process operations; you can access the metrics for unfinished operations by calling <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics.GetMetrics.html">GetMetrics</a> again after they complete. By clearing the metrics regularly, you can avoid rereading the same data and also reduce the data overhead of the system. </p>
+<p>Retrieve the metrics collected by the <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics.html">AsyncReadManagerMetrics</a> class by calling <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics.GetMetrics.html">GetMetrics</a>. Pass an <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics.Flags.html">AsyncReadManagerMetrics.Flags</a> to this function to specify whether or not to clear the metrics after retrieval. Clear the metrics to remove all the completed (including cancelled and failed) reads from the stored metrics. Clearing doesn’t affect any queued or in-process operations; you can access the metrics for unfinished operations by calling <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics.GetMetrics.html">GetMetrics</a> again after they complete. By clearing the metrics regularly, you can avoid rereading the same data and also reduce the data overhead of the system. </p>
 
 <pre><code class="lang-cs">#if ENABLE_PROFILER &amp;&amp; UNITY_2020_2_OR_NEWER
     AsyncReadManagerRequestMetric[] metrics 
@@ -227,7 +227,7 @@
 
 </code></pre>
 
-<p>Where possible, the metric data includes context information about a read operation. This information includes the <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AssetLoadingSubsystem.html">AssetLoadingSubsystem</a> that requested the read, the <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AssetName.html">AssetName</a>, and the <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AssetTypeID.html">AssetTypeID</a>. When the AsyncReadManager doesn’t have access to this information, the value for these metrics fields is <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.Other.html">Other</a>, empty, and zero, respectively. </p>
+<p>Where possible, the metric data includes context information about a read operation. This information includes the <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AssetLoadingSubsystem.html">AssetLoadingSubsystem</a> that requested the read, the <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerRequestMetric.AssetName.html">AssetName</a>, and the <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerRequestMetric.AssetTypeId.html">AssetTypeID</a>. When the AsyncReadManager doesn’t have access to this information, the value for these metrics fields is <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AssetLoadingSubsystem.Other.html">Other</a>, empty, and zero, respectively. </p>
 
 <p><strong>Note:</strong> The Asset TypeIDs currently known to be supported are shown in the table below. For other TypeIDs that may appear, please see <a href="ClassIDReference.html">YAML Class ID Reference</a>.</p>
 
@@ -304,7 +304,7 @@
 <li>Total bytes read</li>
 </ul>
 
-<p>(See <a href="../ScriptReference/AsyncReadManagerSummaryMetrics.html">AsyncReadManagerSummaryMetrics</a> for a complete list.)</p>
+<p>(See <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerSummaryMetrics.html">AsyncReadManagerSummaryMetrics</a> for a complete list.)</p>
 
 <p>By default, the summarized statistics include all read operations, including those that are queued or in-progress. You can use a filter to limit the summary to those operations you are specifically interested in. For example, you could use a filter to limit the summarized statistics to completed read operations for texture assets. </p>
 
@@ -312,7 +312,7 @@
 
 <h3>Summary filters</h3>
 
-<p>Use <a href="../ScriptReference/AsyncReadManagerMetricsFilters.html">AsyncReadManagerMetricsFilters</a> with either of these methods to specify what types of data to summarize. Any metrics that do not match a filter are excluded from the summary. You can filter with the following categories:</p>
+<p>Use <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetricsFilters.html">AsyncReadManagerMetricsFilters</a> with either of these methods to specify what types of data to summarize. Any metrics that do not match a filter are excluded from the summary. You can filter with the following categories:</p>
 
 <ul>
 <li>Asset type (by <a href="ClassIDReference.html">YAML ID</a>)</li>
@@ -322,7 +322,7 @@
 <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.FileReadType.html">Read type</a> (async or sync)</li>
 <li>
 <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.Priority.html">Priority</a> (high or low)</li>
-<li>Subsystem (<a href="../ScriptReference/AssetLoadingSubsystem.html">AssetLoadingSubsystem</a>)</li>
+<li>Subsystem (<a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AssetLoadingSubsystem.html">AssetLoadingSubsystem</a>)</li>
 </ul>
 
 <p>You can set multiple categories for the same filter. A read operation must match all categories for the metrics of that operation to be included in the summary. For example, you can specify values for both the <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.ProcessingState.html">ProcessingState</a> and the <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AssetLoadingSubsystem.html">Subsystem</a> of a filter to summarize only operations in the designated processing states initiated by the designated subsytems.</p>

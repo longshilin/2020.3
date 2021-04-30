@@ -469,11 +469,11 @@ Shader "SimplestInstancedShader"
 
 <p>或者，您可以将 LPPV 组件引用和 <a href="../ScriptReference/Rendering.LightProbeUsage.UseProxyVolume.html">LightProbeUsage.UseProxyVolume</a> 传递到 <code>Graphics.DrawMeshInstanced</code>。执行此操作时，所有实例都会对光照探针数据的 L0 和 L1 带宽进行采样。如果您希望补充 L2 数据和遮挡数据，请使用 <code>MaterialPropertyBlock</code>。有关更多信息，请参阅<a href="LightProbes-TechnicalInformation.html">光照探针：技术信息</a>。</p>
 
-<h3>着色器预热</h3>
+<h3>Shader prewarming</h3>
 
-<p>从 Unity 2017.3 开始，如果您希望在着色器第一次渲染时获得绝对平滑的渲染，则需要预热着色器以便在 OpenGL 上使用实例化。如果您在不需要着色器预热的平台上为着色器进行实例化预热，则不会发生任何操作。</p>
+<p>You need to prewarm shaders to use instancing on OpenGL if you want absolutely smooth rendering when the shader renders for the first time.</p>
 
-<p>请参阅 <a href="../ScriptReference/ShaderVariantCollection.WarmUp.html">ShaderVariantCollection.WarmUp</a> 和 <a href="../ScriptReference/Shader.WarmupAllShaders.html">Shader.WarmupAllShaders</a> 以了解更多信息。</p>
+<p>For more information, see <a href="shader-loading.html">Shader loading</a>.</p>
 
 <h3>#pragma instancing_options</h3>
 

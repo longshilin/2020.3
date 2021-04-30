@@ -484,7 +484,7 @@ class PreserveAttribute : System.Attribute {}
 <ul>
 <li>
 <p><strong>ignoreIfMissing</strong>
-默认情况下，如果找不到 link.xml 文件中引用的程序集，那么 UnityLinker 将中止构建。如果需要声明在所有播放器构建过程中不存在的程序集的保留，请在 link.xml 文件中的 &lt;assembly&gt; 元素上使用 ignoreIfMissing 属性：</p>
+If you need to declare preservations for an assembly that does not exist during all Player builds, use the ignoreIfMissing attribute on the &lt;assembly&gt; element in the link.xml file:</p>
 
 <pre><code class="xml">&lt;linker&gt;
   &lt;assembly fullname="Foo" ignoreIfMissing="1"&gt;

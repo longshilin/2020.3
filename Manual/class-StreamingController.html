@@ -14,8 +14,10 @@
 <meta property="og:title" content="串流控制器 (Streaming Controller) - Unity 手册">
 <title>串流控制器 (Streaming Controller) - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/StreamingController.png">
-<meta name="description" content="The Streaming Controller component is part of the Mipmap Streaming system. Add a Streaming Controller to GameObjects if you want to use Texture Streaming to load their mip maps into Unity at run time.">
-<meta property="og:description" content="The Streaming Controller component is part of the Mipmap Streaming system. Add a Streaming Controller to GameObjects if you want to use Texture Streaming to load their mip maps into Unity at run time.">
+<meta name="description" content="The Streaming Controller component is part of the Mipmap Streaming system. If you enable the Add All Cameras setting (this is the default setting) in Quality Settings (Edit &gt; Project Settings &gt; Quality) you do not need to use this component.
+If you disabled this setting you will need to add this component to any cameras you want to trigger streaming for. For more details on how to set-up and use the Streaming Controller component, see the documentation page Mipmap Streaming API .">
+<meta property="og:description" content="The Streaming Controller component is part of the Mipmap Streaming system. If you enable the Add All Cameras setting (this is the default setting) in Quality Settings (Edit &gt; Project Settings &gt; Quality) you do not need to use this component.
+If you disabled this setting you will need to add this component to any cameras you want to trigger streaming for. For more details on how to set-up and use the Streaming Controller component, see the documentation page Mipmap Streaming API .">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -193,9 +195,8 @@
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>The Streaming Controller component is part of the <a href="TextureStreaming.html">Mipmap Streaming</a> system. Add a Streaming Controller to GameObjects if you want to use Texture Streaming to load their mip maps into Unity at run time.</p>
-
-<p>For more details on how to use the Streaming Controller component, see the documentation page <a href="TextureStreaming-API.html#ControlCameras">Mipmap Streaming API</a></p>
+<p>The Streaming Controller component is part of the <a href="TextureStreaming.html">Mipmap Streaming</a> system. If you enable the <strong>Add All Cameras</strong> setting (this is the default setting) in Quality Settings (<strong>Edit</strong> &gt; <strong>Project Settings</strong> &gt; <strong>Quality</strong>) you do not need to use this component.
+If you disabled this setting you will need to add this component to any cameras you want to trigger streaming for. For more details on how to set-up and use the Streaming Controller component, see the documentation page <a href="TextureStreaming-API.html#ControlCameras">Mipmap Streaming API</a> .</p>
 
 <figure>
 <img src="../uploads/Main/StreamingController.png" alt="The Mipmap Streaming Controller component">
@@ -218,7 +219,7 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><strong>Mip Map Bias</strong></td>
-	<td style="text-align:left;">Use this setting to force Unity to load smaller or larger mipmap levels than the one that the Mipmap Streaming system has chosen for those Textures. Use the numerical field to set the offset that Unity applies to the mipmap level. Unity adds this offset to all Textures visible from this Camera. <br><br>To control this via API, use <a href="../ScriptReference/StreamingController-streamingMipmapBias.html">StreamingController.streamingMipmapBias</a>.</td>
+	<td style="text-align:left;">Use this setting to force Unity to load a smaller or larger mipmap level than the one that the Mipmap Streaming system has automatically chosen. Enter a value in this field to set the offset that Unity applies to this mipmap level. Unity adds this offset to all the mipmaps assigned to Textures that are in the Camera’s view. <br><br>For example, if Unity loads a texture at mip 1 and the <strong>Mip Map Bias</strong> is set to 1, this means it will load mip 2 instead.<br><br>To control this setting using the API, use <a href="../ScriptReference/StreamingController-streamingMipmapBias.html">StreamingController.streamingMipmapBias</a>.</td>
 </tr>
 </tbody>
 </table>

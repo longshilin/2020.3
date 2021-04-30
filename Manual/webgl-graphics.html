@@ -11,8 +11,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="WebGL 图形 - Unity 手册">
-<title>WebGL 图形 - Unity 手册</title>
+<meta property="og:title" content="WebGL Graphics - Unity 手册">
+<title>WebGL Graphics - Unity 手册</title>
 <meta name="description" content="WebGL 是一种用于在 Web 浏览器中渲染图形的 API，基于 OpenGL ES 图形库的功能。WebGL 1.0 大致与 OpenGL ES 2.0 功能相匹配，而 WebGL 2.0 大致与 OpenGL ES 3.0 功能相匹配。">
 <meta property="og:description" content="WebGL 是一种用于在 Web 浏览器中渲染图形的 API，基于 OpenGL ES 图形库的功能。WebGL 1.0 大致与 OpenGL ES 2.0 功能相匹配，而 WebGL 2.0 大致与 OpenGL ES 3.0 功能相匹配。">
 <meta name="author" content="Unity Technologies">
@@ -178,7 +178,7 @@
 <li><a href="PlatformSpecific.html">平台开发</a></li>
 <li><a href="webgl.html">WebGL</a></li>
 <li><a href="webgl-gettingstarted.html">WebGL 开发入门</a></li>
-<li>WebGL 图形</li>
+<li>WebGL Graphics</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -188,7 +188,7 @@
 <span class="next"><a href="webgl-audio.html"></a></span><div class="tip">使用 WebGL 中的音频</div>
 </div>
 </div></div>
-<h1>WebGL 图形</h1>
+<h1>WebGL Graphics</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
@@ -217,6 +217,10 @@
 <p>采用 WebGL 2.0 时，Unity WebGL 仅支持<a href="LinearLighting.html">线性颜色空间渲染</a>。线性颜色空间渲染不支持回退到 WebGL 1.0。要使用线性颜色空间渲染来构建 WebGL 播放器，必须在 <strong>Player</strong> 设置中打开的 <strong>Other Settings</strong> 面板中删除 WebGL 1.0 API，并禁用 <strong>Automatic Graphics API</strong> 设置。</p>
 
 <p>某些 Web 浏览器不支持 <a href="class-TextureImporterOverride.html">sRGB DXT 纹理压缩</a>。因此在使用线性渲染时会降低渲染性能的质量，原因是所有 DXT 纹理都要在运行时解压缩。</p>
+
+<h2>Video Clip Importer</h2>
+
+<p>On the WebGL platform, video clips aren’t imported to the Unity project using VideoClipImporter, as it would increase initial asset data download sizes and prevent network streaming. For video playback, use the URL option in the VideoPlayer component and place the asset in the StreamingAssets/ directory to use the built-in network streaming of your browser.</p>
 
 <h2>WebGL 着色器代码限制</h2>
 

@@ -195,7 +195,7 @@
 
 <p>Unity 支持可能从大多数 3D 建模应用程序导出的 FBX 文件。但是，SketchUp 和 SpeedTree 不支持导出到 FBX。有关如何使用这些专有文件格式的信息，请参阅 <a href="class-SketchUpImporter.html">SketchUp 设置</a>和 <a href="class-SpeedTreeImporter.html">SpeedTree</a> 文档。</p>
 
-<p>请始终<a href="HOWTO-exportFBX.html">将模型从 3d 建模应用程序导出到 FBX</a>，而不是直接在 Unity 项目中保存应用程序文件。不要在生产中直接使用原生文件格式。即使在项目中直接使用专有的应用程序文件，Unity 也会在导入这些文件之前先将它们转换为 FBX 格式。</p>
+<p>Always <a href="3D-formats.html">export Models from your 3d modeling application to FBX</a> instead of directly saving your application files in your Unity Project. Don’t use native file formats directly in production. Even if you use the proprietary application files directly in your Project, Unity converts them to the FBX format first before importing them.</p>
 
 <p>开始在 3D 建模应用程序中创建任何内容之前，为确保获得最佳结果，请阅读以下准则：</p>
 
@@ -203,7 +203,6 @@
 <li><a href="ModelingOptimizedCharacters.html">角色建模的性能优化</a></li>
 <li><a href="UsingHumanoidChars.html">做好导出人形资源的准备</a></li>
 <li><a href="HOWTO-ImportObjectsFrom3DApps.html">将模型导入 Unity 的限制</a></li>
-<li><a href="HOWTO-exportFBX.html">在其他应用程序中使用 FBX 文件</a></li>
 </ul>
 
 <p><a name="Scaling"></a></p>
@@ -224,7 +223,6 @@
 </ul>
 
 <p>将模型文件从具有不同缩放因子的 3D 建模应用程序导入 Unity 时，可以通过启用 <a href="FBXImporter-Model.html#ConvertUnits">Convert Units</a> 选项将文件单位转换为使用 Unity 比例。</p>
-<!-- area:authoring -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="SpeedTreeImporter-Materials.html"></a></span><div class="tip">Materials 选项卡</div>

@@ -196,9 +196,9 @@
 
 <p>A pseudo-class narrows a selector’s scope so it only matches elements when they enter a specific state.</p>
 
-<p>Append a pseudo-class to a simple selector to match specific elements when they are in a specific state. For example, the following USS rule uses the <code>:hover</code> pseudo-class to change the color of <code>Button</code> elements when a user hovers the pointer over them.</p>
+<p>Append a pseudo-class to a simple selector to match specific elements when they’re in a specific state. For example, the following USS rule uses the <code>:hover</code> pseudo-class to change the color of <code>Button</code> elements when a user hovers the pointer over them.</p>
 
-<pre><code class="css">Button:hover {
+<pre><code class="lang-css">Button:hover {
     background-color: palegreen;
 }
 </code></pre>
@@ -255,7 +255,7 @@
 </tr>
 <tr>
 	<td style="text-align:left;"><code>:checked</code></td>
-	<td style="text-align:left;">The Element is a Toggle element and it is toggled on.</td>
+	<td style="text-align:left;">The Element is a Toggle element and it’s toggled on.</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>:root</code></td>
@@ -268,7 +268,7 @@
 
 <p>You can chain pseudo-classes together to apply the same style for multiple concurrent states. For example, the following USS rule chains the <code>:checked</code> and <code>:hover</code> pseudo-classes together to change the color of checked <code>Toggle</code> elements when a user hovers the pointer over them.</p>
 
-<pre><code class="css">Toggle:checked:hover {
+<pre><code class="lang-css">Toggle:checked:hover {
   background-color: yellow;
 }
 </code></pre>
@@ -277,7 +277,7 @@
 <img src="../uploads/Main/uss-selectors-pseudo-chained-match.png" alt="">
 </figure>
 
-<p>When the toggle is checked, but the pointer is not hovering over it, the selector no longer matches.</p>
+<p>When the toggle is checked, but the pointer isn’t hovering over it, the selector no longer matches.</p>
 
 <figure>
 <img src="../uploads/Main/uss-selectors-pseudo-chained-nomatch.png" alt="">
@@ -287,7 +287,7 @@
 
 <h2>The root pseudo-class</h2>
 
-<p>The <code>:root</code> pseudo class matches the highest element in a visual tree. It is slightly different from other supported pseudo-classes because you use it by itself to define default styles for the elements the style sheet affects.</p>
+<p>The <code>:root</code> pseudo class matches the highest element in a visual tree. It’s slightly different from other supported pseudo-classes because you use it by itself to define default styles for the elements the style sheet affects.</p>
 
 <p>For example, the following USS rule sets a default font. Any element that doesn’t get its font from a more specific style rule uses that font.</p>
 

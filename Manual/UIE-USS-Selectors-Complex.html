@@ -198,7 +198,7 @@
 
 <ul>
 <li>
-<strong>Combinators</strong> combine <a href="UIE-USS-Selectors-Simple.html">simple selectors</a> in order to match elements that have a specific relationship to one another. <strong>Descendant selectors</strong> and <strong>child selectors</strong> are both complex selectors that use combinators.</li>
+<strong>Combinators</strong> combine <a href="UIE-USS-Selectors-Simple.html">simple selectors</a> to match elements that have a specific relationship to one another. <strong>Descendant selectors</strong> and <strong>child selectors</strong> are both complex selectors that use combinators.</li>
 <li>
 <strong>Multiple selectors</strong> specify two or more selectors that must be assigned to an element for the element to match.</li>
 <li>
@@ -208,7 +208,7 @@
 <p><a name="selector-example"></a>
 This page describes each type of complex selector and provides syntax and examples. It uses the following UXML document to demonstrate how simple selectors match elements.</p>
 
-<pre><code class="xml">&lt;UXML xmlns="UnityEngine.UIElements"&gt;
+<pre><code class="lang-xml">&lt;UXML xmlns="UnityEngine.UIElements"&gt;
   &lt;VisualElement name="container1"&gt;
     &lt;VisualElement name="container2" class="yellow"&gt;
       &lt;Button name="OK" class="yellow" text="OK" /&gt;
@@ -227,13 +227,13 @@ This page describes each type of complex selector and provides syntax and exampl
 
 <thead>
 <tr>
-	<th style="text-align:left;"><strong>注意：</strong></th>
+	<th style="text-align:left;"><strong>Note:</strong></th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-	<td style="text-align:left;">Example images include margins and thin blue borders to help clearly identify individual elements for the purposes of demonstration.</td>
+	<td style="text-align:left;">Example images include margins and thin blue borders to help identify individual elements for the purposes of demonstration.</td>
 </tr>
 </tbody>
 </table>
@@ -248,14 +248,14 @@ This page describes each type of complex selector and provides syntax and exampl
 
 <p><strong>Syntax:</strong></p>
 
-<pre><code class="css">selector1 selector2 {...}
+<pre><code class="lang-css">selector1 selector2 {...}
 </code></pre>
 
-<p><strong>示例：</strong></p>
+<p><strong>Example:</strong></p>
 
 <p>For the <a href="#selector-example">example UXML document</a> above, the following style rule matches both the inner element and the first button.</p>
 
-<pre><code class="css">#container1 .yellow {
+<pre><code class="lang-css">#container1 .yellow {
   background-color: yellow;
 }
 </code></pre>
@@ -271,7 +271,7 @@ This page describes each type of complex selector and provides syntax and exampl
 
 <thead>
 <tr>
-	<th style="text-align:left;"><strong>注意：</strong></th>
+	<th style="text-align:left;"><strong>Note:</strong></th>
 </tr>
 </thead>
 
@@ -290,14 +290,14 @@ This page describes each type of complex selector and provides syntax and exampl
 
 <p><strong>Syntax:</strong></p>
 
-<pre><code class="css">selector1 &gt; selector2 {...}
+<pre><code class="lang-css">selector1 &gt; selector2 {...}
 </code></pre>
 
-<p><strong>示例：</strong></p>
+<p><strong>Example:</strong></p>
 
 <p>For the <a href="#selector-example">example UXML document</a> above, the following style rule matches only the inner element.</p>
 
-<pre><code class="css">#container1 &gt; .yellow {
+<pre><code class="lang-css">#container1 &gt; .yellow {
   background-color: yellow;
 }
 </code></pre>
@@ -314,14 +314,14 @@ This page describes each type of complex selector and provides syntax and exampl
 
 <p><strong>Syntax:</strong></p>
 
-<pre><code class="css">selector1selector2 {...}
+<pre><code class="lang-css">selector1selector2 {...}
 </code></pre>
 
-<p><strong>示例：</strong></p>
+<p><strong>Example:</strong></p>
 
 <p>For the <a href="#selector-example">example UXML document</a> above, the following style rule matches the first button.</p>
 
-<pre><code class="css">Button.yellow {
+<pre><code class="lang-css">Button.yellow {
   background-color: yellow;
 }
 </code></pre>
@@ -334,7 +334,7 @@ This page describes each type of complex selector and provides syntax and exampl
 
 <p>For example, the following USS rule combines two C# class selectors: <code>ListView</code>, and <code>Button</code>.</p>
 
-<pre><code class="css">ListViewButton{...}
+<pre><code class="lang-css">ListViewButton{...}
 </code></pre>
 
 <p>Because, the USS parser cannot separate the two C# classes, it interprets them as a single class called ListViewButton, which is not the desired result.</p>

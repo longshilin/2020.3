@@ -13,8 +13,8 @@
 <meta name="twitter:card" content="summary">
 <meta property="og:title" content="视频文件兼容性 - Unity 手册">
 <title>视频文件兼容性 - Unity 手册</title>
-<meta name="description" content="可将许多不同格式的视频文件导入 Unity 中。Unity 将导入的视频文件存储为视频剪辑 (VideoClip) 资源。">
-<meta property="og:description" content="可将许多不同格式的视频文件导入 Unity 中。Unity 将导入的视频文件存储为视频剪辑 (VideoClip) 资源。">
+<meta name="description" content="You can import many video file formats into Unity. Unity stores imported video files as VideoClip assets.">
+<meta property="og:description" content="You can import many video file formats into Unity. Unity stores imported video files as VideoClip assets.">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -191,15 +191,15 @@
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>可将许多不同格式的视频文件导入 Unity 中。Unity 将导入的视频文件存储为<a href="class-VideoClip.html">视频剪辑 (VideoClip)</a> 资源。</p>
+<p>You can import many video file formats into Unity. Unity stores imported video files as <a href="class-VideoClip.html">VideoClip</a> assets.</p>
 
-<p>为了让 Unity 正确预览视频文件，这些视频文件必须与 Editor 平台（运行 Unity 的平台）兼容。还必须确保文件与构建项目时运行项目的目标平台兼容。Unity 提供了将文件转码为通常支持的格式的选项，但是您也可以自己管理兼容性。有关更多信息，请参阅下面的<a href="#CompatibilityWithTargetPlatforms">与目标平台的兼容性</a>。</p>
+<p>For Unity to preview video files, the files must be compatible with the platform where you run the Unity Editor. Your files must also be compatible with the target build platforms. Unity provides options for transcoding files to commonly supported formats, but you can also manage compatibility yourself. See <a href="#CompatibilityWithTargetPlatforms">Compatibility with target platforms</a> below for more information.</p>
 
 <p><a name="CompatibilityWithEditorPlatforms"></a></p>
 
 <h2>与 Editor 平台的兼容性</h2>
 
-<p>视频源文件必须使用您的 Editor 平台支持的格式。每个平台都支持不同的视频文件格式子集。</p>
+<p>Video source files must use a format that your Editor platform supports. Each platform supports different video file formats.</p>
 
 <table>
 <colgroup>
@@ -213,7 +213,7 @@
 <tr>
 	<th style="text-align:left;">扩展名</th>
 	<th style="text-align:left;">Windows</th>
-	<th style="text-align:left;">OSX</th>
+	<th style="text-align:left;">macOS</th>
 	<th style="text-align:left;">Linux</th>
 </tr>
 </thead>
@@ -294,31 +294,39 @@
 </tbody>
 </table>
 
-<p>视频文件轨道也必须使用支持的编解码器进行编码。每个平台都支持编解码器的特定子集，该子集因平台的版本而异。</p>
+<p>Encoding for video file tracks must use a supported codec. Each platform supports specific codecs that can change with each version of the platform.</p>
 
-<p>使用不受支持的编解码器编码的轨道会在 Editor 中触发错误消息，必须先使用兼容的编解码器对轨道进行转换/重新编码，然后才能使用。</p>
+<p>Video files that use unsupported codecs trigger an error message in the Editor and you must convert them to a compatible codec before you can use them.</p>
 
-<p>对于大部分平台，<a href="https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC">H.264</a>（通常采用 .mp4、.m4v 或 .mov 格式）是支持性最佳的视频编解码器，因为它提供最佳的跨平台兼容性。一个需要注意的例外情况是 Linux。</p>
+<p><a href="https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC">H.264</a> is the optimal supported video codec for most platforms. It offers the best cross-platform compatibility, but the Linux Editor doesn’t support this codec.</p>
 
-<p>对于 Linux，最佳编码通常是 .webm 容器，其中的视频轨道使用 <a href="https://en.wikipedia.org/wiki/VP8">VP8</a> 编解码器进行编码，而音频则使用 <a href="https://en.wikipedia.org/wiki/Vorbis">Vorbis</a> 编解码器进行编码。</p>
-
-<p>有关编解码器支持的信息，请查阅您的 Editor 平台的官方文档。
-例如，Windows 和 macOS 都提供了编解码器兼容性文档：</p>
+<p>For Linux, the optimal encoding is a .webm container with the following codecs:</p>
 
 <ul>
-<li><a href="https://docs.microsoft.com/en-us/windows/desktop/medfound/supported-media-formats-in-media-foundation">Windows</a></li>
-<li><a href="https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/OSX_Technology_Overview/MediaLayer/MediaLayer.html">OSX</a></li>
+<li>For video tracks, <a href="https://en.wikipedia.org/wiki/VP8">VP8</a>.</li>
+<li>For audio, <a href="https://en.wikipedia.org/wiki/Vorbis">Vorbis</a>.</li>
 </ul>
 
-<p><a href="class-VideoClip.html#VideoClipImporterProperties">视频剪辑导入器</a>可以对您导入到 Unity 的视频文件进行转码。如果 Editor 平台支持您的视频源使用的编解码器，但您的目标平台不支持，则视频剪辑导入器会非常有用（请参阅下文中的<a href="#CompatibilityWithTargetPlatforms">与目标平台的兼容性</a>）。</p>
+<p>For information about codec support, see the official platform documentation for your Editor. See the links below for codec compatibility for Windows and macOS:</p>
 
-<h3>使用 Editor 不支持的视频文件</h3>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/windows/desktop/medfound/supported-media-formats-in-media-foundation">Windows codec compatibility</a></li>
+<li><a href="https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/OSX_Technology_Overview/MediaLayer/MediaLayer.html">macOS codec compatibility</a></li>
+</ul>
 
-<p>如果要使用的视频文件与目标平台兼容但与您的 Editor 平台不兼容，请将这些视频文件设置为<a href="StreamingAssets.html">流媒体资源</a>。例如，即使 Editor 仅支持 VP8，您仍可能希望将 VP9 编解码器用于 Android 构建。</p>
+<h3>Video Clip Importer</h3>
 
-<p>要将视频文件设置为流媒体资源，请将这些视频文件放置在项目的 <code>StreamingAssets</code> 文件夹中。要将<a href="class-VideoPlayer.html">视频播放器 (Video Player)</a> 组件指向流媒体资源，请使用 URL 属性。还可以使用 <a href="../ScriptReference/Application-streamingAssetsPath.html">Application.streamingAssetsPath</a> 来通过脚本访问特定于平台的流媒体资源路径。</p>
+<p>The <a href="class-VideoClip.html#VideoClipImporterProperties">Video Clip Importer</a> can transcode video files that you import into Unity. This is useful when your videos use a codec that the Editor platform supports, but the files aren’t compatible with your target platform.</p>
 
-<p>以这种方式使用视频文件时，无法在 Editor 中预览视频文件。但是，您可以创建与 Editor 兼容的版本以用作占位用途，可以在项目中同时包含兼容和不兼容的版本，还可以在运行时确定使用哪个版本。</p>
+<h3>Using unsupported video files in the Editor</h3>
+
+<p>To use video files that are compatible with your target platforms, but not your Editor platform, set them up as <a href="StreamingAssets.html">streaming assets</a>. For example, you might want to use the VP9 codec for an Android build, even though the Editor only supports VP8.</p>
+
+<p>To set video files up as streaming assets, place them in the <code>StreamingAssets</code> folder of your project. Use the URL property to point the <a href="class-VideoPlayer.html">Video Player</a> component to streaming assets.</p>
+
+<p>You can also use <a href="../ScriptReference/Application-streamingAssetsPath.html">Application.streamingAssetsPath</a> to access platform-specific paths to streaming assets via scripts. You can’t preview these paths in the Editor.</p>
+
+<p>If you want to have placeholder versions that are compatible with your Editor but use a different version for your target platform, you can include both versions in your project, use Editor-compatible versions as placeholders, and decide which version to use at run time.</p>
 
 <p>以下示例演示了如何针对不同平台使用不同的视频 URL。如需了解更多信息，请参阅<a href="PlatformDependentCompilation.html">平台相关的编译</a>的文档。</p>
 
@@ -340,30 +348,29 @@ vp.url = pathToMyMp4File;
 
 <h2>与目标平台的兼容性</h2>
 
-<p><a href="class-VideoPlayer.html">VideoPlayer</a> 组件使用您的 Editor 平台的原生音频和视频解码库（请参阅上文<a href="#CompatibilityWithEditorPlatforms">与 Editor 平台的兼容性</a>）在 Editor 中播放视频文件。您需要自行确保这些文件符合目标平台的要求。</p>
+<p>The <a href="class-VideoPlayer.html">Video Player</a> component uses the native audio and video decoding libraries of your Editor platform to play video files in the Editor. You must confirm that the files also meet the requirements for the target platform.</p>
 
 <h3>编码建议</h3>
 
 <ul>
 <li><p>可用于硬件加速并且本机支持的最优视频编解码器是 <a href="https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC">H.264</a></p></li>
-<li><p>当优先考虑跨平台支持时，<a href="https://en.wikipedia.org/wiki/VP8">VP8</a> 是一个不错的选择。VP8 得到广泛支持并具有全面的功能集，但与硬件加速的编解码器（例如 H.264）相比，需要消耗更多的资源。</p></li>
+<li><p>When cross-platform support is a high priority, <a href="https://en.wikipedia.org/wiki/VP8">VP8</a> is a good choice. It’s widely supported and has a comprehensive feature set, but it consumes more resources than hardware-accelerated codecs such as H.264.</p></li>
 <li><p>在支持 <a href="https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding">H.265</a> 的设备上可以使用 H.265。有关更多信息，请参阅下文的 <a href="#H265Compatibility">H.265 兼容性</a>。</p></li>
-<li><p>Android 使用原生库支持 VP8，因此 VP8 在某些 Android 设备上也可能获得硬件辅助。</p></li>
-<li><p>尽管 Unity Editor 中支持 .ogv 格式，但其他平台并未广泛支持该格式。应根据目标平台，将 .ogv 文件转码为 .mp4 (<a href="https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC">H.264</a>) 或 .webm (<a href="https://en.wikipedia.org/wiki/VP8">VP8</a>)。</p></li>
+<li><p>Android supports VP8 using native libraries, so VP8 might also be hardware-assisted on some Android devices.</p></li>
+<li><p>The Unity Editor supports the .ogv format, but it isn’t widely supported on other platforms. Transcode .ogv files into .mp4 (<a href="https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC">H.264</a>) or .webm (<a href="https://en.wikipedia.org/wiki/VP8">VP8</a>) depending on the target platform.</p></li>
 </ul>
 
 <h4>关键的编码值</h4>
 
-<p>以下是在编码参数中需要的一些关键值：</p>
-
-<ul>
-<li><p><strong>视频编解码器</strong>：<a href="https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC">H.264</a>、<a href="https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding">H.265</a> 或 <a href="https://en.wikipedia.org/wiki/VP8">VP8</a>。</p></li>
-<li><p><strong>分辨率：</strong>例如 1280 x 720。</p></li>
-<li><p><strong>配置文件：</strong>适用于 H.264/H.265。配置文件是一组功能和约束；通常是由供应商指定，例如 Baseline 或 Main。请参阅 <a href="https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC#Profiles">H.264</a> 或 <a href="https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding#Profiles">H.265</a>。</p></li>
-<li><p><strong>配置文件级别：</strong>适用于 H.264/H.265。在一个给定的配置文件中，级别会指定性能要求，例如 Baseline 3.1。请参阅 <a href="https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC#Profiles">H.264</a> 或 <a href="https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding#Profiles">H.265</a>。</p></li>
-<li><p><strong>音频编解码器：</strong>通常是 <a href="https://en.wikipedia.org/wiki/Advanced_Audio_Coding">AAC</a>（适用于使用 H.264/H.265 的 mp4 视频）或 <a href="https://en.wikipedia.org/wiki/Vorbis">Vorbis</a>（适用于使用 VP8 的 webm 视频）。</p></li>
-<li><p><strong>音频通道：</strong>取决于平台。例如，针对 Android 的建议是立体声文件，但很多设备都接受 5.1。</p></li>
-</ul>
+<p>The table below lists key values to look for in your encoding parameters:
+|参数 | 描述 |
+|:—|:—|
+ |Video Codec| <a href="https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC">H.264</a>, <a href="https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding">H.265</a> or <a href="https://en.wikipedia.org/wiki/VP8">VP8</a>.|
+|Resolution|The resolution of your display. For example: 1280 × 720.|
+|Profile| The profile is a set of capabilities and constraints, often specified by the vendor, such as Baseline or Main. Applies to H.264/H.265.See <a href="https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC#Profiles">H.264</a> or <a href="https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding#Profiles">H.265</a>.
+|Profile Level| Applies for H.264/H.265. Within a given profile, the level specifies performance requirements, for example, Baseline 3.1.|
+|Audio Codec| <a href="https://en.wikipedia.org/wiki/Advanced_Audio_Coding">AAC</a> (for mp4 videos using H.264/H.265) or <a href="https://en.wikipedia.org/wiki/Vorbis">Vorbis</a> (for webm videos using VP8).|
+|Audio Channels| Dependent on the platform. Refer to the developer guide for your platform. For example, the article on <a href="https://developer.android.com/guide/topics/media/media-formats">Supported media formats</a> for Android.</p>
 
 <h3>转码视频剪辑</h3>
 
@@ -378,9 +385,10 @@ vp.url = pathToMyMp4File;
 <p>转码后的视频剪辑自动使用适当的音频编解码器：</p>
 
 <ul>
-<li>使用 H.264 或 H.265 编码的 <a href="https://en.wikipedia.org/wiki/Advanced_Audio_Coding">AAC</a> 视频</li>
-<li>对于使用 VP8 编码的视频，使用 <a href="https://en.wikipedia.org/wiki/Vorbis">Vorbis</a>
-</li>
+<li>
+<a href="https://en.wikipedia.org/wiki/Advanced_Audio_Coding">AAC</a> videos encoded with H.264 or H.265</li>
+<li>
+<a href="https://en.wikipedia.org/wiki/Vorbis">Vorbis</a> for videos encoded with VP8</li>
 </ul>
 
 <table>
@@ -396,70 +404,43 @@ vp.url = pathToMyMp4File;
 
 <tbody>
 <tr>
-	<td style="text-align:left;">
-<a href="class-VideoClip.html#VideoClipImporterProperties">视频剪辑导入器</a>仅提供了基本的转码选项。根据源文件的编码方式，使用导入器选项进行转码的剪辑可能无法提供最佳性能。在这种情况下，使用外部转码程序可能会获得更好的结果。</td>
+	<td style="text-align:left;">The <a href="class-VideoClip.html#VideoClipImporterProperties">Video Clip Importer</a> provides only basic transcoding options. Depending on how your source files are encoded, you might not get optimal performance from clips transcoded with the importer options. In that case, you might get better results with an external transcoding program.</td>
 </tr>
 </tbody>
 </table>
 
-<h3>使用外部程序对视频剪辑进行编码</h3>
+<h3>Encoding VideoClips with an external program</h3>
 
-<p>如果您已知道目标系统支持您使用的视频，则可以禁用<a href="class-VideoClip.html#VideoClipImporterProperties">视频剪辑导入器</a>的转码选项。在这种情况下，Unity 根本不会修改文件，而是按原样使用这些文件。您可以使用外部程序来管理编码，从而可以进行更好的控制。</p>
+<p>If you use videos that the target system definitely supports, you can leave the <a href="class-VideoClip.html#VideoClipImporterProperties">Video Clip Importer’s</a> transcoding options disabled. If disabled, Unity doesn’t modify the files. You can manage encoding with an external program, which allows for finer control.</p>
 
 <h3>兼容性注意事项</h3>
 
-<p>本节提供有关视频兼容性的有用信息，以及指向外部资源的链接。</p>
+<p>This section provides useful information about video compatibility, and links to external resources.</p>
 
 <h4>供应商针对媒体支持的建议</h4>
 
-<p>请务必遵循供应商就编解码器支持给出的建议。编解码器的选择在较旧的移动平台上尤其受到约束。如果您计划将视频包含在要在多台设备上运行的游戏中，则可能需要仔细检查并转换/重新编码视频。</p>
+<p>Follow vendor recommendations for codec support. On older mobile platforms, codec choices are limited . You might need to inspect and convert or re-encode videos that you intend to include in a game running on multiple devices.</p>
 
 <ul>
 <li>
-<strong>Android：</strong><a href="https://developer.android.com/guide/topics/media/media-formats.html#recommendations">支持的媒体格式</a>。请参阅下面更多的注意事项。</li>
+<strong>Android:</strong> <a href="https://developer.android.com/guide/topics/media/media-formats.html#recommendations">Supported Media Formats</a>
+</li>
 <li>
 <strong>Windows：</strong><a href="https://docs.microsoft.com/en-us/windows/desktop/medfound/supported-media-formats-in-media-foundation">支持的媒体格式</a>，<a href="https://docs.microsoft.com/en-us/windows/desktop/medfound/h-265---hevc-video-decoder#format-constraints">H.265</a>
 </li>
 <li>
-<strong>iPhone 6–7：</strong><a href="http://www.apple.com/iphone/compare/">比较 iPhone 机型</a>（请参阅“电视和视频”）</li>
+<strong>iPhone:</strong> <a href="http://www.apple.com/iphone/compare/">Compare iPhone Models</a>
+</li>
 <li>
 <strong>UWP：</strong><a href="https://docs.microsoft.com/en-us/windows/uwp/audio-video-camera/supported-codecs">支持的编解码器</a>
 </li>
-</ul>
-
-<h4>已知问题</h4>
-
-<p>本节将介绍特定平台上的一些已知问题。</p>
-
-<h5>Android</h5>
-
-<ul>
-<li><p>并非所有设备都支持大于 640 x 360 的分辨率。系统会执行运行时检查以验证这一点，如果失败，将导致无法播放电影。</p></li>
-<li><p>对于 Android Lollipop（5.0 和 5.1.1）及更高版本，您可以使用任何分辨率或任意数量的音频通道，只要目标设备支持即可。</p></li>
-<li><p>格式兼容性问题会显示在 <code>adb logcat</code> 输出中，并且始终以 <code>AndroidVideoMedia</code> 为前缀。</p></li>
-<li><p>注意特定于设备的错误消息（位于 Unity 错误消息附近）：它们对于引擎来说不可用，但通常会说明兼容性问题。</p></li>
-<li><p>只有直接从磁盘读取的非压缩捆绑包支持从资源包中播放。</p></li>
-<li><p>不支持原生 webM/VP8 透明度。必须对 VP8 编码的 webM 剪辑进行转码，以确保透明度在 Android 上有效。</p></li>
-</ul>
-
-<h5>WebGL</h5>
-
-<ul>
-<li>
-<a href="class-VideoClip.html#VideoClipImporterProperties">视频剪辑导入器</a>不能用于 WebGL 游戏构建。必须使用<a href="class-VideoPlayer.html">视频播放器 (Video Player)</a> 组件的 URL 选项。</li>
-</ul>
-
-<h5>Windows</h5>
-
-<ul>
-<li>Windows 7 的分辨率上限低于 Windows 8 和更高版本。例如，该系统的 H.264 编解码器的分辨率上限为 1980x1088。有关详细信息，请参阅供应商文档。</li>
 </ul>
 
 <p><a name="H265Compatibility"></a></p>
 
 <h4>H.265 兼容性</h4>
 
-<p>下表提供了 H.265 编解码器的特定于平台的要求和编码/解码信息。</p>
+<p>The table below provides platform-specific requirements and information for the H.265 codec.</p>
 
 <table>
 <colgroup>
@@ -471,16 +452,16 @@ vp.url = pathToMyMp4File;
 
 <thead>
 <tr>
-	<th style="text-align:left;">平台：</th>
-	<th style="text-align:left;">要求：</th>
-	<th style="text-align:left;">编码/解码：</th>
+	<th style="text-align:left;">平台</th>
+	<th style="text-align:left;">Requirements</th>
+	<th style="text-align:left;">Encoding/Decoding</th>
 	<th style="text-align:left;">注意</th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-	<td style="text-align:left;"><strong>OSX</strong></td>
+	<td style="text-align:left;"><strong>macOS</strong></td>
 	<td style="text-align:left;">SDK 10.13+</td>
 	<td style="text-align:left;">
 <strong>硬件编码：</strong>第 6 代 Intel Core 处理器<br><br><strong>软件编码：</strong>所有 Mac 机型<br><br> <strong>硬件解码：</strong>第 6 代 Intel Core 处理器<br><br><strong>软件解码：</strong>所有 Mac 机型</td>
@@ -510,23 +491,14 @@ vp.url = pathToMyMp4File;
 	<td style="text-align:left;"></td>
 </tr>
 <tr>
-	<td style="text-align:left;"><strong>XBox</strong></td>
-	<td style="text-align:left;">请参阅<a href="https://docs.microsoft.com/en-us/windows/uwp/audio-video-camera/supported-codecs">此处</a>
-</td>
-	<td style="text-align:left;"></td>
-	<td style="text-align:left;"></td>
-</tr>
-<tr>
 	<td style="text-align:left;"><strong>UWP</strong></td>
-	<td style="text-align:left;">Windows 10 + 参阅<a href="https://docs.microsoft.com/en-us/windows/uwp/audio-video-camera/supported-codecs">此处</a>
-</td>
+	<td style="text-align:left;"><a href="https://docs.microsoft.com/en-us/windows/uwp/audio-video-camera/supported-codecs">Windows 10+</a></td>
 	<td style="text-align:left;"></td>
-	<td style="text-align:left;">在注明支持 H.265 的情况下，不一定是设备系列中的所有设备都支持。</td>
+	<td style="text-align:left;">If a device lists support for H.265, that might not apply to all devices within the device family.</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Android</strong></td>
-	<td style="text-align:left;">5.0+ 参阅<a href="https://docs.unity3d.com/ScriptReference/%3Ca%20href=https://developer.android.com/guide/topics/media/media-formats">此处</a>
-</td>
+	<td style="text-align:left;"><a href="https://docs.unity3d.com/ScriptReference/%3Ca%20href=https://developer.android.com/guide/topics/media/media-formats">5.0+</a></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 </tr>

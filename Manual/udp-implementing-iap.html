@@ -11,8 +11,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="使用 UDP 包实现应用内购 - Unity 手册">
-<title>使用 UDP 包实现应用内购 - Unity 手册</title>
+<meta property="og:title" content="Implementing IAP products - Unity 手册">
+<title>Implementing IAP products - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/UDPManagingGame_07.png">
 <meta name="description" content="Unity 建议在 UDP 控制台中添加和管理 IAP 商品。UDP 控制台中的 IAP 目录是提交到商店后端系统的真实信息来源。此外，UDP 控制台可让你：">
 <meta property="og:description" content="Unity 建议在 UDP 控制台中添加和管理 IAP 商品。UDP 控制台中的 IAP 目录是提交到商店后端系统的真实信息来源。此外，UDP 控制台可让你：">
@@ -178,7 +178,7 @@
 <li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
 <li><a href="UnityServices.html">Unity 服务</a></li>
 <li><a href="udp.html">Unity 分发平台</a></li>
-<li>使用 UDP 包实现应用内购</li>
+<li>Implementing IAP products</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -188,16 +188,17 @@
 <span class="next"><a href="udp-sandbox-testing.html"></a></span><div class="tip">在 UDP 沙盒中测试游戏</div>
 </div>
 </div></div>
-<h1>使用 UDP 包实现应用内购</h1>
+<h1>Implementing IAP products</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
 <p>Unity 建议在 UDP 控制台中添加和管理 IAP 商品。UDP 控制台中的 <a href="udp.html#iap-catalog">IAP 目录</a>是提交到商店后端系统的真实信息来源。此外，UDP 控制台可让你：</p>
 
 <ul>
-<li>管理多个 IAP 价格和货币</li>
-<li>添加多种语言的描述</li>
-<li>通过 CSV 文件批量上传商品（支持多种货币和语言）</li>
+<li><a href="#manage">Manage multiple IAP prices and currencies</a></li>
+<li><a href="#edit">Add descriptions in multiple languages</a></li>
+<li>
+<a href="#bulk">Upload items in bulk via CSV file</a> (multiple currencies and languages supported)</li>
 </ul>
 
 <p><strong>注意</strong>：如果仅使用 UDP 包，仍应在 Unity 编辑器中创建至少一个 IAP 商品以测试其是否能够与 UDP 控制台正确同步。

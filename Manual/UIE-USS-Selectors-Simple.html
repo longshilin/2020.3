@@ -206,7 +206,7 @@
 <li>The <strong>universal selector</strong> matches any element</li>
 </ul>
 
-<p>You can combine simple selectors into <a href="UIE-USS-Selectors-Complex.html">complex selectors</a>, and/or append <a href="UIE-USS-Selectors-Pseudo-Classes.html">pseudo-classes</a> to them to target elements in specific states.</p>
+<p>You can combine simple selectors into <a href="UIE-USS-Selectors-Complex.html">complex selectors</a>, or append <a href="UIE-USS-Selectors-Pseudo-Classes.html">pseudo-classes</a> to them to target elements in specific states.</p>
 
 <p><a name="selector-example"></a>
 This page describes each type of simple selector and provides syntax and examples. It uses the following UXML document to demonstrate how simple selectors match elements.</p>
@@ -236,7 +236,7 @@ This page describes each type of simple selector and provides syntax and example
 
 <tbody>
 <tr>
-	<td style="text-align:left;">Example images include margins and thin blue borders to help clearly identify individual elements for the purposes of demonstration.</td>
+	<td style="text-align:left;">Example images include margins and thin blue borders to help identify individual elements for the purposes of demonstration.</td>
 </tr>
 </tbody>
 </table>
@@ -274,7 +274,7 @@ This page describes each type of simple selector and provides syntax and example
 <pre><code class="lang-css">TypeName { ...}
 </code></pre>
 
-<p>When you write C# Type selectors, specify only the concrete object type. Do not include the namespace in the type name.</p>
+<p>When you write C# Type selectors, specify only the concrete object type. Don’t include the namespace in the type name.</p>
 
 <p>For example, this selector is valid:</p>
 
@@ -352,7 +352,7 @@ This page describes each type of simple selector and provides syntax and example
 
 <tbody>
 <tr>
-	<td style="text-align:left;">Only use the number sign # when you write the selector in a USS file. Do not use it when you assign the name to an element in a UXML or C# file. An element name that includes the number sign is invalid.<br><br>For example <code>&lt;Button name="OK" /&gt;</code> is valid. <code>&lt;Button name="#OK" /&gt;</code> is not.</td>
+	<td style="text-align:left;">Only use the number sign # when you write the selector in a USS file. Don’t use it when you assign the name to an element in a UXML or C# file. An element name that includes the number sign is invalid.<br><br>For example <code>&lt;Button name="OK" /&gt;</code> is valid. <code>&lt;Button name="#OK" /&gt;</code> is not.</td>
 </tr>
 </tbody>
 </table>
@@ -426,7 +426,7 @@ This page describes each type of simple selector and provides syntax and example
 
 <p>When an element has more than one class assigned, a selector only has to match one of them to match the element.</p>
 
-<p>On the other hand, you can specify multiple classes in a selector, in which case an element must have all of those classes assigned in order to match. See <a href="UIE-USS-Selectors-Complex.html#multiple-selectors">Multiple selectors</a> for details.</p>
+<p>You can also specify multiple classes in a selector, in which case an element must have all of those classes assigned in order to match. See <a href="UIE-USS-Selectors-Complex.html#multiple-selectors">Multiple selectors</a> for details.</p>
 
 <p><strong>示例：</strong></p>
 
@@ -477,7 +477,7 @@ This page describes each type of simple selector and provides syntax and example
 
 <tbody>
 <tr>
-	<td style="text-align:left;">Because it tests every element, the universal selector can impact performance. Use it sparingly. Avoid using the universal selector with the descendant selector. When you use that combination, the system might have to test a large number of elements repeatedly, which can impact performance.</td>
+	<td style="text-align:left;">Because it tests every element, the universal selector can impact performance. Use it sparingly. Avoid using the universal selector with the descendant selector. When you use that combination, the system might have to test many elements repeatedly, which can impact performance.</td>
 </tr>
 </tbody>
 </table>
