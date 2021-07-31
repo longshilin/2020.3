@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="ShaderLab：Fallback - Unity 手册">
-<title>ShaderLab：Fallback - Unity 手册</title>
-<meta name="description" content="在所有子着色器的后面可定义 Fallback。基本上就是说，&amp;#8220;如果没有任何子着色器能够在此硬件上运行，则尝试使用另一个着色器中的子着色器&amp;#8221;。">
-<meta property="og:description" content="在所有子着色器的后面可定义 Fallback。基本上就是说，&amp;#8220;如果没有任何子着色器能够在此硬件上运行，则尝试使用另一个着色器中的子着色器&amp;#8221;。">
+<meta property="og:title" content="ShaderLab：分配回退 - Unity 手册">
+<title>ShaderLab：分配回退 - Unity 手册</title>
+<meta name="description" content="本页面包含有关在 ShaderLab 代码中使用 Fallback 代码块向 Shader 对象分配回退的信息。有关 Shader 对象的工作原理以及 Unity 如何选择何时使用回退的信息，请参阅 Shader 对象简介。">
+<meta property="og:description" content="本页面包含有关在 ShaderLab 代码中使用 Fallback 代码块向 Shader 对象分配回退的信息。有关 Shader 对象的工作原理以及 Unity 如何选择何时使用回退的信息，请参阅 Shader 对象简介。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,64 +174,120 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
-<li><a href="ShadersOverview.html">编写着色器</a></li>
-<li><a href="SL-Reference.html">着色器参考</a></li>
-<li><a href="SL-Shader.html">ShaderLab 语法</a></li>
-<li>ShaderLab：Fallback</li>
+<li><a href="Shaders.html">着色器</a></li>
+<li><a href="shader-writing.html">编写着色器</a></li>
+<li><a href="SL-Reference.html">ShaderLab</a></li>
+<li><a href="SL-Shader.html">ShaderLab：定义 Shader 对象</a></li>
+<li>ShaderLab：分配回退</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-ShaderLOD.html"></a></span><div class="tip">ShaderLab：子着色器 LOD 值</div>
+<span class="prev"><a href="SL-Properties.html"></a></span><div class="tip">ShaderLab：定义材质属性</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-CustomEditor.html"></a></span><div class="tip">ShaderLab：CustomEditor</div>
+<span class="next"><a href="SL-CustomEditor.html"></a></span><div class="tip">ShaderLab：指定自定义编辑器</div>
 </div>
 </div></div>
-<h1>ShaderLab：Fallback</h1>
+<h1>ShaderLab：分配回退</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>在所有子着色器的后面可定义 Fallback。基本上就是说，“如果没有任何子着色器能够在此硬件上运行，则尝试使用另一个着色器中的子着色器”。</p>
+<p>本页面包含有关在 ShaderLab 代码中使用 <code>Fallback</code> 代码块向 Shader 对象分配回退的信息。有关 Shader 对象的工作原理以及 Unity 如何选择何时使用回退的信息，请参阅 <a href="shader-objects.html">Shader 对象简介</a>。</p>
 
-<h2>语法</h2>
+<h2>渲染管线兼容性</h2>
 
-<pre><code>    Fallback "name"
-</code></pre>
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
 
-<p>回退到具有给定_名称 (name)_ 的着色器，或者…</p>
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>功能名称</strong></th>
+	<th style="text-align:left;"><strong>内置渲染管线</strong></th>
+	<th style="text-align:left;"><strong>通用渲染管线 (URP)</strong></th>
+	<th style="text-align:left;"><strong>高清渲染管线 (HDRP)</strong></th>
+	<th style="text-align:left;"><strong>自定义 SRP</strong></th>
+</tr>
+</thead>
 
-<pre><code>    Fallback Off
-</code></pre>
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>ShaderLab：Fallback 代码块</strong></td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+</tr>
+</tbody>
+</table>
 
-<p>显式说明即使没有子着色器可以在此硬件上运行，也不会进行回退并且不会显示警告。</p>
+<h2>使用 Fallback 代码块</h2>
 
-<h2>详细信息</h2>
+<p>要分配回退，请在 <code>Shader</code> 代码块内放置一个 <code>Fallback</code> 代码块。</p>
 
-<p>Fallback 语句的效果等同于插入其他着色器中的所有子着色器。</p>
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
 
-<h2>示例</h2>
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>签名</strong></th>
+	<th style="text-align:left;"><strong>功能</strong></th>
+</tr>
+</thead>
 
-<pre><code>    Shader "example" {
-            // 此处为属性和子着色器...
-            Fallback "otherexample"
+<tbody>
+<tr>
+	<td style="text-align:left;"><code>Fallback "&lt;name&gt;"</code></td>
+	<td style="text-align:left;">如果找不到兼容的 SubShader，则使用指定的 Shader 对象。</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><code>Fallback Off</code></td>
+	<td style="text-align:left;">不使用回退 Shader 对象代替这个对象。如果未找到兼容的 SubShader，则显示错误信息。</td>
+</tr>
+</tbody>
+</table>
+
+<h2>回退代码示例</h2>
+
+<p>此示例代码演示创建具有指定回退的 Shader 对象的语法。</p>
+
+<pre><code>Shader "Examples/ExampleFallback"
+{
+    SubShader
+    {
+        // 此处是定义子着色器的代码。
+
+        Pass
+        {                
+              // 此处是定义通道的代码。
         }
+    }
+
+    Fallback "ExampleOtherShader"
+}
 </code></pre>
-<!-- area:graphics -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-ShaderLOD.html"></a></span><div class="tip">ShaderLab：子着色器 LOD 值</div>
+<span class="prev"><a href="SL-Properties.html"></a></span><div class="tip">ShaderLab：定义材质属性</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-CustomEditor.html"></a></span><div class="tip">ShaderLab：CustomEditor</div>
+<span class="next"><a href="SL-CustomEditor.html"></a></span><div class="tip">ShaderLab：指定自定义编辑器</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

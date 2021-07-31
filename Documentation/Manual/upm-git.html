@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Git dependencies - Unity 手册">
-<title>Git dependencies - Unity 手册</title>
+<meta property="og:title" content="Git 依赖关系 - Unity 手册">
+<title>Git 依赖关系 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/upm-git-cloning.png">
-<meta name="description" content="When the Package Manager fetches a package from a Git repository, it adds the package locally to your project. This allows you to easily test unpublished changes, but you cannot use it to contribute to that Git repository. To set up an existing local Git repository as a dependency in your project, use a path to your local Git repository instead.">
-<meta property="og:description" content="When the Package Manager fetches a package from a Git repository, it adds the package locally to your project. This allows you to easily test unpublished changes, but you cannot use it to contribute to that Git repository. To set up an existing local Git repository as a dependency in your project, use a path to your local Git repository instead.">
+<meta name="description" content="当 Package Manager 从 Git 代码仓库获取包时，会将包添加到项目本地。这使您可以轻松测试未发布的更改，但不能将对包的更改合并到该 Git 代码仓库。要将现有的本地 Git 代码仓库设置为项目中的依赖关系，请改用本地 Git 代码仓库路径。">
+<meta property="og:description" content="当 Package Manager 从 Git 代码仓库获取包时，会将包添加到项目本地。这使您可以轻松测试未发布的更改，但不能将对包的更改合并到该 Git 代码仓库。要将现有的本地 Git 代码仓库设置为项目中的依赖关系，请改用本地 Git 代码仓库路径。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,63 +175,76 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="PackagesList.html">包</a></li>
 <li><a href="Packages.html">Unity 的 Package Manager</a></li>
 <li><a href="upm-manifestPrj.html">项目清单</a></li>
-<li>Git dependencies</li>
+<li>Git 依赖关系</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="upm-embed.html"></a></span><div class="tip">嵌入式依赖项</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="upm-localpath.html"></a></span><div class="tip">Local folder or tarball paths</div>
+<span class="next"><a href="upm-localpath.html"></a></span><div class="tip">本地文件夹或 tarball 路径</div>
 </div>
 </div></div>
-<h1>Git dependencies</h1>
+<h1>Git 依赖关系</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>When the Package Manager fetches a package from a Git repository, it adds the package locally to your project. This allows you to easily test unpublished changes, but you cannot use it to contribute to that Git repository. To set up an existing local Git repository as a dependency in your project, use a <a href="upm-localpath.html">path to your local Git repository</a> instead.</p>
+<p>当 Package Manager 从 Git 代码仓库获取包时，会将包添加到项目本地。这使您可以轻松测试未发布的更改，但不能将对包的更改合并到该 Git 代码仓库。要将现有的本地 Git 代码仓库设置为项目中的依赖关系，请改用<a href="upm-localpath.html">本地 Git 代码仓库路径</a>。</p>
 
-<p>You cannot specify Git dependencies in a <a href="upm-manifestPkg.html">package.json</a> file because the Package Manager does not support Git dependencies between packages. It only supports Git dependencies for projects, so you can only declare Git dependencies in the project’s <a href="upm-manifestPrj.html">manifest.json</a> file.</p>
+<p>不能在 <a href="upm-manifestPkg.html">package.json</a> 文件中指定 Git 依赖关系，因为 Package Manager 不支持包之间的 Git 依赖关系。它只支持项目的 Git 依赖关系，所以只能在项目的 <a href="upm-manifestPrj.html">manifest.json</a> 文件中声明 Git 依赖关系。</p>
 
-<p>This section includes the following topics:</p>
+<p><strong>提示</strong>：如果要从代码仓库将 Git 依赖关系更新到特定版本（<a href="#revision">修订版本</a>），请参阅<a href="#git-locks">已锁定的 Git 依赖关系</a>。</p>
+
+<p>此部分包含以下主题：</p>
 
 <ul>
-<li><p><a href="#req">Requirements</a></p></li>
+<li><a href="#req">要求</a></li>
 <li>
-<a href="#syntax">Git URLs and extended syntax</a>
+<a href="#syntax">Git URL 和扩展语法</a>
 
 <ul>
-<li><p><a href="#Git-HTTPS">Using the HTTP/HTTPS protocol</a></p></li>
-<li><p><a href="#Git-SSH">Using the SSH protocol</a></p></li>
-<li><p><a href="#Git-FILE">Using the FILE protocol</a></p></li>
-<li><p><a href="#Git-GIT">Using the GIT protocol</a></p></li>
-<li><p><a href="#revision">Targeting a specific revision</a></p></li>
-<li><p><a href="#subfolder">Specifying a package in a subfolder</a></p></li>
+<li><a href="#Git-HTTPS">使用 HTTP/HTTPS 协议</a></li>
+<li><a href="#Git-SSH">使用 SSH 协议</a></li>
+<li><a href="#Git-FILE">使用 FILE 协议</a></li>
+<li><a href="#Git-GIT">使用 GIT 协议</a></li>
+<li>
+<a href="#revision">以特定修订版本为目标</a>
+
+<ul>
+<li><a href="#subfolder">在代码仓库的子文件夹中指定包</a></li>
+<li><a href="#paths-and-revisions">同时使用路径和修订版本</a></li>
 </ul>
 </li>
-<li><p><a href="#git-locks">Locked Git dependencies</a></p></li>
-<li><p><a href="#git-lfs">Git LFS Support</a></p></li>
+<li><a href="#subfolder">在子文件夹中指定包</a></li>
 </ul>
+</li>
+<li><a href="#git-locks">已锁定的 Git 依赖关系</a></li>
+<li><a href="#git-lfs">Git LFS 支持</a></li>
+</ul>
+
+<p><br> </p>
 
 <p><a name="req"></a></p>
 
 <h2>要求</h2>
 
-<p>To use Git dependencies in a project, make sure the <a href="https://git-scm.com/">Git client</a> is installed on your machine and that you have added the Git executable path to the PATH system environment variable.</p>
+<p>要在项目中使用 Git 依赖关系，请确保您的计算机上安装了 <a href="https://git-scm.com/">Git 客户端</a>（最低版本 2.14.0），并且已将 Git 可执行路径添加到 PATH 系统环境变量中。</p>
 
-<p>如果代码仓库使用 <a href="https://git-lfs.github.com/">Git LFS</a> 来跟踪文件，请确保您的计算机上还安装了 Git LFS 客户端。如果未安装，则 Package Manager 无法获取存储在 LFS 服务器上的文件，而是签出 LFS 指针文件，并且不会显示任何错误或警告消息。</p>
+<p><strong>警告：</strong>Package Manager 已经过测试，可与 Git 2.14.0 及更高版本配合使用。如果您使用低于 2.14.0 的 Git 版本，Unity 无法保证结果。</p>
 
-<p>You can use the Package Manager window to install a package directly from a Git repository. For more information, see <a href="upm-ui-giturl.html">Installing from a Git URL</a>.</p>
+<p>如果代码仓库使用 <a href="https://git-lfs.github.com/">Git LFS</a> 来跟踪文件，请确保您的计算机上还安装了 Git LFS 客户端。如果未安装，则 Package Manager <a href="upm-errors.html#git-lfs">无法获取存储在 LFS 服务器上的文件</a>，而是签出 LFS 指针文件，并且不会显示任何错误或警告消息。</p>
+
+<p>可以使用 Package Manager 窗口直接从 Git 代码仓库安装包。有关更多信息，请参阅<a href="upm-ui-giturl.html">从 Git URL 安装</a>。</p>
 
 <p><a name="syntax"></a></p>
 
-<h2>Git URLs and extended syntax</h2>
+<h2>Git URL 和扩展语法</h2>
 
-<p>The Package Manager supports all <a href="https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols">Git protocols</a>, with the exception of direct file paths. To specify a Git URL as a dependency, add the name of the package to add with a Git URL instead of the version number or local file path. For example, this demonstrates how to specify a remote Git using different protocols:</p>
+<p>Package Manager 支持所有 <a href="https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols">Git 协议</a>（直接文件路径除外）。要将 Git URL 指定为依赖关系，请添加要使用 Git URL 添加的包名称，而不是版本号或本地文件路径。例如，下面演示了如何使用不同协议指定远程 Git：</p>
 
 <pre><code class="lang-json">{
   "dependencies": {
@@ -244,36 +257,36 @@
 }
 </code></pre>
 
-<p>The Package Manager recognizes that a dependency formatted as a URL is a Git URL by looking for the <code>.git</code> file extension at the end of the repository path. Some Git repository hosting services do not support URLs with this extension while others enforce it. For this reason, the Git dependency syntax allows you to omit the extension if you use the <a href="Git-GIT">GIT protocol</a>, or if you add a special <code>git+</code> prefix to the <a href="#Git-HTTPS">HTTP/HTTPS</a>, <a href="#Git-SSH">SSH</a>, or <a href="#Git-FILE">FILE</a> URL.</p>
+<p>Package Manager 通过查找代码仓库路径末尾的 <code>.git</code> 文件扩展名，来识别格式为 URL 的依赖关系是 Git URL。一些 Git 代码仓库托管服务不支持具有此扩展名的 URL，而其他服务则强制执行它。因此，如果您使用 <a href="Git-GIT">GIT 协议</a>，或是如果将特殊 <code>git+</code> 前缀添加到 <a href="#Git-HTTPS">HTTP/HTTPS</a>、<a href="#Git-SSH">SSH</a> 或 <a href="#Git-FILE">FILE</a> URL，则 Git 依赖关系语法允许您省略扩展名。</p>
 
-<p><strong>Note:</strong> The <code>git+</code> prefix is a special marker in the <code>manifest.json</code> file that indicates that the dependency is Git-based. The Package Manages does not pass it to Git when cloning the repository.</p>
+<p><strong>注意：</strong><code>git+</code> 前缀是 <code>manifest.json</code> 文件中的特殊标记，指示依赖关系基于 Git。Package Manager 不会在克隆代码仓库时将它传递给 Git。</p>
 
-<p>For more information about the format of Git-supported URLs, see the documentation for the git <a href="https://git-scm.com/docs/git-clone#_git_urls_a_id_urls_a">clone</a> command and <a href="https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols">Git server protocols</a>.</p>
+<p>有关 Git 支持的 URL 格式的更多信息，请参阅适用于 git <a href="https://git-scm.com/docs/git-clone#_git_urls_a_id_urls_a">clone</a> 命令的文档。有关 Git 使用的各种协议之间的差异概述，请参阅<a href="https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols">有关使用协议的 Git 文档</a>。</p>
 
-<p>In addition, Git dependencies use an extended syntax:</p>
+<p>此外，Git 依赖关系使用一种扩展语法：</p>
 
 <ul>
 <li>
-<p>If the package you want is not at the root of the repository, you can specify a path to a subfolder in the repository where the package is located. This is only necessary if the package you want is not at the root of the repository. For example, the string <code>?path=/folder1/folder2</code> in:</p>
+<p>如果所需的包不在代码仓库的根目录中，则可以指定代码仓库中放置该包的子文件夹的路径。仅当所需的包不在代码仓库的根目录中时才需要这样做。例如，以下内容中的字符串 <code>?path=/folder1/folder2</code>：</p>
 
-<p><code>"https://github.example.com/myuser/myrepository.git?path=/folder1/folder2"</code>.</p>
+<p><code>"https://github.example.com/myuser/myrepository.git?path=/folder1/folder2"</code>。</p>
 
-<p>For more information, see <a href="#subfolder">Specifying a package in a subfolder</a>.</p>
+<p>有关更多信息，请参阅<a href="#subfolder">在子文件夹中指定包</a>。</p>
 </li>
 <li>
-<p>You can specify a Git revision, which can be a tag, branch name, or a specific commit hash to lock onto. This ensures that the Package Manager always loads that exact revision. If you don’t specify a revision, the Package Manager clones the repository at the default branch and latest commit. For example, the string <code>#v2.0.0</code> in:</p>
+<p>可以指定 Git 修订版本，它可以是标签、分支名称或是要锁定到的特定提交哈希。这可确保 Package Manager 始终加载准确的修订版本。如果未指定修订版本，则 Package Manager 会在默认分支和最新提交处克隆代码仓库。例如，以下内容中的字符串 <code>#v2.0.0</code>：</p>
 
 <p><code>"https://github.example.com/myuser/myrepository.git#v2.0.0"</code></p>
 
-<p>For more information, see <a href="#revision">Targeting a specific revision</a>.</p>
+<p>有关更多信息，请参阅<a href="#revision">以特定修订版本为目标</a>。</p>
 </li>
 </ul>
 
 <p><a name="Git-HTTPS"></a></p>
 
-<h3>Using the HTTP/HTTPS protocol</h3>
+<h3>使用 HTTP/HTTPS 协议</h3>
 
-<p>You can use the HTTPS protocol with the full URL:</p>
+<p>可以使用带有完整 URL 的 HTTPS 协议：</p>
 
 <pre><code class="lang-json">{
   "dependencies": {
@@ -282,7 +295,7 @@
 }
 </code></pre>
 
-<p>If your Git server does not support the <code>.git</code> extension, you can add the special <code>git+</code> prefix, with or without the extension:</p>
+<p>如果 Git 服务器不支持 <code>.git</code> 扩展名，则可以添加特殊 <code>git+</code> 前缀（带或不带扩展名）：</p>
 
 <pre><code class="lang-json">{
   "dependencies": {
@@ -292,32 +305,24 @@
 }
 </code></pre>
 
-<p><strong>Note</strong>: Alternatively, you can use the GIT protocol instead of the <code>git+</code> prefix. For more information, see <a href="#Git-GIT">Using the GIT protocol</a>.</p>
+<p><strong>注意</strong>：或者，可以使用 GIT 协议而不是 <code>git+</code> 前缀。有关更多信息，请参阅<a href="#Git-GIT">使用 GIT 协议</a>。</p>
 
-<p>If the repository is publicly accessible, HTTPS is the recommended scheme for sharing Git URLs with users because you can copy and paste the URL directly from the Git repository hosting service web page.</p>
+<p>如果代码仓库可公开访问，则 HTTPS 是用于与用户共享 Git URL 的推荐方案，因为可以直接从 Git 代码仓库托管服务网页复制和粘贴 URL。</p>
 
 <figure>
-<img src="../uploads/Main/upm-git-cloning.png" alt="Copy the URL from the package repository">
-<figcaption>Copy the URL from the package repository</figcaption>
+<img src="../uploads/Main/upm-git-cloning.png" alt="从包代码仓库复制 URL">
+<figcaption>从包代码仓库复制 URL</figcaption>
 </figure>
 
-<p>If the repository is not publicly accessible and you are using HTTPS, the repository server fails to authenticate you because you can’t interact with the server to provide your credentials. To work around this, choose one of the following solutions:</p>
+<p>如果代码仓库不可公开访问，并且您使用的是 HTTPS，则代码仓库服务器无法对您进行身份验证，因为您无法与该服务器交互以提供凭据。在这种情况下，编辑器会通知您身份验证失败。</p>
 
-<ul>
-<li><p>Authenticate beforehand using a <a href="https://git-scm.com/docs/gitcredentials">Git credentials helper</a>.</p></li>
-<li>
-<p>Include your username and password directly in the Git URL.</p>
-
-<p><strong>Warning</strong>: This option is not recommended because it is not secure.</p>
-</li>
-<li><p>Use the <a href="#Git-SSH">SSH protocol</a> instead. If you set up and configure an SSH key pair with the Git repository hosting service, the Package Manager can authenticate the request seamlessly on your behalf.</p></li>
-</ul>
+<p>若要解决这些身份验证问题，可以使用 <a href="https://git-scm.com/docs/gitcredentials">Git 凭据帮助程序</a>提前进行身份验证，或是改为使用 <a href="#Git-SSH">SSH 协议</a>。如果您使用 Git 代码仓库托管服务设置和配置 SSH 密钥对，则 Package Manager 可以代表您对请求进行无缝身份验证。</p>
 
 <p><a name="Git-SSH"></a></p>
 
-<h3>Using the SSH protocol</h3>
+<h3>使用 SSH 协议</h3>
 
-<p>You can use the SSH protocol with the full URL:</p>
+<p>可以使用带有完整 URL 的 SSH 协议：</p>
 
 <pre><code class="lang-json">{
   "dependencies": {
@@ -326,7 +331,7 @@
 }
 </code></pre>
 
-<p>If your Git server does not support the <code>.git</code> extension, you can add the special <code>git+</code> prefix, with or without the extension:</p>
+<p>如果 Git 服务器不支持 <code>.git</code> 扩展名，则可以添加特殊 <code>git+</code> 前缀（带或不带扩展名）：</p>
 
 <pre><code class="lang-json">{
   "dependencies": {
@@ -336,9 +341,9 @@
 }
 </code></pre>
 
-<p><strong>Note</strong>: Alternatively, you can use the GIT protocol instead of the <code>git+</code> prefix. For more information, see <a href="#Git-GIT">Using the GIT protocol</a>.</p>
+<p><strong>注意</strong>：或者，可以使用 GIT 协议而不是 <code>git+</code> 前缀。有关更多信息，请参阅<a href="#Git-GIT">使用 GIT 协议</a>。</p>
 
-<p>You can also use the SCP-like shorthand, which the Package Manager always recognizes as a Git dependency:</p>
+<p>还可以使用类似 SCP 的速记，Package Manager 会始终将它识别为 Git 依赖关系：</p>
 
 <pre><code class="lang-json">{
   "dependencies": {
@@ -347,23 +352,21 @@
 }
 </code></pre>
 
-<h4>Using PuTTY on Windows</h4>
+<h4>在 Windows 上使用 PuTTY</h4>
 
-<p>Git uses the keys at the default location when you use SSH to authenticate. However, if you are using <a href="https://www.putty.org/">PuTTY</a> as the SSH client on Windows, you need to configure the <code>GIT_SSH</code> environment variable to make it point to <code>plink.exe</code>.</p>
+<p>当您使用 SSH 进行身份验证时，Git 会使用默认位置的密钥。但是，如果您在 Windows 上使用 <a href="https://www.putty.org/">PuTTY</a> 作为 SSH 客户端，则需要配置 <code>GIT_SSH</code> 环境变量以使其指向 <code>plink.exe</code>。</p>
 
-<h4>Authenticating with SSH</h4>
+<h4>使用 SSH 进行身份验证</h4>
 
-<p>If you want to use the SSH protocol, you need to set up SSH keys outside of Unity. For more information on setting up authentication for a specific host, see the help pages for <a href="https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/">Bitbucket</a>, <a href="https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html">GitLab</a>, and <a href="https://github.com/settings/tokens">GitHub</a>.</p>
+<p>如果要使用 SSH 协议，则需要在 Unity 外部设置 SSH 密钥。有关为特定主机设置身份验证的更多信息，请参阅 <a href="https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/">Bitbucket</a>、<a href="https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html">GitLab</a> 和 <a href="https://github.com/settings/tokens">GitHub</a> 的帮助页面。</p>
 
-<p><strong>Note</strong>: If you encrypted your SSH key with a passphrase, the Package Manager can’t retrieve the package, because it doesn’t provide a way to enter the passphrase in a terminal or command line. In this case, you can either use the <a href="#protocols">HTTPS protocol with a Git credential helper</a> or use Git’s built-in SSH authentication <a href="https://www.ssh.com/ssh/agent">ssh-agent</a>. On Windows, if you are using PuTTY, you can use its <a href="https://www.ssh.com/ssh/putty/putty-manuals/0.68/Chapter9.html">Pageant</a> authentication helper.</p>
-
-<p>If you don’t have proper access, the Editor notifies you that authentication failed. For more information, see <a href="upm-errors.html#ssh-add">Authentication issues with Git URLs</a>.</p>
+<p><strong>注意</strong>：如果您使用口令短语对 SSH 密钥进行加密，则 Package Manager 无法获取包，因为它未提供用于在终端或命令行中输入口令短语的方式。在这种情况下，编辑器会通知您身份验证失败。有关使用 <strong>ssh-agent</strong> 进行身份验证的帮助，请参阅<a href="upm-errors.html#ssh-add">适用于 SSH 的解决方案</a>。</p>
 
 <p><a name="Git-FILE"></a></p>
 
-<h3>Using the FILE protocol</h3>
+<h3>使用 FILE 协议</h3>
 
-<p>The Package Manager does not recognize Git URLs with the <code>file:</code> prefix as Git dependencies unless they are properly formatted. This means you must use either the <code>git+file:</code> protocol, or the <code>.git</code> suffix with the <code>file:</code> protocol:</p>
+<p>除非格式正确，否则 Package Manager 不会将带有 <code>file:</code> 前缀的 Git URL 识别为 Git 依赖关系。这意味着必须使用 <code>git+file:</code> 协议，或是带有 <code>file:</code> 协议的 <code>.git</code> 后缀：</p>
 
 <pre><code class="lang-json">{
   "dependencies": {
@@ -374,15 +377,15 @@
 }
 </code></pre>
 
-<p><strong>Note</strong>: Alternatively, you can use the GIT protocol instead of the <code>git+</code> prefix. For more information, see <a href="#Git-GIT">Using the GIT protocol</a>.</p>
+<p><strong>注意</strong>：或者，可以使用 GIT 协议而不是 <code>git+</code> 前缀。有关更多信息，请参阅<a href="#Git-GIT">使用 GIT 协议</a>。</p>
 
-<p>The Package Manager interprets any other syntax as a <a href="upm-localpath.html">local path</a> instead.</p>
+<p>相反，Package Manager 会将任何其他语法解释为<a href="upm-localpath.html">本地路径</a>。</p>
 
 <p><a name="Git-GIT"></a></p>
 
-<h3>Using the GIT protocol</h3>
+<h3>使用 GIT 协议</h3>
 
-<p>The Package Manager recognizes the <code>git:</code> protocol, with or without the <code>.git</code> path suffix:</p>
+<p>Package Manager 可识别 <code>git:</code> 协议（带或不带 <code>.git</code> 路径后缀）：</p>
 
 <pre><code class="lang-json">{
   "dependencies": {
@@ -392,13 +395,13 @@
 }
 </code></pre>
 
-<p>The GIT protocol doesn’t need or support the <code>git+</code> prefix.</p>
+<p>GIT 协议不需要也不支持 <code>git+</code> 前缀。</p>
 
 <p><a name="revision"></a></p>
 
-<h3>Targeting a specific revision</h3>
+<h3>定位某个特定修订版本</h3>
 
-<p>To declare a specific revision that you want the Package Manager to clone, add the revision prefixed by the number sign (<code>#</code>) at the end of the URL:</p>
+<p>若要声明希望 Package Manager 克隆的特定修订版本，请在 URL 末尾添加以数字符号 (<code>#</code>) 作为前缀的修订版本：</p>
 
 <pre><code class="lang-json">{
   "dependencies": {
@@ -408,7 +411,7 @@
 }
 </code></pre>
 
-<p>The revision can be any tag, branch or commit hash. This table shows examples for specifying revisions:</p>
+<p>修订版本可以是任何标签、分支或提交哈希。下表显示有关指定修订版本的示例：</p>
 
 <table>
 <colgroup>
@@ -418,26 +421,26 @@
 
 <thead>
 <tr>
-	<th style="text-align:left;"><strong>Syntax:</strong></th>
-	<th style="text-align:left;"><strong>URL example</strong></th>
+	<th style="text-align:left;"><strong>语法：</strong></th>
+	<th style="text-align:left;"><strong>URL 示例</strong></th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-	<td style="text-align:left;">Latest default branch</td>
+	<td style="text-align:left;">最新默认分支</td>
 	<td style="text-align:left;"><code>"https://github.example.com/myuser/myrepository.git"</code></td>
 </tr>
 <tr>
-	<td style="text-align:left;">Specific branch</td>
+	<td style="text-align:left;">特定分支</td>
 	<td style="text-align:left;"><code>"https://github.example.com/myuser/myrepository.git#my-branch"</code></td>
 </tr>
 <tr>
-	<td style="text-align:left;">Specific version</td>
+	<td style="text-align:left;">特定版本</td>
 	<td style="text-align:left;"><code>"https://github.example.com/myuser/myrepository.git#v2.0.0"</code></td>
 </tr>
 <tr>
-	<td style="text-align:left;">Commit hash</td>
+	<td style="text-align:left;">提交哈希</td>
 	<td style="text-align:left;"><code>"https://github.example.com/myuser/myrepository.git#9e72f9d5a6a3dadc38d813d8399e1b0e86781a49"</code></td>
 </tr>
 </tbody>
@@ -445,13 +448,13 @@
 
 <p><a name="subfolder"></a></p>
 
-<h3>Specifying a package in a subfolder of the repository</h3>
+<h4>在代码仓库的子文件夹中指定包</h4>
 
-<p>If you specify a repository using the Git URL syntax, the Package Manager assumes that the package must be at the root of the repository. However, some packages are not located at the root level of their repository, and some repositories contain more than one package.</p>
+<p>如果使用 Git URL 语法指定代码仓库，则 Package Manager 假定包必须位于代码仓库的根目录中。但是，某些包并不位于其代码仓库的根级别，某些代码仓库包含多个包。</p>
 
-<p>You can use the <code>path</code> query parameter in the Git URL to notify the Package Manager where to find the package. The path you specify must be relative to the root of the repository, and the subfolder you specify must contain the package manifest (<code>package.json</code> file).</p>
+<p>可以在 Git URL 中使用 <code>path</code> 查询参数向 Package Manager 通知包的位置。指定的路径必须相对于代码仓库的根目录，并且指定的子文件夹必须包含包清单（<code>package.json</code> 文件）。</p>
 
-<p>To specify a repository subfolder for a Git dependency, use the <code>path</code> query parameter:</p>
+<p>若要为 Git 依赖关系指定代码仓库子文件夹，请使用 <code>path</code> 查询参数：</p>
 
 <pre><code class="lang-json">{
   "dependencies": {
@@ -460,9 +463,9 @@
 }
 </code></pre>
 
-<p>In this case, the Package Manager only registers the package located in the specified repository subfolder and disregards the rest of the repository.</p>
+<p>在这种情况下，Package Manager 仅注册位于指定代码仓库子文件夹中的包，而忽略代码仓库的其余部分。</p>
 
-<p>Sometimes a repository contains several related packages. If you want to add more than one package from the same repository, you must add two separate entries to your project manifest:</p>
+<p>有时一个代码仓库包含多个相关包。如果要从同一个代码仓库添加多个包，则必须向项目清单添加两个单独的条目：</p>
 
 <pre><code class="lang-json">{
   "dependencies": {
@@ -472,11 +475,13 @@
 }
 </code></pre>
 
-<p><strong>Note</strong>: If you specify the same repository multiple times, the Package Manager clones the same repository multiple times, which leads to reduced performance and additional network usage.</p>
+<p><strong>注意</strong>：如果多次指定同一个代码仓库，则 Package Manager 会多次克隆同一个代码仓库，这会导致性能下降和额外的网络使用。</p>
 
-<h4>Revisions</h4>
+<p><a name="paths-and-revisions"></a></p>
 
-<p>The <code>path</code> query parameter always precedes the revision anchor. The reverse order fails. This is an example of the correct order to use:</p>
+<h4>同时使用路径和修订版本</h4>
+
+<p><code>path</code> 查询参数始终位于修订版本锚点之前。相反顺序会失败。下面是要使用的正确顺序的示例：</p>
 
 <pre><code class="lang-json">{
   "dependencies": {
@@ -487,41 +492,25 @@
 
 <p><a name="git-locks"></a></p>
 
-<h2>Locked Git dependencies</h2>
+<h2>已锁定的 Git 依赖关系</h2>
 
-<p>One of the core principles of the Package Manager is determinism. If you share your project with other users, the Package Manager should install the same set of package dependencies and versions, and that includes packages that it fetchs from Git. To achieve this, the Package Manager uses a <a href="upm-conflicts-auto.html">lock file</a>, which tracks which commit hashes of Git dependencies are used. For example, here is an entry in the lock file for a Git dependency:</p>
+<p>Package Manager 的核心原则之一是确定性。如果您与其他用户共享项目，则 Package Manager 应安装相同的包依赖关系和版本集，其中包括它从 Git 获取的包。为了实现此目标，Package Manager 会使用<a href="upm-conflicts-auto.html">锁定文件</a>，该文件跟踪使用的 Git 依赖关系的提交哈希。</p>
 
-<pre><code class="lang-json">"com.mycompany.mypackage": {
-  "version": "git@github.example.com/myuser/myrepository.git",
-  "depth": 0,
-  "source": "git",
-  "dependencies": {
-    "com.unity.package-validation-suite": "0.10.0-preview",
-    "com.unity.nuget.newtonsoft-json": "2.0.0-preview"
-  },
-  "hash": "6758e2800ac87cb37a9a8179610f92844a85cf7b"
-},
-    etc.
-</code></pre>
+<p>添加修订版本设置为分支或标签的 Git 依赖关系时，Package Manager 会获取相应的提交哈希以存储在锁定文件中。随着时间推移，分支和标签可以指向 Git 代码仓库上的不同提交。例如，一个分支可以添加更新的提交。</p>
 
-<h3>Updating a locked version</h3>
+<p>若要将包更新到分支或标签指向的不同提交，请使用 <a href="upm-ui-giturl.html">Add package from git URL</a> 按钮并输入 Git URL。可以使用相同的 Git URL，因为 Package Manager 会在提交新请求时忽略已锁定的提交哈希。还可以指定一个新的修订号、标签或分支作为<a href="#revision">修订版本</a>。</p>
 
-<p>When you add a Git dependency with a revision set to a branch or a tag, the Package Manager fetches the corresponding commit hash to store in the lock file. Over time, branches and tags can point to different commits on the Git repository. For example, a branch can have newer commits added to it.</p>
+<p>或者，可以使用带有该 Git URL 的 <a href="../ScriptReference/PackageManager.Client.Add.html">Client.Add</a> C# API 方法创建脚本。</p>
 
-<p>To force the Package Manager to update the package to the new commit that a branch or tag points to, use one of these methods:</p>
-
-<ul>
-<li>Manually remove the corresponding package section from the <code>packages-lock.json</code> file. The next time you trigger a package resolution process (for example, when Unity regains application focus), the Package Manager fetches the branch head or tag and then adds it to the lock file.</li>
-<li>Create a script with the <a href="../ScriptReference/PackageManager.Client.Add.html">Client.Add</a> C# API method with the same Git dependency.</li>
-</ul>
+<p><br> </p>
 
 <p><a name="git-lfs"></a></p>
 
-<h2>Git LFS Support</h2>
+<h2>Git LFS 支持</h2>
 
-<p>The Package Manager supports Git dependencies with repositories using Git LFS. Since Git LFS has been designed to work with minimal configuration overhead, it supports both HTTPS and SSH <a href="#authentication">authentication</a>. Retrieval of files stored on the LFS server fails if users need to be authenticated and do not have valid credentials with permission to access the remote repository.</p>
+<p>Package Manager 使用 Git LFS 支持与代码仓库的 Git 依赖关系。由于 Git LFS 旨在以最少的配置开销工作，因此它同时支持 HTTPS 和 SSH <a href="#authentication">身份验证</a>。如果用户需要进行身份验证并且没有有权访问远程代码仓库的有效凭据，则获取存储在 LFS 服务器上的文件会失败。</p>
 
-<p>Package authors can help the Git LFS client locate the LFS Server by providing it with the URL in the <code>.lfsconfig</code> configuration file in the repository. There are two ways to do this:</p>
+<p>包作者可以通过在代码仓库中的 <code>.lfsconfig</code> 配置文件中提供 URL 来帮助 Git LFS 客户端定位 LFS 服务器。有两种方式可以做到这一点：</p>
 
 <pre><code class="lang-json"># Option 1: global setting
 [lfs]
@@ -532,7 +521,7 @@
   lfsurl = ssh://git@HOSTNAME/path/to/repo.git
 </code></pre>
 
-<p>If the repository contains a <code>.lfsconfig</code> file, make sure you include it in the <code>.npmignore</code> file to avoid including it in published releases of the package.</p>
+<p>如果代码仓库包含 <code>.lfsconfig</code> 文件，请确保将它包含在 <code>.npmignore</code> 文件中，以避免将它包含在包的已发布版本中。</p>
 
 <p><br> </p>
 
@@ -541,21 +530,21 @@
 <p><br> </p>
 
 <ul>
-<li><span class="page-history">Lock files added in Unity <a href="https://docs.unity3d.com/2019.4/Documentation/Manual/30_search.html?q=newin20194">2019.4</a> <span class="search-words">NewIn20194</span></span></li>
-<li><span class="page-history">Adding Git dependencies in subfolders added in Unity <a href="https://docs.unity3d.com/2019.4/Documentation/Manual/30_search.html?q=newin20194">2019.4</a> <span class="search-words">NewIn20194</span></span></li>
+<li><span class="page-history">在 Unity <a href="https://docs.unity3d.com/2019.4/Documentation/Manual/30_search.html?q=newin20194">2019.4</a> 中添加了锁定文件 <span class="search-words">NewIn20194</span></span></li>
+<li><span class="page-history">在 Unity <a href="https://docs.unity3d.com/2019.4/Documentation/Manual/30_search.html?q=newin20194">2019.4</a> 中添加了子文件夹中的 Git 依赖关系 <span class="search-words">NewIn20194</span></span></li>
 </ul>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="upm-embed.html"></a></span><div class="tip">嵌入式依赖项</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="upm-localpath.html"></a></span><div class="tip">Local folder or tarball paths</div>
+<span class="next"><a href="upm-localpath.html"></a></span><div class="tip">本地文件夹或 tarball 路径</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

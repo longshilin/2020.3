@@ -175,14 +175,14 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li>高级渲染功能</li>
+<li><a href="graphics-color.html">Color</a></li>
 <li>高动态范围</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="class-Projector.html"></a></span><div class="tip">Projector</div>
+<span class="prev"><a href="LinearRendering-LinearTextures.html"></a></span><div class="tip">使用线性纹理</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="HDRColorPicker.html"></a></span><div class="tip">HDR 拾色器</div>
@@ -243,7 +243,7 @@
 <tr>
 	<td style="text-align:left;">内置渲染管线</td>
 	<td style="text-align:left;">是<br><br>在 Inspector 中或使用 <a href="../ScriptReference/Camera.allowHDR.html">Camera.allowHDR</a> API 来启用每个摄像机的 HDR 渲染。<br><br>在 <a href="class-GraphicsSettings.html">Graphics 设置</a>窗口中为每个<a href="../ScriptReference/Rendering.GraphicsTier.html">层</a>启用 HDR 渲染并配置 HDR 缓冲区的格式。</td>
-	<td style="text-align:left;">Yes<br><br>Use the <a href="../ScriptReference/HDROutputSettings.html">HDROutputSettings</a> API to configure HDR output options.<br><br>See platform-specific documentation for further details.</td>
+	<td style="text-align:left;">是<br><br>使用 <a href="../ScriptReference/HDROutputSettings.html">HDROutputSettings</a> API 可配置 HDR 输出选项。<br><br>有关更多详细信息，请参阅特定于平台的文档。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">通用渲染管线 (URP)</td>
@@ -274,11 +274,11 @@
 
 <p>将 HDR 渲染与 SDR 输出结合使用时，必须使用色调映射将 HDR 图像缓冲区转换为 SDR 图像以进行显示。Unity 提供了可以执行此操作的色调映射后期处理效果：<a href="https://docs.unity3d.com/Packages/com.unity.postprocessing@latest">Post-Processing Stack V2 包</a>、<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest/index.html?subfolder=/manual/integration-with-post-processing.html">URP 集成后期处理解决方案</a>和 <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest/index.html?subfolder=/manual/Post-Processing-Main.html">HDRP 集成后期处理解决方案</a>均包含色调映射效果。</p>
 
-<p>When using HDR rendering with HDR output, you can either:</p>
+<p>将 HDR 渲染与 HDR 输出一起使用时，您可以：</p>
 
 <ul>
-<li>Create your own tonemapping solution that converts the HDR image buffer directly to a compatible HDR format for display</li>
-<li>Use Unity’s tonemapping post-processing effects to convert the HDR buffer to an SDR image (as above), and then use Unity’s automatic output tonemapping to convert that SDR image to a suitable output format. For more details of Unity’s automatic output tonemapping, see the documentation for <a href="../ScriptReference/HDROutputSettings-automaticHDRTonemapping.html">HDROutputSettings.automaticHDRTonemapping</a>.</li>
+<li>创建您自己的色调映射解决方案，将 HDR 图像缓冲区直接转换为兼容的 HDR 格式进行显示
+*使用 Unity 的色调映射后期处理效果将 HDR 缓冲区转换为 SDR 图像（如上所示），然后使用 Unity 的自动输出色调映射将该 SDR 图像转换为合适的输出格式。有关 Unity 的自动输出色调映射的更多详细信息，请参阅 <a href="../ScriptReference/HDROutputSettings-automaticHDRTonemapping.html">HDROutputSettings.automaticHDRTonemapping</a> 的文档。</li>
 </ul>
 
 <h2>在内置渲染管线中使用 HDR 渲染</h2>
@@ -289,11 +289,12 @@
 <!-- area:graphics -->
 
 <ul>
-<li><span class="page-history">HDROutputSettings API added in <a href="https://docs.unity3d.com/2020.1/Documentation/Manual/30_search.html?q=newin20201">2020.1</a> <span class="search-words">NewIn20201</span></span></li>
+<li>
+<span class="page-history"><a href="https://docs.unity3d.com/2020.1/Documentation/Manual/30_search.html?q=newin20201">2020.1</a> <span class="search-words">NewIn20201</span></span> 中添加了 HDROutputSettings API</li>
 </ul>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="class-Projector.html"></a></span><div class="tip">Projector</div>
+<span class="prev"><a href="LinearRendering-LinearTextures.html"></a></span><div class="tip">使用线性纹理</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="HDRColorPicker.html"></a></span><div class="tip">HDR 拾色器</div>
@@ -302,7 +303,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

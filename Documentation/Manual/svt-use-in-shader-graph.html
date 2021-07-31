@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Using Streaming Virtual Texturing in Shader Graph - Unity 手册">
-<title>Using Streaming Virtual Texturing in Shader Graph - Unity 手册</title>
+<meta property="og:title" content="在 Shader Graph 中使用 Streaming Virtual Texturing - Unity 手册">
+<title>在 Shader Graph 中使用 Streaming Virtual Texturing - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/svt-use-in-shader-graph01.png">
-<meta name="description" content="You can use Streaming Virtual Texturing (SVT) with shaders you create in Shader Graph. Before you begin, you must enable Virtual Texturing in your project. The built-in High Definition Render Pipeline shaders (such as Lit and Unlit) don&amp;#8217;t support SVT.">
-<meta property="og:description" content="You can use Streaming Virtual Texturing (SVT) with shaders you create in Shader Graph. Before you begin, you must enable Virtual Texturing in your project. The built-in High Definition Render Pipeline shaders (such as Lit and Unlit) don&amp;#8217;t support SVT.">
+<meta name="description" content="您可以将 Streaming Virtual Texturing (SVT) 与您在 Shader Graph 中创建的着色器一同使用。在开始之前，您必须在您的项目中启用虚拟纹理。内置的高清渲染管线着色器（例如 Lit 和 Unlit）不支持 SVT。">
+<meta property="og:description" content="您可以将 Streaming Virtual Texturing (SVT) 与您在 Shader Graph 中创建的着色器一同使用。在开始之前，您必须在您的项目中启用虚拟纹理。内置的高清渲染管线着色器（例如 Lit 和 Unlit）不支持 SVT。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,71 +175,71 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
 <li>高级渲染功能</li>
 <li><a href="svt-streaming-virtual-texturing.html">Streaming Virtual Texturing</a></li>
-<li>Using Streaming Virtual Texturing in Shader Graph</li>
+<li>在 Shader Graph 中使用 Streaming Virtual Texturing</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="svt-enable-in-project.html"></a></span><div class="tip">Enabling Streaming Virtual Texturing in your project</div>
+<span class="prev"><a href="svt-enable-in-project.html"></a></span><div class="tip">在项目中启用 Streaming Virtual Texturing</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="svt-cache-management.html"></a></span><div class="tip">Cache Management for Virtual Texturing</div>
+<span class="next"><a href="svt-cache-management.html"></a></span><div class="tip">虚拟纹理的缓存管理</div>
 </div>
 </div></div>
-<h1>Using Streaming Virtual Texturing in Shader Graph</h1>
+<h1>在 Shader Graph 中使用 Streaming Virtual Texturing</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>You can use Streaming Virtual Texturing (SVT) with shaders you create in <a href="https://docs.unity3d.com/Packages/com.unity.shadergraph@latest">Shader Graph</a>. Before you begin, you must <a href="svt-enable-in-project.html">enable Virtual Texturing in your project</a>. The built-in <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest">High Definition Render Pipeline</a> shaders (such as Lit and Unlit) don’t support SVT.</p>
+<p>您可以将 Streaming Virtual Texturing (SVT) 与您在 <a href="https://docs.unity3d.com/Packages/com.unity.shadergraph@latest">Shader Graph</a> 中创建的着色器一同使用。在开始之前，您必须<a href="svt-enable-in-project.html">在您的项目中启用虚拟纹理</a>。内置的<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest">高清渲染管线</a>着色器（例如 Lit 和 Unlit）不支持 SVT。</p>
 
-<p>To use SVT to stream a texture, you must add the texture to a <a href="https://docs.unity3d.com/Packages/com.unity.shadergraph@latest/index.html?subfolder=/manual/Property-Types.html%23virtual-texture">Virtual Texture Property</a>. A Virtual Texture Property defines a stack of related textures. To sample these textures, you connect the Virtual Texture Property to a <a href="https://docs.unity3d.com/Packages/com.unity.shadergraph@latest/index.html?subfolder=/manual/Sample-Virtual-Texture-Node.html">Sample Virtual Texture node</a>. The Sample Virtual Texture node takes one UV coordinate as the input, and uses that UV coordinate to sample all of the textures.</p>
+<p>要使用 SVT 流式传输纹理，您必须将纹理添加到<a href="https://docs.unity3d.com/Packages/com.unity.shadergraph@latest/index.html?subfolder=/manual/Property-Types.html%23virtual-texture">虚拟纹理属性</a>。虚拟纹理属性定义了一组相关纹理。要对这些纹理进行采样，请将虚拟纹理属性连接到 <a href="https://docs.unity3d.com/Packages/com.unity.shadergraph@latest/index.html?subfolder=/manual/Sample-Virtual-Texture-Node.html">Sample Virtual Texture 节点</a>。Sample Virtual Texture 节点将一个 UV 坐标作为输入，并使用该 UV 坐标对所有纹理进行采样。</p>
 
-<p>You should combine textures into the same Virtual Texture Property where possible. This is because it’s more efficient to sample multiple textures that are part of the same Virtual Texture Property than to sample multiple Virtual Texture Properties.</p>
+<p>您应该尽可能将纹理组合到同一个虚拟纹理属性中。这是因为对属于同一虚拟纹理属性的多个纹理进行采样比对多个虚拟纹理属性进行采样更有效。</p>
 
-<p>When you use a Sample Virtual Texture node in the fragment stage, SVT automatically streams in texture tiles based on the UVs it sampled. For this to work, the Sample Virtual Texture node outputs the tile ID it reads from into a render target. To turn this off, open the node settings and disable <strong>Automatic Streaming</strong>. For more information, see <a href="svt-how-it-works.html">How Streaming Virtual Texturing works</a>.</p>
+<p>当您在片元阶段使用 Sample Virtual Texture 节点时，SVT 会根据其采样的 UV 自动流式传输纹理图块。为此，Sample Virtual Texture 节点将其读取的图块 ID 输出到渲染目标中。要关闭此功能，请打开节点设置并禁用 <strong>Automatic Streaming</strong>。有关更多信息，请参阅 <a href="svt-how-it-works.html">Streaming Virtual Texturing 的工作原理</a>。</p>
 
-<p>To use a Sample Virtual Texture node in the vertex stage, you first need to disable <strong>Automatic Streaming</strong> on the Sample Virtual Texture node, and then select the <strong>Lod Level</strong> mode. You must then use a script to manually request that SVT loads the tiles. To do this, use the <a href="../ScriptReference/Rendering.VirtualTexturing.Streaming.RequestRegion.html"><code>VirtualTexturing.Streaming.RequestRegion</code></a> method as follows:</p>
+<p>要在顶点阶段使用 Sample Virtual Texture 节点，首先需要在 Sample Virtual Texture 节点上禁用 <strong>Automatic Streaming</strong>，然后选择 <strong>Lod Level</strong> 模式。然后，您必须使用脚本手动请求 SVT 加载图块。为此，请使用 <a href="../ScriptReference/Rendering.VirtualTexturing.Streaming.RequestRegion.html"><code>VirtualTexturing.Streaming.RequestRegion</code></a> 方法，如下所示：</p>
 
 <pre><code>VirtualTexturing.Streaming.RequestRegion(Material, Stack ID, Rect, mipmap, numMips)
 </code></pre>
 
-<p>You can use this method to load any tiles that aren’t yet visible, which allows you to do things like build a prefetching system. You need to call this method every frame, otherwise the system assumes that the tiles are no longer necessary, and potentially evicts them when it streams other tiles.</p>
+<p>您可以使用此方法加载任何尚不可见的图块，这允许您实现诸如构建预取系统之类的功能。您需要在每一帧中调用此方法，否则系统会假定不再需要这些图块，并可能在流式传输其他图块时将它们清除。</p>
 
 <figure>
-<img src="../uploads/Main/svt-use-in-shader-graph01.png" alt="This example shows a Virtual Texture Property connected to a Sample Virtual Texture node in Shader Graph.">
-<figcaption>This example shows a Virtual Texture Property connected to a Sample Virtual Texture node in Shader Graph.</figcaption>
+<img src="../uploads/Main/svt-use-in-shader-graph01.png" alt="此示例演示在 Shader Graph 中连接到一个 Sample Virtual Texture 节点的虚拟纹理属性。">
+<figcaption>此示例演示在 Shader Graph 中连接到一个 Sample Virtual Texture 节点的虚拟纹理属性。</figcaption>
 </figure>
 
-<h2>Shader Graph compatibility</h2>
+<h2>Shader Graph 兼容性</h2>
 
 <ul>
-<li><p>You must assign all texture slots of the Virtual Texture Property in Shader Graph.</p></li>
-<li><p>SVT copies each unique combination of textures you assign to a Virtual Texture Property to a unique section of the streaming virtual texture. Therefore, if you use many different combinations of textures in a Virtual Texture Property, it might increase your project build size because each combination is stored separately.</p></li>
+<li><p>您必须在 Shader Graph 中分配虚拟纹理属性的所有纹理字段。</p></li>
+<li><p>对于您分配给虚拟纹理属性的每个唯一纹理组合，SVT 将其复制到流式虚拟纹理的唯一部分。因此，如果您在虚拟纹理属性中使用许多不同的纹理组合，可能会增加您的项目构建大小，因为每个组合都是单独存储的。</p></li>
 <li>
-<p>There are some limitations when you use the Sample Virtual Texture node in Shader Graph. </p>
+<p>在 Shader Graph 中使用 Sample Virtual Texture 节点时存在一些限制。</p>
 
 <ul>
-<li>You cannot use the Sample Virtual Texture node in a Decal graph or on Transparent shaders. If you use the Sample Virtual Texture node in either of these ways, the node uses standard 2D texture sampling instead.</li>
-<li>Automatic virtual streaming doesn’t work when you use it in the vertex stage of a shader. By default, the Sample Virtual Texture node doesn’t connect to vertex slots in a Shader Graph. To sample a virtual texture stack in the vertex stage, you must set up manual streaming for that texture. To do this, set the <strong>Lod Mode</strong> to <strong>Lod Level</strong>, and disable <strong>Automatic Streaming</strong> in the node settings. You also need to write a C# script that drives data requests for this texture. For more information, see <a href="../ScriptReference/Rendering.VirtualTexturing.Streaming.RequestRegion.html"><code>VirtualTexturing.Streaming.RequestRegion</code></a>.</li>
-<li>Some render pipeline or graph settings might be incompatible with virtual texture streaming. If the Sample Virtual Texture node doesn’t work with the current configuration, Shader Graph displays a warning message in the node settings, and the node uses standard 2D texture sampling instead.</li>
+<li>您不能在 Decal Graph 中或透明着色器上使用 Sample Virtual Texture 节点。如果以上述任一方式使用 Sample Virtual Texture 节点，则该节点将使用标准 2D 纹理采样。</li>
+<li>当您在着色器的顶点阶段使用自动虚拟串流时，该功能不起作用。默认情况下，Sample Virtual Texture 节点不连接到 Shader Graph 中的顶点字段。要在顶点阶段对虚拟纹理堆栈进行采样，您必须为该纹理设置手动流式传输。为此，请将 <strong>Lod Mode</strong> 设置为 <strong>Lod Level</strong>，并在节点设置中禁用 <strong>Automatic Streaming</strong>。您还需要编写一个 C# 脚本驱动对此纹理的数据请求。有关更多信息，请参阅 <a href="../ScriptReference/Rendering.VirtualTexturing.Streaming.RequestRegion.html">VirtualTexturing.Streaming.RequestRegion</a>。</li>
+<li>某些渲染管线或图形设置可能与虚拟纹理串流不兼容。如果 Sample Virtual Texture 节点不适用于当前配置，Shader Graph 会在节点设置中显示警告消息，并且该节点使用标准 2D 纹理采样。</li>
 </ul>
 </li>
 </ul>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="svt-enable-in-project.html"></a></span><div class="tip">Enabling Streaming Virtual Texturing in your project</div>
+<span class="prev"><a href="svt-enable-in-project.html"></a></span><div class="tip">在项目中启用 Streaming Virtual Texturing</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="svt-cache-management.html"></a></span><div class="tip">Cache Management for Virtual Texturing</div>
+<span class="next"><a href="svt-cache-management.html"></a></span><div class="tip">虚拟纹理的缓存管理</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

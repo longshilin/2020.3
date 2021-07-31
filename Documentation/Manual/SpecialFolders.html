@@ -13,8 +13,8 @@
 <meta name="twitter:card" content="summary">
 <meta property="og:title" content="特殊文件夹名称 - Unity 手册">
 <title>特殊文件夹名称 - Unity 手册</title>
-<meta name="description" content="You can usually choose any name you like for the folders you create to organise your Unity project. However, there are folder names that Unity reserves for special purposes. For example, you must place Editor scripts in a folder called Editor for them to work correctly.">
-<meta property="og:description" content="You can usually choose any name you like for the folders you create to organise your Unity project. However, there are folder names that Unity reserves for special purposes. For example, you must place Editor scripts in a folder called Editor for them to work correctly.">
+<meta name="description" content="通常可为创建的文件夹选择任何名称来组织 Unity 项目。但是，Unity 为特殊目的保留了一些文件夹名称。例如，必须将编辑器脚本放在名为 Editor 的文件夹中才能使这些脚本正常工作。">
+<meta property="og:description" content="通常可为创建的文件夹选择任何名称来组织 Unity 项目。但是，Unity 为特殊目的保留了一些文件夹名称。例如，必须将编辑器脚本放在名为 Editor 的文件夹中才能使这些脚本正常工作。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,53 +174,63 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="AssetWorkflow.html">资源工作流程</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="AssetWorkflow.html">Asset Workflow</a></li>
 <li>特殊文件夹名称</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="AssetTypes.html"></a></span><div class="tip">常见资源类型</div>
+<span class="prev"><a href="AssetDatabaseBatching.html"></a></span><div class="tip">AssetDatabase 批处理</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="HOWTO-exportpackage.html"></a></span><div class="tip">在项目之间重用资源</div>
+<span class="next"><a href="Presets.html"></a></span><div class="tip">预设</div>
 </div>
 </div></div>
 <h1>特殊文件夹名称</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>You can usually choose any name you like for the folders you create to organise your Unity project. However, there are folder names that Unity reserves for special purposes. For example, you must place Editor scripts in a folder called <strong>Editor</strong> for them to work correctly.</p>
+<p>通常可为创建的文件夹选择任何名称来组织 Unity 项目。但是，Unity 为特殊目的保留了一些文件夹名称。例如，必须将编辑器脚本放在名为 <strong>Editor</strong> 的文件夹中才能使这些脚本正常工作。</p>
 
 <p>本页面包含 Unity 使用的特殊文件夹名称的完整列表。</p>
+
+<p><a name="Assets"></a></p>
 
 <h2>Assets</h2>
 
 <p><strong>Assets</strong> 文件夹是包含 Unity 项目使用的资源的主文件夹。Editor 中的 Project 窗口的内容直接对应于 Assets 文件夹的内容。大多数 API 函数都假定所有内容都位于 Assets 文件夹中，因此不要求显式提及该文件夹。但是，有些函数需要将 Assets 文件夹作为路径名的一部分添加（例如，<a href="../ScriptReference/AssetDatabase.html">AssetDatabase</a> 类中的一些函数）。</p>
 
+<p><a name="Editor"></a> </p>
+
 <h2>Editor</h2>
 
-<p>Editor scripts add functionality to Unity during development, but aren’t available in builds at runtime. Scripts in a <strong>Editor</strong> folder run as Editor scripts, not runtime scripts.</p>
+<p>编辑器脚本在开发期间向 Unity 添加功能，但在运行时在构建中不可用。<strong>Editor</strong> 文件夹中的脚本以编辑器脚本的形式运行，而不是运行时脚本。</p>
 
 <p>可在 Assets 文件夹中的任何位置添加多个 Editor 文件夹。应将 Editor 脚本放在 Editor 文件夹内或其中的子文件夹内。</p>
 
-<p>The exact location of an Editor folder affects the time at which its scripts are compiled relative to other scripts. See documentation on <a href="ScriptCompileOrderFolders.html">Special Folders and Script Compilation Order</a> for a full description.</p>
+<p>Editor 文件夹的确切位置会影响其脚本相对于其他脚本的编译时间。参阅<a href="ScriptCompileOrderFolders.html">特殊文件夹和脚本编译顺序</a>上的文档了解完整的描述。</p>
 
-<p>Use the <a href="../ScriptReference/EditorGUIUtility.Load.html">EditorGUIUtility.Load</a> function in Editor scripts to load Assets from a Resources folder within an Editor folder. These Assets are only loaded through Editor scripts, and are stripped from builds.</p>
+<p>使用 Editor 脚本中的 <a href="../ScriptReference/EditorGUIUtility.Load.html">EditorGUIUtility.Load</a> 函数可从 Editor 文件夹中的 Resources 文件夹加载资源。这些资源只能通过 Editor 脚本加载，并会从构建中剥离。</p>
 
-<p><strong>Note:</strong> Unity doesn’t allow components derived from MonoBehaviour to be assigned to GameObjects if the scripts are in the Editor folder.</p>
+<p><strong>注意：</strong>如果脚本位于 Editor 文件夹中，Unity 不允许将派生自 MonoBehaviour 的组件分配给游戏对象。</p>
+
+<p><a name="EditorDefaultResources"></a></p>
 
 <h2>Editor Default Resources</h2>
 
 <p>Editor 脚本可以使用通过 <a href="../ScriptReference/EditorGUIUtility.Load.html">EditorGUIUtility.Load</a> 函数按需加载的资源文件。此函数在名为 <strong>Editor Default Resources</strong> 的文件夹中查找资源文件。</p>
 
-<p>You can only have one Editor Default Resources folder and you must place it in Project root, directly within the Assets folder. Place the needed Asset files in this Editor Default Resources folder, or a subfolder within it. Always include the subfolder path in the path passed to the <a href="../ScriptReference/EditorGUIUtility.Load.html">EditorGUIUtility.Load</a> function if your Asset files are in subfolders.</p>
+<p>只能有一个 Editor Default Resources 文件夹，且必须将其放在项目的根目录中；直接位于 Assets 文件夹中。将所需的资源文件放在此 Editor Default Resources 文件夹内或其中的子文件夹内。如果资源文件位于子文件夹中，请始终在传递给 <a href="../ScriptReference/EditorGUIUtility.Load.html">EditorGUIUtility.Load</a> 函数的路径中包含子文件夹路径。</p>
+
+<p><a name="Gizmos"></a></p>
 
 <h2>Gizmos</h2>
 
-<p><a href="../ScriptReference/Gizmos.html">Gizmos</a> allow you to add graphics to the Scene View to help visualize design details that are otherwise invisible. The <a href="../ScriptReference/Gizmos.DrawIcon.html">Gizmos.DrawIcon</a> function places an icon in the Scene to act as a marker for a special object or position. You must place the image file used to draw this icon in a folder called <strong>Gizmos</strong> for the DrawIcon function to locate it.</p>
+<p><a href="../ScriptReference/Gizmos.html">Gizmos</a> 允许将图形添加到 Scene 视图，以帮助可视化不可见的设计细节。<a href="../ScriptReference/Gizmos.DrawIcon.html">Gizmos.DrawIcon</a> 函数在场景中放置一个图标，作为特殊对象或位置的标记。必须将用于绘制此图标的图像文件放在名为 <strong>Gizmos</strong> 的文件夹中，这样才能被 DrawIcon 函数找到。</p>
 
-<p>只能有一个 Gizmos 文件夹，且必须将其放在项目的根目录；直接位于 Assets 文件夹中。将所需的资源文件放在此 Gizmos 文件夹内或其中的子文件夹内。如果资源文件位于子文件夹中，请始终在传递给 <a href="../ScriptReference/Gizmos.DrawIcon.html">Gizmos.DrawIcon</a> 函数的路径中包含子文件夹路径。</p>
+<p>You can only have one Gizmos folder and it must be placed in the root of the Project, directly within the Assets folder. Place the needed Asset files in this Gizmos folder or a subfolder within it. Always include the subfolder path in the path passed to the <a href="../ScriptReference/Gizmos.DrawIcon.html">Gizmos.DrawIcon</a> function if your Asset files are in subfolders.</p>
+
+<p><a name="Resources"></a></p>
 
 <h2>Resources</h2>
 
@@ -228,32 +238,36 @@
 
 <p>可在 Assets 文件夹中的任何位置添加多个 Resources 文件夹。将所需的资源文件放在 Resources 文件夹内或其中的子文件夹内。如果资源文件位于子文件夹中，请始终在传递给 <a href="../ScriptReference/Resources.Load.html">Resources.Load</a> 函数的路径中包含子文件夹路径。</p>
 
-<p><strong>Note</strong>: If the Resources folder is an Editor subfolder, the Assets in it are loadable from Editor scripts, but are removed from builds.</p>
+<p>__注意__：如果 Resources 文件夹是 Editor 的子文件夹，则其中的资源可通过 Editor 脚本加载，但会从构建中删除。</p>
+
+<p><a name="StandardAssets"></a></p>
 
 <h2>Standard Assets</h2>
 
 <p>导入标准资源包（菜单：__Assets__ &gt; <strong>Import Package__）时，资源将放在一个名为 </strong>Standard Assets__ 的文件夹中。除了包含资源之外，这些文件夹还会对脚本编译顺序产生影响；请参阅关于<a href="ScriptCompileOrderFolders.html">特殊文件夹和脚本编译顺序</a>的页面以了解更多详细信息。</p>
 
-<p>You can only have one Standard Assets folder and it must be placed in the root of the Project, directly within the Assets folder. Place the needed Assets files in this Standard Assets folder or a subfolder within it.</p>
+<p>只能有一个 Standard Assets 文件夹，且必须将其放在项目的根目录；直接位于 Assets 文件夹中。将所需的资源文件放在此 Standard Assets 文件夹内或其中的子文件夹内。</p>
+
+<p><a name="StreamingAssets"></a></p>
 
 <h2>StreamingAssets</h2>
 
-<p>You may want the Asset to be available as a separate file in its original format (although it’s more common to directly incorporate Assets into a build). For example, you need to access a video file from the filesystem to play the video on IOS using <a href="https://docs.unity3d.com/ScriptReference/Handheld.PlayFullScreenMovie.html">Handheld.PlayFullScreenMovie</a>.</p>
+<p>尽管将资源直接合并到构建中更为常见（但有时可能希望资源以其原始格式作为单独的文件提供）。例如，您需要使用 <a href="https://docs.unity3d.com/ScriptReference/Handheld.PlayFullScreenMovie.html">Handheld.PlayFullScreenMovie</a> 从文件系统访问一个视频文件，以便在 IOS 上播放。</p>
 
-<p>To include streaming Assets, do the following:</p>
+<p>要包含流媒体资源，请执行以下操作：</p>
 
-<ol>
-<li>Place the file in the StreamingAssets folder.</li>
-<li>The file remains unchanged when copied to the target machine, where it’s available from a specific folder.</li>
-</ol>
+<p>1.将文件放在 StreamingAssets 文件夹中。
+2.该文件在复制到目标机器时保持不变，它可以从特定文件夹中获得。</p>
 
-<p>See the page about <a href="StreamingAssets.html">Streaming Assets</a> for further details.</p>
+<p>请参阅关于<a href="StreamingAssets.html">流媒体资源</a>的页面以了解更多详细信息。</p>
 
-<p>You can only have one StreamingAssets folder and it must be placed in the root of the Project; directly within the Assets folder. Place the Assets files in the StreamingAssets folder or subfolder. Always include the subfolder path in the path used to reference the streaming asset if your Asset files are in subfolders.</p>
+<p>You can only have one StreamingAssets folder and it must be placed in the root of the Project, directly within the Assets folder. Place the Assets files in the StreamingAssets folder or subfolder. Always include the subfolder path in the path used to reference the streaming asset if your Asset files are in subfolders.</p>
+
+<p><a name="HiddenAssets"></a></p>
 
 <h2>隐藏的资源</h2>
 
-<p>During the import process, Unity ignores the following files and folders in the <strong>Assets</strong> folder (or a sub-folder within it):</p>
+<p>在导入过程中，Unity 忽略 <strong>Assets</strong> 文件夹（或其子文件夹）中的以下文件和文件夹：</p>
 
 <ul>
 <li>隐藏的文件夹。</li>
@@ -263,20 +277,20 @@
 <li>扩展名为 <strong>.tmp</strong> 的文件。</li>
 </ul>
 
-<p>This prevents importing special and temporary files created by the operating system or other applications.</p>
+<p>这可以防止导入由操作系统或其他应用程序创建的特殊文件和临时文件。</p>
 <!-- area:authoring -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="AssetTypes.html"></a></span><div class="tip">常见资源类型</div>
+<span class="prev"><a href="AssetDatabaseBatching.html"></a></span><div class="tip">AssetDatabase 批处理</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="HOWTO-exportpackage.html"></a></span><div class="tip">在项目之间重用资源</div>
+<span class="next"><a href="Presets.html"></a></span><div class="tip">预设</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

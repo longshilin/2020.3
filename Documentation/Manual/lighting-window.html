@@ -13,8 +13,8 @@
 <meta name="twitter:card" content="summary">
 <meta property="og:title" content="Lighting 窗口 - Unity 手册">
 <title>Lighting 窗口 - Unity 手册</title>
-<meta name="description" content="The Lighting window (menu: Window &gt; Rendering &gt; Lighting) is the main control point for Unity’s lighting features. You can use the Lighting window to adjust settings related to the lighting in your Scene, and to optimise your precomputed lighting data for quality, bake time, and storage space.">
-<meta property="og:description" content="The Lighting window (menu: Window &gt; Rendering &gt; Lighting) is the main control point for Unity’s lighting features. You can use the Lighting window to adjust settings related to the lighting in your Scene, and to optimise your precomputed lighting data for quality, bake time, and storage space.">
+<meta name="description" content="Lighting 窗口（菜单：__Window__ &gt; Rendering &gt; __Lighting__）是 Unity 光照功能的主要控制点。使用 Lighting 窗口调整与场景中的光照有关的设置，并根据质量、烘焙时间和存储空间来优化预计算的光照数据。">
+<meta property="og:description" content="Lighting 窗口（菜单：__Window__ &gt; Rendering &gt; __Lighting__）是 Unity 光照功能的主要控制点。使用 Lighting 窗口调整与场景中的光照有关的设置，并根据质量、烘焙时间和存储空间来优化预计算的光照数据。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,7 +174,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
 <li><a href="LightingOverview.html">光照</a></li>
 <li>Lighting 窗口</li>
@@ -184,41 +184,40 @@
 <span class="prev"><a href="ShadowPerformance.html"></a></span><div class="tip">阴影故障排除</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="class-LightingSettings.html"></a></span><div class="tip">Lighting Settings Asset</div>
+<span class="next"><a href="class-LightingSettings.html"></a></span><div class="tip">光照设置资源</div>
 </div>
 </div></div>
 <h1>Lighting 窗口</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>The Lighting window (menu: <strong>Window</strong> &gt; <strong>Rendering</strong> &gt; <strong>Lighting</strong>) is the main control point for Unity’s lighting features. You can use the Lighting window to adjust settings related to the lighting in your Scene, and to optimise your precomputed lighting data for quality, bake time, and storage space.</p>
+<p>Lighting 窗口（菜单：__Window__ &gt; <strong>Rendering</strong> &gt; __Lighting__）是 Unity 光照功能的主要控制点。使用 Lighting 窗口调整与场景中的光照有关的设置，并根据质量、烘焙时间和存储空间来优化预计算的光照数据。</p>
 
-<h2>Related APIs</h2>
+<h2>相关 API</h2>
 
-<p>You can perform many of the functions available in the Lighting window in scripts, using the <a href="../ScriptReference/LightingSettings.html">LightingSettings</a> and <a href="../ScriptReference/Lightmapping.html">Lightmapping</a> APIs.</p>
+<p>可以使用 <a href="../ScriptReference/LightingSettings.html">LightingSettings</a> 和 <a href="../ScriptReference/Lightmapping.html">Lightmapping</a> API，通过脚本执行 Lighting 窗口中提供的许多函数。</p>
 
-<h2>Lighting window layout</h2>
+<h2>Lighting 窗口的布局</h2>
 
-<p>The Lighting window contains the following elements:</p>
+<p>Lighting 窗口包含以下元素：</p>
 
 <ul>
-<li>The <a href="#Scene">Scene tab</a>
+<li><a href="#Scene">Scene 选项卡</a></li>
+<li><a href="#Environment">Environment 选项卡</a></li>
+<li>
+<a href="#RealtimeLightmaps">Realtime Lightmaps 选项卡</a>（仅限内置渲染管线）</li>
+<li><a href="#BakedLightmaps">Baked Lightmaps 选项卡</a></li>
+<li>窗口底部<a href="#ControlArea">控件区域</a>
 </li>
-<li>The <a href="#Environment">Environment tab</a>
-</li>
-<li>The <a href="#RealtimeLightmaps">Realtime Lightmaps tab</a> (Built-in Render Pipeline only)</li>
-<li>The <a href="#BakedLightmaps">Baked Lightmaps tab</a>
-</li>
-<li>The <a href="#ControlArea">control area</a>, at the bottom of the window</li>
 </ul>
 
 <p><a name="Scene"> </a></p>
 
-<h2>The Scene tab</h2>
+<h2>Scene 选项卡</h2>
 
-<p>The <strong>Scene</strong> tab displays information about the <a href="class-LightingSettings.html">Lighting Settings Asset</a> that is assigned to the active Scene. If no Lighting Settings Asset is assigned to the active Scene, it displays information about the <a href="class-LightingSettings.html#DefaultLightingSettings">default LightingSettings object</a>.</p>
+<p><strong>Scene</strong> 选项卡显示有关分配给活动场景<a href="class-LightingSettings.html">光照设置资源</a>的信息。如果没有为活动场景分配光照设置资源，它会显示有关<a href="class-LightingSettings.html#DefaultLightingSettings">默认 LightingSettings 对象</a>的信息。</p>
 
-<p>The Scene tab is divided into two sections:</p>
+<p>Scene 选项卡分为几个部分：</p>
 
 <ul>
 <li><a href="#AssetControls">Lighting Settings Asset controls</a></li>
@@ -228,9 +227,9 @@
 
 <p><a name="AssetControls"></a></p>
 
-<h3>Lighting Settings Asset controls</h3>
+<h3>Lighting Settings Asset controls（光照设置资源的控件）</h3>
 
-<p>Use the controls in this section to assign a Lighting Settings Asset to the active Scene, or to create a new Lighting Settings Asset.</p>
+<p>使用此部分中的控件将光照设置资源分配给活动场景，或创建新的光照设置资源。</p>
 
 <table>
 <colgroup>
@@ -248,26 +247,26 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><strong>Lighting Settings</strong></td>
-	<td style="text-align:left;">The Lighting Settings Asset assigned to the active Scene.</td>
+	<td style="text-align:left;">分配给活动场景的光照设置资源。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>New Lighting Settings</strong></td>
-	<td style="text-align:left;">Click this button to generate a new Lighting Settings Asset in your Project, and automatically assign the new Lighting Settings Asset to the active Scene.</td>
+	<td style="text-align:left;">单击此按钮可在您的项目中生成新的光照设置资源，并自动将该新的光照设置资源分配给活动场景。</td>
 </tr>
 </tbody>
 </table>
 
 <p><a name="LightingSettingsProperties"></a></p>
 
-<h3>Lighting Settings</h3>
+<h3>Lighting Settings（光照设置）</h3>
 
-<p>Use this section to view and edit the properties of the Lighting Settings Asset or <code>LightingSettings</code> object assigned to the current Scene. See <a href="class-LightingSettings.md">Lighting Settings Asset</a>.</p>
+<p>使用此部分可查看和编辑分配给当前场景的光照设置资源或 <code>LightingSettings</code> 对象的属性。请参阅<a href="class-LightingSettings.md">光照设置资源</a>。</p>
 
 <p><a name="WorkflowSettings"> </a></p>
 
-<h3>Workflow settings</h3>
+<h3>Workflow settings（工作流设置）</h3>
 
-<p>This section contains settings that help you debug your Scene.</p>
+<p>此部分包含可帮助您调试场景的设置。</p>
 
 <table>
 <colgroup>
@@ -286,7 +285,7 @@
 <tbody>
 <tr>
 	<td style="text-align:left;" colspan="2"><strong>GPU Baking Device</strong></td>
-	<td style="text-align:left;">Use this to change the GPU that Unity uses for precomputing lighting data. This property is visible only when you use the <a href="progressive-lightmapper.html">GPU Progressive Lightmapper</a> backend.</td>
+	<td style="text-align:left;">使用此属性更改 Unity 用于预计算光照数据的 GPU。此属性仅在您使用 <a href="progressive-lightmapper.html">GPU 渐进光照贴图</a>后端时可见。</td>
 </tr>
 <tr>
 	<td style="text-align:left;" colspan="2"><strong>Light Probe Visualization</strong></td>
@@ -325,13 +324,13 @@
 
 <p><a name="EnvironmentTab"> </a></p>
 
-<h2>The Environment tab</h2>
+<h2>Environment 选项卡</h2>
 
-<p>The Environment tab contains settings related to environmental lighting effects for the current Scene. The contents depend on the render pipeline that your Project uses.</p>
+<p>Environment 选项卡包含相关当前场景的环境光照效果的设置。内容取决于您的项目使用的渲染管线。</p>
 
-<h3>Built-in Render Pipeline and Universal Render Pipeline</h3>
+<h3>内置渲染管线与通用渲染管线</h3>
 
-<p>In the Built-in Render Pipeline and URP, the Environment tab is divided into two sections:</p>
+<p>在内置渲染管线和 URP 中，Environment 选项卡分为两个部分：</p>
 
 <ul>
 <li><a href="#EnvironmentSection">Environment</a></li>
@@ -340,9 +339,9 @@
 
 <p><a name="EnvironmentSection"></a></p>
 
-<h4>Environment</h4>
+<h4>Environment（环境）</h4>
 
-<p>The Environment section contains lighting-related settings and controls that apply to the environmental lighting in the current scene, such as the Skybox, diffuse lighting and reflections.</p>
+<p>Environment 部分包含与光照相关的设置和控件，这些设置和控件适用于当前场景中的环境光照，例如天空盒、漫射光照和反射。</p>
 
 <table>
 <colgroup>
@@ -366,11 +365,9 @@
 </tr>
 <tr>
 	<td style="text-align:left;" colspan="2"><strong>Sun Source</strong></td>
-	<td style="text-align:left;">When the <strong>Skybox Material</strong> is a Procedural Skybox, use this setting to specify a GameObject with a directional Light component to indicate the direction of the sun (or whatever large, distant light source is illuminating your Scene). If this is set to <strong>None</strong>, the brightest directional light in the Scene is assumed to represent the sun. Lights with <a href="class-Light.md">Render Mode</a> property set to <strong>Not Important</strong> do not affect the Skybox. The default value is <strong>None</strong>.</td>
-</tr>
-<tr>
-	<td style="text-align:left;" colspan="2"><strong>Realtime Shadow Color</strong></td>
-	<td style="text-align:left;">Define the color that Unity uses to render real-time shadows in Subtractive Lighting Mode.<br><br>This setting is visible only when the <strong>Lighting Mode</strong> is set to <strong>Subtractive</strong>.</td>
+	<td style="text-align:left;" colspan="2">如果__天空盒材质 (Skybox Material)__ 是程序化天空盒 (Procedural Skybox)，使用此设置可指定带有方向光组件的游戏对象，从而指示太阳（或任何照亮场景的大型远距离光源）的方向。如果设置为 <strong>None__，假设场景中最亮的方向光代表太阳。<a href="class-Light.md">Render Mode</a> 属性设置为 <strong>Not Important</strong> 的光源不影响天空盒。默认值为 </strong>None<strong>。|
+| </strong>Realtime Shadow Color__</td>
+	<td style="text-align:left;">定义 Unity 用于在 Subtractive 光照模式下渲染实时阴影的颜色。<br><br>此设置仅在__Lighting Mode__ 设置为 <strong>Subtractive</strong> 时可见。</td>
 </tr>
 <tr>
 	<td style="text-align:left;" colspan="2"><strong>Environment Lighting</strong></td>
@@ -481,7 +478,7 @@
 <tbody>
 <tr>
 	<td style="text-align:left;" colspan="4"><strong>Fog</strong></td>
-	<td style="text-align:left;">Enables or disables fog in the Scene. Note that fog is not available with the <a href="RenderingPaths.html">Deferred rendering path</a>.</td>
+	<td style="text-align:left;">在场景中启用或禁用雾效。请注意，此模式无法用于<a href="RenderingPaths.html">延迟渲染路径</a>。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -546,14 +543,14 @@
 </tr>
 <tr>
 	<td style="text-align:left;" colspan="4"><strong>Spot Cookie</strong></td>
-	<td style="text-align:left;">Set the <a href="Cookies.html">Cookie</a> texture you want to use for <a href="Lighting.html">spot lights</a>.</td>
+	<td style="text-align:left;">设置要用于<a href="Lighting.html">点光源</a>的<a href="Cookies.html">剪影</a>纹理。</td>
 </tr>
 </tbody>
 </table>
 
-<h3>High Definition Render Pipeline</h3>
+<h3>高清渲染管线</h3>
 
-<p>In HDRP, the Environment tab allows you to specify which sky to use for environment lighting. For more information on environment lighting in HDRP, see <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest/index.html?subfolder=/manual/Environment-Lighting.html">Environment Lighting in the HDRP documentation</a>.</p>
+<p>在 HDRP 中，Environment 选项卡允许您指定用于环境光照的天空。有关 HDRP 中环境光照的更多信息，请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest/index.html?subfolder=/manual/Environment-Lighting.html">HDRP 文档中的环境光照</a>。</p>
 
 <table>
 <colgroup>
@@ -571,34 +568,34 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><strong>Profile</strong></td>
-	<td style="text-align:left;">A <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest/index.html?subfolder=/manual/Volume-Profile.html">Volume Profile</a> for the sky. This Volume Profile must include at least one Sky Volume override.</td>
+	<td style="text-align:left;">天空的<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest/index.html?subfolder=/manual/Volume-Profile.html">体积配置文件 (Volume Profile)</a>。此体积配置文件必须包含至少一个天空体积覆盖。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Static Lighting Sky</strong></td>
-	<td style="text-align:left;">The sky to use for the Global Illumination simulation. The drop-down only contains sky types that the Profile includes. For example, if the Profile includes a Gradient Sky Volume override, you can select Gradient Sky from this drop-down.<br><br>You can only edit this setting if you assign a Volume Profile to the Profile field.</td>
+	<td style="text-align:left;">用于全局光照模拟的天空。下拉选单仅包含配置文件包括的天空类型。例如，如果配置文件包含渐变天空 (Gradient Sky) 体积覆盖，则可以从此下拉选单中选择 Gradient Sky。<br><br>仅当将一个体积配置文件分配给 Profile 字段时，才能编辑此设置。</td>
 </tr>
 </tbody>
 </table>
 
 <p><a name="RealtimeLightmaps"></a></p>
 
-<h2>The Realtime Lightmaps tab</h2>
+<h2>Realtime Lightmaps 选项卡</h2>
 
-<p>The Realtime Lightmaps tab shows a list of all lightmaps generated by the Realtime Global Illumination system in the current Scene. If Realtime Global Illumination is not enabled in your Project, this tab will be empty.</p>
+<p>Realtime Lightmaps 选项卡显示当前场景中由实时全局光照系统生成的所有光照贴图的列表。如果您的项目中未启用实时全局光照 (Realtime Global Illumination)，则此选项卡将为空。</p>
 
-<p>The Realtime Global Illumination system is supported in the Built-in Render Pipeline, but not in URP or HDRP. Therefore, this tab is visible only in the Built-in Render Pipeline.</p>
+<p>内置渲染管线支持实时全局光照系统，但 URP 和 HDRP 不支持实时全局光照系统。因此，此选项卡仅在内置渲染管线中可见。</p>
 
 <p><a name="BakedLightmaps"></a></p>
 
-<h2>The Baked Lightmaps tab</h2>
+<h2>Baked Lightmaps 选项卡</h2>
 
-<p>This tab shows a list of all lightmaps generated by <a href="Lightmappers.html">lightmapper</a> for the current Scene, along with the <a href="LightmapSnapshot.html">Lighting Data Asset</a>. If Baked Global Illumination is not enabled in your Project, this tab will be empty.</p>
+<p>此选项卡显示<a href="Lightmappers.html">光照贴图</a>为当前场景生成的所有光照贴图的列表，以及<a href="LightmapSnapshot.html">光照数据资源</a>。如果项目中未启用烘焙全局光照 (Baked Global Illumination)，则此选项卡将为空。</p>
 
 <p><a name="ControlArea"></a></p>
 
-<h2>Control area</h2>
+<h2>控件区域</h2>
 
-<p>Controls for precomputing lighting data are at the bottom of the Lighting window.</p>
+<p>用于预计算光照数据的控件位于 Lighting 窗口的底部。</p>
 
 <table>
 <colgroup>
@@ -616,11 +613,8 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><strong>Auto Generate</strong></td>
-	<td style="text-align:left;">If <strong>Auto Generate</strong> is enabled, Unity precomputes lighting data automatically when you make changes to the Scene.<br><br>This data includes lightmaps for the Baked Global Illumination system, lightmaps for the Realtime Global Illumination system, Light Probes, and Reflection Probes.<br><br>Unity usually begins the bake a few seconds after you make a change to the Scene. If <strong>Auto Generate</strong> is disabled, you must manually invoke a bake yourself, using the <strong>Generate Lighting</strong> button in the Lighting window, or the <a href="../ScriptReference/Lightmapping.Bake.html">Lightmapping.Bake</a> or <a href="../ScriptReference/Lightmapping.BakeAsync.html">Lightmapping.BakeAsync</a> APIs.<br><br>Note that when you precompute lighting data using <strong>Auto Generate</strong>, the precomputed lighting data is not stored as Assets in your Project. It is instead stored in memory, and serialized as part of the Scene.<br><br>This property is stored in a Lighting Settings Asset. It is visible in the Lighting window only if the Scene tab is selected, and the active Scene has a Lighting Settings Asset assigned to it.</td>
-</tr>
-<tr>
-	<td style="text-align:left;"><strong>Generate Lighting</strong></td>
-	<td style="text-align:left;">Click the <strong>Generate Lighting</strong> button to precompute lighting data for all open Scenes. This data includes lightmaps for the Baked Global Illumination system, lightmaps for the Realtime Global Illumination system, Light Probes, and Reflection Probes. <br><br>Click the foldout arrow on the right hand side of the <strong>Generate Lighting</strong> and then click <strong>Bake Reflection Probes</strong> to bake only the Reflection Probes for all open Scenes.<br><br>Click the foldout arrow on the right hand side of the <strong>Generate Lighting</strong> and then click <strong>Clear Baked Data</strong> to clear all precomputed lighting data from all open Scenes without clearing the <a href="GICache.html">GI Cache</a>.<br><br>This button is enabled only if <strong>Auto Generate</strong> is disabled.</td>
+	<td style="text-align:left;">如果启用 <strong>Auto Generate</strong> ，Unity 会在您更改场景时自动预计算光照数据。<br><br>该数据包括烘焙全局光照系统的光照贴图、实时全局光照系统的光照贴图、光照探针和反射探针。<br><br> Unity 通常会在您更改场景后几秒钟开始烘焙。如果禁用 <strong>Auto Generate__，您必须自己手动调用烘焙，在 Lighting 窗口中使用 <strong>Generate Lighting</strong> 按钮，或者 <a href="../ScriptReference/Lightmapping.Bake.html">Lightmapping.Bake</a> 或 <a href="../ScriptReference/Lightmapping.BakeAsync.html">Lightmapping.BakeAsync</a> API。<br><br>请注意，当您使用 <strong>Auto Generate</strong> 预计算的光照数据时，预计算的光照数据不会作为资源存储在您的项目中。相反，它存储在内存中，并作为场景的一部分进行序列化。<br><br>此属性存储在光照设置资源中。仅当选择了 Scene 选项卡，并且为活动场景分配了光照设置资源， Lighting 窗口才可见。|
+|</strong>Generate Lighting<strong>|单击 </strong>Generate Lighting__ 按钮为所有打开的场景预计算光照数据。该数据包括烘焙全局光照系统的光照贴图、实时全局光照系统的光照贴图、光照探针和反射探针。<br><br>单击 <strong>Generate Lighting</strong> 右侧的折叠箭头，然后单击 <strong>Bake Reflection Probes</strong> 只为所有打开的场景烘焙反射探针。<br><br>单击 <strong>Generate Lighting</strong> 右侧的折叠箭头，然后单击 <strong>Clear Baked Data</strong> 从所有打开的场景中清除所有预计算的光照数据而不清除 <a href="GICache.html">GI 缓存</a>。<br><br>此按钮仅在禁用 <strong>Auto Generate</strong> 的情况下启用。</td>
 </tr>
 </tbody>
 </table>
@@ -628,7 +622,7 @@
 <hr>
 
 <ul>
-<li><span class="page-history">[Lighting Settings Asset] added in <a href="https://docs.unity3d.com/2020.1/Documentation/Manual/30_search.html?q=newin20201">2020.1</a> <span class="search-words">NewIn20201</span></span></li>
+<li><span class="page-history">[光照设置资源]添加于 <a href="https://docs.unity3d.com/2020.1/Documentation/Manual/30_search.html?q=newin20201">2020.1</a> <span class="search-words">NewIn20201</span></span></li>
 </ul>
 <!-- area:graphics -->
 <div class="nextprev clear">
@@ -636,13 +630,13 @@
 <span class="prev"><a href="ShadowPerformance.html"></a></span><div class="tip">阴影故障排除</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="class-LightingSettings.html"></a></span><div class="tip">Lighting Settings Asset</div>
+<span class="next"><a href="class-LightingSettings.html"></a></span><div class="tip">光照设置资源</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

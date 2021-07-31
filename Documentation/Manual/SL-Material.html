@@ -13,8 +13,8 @@
 <meta name="twitter:card" content="summary">
 <meta property="og:title" content="ShaderLab：旧版光照 - Unity 手册">
 <title>ShaderLab：旧版光照 - Unity 手册</title>
-<meta name="description" content="材质和光照参数用于控制内置顶点光照。顶点光照是为每个顶点计算的标准 Direct3D/OpenGL 光照模型。Lighting on 可开启光照。光照将受到 Material 代码块、ColorMaterial 命令和 SeparateSpecular 命令的影响。">
-<meta property="og:description" content="材质和光照参数用于控制内置顶点光照。顶点光照是为每个顶点计算的标准 Direct3D/OpenGL 光照模型。Lighting on 可开启光照。光照将受到 Material 代码块、ColorMaterial 命令和 SeparateSpecular 命令的影响。">
+<meta name="description" content="注意：此页面上的 ShaderLab 是旧版功能，仅用于向后兼容。如果着色器源文件包含 HLSL 代码，Unity 将完全忽略这些命令。如果着色器源文件不包含 HLSL 代码，Unity 会在导入时将这些命令编译为常规着色器程序。">
+<meta property="og:description" content="注意：此页面上的 ShaderLab 是旧版功能，仅用于向后兼容。如果着色器源文件包含 HLSL 代码，Unity 将完全忽略这些命令。如果着色器源文件不包含 HLSL 代码，Unity 会在导入时将这些命令编译为常规着色器程序。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,31 +174,64 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
-<li><a href="ShadersOverview.html">编写着色器</a></li>
-<li><a href="SL-Reference.html">着色器参考</a></li>
-<li><a href="SL-Shader.html">ShaderLab 语法</a></li>
-<li><a href="SL-SubShader.html">ShaderLab：SubShader</a></li>
-<li><a href="SL-Pass.html">ShaderLab：Pass</a></li>
+<li><a href="Shaders.html">着色器</a></li>
+<li><a href="shader-writing.html">编写着色器</a></li>
+<li><a href="SL-Reference.html">ShaderLab</a></li>
+<li><a href="shader-shaderlab-commands.html">ShaderLab：命令</a></li>
+<li><a href="shader-shaderlab-legacy.html">ShaderLab 旧版功能</a></li>
 <li>ShaderLab：旧版光照</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-Name.html"></a></span><div class="tip">ShaderLab：Name</div>
+<span class="prev"><a href="SL-Fog.html"></a></span><div class="tip">ShaderLab：旧版 Fog</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-SetTexture.html"></a></span><div class="tip">ShaderLab：旧版纹理组合器</div>
+<span class="next"><a href="SL-AlphaTest.html"></a></span><div class="tip">ShaderLab：旧版 Alpha 测试</div>
 </div>
 </div></div>
 <h1>ShaderLab：旧版光照</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>材质和光照参数用于控制内置顶点光照。顶点光照是为每个顶点计算的标准 Direct3D/OpenGL 光照模型。<strong>Lighting on</strong> 可开启光照。光照将受到 <strong>Material</strong> 代码块、<strong>ColorMaterial</strong> 命令和 <strong>SeparateSpecular</strong> 命令的影响。</p>
+<p><strong>注意</strong>：此页面上的 ShaderLab 是旧版功能，仅用于向后兼容。如果着色器源文件包含 HLSL 代码，Unity 将完全忽略这些命令。如果着色器源文件不包含 HLSL 代码，Unity 会在导入时将这些命令编译为常规着色器程序。</p>
 
-<p><em><strong>注意：</strong>使用<a href="SL-ShaderPrograms.html">顶点程序</a>时，材质/光照命令无效；因为在这种情况下，所有计算都在着色器中完整描述。建议现在使用可编程着色器，而不是旧版顶点光照。这些情况下，不要使用此处描述的命令，而是自行定义<a href="SL-ShaderPrograms.html">顶点和片元程序</a>来自己执行所有的光照、纹理和任何其他操作。</em></p>
+<h2>渲染管线兼容性</h2>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>功能名称</strong></th>
+	<th style="text-align:left;"><strong>内置渲染管线</strong></th>
+	<th style="text-align:left;"><strong>通用渲染管线 (URP)</strong></th>
+	<th style="text-align:left;"><strong>高清渲染管线 (HDRP)</strong></th>
+	<th style="text-align:left;"><strong>自定义 SRP</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>旧版光照</strong></td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">否</td>
+	<td style="text-align:left;">否</td>
+	<td style="text-align:left;">否</td>
+</tr>
+</tbody>
+</table>
+
+<h2>概述</h2>
+
+<p>材质和光照参数用于控制内置顶点光照。顶点光照是为每个顶点计算的标准 Direct3D/OpenGL 光照模型。<strong>Lighting on</strong> 可开启光照。光照将受到 <strong>Material</strong> 代码块、<strong>ColorMaterial</strong> 命令和 <strong>SeparateSpecular</strong> 命令的影响。</p>
 
 <p>对于任何渲染的几何体来说，第一个要计算的效果就是“顶点着色和光照”。它在顶点级别上运行，并计算在应用纹理之前使用的基色。</p>
 
@@ -206,7 +239,7 @@
 
 <p>顶级命令控制是否使用固定函数光照，以及一些配置选项。主要设置位于 <strong>Material 代码块</strong>中，下面进行了详细介绍。</p>
 
-<h3>Color</h3>
+<h3>颜色</h3>
 
 <pre><code>    Color color
 </code></pre>
@@ -262,7 +295,7 @@
 
 <p>对于照射对象的所有光源，重复该等式的光源部分（圆括号内）。</p>
 
-<p>通常情况系会希望保持漫射和环境光颜色相同（Unity 的所有内置着色器都会如此）。</p>
+<p>通常，需要保持漫射和环境光颜色相同（所有内置着色器都会如此）。</p>
 
 <h2>示例</h2>
 
@@ -336,19 +369,18 @@
     }
 }
 </code></pre>
-<!-- area:graphics -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-Name.html"></a></span><div class="tip">ShaderLab：Name</div>
+<span class="prev"><a href="SL-Fog.html"></a></span><div class="tip">ShaderLab：旧版 Fog</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-SetTexture.html"></a></span><div class="tip">ShaderLab：旧版纹理组合器</div>
+<span class="next"><a href="SL-AlphaTest.html"></a></span><div class="tip">ShaderLab：旧版 Alpha 测试</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

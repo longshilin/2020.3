@@ -11,11 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Updating your Asset Store package - Unity 手册">
-<title>Updating your Asset Store package - Unity 手册</title>
-<meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/upm-ui-myassets.png">
-<meta name="description" content="You can update an Asset Store package in the Package Manager window:">
-<meta property="og:description" content="You can update an Asset Store package in the Package Manager window:">
+<meta property="og:title" content="更新 Asset Store 资源包 - Unity 手册">
+<title>更新 Asset Store 资源包 - Unity 手册</title>
+<meta name="description" content="可在 Package Manager 窗口中更新 Asset Store 资源包：">
+<meta property="og:description" content="可在 Package Manager 窗口中更新 Asset Store 资源包：">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,12 +174,12 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="PackagesList.html">包</a></li>
 <li><a href="Packages.html">Unity 的 Package Manager</a></li>
 <li><a href="upm-ui.html">Package Manager 窗口</a></li>
 <li><a href="upm-ui-actions.html">添加和移除包</a></li>
-<li>Updating your Asset Store package</li>
+<li>更新 Asset Store 资源包</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -190,42 +189,41 @@
 <span class="next"><a href="upm-docs.html"></a></span><div class="tip">查找包文档</div>
 </div>
 </div></div>
-<h1>Updating your Asset Store package</h1>
+<h1>更新 Asset Store 资源包</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
+<!-- @TODO: Don't backport the UI changes and the sorting step to 2019.4 -->
 
-<p>You can update an Asset Store package in the Package Manager window:</p>
+<p>可在 Package Manager 窗口中更新 Asset Store 资源包：</p>
 
-<ol>
-<li>
-<p>Open the Package Manager window and select <strong>My Assets</strong> from the <a href="upm-ui-filter.html">Packages</a> drop-down menu.</p>
+<p>1.打开 Package Manager 窗口，然后从 <a href="upm-ui-filter.html">Packages</a> 下拉菜单中选择 <strong>My Assets</strong>。</p>
 
-<figure>
-<img src="../uploads/Main/upm-ui-myassets.png" alt="Switch the context to My Assets">
-<figcaption>Switch the context to <strong>My Assets</strong></figcaption>
-</figure>
+<pre><code>![将上下文切换为 **My Assets**](../uploads/Main/upm-ui-myassets.png)
 
-<p>An arrow indicator appears next to any Asset Store packages that have updates available.</p>
-</li>
-<li><p>Select the Asset Store package you want to update from the <a href="upm-ui-list.html">list of packages</a>. The Asset Store package information appears in the <a href="upm-ui-details.html">details view</a>.</p></li>
-<li>
-<p>In the <a href="upm-ui-list.html">list of packages</a>, click the expander icon to the left of the Asset Store package’s name.</p>
+任何具有可用更新的 Asset Store 资源包旁边都会出现一个箭头指示符。
+</code></pre>
 
-<figure>
-<img src="../uploads/Main/PackageManagerUI-AssetUpdates.png" alt="Available Asset Store package versions">
-<figcaption>Available Asset Store package versions</figcaption>
-</figure>
+<p>2.要查看 Asset Store 资源包的最新更新，请按更新日期从最新到最旧<a href="upm-ui-sort.html">对列表进行排序</a>。</p>
 
-<p>The newer version displays <strong>Update Available</strong> and the installed version displays <strong>Currently Downloaded</strong>.</p>
-</li>
-<li><p>Select the new version for the current Asset Store package and see the details specific to that version in the <a href="upm-ui-details.html">details view</a>.</p></li>
-</ol>
+<pre><code>![从 __Sort__ 下拉菜单中选择 **Update date** 降序](../uploads/Main/upm-ui-update2-sort.png)
+</code></pre>
+
+<p>3.从<a href="upm-ui-list.html">包列表</a>中选择要更新的 Asset Store 资源包。Asset Store 资源包信息将显示在<a href="upm-ui-details.html">详细信息视图</a>中。</p>
+
+<p>4.在<a href="upm-ui-list.html">包列表</a>中，单击 Asset Store 资源包名称左侧的展开箭头图标。</p>
+
+<pre><code>![可用的 Asset Store 资源包版本](../uploads/Main/PackageManagerUI-AssetUpdates.png)
+
+较新的版本显示 **Update Available**，已安装的版本显示 **Currently Downloaded**。
+</code></pre>
+
+<p>5.选择当前 Asset Store 资源包的新版本，然后在<a href="upm-ui-details.html">详细信息视图</a>中查看特定于该版本的详细信息。</p>
 
 <p>7.单击 <strong>Update</strong> 按钮。</p>
 
 <pre><code>![详细信息视图右下角的 **Update** 按钮](../uploads/Main/upm-ui-update2.png)
 
-When the progress bar finishes, the new Asset Store package version information appears in the [details view](upm-ui-details.html), and is immediately available.
+进度条结束后，新 Asset Store 资源包的版本信息将显示在[详细信息视图](upm-ui-details.html)中，并且该包将立即可用。
 </code></pre>
 
 <p><br> </p>
@@ -250,7 +248,7 @@ When the progress bar finishes, the new Asset Store package version information 
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

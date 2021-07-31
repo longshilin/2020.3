@@ -174,7 +174,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="PackagesList.html">包</a></li>
 <li><a href="CustomPackages.html">创建自定义包</a></li>
 <li>程序集定义和包</li>
@@ -191,7 +191,7 @@
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>必须将包内的脚本与程序集定义文件 (.asmdef) 关联。在 Unity 中，程序集定义文件等效于 .NET 生态系统中的 C# 项目。必须在程序集定义文件中设置对其他程序集（无论是在同一包中还是在外部包中）的显式引用。请参阅<a href="ScriptCompilationAssemblyDefinitionFiles.html">程序集定义</a>以了解更多详细信息。</p>
+<p>必须将包内的脚本与程序集定义文件 (<code>.asmdef</code>) 关联。在 Unity 中，程序集定义文件等效于 .NET 生态系统中的 C# 项目。必须在程序集定义文件中设置对其他程序集（无论是在同一包中还是在外部包中）的显式引用。请参阅<a href="ScriptCompilationAssemblyDefinitionFiles.html">程序集定义</a>以了解更多详细信息。</p>
 
 <p>请使用以下约定来命名和存储程序集定义文件，确保编译的程序集文件名遵循 <a href="https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/">.NET Framework 设计指南 (.NET Framework Design Guidelines)</a>：</p>
 
@@ -217,8 +217,41 @@
 
 <p>要整体了解建议的包文件夹布局，请参阅<a href="cus-layout.html">包布局</a>。</p>
 
-<p><br> </p>
-<!-- area:authoring -->
+<h2>示例文件</h2>
+
+<p>在此示例中，程序集定义文件使用对其自身程序集以及作为包依赖项的一部分的程序集的引用 (<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest"> HDRP</a>)：</p>
+
+<pre><code class="lang-json">{
+    "name": "MyCompany.MyFeature",
+    "references": [
+        "MyCompany.MyFeature.Tools",
+        "MyCompany.MyFeature.Planes",
+        "Unity.RenderPipelines.HighDefinition.Runtime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.render-pipelines.high-definition",
+            "expression": "7.1.0",
+            "define": "HDRP_7_1_0_OR_NEWER"
+        },
+        {
+            "name": "com.unity.modules.particlesystem",
+            "expression": "1.0.0",
+            "define": "USING_PARTICLE_SYSTEM"
+        }
+    ],
+    "noEngineReferences": false
+}
+</code></pre>
+
+<p>有关程序集定义文件的结构的详细信息，请参阅<a href="AssemblyDefinitionFileFormat.html">程序集定义文件格式</a>。</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="upm-semver.html"></a></span><div class="tip">版本控制</div>
@@ -230,7 +263,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

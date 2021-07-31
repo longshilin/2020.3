@@ -13,8 +13,8 @@
 <meta name="twitter:card" content="summary">
 <meta property="og:title" content="高级 iOS 脚本 - Unity 手册">
 <title>高级 iOS 脚本 - Unity 手册</title>
-<meta name="description" content="There are a number of device-specific properties that you can access. See the script reference pages for:">
-<meta property="og:description" content="There are a number of device-specific properties that you can access. See the script reference pages for:">
+<meta name="description" content="您可以访问设备特有的许多属性。请参阅以下脚本参考：">
+<meta property="og:description" content="您可以访问设备特有的许多属性。请参阅以下脚本参考：">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,7 +174,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="PlatformSpecific.html">平台开发</a></li>
 <li><a href="iphone.html">iOS</a></li>
 <li>iOS 高级主题</li>
@@ -195,7 +195,7 @@
 
 <h2>设备属性</h2>
 
-<p>There are a number of device-specific properties that you can access. See the script reference pages for:</p>
+<p>您可以访问设备特有的许多属性。请参阅以下脚本参考：</p>
 
 <ul>
 <li><a href="../ScriptReference/SystemInfo-deviceUniqueIdentifier.html">SystemInfo.deviceUniqueIdentifier</a></li>
@@ -208,9 +208,9 @@
 
 <p>破解应用程序的一种常见方法是移除 AppStore DRM 保护，然后进行免费重新分发。Unity 附带反盗版检查功能，用于查明应用程序在提交到 AppStore 之后是否被篡改。</p>
 
-<p>Check if your application is genuine (not hacked) with the <a href="../ScriptReference/Application-genuine.html">Application.genuine</a> property. If the property returns <code>false</code>, you can warn users they are using a hacked app, or you can disable certain functions.</p>
+<p>可以使用 <a href="../ScriptReference/Application-genuine.html">Application.genuine</a> 属性检查应用程序是否为正版（未被破解）。如果该属性返回 <code>false</code>，则可警告用户他们正在使用经过破解的应用程序，或者可以禁用该应用程序的某些功能。</p>
 
-<p><strong>Note:</strong> Use <a href="../ScriptReference/Application-genuineCheckAvailable.html">Application.genuineCheckAvailable</a> along with <code>Application.genuine</code> to verify application integrity. Because accessing the <a href="../ScriptReference/Application-genuine.html">Application.genuine</a> property is a resource-intensive operation, you shouldn’t perform it during frame updates or other time-critical code.</p>
+<p><strong>注意：</strong>使用 <a href="../ScriptReference/Application-genuineCheckAvailable.html">Application.genuineCheckAvailable</a> 以及 Application.genuine 可验证应用程序完整性。访问 <a href="../ScriptReference/Application-genuine.html">Application.genuine</a> 属性是一项资源密集型操作，不应在帧更新期间或运行其他时间迫切的代码时执行该操作。</p>
 
 <h2>振动支持</h2>
 
@@ -218,13 +218,13 @@
 
 <h2>活动指示器</h2>
 
-<p>Mobile operating systems have built-in activity indicators you can use during slow operations. See <a href="../ScriptReference/Handheld.StartActivityIndicator.html">Handheld.StartActivityIndicator docs</a> for examples.</p>
+<p>移动操作系统具有内置活动指示器；可在慢速操作期间使用这些指示器。有关示例，请参阅 <a href="../ScriptReference/Handheld.StartActivityIndicator.html">Handheld.StartActivityIndicator 文档</a>。</p>
 
 <h2>屏幕方向</h2>
 
-<p>You can control the screen orientation of your application on both iOS and Android devices. By detecting a change in orientation or forcing a specific orientation, you can create app behaviors that depend on how the user holds the device. </p>
+<p>可在 iOS 和 Android 设备上控制应用程序的屏幕方向。通过检测方向变化或强制使用特定方向，可以创建一些取决于用户如何握持设备的应用程序行为。</p>
 
-<p>To retrieve device orientation, access the <a href="../ScriptReference/Screen-orientation.html">Screen.orientation</a> property. Orientation can be one of the following:</p>
+<p>要获取设备方向，请访问 <a href="../ScriptReference/Screen-orientation.html">Screen.orientation</a> 属性。允许的方向如下：</p>
 
 <table>
 <colgroup>
@@ -259,9 +259,9 @@
 </tbody>
 </table>
 
-<p>Set <a href="../ScriptReference/Screen-orientation.html">Screen.orientation</a> to one of the above orientations or use <a href="../ScriptReference/ScreenOrientation.AutoRotation.html">ScreenOrientation.AutoRotation</a> to control the screen orientation. When you enable auto-rotation, you can still disable some orientations on a case-by-case basis. </p>
+<p>将 <a href="../ScriptReference/Screen-orientation.html">Screen.orientation</a> 设置为上述方向之一，或使用 <a href="../ScriptReference/ScreenOrientation.AutoRotation.html">ScreenOrientation.AutoRotation</a> 来控制屏幕方向。启用自动旋转后，仍可根据具体情况禁用某个方向。</p>
 
-<p>For more information, see the following API documentation:</p>
+<p>有关更多信息，请参阅以下 API 文档：</p>
 
 <ul>
 <li><a href="../ScriptReference/Screen-autorotateToPortrait.html">Screen.autorotateToPortrait</a></li>
@@ -276,13 +276,13 @@
 
 <h2>显示屏凹口</h2>
 
-<p>On some displays, certain areas of the screen might be obscured or non-functional because of other hardware occupying that space. Use <a href="../ScriptReference/Screen-cutouts.html">Screen.cutouts</a> to return a list of bounding boxes surrounding each cutout.</p>
+<p>在某些显示屏上，屏幕上的某些区域可能由于其他硬件占用该空间而被遮挡或无法正常工作。使用 <a href="../ScriptReference/Screen-cutouts.html">Screen.cutouts</a> 可以返回每个凹口周围的包围盒列表。</p>
 
-<p>iOS devices do not provide a native API to get the display cutout information, so the cutouts are hardcoded in the Xcode project for each available iOS device. You can modify existing data or add additional devices in the Unity Xcode project <code>ReportSafeAreaChangeForView</code> function, which is in the <code>UnityView.mm</code> file.</p>
+<p>iOS 设备不提供原生 API 来获取显示屏凹口信息，因此要在 Xcode 项目中针对每个可用的 iOS 设备为凹口进行硬编码。可以在 Unity Xcode 项目 <code>ReportSafeAreaChangeForView</code> 函数（位于 <code>UnityView.mm</code> 文件内）中修改现有数据或添加其他设备。</p>
 
-<h2>Recording a replay of your game</h2>
+<h2>录制您的游戏回放</h2>
 
-<p>You can use <a href="../ScriptReference/Apple.ReplayKit.ReplayKit.html">ReplayKit</a> to record the audio and video of your game, along with audio and video commentary captured from the device’s microphone and camera.</p>
+<p>可以使用 <a href="../ScriptReference/Apple.ReplayKit.ReplayKit.html">ReplayKit</a> 录制游戏的音频和视频，以及从设备的麦克风和摄像头捕获的音频和视频评论。</p>
 <!-- area:platforms -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -295,7 +295,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

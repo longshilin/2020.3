@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Linux IL2CPP cross-compiler - Unity 手册">
-<title>Linux IL2CPP cross-compiler - Unity 手册</title>
+<meta property="og:title" content="Linux IL2CPP 交叉编译器 - Unity 手册">
+<title>Linux IL2CPP 交叉编译器 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/linuxBuildSettings.png">
-<meta name="description" content="The Linux IL2CPP cross-compiler is a set of sysroot and toolchain packages that allow you to build Linux IL2CPP Players on any Standalone platform without needing to use the Linux Unity Editor or rely on Mono.">
-<meta property="og:description" content="The Linux IL2CPP cross-compiler is a set of sysroot and toolchain packages that allow you to build Linux IL2CPP Players on any Standalone platform without needing to use the Linux Unity Editor or rely on Mono.">
+<meta name="description" content="Linux IL2CPP 交叉编译器是一组 sysroot 和工具链包，允许您在任何独立平台上构建 Linux IL2CPP Players，而无需使用 Linux Unity 编辑器或依赖 Mono。">
+<meta property="og:description" content="Linux IL2CPP 交叉编译器是一组 sysroot 和工具链包，允许您在任何独立平台上构建 Linux IL2CPP Players，而无需使用 Linux Unity 编辑器或依赖 Mono。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,12 +175,12 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="ScriptingSection.html">Scripting</a></li>
-<li><a href="unity-architecture.html">Unity architecture</a></li>
-<li><a href="scripting-backends.html">Scripting backends</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="ScriptingSection.html">脚本</a></li>
+<li><a href="unity-architecture.html">Unity 架构</a></li>
+<li><a href="scripting-backends.html">脚本后端</a></li>
 <li><a href="IL2CPP.html">IL2CPP</a></li>
-<li>Linux IL2CPP cross-compiler</li>
+<li>Linux IL2CPP 交叉编译器</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -190,52 +190,51 @@
 <span class="next"><a href="IL2CPP-WindowsRuntimeSupport.html"></a></span><div class="tip">Windows 运行时支持</div>
 </div>
 </div></div>
-<h1>Linux IL2CPP cross-compiler</h1>
+<h1>Linux IL2CPP 交叉编译器</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>The Linux IL2CPP cross-compiler is a set of sysroot and toolchain packages that allow you to build Linux IL2CPP Players on any Standalone platform without needing to use the Linux Unity Editor or rely on Mono. </p>
+<p>Linux IL2CPP 交叉编译器是一组 sysroot 和工具链包，允许您在任何独立平台上构建 Linux IL2CPP Players，而无需使用 Linux Unity 编辑器或依赖 Mono。</p>
 
-<p>If you meet the prerequisites, Unity automatically installs these packages for you when you choose the Linux build target. If you want to opt out of this process and use your own sysroot and toolchain packages, go to <strong>Edit</strong> &gt; <strong>Project Settings</strong> &gt; <strong>Toolchain Management</strong> and disable the <strong>Install Toolchain package automatically</strong> checkbox. If you already have these installed, you also need to remove them from the package manager. </p>
+<p>如果您满足先决条件，当您选择 Linux 构建目标时，Unity 会自动为您安装这些包。如果您想退出此过程并使用您自己的 sysroot 和工具链包，请转到 <strong>Edit</strong> &gt; <strong>Project Settings</strong> &gt; <strong>Toolchain Management</strong>，并禁用 <strong>Install Toolchain package automatically</strong> 复选框。如果已经安装了这些包，还需要从 Package Manager 中将其移除。</p>
 
 <figure>
-<img src="../uploads/Main/linuxBuildSettings.png" alt="Build settings window with Linux build target selected">
-<figcaption>Build settings window with Linux build target selected</figcaption>
+<img src="../uploads/Main/linuxBuildSettings.png" alt="选择了 Linux 构建目标的 Build Settings 窗口">
+<figcaption>选择了 Linux 构建目标的 Build Settings 窗口</figcaption>
 </figure>
 
 <h2>先决条件</h2>
 
-<p>Unity needs the following to install the IL2CPP cross-compiler packages:</p>
+<p>Unity 需要以下条件才能安装 IL2CPP 交叉编译器包：</p>
 
 <ul>
-<li>Unity 2019.4 or above</li>
-<li>Enough available disk space for your chosen Linux toolchain package. For further information, see the <a href="#requiredDiskSpace">Required disk space for Linux toolchain packages</a>
+<li>Unity 2019.4 或以上</li>
+<li>为您选择的 Linux 工具链包提供足够的可用磁盘空间。有关更多信息，请参阅 <a href="#requiredDiskSpace">Linux 工具链包所需的磁盘空间</a>
 </li>
-<li>Scripting backend set to IL2CPP. To set the scripting backend to IL2CPP: Go to <strong>Edit</strong> &gt; <strong>Project</strong> <strong>Setting</strong> &gt; <strong>Player</strong> <strong>Settings</strong> &gt; <strong>Setting</strong> <strong>for</strong> <strong>PC, Mac and Linux Standalone</strong> &gt; <strong>Other Settings</strong> &gt; <strong>Configuration.</strong> Set the <strong>Scripting Backend to</strong> <strong>IL2CPP</strong>.</li>
-<li>IL2CPP module. For information on how to install the IL2CPP module, follow the steps documented on <a href="https://docs.unity3d.com/Manual/GettingStartedAddingEditorComponents.html">Adding a Module to the Unity Editor.</a>
-</li>
+<li>脚本后端设置为 IL2CPP。将脚本后端设置为 IL2CPP：转到 <strong>Edit</strong> &gt; <strong>Project</strong> <strong>Setting</strong> &gt; <strong>Player</strong> <strong>Settings</strong> &gt; <strong>Setting</strong> <strong>for</strong> <strong>PC, Mac and Linux Standalone</strong> &gt; <strong>Other Settings</strong> &gt; <strong>Configuration。</strong> 设置 <strong>Scripting Backend to</strong> <strong>IL2CPP</strong>。</li>
+<li>IL2CPP 模块。有关如何安装 IL2CPP 模块的信息，请按照<a href="https://docs.unity3d.com/Manual/GettingStartedAddingEditorComponents.html">向 Unity 编辑器添加模块</a>中记录的步骤进行操作。</li>
 </ul>
 
-<h2>Linux sysroot package</h2>
+<h2>Linux sysroot 包</h2>
 
-<p>A Linux sysroot package is a directory which includes all the headers and libraries you need to build for Linux.</p>
+<p>Linux sysroot 包是一个目录，其中包含为 Linux 构建所需的所有头文件和库。</p>
 
-<p>Every operating system (OS) has its own build systems which vary from one to another. If you build using the headers and libraries of a particular OS, the built Player might not run on other operating systems. To address this, Unity provides a sysroot to build with which works on all supported Linux platforms.</p>
+<p>每个操作系统 (OS) 都有自己的构建系统，这些系统各不相同。如果您使用特定操作系统的头文件和库进行构建，则构建的 Player 可能无法在其他操作系统上运行。为了解决这个问题，Unity 提供了一个 sysroot 来构建，它适用于所有支持的 Linux 平台。</p>
 
-<h2>Linux toolchain packages</h2>
+<h2>Linux 工具链包</h2>
 
-<p>Unity provides toolchain packages for macOS, Windows, and Linux. Each of these platforms builds for Linux in a unique way.</p>
+<p>Unity 为 macOS、Windows 和 Linux 提供了工具链包。每个平台采用独特的方式针对 Linux 进行构建。</p>
 
-<p>A Linux toolchain package is a set of tools (including the compiler and linker) that Unity needs to build for Linux from each of these operating systems.</p>
+<p>Linux 工具链包一组包含编译器和链接器的工具，Unity 需要使用这些工具从这些操作系统进行 Linux 构建。</p>
 
-<h2>Required disk space for Linux toolchain packages <a name="requiredDiskSpace"></a>
+<h2>Linux 工具链包所需的磁盘空间 <a name="requiredDiskSpace"></a>
 </h2>
 
-<p>Make sure you have enough disk space to account for the package download, decompression, and use.</p>
+<p>确保您有足够的磁盘空间用于软件包的下载、解压缩和使用。</p>
 
-<p>In the rare instances where you are unsure whether you have enough space, define a UNITY_SYSROOT_CACHE environment variable and use it to store the uncompressed sysroots and toolchain packages. An environment variable is a variable that you set outside of Unity which is available for Unity to reference. In this case, you set a cache that Unity can reference when decompressing the sysroot and toolchain packages. Environment variables are specific to your operating system, so you need to follow your system’s guidelines to set them. </p>
+<p>在极少数情况下，您无法确定是否有足够空间，可以定义一个 UNITY_SYSROOT_CACHE 环境变量并使用它来存储未压缩的 sysroots 和工具链包。环境变量是您在 Unity 之外设置的变量，可供 Unity 引用。在这种情况下，您设置了一个缓存，Unity 在解压缩 sysroot 和工具链包时可以引用该缓存。环境变量特定于您的操作系统，因此您需要遵循系统指南进行设置。</p>
 
-<p>The table below shows the total disk space requirements for each toolchain package.</p>
+<p>下表显示了每个工具链包的总磁盘空间要求。</p>
 
 <table>
 <colgroup>
@@ -245,8 +244,8 @@
 
 <thead>
 <tr>
-	<th style="text-align:left;">Toolchain package</th>
-	<th style="text-align:left;">Required disk space</th>
+	<th style="text-align:left;">工具链包</th>
+	<th style="text-align:left;">所需磁盘空间</th>
 </tr>
 </thead>
 
@@ -266,20 +265,17 @@
 </tbody>
 </table>
 
-<h2>Using the Linux IL2CPP cross-compiler</h2>
+<h2>使用 Linux IL2CPP 交叉编译器</h2>
 
-<p>If you meet all of the prerequisites on this page, you can build your project as a Linux Player. Unity automatically uses the Linux IL2CPP cross-compiler at build time.</p>
+<p>如果您满足本页面上的所有先决条件，则可以将项目构建为 Linux Player。Unity 在构建时自动使用 Linux IL2CPP 交叉编译器。</p>
 
-<p>To build a Linux Player, follow these steps:</p>
+<p>要构建 Linux Player，请执行以下步骤：</p>
 
-<ol>
-<li>Open the <strong>Build Settings</strong> (menu: <strong>File</strong> &gt; <strong>Build Settings).</strong>
-</li>
-<li>Select the <strong>PC, Mac and Linux Standalone </strong>option.</li>
-<li>Set the <strong>Build Target</strong> option to <strong>Linux</strong>.</li>
-<li>Click the <strong>Switch Platform</strong> button.</li>
-<li>Build your Player. From Unity’s main menu, go to <strong>File</strong> and select either <strong>Build</strong> or <strong>Build and Run</strong>.</li>
-</ol>
+<p>1.打开 <strong>Build Settings</strong>（菜单：<strong>File</strong> &gt; <strong>Build Settings</strong>）。
+2.选择 <strong>PC, Mac and Linux Standalone ** 选项。
+3.将 </strong>Build Target** 选项设置为 <strong>Linux</strong>。
+4.单击 <strong>Switch Platform</strong> 按钮。
+5.构建您的 Player。从 Unity 的主菜单，转到 <strong>File</strong> 并选择 <strong>Build</strong> 或 <strong>Build and Run</strong>。</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="IL2CPP-CompilerOptions.html"></a></span><div class="tip">编译器选项</div>
@@ -291,7 +287,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

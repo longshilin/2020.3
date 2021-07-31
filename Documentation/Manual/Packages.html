@@ -14,8 +14,8 @@
 <meta property="og:title" content="Unity 的 Package Manager - Unity 手册">
 <title>Unity 的 Package Manager - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/upm-overview.png">
-<meta name="description" content="A package is a container that stores various types of features or assets, such as:">
-<meta property="og:description" content="A package is a container that stores various types of features or assets, such as:">
+<meta name="description" content="包是存储各种类型的功能或资源的容器，例如以下功能或资源：">
+<meta property="og:description" content="包是存储各种类型的功能或资源的容器，例如以下功能或资源：">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="PackagesList.html">包</a></li>
 <li>Unity 的 Package Manager</li>
 </ul></div>
@@ -191,7 +191,7 @@
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>A package is a container that stores various types of features or assets, such as:</p>
+<p>包是存储各种类型的功能或资源的容器，例如以下功能或资源：</p>
 
 <ul>
 <li>Editor 工具和库，例如文本编辑器、动画查看器或测试框架。</li>
@@ -202,11 +202,11 @@
 
 <p>包通过 Package Manager 为 Unity 提供了广泛的增强功能。在 Editor 中，可以通过以下菜单来访问 <a href="upm-ui.html">Package Manager 窗口</a>：<strong>Window</strong> &gt; <strong>Package Manager</strong>。</p>
 
-<p><strong>Note</strong>: The Package Manager also supports viewing any <a href="AssetPackages.html">Asset Store packages</a> you have already downloaded or imported from the Unity Asset Store. For more information, see <a href="AssetPackages.html">Asset packages</a>.</p>
+<p><strong>注意</strong>：Package Manager 还支持查看您已经从 Unity Asset Store 下载或导入的任何 <a href="AssetStorePackages.html">Asset Store 资源包</a>。</p>
 
 <h2>Unity 如何使用包</h2>
 
-<p>When Unity opens a Project, the Unity Package Manager reads the <a href="upm-manifestPrj.html">Project manifest</a> (<strong>1</strong>) to figure out what packages to load in the Project. Then it sends a request (<strong>2</strong>) to the <a href="upm-concepts.html#Registry">package registry server</a> (<strong>3</strong>) for each package that appears as a dependency in the manifest. The package registry then sends the requested information and data back to the Package Manager (<strong>4</strong>), which then installs those packages (<strong>5</strong>) in the Project. Each Project has its own manifest which lists the packages to load as “dependencies” of the Project.</p>
+<p>Unity 打开项目时，Unity Package Manager 会读取<a href="upm-manifestPrj.html">项目清单文件</a> (<strong>1</strong>) 以确定要在项目中加载的包。然后会向每个包（在清单中显示为依赖项）的<a href="upm-concepts.html#Registry">包注册表服务器</a> (<strong>3</strong>) 发送一个请求 (<strong>2</strong>)。包注册表将请求的信息和数据发送回 Package Manager (<strong>4</strong>)，然后由 Package Manager 将这些包安装到项目中 (<strong>5</strong>)。每个项目都有其自己的清单，清单中列出了要作为项目的“依赖项”加载的包。</p>
 
 <figure>
 <img src="../uploads/Main/upm-overview.png" alt="Unity Package Manager 安装包的方式">
@@ -254,9 +254,6 @@
 <ul>
 <li><span class="page-history">在 Unity <a href="https://docs.unity3d.com/2018.1/Documentation/Manual/30_search.html?q=newin20181">2018.1</a> 中添加了 Unity Package Manager <span class="search-words">NewIn20181</span></span></li>
 </ul>
-
-<p><br> </p>
-<!-- area:authoring -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="pack-keys.html"></a></span><div class="tip">按关键字排列的包</div>
@@ -268,7 +265,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

@@ -11,8 +11,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Enabling Streaming Virtual Texturing in your project - Unity 手册">
-<title>Enabling Streaming Virtual Texturing in your project - Unity 手册</title>
+<meta property="og:title" content="在项目中启用 Streaming Virtual Texturing - Unity 手册">
+<title>在项目中启用 Streaming Virtual Texturing - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/svt-enable-in-project01.png">
 <meta name="description" content="To enable Streaming Virtual Texturing, you need to enable Virtual Texturing in your project. To do this, go to Edit &gt; Project Settings &gt; Player and enable the Virtual Texturing setting.">
 <meta property="og:description" content="To enable Streaming Virtual Texturing, you need to enable Virtual Texturing in your project. To do this, go to Edit &gt; Project Settings &gt; Player and enable the Virtual Texturing setting.">
@@ -175,21 +175,21 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
 <li>高级渲染功能</li>
 <li><a href="svt-streaming-virtual-texturing.html">Streaming Virtual Texturing</a></li>
-<li>Enabling Streaming Virtual Texturing in your project</li>
+<li>在项目中启用 Streaming Virtual Texturing</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="svt-how-it-works.html"></a></span><div class="tip">How Streaming Virtual Texturing works</div>
+<span class="prev"><a href="svt-how-it-works.html"></a></span><div class="tip">Streaming Virtual Texturing 的工作原理</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="svt-use-in-shader-graph.html"></a></span><div class="tip">Using Streaming Virtual Texturing in Shader Graph</div>
+<span class="next"><a href="svt-use-in-shader-graph.html"></a></span><div class="tip">在 Shader Graph 中使用 Streaming Virtual Texturing</div>
 </div>
 </div></div>
-<h1>Enabling Streaming Virtual Texturing in your project</h1>
+<h1>在项目中启用 Streaming Virtual Texturing</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
@@ -199,32 +199,32 @@
 <img src="../uploads/Main/svt-enable-in-project01.png" alt="">
 </figure>
 
-<p>Virtual Texturing is a project-wide setting that is shared for all platforms. You cannot build a player for platforms and graphics APIs that don’t support Virtual Texturing. Virtual Texturing can allocate resources such as buffers, even if you don’t use the feature in your project, so don’t enable <strong>Virtual Texturing</strong> if you don’t plan to use it.</p>
+<p>Virtual Texturing 是所有平台共享的项目范围设置。不能为不支持 Virtual Texturing 的平台和图形 API 构建播放器。即使在项目中不使用该功能，Virtual Texturing 也可以分配缓冲区等资源，因此，如果不准备使用，请不要启用 <strong>Virtual Texturing</strong>。</p>
 
-<p>When you enable <strong>Virtual Texturing</strong> in your project, Unity adds the following compiler directives:</p>
+<p>如果在项目中启用 <strong>Virtual Texturing</strong>，Unity 会添加以下编译器指令：</p>
 
 <ul>
 <li>
-<code>ENABLE_VIRTUALTEXTURES</code>: C# define that evaluates to <code>True</code> if your project supports Virtual Texturing.</li>
+<code>ENABLE_VIRTUALTEXTURES</code>：如果项目支持 Virtual Texturing，则 C# 定义其评估值为 <code>True</code>。</li>
 <li>
-<code>ENABLE_VIRTUALTEXTURING</code>: C++ and C# editor define that evaluates to <code>True</code> if Virtual Texturing is possible on the current build target.</li>
+<code>ENABLE_VIRTUALTEXTURING</code>：如果在当前构建目标上可以使用 Virtual Texturing，则 C++ 和 C# 编辑器定义其评估值为 <code>True</code>。</li>
 <li>
-<code>UNITY_VIRTUAL_TEXTURING</code>: Shader version of <code>ENABLE_VIRTUALTEXTURES</code>.</li>
+<code>UNITY_VIRTUAL_TEXTURING</code>：<code>ENABLE_VIRTUALTEXTURES</code> 的着色器版本。</li>
 </ul>
 
-<p>Note that these might be renamed in future versions of Unity.</p>
+<p>请注意，这些可能会在 Unity 的未来版本中重命名。</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="svt-how-it-works.html"></a></span><div class="tip">How Streaming Virtual Texturing works</div>
+<span class="prev"><a href="svt-how-it-works.html"></a></span><div class="tip">Streaming Virtual Texturing 的工作原理</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="svt-use-in-shader-graph.html"></a></span><div class="tip">Using Streaming Virtual Texturing in Shader Graph</div>
+<span class="next"><a href="svt-use-in-shader-graph.html"></a></span><div class="tip">在 Shader Graph 中使用 Streaming Virtual Texturing</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

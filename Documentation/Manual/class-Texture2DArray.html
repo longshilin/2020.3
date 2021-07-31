@@ -174,9 +174,8 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
 <li><a href="Textures.html">纹理</a></li>
 <li>纹理数组</li>
 </ul></div>
@@ -202,40 +201,33 @@
 <li>Direct3D 11/12（Windows、Xbox One）</li>
 <li>OpenGL Core（Mac OS X、Linux）</li>
 <li>Metal（iOS、Mac OS X）</li>
-<li>OpenGL ES 3.0 (Android, WebGL 2.0)</li>
+<li>OpenGL ES 3.0（Android、WebGL 2.0）</li>
 <li>PlayStation 4</li>
 </ul>
 
 <p>其他平台（OpenGL ES 2.0 或 WebGL 1.0）不支持纹理数组。可使用 <a href="../ScriptReference/SystemInfo-supports2DArrayTextures.html">SystemInfo.supports2DArrayTextures</a> 在运行时确定纹理数组支持情况。</p>
 
-<h2>Importing texture arrays</h2>
+<h2>导入纹理数组</h2>
 
-<p>You can import texture arrays from source texture files that are divided into cells. These are called flipbook textures. To do this:</p>
+<p>可以从划分成单元格的源纹理文件导入纹理数组。这些被称为翻页纹理。为此需要执行以下操作：</p>
 
-<ol>
-<li>Import the source texture into your Unity Project.</li>
-<li>In your Project view, select the resulting Texture Asset. Unity displays the Texture import settings in the Inspector.</li>
-<li>In the Inspector, set <strong>Texture Shape</strong> to <strong>2D Array</strong>. Unity displays the Columns and Rows properties.</li>
-<li>Set <strong>Columns</strong> and <strong>Rows</strong> to the appropriate values for your flipbook texture.</li>
-<li>Click <strong>Apply</strong>.</li>
-</ol>
+<p>1.将源纹理导入您的 Unity 项目。
+2.在您的项目视图中，选择生成的纹理资源。Unity 将在 Inspector 中显示纹理导入设置。
+3.在 Inspector 中，将 <strong>Texture Shape</strong> 设置为 <strong>2D Array</strong>。Unity 显示 Columns 和 Rows 属性。
+4.将 <strong>Columns</strong> 和 <strong>Rows</strong> 设置为适用于翻页纹理的值。
+5.单击 <strong>Apply</strong>。</p>
 
-<p>For more information, see <a href="class-TextureImporter.html">Texture import settings</a>.</p>
+<p>有关更多信息，请参阅<a href="class-TextureImporter.html">纹理导入设置</a>。</p>
 
-<h2>Creating and manipulating texture arrays using scripts</h2>
+<h2>使用脚本创建和填充纹理数组</h2>
 
-<p>To create a texture array from a C# script, use the <a href="../ScriptReference/Texture2DArray.html">Texture2DArray</a> class to initialize the texture and set pixel data, and save the object as an asset file using <a href="../ScriptReference/AssetDatabase.CreateAsset.html">AssetDatabase.CreateAsset</a>.</p>
+<p>从 C# 脚本创建纹理数组，使用 <a href="../ScriptReference/Texture2DArray.html">Texture2DArray</a> 类来初始化纹理和设置像素数据，并使用 <a href="../ScriptReference/AssetDatabase.CreateAsset.html">AssetDatabase.CreateAsset</a> 将对象保存为资源文件。</p>
 
 <p>通常，纹理数组完全是在 GPU 内存中使用，但您可以使用 <a href="../ScriptReference/Graphics.CopyTexture.html">Graphics.CopyTexture</a>、<a href="../ScriptReference/Texture2DArray.GetPixels.html">Texture2DArray.GetPixels</a> 和 <a href="../ScriptReference/Texture2DArray.SetPixels.html">Texture2DArray.SetPixels</a> 与系统内存之间双向传输像素。</p>
 
 <h2>将纹理数组用作渲染目标</h2>
 
 <p>纹理数组元素也可用作渲染目标。使用 <a href="../ScriptReference/RenderTexture-dimension.html">RenderTexture.dimension</a> 提前指定渲染目标是否是 2D 纹理数组。<a href="../ScriptReference/Graphics.SetRenderTarget.html">Graphics.SetRenderTarget</a> 的 <strong>depthSlice</strong> 参数可指定要渲染到的 Mipmap 级别或立方体贴图面。在支持“分层渲染”（例如，几何着色器）的平台上，可将 <strong>depthSlice</strong> 参数设置为 –1 以便将整个纹理数组设置为渲染目标。此外还可使用几何着色器来渲染到个别元素中。</p>
-
-<h2>在着色器中使用纹理数组</h2>
-
-<p>请参阅<a href="SL-TextureArrays.html">在着色器中使用纹理数组</a>。</p>
-<!-- area:graphics -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="class-Texture3D.html"></a></span><div class="tip">3D 纹理</div>
@@ -247,7 +239,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

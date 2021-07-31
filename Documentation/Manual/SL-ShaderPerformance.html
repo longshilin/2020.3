@@ -11,8 +11,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="编写着色器时的性能技巧 - Unity 手册">
-<title>编写着色器时的性能技巧 - Unity 手册</title>
+<meta property="og:title" content="优化着色器运行时性能 - Unity 手册">
+<title>优化着色器运行时性能 - Unity 手册</title>
 <meta name="description" content="着色器代码需要执行的计算和处理越多，它对游戏性能的影响就越大。例如，支持每种材质的颜色可以使着色器更加灵活，但如果始终将该颜色设置为白色，则会对屏幕上渲染的每个顶点或像素执行无用的计算。">
 <meta property="og:description" content="着色器代码需要执行的计算和处理越多，它对游戏性能的影响就越大。例如，支持每种材质的颜色可以使着色器更加灵活，但如果始终将该颜色设置为白色，则会对屏幕上渲染的每个顶点或像素执行无用的计算。">
 <meta name="author" content="Unity Technologies">
@@ -174,23 +174,21 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
-<li><a href="ShadersOverview.html">编写着色器</a></li>
-<li><a href="SL-Reference.html">着色器参考</a></li>
-<li><a href="SL-AdvancedTopics.html">高级 ShaderLab 主题</a></li>
-<li>编写着色器时的性能技巧</li>
+<li><a href="Shaders.html">着色器</a></li>
+<li><a href="shader-performance-debugging.html">着色器性能和性能分析</a></li>
+<li>优化着色器运行时性能</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="shader-variant-collections.html"></a></span><div class="tip">Shader variant collections</div>
+<span class="prev"><a href="shader-performance-debugging.html"></a></span><div class="tip">着色器性能和性能分析</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-ShaderReplacement.html"></a></span><div class="tip">使用替换的着色器进行渲染</div>
+<span class="next"><a href="SL-DebuggingD3D11ShadersWithVS.html"></a></span><div class="tip">使用 Visual Studio 调试着色器</div>
 </div>
 </div></div>
-<h1>编写着色器时的性能技巧</h1>
+<h1>优化着色器运行时性能</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
@@ -251,16 +249,16 @@
 <!-- area:graphics -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="shader-variant-collections.html"></a></span><div class="tip">Shader variant collections</div>
+<span class="prev"><a href="shader-performance-debugging.html"></a></span><div class="tip">着色器性能和性能分析</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-ShaderReplacement.html"></a></span><div class="tip">使用替换的着色器进行渲染</div>
+<span class="next"><a href="SL-DebuggingD3D11ShadersWithVS.html"></a></span><div class="tip">使用 Visual Studio 调试着色器</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

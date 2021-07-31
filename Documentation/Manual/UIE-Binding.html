@@ -176,17 +176,17 @@ _绑定_是指属性和对属性进行修改的可视化控件之间的链接。
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="UIToolkits.html">Creating user interfaces (UI)</a></li>
-<li><a href="UIElements.html">UI Toolkit</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="UIToolkits.html">创建用户界面 (UI)</a></li>
+<li><a href="UIElements.html">UI 工具包</a></li>
 <li>绑定</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="UIE-Controls.html"></a></span><div class="tip">内置控件</div>
+<span class="prev"><a href="UIE-Controls-Reference.html"></a></span><div class="tip">Controls reference</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="UIE-IMGUI.html"></a></span><div class="tip">支持 IMGUI</div>
+<span class="next"><a href="UIE-IMGUI.html"></a></span><div class="tip">IMGUI 支持</div>
 </div>
 </div></div>
 <h1>绑定</h1>
@@ -258,15 +258,15 @@ _绑定_是指属性和对属性进行修改的可视化控件之间的链接。
 <li>MinMaxSlider</li>
 <li>Slider</li>
 <li>SliderInt</li>
-<li>TextField</li>
-<li>Toggle</li>
+<li>文本字段 (TextField)</li>
+<li>开关 (Toggle)</li>
 </ul>
 
 <p>进行绑定的方法是使用上面列出的命名空间之一中的控件，同时执行以下步骤。</p>
 
 <p>1.在 Control 中，从 IBindable 接口指定 bindingPath，以便 UI 知道要绑定的属性。为此，可使用 C# 或 UXML。本主题的后面部分提供了每种情况下的示例。
 2.为绑定的对象创建一个 SerializedObject。
-3. Bind this object to the Control or one of its parents.</p>
+3.将此对象绑定到控件或其父项之一。</p>
 
 <h3>使用 C# 进行绑定</h3>
 
@@ -274,7 +274,7 @@ _绑定_是指属性和对属性进行修改的可视化控件之间的链接。
 
 <p><code>SimpleBindingExample.cs</code> 的内容：</p>
 
-<pre><code class="c#">using UnityEditor;
+<pre><code class="lang-csharp">using UnityEditor;
 using UnityEngine;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
@@ -284,14 +284,14 @@ namespace UIElementsExamples
    public class SimpleBindingExample : EditorWindow
    {
        TextField m_ObjectNameBinding;
-      
+
        [MenuItem("Window/UIElementsExamples/Simple Binding Example")]
        public static void ShowDefaultWindow()
        {
            var wnd = GetWindow&lt;SimpleBindingExample&gt;();
            wnd.titleContent = new GUIContent("Simple Binding");
        }
-    
+
        public void OnEnable()
        {
            var root = this.rootVisualElement;
@@ -300,28 +300,28 @@ namespace UIElementsExamples
            root.Add(m_ObjectNameBinding);
            OnSelectionChange();
        }
-    
+
        public void OnSelectionChange()
        {
            GameObject selectedObject = Selection.activeObject as GameObject;
            if (selectedObject != null)
            {
-               // 创建序列化对象
+               // Create serialization object
                SerializedObject so = new SerializedObject(selectedObject);
-               // 将其绑定到层级视图的根目录。它将找到要绑定的正确对象...
+               // Bind it to the root of the hierarchy. It will find the right object to bind to...
                rootVisualElement.Bind(so);
-    
-               // ... 或者，也可以将其绑定到 TextField 本身。
+
+               // ... or alternatively you can also bind it to the TextField itself.
                // m_ObjectNameBinding.Bind(so);
            }
            else
            {
-               // 取消对象与实际视觉元素的绑定
+               // Unbind the object from the actual visual element
                rootVisualElement.Unbind();
-              
+
                // m_ObjectNameBinding.Unbind();
-              
-               // 删除绑定后，清除 TextField
+
+               // Clear the TextField after the binding is removed
                m_ObjectNameBinding.value = "";
            }
        }
@@ -339,7 +339,7 @@ namespace UIElementsExamples
 
 <p><code>SimpleBindingExample.uxml</code> 的内容：</p>
 
-<pre><code class="xml">&lt;UXML xmlns:ui="UnityEngine.UIElements"&gt;
+<pre><code class="lang-xml">&lt;UXML xmlns:ui="UnityEngine.UIElements"&gt;
  &lt;ui:VisualElement name="top-element"&gt;
    &lt;ui:Label name="top-label" text="UXML-Defined Simple Binding"/&gt;
    &lt;ui:TextField name="GameObjectName" label="Name" text="" binding-path="m_Name"/&gt;
@@ -349,7 +349,7 @@ namespace UIElementsExamples
 
 <p><code>SimpleBindingExample.cs</code> 的内容：</p>
 
-<pre><code class="c#">using UnityEditor;
+<pre><code class="lang-csharp">using UnityEditor;
 using UnityEngine;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
@@ -373,24 +373,24 @@ namespace UIElementsExamples
            visualTree.CloneTree(root);
            OnSelectionChange();
        }
-    
+
        public void OnSelectionChange()
        {
            GameObject selectedObject = Selection.activeObject as GameObject;
            if (selectedObject != null)
            {
-               // 创建序列化对象
+               // Create serialization object
                SerializedObject so = new SerializedObject(selectedObject);
-               // 将其绑定到层级视图的根目录。它将找到要绑定的正确对象...
+               // Bind it to the root of the hierarchy. It will find the right object to bind to...
                rootVisualElement.Bind(so);
            }
            else
            {
-               // 取消对象与实际视觉元素的绑定
+               // Unbind the object from the actual visual element
                rootVisualElement.Unbind();
-              
-               // 删除绑定后，清除 TextField
-               //（如果 Q() 返回 null，此代码不安全）
+
+               // Clear the TextField after the binding is removed
+               // (this code is not safe if the Q() returns null)
                rootVisualElement.Q&lt;TextField&gt;("GameObjectName").value = "";
            }
        }
@@ -411,7 +411,7 @@ namespace UIElementsExamples
 
 <p><code>Assets/Editor/SimpleBindingExample.cs</code> 的内容：</p>
 
-<pre><code>using UnityEditor;
+<pre><code class="lang-csharp">using UnityEditor;
 using UnityEngine;
 using UnityEditor.UIElements;
 
@@ -432,7 +432,7 @@ namespace UIElementsExamples
            m_Tank = GameObject.FindObjectOfType&lt;TankScript&gt;();
            if (m_Tank == null)
                return;
-    
+
            var inspector = new InspectorElement(m_Tank);
            rootVisualElement.Add(inspector);
        }
@@ -445,7 +445,7 @@ namespace UIElementsExamples
 
 <p><code>Assets/TankScript.cs</code> 的内容：</p>
 
-<pre><code>using UnityEngine;
+<pre><code class="lang-csharp">using UnityEngine;
 
 [ExecuteInEditMode]
 public class TankScript : MonoBehaviour
@@ -465,7 +465,7 @@ public class TankScript : MonoBehaviour
 
 <p><code>Assets/Editor/TankEditor.cs</code> 的内容：</p>
 
-<pre><code>using UnityEditor;
+<pre><code class="lang-csharp">using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -484,7 +484,7 @@ uxmlVE.styleSheets.Add(AssetDatabase.LoadAssetAtPath&lt;StyleSheet&gt;("Assets/R
 
 <p><code>Assets/Resources/tank_inspector_uxml.uxml</code> 的内容：</p>
 
-<pre><code>&lt;UXML xmlns:ui="UnityEngine.UIElements" xmlns:ue="UnityEditor.UIElements"&gt;
+<pre><code class="lang-xml">&lt;UXML xmlns:ui="UnityEngine.UIElements" xmlns:ue="UnityEditor.UIElements"&gt;
    &lt;ui:VisualElement name="row" class="container"&gt;
        &lt;ui:Label text="Tank Script - Custom Inspector" /&gt;
        &lt;ue:PropertyField binding-path="tankName" name="tank-name-field" /&gt;
@@ -497,7 +497,7 @@ uxmlVE.styleSheets.Add(AssetDatabase.LoadAssetAtPath&lt;StyleSheet&gt;("Assets/R
 
 <p><code>Assets/Resources/tank_inspector_styles.uss</code> 的内容：</p>
 
-<pre><code>.container {
+<pre><code class="lang-css">.container {
    background-color: rgb(80, 80, 80);
    flex-direction: column;
 }
@@ -619,16 +619,16 @@ FloatField {
 <!-- area:authoring -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="UIE-Controls.html"></a></span><div class="tip">内置控件</div>
+<span class="prev"><a href="UIE-Controls-Reference.html"></a></span><div class="tip">Controls reference</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="UIE-IMGUI.html"></a></span><div class="tip">支持 IMGUI</div>
+<span class="next"><a href="UIE-IMGUI.html"></a></span><div class="tip">IMGUI 支持</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

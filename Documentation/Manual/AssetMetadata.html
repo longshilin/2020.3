@@ -1,0 +1,275 @@
+<!DOCTYPE html><html class="no-js" lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-5V25JL6');
+    </script><link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="twitter:card" content="summary">
+<meta property="og:title" content="Asset Metadata - Unity 手册">
+<title>Asset Metadata - Unity 手册</title>
+<meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/AssetWorkflowFolderAndProjectWindow.png">
+<meta name="description" content="When Unity imports assets, it also stores and manages additional data about the asset for you, such as what import settings should be used to import the asset, and where the asset is used throughout your project. Below is a description of how this process works:">
+<meta property="og:description" content="When Unity imports assets, it also stores and manages additional data about the asset for you, such as what import settings should be used to import the asset, and where the asset is used throughout your project. Below is a description of how this process works:">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFiles/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFiles/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFiles/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFiles/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFiles/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFiles/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFiles/images/favicons/tileicon-144x144.png">
+<script type="text/javascript" src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" charset="UTF-8" data-domain-script="6e91be4c-3145-4ea2-aa64-89d716064836"></script><script type="text/javascript">
+        function OptanonWrapper() { }
+    </script><script>
+      var docs_type = 'Manual';
+      var lang = 'cn';
+      var page = 'AssetMetadata';
+      if(!page) page = 'index';
+      var version = '2020.3';
+      var docs_versions = [{version: '2021.1',version_string: '2021.1',supported: true},{version: '2020.3',version_string: '2020.3',supported: true},{version: '2020.2',version_string: '2020.2',supported: false},{version: '2020.1',version_string: '2020.1',supported: false},{version: '2019.4',version_string: '2019.4',supported: true},{version: '2019.3',version_string: '2019.3',supported: false},{version: '2019.2',version_string: '2019.2',supported: false},{version: '2019.1',version_string: '2019.1',supported: false},{version: '2018.4',version_string: '2018.4',supported: true},{version: '2018.3',version_string: '2018.3',supported: false},{version: '2018.2',version_string: '2018.2',supported: false},{version: '2018.1',version_string: '2018.1',supported: false},{version: '2017.4',version_string: '2017.4',supported: false},{version: '2017.3',version_string: '2017.3',supported: false},{version: '2017.2',version_string: '2017.2',supported: false},{version: '2017.1',version_string: '2017.1',supported: false},{version: '5.6',version_string: '560',supported: false},];</script><script type="text/javascript" src="../StaticFiles/js/jquery.js"></script><script type="text/javascript" src="../StaticFiles/js/core.js"></script><script type="text/javascript" src="../StaticFiles/js/jquery.sidebar.min.js"></script><script type="text/javascript" src="docdata/toc.js"></script><script type="text/javascript" src=""></script><script type="text/javascript" src="../StaticFiles/js/custom.js"></script><link rel="stylesheet" type="text/css" href="../StaticFiles/css/core.css">
+<link rel="stylesheet" type="text/css" href="../StaticFiles/css/custom.css">
+<link rel="canonical" href="https://docs.unity3d.com/cn/2020.3/Manual/AssetMetadata.html">
+<link rel="alternate" href="https://docs.unity3d.com/en/2020.3/Manual/AssetMetadata.html" hreflang="en">
+<link rel="alternate" href="https://docs.unity3d.com/cn/2020.3/Manual/AssetMetadata.html" hreflang="zh">
+<link rel="alternate" href="https://docs.unity3d.com/ja/2020.3/Manual/AssetMetadata.html" hreflang="ja">
+<link rel="alternate" href="https://docs.unity3d.com/es/2020.3/Manual/AssetMetadata.html" hreflang="es">
+<link rel="alternate" href="https://docs.unity3d.com/kr/2020.3/Manual/AssetMetadata.html" hreflang="ko">
+<link rel="alternate" href="https://docs.unity3d.com/ru/2020.3/Manual/AssetMetadata.html" hreflang="ru">
+<link rel="alternate" href="https://docs.unity3d.com/2020.3/Documentation/Manual/AssetMetadata.html" hreflang="x-default">
+</head>
+<body>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5V25JL6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div id="nav-open" for="nav-input"><span></span></div>
+<div class="logo"><a href="./index.html"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="搜索手册..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul class="menu-items">
+<li class="menu-item"><a href="../Manual/index.html" class="selected">手册</a></li>
+<li class="menu-item"><a href="../ScriptReference/index.html" class="">脚本 API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="https://unity3d.com/">
+                unity3d.com
+              </a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-switcher">
+<div class="current toggle" data-target=".version-list"><div class="version-number">
+<div class="d-inline-block">
+          Version:
+          <b>2020.3</b>
+</div>
+<div class="d-inline-block arrow"></div>
+</div></div>
+<div class="version-list" style="display:none;">
+<ul class="versions">
+<li class="supported"><a class="docs_version_url_2021.1" href="/cn/2021.1/Manual/AssetMetadata.html">2021.1</a></li>
+<li class="supported"><a class="docs_version_url_2020.3" href="/cn/2020.3/Manual/AssetMetadata.html">2020.3</a></li>
+<li class=""><a class="docs_version_url_2020.2" href="/cn/2020.2/Manual/AssetMetadata.html">2020.2</a></li>
+<li class=""><a class="docs_version_url_2020.1" href="/cn/2020.1/Manual/AssetMetadata.html">2020.1</a></li>
+<li class="supported"><a class="docs_version_url_2019.4" href="/cn/2019.4/Manual/AssetMetadata.html">2019.4</a></li>
+<li class=""><a class="docs_version_url_2019.3" href="/cn/2019.3/Manual/AssetMetadata.html">2019.3</a></li>
+<li class=""><a class="docs_version_url_2019.2" href="/cn/2019.2/Manual/AssetMetadata.html">2019.2</a></li>
+<li class=""><a class="docs_version_url_2019.1" href="/cn/2019.1/Manual/AssetMetadata.html">2019.1</a></li>
+<li class="supported"><a class="docs_version_url_2018.4" href="/cn/2018.4/Manual/AssetMetadata.html">2018.4</a></li>
+<li class=""><a class="docs_version_url_2018.3" href="/cn/2018.3/Manual/AssetMetadata.html">2018.3</a></li>
+<li class=""><a class="docs_version_url_2018.2" href="/cn/2018.2/Manual/AssetMetadata.html">2018.2</a></li>
+<li class=""><a class="docs_version_url_2018.1" href="/cn/2018.1/Manual/AssetMetadata.html">2018.1</a></li>
+<li class=""><a class="docs_version_url_2017.4" href="/cn/2017.4/Manual/AssetMetadata.html">2017.4</a></li>
+<li class=""><a class="docs_version_url_2017.3" href="/cn/2017.3/Manual/AssetMetadata.html">2017.3</a></li>
+<li class=""><a class="docs_version_url_2017.2" href="/cn/2017.2/Manual/AssetMetadata.html">2017.2</a></li>
+<li class=""><a class="docs_version_url_2017.1" href="/cn/2017.1/Manual/AssetMetadata.html">2017.1</a></li>
+<li class=""><a class="docs_version_url_560" href="/cn/560/Manual/AssetMetadata.html">5.6</a></li>
+<div class="versionsWithThisPage" style="display:none;"><li><p>包含此页的版本：</p></li></div>
+<div class="versionsWithoutThisPage" style="display:none;"><li><p>不含此页的版本：</p></li></div>
+</ul>
+<ul class="description">
+<li>
+<div class="supported-box"></div>受支持</li>
+<li>
+<div class="legacy-box"></div>旧版</li>
+</ul>
+</div>
+</div>
+<ul class="nav-menu-items">
+<li class="menu-item"><a href="../Manual/index.html" class="selected">手册</a></li>
+<li class="menu-item"><a href="../ScriptReference/index.html" class="">脚本 API</a></li>
+</ul>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">语言:
+        <span class="b">中文</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a data-lang="en" href="/2020.3/Documentation/Manual/AssetMetadata.html">English</a></li>
+<li><a data-lang="cn" href="/cn/2020.3/Manual/AssetMetadata.html">中文</a></li>
+<li><a data-lang="ja" href="/ja/2020.3/Manual/AssetMetadata.html">日本語</a></li>
+<li><a data-lang="es" href="/es/2020.3/Manual/AssetMetadata.html">Español</a></li>
+<li><a data-lang="kr" href="/kr/2020.3/Manual/AssetMetadata.html">한국어</a></li>
+<li><a data-lang="ru" href="/ru/2020.3/Manual/AssetMetadata.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar hidden"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc">
+<h2>手册</h2>
+<div class="version-switcher">
+<div class="current toggle" data-target=".version-list"><div class="version-number">
+<div class="d-inline-block">
+          Version:
+          <b>2020.3</b>
+</div>
+<div class="d-inline-block arrow"></div>
+</div></div>
+<div class="version-list" style="display:none;">
+<ul class="versions">
+<li class="supported"><a class="docs_version_url_2021.1" href="/cn/2021.1/Manual/AssetMetadata.html">2021.1</a></li>
+<li class="supported"><a class="docs_version_url_2020.3" href="/cn/2020.3/Manual/AssetMetadata.html">2020.3</a></li>
+<li class=""><a class="docs_version_url_2020.2" href="/cn/2020.2/Manual/AssetMetadata.html">2020.2</a></li>
+<li class=""><a class="docs_version_url_2020.1" href="/cn/2020.1/Manual/AssetMetadata.html">2020.1</a></li>
+<li class="supported"><a class="docs_version_url_2019.4" href="/cn/2019.4/Manual/AssetMetadata.html">2019.4</a></li>
+<li class=""><a class="docs_version_url_2019.3" href="/cn/2019.3/Manual/AssetMetadata.html">2019.3</a></li>
+<li class=""><a class="docs_version_url_2019.2" href="/cn/2019.2/Manual/AssetMetadata.html">2019.2</a></li>
+<li class=""><a class="docs_version_url_2019.1" href="/cn/2019.1/Manual/AssetMetadata.html">2019.1</a></li>
+<li class="supported"><a class="docs_version_url_2018.4" href="/cn/2018.4/Manual/AssetMetadata.html">2018.4</a></li>
+<li class=""><a class="docs_version_url_2018.3" href="/cn/2018.3/Manual/AssetMetadata.html">2018.3</a></li>
+<li class=""><a class="docs_version_url_2018.2" href="/cn/2018.2/Manual/AssetMetadata.html">2018.2</a></li>
+<li class=""><a class="docs_version_url_2018.1" href="/cn/2018.1/Manual/AssetMetadata.html">2018.1</a></li>
+<li class=""><a class="docs_version_url_2017.4" href="/cn/2017.4/Manual/AssetMetadata.html">2017.4</a></li>
+<li class=""><a class="docs_version_url_2017.3" href="/cn/2017.3/Manual/AssetMetadata.html">2017.3</a></li>
+<li class=""><a class="docs_version_url_2017.2" href="/cn/2017.2/Manual/AssetMetadata.html">2017.2</a></li>
+<li class=""><a class="docs_version_url_2017.1" href="/cn/2017.1/Manual/AssetMetadata.html">2017.1</a></li>
+<li class=""><a class="docs_version_url_560" href="/cn/560/Manual/AssetMetadata.html">5.6</a></li>
+<div class="versionsWithThisPage" style="display:none;"><li><p>包含此页的版本：</p></li></div>
+<div class="versionsWithoutThisPage" style="display:none;"><li><p>不含此页的版本：</p></li></div>
+</ul>
+<ul class="description">
+<li>
+<div class="supported-box"></div>受支持</li>
+<li>
+<div class="legacy-box"></div>旧版</li>
+</ul>
+</div>
+</div>
+<div class="clear"></div>
+</div></div></div></div></div>
+<div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="AssetWorkflow.html">Asset Workflow</a></li>
+<li>Asset Metadata</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="ImporterConsistency.html"></a></span><div class="tip">导入器一致性</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="AssetDatabase.html"></a></span><div class="tip">资源数据库</div>
+</div>
+</div></div>
+<h1>Asset Metadata</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>When Unity imports assets, it also stores and manages additional data about the asset for you, such as what import settings should be used to import the asset, and where the asset is used throughout your project. Below is a description of how this process works:</p>
+
+<ol>
+<li>Unity assigns the asset a unique ID.</li>
+<li>Unity creates a <code>.meta</code> file to accompany the asset file.</li>
+<li>Unity <a href="ImportingAssets.html#processing">processes the asset</a>.</li>
+</ol>
+
+<p>The <a href="ImportingAssets.html">Import settings</a> for any given asset affects how Unity processes the asset. If you modifying the asset file, or any of the asset’s import settings, Unity will reimport the asset. For more information, see <a href="ImportingAssets.html#importSettings">Assets and their import settings</a>.</p>
+
+<p><a name="uniqueID"></a></p>
+
+<h2>唯一 ID</h2>
+
+<p>在 <code>Assets</code> 文件夹中放置诸如纹理之类的资源时，Unity 将检测到已添加新文件，因为 Editor 经常根据已知的资源列表来检查 <code>Assets</code> 文件夹的内容。</p>
+
+<p>Unity 找到新文件时会向此资源分配唯一 ID。这是 Unity 在内部使用的 ID，用于引用资源，以便 Unity 可以移动或重命名此资源而不会破坏任何内容。</p>
+
+<p>The IDs are not normally visible in the Editor, </p>
+
+<p><a name="metaFiles"></a></p>
+
+<h2>Meta files</h2>
+
+<p>The image below shows <strong>.meta</strong> files that Unity creates for each item in your project’s Assets folder. Unity creates meta files for asset files and folders.</p>
+
+<p>They are hidden in Unity’s Project window, and you may also find they are <a href="https://en.wikipedia.org/wiki/Hidden_file_and_hidden_directory">hidden in your file system</a> by default, so you may not see them in Windows Explorer or Finder unless you make your hidden files visible on your computer.</p>
+
+<figure>
+<img src="../uploads/Main/AssetWorkflowFolderAndProjectWindow.png" alt="The relationship between the Assets folder in your Unity project on your computer, meta files, and the Project window in Unity">
+<figcaption>The relationship between the Assets folder in your Unity project on your computer, meta files, and the Project window in Unity</figcaption>
+</figure>
+
+<p>此示例表明，Unity 为项目的 <code>Assets</code> 文件夹中的每个资源或文件夹创建了一个 <code>.meta</code> 文件，就像它们出现在系统文件浏览器中一样。然而，这些 <code>.meta</code> 文件在 Project 窗口中不可见，因为默认情况下，它们会被<a href="https://en.wikipedia.org/wiki/Hidden_file_and_hidden_directory">隐藏</a>。您可以显示这些文件，方法是从 <a href="class-EditorManager.html#Mode">Mode</a> 项目设置中选择 <strong>Visible Meta Files</strong>。</p>
+
+<p>When Unity creates a <code>.meta</code> file for an asset, it writes the asset’s ID inside the <code>.meta</code> file and stores the <code>.meta</code> file in the same location as the asset file. </p>
+
+<p>As well as the unique ID assigned to the asset, the <code>.meta</code> files contain values for all the <a href="ImportingAssets.html#importSettings">import settings</a> you see in the Inspector window when you select an asset in your Project window. For example, for a Texture, this includes the <a href="class-TextureImporter.html#texturetype">Texture Type</a>, <a href="class-TextureImporter.html#WrapMode">Wrap Mode</a>, <a href="class-TextureImporter.html#FilterMode">Filter Mode</a> and <a href="class-TextureImporter.html#AnisoLevel">Aniso Level</a> import settings.</p>
+
+<p>如果更改资源的导入设置，则这些新设置将保存到<a href="#metaFiles">资源附带的</a> <code>.meta</code> 文件中。随后，Unity 将根据更新的设置来重新导入资源，并在项目的 <code>Library</code> 文件夹中更新相应导入的“游戏就绪”数据。</p>
+
+<p><strong>Important</strong>: <em>Meta files contain important information about how the asset is used in the Project and they must stay with the asset file they relate to. If you move or rename an asset within Unity’s own Project window, Unity will also automatically move or rename the corresponding .meta file. If you move or rename an asset <strong>outside</strong> of Unity (i.e. in Windows Explorer, or Finder on macOS), you <strong>must</strong> move or rename the .meta file to match.</em></p>
+
+<p>If an asset loses its meta file (for example, if you moved or renamed the asset outside of Unity, without moving/renaming the corresponding .meta file), any reference to that asset will be broken in your project. In this situation, Unity would notice the asset does not have a corresponding meta file and generate a new one for the moved/renamed asset as if it were a brand new asset, and delete the old “orphaned” .meta file.</p>
+
+<p>As an example of the types of problems this could cause, in the case of a texture asset losing its .meta file, any materials which used that texture will now have no reference to that texture. To fix it you would have to manually re-assign that texture to any materials which required it.</p>
+
+<p>Or, in the case of a script asset losing its .meta file, any GameObjects or Prefabs which had that script assigned would end up with an “unassigned script” component, and would lose their functionality. You would have to manually re-assign the script to these objects to fix this.</p>
+
+<p><a name="EmptyFolderMetaFiles"></a></p>
+
+<h2>Empty folders, meta files, and version control</h2>
+
+<p>在 Unity 中，项目 <strong>Assets</strong> 文件夹中的文件夹分配有自己的 <code>.meta</code> 文件 - 但是一些版本控制系统 (VCS) 不能存储空文件夹。这意味着当您从项目中添加或删除一个空文件夹时，您的 VCS 会将 <code>.meta</code> 文件存储为添加或删除，但不会存储添加或删除文件夹本身的更改，这可能会造成混淆或产生问题。</p>
+
+<p>为帮助解决此问题，Unity 针对空文件夹采用以下特定方式：</p>
+
+<p>如果 Unity 检测到一个空文件夹不再含有相应的元文件，如果该文件夹以前有元文件，Unity 会假设元文件被另一个用户通过在 VCS 中删除该文件夹时删除，并在本地删除该空文件夹。</p>
+
+<p>如果 Unity 检测到文件夹有一个新的元文件，但该文件夹在本地不存在，则 Unity 会假设新元文件是被另一个用户通过在 VCS 中添加文件夹而创建，并在本地创建相应的空文件夹。</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="ImporterConsistency.html"></a></span><div class="tip">导入器一致性</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="AssetDatabase.html"></a></span><div class="tip">资源数据库</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper">
+<div class="footer clear">
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
+<div class="menu">
+<a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div>
+<div></div>
+</div>
+</div></div></div>
+</div>
+</body>
+</html>

@@ -13,8 +13,8 @@
 <meta name="twitter:card" content="summary">
 <meta property="og:title" content="嵌入式依赖项 - Unity 手册">
 <title>嵌入式依赖项 - Unity 手册</title>
-<meta name="description" content="Any package that appears under your project&amp;#8217;s Packages folder is embedded in that project. Typically, when you create a new package, you embed it in your project while you are developing it. When it is ready to be shared with other users and tested in other projects, you can publish it to a scoped package registry.">
-<meta property="og:description" content="Any package that appears under your project&amp;#8217;s Packages folder is embedded in that project. Typically, when you create a new package, you embed it in your project while you are developing it. When it is ready to be shared with other users and tested in other projects, you can publish it to a scoped package registry.">
+<meta name="description" content="项目的 Packages 文件夹下出现的所有包都是嵌入在该项目中的。您可以通过多种方式嵌入包：">
+<meta property="og:description" content="项目的 Packages 文件夹下出现的所有包都是嵌入在该项目中的。您可以通过多种方式嵌入包：">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,7 +174,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="PackagesList.html">包</a></li>
 <li><a href="Packages.html">Unity 的 Package Manager</a></li>
 <li><a href="upm-manifestPrj.html">项目清单</a></li>
@@ -185,20 +185,56 @@
 <span class="prev"><a href="upm-manifestPrj.html"></a></span><div class="tip">项目清单</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="upm-git.html"></a></span><div class="tip">Git dependencies</div>
+<span class="next"><a href="upm-git.html"></a></span><div class="tip">Git 依赖关系</div>
 </div>
 </div></div>
 <h1>嵌入式依赖项</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>Any package that appears under your project’s <code>Packages</code> folder is embedded in that project. Typically, when you create a new package, you embed it in your project while you are developing it. When it is ready to be shared with other users and tested in other projects, you can publish it to a <a href="upm-scoped.html">scoped package registry</a>.</p>
+<p>项目的 <code>Packages</code> 文件夹下出现的所有包都是嵌入在该项目中的。您可以通过多种方式嵌入包：</p>
 
-<p>您可以按照<a href="CustomPackages.html">创建自定义包的说明</a>，通过在 <code>Packages</code> 文件夹下的文件夹内创建包内容来嵌入一个新的包。还可以通过 Package Manager 脚本 API 嵌入现有的包。有关更多信息，请参阅<a href="upm-api.html#Embed">在项目中嵌入包</a>。</p>
+<ul>
+<li>直接在您项目的 <code>Packages</code> 文件夹中<a href="#embed-create">创建一个新包</a>。</li>
+<li>从全局包缓存<a href="#embed-cached">手动复制 Unity 包</a>到您项目的 <code>Packages</code> 文件夹。</li>
+<li>
+<a href="upm-api.html#Embed">使用 C# 脚本嵌入</a>已安装的包版本。</li>
+</ul>
 
-<p>Embedded packages do not appear in the project manifest as a dependency; however, if you embedded a version of an installed package using the <a href="../ScriptReference/PackageManager.Client.Embed.html">Client.Embed</a> method, your project manifest still lists the dependency on the original installed version. In that case, the package on disk takes priority over the version of the package listed as a dependency, so it does not need to be removed from the project manifest. For example, if the project manifest specifies a dependency on version 1.3.1 of the <code>com.unity.example</code> package but the project also has an embedded package with that name, the Package Manager uses the embedded package, regardless of its apparent version, instead of downloading version 1.3.1 from the registry.</p>
+<p>嵌入式包无需在项目清单中显示为依赖项；但是，如果嵌入了某个版本的已安装包，则项目清单仍会列出对原始已安装版本的依赖项。在这种情况下，磁盘上的包优先于列为依赖项的包版本，因此不需要从项目清单中删除它。例如，如果项目清单指定了对 <code>com.unity.example</code> 版本 1.3.1 的依赖项，但是项目还具有该名称的嵌入式包，则 Package Manager 将使用嵌入式包（无论是否是其明显版本），而不是从注册表下载版本 1.3.1。</p>
 
-<p>It is your responsibility to track the content of your embedded packages, and any changes you make to it. If your Unity project is under source control, add packages embedded in that project to the same source control. </p>
+<p>确保您跟踪嵌入式包的内容以及对其所做的任何更改。如果您的 Unity 项目在源代码控制下，则还应将该项目中嵌入的任何包添加到同一源代码控制下。</p>
+
+<p><a name="embed-create"></a></p>
+
+<h2>创建新的自定义包</h2>
+
+<p>要嵌入新包，请在 <code>Packages</code> 文件夹下的一个文件夹中创建新包内容。有关更多信息，请按照<a href="CustomPackages.html">创建自定义包的说明</a>。</p>
+
+<p>通常，您的新包会一直嵌入到您的项目中，直到您准备与其他用户共享以及在其他项目中对其进行测试。然后您可以将它发布到<a href="upm-scoped.html">范围包注册表</a>。</p>
+
+<p><a name="embed-cached"></a></p>
+
+<h2>从缓存中复制 Unity 包</h2>
+
+<p>在缓存中找到包文件夹的最可靠方法是直接在 Unity 编辑器中找到已安装的版本：</p>
+
+<p>1.从 Project 视图中，找到要嵌入的已安装包。</p>
+
+<p>2.右键单击以打开上下文菜单并选择 <strong>Show in Explorer</strong> (Windows) 或 <strong>Reveal in Finder</strong> (macOS)。该包的文件夹直接在文件浏览器中打开并使用 <code>&lt;package-name&gt;@&lt;package-version&gt;</code> 命名约定。</p>
+
+<pre><code>![文件浏览器打开到项目的包缓存下的包文件夹](../uploads/Main/upm-embed.png)
+
+**提示**：您也可以直接在您的文件浏览器或命令行打开项目的包缓存 (`&lt;project&gt;/Library/PackageCache`) 并导航到正确的文件夹，但让编辑器为您查找会更可靠，因为除了在项目缓存中定位包外，它还可以定位从本地文件夹或 tarball 安装的包，以及已经嵌入的包。
+</code></pre>
+
+<p>3.复制包文件夹并将其直接粘贴到项目的 <code>Packages</code> 文件夹中。不要将它放在 Assets 文件夹中，因为 Package Manager 不会扫描该文件夹查找包。</p>
+
+<p>4.删除文件夹名称的 <code>@&lt;package-version&gt;</code> 部分。</p>
+
+<p>5.如果您的项目已经在源代码管理之下，则将新嵌入的包添加到源代码管理。</p>
+
+<p><strong>注意</strong>：您也可以在<a href="upm-cache.html">全局缓存</a>下找到包文件夹，但全局缓存包含 Unity 编辑器在系统上曾安装过的所有版本的包，因此请谨慎选择与项目编辑器版本兼容的版本。</p>
 
 <p><br> </p>
 <div class="nextprev clear">
@@ -206,13 +242,13 @@
 <span class="prev"><a href="upm-manifestPrj.html"></a></span><div class="tip">项目清单</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="upm-git.html"></a></span><div class="tip">Git dependencies</div>
+<span class="next"><a href="upm-git.html"></a></span><div class="tip">Git 依赖关系</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

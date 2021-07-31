@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="摄像机的深度纹理 - Unity 手册">
-<title>摄像机的深度纹理 - Unity 手册</title>
-<meta name="description" content="摄像机可生成深度、深度+法线或运动矢量纹理。这是一种极简化的 G 缓冲纹理，可用于后期处理效果或实现自定义光照模型（例如光照预通道）。还可以使用着色器替换功能来自行构建类似纹理。">
-<meta property="og:description" content="摄像机可生成深度、深度+法线或运动矢量纹理。这是一种极简化的 G 缓冲纹理，可用于后期处理效果或实现自定义光照模型（例如光照预通道）。还可以使用着色器替换功能来自行构建类似纹理。">
+<meta property="og:title" content="摄像机和深度纹理 - Unity 手册">
+<title>摄像机和深度纹理 - Unity 手册</title>
+<meta name="description" content="Camera 可生成深度、深度+法线或运动矢量纹理。这是一种极简化的 G 缓冲纹理，可用于后期处理效果或实现自定义光照模型（例如光照预通道）。">
+<meta property="og:description" content="Camera 可生成深度、深度+法线或运动矢量纹理。这是一种极简化的 G 缓冲纹理，可用于后期处理效果或实现自定义光照模型（例如光照预通道）。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,34 +174,43 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
-<li><a href="ShadersOverview.html">编写着色器</a></li>
-<li><a href="SL-Reference.html">着色器参考</a></li>
-<li><a href="SL-AdvancedTopics.html">高级 ShaderLab 主题</a></li>
-<li>摄像机的深度纹理</li>
+<li><a href="CamerasOverview.html">摄像机</a></li>
+<li>摄像机和深度纹理</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-DepthTextures.html"></a></span><div class="tip">使用深度纹理</div>
+<span class="prev"><a href="PhysicalCameras.html"></a></span><div class="tip">使用物理摄像机 (Physical Camera)</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-PlatformDifferences.html"></a></span><div class="tip">平台特定的渲染差异</div>
+<span class="next"><a href="CameraTricks.html"></a></span><div class="tip">摄像机技巧</div>
 </div>
 </div></div>
-<h1>摄像机的深度纹理</h1>
+<h1>摄像机和深度纹理</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p><a href="class-Camera.html">摄像机</a>可生成深度、深度+法线或运动矢量纹理。这是一种极简化的 G 缓冲纹理，可用于后期处理效果或实现自定义光照模型（例如光照预通道）。还可以使用<a href="SL-ShaderReplacement.html">着色器替换</a>功能来自行构建类似纹理。</p>
+<p><a href="class-Camera.html">Camera</a> 可生成深度、深度+法线或运动矢量纹理。这是一种极简化的 G 缓冲纹理，可用于后期处理效果或实现自定义光照模型（例如光照预通道）。</p>
 
-<p>可使用脚本中的 <a href="../ScriptReference/Camera-depthTextureMode.html">Camera.depthTextureMode</a> 变量来启用摄像机的深度纹理模式。</p>
+<p>这些主要用于效果；例如，<a href="PostProcessingOverview.html">后期处理效果</a>经常使用深度信息。</p>
+
+<p>深度纹理中的像素值介于 0 和 1 之间，具有非线性分布。精度通常为 32 或 16 位，具体取决于所使用的配置和平台。从深度纹理读取时，将返回 0 到 1范围内的高精度值。如果需要获取与摄像机之间的距离或其他 0 到 1 之间的线性值，请使用 helper 宏手动进行计算（见下文）。</p>
+
+<p>大多数现代硬件和图形 API 都支持深度纹理。下面列出了特殊要求：</p>
+
+<ul>
+<li>Direct3D 11+ (Windows)、OpenGL 3+ (Mac/Linux)、OpenGL ES 3.0+ (iOS)、Metal (iOS) 和游戏主机（如 PS4/Xbox One）全都支持深度纹理。</li>
+<li>OpenGL ES 2.0 (Android) 要求存在 <a href="http://www.khronos.org/registry/gles/extensions/OES/OES_depth_texture.txt">GL_OES_depth_texture</a> 扩展。</li>
+<li>WebGL 要求存在 <a href="https://www.khronos.org/registry/webgl/extensions/WEBGL_depth_texture">WEBGL_depth_texture</a> 扩展。</li>
+</ul>
+
+<p>可使用脚本中的 <a href="../ScriptReference/Camera-depthTextureMode.html">Camera.depthTextureMode</a> 变量来启用摄像机的深度纹理模式。还可以使用<a href="SL-ShaderReplacement.html">着色器替换</a>功能来自行构建类似纹理。</p>
 
 <p>有三种可能的深度纹理模式：</p>
 
 <ul>
-<li>__DepthTextureMode.Depth__：<a href="SL-DepthTextures.html">深度纹理</a>。</li>
+<li>__DepthTextureMode.Depth__：深度纹理。</li>
 <li>__DepthTextureMode.DepthNormals__：打包到一个纹理中的深度和视图空间法线。*</li>
 <li>__DepthTextureMode.MotionVectors__：当前帧的每个屏幕纹理像素的每像素屏幕空间运动。打包到 RG16 纹理中。</li>
 </ul>
@@ -210,7 +219,7 @@
 
 <h2>DepthTextureMode.Depth 纹理</h2>
 
-<p>这将构建一个屏幕大小的<a href="SL-DepthTextures.html">深度纹理</a>。</p>
+<p>这将构建一个屏幕大小的深度纹理。</p>
 
 <p>渲染深度纹理时使用的着色器通道与用于阴影投射物渲染的着色器通道相同（<code>ShadowCaster</code> 通道类型）。因此，通过扩展，如果着色器不支持阴影投射（即在着色器或任何后备着色器中没有阴影投射物通道），则使用该着色器的对象将不会显示在深度纹理中。</p>
 
@@ -243,7 +252,7 @@
 
 <p>在实现复杂的着色器或图像效果时，切记<a href="SL-PlatformDifferences.html">平台之间的渲染差异</a>。尤其是，在图像效果中使用深度纹理通常需要对 Direct3D 和抗锯齿进行特殊处理。</p>
 
-<p>在某些情况下，深度纹理可能直接来自本机 Z 缓冲区。如果在深度纹理中看到了瑕疵，请确保使用该纹理的着色器<strong>未</strong>写入 Z 缓冲区（使用 <a href="SL-CullAndDepth.html">ZWrite Off</a>）。</p>
+<p>在某些情况下，深度纹理可能直接来自本机 Z 缓冲区。如果在深度纹理中看到了瑕疵，请确保使用该纹理的着色器<strong>未</strong>写入 Z 缓冲区（使用 <a href="SL-ZWrite.html">ZWrite Off</a>）。</p>
 
 <h2>着色器变量</h2>
 
@@ -265,27 +274,18 @@ G 缓冲区渲染的产物。</p>
 <p>当 DepthNormals 纹理在单独通道中渲染时，此过程通过<a href="SL-ShaderReplacement.html">着色器替换</a>完成。因此，务必在您的着色器中设置正确的“<strong>RenderType</strong>”标签。</p>
 
 <p>启用时，MotionVectors 纹理始终来自额外的渲染通道。Unity 会将移动的游戏对象渲染到此缓冲区中，并构建从最后一帧到当前帧的运动。</p>
-
-<h2>另请参阅</h2>
-
-<ul>
-<li><a href="https://docs.unity3d.com/Packages/com.unity.postprocessing@latest">后期处理 (Post Processing) 包</a></li>
-<li><a href="SL-DepthTextures.html">深度纹理</a></li>
-<li><a href="SL-ShaderReplacement.html">着色器替换</a></li>
-</ul>
-<!-- area:graphics -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-DepthTextures.html"></a></span><div class="tip">使用深度纹理</div>
+<span class="prev"><a href="PhysicalCameras.html"></a></span><div class="tip">使用物理摄像机 (Physical Camera)</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-PlatformDifferences.html"></a></span><div class="tip">平台特定的渲染差异</div>
+<span class="next"><a href="CameraTricks.html"></a></span><div class="tip">摄像机技巧</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

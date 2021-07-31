@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="使用替换的着色器进行渲染 - Unity 手册">
-<title>使用替换的着色器进行渲染 - Unity 手册</title>
-<meta name="description" content="有些渲染效果需要使用一组不同的着色器来渲染场景。例如，良好的边缘检测要求纹理具有场景法线，这样才能检测出表面方向不同的边缘。其他效果可能要求纹理具有场景深度，诸如此类。为此，可使用所有对象的替换着色器来渲染场景。">
-<meta property="og:description" content="有些渲染效果需要使用一组不同的着色器来渲染场景。例如，良好的边缘检测要求纹理具有场景法线，这样才能检测出表面方向不同的边缘。其他效果可能要求纹理具有场景深度，诸如此类。为此，可使用所有对象的替换着色器来渲染场景。">
+<meta property="og:title" content=" 在运行时替换着色器 - Unity 手册">
+<title> 在运行时替换着色器 - Unity 手册</title>
+<meta name="description" content="在内置渲染管线中，可以让摄像机在运行时更改用于渲染特定几何体的着色器。可以这样做以实现视觉效果，例如边缘检测。">
+<meta property="og:description" content="在内置渲染管线中，可以让摄像机在运行时更改用于渲染特定几何体的着色器。可以这样做以实现视觉效果，例如边缘检测。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,27 +174,25 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
-<li><a href="ShadersOverview.html">编写着色器</a></li>
-<li><a href="SL-Reference.html">着色器参考</a></li>
-<li><a href="SL-AdvancedTopics.html">高级 ShaderLab 主题</a></li>
-<li>使用替换的着色器进行渲染</li>
+<li><a href="Shaders.html">着色器</a></li>
+<li><a href="ShadersOverview.html">Shaders core concepts</a></li>
+<li> 在运行时替换着色器</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-ShaderPerformance.html"></a></span><div class="tip">编写着色器时的性能技巧</div>
+<span class="prev"><a href="shader-variant-collections.html"></a></span><div class="tip">着色器变体集合</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-CustomShaderGUI.html"></a></span><div class="tip">自定义着色器 GUI</div>
+<span class="next"><a href="class-ComputeShader.html"></a></span><div class="tip">计算着色器</div>
 </div>
 </div></div>
-<h1>使用替换的着色器进行渲染</h1>
+<h1>在运行时替换着色器</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>有些渲染效果需要使用一组不同的着色器来渲染场景。例如，良好的边缘检测要求纹理具有场景法线，这样才能检测出表面方向不同的边缘。其他效果可能要求纹理具有场景深度，诸如此类。为此，可使用所有对象的替换着色器来渲染场景。</p>
+<p>在内置渲染管线中，可以让摄像机在运行时更改用于渲染特定几何体的着色器。可以这样做以实现视觉效果，例如边缘检测。</p>
 
 <p>应通过脚本使用函数 <a href="../ScriptReference/Camera.RenderWithShader.html">Camera.RenderWithShader</a> 或 <a href="../ScriptReference/Camera.SetReplacementShader.html">Camera.SetReplacementShader</a> 来实现着色器替换。这两个函数均采用 <strong>shader</strong> 和 <strong>replacementTag</strong>。</p>
 
@@ -213,15 +211,15 @@
 </li>
 </ul>
 
-<p>因此，比如说，如果所有着色器都要有一个值为“Opaque”、“Transparent”、“Background”或“Overlay”的“RenderType”标签，则可编写一个替换着色器，该着色器只使用一个具有 RenderType = Solid <a href="SL-SubShaderTags.html">标签</a>的子着色器来渲染实体对象。在替换着色器中找不到其他标签类型，因此不会渲染对象。或者您也可以为不同“RenderType”标签值编写若干子着色器。顺便提一下，Unity 的所有内置着色器都设置了一个“RenderType”标签。</p>
+<p>因此，比如说，如果所有着色器都要有一个值为“Opaque”、“Transparent”、“Background”或“Overlay”的“RenderType”标签，则可编写一个替换着色器，该着色器只使用一个具有 RenderType = Solid <a href="SL-SubShaderTags.html">标签</a>的子着色器来渲染实体对象。在替换着色器中找不到其他标签类型，因此不会渲染对象。或者您也可以为不同“RenderType”标签值编写若干子着色器。顺便提一下，所有内置 Shader 对象都设置了一个“RenderType”标签。</p>
 
 <h2>光照着色器替换</h2>
 
 <p>使用着色器替换时，将使用摄像机上配置的渲染路径来渲染场景。这意味着用于替换的着色器可以包含阴影和光照通道（您可以使用表面着色器进行着色器替换）。这对于渲染特殊效果和场景调试很有用。</p>
 
-<h2>Unity 内置着色器中的着色器替换标签</h2>
+<h2>内置着色器中的着色器替换标签</h2>
 
-<p>Unity 的所有内置着色器都设置了一个“<strong>RenderType</strong>”标签，可以在使用替换着色器进行渲染时使用此标签。标签值如下：</p>
+<p>所有内置着色器都设置了一个“<strong>RenderType</strong>”标签，可以在使用替换着色器进行渲染时使用此标签。标签值如下：</p>
 
 <ul>
 <li>__Opaque__：大部分着色器（<a href="shader-NormalFamily.html">法线</a>、<a href="shader-SelfIllumFamily.html">自发光</a>、<a href="shader-ReflectiveFamily.html">反射</a>和地形着色器）。</li>
@@ -272,16 +270,16 @@
 <!-- area:graphics -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-ShaderPerformance.html"></a></span><div class="tip">编写着色器时的性能技巧</div>
+<span class="prev"><a href="shader-variant-collections.html"></a></span><div class="tip">着色器变体集合</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-CustomShaderGUI.html"></a></span><div class="tip">自定义着色器 GUI</div>
+<span class="next"><a href="class-ComputeShader.html"></a></span><div class="tip">计算着色器</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

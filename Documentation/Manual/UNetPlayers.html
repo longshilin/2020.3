@@ -16,11 +16,11 @@
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/NetworkLocalPlayers.png">
 <meta name="description" content="| |
 |&amp;#8212;|
-| Note: UNet is deprecated, and will be removed from Unity in the future. A new system is under development. For more information and next steps see this blog post.|
+| 重要：UNet 是一个已弃用的解决方案，新的多玩家和联网解决方案 (MLAPI) 正在开发中。有关更多信息和后续步骤，请参阅 Unity MLAPI 网站上的信息。|
 Unity 的多玩家 HLAPI 系统对玩家游戏对象的处理方式不同于对非玩家游戏对象的处理方式。当新玩家加入游戏时（当新客户端连接到服务器时），该玩家的游戏对象成为该玩家客户端上的&amp;#8220;本地玩家&amp;#8221;游戏对象，并且 Unity 将玩家的连接与玩家的游戏对象相关联。Unity 为每个游戏玩家关联一个玩家游戏对象，并将网络命令路由到这一个游戏对象。一个玩家不能在另一个玩家的游戏对象上调用命令，只能在自己的游戏对象上调用命令。">
 <meta property="og:description" content="| |
 |&amp;#8212;|
-| Note: UNet is deprecated, and will be removed from Unity in the future. A new system is under development. For more information and next steps see this blog post.|
+| 重要：UNet 是一个已弃用的解决方案，新的多玩家和联网解决方案 (MLAPI) 正在开发中。有关更多信息和后续步骤，请参阅 Unity MLAPI 网站上的信息。|
 Unity 的多玩家 HLAPI 系统对玩家游戏对象的处理方式不同于对非玩家游戏对象的处理方式。当新玩家加入游戏时（当新客户端连接到服务器时），该玩家的游戏对象成为该玩家客户端上的&amp;#8220;本地玩家&amp;#8221;游戏对象，并且 Unity 将玩家的连接与玩家的游戏对象相关联。Unity 为每个游戏玩家关联一个玩家游戏对象，并将网络命令路由到这一个游戏对象。一个玩家不能在另一个玩家的游戏对象上调用命令，只能在自己的游戏对象上调用命令。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
@@ -181,7 +181,7 @@ Unity 的多玩家 HLAPI 系统对玩家游戏对象的处理方式不同于对�
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UNet.html">多玩家和联网</a></li>
 <li><a href="UNetUsingHLAPI.html">多玩家高级 API</a></li>
 <li><a href="UNetGameObjects.html">联网游戏对象</a></li>
@@ -201,7 +201,7 @@ Unity 的多玩家 HLAPI 系统对玩家游戏对象的处理方式不同于对�
 
 <p>| |
 |—|
-| <strong>Note</strong>: UNet is deprecated, and will be removed from Unity in the future. A new system is under development. For more information and next steps see this <a href="https://blogs.unity3d.com/2020/12/03/accelerating-unitys-new-gameobjects-multiplayer-networking-framework/">blog post</a>.|
+| <strong>重要</strong>：UNet 是一个已弃用的解决方案，新的多玩家和联网解决方案 (MLAPI) 正在开发中。有关更多信息和后续步骤，请参阅 <a href="https://docs-multiplayer.unity3d.com/">Unity MLAPI 网站</a>上的信息。|
 Unity 的多玩家 HLAPI 系统对玩家游戏对象的处理方式不同于对非玩家游戏对象的处理方式。当新玩家加入游戏时（当新客户端连接到服务器时），该玩家的游戏对象成为该玩家客户端上的“本地玩家”游戏对象，并且 Unity 将玩家的连接与玩家的游戏对象相关联。Unity 为每个游戏玩家关联一个玩家游戏对象，并将<a href="UNetActions.html">网络命令</a>路由到这一个游戏对象。一个玩家不能在另一个玩家的游戏对象上调用<a href="UNetActions.html">命令</a>，只能在自己的游戏对象上调用命令。</p>
 
 <p>NetworkBehaviour 类（从该类可创建网络脚本）具有名为 <a href="../ScriptReference/Networking.NetworkBehaviour-isLocalPlayer.html">isLocalPlayer</a> 的属性。在每个客户端的玩家游戏对象上，Unity 在 NetworkBehaviour 脚本上将该属性设置为 true，并调用 <a href="../ScriptReference/Networking.NetworkBehaviour.OnStartLocalPlayer.html">OnStartLocalPlayer()</a> 回调。这意味着每个客户端都像这样设置了一个不同的游戏对象，因为在每个客户端上有一个不同的游戏对象是代表本地玩家的游戏对象。下图显示了两个客户端及其本地玩家。</p>
@@ -228,7 +228,7 @@ Unity 的多玩家 HLAPI 系统对玩家游戏对象的处理方式不同于对�
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

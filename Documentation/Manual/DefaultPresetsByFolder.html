@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Applying defaults to Assets by folder - Unity 手册">
-<title>Applying defaults to Assets by folder - Unity 手册</title>
+<meta property="og:title" content="按文件夹将默认值应用于资源 - Unity 手册">
+<title>按文件夹将默认值应用于资源 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/PresetsByFolder.png">
-<meta name="description" content="For large projects, you might use several Presets for importing the same type of Asset. For example, for texture Assets, you might have a Preset for importing Default textures and another for Lightmap textures. In the Assets folder of your project, you have separate folders for each of these types of textures.">
-<meta property="og:description" content="For large projects, you might use several Presets for importing the same type of Asset. For example, for texture Assets, you might have a Preset for importing Default textures and another for Lightmap textures. In the Assets folder of your project, you have separate folders for each of these types of textures.">
+<meta name="description" content="对于大项目，可使用多个预设来导入相同类型的资源。例如，对于纹理资源，可能具有用于导入默认纹理的预设以及用于光照贴图纹理的另一个预设。在项目的 Assets 文件夹中，已经为其中每种类型的纹理设置单独文件夹。">
+<meta property="og:description" content="对于大项目，可使用多个预设来导入相同类型的资源。例如，对于纹理资源，可能具有用于导入默认纹理的预设以及用于光照贴图纹理的另一个预设。在项目的 Assets 文件夹中，已经为其中每种类型的纹理设置单独文件夹。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,10 +175,10 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="AssetWorkflow.html">资源工作流程</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="AssetWorkflow.html">Asset Workflow</a></li>
 <li><a href="ScriptingAssets.html">脚本与资源</a></li>
-<li>Applying defaults to Assets by folder</li>
+<li>按文件夹将默认值应用于资源</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -188,18 +188,18 @@
 <span class="next"><a href="ModifyingSourceAssetsThroughScripting.html"></a></span><div class="tip">通过脚本修改源资源</div>
 </div>
 </div></div>
-<h1>Applying defaults to Assets by folder</h1>
+<h1>按文件夹将默认值应用于资源</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>For large projects, you might use several Presets for importing the same type of Asset. For example, for texture Assets, you might have a Preset for importing Default textures and another for Lightmap textures. In the <em>Assets</em> folder of your project, you have separate folders for each of these types of textures.</p>
+<p>对于大项目，可使用多个预设来导入相同类型的资源。例如，对于纹理资源，可能具有用于导入默认纹理的预设以及用于光照贴图纹理的另一个预设。在项目的 <em>Assets</em> 文件夹中，已经为其中每种类型的纹理设置单独文件夹。</p>
 
 <figure>
 <img src="../uploads/Main/PresetsByFolder.png" alt="TexturesDefault 和 TexturesLighting 文件夹各有一个预设">
 <figcaption><em>TexturesDefault</em> 和 <em>TexturesLighting</em> 文件夹各有一个预设</figcaption>
 </figure>
 
-<p>The following script applies a Preset based on the folder that you add an Asset to. This script chooses the Preset that is in the same folder as the Asset. If there is no Preset in the folder, this script searches parent folders. If there are no Presets in parent folders, Unity uses the default Preset that the <a href="class-PresetManager.html">Preset</a> window specifies.</p>
+<p>以下脚本根据添加资源的文件夹而应用预设。此脚本选择与资源位于同一文件夹中的预设。如果此文件夹中没有预设，则该脚本将搜索父文件夹。如果父文件夹中没有预设，Unity 将使用 <a href="class-PresetManager.html">Preset</a> 窗口指定的默认预设。</p>
 
 <p>为了使用此脚本，请在 Project 窗口中新建名为 <em>Editor</em> 的文件夹，在此文件夹中新建 C# 脚本，然后复制并粘贴以下脚本。</p>
 
@@ -215,23 +215,23 @@ using UnityEngine;
 namespace PresetsPerFolder
 {
     /// &lt;summary&gt;
-   /// This sample class applies Presets automatically to Assets in the folder containing the Preset and any subfolders.
-   /// The code is divided into three parts that set up importer dependencies to make sure the importers of all Assets stay deterministic.
+   /// 此示例类将预设自动应用于包含预设的文件夹以及任何子文件夹中的资源。
+   /// 代码划分为三个部分，用于设置导入器依赖关系以确保所有资源的导入器保持确定性。
    ///
    /// OnPreprocessAsset:
-   /// This method goes from the root folder down to the Asset folder for each imported asset
-   /// and registers a CustomDependency to each folder in case a Preset is added/removed at a later time.
-   /// It then loads all Presets from that folder and tries to apply them to the Asset importer.
-   /// If it is applied, the method adds a direct dependency to each Preset so that the Asset can be re-imported when the Preset values are changed.
+   /// 对于导入的资源，此方法从根文件夹向下进入资源文件夹，
+   /// 并向每个文件夹注册 CustomDependency，以防以后添加/移除预设。
+   /// 它随后从该文件夹加载所有预设并尝试将它们应用于资源导入器。
+   /// 如果进行应用，则该方法会向每个预设添加直接依赖关系，以便可以在更改预设值时重新导入资源。
    /// &lt;/summary&gt;
     public class EnforcePresetPostProcessor : AssetPostprocessor
     {
         void OnPreprocessAsset()
         {
-            // The  if(assetPath....)  line ensures that the asset path starts with "Assets/" so that the AssetPostprocessor is not applied to Assets in a package.
-            // The Asset extension cannot end with .cs to avoid triggering a code compilation every time a Preset is created or removed.
-            // The Asset extension cannot end with .preset so that Presets don't depend on themselves, which would cause an infinite import loop.
-            // There may be more exceptions to add here depending on your project.
+            // if(assetPath....) 行可确保资源路径以"Assets/"开头，以便 AssetPostprocessor 不会应用于包中的资源。
+            // 资源扩展名不能以 .cs 结尾，以避免在每次创建或移除预设时触发代码编译。
+            // 资源扩展名不能以 .preset 结尾，以便预设不依赖于自己（这会导致无限的导入循环）。
+            // 根据项目，可能要在此处添加更多例外情况。
             if (assetPath.StartsWith("Assets/") &amp;&amp; !assetPath.EndsWith(".cs") &amp;&amp; !assetPath.EndsWith(".preset"))
             {
                 var path = Path.GetDirectoryName(assetPath);
@@ -241,35 +241,35 @@ namespace PresetsPerFolder
 
         void ApplyPresetsFromFolderRecursively(string folder)
         {
-            // Apply Presets in order starting from the parent folder to the Asset so that the Preset closest to the Asset is applied last.
+            // 按照从父文件夹开始到资源的顺序来应用预设，以便距离资源最近的预设最后进行应用。
             var parentFolder = Path.GetDirectoryName(folder);
             if (!string.IsNullOrEmpty(parentFolder))
                 ApplyPresetsFromFolderRecursively(parentFolder);
 
-            // Add a dependency to the folder Preset custom key
-            // so whenever a Preset is added to or removed from this folder, the Asset is re-imported.
+            // 向文件夹预设自定义键添加依赖关系，
+            // 以便在每次对此文件夹添加或移除预设时，都会重新导入资源。
             context.DependsOnCustomDependency($"PresetPostProcessor_{folder}");
 
-            // Find all Preset Assets in this folder. Use the System.Directory method instead of the AssetDatabase
-            // because the import may run in a separate process which prevents the AssetDatabase from performing a global search.
+            // 查找此文件夹中的所有预设资源。使用 System.Directory 方法而不是 AssetDatabase
+            // 因为导入可能会在单独进程中运行，这会阻止 AssetDatabase 执行全局搜索。
             var presetPaths =
                 Directory.EnumerateFiles(folder, "*.preset", SearchOption.TopDirectoryOnly)
                     .OrderBy(a =&gt; a);
 
             foreach (var presetPath in presetPaths)
             {
-                // Load the Preset and try to apply it to the importer.
+                // 加载预设并尝试将它应用于导入器。
                 var preset = AssetDatabase.LoadAssetAtPath&lt;Preset&gt;(presetPath);
 
-                // The script adds a Presets dependency to an Asset in two cases:
-                //1 If the Asset is imported before the Preset, the Preset will not load because it is not yet imported.
-                //Adding a dependency between the Asset and the Preset allows the Asset to be re-imported so that Unity loads
-                //the assigned Preset and can try to apply its values.
-                //2 If the Preset loads successfully, the ApplyTo method returns true if the Preset applies to this Asset's import settings.
-                //Adding the Preset as a dependency to the Asset ensures that any change in the Preset values will re-import the Asset using the new values.
+                // 脚本会在两种情况下向资源添加预设依赖关系：
+                //1 如果资源在预设之前导入，则预设不会加载，因为它尚未导入。
+                //通过在资源与预设之间添加依赖关系可以重新导入资源，以便 Unity 加载
+                //分配的预设并且可以尝试应用其值。
+                //2 如果预设成功加载，则在预设应用于此资源的导入设置后，ApplyTo 方法会返回 true。
+                //将预设作为依赖关系添加到资源可确保预设值的任何更改都会使用新值重新导入资源。
                 if (preset == null || preset.ApplyTo(assetImporter))
                 {
-                    // Using DependsOnArtifact here because Presets are native assets and using DependsOnSourceAsset would not work.
+                    // 在此处使用 DependsOnArtifact，因为预设是本机资源，使用 DependsOnSourceAsset 会不起作用。
                     context.DependsOnArtifact(presetPath);
                 }
             }
@@ -278,32 +278,32 @@ namespace PresetsPerFolder
 
     /// &lt;summary&gt;
     /// InitPresetDependencies:
-    /// This method is called when the project is loaded. It finds every imported Preset in the project.
-    /// For each folder containing a Preset, create a CustomDependency from the folder name and a hash from the list of Preset names and types in the folder.
+    /// 在加载项目时会调用此方法。它会在项目中查找导入的每个预设。
+    /// 对于每个包含预设的文件夹，通过文件夹名称创建 CustomDependency，并通过文件夹中预设名称和类型的列表创建哈希。
     ///
     /// OnAssetsModified:
-    /// Whenever a Preset is added, removed, or moved from a folder, the CustomDependency for this folder needs to be updated
-    /// so Assets that may depend on those Presets are reimported.
+    /// 每当对文件夹添加、移除或移动预设时，此文件夹的 CustomDependency 都需要更新
+    /// 因此会重新导入可能依赖于这些预设的资源。
     ///
-    /// TODO: Ideally each CustomDependency should also be dependent on the PresetType,
-    /// so Textures are not re-imported by adding a new FBXImporterPreset in a folder.
-    /// This makes the InitPresetDependencies and OnPostprocessAllAssets methods too complex for the purpose of this example.
-    /// Unity suggests having the CustomDependency follow the form "Preset_{presetType}_{folder}",
-    /// and the hash containing only Presets of the given presetType in that folder.
+    /// TODO：理想情况下，每个 CustomDependency 还应依赖于 PresetType，
+    /// 因此不会通过在文件夹中添加新 FBXImporterPreset 来重新导入纹理。
+    /// 这使 InitPresetDependencies 和 OnPostprocessAllAssets 方法对于本示例而言太过复杂。
+    /// Unity 建议让 CustomDependency 遵循"Preset_{presetType}_{folder}"的形式，
+    /// 并且哈希仅包含该文件夹中给定 presetType 的预设。
     /// &lt;/summary&gt;
     public class UpdateFolderPresetDependency : AssetsModifiedProcessor
     {
         /// &lt;summary&gt;
-        /// This method with the InitializeOnLoadMethod will be called every time the project is being loaded or the code is compiled.
-        /// It is very important to set all of the hashes correctly at startup
-        /// because Unity does not apply the OnPostprocessAllAssets method to previously imported Presets
-        /// and the CustomDependencies are not saved between sessions and need to be rebuilt every time.
+        /// 每次加载项目或编译代码时，都会调用包含 InitializeOnLoadMethod 的此方法。
+        /// 在启动时正确设置所有哈希十分重要，
+        /// 因为 Unity 不会将 OnPostprocessAllAssets 方法应用于以前导入的预设
+        /// CustomDependencies 不会在会话之间保存，需要每次重新构建。
         /// &lt;/summary&gt;
         [InitializeOnLoadMethod]
         static void InitPresetDependencies()
         {
-            // AssetDatabase.FindAssets uses a glob filter to avoid importing all objects in the project.
-            // This glob search only looks for .preset files.
+            // AssetDatabase.FindAssets 使用 glob 过滤器避免导入项目中的所有对象。
+            // 此 glob 搜索仅查找 .preset 文件。
             var allPaths = AssetDatabase.FindAssets("glob:\"**.preset\"")
                 .Select(AssetDatabase.GUIDToAssetPath)
                 .OrderBy(a =&gt; a)
@@ -334,29 +334,29 @@ namespace PresetsPerFolder
                 hash.Append(AssetDatabase.LoadAssetAtPath&lt;Preset&gt;(path).GetTargetFullTypeName());
             }
 
-            // Register the last path.
+            // 注册最后一个路径。
             if (previousPath != string.Empty)
             {
                 AssetDatabase.RegisterCustomDependency($"PresetPostProcessor_{previousPath}", hash);
                 atLeastOnUpdate = true;
             }
 
-            // Only trigger a Refresh if there is at least one dependency updated here.
+            // 仅当此处至少更新了一个依赖关系时，才会触发刷新。
             if (atLeastOnUpdate)
                 AssetDatabase.Refresh();
         }
 
         /// &lt;summary&gt;
-        /// The OnAssetsModified method is called whenever an Asset has been changed in the project.
-        /// This methods determines if any Preset has been added, removed, or moved
-        /// and updates the CustomDependency related to the changed folder.
+        /// 每当在项目中更改资源时，都会调用 OnAssetsModified 方法。
+        /// 此方法确定是否添加、移除或移动了任何预设
+        /// 并更新与更改的文件夹相关的 CustomDependency。
         /// &lt;/summary&gt;
         protected override void OnAssetsModified(string[] changedAssets, string[] addedAssets, string[] deletedAssets, AssetMoveInfo[] movedAssets)
         {
             HashSet&lt;string&gt; folders = new HashSet&lt;string&gt;();
             foreach (var asset in changedAssets)
             {
-                // A Preset has been changed, so the dependency for this folder must be updated in case the Preset type has been changed.
+                // 预设已更改，因此必须更新此文件夹的依赖关系，以防更改了预设类型。
                 if (asset.EndsWith(".preset"))
                 {
                     folders.Add(Path.GetDirectoryName(asset));
@@ -365,7 +365,7 @@ namespace PresetsPerFolder
 
             foreach (var asset in addedAssets)
             {
-                // A new Preset has been added, so the dependency for this folder must be updated.
+                // 添加了新预设，因此必须更新此文件夹的依赖关系。
                 if (asset.EndsWith(".preset"))
                 {
                     folders.Add(Path.GetDirectoryName(asset));
@@ -374,7 +374,7 @@ namespace PresetsPerFolder
 
             foreach (var asset in deletedAssets)
             {
-                // A Preset has been removed, so the dependency for this folder must be updated.
+                // 移除了预设，因此必须更新此文件夹的依赖关系。
                 if (asset.EndsWith(".preset"))
                 {
                     folders.Add(Path.GetDirectoryName(asset));
@@ -383,7 +383,7 @@ namespace PresetsPerFolder
 
             foreach (var movedAsset in movedAssets)
             {
-                // A Preset has been moved, so the dependency for the previous and new folder must be updated.
+                // 移动了预设，因此必须更新上一个和新文件夹的依赖关系。
                 if (movedAsset.destinationAssetPath.EndsWith(".preset"))
                 {
                     folders.Add(Path.GetDirectoryName(movedAsset.destinationAssetPath));
@@ -395,11 +395,11 @@ namespace PresetsPerFolder
                 }
             }
 
-            // Do not add a dependency update for no reason.
+            // 请勿无缘无故地添加依赖关系更新。
             if (folders.Count != 0)
             {
-                // The dependencies need to be updated outside of the AssetPostprocessor calls.
-                // Register the method to the next Editor update.
+                // 依赖关系需要在 AssetPostprocessor 调用外部进行更新。
+                // 向下一次编辑器更新注册方法。
                 EditorApplication.delayCall += () =&gt;
                 {
                     DelayedDependencyRegistration(folders);
@@ -408,8 +408,8 @@ namespace PresetsPerFolder
         }
 
         /// &lt;summary&gt;
-        /// This method loads all Presets in each of the given folder paths
-        /// and updates the CustomDependency hash based on the Presets currently in that folder.
+        /// 此方法会加载每个给定文件夹路径中的所有预设
+        /// 并基于该文件夹中的当前预设更新 CustomDependency 哈希。
         /// &lt;/summary&gt;
         static void DelayedDependencyRegistration(HashSet&lt;string&gt; folders)
         {
@@ -424,7 +424,7 @@ namespace PresetsPerFolder
                 Hash128 hash = new Hash128();
                 foreach (var presetPath in presetPaths)
                 {
-                    // Append both path and Preset type to make sure Assets get re-imported whenever a Preset type is changed.
+                    // 附加路径和预设类型以确保每当更改预设类型时都会重新导入资源。
                     hash.Append(presetPath);
                     hash.Append(AssetDatabase.LoadAssetAtPath&lt;Preset&gt;(presetPath).GetTargetFullTypeName());
                 }
@@ -432,8 +432,8 @@ namespace PresetsPerFolder
                 AssetDatabase.RegisterCustomDependency($"PresetPostProcessor_{folder}", hash);
             }
 
-            // Manually trigger a Refresh
-            // so that the AssetDatabase triggers a dependency check on the updated folder hash.
+            // 手动触发刷新
+            // 以便 AssetDatabase 对更新的文件夹哈希触发依赖关系检查。
             AssetDatabase.Refresh();
         }
     }
@@ -454,7 +454,7 @@ namespace PresetsPerFolder
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

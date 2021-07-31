@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Creating user interfaces (UI) - Unity 手册">
-<title>Creating user interfaces (UI) - Unity 手册</title>
-<meta name="description" content="Unity provides three UI systems that you can use to create user interfaces (UI) for the Unity Editor and applications made in the Unity Editor:">
-<meta property="og:description" content="Unity provides three UI systems that you can use to create user interfaces (UI) for the Unity Editor and applications made in the Unity Editor:">
+<meta property="og:title" content="创建用户界面 (UI) - Unity 手册">
+<title>创建用户界面 (UI) - Unity 手册</title>
+<meta name="description" content="Unity 提供了三个 UI 系统，您可以使用它们为 Unity 编辑器和在 Unity 编辑器中创建的应用程序创建用户界面 (UI)：">
+<meta property="og:description" content="Unity 提供了三个 UI 系统，您可以使用它们为 Unity 编辑器和在 Unity 编辑器中创建的应用程序创建用户界面 (UI)：">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,74 +174,74 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li>Creating user interfaces (UI)</li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li>创建用户界面 (UI)</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="AnimationGlossary.html"></a></span><div class="tip">动画术语表</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="UI-system-compare.html"></a></span><div class="tip">Comparison of UI systems in Unity</div>
+<span class="next"><a href="UI-system-compare.html"></a></span><div class="tip">Unity 中 UI 系统的对比</div>
 </div>
 </div></div>
-<h1>Creating user interfaces (UI)</h1>
+<h1>创建用户界面 (UI)</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>Unity provides three UI systems that you can use to create user interfaces (UI) for the Unity Editor and applications made in the Unity Editor:</p>
+<p>Unity 提供了三个 UI 系统，您可以使用它们为 Unity 编辑器和在 Unity 编辑器中创建的应用程序创建用户界面 (UI)：</p>
 
 <ul>
-<li>UI Toolkit</li>
-<li>The Unity UI package (uGUI)</li>
+<li>UI 工具包</li>
+<li>Unity UI 软件包 (uGUI)</li>
 <li>IMGUI</li>
 </ul>
 
-<p>This page provides an overview of each.</p>
+<p>本页面提供了每个系统的概述。</p>
 
-<h2>UI Toolkit</h2>
+<h2>UI 工具包</h2>
 
-<p><a href="UIElements.html">UI Toolkit)</a> is the newest UI system in Unity. It is designed to optimize performance across platforms, and is based on standard web technologies. You can use UI Toolkit to create extensions for the Unity Editor, and to create runtime UI for games and applications (when you install the <a href="UITK-package.html">UI Toolkit package</a>.</p>
+<p><a href="UIElements.html">UI Toolkit</a> is the newest UI system in Unity. It’s designed to optimize performance across platforms, and is based on standard web technologies. You can use UI Toolkit to create extensions for the Unity Editor, and to create runtime UI for games and applications (when you install the <a href="UIE-UITK-package.html">UI Toolkit package</a>.</p>
 
-<p>UI Toolkit includes:</p>
+<p>UI 工具包包括：</p>
 
 <ul>
-<li>A retained-mode UI system that contains the core features and functionality required to create user interfaces.</li>
-<li>UI Asset types inspired by standard web formats such as HTML, XML, and CSS. Use them to structure and style UI.</li>
-<li>Tools and resources for learning to use UI Toolkit, and for creating and debugging your interfaces.</li>
+<li>一个保留模式 UI 系统，包含创建用户界面所需的核心特性和功能。</li>
+<li>UI 资源类型，受标准 Web 格式（如 HTML、XML 和 CSS）启发。使用它们来实现 UI 的构建和风格。</li>
+<li>工具和资源，用于学习使用 UI 工具包创建和调试界面。</li>
 </ul>
 
-<p>Unity intends for UI Toolkit to become the recommended UI system for new UI development projects, but it is still missing some features found in Unity UI (uGUI) and IMGUI.</p>
+<p>Unity 打算让 UI 工具包成为新 UI 开发项目的推荐 UI 系统，但它仍然缺少 Unity UI (uGUI) 和 IMGUI 中的一些功能。</p>
 
-<h2>The Unity UI (uGUI) package</h2>
+<h2>Unity UI 软件包 (uGUI)</h2>
 
-<p>The <a href="com.unity.ugui.html">Unity User Interface (Unity UI)</a> package (also called uGUI) is an older,GameObject-based UI system that you can use to develop runtime UI for games and applications. In Unity UI, you use components and the Game view to arrange, position, and style the user interface. It supports advanced rendering and text features.</p>
+<p><a href="com.unity.ugui.html">Unity 用户界面 (Unity UI) </a>软件包（也称为 uGUI）是一个较旧的、基于游戏对象的 UI 系统，您可以使用它为游戏和应用程序开发运行时 UI。在 Unity UI 中，即可使用组件和 Game 视图来排列和定位用户界面并设置其样式。它支持高级渲染和文本功能。</p>
 
-<p>See the Unity UI package documentation for the <a href="https://docs.unity3d.com/Packages/com.unity.ugui@latest">manual</a> and <a href="https://docs.unity3d.com/Packages/com.unity.ugui@latest/index.html?subfolder=/api/index.html">API reference</a>.</p>
+<p>请参阅 Unity UI 包文档以查看<a href="https://docs.unity3d.com/Packages/com.unity.ugui@latest">手册</a>和 <a href="https://docs.unity3d.com/Packages/com.unity.ugui@latest/index.html?subfolder=/api/index.html">API 参考</a>。</p>
 
 <h2>IMGUI</h2>
 
-<p><a href="GUIScriptingGuide.html">Immediate Mode Graphical User Interface</a> (IMGUI) is a code-driven UI Toolkit that uses the <code>OnGUI</code> function, and scripts that implement it, to draw and manage user interfaces. You can use IMGUI to create custom Inspectors for script components, extensions for the Unity Editor, and in-game debugging displays. It is not recommended for building runtime UI.</p>
+<p><a href="GUIScriptingGuide.html">立即模式图形用户界面</a> (IMGUI) 是一个代码驱动的 UI 工具包，它使用 <code>OnGUI</code> 函数以及实现它的脚本来绘制和管理用户界面。您可以使用 IMGUI 来创建脚本组件的自定义 Inspector，Unity 编辑器的扩展以及游戏内调试显示。不推荐用于构建运行时 UI。</p>
 
-<h2>Choosing a UI system for your project</h2>
+<h2>为您的项目选择 UI 系统</h2>
 
-<p>Unity intends for UI Toolkit to become the recommended UI system for new UI development projects, but it is still missing some features found in Unity UI (uGUI) and IMGUI. These older systems are better in certain use cases, and are required to support legacy projects.</p>
+<p>Unity 打算让 UI 工具包成为新 UI 开发项目的推荐 UI 系统，但它仍然缺少 Unity UI (uGUI) 和 IMGUI 中的一些功能。这些较旧的系统更适合特定用例，并且需要支持旧版项目。</p>
 
-<p>Your choice of UI system for a given project depends on the kind of UI you plan to develop, and the features you need support for.</p>
+<p>您为给定项目选择的 UI 系统取决于您计划开发的 UI 类型以及您需要支持的功能。</p>
 
-<p>For a comparison of the available UI systems, see the <a href="UI-system-compare.html">Comparison of UI systems in Unity</a>.</p>
+<p>有关可用 UI 系统的比较，请参阅 <a href="UI-system-compare.html">Unity 中 UI 系统的对比</a>。</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="AnimationGlossary.html"></a></span><div class="tip">动画术语表</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="UI-system-compare.html"></a></span><div class="tip">Comparison of UI systems in Unity</div>
+<span class="next"><a href="UI-system-compare.html"></a></span><div class="tip">Unity 中 UI 系统的对比</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

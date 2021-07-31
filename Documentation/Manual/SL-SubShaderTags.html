@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="ShaderLab：子着色器标签 (SubShader Tags) - Unity 手册">
-<title>ShaderLab：子着色器标签 (SubShader Tags) - Unity 手册</title>
-<meta name="description" content="子着色器使用标签来告知它们期望何时以何种方式被渲染到渲染引擎。">
-<meta property="og:description" content="子着色器使用标签来告知它们期望何时以何种方式被渲染到渲染引擎。">
+<meta property="og:title" content="ShaderLab：向子着色器分配标签 - Unity 手册">
+<title>ShaderLab：向子着色器分配标签 - Unity 手册</title>
+<meta name="description" content="本页面包含有关在 ShaderLab 代码中使用 Tags 代码块向子着色器分配标签的信息。">
+<meta property="og:description" content="本页面包含有关在 ShaderLab 代码中使用 Tags 代码块向子着色器分配标签的信息。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,128 +174,809 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
-<li><a href="ShadersOverview.html">编写着色器</a></li>
-<li><a href="SL-Reference.html">着色器参考</a></li>
-<li><a href="SL-Shader.html">ShaderLab 语法</a></li>
-<li><a href="SL-SubShader.html">ShaderLab：SubShader</a></li>
-<li>ShaderLab：子着色器标签 (SubShader Tags)</li>
+<li><a href="Shaders.html">着色器</a></li>
+<li><a href="shader-writing.html">编写着色器</a></li>
+<li><a href="SL-Reference.html">ShaderLab</a></li>
+<li><a href="SL-SubShader.html">ShaderLab：定义子着色器</a></li>
+<li>ShaderLab：向子着色器分配标签</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-GrabPass.html"></a></span><div class="tip">ShaderLab：GrabPass</div>
+<span class="prev"><a href="SL-SubShader.html"></a></span><div class="tip">ShaderLab：定义子着色器</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-ShaderLOD.html"></a></span><div class="tip">ShaderLab：子着色器 LOD 值</div>
+<span class="next"><a href="SL-ShaderLOD.html"></a></span><div class="tip">ShaderLab：为子着色器指定 LOD 值</div>
 </div>
 </div></div>
-<h1>ShaderLab：子着色器标签 (SubShader Tags)</h1>
+<h1>ShaderLab：向子着色器分配标签</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>子着色器使用标签来告知它们期望何时以何种方式被渲染到渲染引擎。</p>
+<p>本页面包含有关在 ShaderLab 代码中使用 <code>Tags</code> 代码块向子着色器分配标签的信息。</p>
 
-<h2>语法</h2>
+<p>有关定义子着色器的信息，请参阅 <a href="SL-SubShader.html">ShaderLab：定义子着色器</a>。有关 Shader 对象的工作原理以及 Shader 对象、子着色器与通道之间关系的信息，请参阅 <a href="shader-objects.html">Shader 对象</a>。</p>
 
-<pre><code>Tags { "TagName1" = "Value1" "TagName2" = "Value2" }
-</code></pre>
+<h2>概述</h2>
 
-<p>指定 <strong>TagName1</strong> 具有 <strong>Value1</strong>，<strong>TagName2</strong> 具有 <strong>Value2</strong>。可根据需要添加任意数量的标签。</p>
+<p>标签是数据的键/值对。Unity 使用预定义键和值确定如何以及何时使用给定子着色器，也可以使用自定义值创建自己的自定义子着色器标签。可以从 C# 代码访问子着色器标签。</p>
 
-<h2>详细信息</h2>
+<h2>渲染管线兼容性</h2>
 
-<p>从根本上说，标签就是键/值对。在 <a href="SL-SubShader.html">SubShader</a> 中，标签用于确定子着色器的渲染顺序和其他参数。请注意，以下由 Unity 识别的标签<strong>必须</strong>位于 SubShader 部分中，不能在 Pass 中！</p>
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
 
-<p>除了 Unity 可以识别的内置标签外，您还可以使用自己的标签并使用 <a href="../ScriptReference/Material.GetTag.html">Material.GetTag</a> 函数来查询这些标签。</p>
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>功能名称</strong></th>
+	<th style="text-align:left;"><strong>内置渲染管线</strong></th>
+	<th style="text-align:left;"><strong>通用渲染管线 (URP)</strong></th>
+	<th style="text-align:left;"><strong>高清渲染管线 (HDRP)</strong></th>
+	<th style="text-align:left;"><strong>自定义 SRP</strong></th>
+</tr>
+</thead>
 
-<h3>渲染顺序 - Queue 标签</h3>
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>ShaderLab：子着色器标签代码块</strong></td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>ShaderLab：RenderPipeline 子着色器标签</strong></td>
+	<td style="text-align:left;">否</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">否</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>ShaderLab：Queue 子着色器标签</strong></td>
+	<td style="text-align:left;">否</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是<br><br>
+</td>
+	<td style="text-align:left;">是<br><br><strong>注意：</strong>在自定义 SRP 中，可以定义自己的渲染顺序并选择是否要使用渲染队列。有关更多信息，请参阅 DrawingSettings 和 SortingCriteria。</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>ShaderLab：RenderType 子着色器标签</strong></td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>ShaderLab：DisableBatching 子着色器标签</strong></td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>ShaderLab：ForceNoShadowCasting 子着色器标签</strong></td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是<br><br>这会禁用常规阴影，但是不影响接触阴影。</td>
+	<td style="text-align:left;">是</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>ShaderLab：CanUseSpriteAtlas 子着色器标签</strong></td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>ShaderLab：PreviewType 子着色器标签</strong></td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+</tr>
+</tbody>
+</table>
 
-<p>您可以使用 <em>Queue</em> 标签来确定对象的绘制顺序。着色器决定其对象属于哪个渲染队列，这样任何透明着色器都可以确保它们在所有不透明对象之后绘制，依此类推。</p>
+<h2>在子着色器中使用 Tags 代码块</h2>
 
-<p>有四个预定义的渲染队列，但预定义的渲染队列之间可以有更多的队列。预定义队列包括：</p>
+<p>在 ShaderLab 中，可以通过将 <code>Tags</code> 代码块置于 <code>SubShader</code> 代码块中来向子着色器分配标签。</p>
+
+<p>请注意，子着色器和通道都使用 <code>Tags</code> 代码块，但其工作方式不同。向通道分配子着色器标签没有效果，反之亦然。区别在于放置 <code>Tags</code> 代码块的位置：</p>
 
 <ul>
-<li>
-<code>Background</code> - 此渲染队列在任何其他渲染队列之前渲染。通常会对需要处于背景中的对象使用此渲染队列。</li>
-<li>
-<code>Geometry</code><em>（默认值）</em>- 此队列用于大部分对象。不透明几何体使用此队列。</li>
-<li>
-<code>AlphaTest</code> - 进行 Alpha 测试的几何体将使用此队列。这是不同于 <code>Geometry</code> 队列的单独队列，因为在绘制完所有实体对象之后再渲染经过 Alpha 测试的对象会更有效。</li>
-<li>
-<code>Transparent</code> - 此渲染队列在 <em>Geometry</em> 和 <code>AlphaTest</code> 之后渲染，按照从后到前的顺序。任何经过 Alpha 混合者（即不写入深度缓冲区的着色器）都应该放在这里（玻璃、粒子效果）。</li>
-<li>
-<code>Overlay</code> - 此渲染队列旨在获得覆盖效果。最后渲染的任何内容都应该放在此处（例如，镜头光晕）。</li>
+<li>要定义通道标签，请将 <code>Tags</code> 代码块置于 <code>Pass</code> 代码块内部。</li>
+<li>要定义子着色器标签，请将 <code>Tags</code> 代码块置于 <code>SubShader</code> 代码块内部，但是在 <code>Pass</code> 代码块外部。</li>
 </ul>
 
-<pre><code>Shader "Transparent Queue Example"
+<p>有关向通道分配标签的信息，请参阅<a href="SL-Pass.html">向通道分配标签</a>。</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>签名</strong></th>
+	<th style="text-align:left;"><strong>功能</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">Tags { “[name1]” = “[value1]” “[name2]” = “[value2]”}</td>
+	<td style="text-align:left;">将给定标签应用于子着色器。<br><br>可以定义所需数量的标签。</td>
+</tr>
+</tbody>
+</table>
+
+<h2>在 C# 代码中使用子着色器标签</h2>
+
+<p>可以使用 <a href="../ScriptReference/Material.GetTag.html">Material.GetTag</a> API 从 C# 脚本中读取子着色器标签，如下所示：</p>
+
+<pre><code class="c#">using UnityEngine;
+
+public class Example : MonoBehaviour
 {
-     SubShader
-     {
-        Tags { "Queue" = "Transparent" }
-        Pass
-        {
-            // 着色器主体的剩余部分...
+    // 将此附加到具有渲染器组件的游戏对象
+    string tagName = "ExampleTagName";
+
+    void Start()
+    {
+        Renderer myRenderer = GetComponent&lt;Renderer&gt;();
+        string tagValue = myRenderer.material.GetTag(ExampleTagName, true, "Tag not found");
+        Debug.Log(tagValue);
+    }
+}
+</code></pre>
+
+<h2>RenderPipeline 标签</h2>
+
+<p><code>RenderPipeline</code> 标签向 Unity 告知子着色器是否与通用渲染管线 (URP) 或高清渲染管线 (HDRP) 兼容。</p>
+
+<h3>语法和有效值</h3>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>签名</strong></th>
+	<th style="text-align:left;"><strong>功能</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">“RenderPipeline” = “[name]”</td>
+	<td style="text-align:left;">向 Unity 告知此子着色器是否与 URP 或 HDRP 兼容。</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>参数</strong></th>
+	<th style="text-align:left;"><strong>值</strong></th>
+	<th style="text-align:left;"><strong>功能</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">[name]</td>
+	<td style="text-align:left;">UniversalRenderPipeline</td>
+	<td style="text-align:left;">此子着色器仅与 URP 兼容。</td>
+</tr>
+<tr>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;">HighDefinitionRenderPipeline</td>
+	<td style="text-align:left;">此子着色器仅与 HDRP 兼容。</td>
+</tr>
+<tr>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;">（任何其他值，或未声明）</td>
+	<td style="text-align:left;">此子着色器与 URP 和 HDRP 不兼容。</td>
+</tr>
+</tbody>
+</table>
+
+<h3>示例</h3>
+
+<p>此示例代码声明子着色器与 URP 兼容：</p>
+
+<pre><code>Shader "ExampleShader" {
+    SubShader {
+        Tags { "RenderPipeline" = "UniversalRenderPipeline" }
+        Pass {
+            …
         }
     }
 }
 </code></pre>
 
-<p><em>说明如何在透明队列中渲染对象的示例</em></p>
+<h2>Queue 标签</h2>
 
-<p>对于特殊用例，可以使用中间队列。在内部，每个队列由整数索引表示；<code>Background</code> 是 1000，<code>Geometry</code> 是 2000，<code>AlphaTest</code> 是 2450，<code>Transparent</code> 是 3000，<code>Overlay</code> 是 4000。如果着色器使用如下所示的队列：</p>
+<p><code>Queue</code> 标签向 Unity 告知要用于它渲染的几何体的渲染队列。渲染队列是确定 Unity 渲染几何体的顺序的因素之一。</p>
 
-<pre><code>Tags { "Queue" = "Geometry+1" }
+<h3>语法和有效值</h3>
+
+<p>可以通过两种方式使用 <code>Queue</code> 标签：可以告知 Unity 使用命名渲染队列，或是它在命名渲染队列之后渲染的未命名渲染队列。</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>签名</strong></th>
+	<th style="text-align:left;"><strong>功能</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">“Queue” = “[queue name]”</td>
+	<td style="text-align:left;">使用命名渲染队列。</td>
+</tr>
+<tr>
+	<td style="text-align:left;">“Queue” = “[queue name] + [offset]”</td>
+	<td style="text-align:left;">在相对于命名队列的给定偏移处使用未命名队列。<br><br>这种用法十分有用的一种示例情况是透明的水，它应该在不透明对象之后绘制，但是在透明对象之前绘制。</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>签名</strong></th>
+	<th style="text-align:left;"><strong>值</strong></th>
+	<th style="text-align:left;"><strong>功能</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">[queue name]</td>
+	<td style="text-align:left;">Background</td>
+	<td style="text-align:left;">指定背景渲染队列。</td>
+</tr>
+<tr>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;">Geometry</td>
+	<td style="text-align:left;">指定几何体渲染队列。</td>
+</tr>
+<tr>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;">AlphaTest</td>
+	<td style="text-align:left;">指定 AlphaTest 渲染队列。</td>
+</tr>
+<tr>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;">Transparent</td>
+	<td style="text-align:left;">指定透明渲染队列。</td>
+</tr>
+<tr>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;">Overlay</td>
+	<td style="text-align:left;">指定覆盖渲染队列。</td>
+</tr>
+<tr>
+	<td style="text-align:left;">[offset]</td>
+	<td style="text-align:left;">整数</td>
+	<td style="text-align:left;">指定 Unity 渲染未命名队列处的索引（相对于命名队列）。</td>
+</tr>
+</tbody>
+</table>
+
+<h3>将此标签与 C# 代码一起使用</h3>
+
+<p>可以使用 <a href="../ScriptReference/Shader-renderQueue.html">Shader.renderQueue</a> 读取 Shader 对象的活动子着色器的 Queue 标签值。</p>
+
+<p>默认情况下，Unity 在 [Queue] 标签指定的渲染队列中渲染几何体。可以基于每种材质覆盖此值。在 Unity 编辑器中，可以通过设置<strong>渲染队列</strong>属性，在<a href="class-Material.html">材质 Inspector</a> 中执行此操作。在 C# 脚本中，可以通过使用 <a href="../ScriptReference/Rendering.RenderQueue.html">Rendering.RenderQueue</a> 枚举设置 <a href="../ScriptReference/Material-renderQueue.html">Material.renderQueue</a> 的值来执行此操作。</p>
+
+<h3>示例</h3>
+
+<p>此示例代码创建一个子着色器，它将几何体作为透明渲染队列的一部分进行渲染：</p>
+
+<pre><code>Shader "ExampleShader" {
+    SubShader {
+        Tags { "Queue" = "Transparent" }
+        Pass {
+            …
+        }
+    }
+}
 </code></pre>
 
-<p>这将使对象在所有不透明对象之后渲染，但在透明对象之前渲染，因为渲染队列索引值将是 2001（几何体索引值加一）。如果您希望始终在其他对象集之间绘制某些对象，那么这非常有用。例如，在大多数情况下，透明的水应该在不透明对象之后绘制，但又要在透明对象之前绘制。</p>
+<p>此示例代码创建一个子着色器，它在几何体队列之后的未命名队列中渲染几何体。</p>
 
-<p>索引值高达 2500 的队列（“Geometry+500”）视为“不透明”，并且会优化对象的绘制顺序以获得最佳性能。
-较高索引的渲染队列被认为是“透明对象”并按距离将对象进行排序，从距离最远的对象开始渲染，最后渲染距离最近的对象。天空盒在所有不透明对象和所有透明对象之间绘制。</p>
+<pre><code>Shader "ExampleShader" {
+    SubShader {
+        Tags { "Queue" = "Geometry+1" }
+        Pass {
+            …
+        }
+    }
+}
+</code></pre>
 
-<h3>RenderType 标签</h3>
+<h2>RenderType 标签</h2>
 
-<p><code>RenderType</code> 标签将着色器分为几个预定义的组，例如，不透明的着色器，或经过 Alpha 测试的着色器等等。<a href="SL-ShaderReplacement.html">着色器替换</a>将使用该标签，在某些情况下还用于产生<a href="SL-CameraDepthTexture.html">摄像机的深度纹理</a>。</p>
+<p>使用 <code>RenderType</code> 标签可覆盖 Shader 对象的行为。</p>
 
-<h3>DisableBatching 标签</h3>
+<p>在内置渲染管线中，可以使用一种称为<a href="SL-ShaderReplacement.html">着色器替换</a>的技术在运行时交换子着色器。此技术的工作方式是标识具有匹配 <code>RenderType</code> 标签值的子着色器。这在某些情况下用于生成<a href="SL-CameraDepthTexture.html">摄像机的深度纹理</a>。</p>
 
-<p>使用<a href="DrawCallBatching.html">绘制调用批处理</a>时，一些着色器（主要是进行对象空间顶点变形的着色器）不起作用，这是因为批处理会将所有几何体转换为世界空间，所以“对象空间”丢失。</p>
+<p>在基于可编程渲染管线的渲染管线中，可以使用 <code>RenderStateBlock</code> 结构覆盖在 Shader 对象中定义的渲染状态。可以使用 <code>RenderType</code> 标签的值标识要覆盖的子着色器。</p>
 
-<p>可使用 <code>DisableBatching</code> 标签来指示这一情况。有三个可能的值：“True”（始终对此着色器禁用批处理）、“False”（不禁用批处理；这是默认值）和“LODFading”（当 LOD 淡化处于激活状态时禁用批处理；主要用于树）。</p>
+<h3>语法和有效值</h3>
 
-<h3>ForceNoShadowCasting 标签</h3>
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
 
-<p>如果提供了 <code>ForceNoShadowCasting</code> 标签并且值为“True”，则使用该子着色器渲染的对象绝不会投射阴影。对透明对象使用着色器替换并且不希望从其他子着色器继承阴影通道时，这非常有用。</p>
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>签名</strong></th>
+	<th style="text-align:left;"><strong>功能</strong></th>
+</tr>
+</thead>
 
-<h3>IgnoreProjector 标签</h3>
+<tbody>
+<tr>
+	<td style="text-align:left;">“RenderType” = “[renderType]”</td>
+	<td style="text-align:left;">为此子着色器设置 RenderType 值。</td>
+</tr>
+</tbody>
+</table>
 
-<p>如果提供了 <code>IgnoreProjector</code> 标签并且值为“True”，则使用此着色器的对象不会受到<a href="class-Projector.html">投影器</a>的影响。这对半透明对象非常有用，因为投影器无法影响它们。</p>
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
 
-<h3>CanUseSpriteAtlas 标签</h3>
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>签名</strong></th>
+	<th style="text-align:left;"><strong>值</strong></th>
+	<th style="text-align:left;"><strong>功能</strong></th>
+</tr>
+</thead>
 
-<p>如果着色器用于精灵，请将 <code>CanUseSpriteAtlas</code> 标签设置为“False”，这样在精灵打包到图集内时，该标签将不起作用，（请参阅<a href="SpritePacker.html">精灵打包器 (Sprite Packer)</a>）。</p>
+<tbody>
+<tr>
+	<td style="text-align:left;">[renderType]</td>
+	<td style="text-align:left;">String</td>
+	<td style="text-align:left;">没有为此参数设置值。要标识要替换的任何子着色器的 RenderType 值，请打开其着色器源文件。<br><br>Unity 旧版内置着色器的 <code>RenderType</code> 子着色器标签在<a href="SL-ShaderReplacement.html">着色器替换页面</a>上列出。<br><br>还可以为自定义子着色器创建自己的值。</td>
+</tr>
+</tbody>
+</table>
 
-<h3>PreviewType 标签</h3>
+<h3>将此标签与 C# 代码一起使用</h3>
 
-<p><code>PreviewType</code> 指示材质检视面板预览应如何显示材质。默认情况下，材质显示为球体，但也可以将 PreviewType 设置为“Plane”（将显示为 2D）或“Skybox”（将显示为天空盒）。</p>
+<p>有关内置渲染管线中着色器替换的信息，请参阅<a href="SL-ShaderReplacement.html">着色器替换</a>。有关在可编程渲染管线中使用 RenderStateBlock 的信息，请参阅 <a href="../ScriptReference/Rendering.ScriptableRenderContext.DrawRenderers.html">ScriptableRenderContext.DrawRenderers</a> 的 API 文档。</p>
 
-<h2>另请参阅</h2>
+<h3>示例</h3>
 
-<p>也可以为通道提供标签，请参阅<a href="SL-PassTags.html">通道标签</a>。</p>
-<!-- area:graphics -->
+<p>此示例代码创建一个 RenderType 值为 <code>TransparentCutout</code> 的子着色器：</p>
+
+<pre><code>Shader "ExampleShader" {
+    SubShader {
+        Tags { "RenderType" = "TransparentCutout" }
+        Pass {
+            …
+        }
+    }
+}
+</code></pre>
+
+<h2>ForceNoShadowCasting 标签</h2>
+
+<p><code>ForceNoShadowCasting</code> 标签阻止子着色器中的几何体投射（有时是接收）阴影。确切行为取决于渲染管线和渲染路径。</p>
+
+<p>如果使用<a href="SL-ShaderReplacement.html">着色器替换</a>，但是不希望从其他子着色器继承阴影通道，这可能非常有用。</p>
+
+<h3>语法和有效值</h3>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>签名</strong></th>
+	<th style="text-align:left;"><strong>功能</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">“ForceNoShadowCasting” = “[state]”</td>
+	<td style="text-align:left;">是否对所有使用此子着色器的几何体阻止阴影投射（有时是接收）。</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>签名</strong></th>
+	<th style="text-align:left;"><strong>值</strong></th>
+	<th style="text-align:left;"><strong>功能</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">[state]</td>
+	<td style="text-align:left;">True</td>
+	<td style="text-align:left;">Unity 阻止此子着色器中的几何体投射阴影。<br><br>在内置渲染管线中，对于前向、旧版顶点光照或旧版延迟渲染路径，Unity 还会阻止此子着色器中的几何体接收阴影。<br><br>在 HDRP 中，这不会阻止几何体投射接触阴影。</td>
+</tr>
+<tr>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;">False</td>
+	<td style="text-align:left;">Unity 不会阻止此子着色器中的几何体投射或接收阴影。这是默认值。</td>
+</tr>
+</tbody>
+</table>
+
+<h3>示例</h3>
+
+<p>此示例代码创建一个 ForceNoShadowCasting 值为 <code>True</code> 的子着色器：</p>
+
+<pre><code>Shader "ExampleShader" {
+    SubShader {
+        Tags { "ForceNoShadowCasting" = "True" }
+        Pass {
+            …
+        }
+    }
+}
+</code></pre>
+
+<h2>DisableBatching 标签</h2>
+
+<p><code>DisableBatching</code> 子着色器标签阻止 Unity 将<a href="DrawCallBatching.html">动态批处理</a>应用于使用此子着色器的几何体。</p>
+
+<p>这对于执行对象空间操作的着色器程序十分有用。动态批处理会将所有几何体都变换为世界空间，这意味着着色器程序无法再访问对象空间。因此，依赖于对象空间的着色器程序不会正确渲染。为避免此问题，请使用此子着色器标签阻止 Unity 应用动态批处理。</p>
+
+<h3>语法和有效值</h3>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>签名</strong></th>
+	<th style="text-align:left;"><strong>功能</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">“DisableBatching” = “[state]”</td>
+	<td style="text-align:left;">Unity 是否对使用此子着色器的所有几何体阻止动态批处理。</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>签名</strong></th>
+	<th style="text-align:left;"><strong>值</strong></th>
+	<th style="text-align:left;"><strong>功能</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">[state]</td>
+	<td style="text-align:left;">True</td>
+	<td style="text-align:left;">Unity 对使用此子着色器的几何体阻止动态批处理。</td>
+</tr>
+<tr>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;">False</td>
+	<td style="text-align:left;">Unity 不会对使用此子着色器的几何体阻止动态批处理。这是默认值。</td>
+</tr>
+<tr>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;">LODFading</td>
+	<td style="text-align:left;">对于属于 Fade Mode 值不为 None 的 <a href="https://docs.unity3d.com/Manual/class-LODGroup.html">LODGroup</a> 一部分的所有几何体，Unity 会阻止动态批处理。否则，Unity 不会阻止动态批处理。</td>
+</tr>
+</tbody>
+</table>
+
+<h3>示例</h3>
+
+<p>此示例代码创建一个 DisableBatching 值为 <code>True</code> 的子着色器：</p>
+
+<pre><code>Shader "ExampleShader" {
+    SubShader {
+        Tags { "DisableBatching" = "True" }
+        Pass {
+            …
+        }
+    }
+}
+</code></pre>
+
+<h2>IgnoreProjector 标签</h2>
+
+<p>在内置渲染管线中，<code>IgnoreProjector</code> 子着色器标签向 Unity 告知几何体是否受<a href="class-Projector.html">投影器</a>影响。这对于排除投影器不兼容的半透明几何体多半很有用。</p>
+
+<p>此标签在其他渲染管线中无效。</p>
+
+<h3>语法和有效值</h3>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>签名</strong></th>
+	<th style="text-align:left;"><strong>功能</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">“IgnoreProjector” = “[state]”</td>
+	<td style="text-align:left;">Unity 在渲染此几何体时是否忽略投影器。</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>签名</strong></th>
+	<th style="text-align:left;"><strong>值</strong></th>
+	<th style="text-align:left;"><strong>功能</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">[state]</td>
+	<td style="text-align:left;">True</td>
+	<td style="text-align:left;">Unity 在渲染此几何体时忽略投影器。</td>
+</tr>
+<tr>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;">False</td>
+	<td style="text-align:left;">Unity 在渲染此几何体时不会忽略投影器。这是默认值。</td>
+</tr>
+</tbody>
+</table>
+
+<h3>示例</h3>
+
+<p>此示例代码创建一个 IgnoreProjectors 值为 <code>True</code> 的子着色器：</p>
+
+<pre><code>Shader "ExampleShader" {
+    SubShader {
+        Tags { "IgnoreProjector" = "True" }
+        Pass {
+            …
+        }
+    }
+}
+</code></pre>
+
+<h2>PreviewType 标签</h2>
+
+<p><code>PreviewType</code> 子着色器 Tag 告知 Unity 编辑器如何在材质 Inspector 中显示使用此子着色器的材质。</p>
+
+<h3>语法和有效值</h3>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>签名</strong></th>
+	<th style="text-align:left;"><strong>功能</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">“PreviewType” = “[shape]”</td>
+	<td style="text-align:left;">Unity 编辑器用于显示使用此子着色器的材质预览的形状。</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>签名</strong></th>
+	<th style="text-align:left;"><strong>值</strong></th>
+	<th style="text-align:left;"><strong>功能</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">[shape]</td>
+	<td style="text-align:left;">球体</td>
+	<td style="text-align:left;">在球体上显示材质。这是默认值。</td>
+</tr>
+<tr>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;">平面 (Plane)</td>
+	<td style="text-align:left;">在平面上显示材质。</td>
+</tr>
+<tr>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;">Skybox</td>
+	<td style="text-align:left;">在天空盒上显示材质。</td>
+</tr>
+</tbody>
+</table>
+
+<h3>示例</h3>
+
+<p>此示例代码创建一个 PreviewType 值为 <code>Plane</code> 的子着色器：</p>
+
+<pre><code>Shader "ExampleShader" {
+    SubShader {
+        Tags { "PreviewType" = "Plane" }
+        Pass {
+            …
+        }
+    }
+}
+</code></pre>
+
+<h2>CanUseSpriteAtlas 标签</h2>
+
+<p>在使用 <a href="SpritePacker.html">Legacy Sprite Packer</a> 的项目中使用此子着色器标签可警告用户着色器依赖于原始纹理坐标，因此不应将其纹理打包到图集中。</p>
+
+<h3>语法和有效值</h3>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>签名</strong></th>
+	<th style="text-align:left;"><strong>功能</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">“CanUseSpriteAtlas” = “[state]”</td>
+	<td style="text-align:left;">使用此子着色器的精灵是否与 Legacy Sprite Packer 兼容。</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>签名</strong></th>
+	<th style="text-align:left;"><strong>值</strong></th>
+	<th style="text-align:left;"><strong>功能</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">[state]</td>
+	<td style="text-align:left;">True</td>
+	<td style="text-align:left;">使用此子着色器的精灵与 Legacy Sprite Packer 兼容。这是默认值。</td>
+</tr>
+<tr>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;">False</td>
+	<td style="text-align:left;">使用此子着色器的精灵与 Legacy Sprite Packer 不兼容。<br><br>当 <code>CanUseSpriteAtlas</code> 值为 <code>False</code> 的子着色器与带有 Legacy Sprite Packer 打包标签的精灵一起使用时，Unity 会在 Inspector 中显示错误消息。</td>
+</tr>
+</tbody>
+</table>
+
+<h3>CanUseSpriteAtlas 标签代码示例</h3>
+
+<p>此示例代码创建一个 CanUseSpriteAtlas 值为 <code>False</code> 的子着色器：</p>
+
+<pre><code>Shader "ExampleShader" {
+    SubShader {
+        Tags { "CanUseSpriteAtlas" = "False" }
+        Pass {
+            …
+        }
+    }
+}
+</code></pre>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-GrabPass.html"></a></span><div class="tip">ShaderLab：GrabPass</div>
+<span class="prev"><a href="SL-SubShader.html"></a></span><div class="tip">ShaderLab：定义子着色器</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-ShaderLOD.html"></a></span><div class="tip">ShaderLab：子着色器 LOD 值</div>
+<span class="next"><a href="SL-ShaderLOD.html"></a></span><div class="tip">ShaderLab：为子着色器指定 LOD 值</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

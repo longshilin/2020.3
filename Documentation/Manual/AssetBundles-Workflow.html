@@ -174,8 +174,8 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="AssetWorkflow.html">资源工作流程</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="AssetWorkflow.html">Asset Workflow</a></li>
 <li><a href="AssetBundlesIntro.html">AssetBundle</a></li>
 <li>AssetBundle 工作流程</li>
 </ul></div>
@@ -205,7 +205,7 @@
 1.输入所需的 AssetBundle 名称。<strong>注意：</strong>AssetBundle 名称支持某种类型的文件夹结构，具体取决于您输入的内容。要添加子文件夹，请用 <code>/</code> 分隔文件夹名称。例如，使用 AssetBundle 名称 <code>environment/forest</code> 在 <code>environment</code> 子文件夹下创建名为 <code>forest</code> 的捆绑包
 1.一旦选择或创建了 AssetBundle 名称，便可以重复此过程在右侧下拉选单中分配或创建变体名称（如果需要）。构建 AssetBundle 不需要变体名称</p>
 
-<p><strong>Note:</strong> You can assign an AssetBundle and label to a folder in your Project. By default, all Assets in that folder are assigned to the AssetBundle and given the same label as the folder. The AssetBundle assignments for individual Assets takes precedence, however. </p>
+<p><strong>注意：</strong>您可以为项目中的文件夹分配一个 AssetBundle 和标签。默认情况下，该文件夹中的所有资源都将分配给该 AssetBundle 并赋予与文件夹相同的标签。但是，单独为资源分配的 AssetBundle 优先级更高。</p>
 
 <p>要阅读有关 AssetBundle 分配和相关策略的更多信息，请参阅关于<a href="AssetBundles-Preparing.html">为 AssetBundle 准备资源</a>的文档。</p>
 
@@ -257,7 +257,7 @@ public class CreateAssetBundles
 
 <p><code>LoadFromFile</code> 获取捆绑包文件的路径。</p>
 
-<p>If you’re hosting your AssetBundles yourself and need to download them into your application, use the <code>UnityWebRequestAssetBundle</code> API. Here’s an example:</p>
+<p>如果是您自己托管 AssetBundle 并需要将它们下载到应用程序中，请使用 <code>UnityWebRequestAssetBundle</code> API。下面是一个示例：</p>
 
 <pre><code>IEnumerator InstantiateObject()
 {
@@ -275,7 +275,7 @@ public class CreateAssetBundles
 
 <p><code>GetAssetBundle(string, int)</code> 获取 AssetBundle 的位置 URL 以及要下载的捆绑包的版本。此示例仍然指向一个本地文件，但 <code>string url</code> 可以指向托管 AssetBundle 的任何 URL。</p>
 
-<p>The UnityWebRequestAssetBundle class has a specific handle for dealing with AssetBundles, <code>DownloadHandlerAssetBundle</code>, which gets the AssetBundle from the request.</p>
+<p>UnityWebRequestAssetBundle 类有一个特定的句柄来处理 AssetBundle： <code>DownloadHandlerAssetBundle</code>，它可根据请求获取 AssetBundle。</p>
 
 <p>无论使用哪种方法，现在都可以访问 AssetBundle 对象了。对该对象需要使用 <code>LoadAsset&lt;T&gt;(string)</code>，此函数将获取您尝试加载的资源的类型 <code>T</code> 以及对象的名称（作为捆绑包内部的字符串）。这将返回从 AssetBundle 加载的任何对象。可以像使用 Unity 中的任何对象一样使用这些返回的对象。例如，如果要在场景中创建游戏对象，只需调用 <code>Instantiate(gameObjectFromAssetBundle)</code>。</p>
 
@@ -292,7 +292,7 @@ public class CreateAssetBundles
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="资源工作流程 - Unity 手册">
-<title>资源工作流程 - Unity 手册</title>
-<meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/AssetWorkflowFolderAndProjectWindow.png">
-<meta name="description" content="《Unity 用户手册》的这一部分概要讲述 Unity 中的资源使用原则，包括以下主题：">
-<meta property="og:description" content="《Unity 用户手册》的这一部分概要讲述 Unity 中的资源使用原则，包括以下主题：">
+<meta property="og:title" content="Asset Workflow - Unity 手册">
+<title>Asset Workflow - Unity 手册</title>
+<meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/AssetWorkflowOverview.svg">
+<meta name="description" content="An asset is any item that you use in your Unity project to create your game or app. Assets can represent visual or audio elements in your project, such as 3D models, textures, sprites, sound effects, or music. Assets can also represent more abstract items such as color gradients, animation masks, or arbitrary text or numeric data for any use.">
+<meta property="og:description" content="An asset is any item that you use in your Unity project to create your game or app. Assets can represent visual or audio elements in your project, such as 3D models, textures, sprites, sound effects, or music. Assets can also represent more abstract items such as color gradients, animation masks, or arbitrary text or numeric data for any use.">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,163 +175,141 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li>资源工作流程</li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li>Asset Workflow</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="AsyncReadManagerMetrics.html"></a></span><div class="tip">Asset loading metrics</div>
+<span class="prev"><a href="AsyncReadManagerMetrics.html"></a></span><div class="tip">资源加载指标</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="AssetTypes.html"></a></span><div class="tip">常见资源类型</div>
+<span class="next"><a href="ImportingAssets.html"></a></span><div class="tip">导入</div>
 </div>
 </div></div>
-<h1>资源工作流程</h1>
+<h1>Asset Workflow</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>《Unity 用户手册》的这一部分概要讲述 Unity 中的资源使用原则，包括以下主题：</p>
+<p>An asset is any item that you use in your Unity project to create your game or app. Assets can represent visual or audio elements in your project, such as 3D models, textures, sprites, sound effects, or music. Assets can also represent more abstract items such as color gradients, animation masks, or arbitrary text or numeric data for any use.</p>
 
-<ul>
-<li><a href="AssetTypes.html">常见资源类型</a></li>
-<li><a href="AssetPackages.html">资源包</a></li>
-<li><a href="AssetStore.html">使用 Asset Store</a></li>
-<li><a href="AssetBundlesIntro.html">AssetBundle</a></li>
-<li><a href="AssetDatabase.html">资源数据库</a></li>
-<li><a href="ScriptingAssets.html">脚本与资源</a></li>
-</ul>
+<p>An asset might come from a file created outside of Unity, such as a 3D Model, an audio file, or an image. You can also create some types of asset in the Unity Editor, such as a ProBuilder Mesh, an Animator Controller, an Audio Mixer, or a Render Texture.</p>
 
-<p>另请参阅该手册其他部分中的以下相关主题：</p>
-
-<ul>
-<li>_Unity 服务_部分下的 <a href="UnityAccelerator.html">Unity Accelerator</a>
-</li>
-<li>
-<em>旧版</em>部分下的 <a href="AssetServer.html">Asset Server（团队许可证）</a>
-</li>
-<li><a href="AssetStorePublishing.html">Asset Store 发布</a></li>
-</ul>
-
-<h2>资源表示什么</h2>
-
-<p>资源表示可以在项目中使用的任何项。资源可能来自 Unity 外部创建的文件，例如 3D 模型、音频文件、图像。还可以在 Unity 中创建一些资源类型，例如 ProBuilder 网格 (ProBuilder Mesh)、Animator Controller、混音器 (Audio Mixer) 或渲染纹理 (Render Texture)。</p>
-
-<h2>Unity 如何导入资源</h2>
-
-<p>Unity 会自动导入资源并管理有关这些资源的其他数据，例如应使用哪些导入设置来导入资源，以及资源在整个项目中的使用位置。下面介绍了此过程：</p>
-
-<p>1.Unity <a href="#uniqueID">为资源分配唯一 ID</a>。
-2.Unity <a href="#metaFiles">创建 .meta 文件</a>。
-3.Unity <a href="#processing">对资源进行处理</a>。</p>
-
-<p>在某些情况下，Unity 在导入单个资源文件时可能会创建多个资源。有关更多信息，请参阅<a href="#multiAssets">导入复杂资源</a>。</p>
-
-<p><a href="ImportingAssets.html">导入设置</a>可以影响 Unity 对资源的处理方式。有关更多信息，请参阅<a href="#importSettings">资源及其导入设置</a>。</p>
-
-<p><a name="uniqueID"></a></p>
-
-<h3>唯一 ID</h3>
-
-<p>在 <code>Assets</code> 文件夹中放置诸如纹理之类的资源时，Unity 将检测到已添加新文件，因为 Editor 经常根据已知的资源列表来检查 <code>Assets</code> 文件夹的内容。</p>
-
-<p>Unity 找到新文件时会向此资源分配唯一 ID。这是 Unity 在内部使用的 ID，用于引用资源，以便 Unity 可以移动或重命名此资源而不会破坏任何内容。</p>
-
-<p><a name="metaFiles"></a></p>
-
-<h3>.meta 文件</h3>
+<h2>Import, Create, Build, Distribute, Load</h2>
 
 <figure>
-<img src="../uploads/Main/AssetWorkflowFolderAndProjectWindow.png" alt="计算机上 Unity 项目中的 Assets 文件夹与 Unity 中的 Project 窗口之间的关系">
-<figcaption>计算机上 Unity 项目中的 Assets 文件夹与 Unity 中的 Project 窗口之间的关系</figcaption>
+<img src="../uploads/Main/AssetWorkflowOverview.svg" alt="Asset workflow in Unity">
+<figcaption>Asset workflow in Unity</figcaption>
 </figure>
 
-<p>此示例表明，Unity 为项目的 <code>Assets</code> 文件夹中的每个资源或文件夹创建了一个 <code>.meta</code> 文件，就像它们出现在系统文件浏览器中一样。然而，这些 <code>.meta</code> 文件在 Project 窗口中不可见，因为默认情况下，它们会被<a href="https://en.wikipedia.org/wiki/Hidden_file_and_hidden_directory">隐藏</a>。您可以显示这些文件，方法是从 <a href="class-EditorManager.html#Mode">Mode</a> 项目设置中选择 <strong>Visible Meta Files</strong>。</p>
+<p>The above diagram shows the typical workflow when you work with assets in Unity. Each column represents a separate step and is described below:</p>
 
-<p>Unity 为资源创建 <code>.meta</code> 文件时，会将此资源的 ID 写入 <code>.meta</code> 文件，并将 <code>.meta</code> 文件与资源文件存储在同一位置。<code>.meta</code> 文件必须与其相关的资源文件位于相同位置，因为它包含该资源的 ID。如果在 Project 窗口中移动或重命名某个资源，Unity 会自动移动或重命名相应的 <code>.meta</code> 文件。然而，如果在 Unity 之外移动或重命名某个资源（例如，通过系统的文件浏览器进行此操作），请在移动或重命名 <code>.meta</code> 文件时确保匹配。</p>
+<ul>
+<li>
+<strong>Import</strong> assets into the Unity Editor</li>
+<li>
+<strong>Create</strong> content using the Unity Editor with those assets.</li>
+<li>
+<strong>Build</strong> your app or game file, and optionally its accompanying content bundles</li>
+<li>
+<strong>Distribute</strong> the built files so that your users can access them, via a publisher, or an app store</li>
+<li>
+<strong>Load</strong> futher updates as neccessary at runtime, depending on your user’s behavior, and how you have grouped and bundled your content.</li>
+</ul>
 
-<p>如果资源丢失其 <code>.meta</code> 文件（例如，如果在 Unity 的 Project 窗口之外移动或重命名该资源，但未更新其 <code>.meta</code> 文件），则对该资源的任何引用都会中断，并且 Unity 会为资源生成新的 <code>.meta</code> 文件，就好像它是另一个资源一样，同时还会删除旧的“孤立”<code>.meta</code> 文件。</p>
+<h3>Import</h3>
 
-<p>例如，在纹理资源丢失其 <code>.meta</code> 文件的情况下，使用该纹理的任何材质都不再引用该纹理。要修复此问题，必须手动将该纹理重新分配给任何需要该纹理的材质。</p>
+<p>Importing is the process of bringing your source files into the Unity Editor to work with. When you save or copy a file into your project’s <code>Assets</code> folder, Unity imports that file which allows you to work with it in the Editor. </p>
 
-<p>同样，附加到游戏对象（或预制件）的脚本资源丢失其 <code>.meta</code> 文件时，该游戏对象将失去脚本的功能，最终将成为“unassigned script”组件。要修复此问题，必须手动将脚本重新分配给该游戏对象。</p>
+<p>It’s important to learn some fundamentals of importing assets into Unity, such as where the files are stored in your Project, how to adjust the Import Settings for each kind of asset, what the meta files are fore, and how the Asset Database stores imported data. See <a href="ImportingAssets.html">Importing Assets</a> for more detail about these topics.</p>
 
-<h3>Empty folders, meta files, and version control</h3>
+<p>You can speed up Unity’s processing of assets when working with teams by using <a href="UnityAccelerator.html">Unity Accelerator</a>.</p>
 
-<p>In Unity, folders in your project’s <strong>Assets</strong> folder are assigned their own <code>.meta</code> file - however some version control systems (VCS) can’t store empty folders. This means when you add or delete an empty folder from your project, your VCS will store the <code>.meta</code> file as added or removed, but won’t store the change of adding or removing the folder itself, which can be confusing or problematic.</p>
+<h3>Create</h3>
 
-<p>To help with this issue, Unity behaves in the following specific ways relating to empty folders:</p>
+<p>Once you have imported some assets into your project, you can start creating your game or app. This typically involves placing assets into one or more <a href="CreatingScenes.html">Scenes</a> as GameObjects, and adding <a href="ScriptingSection.html">scripts</a> which control how the user interacts with them.</p>
 
-<p>If Unity detects an empty folder that no longer has a corresponding meta file, when that folder previously had a meta file, Unity assumes the meta file was removed via the deletion of the folder by another user in your VCS, and deletes the empty folder locally.</p>
+<p>As development on your project grows, you might need to split your assets up into separate groups which allows your game to incrementally download selected extra content at runtime.</p>
 
-<p>If Unity detects a new meta file for a folder, but that folder does not exist locally, Unity assumes the new meta file was created via to the addition of the folder by another user in the VCS, and creates the corresponding empty folder locally.</p>
+<p>During the creation process, you can decide a strategy on how to group your assets into separate <strong>bundles</strong>, and implement the code for choosing when to load them.</p>
 
-<p><a name="processing"></a></p>
+<p>This allows you to manage the download size and memory usage of your game or app by reducing the size of your initial download and loading other assets later at runtime. The recommended way to do this is to use Unity’s <a href="com.unity.addressables.html">Addressables</a> system.</p>
 
-<h3>资源处理</h3>
+<h3>Build</h3>
 
-<p>Unity 读取并处理您添加到 <code>Assets</code> 文件夹的任何文件，将文件内容转换为可直接用于游戏的内部数据。资源文件本身保持不变，内部数据存储在项目的 <code>Library</code> 文件夹中。</p>
+<p>Building refers to the process of exporting your completed project to binary files which you can then distribute and run on the platform of your choice. For example, when building for Windows, Unity will generate an <code>.EXE</code> file, along with some accompanying data files which you can then distribute.</p>
 
-<p>通过使用资源的内部格式，Unity 可以准备好可直接用于游戏的资源版本，以便在 Editor 中在运行时使用，同时将未修改的源文件保留在 <code>Assets</code> 文件夹中。使内部格式与资源文件分开，意味着您可以快速编辑它们并让 Editor 自动获取更改。例如，Photoshop 文件格式很方便，可以将 <code>.psd</code> 文件直接保存到 <code>Assets</code> 文件夹中，但移动设备和 PC 显卡等硬件不能直接处理该格式来渲染为纹理。</p>
+<p>If you’re using Addressables or Asset Bundles to group your assets into separate downloadable bundles you also need to build those bundle files for distribution. </p>
 
-<p>Unity 将资源的内部表示形式存储在 <code>Library</code> 文件夹中，该文件夹类似于缓存文件夹。作为用户，切勿手动更改 <code>Library</code> 文件夹，尝试这样做可能会给 Unity Editor 中的项目带来负面影响。但是，只要该项目未在 Unity 中打开，就可以安全删除 <code>Library</code> 文件夹，因为 Unity 可以通过 <code>Assets</code> 和 <code>ProjectSettings</code> 文件夹重新生成其所有数据。这也意味着不应将 <code>Library</code> 文件夹纳入版本控制。</p>
+<p>You can build your project on your own computer, or you can use Unity’s <a href="UnityCloudBuild.html">Cloud Build service</a> which provides automated build generation and continuous integration for your Unity projects.</p>
 
-<p><a name="multiAssets"></a></p>
+<h3>Distribute</h3>
 
-<h3>导入复杂资源</h3>
+<p>Once you have built your game or app and its content bundles, your users need a way to access it. Your choice of distribution method depends on the platforms that you’re targeting. </p>
 
-<p>有时，Unity 在导入单个资源文件时会创建多个资源。例如，在以下情况下可能会这样做：</p>
+<p>For example, mobile platforms have their own app stores, you could use a professional publisher, or you could self-host on your own servers.</p>
 
-<table>
-<colgroup>
-<col style="text-align:left;">
-<col style="text-align:left;">
-</colgroup>
+<p>Unity offers its own <a href="UnityCCD.html">Cloud Content Delivery</a> service, allowing you to host and deliver your game or app and its content to your users, and is fully integrated into the Unity development platform. This can save lots of time and is valuable for content-rich, live games or applications that require content updates on a regular basis.</p>
 
-<thead>
-<tr>
-	<th style="text-align:left;"><strong>导入情形：</strong></th>
-	<th style="text-align:left;"><strong>Unity 处理文件的方式：</strong></th>
-</tr>
-</thead>
+<h3>Load</h3>
 
-<tbody>
-<tr>
-	<td style="text-align:left;">3D 文件（例如 FBX 文件）定义材质或包含嵌入的纹理时。</td>
-	<td style="text-align:left;">Unity 将<a href="FBXImporter-Materials.html">材质和嵌入的纹理</a>提取为单独的资源。</td>
-</tr>
-<tr>
-	<td style="text-align:left;">需要将图像文件导入为多个 2D 精灵时。</td>
-	<td style="text-align:left;">使用 2D <a href="SpriteEditor.html">精灵编辑器 (Sprite Editor)</a> 从单个图形图像定义多个精灵。在此情况下，Editor 中定义的每个精灵将在 Project 窗口中显示为单独的精灵资源。</td>
-</tr>
-<tr>
-	<td style="text-align:left;">一个 3D 文件包含多个动画时间轴或多个剪辑时。</td>
-	<td style="text-align:left;">Unity 会根据其<a href="Splittinganimations.html">动画导入设置</a>来自动定义单独的动画时间轴或剪辑。生成的多个动画剪辑将在 Project 窗口中显示为单独的动画剪辑资源。</td>
-</tr>
-</tbody>
-</table>
+<p>When users load and use your game or app, the rules and programming that you set up, and the way that you grouped and bundled your assets, all come into play to provide your users with the experience and content they want.</p>
 
-<p><a name="importSettings"></a></p>
+<p>Using a combination of the techniques and services described here, you can provide fast initial downloads, and ongoing updates and extra content which you can roll out over the lifetime of your project.</p>
 
-<h3>资源及其导入设置</h3>
+<hr>
 
-<p>除了分配给资源的唯一 ID 外，<code>.meta</code> 文件还包含您在 Project 窗口中选择资源时在 Inspector 窗口中看到的所有<a href="class-FBXImporter.html">导入设置</a>的值。对于纹理，这包括 <a href="class-TextureImporter.html#texturetype">Texture Type</a>、<a href="class-TextureImporter.html#WrapMode">Wrap Mode</a>、 <a href="class-TextureImporter.html#FilterMode">Filter Mode</a> 和 <a href="class-TextureImporter.html#AnisoLevel">Aniso Level</a> 导入设置。</p>
+<h2>Artist Workflow Benefits</h2>
 
-<p>如果更改资源的导入设置，则这些新设置将保存到<a href="#metaFiles">资源附带的</a> <code>.meta</code> 文件中。随后，Unity 将根据更新的设置来重新导入资源，并在项目的 <code>Library</code> 文件夹中更新相应导入的“游戏就绪”数据。</p>
+<p>Unity’s asset workflow has tools and features which make it easy to edit and design directly in the Unity Editor.</p>
 
-<p>备份项目或将项目添加到版本控制库时，应包括 Unity 主项目文件夹，其中包含 <code>Assets</code> 和 <code>ProjectSettings</code> 文件夹。Unity 依靠这些文件夹中的信息来重新导入您的资源并重新构建您的游戏或应用程序。不得备份 <code>Library</code> 和 <code>Temp</code> 文件夹，也不要将其置于版本控制下。</p>
-<!-- area:authoring -->
+<ul>
+<li>Support for many different <a href="BuiltInImporters.html">file formats</a>
+</li>
+<li>
+<a href="ImportingAssets.html">Quick roundtripping</a> between Unity and third-party tools</li>
+<li>
+<a href="Presets.html">Presets</a> to apply custom default settings for types of assets</li>
+<li>Update live content seamlessly using <a href="com.unity.addressables.html">Addressables</a> and <a href="UnityCCD.html">Cloud Content Delivery</a>
+</li>
+</ul>
+
+<h2>Programmer Workflow Benefits</h2>
+
+<ul>
+<li>Enable team efficiency with a tailored content pipeline, for example writing scripts to process assets as they’re imported, or controlling which presets Unity automatically applies based on your own rules.</li>
+<li>
+<a href="ModifyingSourceAssetsThroughScripting.html">Modify source assets</a> through scripting. You can adjust source assets such as materials, meshes or physics through your game code.</li>
+<li>Save memory using the <a href="com.unity.addressables.html">Addressable assets system</a>, which simplifies content management for complex projects, and provides automatic memory management and profiling tools.</li>
+<li>Optimize assets for target platforms. When you’re making a multiplatform project, you might have hundreds of different textures, which all need to be packaged at different resolutions for different platforms. Unity packages, resizes and recompresses your assets automatically when you build to each target platform.</li>
+</ul>
+
+<h2>Workflow considerations</h2>
+
+<p>When working with assets in Unity there are different strategies you can use. Which one suits your project depends on factors such as: the size of your team, the size of your project, your target platforms, the memory availability on those platforms, and whether you want to release updates, patches, and DLC after publishing it.</p>
+
+<p>For example, if you are working in a team, in addition to making use of a version control system for your project, you could also use a <a href="UnityAccelerator.html">Cache Server</a> to cache Unity’s import results, to save time across the team.</p>
+
+<p>If you are working with a large number of assets that you want to publish as separate bundles, you might find it useful to separate some of those groups of assets out into separate projects, so that members of your team don’t need to load a single huge project to work on those bundles.</p>
+
+<h2>Platform considerations</h2>
+
+<p>If you keep all your assets in a single Project, when you build, Unity automatically builds them in the correct format for the current selected platform. However if you use the technique mentioned above to split your assets accross multiple projects to build your bundles separately, you must make a build for each platform you support. See <a href="https://docs.unity3d.com/Packages/com.unity.addressables@latest?subfolder=/manual/AddressableAssetsGettingStarted.html%23building-for-multiple-platforms">building for multiple platforms</a> in the Addressables manual for more information.</p>
+
+<p>The characteristics of a platform also determine the restrictions and possibilities of how you organize your runtime Assets. For example, on the standalone (PC or macOS) platforms, virtual memory provides a almost unbounded pool of memory, so using the <a href="SpecialFolders.html#Resources">Resources folder</a> or large asset bundles doesn’t typically pose a memory challenge. Conversely, mobile devices and console platforms typically have limited or nonexistent virtual memory, so apps built for those platforms must manage Asset loading and unloading more efficiently. </p>
+
+<p>User expectations on a platform are also an important consideration. For example, on mobile platforms, a long initial download and install process can lead to players abandoning your app before they ever play it. For this reason, it’s common for mobile apps to include only a minimal set of assets in the initial build and to download the remaining assets from a remote server the first time the user runs your app. </p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="AsyncReadManagerMetrics.html"></a></span><div class="tip">Asset loading metrics</div>
+<span class="prev"><a href="AsyncReadManagerMetrics.html"></a></span><div class="tip">资源加载指标</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="AssetTypes.html"></a></span><div class="tip">常见资源类型</div>
+<span class="next"><a href="ImportingAssets.html"></a></span><div class="tip">导入</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

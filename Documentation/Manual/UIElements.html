@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="UI Toolkit - Unity 手册">
-<title>UI Toolkit - Unity 手册</title>
-<meta name="description" content="Unity&amp;#8217;s UI Toolkit is a collection of features, functionality, resources, and tools for developing user interfaces (UI). You can use UI Toolkit to develop custom UI and extensions for the Unity Editor, runtime debugging tools, and runtime UI for games and applications.">
-<meta property="og:description" content="Unity&amp;#8217;s UI Toolkit is a collection of features, functionality, resources, and tools for developing user interfaces (UI). You can use UI Toolkit to develop custom UI and extensions for the Unity Editor, runtime debugging tools, and runtime UI for games and applications.">
+<meta property="og:title" content="UI 工具包 - Unity 手册">
+<title>UI 工具包 - Unity 手册</title>
+<meta name="description" content="UI Toolkit is a collection of features, functionality, resources, and tools for developing user interfaces (UI). You can use UI Toolkit to develop custom UI and extensions for the Unity Editor, runtime debugging tools, and runtime UI for games and applications.">
+<meta property="og:description" content="UI Toolkit is a collection of features, functionality, resources, and tools for developing user interfaces (UI). You can use UI Toolkit to develop custom UI and extensions for the Unity Editor, runtime debugging tools, and runtime UI for games and applications.">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,25 +174,25 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="UIToolkits.html">Creating user interfaces (UI)</a></li>
-<li>UI Toolkit</li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="UIToolkits.html">创建用户界面 (UI)</a></li>
+<li>UI 工具包</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="UI-system-compare.html"></a></span><div class="tip">Comparison of UI systems in Unity</div>
+<span class="prev"><a href="UI-system-compare.html"></a></span><div class="tip">Unity 中 UI 系统的对比</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="UITK-package.html"></a></span><div class="tip">The UI Toolkit Package</div>
+<span class="next"><a href="UIE-UITK-package.html"></a></span><div class="tip">Accessing UI Toolkit </div>
 </div>
 </div></div>
-<h1>UI Toolkit</h1>
+<h1>UI 工具包</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>Unity’s UI Toolkit is a collection of features, functionality, resources, and tools for developing user interfaces (UI). You can use UI Toolkit to develop custom UI and extensions for the Unity Editor, runtime debugging tools, and runtime UI for games and applications.</p>
+<p>UI Toolkit is a collection of features, functionality, resources, and tools for developing user interfaces (UI). You can use UI Toolkit to develop custom UI and extensions for the Unity Editor, runtime debugging tools, and runtime UI for games and applications.</p>
 
-<p>UI Toolkit is inspired by standard web technologies. If you have experience developing web pages or applications, much of your knowledge might be transferable, and many of the core concepts might be familiar.</p>
+<p>UI 工具包的设计灵感来自标准 Web 技术。如果您有开发网页或应用程序的经验，您的大部分知识可能是可以移植的，并且许多核心概念可能似曾相识。</p>
 
 <table>
 <colgroup>
@@ -207,96 +207,86 @@
 
 <tbody>
 <tr>
-	<td style="text-align:left;">Although Unity recommends using UI Toolkit for some new UI development projects, it’s still missing features found in Unity UI (uGUI) and IMGUI. These older systems are more appropriate for certain use cases, and are required to support legacy projects. For information about when it’s appropriate to choose an older system instead of the UI Toolkit, see the <a href="UI-system-compare.html">Comparison of UI systems in Unity</a>.</td>
+	<td style="text-align:left;">Although Unity recommends using UI Toolkit for some new UI development projects, it’s still missing features found in Unity UI (uGUI) and IMGUI. These older systems are more appropriate for certain use cases, and are required to support deprecated projects. For information about when it’s appropriate to choose an older system instead of the UI Toolkit, see the <a href="UI-system-compare.html">Comparison of UI systems in Unity</a>.</td>
 </tr>
 </tbody>
 </table>
 
-<h2>UI Toolkit Overview</h2>
+<h2>UI 工具包概述</h2>
 
-<p>This section provides a short description of the major UI Toolkit features, functionality, resources, and tools, including:</p>
+<p>本节简要介绍了 UI 工具包的主要特性、功能、资源和工具，包括：</p>
 
 <ul>
-<li>The <a href="#ui-system"><strong>UI system</strong></a> that contains the core features and functionality required to create user interfaces.</li>
 <li>
-<a href="#ui-assets"><strong>UI Assets</strong></a> asset types inspired by standard web formats. Use them to structure and style UI.</li>
+<a href="#ui-system"><strong>UI system</strong></a>: Contains the core features and functionality required to create user interfaces.</li>
 <li>
-<a href="#ui-tools-and-resources"><strong>Tools and resources</strong></a> for creating and debugging your interfaces, and learning to use UI toolkit.</li>
+<a href="#ui-assets"><strong>UI Assets</strong></a>: Asset types inspired by standard web formats. Use them to structure and style UI.</li>
+<li>
+<a href="#ui-tools-and-resources"><strong>Tools and resources</strong></a>: Create and debug your interfaces, and learn how to use UI toolkit.</li>
 </ul>
 
-<p><a name="ui-system"></a></p>
+<h3>UI 系统</h3>
 
-<h3>UI system</h3>
+<p>UI 工具包的核心是一种保留模式的 UI 的系统，基于公认的 Web 技术。它支持样式表以及动态和上下文事件处理。</p>
 
-<p>The core of UI Toolkit is a retained-mode UI system based on recognized web technologies. It supports stylesheets, and dynamic and contextual event handling.</p>
-
-<p>The UI system includes the following features:</p>
+<p>UI 系统包括以下功能：</p>
 
 <ul>
 <li>
 <strong><a href="UIE-VisualTree.html">Visual tree</a>:</strong> Defines every user interface you build with the UI Toolkit. A visual tree is an object graph, made of lightweight nodes, that holds all the elements in a window or panel.</li>
 <li>
-<strong><a href="UIE-Controls.html">Controls</a>:</strong> A library of standard UI controls such as buttons, popups, list views, and color pickers. You can use them as-is, customize them, or create your own controls.</li>
+<strong><a href="UIE-Controls.html">控件</a>：</strong>标准 UI 控件库，例如按钮、弹出窗口、列表视图和拾色器。您可以按原样使用、自定义这些控件，或创建自己的控件。</li>
 <li>
-<strong><a href="UIE-Binding.html">Data binding system</a>:</strong> Links properties to the controls that modify their values.</li>
+<strong><a href="UIE-Binding.html">数据绑定系统</a>：</strong>将属性链接到修改其值的控件。</li>
 <li>
-<strong><a href="UIE-LayoutEngine.html">Layout Engine</a>:</strong> A layout system based on the CSS Flexbox model. It positions elements based on layout and styling properties.</li>
+<strong><a href="UIE-LayoutEngine.html">布局引擎</a>：</strong>基于 CSS Flexbox 模型的布局系统。它根据布局和样式属性定位元素。</li>
 <li>
-<strong><a href="UIE-Events.html">Event System</a>:</strong> Communicates user interactions to elements; for example, input, touch and pointer interactions, drag and drop operations, and other event types. The system includes a dispatcher, a handler, a synthesizer, and a library of event types.</li>
+<strong><a href="UIE-Events.html">事件系统</a>：</strong>将用户交互传达给元素；例如，输入、触摸和指针交互、拖放操作和其他事件类型。该系统包括分发程序、处理程序、合成程序和事件类型库。</li>
 <li>
-<strong>UI Renderer:</strong> A rendering system built directly on top of Unity’s graphics device layer.</li>
+<strong>UI 渲染器：</strong>直接构建在 Unity 图形设备层之上的渲染系统。</li>
 <li>
-<strong>UI Toolkit Runtime Support (via the <a href="UITK-package.html">UI Toolkit package</a>):</strong> Contains the components required to create runtime UI. The UI Toolkit package is currently in preview.</li>
+<strong>UI Toolkit Runtime Support (via the <a href="UIE-UITK-package.html">UI Toolkit package</a>):</strong> Contains the components required to create runtime UI. The UI Toolkit package is currently in preview.</li>
 </ul>
 
 <p><a name="ui-assets"></a></p>
 
-<h3>UI Assets</h3>
+<h3>UI 资源</h3>
 
-<p>The UI Toolkit provides the following Asset types that you can use to build user interfaces in a way that’s similar to how you develop web applications:</p>
+<p>UI 工具包提供了以下资源类型，您可以使用它们以类似于开发 Web 应用程序的方式构建用户界面：</p>
 
 <ul>
 <li>
-<strong><a href="UIE-UXML.html">UXML documents</a>:</strong> Unity eXtensible Markup Language (UXML) is an HTML and XML inspired markup language that you use to define the structure of user interfaces and reusable UI templates. Although you can build interfaces directly in C# files, Unity recommends using UXML documents in most cases.</li>
+<strong><a href="UIE-UXML.html">UXML 文档</a>：</strong> Unity 可扩展标记语言 (UXML) 是一种受 HTML 和 XML 启发的标记语言，可用于定义用户界面和可重用 UI 模板的结构。虽然您可以直接在 C# 文件中构建接口，Unity 建议在大多数情况下使用 UXML 文档。</li>
 <li>
-<strong><a href="UIE-USS.html">Unity Style Sheets (USS)</a>:</strong> Style sheets allow you to apply visual styles and behaviors to user interfaces. They’re similar to Cascading Style Sheets (CSS) used on the web, and support a subset of standard CSS properties. Although you can apply styles directly in C# files, Unity recommends using USS files in most cases.</li>
+<strong><a href="UIE-USS.html">Unity Style Sheets (USS)</a>:</strong> Style sheets allow you to apply visual styles and behaviors to user interfaces. They’re similar to Cascading Style Sheets (CSS) used on the web, and support a subset of standard CSS properties. Although you can apply styles directly in C# files, Unity recommends using USS files.</li>
 </ul>
 
 <p><a name="ui-tools-and-resources"></a></p>
 
-<h3>UI Tools and resources</h3>
+<h3>UI 工具和资源</h3>
 
-<p>The UI toolkit also includes the following tools and resources to help you create UI:</p>
+<p>UI 工具包还包括以下工具和资源来帮助您创建 UI：</p>
 
 <ul>
 <li>
-<strong>UI Debugger:</strong> The UI debugger is a diagnostic tool that resembles a web browser’s debugging view. Use it to explore a hierarchy of elements and get information about its underlying UXML structure and USS styles. You can find it in the Editor under <strong>Window &gt; UI Toolkit &gt; Debugger</strong>.</li>
+<strong>UI 调试器：</strong> UI 调试器是一种诊断工具，类似于 Web 浏览器的调试视图。使用它来探索元素的层级结构并获取有关其底层 UXML 结构和 USS 样式的信息。您可以在编辑器中找到： <strong>Window &gt; UI Toolkit &gt; Debugger</strong>。</li>
 <li>
-<strong><a href="com.unity.ui.builder.html">UI Builder (package)</a>:</strong> The UI Builder lets you visually create and edit UI Toolkit assets such as UXML and USS files. The UI Builder package is currently in preview. You can install it from the Package Manager window in the Unity Editor under <strong>Window &gt; Package Manager</strong>.</li>
+<strong><a href="com.unity.ui.builder.html">UI Builder（包）</a>：</strong> UI Builder 可让您直观地创建和编辑 UI 工具包资源，例如 UXML 和 USS 文件。UI Builder 包当前处于预览状态。在 Unity 编辑器中，可通过 Package Manager 窗口进行安装：<strong>Window &gt; Package Manager</strong>。</li>
 <li>
 <strong>UI Samples:</strong> The UI Toolkit includes a library of code samples for UI controls that you can view in the Editor under <strong>Window &gt; UI Toolkit &gt; Samples</strong>.</li>
 </ul>
-
-<hr>
-
-<ul>
-<li><span class="page-edit">2019–02–22 页面已修订</span></li>
-<li><span class="page-edit">2020–02–19 页面已修订</span></li>
-<li><span class="page-edit">2020–06–03 页面已修订</span></li>
-</ul>
-<!-- area:authoring -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="UI-system-compare.html"></a></span><div class="tip">Comparison of UI systems in Unity</div>
+<span class="prev"><a href="UI-system-compare.html"></a></span><div class="tip">Unity 中 UI 系统的对比</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="UITK-package.html"></a></span><div class="tip">The UI Toolkit Package</div>
+<span class="next"><a href="UIE-UITK-package.html"></a></span><div class="tip">Accessing UI Toolkit </div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

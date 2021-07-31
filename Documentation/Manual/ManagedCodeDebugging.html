@@ -175,9 +175,9 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="ScriptingSection.html">Scripting</a></li>
-<li><a href="ScriptingSettingUp.html">Setting Up Your Scripting Environment</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="ScriptingSection.html">脚本</a></li>
+<li><a href="ScriptingSettingUp.html">设置脚本编写环境</a></li>
 <li>在 Unity 中调试 C# 代码</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
@@ -185,7 +185,7 @@
 <span class="prev"><a href="ScriptingToolsIDEs.html"></a></span><div class="tip">集成开发环境 (IDE) 支持</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="testing-editortestsrunner.html"></a></span><div class="tip">Unit Testing</div>
+<span class="next"><a href="testing-editortestsrunner.html"></a></span><div class="tip">单元测试。</div>
 </div>
 </div></div>
 <h1>在 Unity 中调试 C# 代码</h1>
@@ -229,9 +229,9 @@
 
 <p>VS Code 要求安装一个扩展才能在 Unity 中调试代码。请遵循此扩展特定的<a href="https://code.visualstudio.com/docs/other/unity">说明</a>来安装此扩展。</p>
 
-<h2>Specifying the External Script Editor in Unity</h2>
+<h2>在 Unity 中指定外部脚本编辑器</h2>
 
-<p>Once you’ve installed a code editor, go to <strong>Preferences &gt; External Tools</strong> and set the <strong>External Script Editor</strong> to your chosen code editor.</p>
+<p>安装了代码编辑器后，转到 <strong>Preferences &gt; External Tools__，然后将 </strong>External Script Editor__ 设置为您选择的代码编辑器。</p>
 
 <figure>
 <img src="../uploads/Main/MCDExternalTools.png" alt="">
@@ -239,85 +239,85 @@
 
 <h2>在 Editor 中调试</h2>
 
-<p>You can debug C# code that is running in the Unity Editor while the Unity Editor is in Play Mode.</p>
+<p>当 Unity 编辑器处于运行模式时，可以调试在 Unity 编辑器中运行的 C# 代码。</p>
 
-<p>To debug in the Editor, you need to set the Editor’s Code Optimization mode to <strong>Debug Mode</strong>, then you can attach a code editor with a debugging feature.</p>
+<p>要在编辑器中进行调试，您需要将编辑器的代码优化模式设置为 <strong>Debug Mode</strong>，然后您可以附加具有调试功能的代码编辑器。</p>
 
 <p><a name="CodeOptimizationMode"></a>
-To change the Code Optimization mode, select the Debug Button in the bottom right of the <strong>Unity Editor Status Bar</strong>.</p>
+要更改代码优化模式，请选择 <strong>Unity 编辑器状态栏</strong>右下角的 Debug 按钮。</p>
 
 <figure>
-<img src="../uploads/Main/MCDCodeOptimizationButton.png" alt="The Debug Button in the bottom right of the Unity Editor Status Bar">
-<figcaption>The Debug Button in the bottom right of the Unity Editor Status Bar</figcaption>
+<img src="../uploads/Main/MCDCodeOptimizationButton.png" alt=" Unity 编辑器状态栏右下角的 Debug 按钮">
+<figcaption> Unity 编辑器状态栏右下角的 Debug 按钮</figcaption>
 </figure>
 
-<p>Unity’s Code Optimization setting has two modes.</p>
+<p>Unity 的代码优化设置有两种模式。</p>
 
 <ul>
 <li>
-<strong>Debug Mode</strong>, which you can use to attach external debugger software, but gives slower C# performance when you run your Project in Play Mode in the Editor.</li>
+<strong>Debug Mode</strong>，您可以使用该模式附加外部调试器软件，但在编辑器中以运行模式运行项目时会导致 C# 性能下降。</li>
 <li>
-<strong>Release Mode</strong>, which gives faster C# performance when you run your Project in Play Mode in the Editor, but you cannot attach any external debuggers.</li>
+<strong>Release Mode</strong>，您可以以较高的 C# 性能在编辑器中以运行模式运行项目，但无法附加外部调试器软件。</li>
 </ul>
 
-<p>When you click the Debug button in the status bar, a small pop-up window opens which contains a button you can use to switch modes. It also displays information about the current mode, and describes what happens if you switch modes. </p>
+<p>当您单击状态栏中的 Debug 按钮时，会打开一个小弹出窗口，其中包含一个可用于切换模式的按钮。它还显示有关当前模式的信息，并描述切换模式时会发生什么。</p>
 
 <figure>
-<img src="../uploads/Main/MCDCodeOptimizationPopup.png" alt="The Debug Mode popup, which shows the current mode, allows you to switch modes, and describes what happens if you switch mode.">
-<figcaption>The Debug Mode popup, which shows the current mode, allows you to switch modes, and describes what happens if you switch mode.</figcaption>
+<img src="../uploads/Main/MCDCodeOptimizationPopup.png" alt=" Debug Mode 弹出窗口，其中显示当前模式，允许您切换模式，并描述切换模式时会发生什么。">
+<figcaption> Debug Mode 弹出窗口，其中显示当前模式，允许您切换模式，并描述切换模式时会发生什么。</figcaption>
 </figure>
 
-<p>To change which mode the Unity Editor starts up in, go to <strong>Edit &gt; Preferences &gt; General &gt; Code Optimization On Startup</strong>.</p>
+<p>要更改 Unity 编辑器启动时的模式，请转到 <strong>Edit &gt; Preferences &gt; General &gt; Code Optimization On Startup</strong>。</p>
 
 <figure>
-<img src="../uploads/Main/MCDCodeOptimizationStartupPref.png" alt="In Preferences, you can change the Code Optimization mode that Unity starts in.">
-<figcaption>In Preferences, you can change the Code Optimization mode that Unity starts in.</figcaption>
+<img src="../uploads/Main/MCDCodeOptimizationStartupPref.png" alt="在 Preferences 中，您可以更改 Unity 启动时的代码优化模式。">
+<figcaption>在 Preferences 中，您可以更改 Unity 启动时的代码优化模式。</figcaption>
 </figure>
 
-<p>To control these settings via a script, use the following API:
-<a href="../ScriptReference/Scripting.ManagedDebugger.html">ManagedDebugger</a>,
-<a href="../ScriptReference/Compilation.CompilationPipeline-codeOptimization.html">Compilation.CompilationPipeline-codeOptimization</a>, and
-<a href="../ScriptReference/Compilation.CodeOptimization.html">Compilation.CodeOptimization</a>.</p>
+<p>要通过脚本控制这些设置，请使用以下 API：
+<a href="../ScriptReference/Scripting.ManagedDebugger.html">ManagedDebugger</a>、
+<a href="../ScriptReference/Compilation.CompilationPipeline-codeOptimization.html">Compilation.CompilationPipeline-codeOptimization</a> 和<br>
+<a href="../ScriptReference/Compilation.CodeOptimization.html">Compilation.CodeOptimization</a>。</p>
 
-<p>You can also override the mode that the Editor starts up in, or turn off the debugger listen socket. To do this, use the following <a href="CommandLineArguments.html">command line arguments</a> when you launch the Editor:</p>
+<p>您还可以覆盖编辑器启动时的模式，或关闭调试器侦听套接字。为此，当您启动编辑器时请使用以下<a href="CommandLineArguments.html">命令行参数</a>：</p>
 
 <ul>
 <li>
-<code>-releaseCodeOptimization</code> Starts the Editor in <strong>release</strong> code optimization mode.</li>
+<code>-releaseCodeOptimization</code> 以 <strong>release</strong> 代码优化模式启动编辑器。</li>
 <li>
-<code>-debugCodeOptimization</code> Starts the Editor in <strong>debug</strong> code optimization mode.</li>
+<code>-debugCodeOptimization</code> 以 <strong>debug</strong> 代码优化模式启动编辑器。</li>
 <li>
-<code>-disableManagedDebugger</code> Starts the Editor with the debugger listen socket disabled.</li>
+<code>-disableManagedDebugger</code> 在禁用调试器侦听套接字的情况下启动编辑器。</li>
 </ul>
 
-<h3>Setting breakpoints and attaching to the Editor</h3>
+<h3>设置断点并附加到编辑器</h3>
 
-<p>In your external code editor, set a breakpoint in the code editor on a line of script code where the debugger should stop. For example, in Visual Studio, click on the column to the left of your code, on the line you want to stop the debugger (as shown below). A red circle appears next to the line number and the line is highlighted.</p>
+<p>在外部代码编辑器中，根据调试器应该停止的脚本代码行位置，在该位置设置一个断点。例如，在 Visual Studio 中，在希望停止调试器的代码行位置，单击代码左侧的列（如下所示）。行号旁边会出现一个红色的圆，并会高亮显示这一行。</p>
 
 <figure>
-<img src="../uploads/Main/MCDBreakPoints.png" alt="A breakpoint set in Visual Studio">
-<figcaption>A breakpoint set in Visual Studio</figcaption>
+<img src="../uploads/Main/MCDBreakPoints.png" alt=" 在 Visual Studio 中设置的断点">
+<figcaption> 在 Visual Studio 中设置的断点</figcaption>
 </figure>
 
 <p>接下来，将代码编辑器连接到 Unity Editor。此选项根据代码编辑器而有所不同，通常是与代码编辑器的正常调试过程不同的选项。在 Visual Studio 中，此选项如下所示：</p>
 
 <figure>
-<img src="../uploads/Main/MCDAttachToUnity.png" alt="The Attach To Unity button in Visual Studio">
-<figcaption>The <strong>Attach To Unity</strong> button in Visual Studio</figcaption>
+<img src="../uploads/Main/MCDAttachToUnity.png" alt="Visual Studio 中的 Attach To Unity 按钮">
+<figcaption>Visual Studio 中的 <strong>Attach To Unity</strong> 按钮</figcaption>
 </figure>
 
 <p>一些代码编辑器可能允许选择要调试的 Unity 实例。例如，在 Visual Studio 中，__Debug &gt; Attach Unity Debugger__ 选项可显示此功能。</p>
 
 <figure>
-<img src="../uploads/Main/MCDEditorUnityInstance.png" alt="Visual Studio listing the current instances of Unity available to debug. In this example, there is one instance running in the Editor and one instance running as an Android Plyaer">
-<figcaption>Visual Studio listing the current instances of Unity available to debug. In this example, there is one instance running in the Editor and one instance running as an Android Plyaer</figcaption>
+<img src="../uploads/Main/MCDEditorUnityInstance.png" alt=" Visual Studio 列出了可用于调试的当前 Unity 实例。在本例中，编辑器中有一个实例运行，一个实例作为 Android Player 运行">
+<figcaption> Visual Studio 列出了可用于调试的当前 Unity 实例。在本例中，编辑器中有一个实例运行，一个实例作为 Android Player 运行</figcaption>
 </figure>
 
 <p>将代码编辑器连接到 Unity Editor 后，回到 Unity Editor 并进入播放模式。当执行断点处的代码时，调试器将停止，例如：</p>
 
 <figure>
-<img src="../uploads/Main/MCDReachedBreakPoint.png" alt="The debugger in Visual Studio when it has stopped at a breakpoint">
-<figcaption>The debugger in Visual Studio when it has stopped at a breakpoint</figcaption>
+<img src="../uploads/Main/MCDReachedBreakPoint.png" alt=" Visual Studio 中的调试器在断点处停止">
+<figcaption> Visual Studio 中的调试器在断点处停止</figcaption>
 </figure>
 
 <p>当代码编辑器处于断点时，您可以逐步查看变量的内容。只有在调试器中选择了继续选项或停止调试模式之后，Unity Editor 才会响应。</p>
@@ -417,13 +417,13 @@ Multi-casting "[IP] 10.0.1.152 [Port] 55000 [Flags] 3 [Guid] 2575380029 [EditorI
 <span class="prev"><a href="ScriptingToolsIDEs.html"></a></span><div class="tip">集成开发环境 (IDE) 支持</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="testing-editortestsrunner.html"></a></span><div class="tip">Unit Testing</div>
+<span class="next"><a href="testing-editortestsrunner.html"></a></span><div class="tip">单元测试。</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

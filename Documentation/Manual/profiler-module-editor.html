@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Profiler Module Editor - Unity 手册">
-<title>Profiler Module Editor - Unity 手册</title>
+<meta property="og:title" content="Profiler Module Editor（性能分析器模块编辑器） - Unity 手册">
+<title>Profiler Module Editor（性能分析器模块编辑器） - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/profiler-module-editor.png">
-<meta name="description" content="The Profiler Module Editor is a tool that you can use to add your own custom modules to the Unity Profiler window. You can also add built-in counters to modules, or use the runtime API to add your own custom counters to modules. For information on how to implement your own counters, see the Profiling package documentation on Profiler Counters API.">
-<meta property="og:description" content="The Profiler Module Editor is a tool that you can use to add your own custom modules to the Unity Profiler window. You can also add built-in counters to modules, or use the runtime API to add your own custom counters to modules. For information on how to implement your own counters, see the Profiling package documentation on Profiler Counters API.">
+<meta name="description" content="Profiler Module Editor 工具可用于将您自己的自定义模块添加到 Unity Profiler 窗口。您还可以向模块添加内置计数器，或使用运行时 API 将您自己的自定义计数器添加到模块。有关如何实现自己的计数器的信息，请参阅有关 Profiler Counters API 的 Profiling 包文档。">
+<meta property="og:description" content="Profiler Module Editor 工具可用于将您自己的自定义模块添加到 Unity Profiler 窗口。您还可以向模块添加内置计数器，或使用运行时 API 将您自己的自定义计数器添加到模块。有关如何实现自己的计数器的信息，请参阅有关 Profiler Counters API 的 Profiling 包文档。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,94 +175,94 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UnityOverview.html">在 Unity 中操作</a></li>
 <li><a href="analysis.html">分析</a></li>
-<li><a href="Profiler.html">Profiler overview</a></li>
-<li>Profiler Module Editor</li>
+<li><a href="Profiler.html">性能分析器概述</a></li>
+<li>Profiler Module Editor（性能分析器模块编辑器）</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="profiler-virtual-texturing-module.html"></a></span><div class="tip">Virtual Texturing Profiler module</div>
+<span class="prev"><a href="profiler-virtual-texturing-module.html"></a></span><div class="tip">Virtual Texturing Profiler 模块</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="LowLevelNativePluginProfiler.html"></a></span><div class="tip">低级原生插件 Profiler API</div>
 </div>
 </div></div>
-<h1>Profiler Module Editor</h1>
+<h1>Profiler Module Editor（性能分析器模块编辑器）</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>The Profiler Module Editor is a tool that you can use to add your own custom modules to the Unity Profiler window. You can also add built-in counters to modules, or use the runtime API to add your own custom counters to modules. For information on how to implement your own counters, see the Profiling package documentation on <a href="https://docs.unity3d.com/Packages/com.unity.profiling.core@latest/index.html?subfolder=/manual/profilercounter-guide.html">Profiler Counters API</a>.</p>
+<p>Profiler Module Editor 工具可用于将您自己的自定义模块添加到 Unity Profiler 窗口。您还可以向模块添加内置计数器，或使用运行时 API 将您自己的自定义计数器添加到模块。有关如何实现自己的计数器的信息，请参阅有关 <a href="https://docs.unity3d.com/Packages/com.unity.profiling.core@latest/index.html?subfolder=/manual/profilercounter-guide.html">Profiler Counters API</a> 的 Profiling 包文档。</p>
 
-<p>It’s particularly useful when you need to hone in on statistics that you want to analyze deeper, or to add custom statistics about your application to the Profiler window.</p>
-
-<figure>
-<img src="../uploads/Main/profiler-module-editor.png" alt="The Profiler Module Editor window, with a new module selected">
-<figcaption>The Profiler Module Editor window, with a new module selected</figcaption>
-</figure>
-
-<p>To use the Profiler Module Editor, open the Profiler Window (<strong>Window &gt; Analysis &gt; Profiler</strong>) and then select the Profiler Modules dropdown. </p>
+<p>当您需要深入了解要进一步分析的统计信息，或打算将有关您的应用程序的自定义统计信息添加到 Profiler 窗口时，此工具特别有用。</p>
 
 <figure>
-<img src="../uploads/Main/profiler-module-dropdown.png" alt="The Profiler module dropdown">
-<figcaption>The Profiler module dropdown</figcaption>
+<img src="../uploads/Main/profiler-module-editor.png" alt=" Profiler Module Editor 窗口，选择了一个新模块">
+<figcaption> Profiler Module Editor 窗口，选择了一个新模块</figcaption>
 </figure>
 
-<p>Select the gear icon, and the <strong>Profiler Module Editor</strong> window opens. The window has three columns:</p>
+<p>要使用 Profiler Module Editor，请打开 Profiler 窗口 (<strong>Window &gt; Analysis &gt; Profiler</strong>)，然后选择 Profiler Modules 下拉选单。</p>
+
+<figure>
+<img src="../uploads/Main/profiler-module-dropdown.png" alt="The Profiler module 下拉选单">
+<figcaption>The Profiler module 下拉选单</figcaption>
+</figure>
+
+<p>选择齿轮图标，打开 <strong>Profiler Module Editor</strong> 窗口。该窗口包含三列：</p>
 
 <ul>
 <li>
-<strong>List of Profiler Modules:</strong> This list contains all of the available modules you can add to the Profiler Window. Built-in modules are greyed-out in the list, indicating that you cannot edit their contents. You can drag and drop the modules to reorder their appearance in the Profiler window. When you create your own custom Profiler Module, it also appears in this list.</li>
+<strong>Profiler Module 的列表：</strong> 此列表包含可添加到 Profiler 窗口的所有可用模块。内置模块在列表中呈灰色显示，表示您无法编辑其内容。您可以拖放模块以重新排列它们在 Profiler 窗口中的显示顺序。当您创建自己的自定义性能分析器模块时，该模块也会出现在此列表中。</li>
 <li>
-<strong>Profiler Module information pane</strong> (only appears when you create or select a custom module): Lists the counters contained in the custom module</li>
+<strong>Profiler Module 信息窗格</strong>（仅在您创建或选择自定义模块时出现）：列出自定义模块中包含的计数器</li>
 <li>
-<strong>Available counters</strong> (only appears when you create or select a custom module): Lists the available counters you can add to the custom module.</li>
+<strong>可用计数器</strong>（仅在您创建或选择自定义模块时出现）：列出您可以添加到自定义模块的可用计数器。</li>
 </ul>
 
-<h2>Creating a custom module</h2>
+<h2>创建自定义模块</h2>
 
-<p>To create a custom module, select the <strong>Add</strong> button in the bottom left of the Profiler Module Editor window. Unity adds a new Profiler module to the list called <strong>New Profiler Module</strong>. To rename the module, click in the text field and use your keyboard to set the name.</p>
+<p>要创建自定义模块，请选择 Profiler Module Editor 窗口左下角的 <strong>Add</strong> 按钮。Unity 在名为 <strong>New Profiler Module</strong> 的列表中添加了一个新的 Profiler 模块。要重命名该模块，请单击文本字段并使用键盘设置名称。</p>
 
-<h3>Adding counters to a module</h3>
+<h3>向模块添加计数器</h3>
 
-<p>To collect data in the custom Profiler module, you must add at least one counter for the module to track. You can add both built-in Unity counters, or use the <a href="../ScriptReference/Unity.Profiling.ProfilerRecorder.html">ProfilerRecorder</a> API to create your own counters to add to the module. The list of available counters appears in the <strong>Available Counters</strong> pane.</p>
+<p>要在自定义性能分析器模块中收集数据，您必须至少添加一个计数器以便模块进行跟踪。您可以添加内置的两个 Unity 计数器，或使用 <a href="../ScriptReference/Unity.Profiling.ProfilerRecorder.html">ProfilerRecorder</a> API 创建您自己的计数器以添加到模块。可用计数器列表在 <strong>Available Counters</strong> 窗格中显示。</p>
 
-<p>If you don’t have any data loaded into the Profiler window, then any counters you’ve created do not appear in the <strong>Available Counters</strong> pane when you load the Profiler Module Editor. To see your custom counters, you must capture or load some data that has your emitted counters in with the Profiler, and reopen the Profiler Module Editor.</p>
+<p>如果您没有将任何数据加载到 Profiler 窗口中，那么您创建的任何计数器在加载 Profiler Module Editor 时都不会出现在 <strong>Available Counters</strong> 窗格中。要查看您的自定义计数器，您必须使用 Profiler 捕获或加载一些包含您发出的计数器的数据，然后重新打开 Profiler Module Editor。</p>
 
-<p>The available Unity counters are divided into three areas: <a href="ProfilerMemory.html">Memory</a>, <a href="ProfilerRender">Render</a>, and <a href="profiler-virtual-texturing">Virtual Texturing</a>. For more information on the specific counters available in these areas, see the documentation for each module.</p>
+<p>可用的 Unity 计数器分为三类：<a href="ProfilerMemory.html">Memory</a>、<a href="ProfilerRender">Render</a> 和 <a href="profiler-virtual-texturing">Virtual Texturing</a>。有关这些类别中的可用特定计数器的更多信息，请参阅每个模块的文档。</p>
 
-<p>If you use the API to add your own counters, you must load or collect some data into the Profiler window first, and then your custom counters appear in the <strong>Available Counters</strong> pane under the <strong>User</strong> heading of the Profiler Module Editor.</p>
+<p>如果您使用 API 添加自己的计数器，则必须先将一些数据加载或收集到 Profiler 窗口中，然后您的自定义计数器才会出现在 Profiler Module Editor 的 <strong>User</strong> 标题下的 <strong>Available Counters</strong> 窗格中。</p>
 
 <figure>
-<img src="../uploads/Main/profiler-module-editor-user-counters.png" alt="Profiler Module Editor with User counters listed.">
-<figcaption>Profiler Module Editor with User counters listed.</figcaption>
+<img src="../uploads/Main/profiler-module-editor-user-counters.png" alt="列出用户计数器的 Profiler Module Editor。">
+<figcaption>列出用户计数器的 Profiler Module Editor。</figcaption>
 </figure>
 
-<p>To add a counter to a module, select it in the <strong>Available Counters</strong> list and then select the <strong>Add Selected</strong> button. Alternatively, you can double-click a counter to add it to a module. Unity then adds these counters to the selected Profiler module. To add multiple counters to the module at once, you can hold down <strong>Shift</strong> and click two counters to select all the counters between the two, or you can hold down <strong>Ctrl</strong> (<strong>Command</strong> on macOS) to select counters one at a time, then select the <strong>Add Selected</strong> button.</p>
+<p>要将计数器添加到模块，请在 <strong>Available Counters</strong> 列表中选择该计数器，然后选择 <strong>Add Selected</strong> 按钮。或者，您可以双击计数器将其添加到模块中。Unity 然后将这些计数器添加到选定的 Profiler 模块。要一次向模块添加多个计数器，您可以按住 <strong>Shift</strong> 键并单击两个计数器以选择两者之间的所有计数器，或者您可以按住 <strong>Ctrl</strong>（macOS 上为 <strong>Command</strong> 键）逐一选择计数器，然后选择 <strong>Add Selected</strong> 按钮。</p>
 
-<p>To reorder the counters, you can drag and drop them. You can only add a maximum of 10 counters to a module.</p>
+<p>要对计数器重新排序，可对计数器执行拖放操作。一个模块最多只能添加 10 个计数器。</p>
 
-<h3>Using custom modules</h3>
+<h3>使用自定义模块</h3>
 
-<p>When you are happy with your custom module, select the <strong>Save Changes</strong> button in the bottom right corner of the Profiler Module Editor window. Unity closes the window, and you can then see your new module listed in the Profiler Window.</p>
+<p>如果您对自定义模块感到满意，请选择 Profiler Module Editor 窗口右下角的 <strong>Save Changes</strong> 按钮。Unity 关闭窗口，然后您可以在 Profiler 窗口中看到您的新模块。</p>
 
 <figure>
-<img src="../uploads/Main/profiler-garbage-collection-module.png" alt="Profiler Module Editor (left), with a custom module. On the right, the custom module in the Profiler window.">
-<figcaption>Profiler Module Editor (left), with a custom module. On the right, the custom module in the Profiler window.</figcaption>
+<img src="../uploads/Main/profiler-garbage-collection-module.png" alt="带有自定义模块的 Profiler Module Editor（左）。右侧是 Profiler 窗口中的自定义模块。">
+<figcaption>带有自定义模块的 Profiler Module Editor（左）。右侧是 Profiler 窗口中的自定义模块。</figcaption>
 </figure>
 
-<p>To effectively use and compare your data against the built-in modules, you can reorder the modules in the Profiler Window. To do this, open the Profiler Module Editor, and then drag and drop modules in the <strong>Profiler Modules</strong> pane.</p>
+<p>为了有效地使用您的数据并将其与内置模块进行比较，您可以在 Profiler 窗口中对模块重新排序。为此，请打开 Profiler Module Editor，然后将模块拖放到 <strong>Profiler Modules</strong> 窗格。</p>
 
-<p>This is particularly useful if you want to inspect custom elements of your application against spikes in the built-in Profiler data.</p>
+<p>如果您想根据内置性能分析器数据中的峰值检查应用程序的自定义元素，这将特别有用。</p>
 
 <figure>
-<img src="../uploads/Main/profiler-window-custom-module.png" alt="A custom Profiler Module displaying the number of bullets and tanks on screen in the game. Note the correspondence to the rendering data.">
-<figcaption>A custom Profiler Module displaying the number of bullets and tanks on screen in the game. Note the correspondence to the rendering data.</figcaption>
+<img src="../uploads/Main/profiler-window-custom-module.png" alt="一个自定义性能分析器模块，在游戏屏幕上显示子弹和坦克的数量。注意与渲染数据的对应关系。">
+<figcaption>一个自定义性能分析器模块，在游戏屏幕上显示子弹和坦克的数量。注意与渲染数据的对应关系。</figcaption>
 </figure>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="profiler-virtual-texturing-module.html"></a></span><div class="tip">Virtual Texturing Profiler module</div>
+<span class="prev"><a href="profiler-virtual-texturing-module.html"></a></span><div class="tip">Virtual Texturing Profiler 模块</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="LowLevelNativePluginProfiler.html"></a></span><div class="tip">低级原生插件 Profiler API</div>
@@ -271,7 +271,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

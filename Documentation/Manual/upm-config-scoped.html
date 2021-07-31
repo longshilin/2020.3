@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Scoped registry authentication - Unity 手册">
-<title>Scoped registry authentication - Unity 手册</title>
-<meta name="description" content="Some organizations host their own packages on private package registries that require authentication to access. If you are an employee or customer of one of those organizations, you must configure a scoped registry with npm authentication. To set this up, get an npm authentication token and then add that token to your user configuration file.">
-<meta property="og:description" content="Some organizations host their own packages on private package registries that require authentication to access. If you are an employee or customer of one of those organizations, you must configure a scoped registry with npm authentication. To set this up, get an npm authentication token and then add that token to your user configuration file.">
+<meta property="og:title" content="范围注册表身份验证 - Unity 手册">
+<title>范围注册表身份验证 - Unity 手册</title>
+<meta name="description" content="一些组织将他们自己的包托管在需要身份验证才能访问的私有包注册表上。如果您是这类组织的员工或客户，则必须使用 npm 身份验证来配置一个范围注册表。要进行设置，请获取 npm 身份验证令牌，然后将该令牌添加到您的用户配置文件中。">
+<meta property="og:description" content="一些组织将他们自己的包托管在需要身份验证才能访问的私有包注册表上。如果您是这类组织的员工或客户，则必须使用 npm 身份验证来配置一个范围注册表。要进行设置，请获取 npm 身份验证令牌，然后将该令牌添加到您的用户配置文件中。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,58 +174,57 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="PackagesList.html">包</a></li>
 <li><a href="Packages.html">Unity 的 Package Manager</a></li>
-<li><a href="upm-config.html">Configuration</a></li>
-<li>Scoped registry authentication</li>
+<li><a href="upm-config.html">配置</a></li>
+<li>范围注册表身份验证</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="upm-config-network.html"></a></span><div class="tip">Solving network issues</div>
+<span class="prev"><a href="upm-config-network.html"></a></span><div class="tip">解决网络问题</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="upm-ui.html"></a></span><div class="tip">Package Manager 窗口</div>
 </div>
 </div></div>
-<h1>Scoped registry authentication</h1>
+<h1>范围注册表身份验证</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>Some organizations host their own packages on private package registries that require authentication to access. If you are an employee or customer of one of those organizations, you must configure a scoped registry with npm authentication. To set this up, <a href="#token">get an npm authentication token</a> and then <a href="#configfile">add that token to your user configuration file</a>.</p>
+<p>一些组织将他们自己的包托管在需要身份验证才能访问的私有包注册表上。如果您是这类组织的员工或客户，则必须使用 npm 身份验证来配置一个范围注册表。要进行设置，请<a href="#token">获取 npm 身份验证令牌</a>，然后<a href="#configfile">将该令牌添加到您的用户配置文件中</a>。</p>
 
 <p><a name="token"></a></p>
 
-<h2>Fetching the npm authentication token</h2>
+<h2>获取 npm 身份验证令牌</h2>
 
-<p>The process of creating and accessing an npm authentication token is different for each registry provider. For example, JFrog’s <a href="https://bintray.com/">Bintray</a> and <a href="https://www.jfrog.com/confluence/display/JFROG/JFrog+Artifactory">Artifactory</a> repository managers use a different procedure to generate the authentication token from npm. This is an example of a typical procedure, but you need to follow the process recommended by the specific package registry provider for your scoped registry.</p>
+<p>对于各注册表提供程序，创建和访问 npm 身份验证令牌的过程均不同。例如，JFrog 的 <a href="https://bintray.com/">Bintray</a> 和 <a href="https://www.jfrog.com/confluence/display/JFROG/JFrog+Artifactory">Artifactory</a> 代码仓库管理器使用不同的过程从 npm 生成身份验证令牌。这是典型过程的示例，但您需要遵循特定包注册表提供程序为您的范围注册表推荐的过程。</p>
 
-<p>To fetch an authentication token from npm:</p>
+<p>要从 npm 获取身份验证令牌：</p>
 
-<ol>
-<li><p>Install <a href="https://www.npmjs.com/get-npm">npm</a> locally on your machine.</p></li>
-<li>
-<p>From a terminal, enter this command to log into the registry:</p>
+<p>1.在您的机器上本地安装 <a href="https://www.npmjs.com/get-npm">npm</a>。</p>
 
-<p><code>$ npm login --registry &lt;registry url&gt;</code></p>
-</li>
-<li><p>Locate and open the generated <a href="https://docs.npmjs.com/files/npmrc">.npmrc</a> file. </p></li>
-<li>
-<p>Locate either the <code>_authToken</code> or the <code>_auth</code> entry and copy its value (see the example below).</p>
+<p>2.从终端输入以下命令以登录注册表：</p>
 
-<p>Depending on the registry, the token string can be either a GUID, a token, or a proprietary-formatted string.</p>
-</li>
-</ol>
+<pre><code>`$ npm login --registry &lt;registry url&gt;`
+</code></pre>
 
-<h3>Examples of .npmrc files</h3>
+<p>3.找到并打开生成的 <a href="https://docs.npmjs.com/files/npmrc">.npmrc</a> 文件。</p>
 
-<p>This is an example of an <code>.npmrc</code> file containing an <code>_authToken</code> attribute:</p>
+<p>4.找到 <code>_authToken</code> 或 <code>_auth</code> 条目并复制其值（请参见下面的示例）。</p>
+
+<pre><code>根据注册表，令牌字符串可以是 GUID、令牌或专有格式的字符串。
+</code></pre>
+
+<h3>.npmrc 文件示例</h3>
+
+<p>这是一个包含 <code>_authToken</code> 属性的 <code>.npmrc</code> 文件示例：</p>
 
 <pre><code>registry=https://example.com:1234/mylocation/
 //example.com:1234/mylocation/:_authToken=&lt;AUTH TOKEN&gt;
 </code></pre>
 
-<p>This is an example of an <code>.npmrc</code> file containing an<code>_auth</code> attribute:</p>
+<p>这是一个包含 <code>_auth</code> 属性的 <code>.npmrc</code> 文件示例：</p>
 
 <pre><code>registry=https://example.com:1234/mylocation
 _auth=&lt;AUTH TOKEN&gt;
@@ -235,16 +234,15 @@ always-auth=true
 
 <p><a name="configfile"></a></p>
 
-<h2>Configuring authentication information</h2>
+<h2>配置身份验证信息</h2>
 
-<p>Store your token information for each scoped registry that requires authentication in the <a href="upm-config.html#upmconfigUser"><code>.upmconfig.toml</code> user configuration file</a> using the <code>npmAuth</code> configuration schema. Once you save this information to the configuration file, Package Manager will provide your authentication information on every request made to each registry in the file.</p>
+<p>使用 <code>npmAuth</code> 配置模式，将需要身份验证的每个范围注册表的令牌信息存储在 <a href="upm-config.html#upmconfigUser"><code>.upmconfig.toml</code> 用户配置文件</a>。将此信息保存到配置文件后，Package Manager 将针对向文件中的每个注册表发出的每个请求提供您的身份验证信息。</p>
 
-<p>Follow these instructions to add your authentication information to the user configuration file:</p>
+<p>按照以下说明将您的身份验证信息添加到用户配置文件中：</p>
 
-<ol>
-<li><p>Locate the <a href="upm-config.html#upmconfigUser"><code>.upmconfig.toml</code> user configuration file</a>. If the file does not already exist, create an empty text file.</p></li>
-<li><p>Format your authentication information using a schema, depending on whether you are using a Bearer (token-based) or Basic (Base64-encrypted) authentication mechanism:</p></li>
-</ol>
+<p>1.找到 <a href="upm-config.html#upmconfigUser"><code>.upmconfig.toml</code> 用户配置文件</a>。如果该文件尚不存在，请创建一个空文本文件。</p>
+
+<p>2.使用一种模式格式化您的身份验证信息，具体取决于您使用的是 Bearer（基于令牌）还是 Basic（Base64 加密）身份验证机制：</p>
 
 <pre><code class="lang-toml">[npmAuth."&lt;REGISTRY URL&gt;"]
 &lt;TOKEN-PROPERTY&gt; = "&lt;TOKEN-VALUE&gt;"
@@ -252,7 +250,7 @@ email = "&lt;EMAIL&gt;"
 alwaysAuth = &lt;BOOLEAN&gt;
 </code></pre>
 
-<p>This table clarifies how to specify the configuration file values:</p>
+<p>下表阐明了如何指定配置文件值：</p>
 
 <table>
 <colgroup>
@@ -262,7 +260,7 @@ alwaysAuth = &lt;BOOLEAN&gt;
 
 <thead>
 <tr>
-	<th style="text-align:left;"><strong>Entry:</strong></th>
+	<th style="text-align:left;"><strong>条目</strong></th>
 	<th style="text-align:left;"><strong>描述：</strong></th>
 </tr>
 </thead>
@@ -270,24 +268,24 @@ alwaysAuth = &lt;BOOLEAN&gt;
 <tbody>
 <tr>
 	<td style="text-align:left;"><code>[npmAuth."&lt;REGISTRY URL&gt;"]</code></td>
-	<td style="text-align:left;">Required. URL for the registry. For example, <code>[npmAuth."https://example.com:8081/mylocation"]</code>.</td>
+	<td style="text-align:left;">必需。注册表 URL。例如，<code>[npmAuth."https://example.com:8081/mylocation"]</code>。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>&lt;TOKEN-PROPERTY&gt; = "&lt;TOKEN-VALUE&gt;"</code></td>
-	<td style="text-align:left;">Required. The authentication token <a href="#token">generated from the npm registry</a>. This could be either a GUID, a token, or a proprietary-formatted string. For example, this could be either <code>token = "&lt;AUTH TOKEN&gt;"</code> (Bearer) or <code>_auth = "&lt;BASE64 TOKEN&gt;"</code> (Basic).</td>
+	<td style="text-align:left;">必需。<a href="#token">从 npm 注册表生成</a>的身份验证令牌。可以是 GUID、令牌或专有格式的字符串。例如，可以是 <code>token = "&lt;AUTH TOKEN&gt;"</code> (Bearer) 或 <code>_auth = "&lt;BASE64 TOKEN&gt;"</code> (Basic)。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>email</strong></td>
-	<td style="text-align:left;">Optional. Email address for the user matching the user’s email on the registry.</td>
+	<td style="text-align:left;">可选。与注册表中用户电子邮件匹配的用户的电子邮件地址。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>alwaysAuth</strong></td>
-	<td style="text-align:left;">Optional. Set to true if the package metadata and tarballs are not located on the same server. Typically, you can copy the value from <a href="#token">the <code>.npmrc</code> file you generated</a>.</td>
+	<td style="text-align:left;">可选。如果包元数据和 tarball 不在同一服务器上，则设置为 true。通常，您可以从<a href="#token">生成的 <code>.npmrc</code> 文件</a>复制该值。</td>
 </tr>
 </tbody>
 </table>
 
-<h3>Example using Bearer authentication</h3>
+<h3>使用 Bearer 身份验证的示例</h3>
 
 <pre><code class="lang-toml">[npmAuth."http://localhost:8081/myrepository/mylocation"]
 token = "NpmToken.2348c7ea-6f86-3dbe-86b6-f257e86569a8"
@@ -301,12 +299,9 @@ token = "aGFzY2FsbDo4ZWIwNTM5NzBjNTI3OTIwYjQ4MDVkYzY2YWEzNmQxOTkyNDYzZjky"
 email = "username@example.com"
 alwaysAuth = true
 </code></pre>
-
-<p><br> </p>
-<!-- area:authoring -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="upm-config-network.html"></a></span><div class="tip">Solving network issues</div>
+<span class="prev"><a href="upm-config-network.html"></a></span><div class="tip">解决网络问题</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="upm-ui.html"></a></span><div class="tip">Package Manager 窗口</div>
@@ -315,7 +310,7 @@ alwaysAuth = true
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

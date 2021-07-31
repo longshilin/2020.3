@@ -175,8 +175,8 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="AssetWorkflow.html">资源工作流程</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="AssetWorkflow.html">Asset Workflow</a></li>
 <li><a href="AssetBundlesIntro.html">AssetBundle</a></li>
 <li>构建 AssetBundle</li>
 </ul></div>
@@ -204,7 +204,7 @@
 
 <ul>
 <li><p><code>BuildAssetBundleOptions.None</code>：此捆绑包选项使用 LZMA 格式压缩，这是一个压缩的 LZMA 序列化数据文件流。LZMA 压缩要求在使用捆绑包之前对整个捆绑包进行解压缩。此压缩使文件大小尽可能小，但由于需要解压缩，加载时间略长。值得注意的是，在使用此 BuildAssetBundleOptions 时，为了使用捆绑包中的任何资源，必须首先解压缩整个捆绑包。<br>解压缩捆绑包后，将使用 LZ4 压缩技术在磁盘上重新压缩捆绑包，这不需要在使用捆绑包中的资源之前解压缩整个捆绑包。最好在包含资源时使用，这样，使用捆绑包中的一个资源意味着将加载所有资源。这种捆绑包的一些用例是打包角色或场景的所有资源。<br>由于文件较小，建议仅从异地主机初次下载 AssetBundle 时才使用 LZMA 压缩。通过 <a href="../ScriptReference/Networking.UnityWebRequestAssetBundle.html">UnityWebRequestAssetBundle</a> 加载的 LZMA 压缩格式 Asset Bundle 会自动重新压缩为 LZ4 压缩格式并缓存在本地文件系统上。如果通过其他方式下载并存储捆绑包，则可以使用 <a href="../ScriptReference/AssetBundle.RecompressAssetBundleAsync.html">AssetBundle.RecompressAssetBundleAsync</a> API 对其进行重新压缩。</p></li>
-<li><p><code>BuildAssetBundleOptions.UncompressedAssetBundle</code>: This bundle option builds the bundles in such a way that the data is completely uncompressed. The downside to being uncompressed is the larger file download size. However, the load times once downloaded will be much faster. Uncompressed AssetBundles are 16-byte aligned.</p></li>
+<li><p><code>BuildAssetBundleOptions.UncompressedAssetBundle</code>：此捆绑包选项采用使数据完全未压缩的方式构建捆绑包。未压缩的缺点是文件下载大小增大。但是，下载后的加载时间会快得多。未压缩的 AssetBundles 是 16 字节对齐的。</p></li>
 <li><p><code>BuildAssetBundleOptions.ChunkBasedCompression</code>：此捆绑包选项使用称为 LZ4 的压缩方法，因此压缩文件大小比 LZMA 更大，但不像 LZMA 那样需要解压缩整个包才能使用捆绑包。LZ4 使用基于块的算法，允许按段或“块”加载 AssetBundle。解压缩单个块即可使用包含的资源，即使 AssetBundle 的其他块未解压缩也不影响。</p></li>
 </ul>
 
@@ -281,7 +281,7 @@ AssetBundleManifest:
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

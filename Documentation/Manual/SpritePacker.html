@@ -14,8 +14,8 @@
 <meta property="og:title" content="Sprite Packer - Unity 手册">
 <title>Sprite Packer - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/SpritePackerMain.jpg">
-<meta name="description" content="Please note that Sprite Packer is deprecated for Unity 2020.1 and newer, and will no longer be available as an option from Sprite Packer Modes. Existing Projects already using Sprite Packer will still be able to continue using it, however any new Project created in 2020.1 onwards will default to the Sprite Atlas system when packing Textures.">
-<meta property="og:description" content="Please note that Sprite Packer is deprecated for Unity 2020.1 and newer, and will no longer be available as an option from Sprite Packer Modes. Existing Projects already using Sprite Packer will still be able to continue using it, however any new Project created in 2020.1 onwards will default to the Sprite Atlas system when packing Textures.">
+<meta name="description" content="请注意 Sprite Packer 在 Unity 2020.1 和更新版本中已弃用，并且将不再作为精灵打包模式的可用选项。现有已使用 Sprite Packer 的项目仍然可以继续使用它，但是在 2020.1 以后创建的任何新项目在打包纹理时将默认使用 Sprite Atlas 系统。">
+<meta property="og:description" content="请注意 Sprite Packer 在 Unity 2020.1 和更新版本中已弃用，并且将不再作为精灵打包模式的可用选项。现有已使用 Sprite Packer 的项目仍然可以继续使用它，但是在 2020.1 以后创建的任何新项目在打包纹理时将默认使用 Sprite Atlas 系统。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Unity2D.html">2D</a></li>
 <li><a href="Sprites.html">精灵</a></li>
 <li><a href="class-SpriteAtlas.html">精灵图集</a></li>
@@ -183,7 +183,7 @@
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SpriteAtlasExperimental.html"></a></span><div class="tip">Sprite Atlas version 2 (Experimental)</div>
+<span class="prev"><a href="SpriteAtlasExperimental.html"></a></span><div class="tip">Sprite Atlas 版本 2（实验性）</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="class-SpriteShapeRenderer.html"></a></span><div class="tip">Sprite Shape Renderer</div>
@@ -193,15 +193,15 @@
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<h2>Sprite Packer deprecation</h2>
+<h2>Sprite Packer 已弃用</h2>
 
-<p>Please note that <strong>Sprite Packer</strong> is deprecated for Unity 2020.1 and newer, and will no longer be available as an option from <a href="SpritePackerModes.html">Sprite Packer Modes</a>. Existing Projects already using <strong>Sprite Packer</strong> will still be able to continue using it, however any new Project created in 2020.1 onwards will default to the <a href="class-SpriteAtlas.html">Sprite Atlas</a> system when packing Textures.</p>
+<p>请注意 <strong>Sprite Packer</strong> 在 Unity 2020.1 和更新版本中已弃用，并且将不再作为<a href="SpritePackerModes.html">精灵打包模式</a>的可用选项。现有已使用 <strong>Sprite Packer</strong> 的项目仍然可以继续使用它，但是在 2020.1 以后创建的任何新项目在打包纹理时将默认使用 <a href="class-SpriteAtlas.html">Sprite Atlas</a> 系统。</p>
 
 <h2>简介</h2>
 
-<p>When designing Sprite graphics, it is convenient to work with a separate Texture file for each character. However, a significant portion of a Sprite Texture will often be taken up by the empty space between the graphic elements and this space will result in wasted video memory at runtime. For optimal performance, it is best to pack graphics from several Sprite textures tightly together within a single Texture known as an atlas. Unity provides a <strong>Sprite Packer</strong> utility to automate the process of generating atlases from the individual Sprite textures.</p>
+<p>在设计精灵图形时，可以方便地为每个角色使用单独的纹理文件。但是，精灵纹理的很大一部分通常会被图形元素之间的空白空间所占据，而此空间将导致运行时浪费视频内存。为了获得最佳性能，最好将几个精灵纹理中的图形紧密地打包在一个称为图集的纹理中。Unity 提供了一个 <strong>Sprite Packer</strong> 实用程序来自动执行从各个精灵纹理生成图集的过程。</p>
 
-<p>Unity handles the generation and use of Sprite atlas textures behind the scenes so that the user needs to do no manual assignment. The atlas can optionally be packed on entering Play mode or during a build and the graphics for a Sprite object will be obtained from the atlas once it is generated.</p>
+<p>Unity 在后台处理精灵图集纹理的生成和使用，这样用户就不需要进行手动分配。可选择在进入运行模式时或在构建期间打包图集，而图集一旦生成，便会从图集获取精灵对象的图形。</p>
 
 <p>用户需要在纹理导入器 (Texture Importer) 中指定一个打包标签 (Packing Tag)，从而为该纹理的精灵启用打包。</p>
 
@@ -215,18 +215,18 @@
 <img src="../uploads/Main/SpritePackerMain.jpg" alt="">
 </figure>
 
-<p>If you select a Sprite in the Project panel, this will also be highlighted to show its position in the atlas. The outline is actually the render mesh outline and it also defines the area used for tight packing.</p>
+<p>如果在 Project 面板中选择一个精灵，该精灵也会突出显示以显示其在图集内的位置。轮廓实际上是渲染网格轮廓，还定义了用于紧密打包的区域。</p>
 
-<p>The toolbar at the top of the Sprite Packer window has a number of controls that affect packing and viewing. The <strong>Pack</strong> buttons initiates the packing operation but will not force any update if the atlas hasn’t changed since it was last packed. (A related <strong>Repack</strong> button will appear when you implement a custom packing policy as explained in <strong>Customizing the Sprite Packer</strong> below). The <strong>View Atlas</strong> and <strong>Page #</strong> menus allow you to choose which page of which atlas is shown in the window (a single atlas may be split into more than one “page” if there is not enough space for all Sprites in the maximum Texture size). The menu next to the page number selects which “packing policy” is used for the atlas (see below). At the right of the toolbar are two controls to zoom the view and to switch between color and alpha display for the atlas.</p>
+<p>Sprite Packer 窗口顶部的工具栏有许多影响打包和查看的控件。<strong>Pack</strong> 按钮可启动打包操作，但如果图集自上次打包后没有更改，则不会强制进行任何更新。（按__自定义 Sprite Packer__ 中所述实现自定义打包策略时，将出现一个相关的 <strong>Repack</strong> 按钮）。<strong>View Atlas</strong> 和 <strong>Page #</strong> 菜单允许选择在窗口中显示哪个图集的哪个页面（如果没有足够的空间来容纳最大纹理大小内的所有精灵，则单个图集可能拆分成多个“页面”）。页面编号旁边的菜单用于选择对图集使用的“打包策略”（见下文）。在工具栏的右侧有两个控件用于缩放视图以及在图集的颜色和 Alpha 显示之间切换。</p>
 
-<h2>Packing policy</h2>
+<h2>打包策略</h2>
 
-<p>The Sprite Packer uses a <strong>packing policy</strong> to decide how to assign Sprites into atlases. It is possible to create your own packing policies (see below) but the <strong>Default Packer Policy</strong>, <strong>Tight Packer Policy</strong> and <strong>Tight Rotate Enabled Sprite Packer Policy</strong> options are always available. With these policies, the <strong>Packing Tag</strong> property in the <a href="class-TextureImporter.html">Texture Importer</a> directly selects the name of the atlas where the Sprite will be packed and so all Sprites with the same packing tag will be packed in the same atlas. Atlases are then further sorted by the Texture import settings so that they match whatever the user sets for the source textures. Sprites with the same Texture compression settings will be grouped into the same atlas where possible.</p>
+<p>Sprite Packer 使用__打包策略__来决定如何将精灵分配到图集。您可以创建自己的打包策略（见下文），但也可以随时使用 <strong>Default Packer Policy</strong>、<strong>Tight Packer Policy</strong> 或 <strong>Tight Rotate Enabled Sprite Packer Policy</strong> 选项。通过使用这些策略，<a href="class-TextureImporter.html">纹理导入器</a>中的 <strong>Packing Tag</strong> 属性可直接选择将精灵打包到的图集的名称，因此具有相同打包标签 (Packing Tag) 的所有精灵将打包到同一图集内。然后，根据纹理导入设置对图集进行进一步排序，使图集符合用户为源纹理进行的任何设置。具有相同纹理压缩设置的精灵将尽可能分组到相同的图集。</p>
 
 <ul>
 <li>DefaultPackerPolicy 将默认使用矩形打包方式，除非在 <strong>Packing Tag</strong> 中指定了“[TIGHT]”（即，将打包标签设置为“[TIGHT]Character”将允许紧密打包）。</li>
 <li>TightPackerPolicy 将默认使用紧密打包（如果精灵具有紧密网格）。如果在 <strong>Packing Tag</strong> 中指定了“[RECT]”，则将执行矩形打包方式（即，将打包标签设置为“[RECT]UI_Elements”将强制进行矩形打包）。</li>
-<li>TightRotateEnabledSpritePackerPolicy will use tight packing by default if Sprite have tight meshes and will enable rotation of Sprites. If “[RECT]” is specified in the <strong>Packing Tag</strong>, rectangle packing will be done (i.e. setting your packing tag to “[RECT]UI_Elements” will force rect packing).</li>
+<li>TightRotateEnabledSpritePackerPolicy 将默认使用紧密打包（如果精灵具有紧密网格）并会启用精灵旋转。如果在 <strong>Packing Tag</strong> 中指定了 “[RECT]”，则将执行矩形打包方式（即，将打包标签设置为 “[RECT]UI_Elements” 将强制进行矩形打包）。</li>
 </ul>
 
 <h2>自定义 Sprite Packer</h2>
@@ -296,7 +296,7 @@ public class DefaultPackerPolicySample : UnityEditor.Sprites.IPackerPolicy
             public int               anisoLevel;
         }
 
-        private const uint kDefaultPaddingPower = 3; // Good for base and two mip levels.
+        private const uint kDefaultPaddingPower = 3; // 适用于基础和两个 Mip 级别。
 
         public virtual int GetVersion() { return 1; }
         protected virtual string TagPrefix { get { return "[TIGHT]"; } }
@@ -353,7 +353,7 @@ public class DefaultPackerPolicySample : UnityEditor.Sprites.IPackerPolicy
                     entry.Sprite = Sprite;
                     entry.settings.format = desiredFormat;
                     entry.settings.colorSpace = colorSpace;
-                    // Use Compression Quality for Grouping later only for Compressed Formats. Otherwise leave it Empty.
+                    // 之后仅针对压缩格式使用压缩质量进行分组。否则将其留空。
                 entry.settings.compressionQuality = IsCompressedFormat(desiredFormat) ? compressionQuality : 0;
                 entry.settings.filterMode = Enum.IsDefined(typeof(FilterMode), ti.filterMode)
                     ? ti.filterMode
@@ -380,14 +380,14 @@ public class DefaultPackerPolicySample : UnityEditor.Sprites.IPackerPolicy
                 Resources.UnloadAsset(ti);
             }
 
-            // First split Sprites into groups based on atlas name
+            // 首先根据图集名称将精灵分成几组
             var atlasGroups =
                 from e in entries
                 group e by e.atlasName;
             foreach (var atlasGroup in atlasGroups)
             {
                 int page = 0;
-                // Then split those groups into smaller groups based on texture settings
+                // 然后根据纹理设置将这些组分成更小的组
                 var settingsGroups =
                     from t in atlasGroup
                     group t by t.settings;
@@ -399,7 +399,7 @@ public class DefaultPackerPolicySample : UnityEditor.Sprites.IPackerPolicy
 
                 UnityEditor.Sprites.AtlasSettings settings = settingsGroup.Key;
                     settings.anisoLevel = 1;
-                    // Use the highest aniso level from all entries in this atlas
+                    // 使用此图集中所有条目的最高 aniso 级别
                     if (settings.generateMipMaps)
                         foreach (Entry entry in settingsGroup)
                             if (entry.anisoLevel &gt; settings.anisoLevel)
@@ -429,7 +429,7 @@ public class DefaultPackerPolicySample : UnityEditor.Sprites.IPackerPolicy
             string name = packingTag.Trim();
             if (IsTagPrefixed(name))
                 name = name.Substring(TagPrefix.Length).Trim();
-            return (name.Length == 0) ? "(unnamed)" : name;
+            return (name.Length == 0) ?"(unnamed)" : name;
         }
 
         private SpritePackingMode GetPackingMode(string packingTag, SpriteMeshType meshType)
@@ -486,7 +486,7 @@ class TightRotateEnabledSpritePackerPolicySample : DefaultPackerPolicySample
 <!-- area:authoring -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SpriteAtlasExperimental.html"></a></span><div class="tip">Sprite Atlas version 2 (Experimental)</div>
+<span class="prev"><a href="SpriteAtlasExperimental.html"></a></span><div class="tip">Sprite Atlas 版本 2（实验性）</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="class-SpriteShapeRenderer.html"></a></span><div class="tip">Sprite Shape Renderer</div>
@@ -495,7 +495,7 @@ class TightRotateEnabledSpritePackerPolicySample : DefaultPackerPolicySample
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

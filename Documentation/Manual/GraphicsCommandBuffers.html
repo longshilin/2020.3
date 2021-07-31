@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Extending the Built-in Render Pipeline with CommandBuffers - Unity 手册">
-<title>Extending the Built-in Render Pipeline with CommandBuffers - Unity 手册</title>
+<meta property="og:title" content="使用 CommandBuffer 来扩展内置渲染管线 - Unity 手册">
+<title>使用 CommandBuffer 来扩展内置渲染管线 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/RenderingCommandBufferBlurryRefraction.jpg">
-<meta name="description" content="This page contains information on using CommandBuffers in the Built-in Render Pipeline. For information on using CommandBuffers in render pipelines based on the Scriptable Rendering Pipeline, see Scheduling and executing rendering commands in the Scriptable Rendering Pipeline.">
-<meta property="og:description" content="This page contains information on using CommandBuffers in the Built-in Render Pipeline. For information on using CommandBuffers in render pipelines based on the Scriptable Rendering Pipeline, see Scheduling and executing rendering commands in the Scriptable Rendering Pipeline.">
+<meta name="description" content="本页包含有关在内置渲染管线中使用 CommandBuffer 的信息。有关在渲染管线中基于可编程渲染管线使用 CommandBuffer 的信息，请参阅在可编程渲染管线中调度和执行渲染命令。">
+<meta property="og:description" content="本页包含有关在内置渲染管线中使用 CommandBuffer 的信息。有关在渲染管线中基于可编程渲染管线使用 CommandBuffer 的信息，请参阅在可编程渲染管线中调度和执行渲染命令。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,129 +175,129 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
 <li><a href="render-pipelines.html">渲染管线</a></li>
-<li><a href="built-in-render-pipeline.html">Using the Built-in Render Pipeline</a></li>
-<li>Extending the Built-in Render Pipeline with CommandBuffers</li>
+<li><a href="built-in-render-pipeline.html">使用内置渲染管线</a></li>
+<li>使用 CommandBuffer 来扩展内置渲染管线</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="RenderTech-VertexLit.html"></a></span><div class="tip">顶点光照渲染路径</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="RenderTech-HardwareRequirements.html"></a></span><div class="tip">Hardware requirements for the Built-in Render Pipeline</div>
+<span class="next"><a href="RenderTech-HardwareRequirements.html"></a></span><div class="tip">内置渲染管线的硬件要求</div>
 </div>
 </div></div>
-<h1>Extending the Built-in Render Pipeline with CommandBuffers</h1>
+<h1>使用 CommandBuffer 来扩展内置渲染管线</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>This page contains information on using CommandBuffers in the Built-in Render Pipeline. For information on using CommandBuffers in render pipelines based on the Scriptable Rendering Pipeline, see <a href="srp-using-scriptable-render-context.html">Scheduling and executing rendering commands in the Scriptable Rendering Pipeline</a>.</p>
+<p>本页包含有关在内置渲染管线中使用 CommandBuffer 的信息。有关在渲染管线中基于可编程渲染管线使用 CommandBuffer 的信息，请参阅<a href="srp-using-scriptable-render-context.html">在可编程渲染管线中调度和执行渲染命令</a>。</p>
 
-<h2>CommandBuffer fundamentals</h2>
+<h2>CommandBuffer 基础知识</h2>
 
-<p>A <a href="../ScriptReference/Rendering.CommandBuffer.html">CommandBuffer</a> holds a list of rendering commands (such as setting the render target, or drawing a given mesh). You can instruct Unity to schedule and execute those commands at various points in the Built-in Render Pipeline, which allows you to customize and extend Unity’s rendering functionality.</p>
-
-<figure>
-<img src="../uploads/Main/RenderingCommandBufferBlurryRefraction.jpg" alt="Blurry refraction, using Command Buffers.">
-<figcaption>Blurry refraction, using Command Buffers.</figcaption>
-</figure>
-
-<p>You can execute CommandBuffers immediately using the <a href="../ScriptReference/Graphics.ExecuteCommandBuffer.html">Graphics.ExecuteCommandBuffer</a> API, or you can schedule them so that they occur at a given point in the render pipeline. To schedule them, use the <a href="../ScriptReference/Camera.AddCommandBuffer.html">Camera.AddCommandBuffer</a> API with the <a href="../ScriptReference/Rendering.CameraEvent.html">CameraEvent enum</a>, and the <a href="../ScriptReference/Light.AddCommandBuffer.html">Light.AddCommandBuffer</a> API with the <a href="../ScriptReference/Rendering.LightEvent.html">LightEvent enum</a>. To see when Unity executes CommandBuffers that you schedule in this way, see <a href="#order-of-execution">CameraEvent and LightEvent order of execution</a>.</p>
-
-<p>For a full list of the commands that you can execute using CommandBuffers, see the <a href="../ScriptReference/Rendering.CommandBuffer.html">CommandBuffer API documentation</a>. Note that some commands are supported only on certain hardware; for example, the commands relating to ray tracing are supported only in DX12.</p>
-
-<h2>Command Buffer examples</h2>
+<p><a href="../ScriptReference/Rendering.CommandBuffer.html">CommandBuffer</a> 保存渲染命令列表（例如设置渲染目标或绘制给定网格）。您可以指示 Unity 在内置渲染管线中的各个点安排和执行这些命令，因此，您可以自定义和扩展 Unity 的渲染功能。</p>
 
 <figure>
-<img src="../uploads/Main/RenderingCommandBufferDecalsScene.jpg" alt="Decals, using Command Buffers.">
-<figcaption>Decals, using Command Buffers.</figcaption>
+<img src="../uploads/Main/RenderingCommandBufferBlurryRefraction.jpg" alt="使用 CommandBuffer 进行模糊折射。">
+<figcaption>使用 CommandBuffer 进行模糊折射。</figcaption>
 </figure>
 
-<p>The Unity blog post <a href="https://blogs.unity3d.com/2015/02/06/extending-unity-5-rendering-pipeline-command-buffers/">Extending Unity 5 rendering pipeline: Command Buffers</a> introduces CommandBuffers in the Built-in Render Pipeline. It describes how to use CommandBuffers to achieve several different effects, and contains a sample project and example code. The project was created for an older version of Unity, but the principles are the same.</p>
+<p>可以使用 <a href="../ScriptReference/Graphics.ExecuteCommandBuffer.html">Graphics.ExecuteCommandBuffer</a> API 立即执行 CommandBuffer，也可以进行安排，让它们在渲染管线中的给定点执行。要安排它们，请使用 <a href="../ScriptReference/Camera.AddCommandBuffer.html">Camera.AddCommandBuffer</a> API 与<a href="../ScriptReference/Rendering.CameraEvent.html">CameraEvent 枚举</a>，以及 <a href="../ScriptReference/Light.AddCommandBuffer.html">Light.AddCommandBuffer</a> API 与 <a href="../ScriptReference/Rendering.LightEvent.html">LightEvent 枚举</a>。要查看 Unity 何时执行以这种方式安排的 CommandBuffer，请参阅 <a href="#order-of-execution">CameraEvent 和 LightEvent 的执行顺序</a>。</p>
+
+<p>有关可以使用 CommandBuffer 执行的命令的完整列表，请参阅 <a href="../ScriptReference/Rendering.CommandBuffer.html">CommandBuffer API 文档</a>。请注意，一些命令仅在某些硬件上受支持。例如，与光线追踪有关的命令仅在 DX12 中受支持。</p>
+
+<h2>Command Buffer 示例</h2>
+
+<figure>
+<img src="../uploads/Main/RenderingCommandBufferDecalsScene.jpg" alt="使用 Command Buffers 贴花。">
+<figcaption>使用 Command Buffers 贴花。</figcaption>
+</figure>
+
+<p>Unity 博客文章<a href="https://blogs.unity3d.com/2015/02/06/extending-unity-5-rendering-pipeline-command-buffers/">扩展 Unity 5 渲染管线：CommandBuffer</a> 介绍了内置渲染管线中的 CommandBuffer，并包含示例项目和示例代码。它介绍如何使用 CommandBuffer 来实现几种不同的效果，并包含一个示例项目和示例代码。项目是为 Unity 的旧版本创建的，但原理相同。</p>
 
 <p><a name="order-of-execution"></a></p>
 
-<h2>CameraEvent and LightEvent event order of execution</h2>
+<h2>CameraEvent 和 LightEvent 事件的执行顺序</h2>
 
 <h3>CameraEvent</h3>
 
-<p>The order of execution for CameraEvents depends on the <a href="RenderingPaths.html">rendering path</a> that your Project uses.</p>
+<p>CameraEvents 执行顺序取决于项目使用的<a href="RenderingPaths.html">渲染路径</a>。</p>
 
 <p><strong>延迟渲染路径</strong></p>
 
 <ul>
 <li><a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.BeforeGBuffer.html">BeforeGBuffer</a></li>
-<li>Unity renders opaque geometry</li>
+<li>Unity 渲染不透明几何体</li>
 <li><a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.AfterGBuffer.html">AfterGBuffer</a></li>
-<li>Unity resolves depth.</li>
+<li>Unity 解析深度。</li>
 <li><a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.BeforeReflections.html">BeforeReflections</a></li>
-<li>Unity renders default reflections, and Reflection Probe reflections.</li>
+<li>Unity 渲染默认反射和反射探针反射。</li>
 <li><a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.AfterReflections.html">AfterReflections</a></li>
-<li>Unity copies reflections to the Emissive channel of the G-buffer.</li>
+<li>Unity 将反射复制到 G 缓冲区的 Emissive 通道。</li>
 <li><a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.BeforeLighting.html">BeforeLighting</a></li>
-<li>Unity renders shadows. See <a href="#LightEvent">LightEvent order of execution</a>.</li>
+<li>Unity 渲染阴影。请参阅 <a href="#LightEvent">LightEvent 执行顺序</a>。</li>
 <li><a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.AfterLighting.html">AfterLighting</a></li>
 <li><a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.BeforeFinalPass.html">BeforeFinalPass</a></li>
-<li>Unity processes the final pass.</li>
+<li>Unity 对最终通道进行处理。</li>
 <li><a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.AfterFinalPass.html">AfterFinalPass</a></li>
 <li>
-<a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.BeforeForwardOpaque.html">BeforeForwardOpaque</a> (only called if there is opaque geometry that cannot be rendered using deferred)</li>
-<li>Unity renders opaque geometry that cannot be rendered with deferred rendering.</li>
+<a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.BeforeForwardOpaque.html">BeforeForwardOpaque</a>（仅当存在无法以延迟方式渲染的不透明几何体时调用）</li>
+<li>Unity 渲染无法以延迟方式渲染的不透明几何体。</li>
 <li>
-<a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.AfterForwardOpaque.html">AfterForwardOpaque</a> (only called if there is opaque geometry that cannot be rendered using deferred)</li>
+<a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.AfterForwardOpaque.html">AfterForwardOpaque</a>（仅当存在无法以延迟方式渲染的不透明几何体时调用）</li>
 <li><a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.BeforeSkybox.html">BeforeSkybox</a></li>
-<li>Unity renders the skybox.</li>
+<li>Unity 渲染天空盒。</li>
 <li><a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.AfterSkybox.html">AfterSkybox</a></li>
-<li>Unity renders halos.</li>
+<li>Unity 渲染光环。</li>
 <li><a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.BeforeImageEffectsOpaque.html">BeforeImageEffectsOpaque</a></li>
-<li>Unity applies opaque-only post-processing effects.</li>
+<li>Unity 应用仅不透明的后期处理效果。</li>
 <li><a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.AfterImageEffectsOpaque.html">AfterImageEffectsOpaque</a></li>
 <li><a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.BeforeForwardAlpha.html">BeforeForwardAlpha</a></li>
-<li>Unity renders transparent geometry, and UI Canvases with a Rendering Mode of <strong>Screen Space - Camera</strong>.</li>
+<li>Unity 渲染透明几何体以及具有 <strong>Screen Space - Camera</strong> 渲染模式的 UI 画布。</li>
 <li><a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.AfterForwardAlpha.html">AfterForwardAlpha</a></li>
 <li><a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.BeforeHaloAndLensFlares.html">BeforeHaloAndLensFlares</a></li>
-<li>Unity renders lens flares.</li>
+<li>Unity 渲染镜头光晕。</li>
 <li><a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.AfterHaloAndLensFlares.html">AfterHaloAndLensFlares</a></li>
 <li><a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.BeforeImageEffects.html">BeforeImageEffects</a></li>
-<li>Unity applies post-processing effects.</li>
+<li>Unity 应用后期处理效果。</li>
 <li><a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.AfterImageEffects.html">AfterImageEffects</a></li>
 <li><a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.AfterEverything.html">AfterEverything</a></li>
-<li>Unity renders UI Canvases with a Rendering Mode that is not <strong>Screen Space - Camera</strong>.</li>
+<li>Unity 对渲染模式不是 <strong>Screen Space - Camera</strong> 的 UI 画布进行渲染。</li>
 </ul>
 
 <p><strong>前向渲染路径</strong></p>
 
 <ul>
 <li><a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.BeforeDepthTexture.html">BeforeDepthTexture</a></li>
-<li>Unity renders depth for opaque geometry.</li>
+<li>Unity 渲染不透明几何体的深度。</li>
 <li><a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.AfterDepthTexture.html">AfterDepthTexture</a></li>
 <li><a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.BeforeDepthNormalsTexture.html">BeforeDepthNormalsTexture</a></li>
-<li>Unity renders depth normals for opaque geometry.</li>
+<li>Unity 渲染不透明几何体的深度法线。</li>
 <li><a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.AfterDepthNormalsTexture.html">AfterDepthNormalsTexture</a></li>
-<li>Unity renders shadows. See <a href="#LightEvent">LightEvent order of execution</a>.</li>
+<li>Unity 渲染阴影。请参阅 <a href="#LightEvent">LightEvent 执行顺序</a>。</li>
 <li><a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.BeforeForwardOpaque.html">BeforeForwardOpaque</a></li>
-<li>Unity renders opaque geometry.</li>
+<li>Unity 渲染不透明几何体。</li>
 <li><a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.AfterForwardOpaque.html">AfterForwardOpaque</a></li>
 <li><a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.BeforeSkybox.html">BeforeSkybox</a></li>
-<li>Unity renders the skybox.</li>
+<li>Unity 渲染天空盒。</li>
 <li><a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.AfterSkybox.html">AfterSkybox</a></li>
-<li>Unity renders halos.</li>
+<li>Unity 渲染光环。</li>
 <li><a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.BeforeImageEffectsOpaque.html">BeforeImageEffectsOpaque</a></li>
-<li>Unity applies opaque-only post-processing effects.</li>
+<li>Unity 应用仅不透明的后期处理效果。</li>
 <li><a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.AfterImageEffectsOpaque.html">AfterImageEffectsOpaque</a></li>
 <li><a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.BeforeForwardAlpha.html">BeforeForwardAlpha</a></li>
-<li>Unity renders transparent geometry, and UI Canvases with a Rendering Mode of <strong>Screen Space - Camera</strong>.</li>
+<li>Unity 渲染透明几何体以及具有 <strong>Screen Space - Camera</strong> 渲染模式的 UI 画布。</li>
 <li><a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.AfterForwardAlpha.html">AfterForwardAlpha</a></li>
 <li><a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.BeforeHaloAndLensFlares.html">BeforeHaloAndLensFlares</a></li>
-<li>Unity renders lens flares.</li>
+<li>Unity 渲染镜头光晕。</li>
 <li><a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.AfterHaloAndLensFlares.html">AfterHaloAndLensFlares</a></li>
 <li><a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.BeforeImageEffects.html">BeforeImageEffects</a></li>
-<li>Unity applies post-processing effects.</li>
+<li>Unity 应用后期处理效果。</li>
 <li><a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.AfterImageEffects.html">AfterImageEffects</a></li>
 <li><a href="https://docs.unity3d.com/ScriptReference/Rendering.CameraEvent.AfterEverything.html">AfterEverything</a></li>
-<li>Unity renders UI Canvases with a Rendering Mode that is not <strong>Screen Space - Camera</strong>.</li>
+<li>Unity 对渲染模式不是 <strong>Screen Space - Camera</strong> 的 UI 画布进行渲染。</li>
 </ul>
 
 <p><a name="LightEvent"></a></p>
@@ -309,12 +309,12 @@
 <ul>
 <li><a href="../ScriptReference/Rendering.LightEvent.BeforeShadowMap.html">BeforeShadowMap</a></li>
 <li><a href="../ScriptReference/Rendering.LightEvent.BeforeShadowMapPass.html">BeforeShadowMapPass</a></li>
-<li>Unity renders all shadow casters for the current Pass</li>
+<li>Unity 渲染当前通道的所有阴影投射器</li>
 <li><a href="../ScriptReference/Rendering.LightEvent.AfterShadowMapPass.html">AfterShadowMapPass</a></li>
-<li>Unity repeats the last three steps, for each Pass</li>
+<li>Unity 对每个通道重复最后三个步骤</li>
 <li><a href="../ScriptReference/Rendering.LightEvent.AfterShadowMap.html">AfterShadowMap</a></li>
 <li><a href="../ScriptReference/Rendering.LightEvent.BeforeScreenSpaceMask.html">BeforeScreenSpaceMask</a></li>
-<li>Unity gathers the shadow map into a screen space buffer and performs filtering
+<li>Unity 将阴影贴图收集到屏幕空间缓冲区中并执行过滤
 *<a href="../ScriptReference/Rendering.LightEvent.AfterScreenSpaceMask.html">AfterScreenSpaceMask</a>
 </li>
 </ul>
@@ -323,13 +323,13 @@
 <span class="prev"><a href="RenderTech-VertexLit.html"></a></span><div class="tip">顶点光照渲染路径</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="RenderTech-HardwareRequirements.html"></a></span><div class="tip">Hardware requirements for the Built-in Render Pipeline</div>
+<span class="next"><a href="RenderTech-HardwareRequirements.html"></a></span><div class="tip">内置渲染管线的硬件要求</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

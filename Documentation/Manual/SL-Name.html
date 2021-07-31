@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="ShaderLab：Name - Unity 手册">
-<title>ShaderLab：Name - Unity 手册</title>
-<meta name="description" content="为当前通道提供 PassName 名称。请注意，在内部，名称将转换为大写。">
-<meta property="og:description" content="为当前通道提供 PassName 名称。请注意，在内部，名称将转换为大写。">
+<meta property="og:title" content="ShaderLab：为通道指定名称 - Unity 手册">
+<title>ShaderLab：为通道指定名称 - Unity 手册</title>
+<meta name="description" content="本页面包含有关在 ShaderLab 代码中使用 Name 代码块为通道指定名称的信息。有关定义通道的信息，请参阅 ShaderLab：定义一个通道。有关 Shader 对象的工作原理以及 Shader 对象、子着色器与通道之间关系的信息，请参阅 Shader 对象基础。">
+<meta property="og:description" content="本页面包含有关在 ShaderLab 代码中使用 Name 代码块为通道指定名称的信息。有关定义通道的信息，请参阅 ShaderLab：定义一个通道。有关 Shader 对象的工作原理以及 Shader 对象、子着色器与通道之间关系的信息，请参阅 Shader 对象基础。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,51 +174,149 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
-<li><a href="ShadersOverview.html">编写着色器</a></li>
-<li><a href="SL-Reference.html">着色器参考</a></li>
-<li><a href="SL-Shader.html">ShaderLab 语法</a></li>
-<li><a href="SL-SubShader.html">ShaderLab：SubShader</a></li>
-<li><a href="SL-Pass.html">ShaderLab：Pass</a></li>
-<li>ShaderLab：Name</li>
+<li><a href="Shaders.html">着色器</a></li>
+<li><a href="shader-writing.html">编写着色器</a></li>
+<li><a href="SL-Reference.html">ShaderLab</a></li>
+<li><a href="SL-Pass.html">ShaderLab：定义一个通道</a></li>
+<li>ShaderLab：为通道指定名称</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-Stencil.html"></a></span><div class="tip">ShaderLab：模板</div>
+<span class="prev"><a href="SL-Pass.html"></a></span><div class="tip">ShaderLab：定义一个通道</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-Material.html"></a></span><div class="tip">ShaderLab：旧版光照</div>
+<span class="next"><a href="SL-PassTags.html"></a></span><div class="tip">ShaderLab：为通道分配标签。</div>
 </div>
 </div></div>
-<h1>ShaderLab：Name</h1>
+<h1>ShaderLab：为通道指定名称</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<h2>语法</h2>
+<p>本页面包含有关在 ShaderLab 代码中使用 <code>Name</code> 代码块为通道指定名称的信息。有关定义通道的信息，请参阅 <a href="SL-Pass.html">ShaderLab：定义一个通道</a>。有关 Shader 对象的工作原理以及 Shader 对象、子着色器与通道之间关系的信息，请参阅 <a href="ShadersOverview.html">Shader 对象基础</a>。</p>
 
-<pre><code>Name "PassName"
+<p>通道可以具有名称。您需要在 <code>UsePass</code> 命令及某些 C# API 中按名称引用一个通道。通道的名称在<a href="FrameDebugger.html">帧调试器</a>工具中可见。</p>
+
+<h2>渲染管线兼容性</h2>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>功能名称</strong></th>
+	<th style="text-align:left;"><strong>内置渲染管线</strong></th>
+	<th style="text-align:left;"><strong>通用渲染管线 (URP)</strong></th>
+	<th style="text-align:left;"><strong>高清渲染管线 (HDRP)</strong></th>
+	<th style="text-align:left;"><strong>自定义 SRP</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>ShaderLab：Name 代码块</strong></td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+</tr>
+</tbody>
+</table>
+
+<h2>使用 Name 代码块</h2>
+
+<p>要在 ShaderLab 中为通道指定名称，您可以在 <code>Pass</code> 代码块内放置一个 <code>Name</code> 代码块。</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>签名</strong></th>
+	<th style="text-align:left;"><strong>功能</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><code>Name "&lt;name&gt;"</code></td>
+	<td style="text-align:left;">设置通道的名称。</td>
+</tr>
+</tbody>
+</table>
+
+<p>在内部，Unity 将名称转换为大写。在 ShaderLab 代码中引用名称时，必须使用大写变体；例如，如果值是 “example”，您必须使用 EXAMPLE 进行引用。</p>
+
+<p>如果同一个子着色器中有多个通道具有相同的名称，则 Unity 使用代码中的第一个通道。</p>
+
+<h2>通过 C# 脚本使用通道名称</h2>
+
+<p>从 C# 脚本访问通道的名称，您可以使用 API，例如 <a href="../ScriptReference/Material.FindPass.html">Material.FindPass</a>、<a href="../ScriptReference/Material.GetPassName.html">Material.GetPassName</a> 或者 <a href="ShaderData.Pass.Name">ShaderData.Pass.Name</a>。</p>
+
+<p><strong>注意：</strong><a href="../ScriptReference/Material.GetShaderPassEnabled.html">Material.GetShaderPassEnabled</a> 和 <a href="../ScriptReference/Material.SetShaderPassEnabled.html">Material.SetShaderPassEnabled</a> 不按名称引用通道；而是使用 <a href="SL-PassTags.html">LightMode 标签</a>的值引用通道。</p>
+
+<h2>示例</h2>
+
+<p>此示例代码创建了一个名为 ContainsNamedPass 的 Shader 对象，其中包含名为 ExampleNamedPass 的通道。</p>
+
+<pre><code>Shader "Examples/ContainsNamedPass"
+{
+    SubShader
+    {
+        Pass
+        {    
+              Name "ExampleNamedPass"
+            
+              // 此处是定义通道的代码的其余部分。
+        }
+    }
+}
 </code></pre>
 
-<p>为当前通道提供 <em>PassName</em> 名称。请注意，在内部，名称将转换为大写。</p>
+<p>然后您可以使用以下 C# 代码查询此通道的名称：</p>
 
-<h2>详细信息</h2>
+<pre><code>using UnityEngine;
 
-<p>为通道提供名称即可让 <a href="SL-UsePass.html">UsePass</a> 命令能够引用该通道。</p>
-<!-- area:graphics -->
+public class GetPassName : MonoBehaviour
+{
+    // 将此脚本放置在具有 MeshRenderer 组件的游戏对象上
+    
+    void Start() {
+        // 获取材质
+        var material = GetComponent&lt;MeshRenderer&gt;().material;
+
+        // 获取为该材质分配的 Shader 对象的
+        // 活动子着色器中第一个通道的名称
+        var passName = material.GetPassName(0);
+
+        // 将名称打印到控制台
+        Debug.Log(passName);
+    }
+}
+
+</code></pre>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-Stencil.html"></a></span><div class="tip">ShaderLab：模板</div>
+<span class="prev"><a href="SL-Pass.html"></a></span><div class="tip">ShaderLab：定义一个通道</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-Material.html"></a></span><div class="tip">ShaderLab：旧版光照</div>
+<span class="next"><a href="SL-PassTags.html"></a></span><div class="tip">ShaderLab：为通道分配标签。</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

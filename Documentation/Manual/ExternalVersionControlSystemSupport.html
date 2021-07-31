@@ -174,7 +174,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UnityOverview.html">在 Unity 中操作</a></li>
 <li><a href="EditorFeatures.html">编辑器功能</a></li>
 <li><a href="VersionControl.html">版本控制</a></li>
@@ -182,10 +182,10 @@
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="PlasticSCMPlugin.html"></a></span><div class="tip">Plastic SCM plugin for Unity (beta)</div>
+<span class="prev"><a href="PlasticSCMPlugin.html"></a></span><div class="tip">适用于 Unity 的 Plastic SCM 插件（测试版）</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SmartMerge.html"></a></span><div class="tip">Smart Merge</div>
+<span class="next"><a href="SmartMerge.html"></a></span><div class="tip">Smart merge</div>
 </div>
 </div></div>
 <h1>将外部版本控制系统用于 Unity</h1>
@@ -196,7 +196,7 @@
 
 <p>在签入项目之前，必须要求 Unity 稍微修改项目结构，使其符合在外部版本控制系统中存储资源的要求。要进行此操作，请在应用程序菜单中选择 <strong>Edit &gt; Project Settings &gt; Editor__，然后在 Version Control 的下拉选单中选择 </strong>Visible Meta Files__ 来启用外部版本控制支持。这将显示 <code>Assets</code> 目录中每个资源的文本文件，其中包含 Unity 所需的必要记录信息。这些文件将具有 <code>.meta</code> 文件扩展名，第一部分是与其关联的资源的完整文件名。在 Unity 中移动和重命名资源应该也会更新相关的 <code>.meta</code> 文件。但是，如果从外部工具移动或重命名资源，请确保也同步相关的 <code>.meta</code> 文件。</p>
 
-<p>When checking the project into a version control system, you should add the <code>Assets</code>, <code>Packages</code> and the <code>ProjectSettings</code> directories to the system. The <code>Library</code> and <code>UserSettings</code> directories should be completely ignored - when using .meta files, it’s only a local cache of imported assets.</p>
+<p>将项目签入版本控制系统时，应该将 <code>Assets</code>、<code>Packages</code> 和 <code>ProjectSettings</code> 目录添加到系统。应该完全忽略 <code>Library</code> 和 <code>UserSettings</code> 目录，使用 .meta 文件时，它们只是已导入资源的本地缓存位置。</p>
 
 <p>创建新资源时，请确保将资源本身和关联的 <code>.meta</code> 文件都添加到版本控制中。</p>
 
@@ -208,31 +208,31 @@
 <p>1.在 Unity 中创建新项目并将其命名为 <code>InitialUnityProject</code>。可以在其中添加任何初始资源，也可以稍后添加资源。
 1.在 <strong>Edit &gt; Project Settings &gt; Editor</strong> 中启用 <strong>Visible Meta files</strong>
 1.退出 Unity（这可确保所有文件得到保存）。
-1. Delete the <code>Library</code> and <code>UserSettings</code> directories inside your project directory.
+1.删除项目目录中的 <code>Library</code> 和 <code>UserSettings</code> 目录。
 1.将项目目录导入到 Subversion 中。如果使用的是命令行客户端，可以从初始项目所在的目录，按以下命令完成此操作：
 <code>svn import -m"Initial project import" InitialUnityProject svn://my.svn.server.com/MyUnityProject</code>
 如果成功，项目现在应该已经导入 Subversion，而且如果愿意，现在可以删除 <code>InitialUnityProject</code> 目录。
 1.从 Subversion 签出此项目
 <code>svn co svn://my.svn.server.com/MyUnityProject</code>，然后检查 <code>Assets</code>、<code>Packages</code> 和 <code>ProjectSettings</code> 目录是否已加入版本控制。
-1. Open the checked out project with Unity by launching it while holding down the <strong>Option</strong> or the left <strong>Alt</strong> key. Opening the project will recreate the <code>Library</code> and <code>UserSettings</code> directories in step 4 above.
-1. <strong>Optional:</strong> Set up an ignore filter for the unversioned <code>Library</code> and <code>UserSettings</code> directories:
+1.按住 <strong>Option</strong> 或左侧 <strong>Alt</strong> 键的同时启动 Unity，从而使用 Unity 来打开签出的项目。打开项目将重新创建以上步骤 4 中的 <code>Library</code> 和 <code>UserSettings</code> 目录。
+1.<strong>可选：</strong>为未版本控制的 <code>Library</code> 和 <code>UserSettings</code> 目录设置忽略过滤器：
 <code>svn propedit svn:ignore MyUnityProject/</code>
-Subversion will open a text editor. Add the Library and UserSettings directories.
+Subversion 将打开文本编辑器。添加 Library 和 UserSettings 目录。
 1.最后，提交更改。项目现在应该已设置妥当并准备就绪：
 <code>svn ci -m"Finishing project import" MyUnityProject</code></p>
 <!-- area:none -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="PlasticSCMPlugin.html"></a></span><div class="tip">Plastic SCM plugin for Unity (beta)</div>
+<span class="prev"><a href="PlasticSCMPlugin.html"></a></span><div class="tip">适用于 Unity 的 Plastic SCM 插件（测试版）</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SmartMerge.html"></a></span><div class="tip">Smart Merge</div>
+<span class="next"><a href="SmartMerge.html"></a></span><div class="tip">Smart merge</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

@@ -13,7 +13,6 @@
 <meta name="twitter:card" content="summary">
 <meta property="og:title" content="移除某个已安装的包 - Unity 手册">
 <title>移除某个已安装的包 - Unity 手册</title>
-<meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/upm-ui-inprojects.png">
 <meta name="description" content="只能移除其他包不需要的包。">
 <meta property="og:description" content="只能移除其他包不需要的包。">
 <meta name="author" content="Unity Technologies">
@@ -175,7 +174,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="PackagesList.html">包</a></li>
 <li><a href="Packages.html">Unity 的 Package Manager</a></li>
 <li><a href="upm-ui.html">Package Manager 窗口</a></li>
@@ -196,22 +195,16 @@
 
 <p>只能移除其他包不需要的包。</p>
 
-<p><strong>Note</strong>: This only removes the reference to the package in the manifest. The package itself, including its contents, remains intact, even for local packages.</p>
+<p><strong>注意</strong>：此操作只是在清单中移除对包的引用。即使对于本地包来说，包本身（包括其内容）将完整无缺。</p>
 
 <p>从项目中移除某个包时，由该包实现的任何 Editor 功能或运行时功能将在该项目中失效。</p>
 
 <p>要移除某个已安装的包，请执行以下操作：</p>
 
-<ol>
-<li>
-<p>Open the Package Manager window and select <strong>In Project</strong> from the <a href="upm-ui-filter.html">Packages</a> drop-down menu.</p>
+<p>1.打开 Package Manager 窗口，然后从 <a href="upm-ui-filter.html">Packages</a> 下拉菜单中选择 <strong>In Project</strong>。</p>
 
-<figure>
-<img src="../uploads/Main/upm-ui-inprojects.png" alt="Switch the context to In Project">
-<figcaption>Switch the context to <strong>In Project</strong></figcaption>
-</figure>
-</li>
-</ol>
+<pre><code>![将上下文切换为 **In Project**](../uploads/Main/upm-ui-inprojects.png)
+</code></pre>
 
 <p>3.从<a href="upm-ui-list.html">包列表</a>中选择要移除的包。<a href="upm-ui-details.html">详细信息视图</a>现在会显示该包的信息。</p>
 
@@ -236,7 +229,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

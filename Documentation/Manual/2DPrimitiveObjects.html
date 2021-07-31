@@ -11,13 +11,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="2D Primitive GameObjects - Unity 手册">
-<title>2D Primitive GameObjects - Unity 手册</title>
+<meta property="og:title" content="2D 图元游戏对象 - Unity 手册">
+<title>2D 图元游戏对象 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/2D-primitive-square.png">
-<meta name="description" content="Unity provides 2D Primitive GameObjects to help you prototype your Project quickly, without needing to import your own Assets.
-To create a 2D primitive, go to GameObject &gt; 2D Object &gt; Sprites and select one of the following options:">
-<meta property="og:description" content="Unity provides 2D Primitive GameObjects to help you prototype your Project quickly, without needing to import your own Assets.
-To create a 2D primitive, go to GameObject &gt; 2D Object &gt; Sprites and select one of the following options:">
+<meta name="description" content="Unity 提供了 2D 图元游戏对象，可帮助您快速制作项目原型，而无需导入您自己的资源。
+要创建 2D 原始对象，请转到 **GameObject &gt; 2D Object &gt; Sprites ** 并选择以下选项之一：">
+<meta property="og:description" content="Unity 提供了 2D 图元游戏对象，可帮助您快速制作项目原型，而无需导入您自己的资源。
+要创建 2D 原始对象，请转到 **GameObject &gt; 2D Object &gt; Sprites ** 并选择以下选项之一：">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -177,12 +177,12 @@ To create a 2D primitive, go to GameObject &gt; 2D Object &gt; Sprites and selec
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UnityOverview.html">在 Unity 中操作</a></li>
 <li><a href="CreatingGameplay.html">创建游戏玩法</a></li>
 <li><a href="GameObjects.html">游戏对象</a></li>
 <li><a href="PrimitiveObjects.html">原始对象和占位对象</a></li>
-<li>2D Primitive GameObjects</li>
+<li>2D 图元游戏对象</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -192,12 +192,12 @@ To create a 2D primitive, go to GameObject &gt; 2D Object &gt; Sprites and selec
 <span class="next"><a href="CreatingComponents.html"></a></span><div class="tip">使用脚本来创建组件</div>
 </div>
 </div></div>
-<h1>2D Primitive GameObjects</h1>
+<h1>2D 图元游戏对象</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>Unity provides 2D Primitive GameObjects to help you prototype your Project quickly, without needing to import your own Assets.
-To create a 2D primitive, go to <strong>GameObject &gt; 2D Object &gt; Sprites </strong>and select one of the following options:</p>
+<p>Unity 提供了 2D 图元游戏对象，可帮助您快速制作项目原型，而无需导入您自己的资源。
+要创建 2D 原始对象，请转到 **GameObject &gt; 2D Object &gt; Sprites ** 并选择以下选项之一：</p>
 
 <ul>
 <li><a href="#square">Square</a></li>
@@ -209,72 +209,72 @@ To create a 2D primitive, go to <strong>GameObject &gt; 2D Object &gt; Sprites <
 <li><a href="#9-sliced">9-Sliced</a></li>
 </ul>
 
-<h2>Default Sprite dimensions and pixels-per-unit</h2>
+<h2>默认精灵尺寸和每单位像素</h2>
 
-<p>Most 2D primitives have a default Sprite size of 256 x 256 pixels, with a pixels-per-unit (PPU) size of 256, which makes their size equal to one unit in the Scene. The exceptions are the <strong>Capsule</strong> primitive, which is 256 x 512 pixels (1:2 units), and the <strong>Isometric</strong> <strong>Diamond </strong>primitive, which is 256 x 128 pixels (1:0.5 units).</p>
+<p>大多数 2D 图元的默认精灵大小为 256 x 256 像素，每单位像素 (PPU) 大小为 256，这使得它们的大小等于场景中的一个单位。例外情况是<strong>胶囊</strong>图元，其大小为 256 x 512 像素（1:2 单位），以及<strong>等距</strong><strong>菱形</strong>图元，其大小为 256 x 128 像素（1:0.5 单位）。</p>
 
-<h2>Square<a name="square"></a>
+<h2>Square（方形）<a name="square"></a>
 </h2>
 
 <figure>
 <img src="../uploads/Main/2D-primitive-square.png" alt="">
 </figure>
 
-<p>The <strong>Square</strong> 2D primitive is a white square that is 1x1 Unity units in size. You can use it as a placeholder for various elements, such as obstacles like crates, or to quickly create platforms. You can add the <a href="class-BoxCollider2D.html">Box Collider 2D</a> component to the GameObject to have it interact with other GameObjects and 2D physics. For a more scalable Sprite that resizes dynamically, you can select the <a href="#9-sliced">9-Sliced</a> option instead.</p>
+<p><strong>方形</strong> 2D 图元是一个白色正方形，大小为 1x1 Unity 单位。您可以将其用作各种元素的占位体，例如板条箱等障碍物，或快速创建平台。您可以将 <a href="class-BoxCollider2D.html">Box Collider 2D</a> 组件添加到该游戏对象，使其与其他游戏对象和 2D 物理交互。对于可动态调整大小的更具可扩展性的精灵，您可以选择 <a href="#9-sliced">9-Sliced</a> 选项。</p>
 
-<h2>Circle<a name="circle"></a>
+<h2>Circle（圆形）<a name="circle"></a>
 </h2>
 
 <figure>
 <img src="../uploads/Main/2D-primitive-circle.png" alt="">
 </figure>
 
-<p>The <strong>Circle</strong> 2D primitive is a white circle that is 1 Unity unit in diameter. You can use it as a placeholder for various types of elements in your Scene, such as obstacles or props like pick-ups or power-ups. You can add the <a href="class-CircleCollider2D.html">Circle Collider 2D</a> to the GameObject to have it interact with other objects and 2D physics.</p>
+<p><strong>圆形</strong> 2D 图元是一个直径为 1 Unity 单位的白色圆形。您可以将其用作场景中各种类型元素的占位体，例如障碍物或道具（如拾取物品或能量块）。您可以将 <a href="class-CircleCollider2D.html">Circle Collider 2D</a> 组件添加到该游戏对象，使其与其他对象和 2D 物理交互。</p>
 
-<h2>Capsule<a name="capsule"></a>
+<h2>Capsule（胶囊体）<a name="capsule"></a>
 </h2>
 
 <figure>
 <img src="../uploads/Main/2D-primitive-capsule.png" alt="">
 </figure>
 
-<p>The <strong>Capsule</strong> 2D primitive is a white capsule that is 1x2 units in size. You can use this Capsule as a placeholder for various elements in your scene, such as an obstacle, prop, or as a stand-in for a character. You can add a <a href="class-CapsuleCollider2D.html">Capsule Collider 2D</a> to the GameObject to have it interact with other objects and 2D physics.</p>
+<p><strong>胶囊体</strong>2D 图元是一个白色的胶囊体，大小为 1x2 单位。您可以将此胶囊体用作场景中各种元素的占位体，例如障碍物、道具或角色的替身。您可以将 <a href="class-CapsuleCollider2D.html">Capsule Collider 2D</a> 组件添加到该游戏对象，使其与其他对象和 2D 物理交互。</p>
 
-<h2>Isometric Diamond<a name="iso-diamond"></a>
+<h2>Isometric Diamond（等距菱形）<a name="iso-diamond"></a>
 </h2>
 
 <figure>
 <img src="../uploads/Main/2D-primitive-isodiamond.png" alt="">
 </figure>
 
-<p>The <strong>Isometric Diamond </strong>2D primitive is a white diamond-shaped Sprite that is 1 x 0.5 units in size. This Sprite is designed to be used as a placeholder for <a href="Tilemap-Isometric.html">Isometric Tilemaps</a>. The pixels at the top and bottom of this Sprite are slightly cropped to improve tiling.</p>
+<p><strong>等距菱形</strong>2D 图元是一个白色菱形精灵，大小为 1 x 0.5 个单位。此精灵旨在用作<a href="Tilemap-Isometric.html">等距瓦片地图 </a>的占位体。此精灵的顶部和底部的像素被略微裁剪，可改善平铺效果。</p>
 
-<h2>Hexagon Flat-Top<a name="hex-flat-top"></a>
+<h2>Hexagon Flat-Top（六边形平顶）<a name="hex-flat-top"></a>
 </h2>
 
 <figure>
 <img src="../uploads/Main/2D-primitive-hex-flattop.png" alt="">
 </figure>
 
-<p>The <strong>Hexagon Flat-Top </strong>2D primitive is a regular hexagon that is 1 unit wide, oriented with its sides to the top and bottom. It is designed to be used as a primitive Sprite placeholder for Tiles in <a href="Tilemap-Hexagonal.html">Hexagonal Flat-Top Tilemaps</a>. The pixels to the left and right of this Sprite are slightly cropped to improve tiling.</p>
+<p><strong>六边形平顶</strong> 2D 图元是一个正六边形，宽度为 1 个单位，其顶部和底部为边。它的作用是作为<a href="Tilemap-Hexagonal.html">六边形平顶瓦片地图</a>中瓦片的原始精灵占位体。此精灵的左侧和右侧的像素被略微裁剪，可改善平铺效果。</p>
 
-<h2>Hexagon Point-Top<a name="hex-point-top"></a>
+<h2>Hexagon Point-Top（六边形尖顶）<a name="hex-point-top"></a>
 </h2>
 
 <figure>
 <img src="../uploads/Main/2D-primitive-hex-pointtop.png" alt="">
 </figure>
 
-<p>The <strong>Hexagon Point-Top</strong> 2D primitive is a regular hexagon that is one unit tall, oriented with its points to the top and bottom. It is designed to be used as a primitive Sprite placeholder for Tiles in <a href="Tilemap-Hexagonal.html">Hexagonal Pointed-Top Tilemaps</a>. The pixels to the top and bottom of this Sprite are slightly cropped to improve tiling.</p>
+<p><strong>六边形尖顶</strong> 2D 图元是一个正六边形，高度为 1 个单位，其顶部和底部为尖。它的作用是作为<a href="Tilemap-Hexagonal.html">六边形尖顶瓦片地图</a>中瓦片的原始精灵占位体。此精灵的顶部和底部的像素被略微裁剪，可改善平铺效果。</p>
 
-<h2>9-Sliced<a name="9-sliced"></a>
+<h2>9-Sliced（九宫格）<a name="9-sliced"></a>
 </h2>
 
 <figure>
 <img src="../uploads/Main/2D-primitive-9-sliced.png" alt="">
 </figure>
 
-<p>The <strong>9-Sliced </strong>2D primitive is a white square with rounded corners that is 1x1 units in size. This Sprite has been <a href="9SliceSprites.html">9-sliced</a> with borders of 64 pixels on each side. It is designed to be used with the <strong>Sliced</strong> and <strong>Tiled</strong> draw modes on the <a href="class-SpriteRenderer.html">Sprite Renderer</a>. You can use the 9-sliced Sprite as a flexible placeholder for various elements in your Scene and Project (see <a href="9SliceSprites.html">9-slicing Sprites</a> for more information). You can add a <a href="class-BoxCollider2D.html">Box Collider 2D</a> with <strong>Auto Tiling</strong> enabled to have the Sprite interact with other objects and 2D physics.</p>
+<p><strong>九宫格</strong> 2D 图元是一个带圆角的白色正方形，大小为 1x1 单位。此精灵已<a href="9SliceSprites.html">切分为 9 片</a>，边框的每边有 64 个像素。它用于<a href="class-SpriteRenderer.html">精灵渲染器</a>上的 <strong>Sliced</strong> 和 <strong>Tiled</strong> 绘制模式。您可以使用九宫格精灵作为场景和项目中各种元素的灵活占位体（有关更多信息，请参阅<a href="9SliceSprites.html">九宫格精灵</a>）。您可以添加一个启用了 <strong>Auto Tiling</strong> 的 <a href="class-BoxCollider2D.html">Box Collider 2D</a> 使该精灵与其他对象和 2D 物理交互。</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="PrimitiveObjects.html"></a></span><div class="tip">原始对象和占位对象</div>
@@ -286,7 +286,7 @@ To create a 2D primitive, go to <strong>GameObject &gt; 2D Object &gt; Sprites <
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

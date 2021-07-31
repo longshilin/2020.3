@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="How Streaming Virtual Texturing works - Unity 手册">
-<title>How Streaming Virtual Texturing works - Unity 手册</title>
+<meta property="og:title" content="Streaming Virtual Texturing 的工作原理 - Unity 手册">
+<title>Streaming Virtual Texturing 的工作原理 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/svt-how-it-works02.png">
-<meta name="description" content="The Streaming Virtual Texturing system (SVT) divides textures into tiles.">
-<meta property="og:description" content="The Streaming Virtual Texturing system (SVT) divides textures into tiles.">
+<meta name="description" content="Streaming Virtual Texturing 系统 (SVT) 将纹理划分为图块。">
+<meta property="og:description" content="Streaming Virtual Texturing 系统 (SVT) 将纹理划分为图块。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,61 +175,61 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
 <li>高级渲染功能</li>
 <li><a href="svt-streaming-virtual-texturing.html">Streaming Virtual Texturing</a></li>
-<li>How Streaming Virtual Texturing works</li>
+<li>Streaming Virtual Texturing 的工作原理</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="svt-requirements-compatibility.html"></a></span><div class="tip">Streaming Virtual Texturing requirements and compatibility</div>
+<span class="prev"><a href="svt-requirements-compatibility.html"></a></span><div class="tip">Streaming Virtual Texturing 要求和兼容性</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="svt-enable-in-project.html"></a></span><div class="tip">Enabling Streaming Virtual Texturing in your project</div>
+<span class="next"><a href="svt-enable-in-project.html"></a></span><div class="tip">在项目中启用 Streaming Virtual Texturing</div>
 </div>
 </div></div>
-<h1>How Streaming Virtual Texturing works</h1>
+<h1>Streaming Virtual Texturing 的工作原理</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>The Streaming Virtual Texturing system (SVT) divides textures into tiles.</p>
+<p>Streaming Virtual Texturing 系统 (SVT) 将纹理划分为图块。</p>
 
-<p>At runtime, when SVT samples a texture, it does the following:</p>
+<p>在运行时，当 SVT 对纹理进行采样时，它会执行以下操作：</p>
 
 <ul>
-<li>It samples an indirection texture, calculates the non-virtual UVs, and samples a cache texture with these UVs.</li>
-<li>It translates the virtual UVs to a tile ID, and binds an additional render target that receives these tile IDs. The CPU copies this render target back to main memory asynchronously, and processes it on a separate thread, to create requests for the asynchronous read manager to load these tiles from disk into a cache of GPU memory (if they are not already present).</li>
+<li>它对间接纹理进行采样，计算非虚拟 UV，并使用这些 UV 对缓存纹理进行采样。</li>
+<li>它将虚拟 UV 转换为图块 ID，并绑定接收这些图块 ID 的附加渲染目标。CPU 将此渲染目标异步复制回主内存，并在单独的线程上进行处理，以创建异步读取管理器的请求，将这些图块从磁盘加载到 GPU 内存的缓存中（如果它们尚未存在）。</li>
 </ul>
 
-<p>The cost of these runtime operations means that it’s more efficient to group textures together, and to sample them all at the same time. This process is called stacking textures. A group of textures that are sampled at the same time with the same UV coordinates is called a Texture Stack.</p>
+<p>这些运行时操作的成本意味着将纹理组合在一起并同时对它们进行采样会更高效。这个过程称为堆叠纹理。使用相同 UV 坐标同时采样的一组纹理称为纹理堆栈。</p>
 
-<p>SVT issues requests for tiles during frame rendering, so it can take from milliseconds to seconds until the requested tiles load into the GPU cache, and in some cases they might not load into the GPU cache at all. If the requested tile does not load into the cache, SVT has an automatic fallback mechanism: it samples tiles from a higher mipmap level until the requested tile is in the cache. This results in a lower level of detail until the tile fully loads.</p>
+<p>SVT 在帧渲染期间发出图块请求，因此将请求的图块加载到 GPU 缓存可能需要几毫秒到几秒的时间，并且在某些情况下它们可能根本不会加载到 GPU 缓存中。如果请求的图块没有加载到缓存中，SVT 有一个自动回退机制：它从更高的 Mipmap 级别采样图块，直到请求的图块位于缓存中。这会导致细节级别降低，直到图块完全加载。</p>
 
-<h2>SVT in the High Definition Render Pipeline debug view</h2>
+<h2>高清渲染管线调试视图中的 SVT</h2>
 
-<p>The High Definition Render Pipeline (HDRP) debug view shows how many neighboring screen pixels request the same tile. </p>
+<p>高清渲染管线 (HDRP) 调试视图显示有多少相邻屏幕像素请求相同的图块。</p>
 
 <p>To open the HDRP debug view, navigate to the Unity top menu and select <strong>Window &gt; Render Pipeline &gt; Render Pipeline Debug &gt; Rendering</strong>. To view the debug data for SVT, set <strong>Fullscreen Debug Mode</strong> to <strong>VirtualTexturingFeedback</strong>. </p>
 
 <figure>
-<img src="../uploads/Main/svt-how-it-works02.png" alt="The debug view uses distinct colors for every tile ID.">
-<figcaption>The debug view uses distinct colors for every tile ID.</figcaption>
+<img src="../uploads/Main/svt-how-it-works02.png" alt="调试视图为每个图块 ID 使用不同的颜色。">
+<figcaption>调试视图为每个图块 ID 使用不同的颜色。</figcaption>
 </figure>
 
-<p>Pixels that sample the same texture tile have the same colour. The color hue (green, red, and so on) represents the mipmap level to which a tile belongs. For example, all yellowish tiles belong to mipmap 1 of the texture.</p>
+<p>对相同纹理图块进行采样的像素具有相同的颜色。色调（绿色、红色等）表示图块所属的 Mipmap 级别。例如，所有黄色图块都属于 Mipmap 1 的纹理。</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="svt-requirements-compatibility.html"></a></span><div class="tip">Streaming Virtual Texturing requirements and compatibility</div>
+<span class="prev"><a href="svt-requirements-compatibility.html"></a></span><div class="tip">Streaming Virtual Texturing 要求和兼容性</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="svt-enable-in-project.html"></a></span><div class="tip">Enabling Streaming Virtual Texturing in your project</div>
+<span class="next"><a href="svt-enable-in-project.html"></a></span><div class="tip">在项目中启用 Streaming Virtual Texturing</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

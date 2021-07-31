@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Cookies (filename: Cookies.md) - Unity 手册">
-<title>Cookies (filename: Cookies.md) - Unity 手册</title>
+<meta property="og:title" content="剪影 - Unity 手册">
+<title>剪影 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/updated-cookie.png">
-<meta name="description" content="A cookie is a mask that you place on a Light to create a shadow with a specific shape or color, which changes the appearance and intensity of the Light. Cookies are an efficient way of simulating complex lighting effects with minimal or no runtime performance impact. Effects you can simulate with cookies include caustics, soft shadows, and light shapes.">
-<meta property="og:description" content="A cookie is a mask that you place on a Light to create a shadow with a specific shape or color, which changes the appearance and intensity of the Light. Cookies are an efficient way of simulating complex lighting effects with minimal or no runtime performance impact. Effects you can simulate with cookies include caustics, soft shadows, and light shapes.">
+<meta name="description" content="剪影是一个蒙版，您可以将其放置在光源上，以创建具有特定形状或颜色的阴影，从而改变光源的外观和强度。Cookie 是一种模拟复杂光照效果的有效方式，对运行时性能的影响微乎其微。您可以使用剪影模拟的效果包括焦散、柔和阴影和光源形状。">
+<meta property="og:description" content="剪影是一个蒙版，您可以将其放置在光源上，以创建具有特定形状或颜色的阴影，从而改变光源的外观和强度。Cookie 是一种模拟复杂光照效果的有效方式，对运行时性能的影响微乎其微。您可以使用剪影模拟的效果包括焦散、柔和阴影和光源形状。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,37 +175,37 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
 <li><a href="LightingOverview.html">光照</a></li>
 <li><a href="lighting-light-sources.html">光源</a></li>
 <li><a href="class-Light.html">光源</a></li>
-<li>Cookies (filename: Cookies.md)</li>
+<li>剪影</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="LightMode-Baked.html"></a></span><div class="tip">光源模式：Baked</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="creating-cookies-built-in-render-pipeline.html"></a></span><div class="tip">Creating cookies for the Built-in Render Pipeline</div>
+<span class="next"><a href="creating-cookies-built-in-render-pipeline.html"></a></span><div class="tip">为内置渲染管线创建剪影</div>
 </div>
 </div></div>
-<h1>Cookies (filename: Cookies.md)</h1>
+<h1>剪影</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>A cookie is a mask that you place on a Light to create a shadow with a specific shape or color, which changes the appearance and intensity of the Light. Cookies are an efficient way of simulating complex lighting effects with minimal or no runtime performance impact. Effects you can simulate with cookies include caustics, soft shadows, and light shapes.</p>
+<p>剪影是一个蒙版，您可以将其放置在光源上，以创建具有特定形状或颜色的阴影，从而改变光源的外观和强度。Cookie 是一种模拟复杂光照效果的有效方式，对运行时性能的影响微乎其微。您可以使用剪影模拟的效果包括焦散、柔和阴影和光源形状。</p>
 
-<p>To apply a cookie to a Light in Unity, assign a texture to the <strong>Cookie</strong> field of a a <a href="class-Light.html">Light component</a>. </p>
+<p>要将剪影应用到 Unity 中的光源，请为 <a href="class-Light.html">Light 组件</a>的 <strong>Cookie</strong> 字段指定一个纹理。</p>
 
 <figure>
-<img src="../uploads/Main/updated-cookie.png" alt="An example of baked fake caustics achieved using baked light cookies.">
-<figcaption>An example of baked fake caustics achieved using baked light cookies.</figcaption>
+<img src="../uploads/Main/updated-cookie.png" alt="使用烘焙光源剪影实现的烘焙伪焦散的示例。">
+<figcaption>使用烘焙光源剪影实现的烘焙伪焦散的示例。</figcaption>
 </figure>
 
 <h2>渲染管线兼容性</h2>
 
-<p>For more information on the different render pipelines available in Unity, see <a href="render-pipelines.html">Render pipelines</a>.</p>
+<p>有关 Unity 中各种可用的渲染管线的更多信息，请参阅<a href="render-pipelines.html">渲染管线</a>。</p>
 
 <table>
 <colgroup>
@@ -215,51 +215,49 @@
 
 <thead>
 <tr>
-	<th style="text-align:left;"><strong>Render pipeline:</strong></th>
-	<th style="text-align:left;"><strong>Details:</strong></th>
+	<th style="text-align:left;"><strong>渲染管线：</strong></th>
+	<th style="text-align:left;"><strong>详细信息：</strong></th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-	<td style="text-align:left;"><strong>Built-in Render Pipeline</strong></td>
-	<td style="text-align:left;">The Built-in Render Pipeline supports cookies for <a href="LightMode-Realtime.html">Realtime Lights</a>, and for <a href="LightMode-Baked.html">Baked Lights</a> and <a href="LightMode-Mixed.html">Mixed Lights</a> when you use the <a href="progressive-lightmapper.html">Progressive Lightmapper</a>. In the Built-in Render Pipeline, cookies only use data from the alpha channel. This means that you can define a shape for a cookie, but not a color.<br><br>For more information on cookies in the Built-in Render Pipeline, see <a href="creating-cookies-built-in-render-pipeline.html">Creating cookies for the Built-in Render Pipeline</a> and <a href="TextureTypes.html#Cookie">Texture Type: Cookie</a>.</td>
+	<td style="text-align:left;"><strong>内置渲染管线</strong></td>
+	<td style="text-align:left;">内置渲染管线支持<a href="LightMode-Realtime.html">实时光源</a>的剪影，并在使用<a href="progressive-lightmapper.html">渐进光照贴图</a>时，支持<a href="LightMode-Baked.html">烘焙光源</a>和<a href="LightMode-Mixed.html">混合光源</a>的剪影。在内置渲染管线中，剪影仅使用来自 Alpha 通道的数据。这意味着您可以为剪影定义形状，但不能定义颜色。<br><br>有关内置渲染管线中剪影的更多信息，请参阅<a href="creating-cookies-built-in-render-pipeline.html">为内置渲染管线创建剪影</a>和<a href="TextureTypes.html#Cookie">纹理类型：剪影 </a>。</td>
 </tr>
 <tr>
-	<td style="text-align:left;"><strong>Universal Render Pipeline (URP)</strong></td>
-	<td style="text-align:left;">URP does not support cookies at this time, but this feature is <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest/index.html?subfolder=/manual/universalrp-builtin-feature-comparison.html">in research</a>. This means that Unity is researching adding support for this feature in a future release, but cannot confirm that it is on the roadmap.<br><br>For more information on features in URP, see the <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest/index.html?subfolder=/manual/universalrp-builtin-feature-comparison.html">URP feature comparison table</a>.</td>
+	<td style="text-align:left;"><strong>通用渲染管线 (URP)</strong></td>
+	<td style="text-align:left;">URP 目前不支持剪影，但此功能尚在<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest/index.html?subfolder=/manual/universalrp-builtin-feature-comparison.html">研究中</a>。这意味着 Unity 正在研究在未来版本中添加对此功能的支持，但无法确认它是否在路线图上。<br><br>有关 URP 中功能的更多信息，请参阅 <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest/index.html?subfolder=/manual/universalrp-builtin-feature-comparison.html">URP 功能比较表</a>。</td>
 </tr>
 <tr>
-	<td style="text-align:left;"><strong>High Definition Render Pipeline (HDRP)</strong></td>
-	<td style="text-align:left;">HDRP supports cookies for <a href="LightMode-Realtime.html">Realtime Lights</a>, and for <a href="LightMode-Baked.html">Baked Lights</a> and <a href="LightMode-Mixed.html">Mixed Lights</a> when you use the <a href="progressive-lightmapper.html">Progressive Lightmapper</a>. In HDRP, cookies use the data from the RGB channels. This means that you can define a shape and a color for a cookie.<br><br>For more information on cookies in HDRP, see <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest/index.html?subfolder=/manual/Light-Component.html">Lights in the High Definition Render Pipeline</a> and <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest/index.html?subfolder=/manual/HDRP-Asset.html?">the HDRP Asset</a>.</td>
+	<td style="text-align:left;"><strong>高清渲染管线 (HDRP)</strong></td>
+	<td style="text-align:left;">HDRP supports cookies for <a href="LightMode-Realtime.html">Realtime Lights</a>, and for <a href="LightMode-Baked.html">Baked Lights</a> and <a href="LightMode-Mixed.html">Mixed Lights</a> when you use the <a href="progressive-lightmapper.html">Progressive Lightmapper</a>. In HDRP, cookies use data from the RGB channels. This means that you can define a shape and a color for a cookie.<br><br>For more information on cookies in HDRP, see <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest/index.html?subfolder=/manual/Light-Component.html">Lights in the High Definition Render Pipeline</a> and <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest/index.html?subfolder=/manual/HDRP-Asset.html?">the HDRP Asset</a>.</td>
 </tr>
 </tbody>
 </table>
 
-<h2>Enabling and disabling baked cookies</h2>
+<h2>启用和禁用烘焙剪影</h2>
 
-<p>For Projects created in Unity 2020.1 or above, baked cookies are enabled for Baked Lights and Mixed Lights in the Progressive Lightmapper by default. For Projects created in versions of Unity prior to 2020.1, baked cookies are disabled for Baked Lights and Mixed Lights in the Progressive Lightmapper by default. This is to provide backwards compatibility.</p>
+<p>对于在 Unity 2020.1 或更高版本中创建的项目，默认在渐进光照贴图中为烘焙光源和混合光源启用烘焙剪影。对于在 Unity 2020.1 之前中创建的项目，默认在渐进光照贴图中为烘焙光源和混合光源禁用烘焙剪影。这是为了提供向后兼容。</p>
 
-<p>You can toggle whether cookies are enabled for Baked Lights and Mixed Lights in the Progressive Lightmapper in the <a href="class-EditorManager.html">Editor settings</a> window.</p>
+<p>您可以在 <a href="class-EditorManager.html">Editor settings</a> 窗口中切换是否在渐进光照贴图中为烘焙光源和混合光源启用剪影。</p>
 
-<ol>
-<li>Open the Project Settings window (<strong>Edit &gt; Project Settings</strong>).</li>
-<li>Choose <strong>Editor</strong> to open the Editor settings.</li>
-<li>Navigate to the <strong>Graphics</strong> section.</li>
-<li>Toggle <strong>Enable baked cookies support</strong>.</li>
-</ol>
+<p>1.打开 Project Settings 窗口 (<strong>Edit &gt; Project Settings</strong>)。
+2.选择 <strong>Editor</strong> 打开编辑器设置。
+3.导航到 <strong>Graphics</strong> 部分。
+4.切换 <strong>Enable baked cookies support</strong>。</p>
 
 <h2>其他信息</h2>
 
 <ul>
-<li><a href="https://blogs.unity3d.com/2019/02/05/create-high-quality-light-fixtures-in-unity/">Unity blog post: Create high-quality light fixtures in Unity</a></li>
-<li><a href="https://forum.unity.com/threads/2020-1-new-feature-baked-light-cookies.848269/">Unity forum: New Feature - Baked Light Cookies</a></li>
+<li><a href="https://blogs.unity3d.com/2019/02/05/create-high-quality-light-fixtures-in-unity/">Unity 博客文章：在 Unity 中创建高品质灯具</a></li>
+<li><a href="https://forum.unity.com/threads/2020-1-new-feature-baked-light-cookies.848269/">Unity 论坛：新功能 - 烘焙光源剪影</a></li>
 </ul>
 
 <hr>
 
 <ul>
-<li><span class="page-history">Support for baked light cookies added in <a href="https://docs.unity3d.com/2020.1/Documentation/Manual/30_search.html?q=newin20201">2020.1</a> <span class="search-words">NewIn20201</span></span></li>
+<li><span class="page-history">对烘焙光源剪影的支持添加于 <a href="https://docs.unity3d.com/2020.1/Documentation/Manual/30_search.html?q=newin20201">2020.1</a> <span class="search-words">NewIn20201</span></span></li>
 </ul>
 <!-- area:graphics -->
 <div class="nextprev clear">
@@ -267,13 +265,13 @@
 <span class="prev"><a href="LightMode-Baked.html"></a></span><div class="tip">光源模式：Baked</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="creating-cookies-built-in-render-pipeline.html"></a></span><div class="tip">Creating cookies for the Built-in Render Pipeline</div>
+<span class="next"><a href="creating-cookies-built-in-render-pipeline.html"></a></span><div class="tip">为内置渲染管线创建剪影</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

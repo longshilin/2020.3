@@ -13,8 +13,8 @@
 <meta name="twitter:card" content="summary">
 <meta property="og:title" content="对动态游戏对象使用遮挡剔除 - Unity 手册">
 <title>对动态游戏对象使用遮挡剔除 - Unity 手册</title>
-<meta name="description" content="GameObjects can be static, or dynamic (not static). Static GameObjects and dynamic GameObjects behave differently in Unity&amp;#8217;s occlusion culling system:">
-<meta property="og:description" content="GameObjects can be static, or dynamic (not static). Static GameObjects and dynamic GameObjects behave differently in Unity&amp;#8217;s occlusion culling system:">
+<meta name="description" content="游戏对象可以是静态的，也可以是动态的（非静态）。静态游戏对象和动态游戏对象在 Unity 的遮挡剔除系统中的行为不同：">
+<meta property="og:description" content="游戏对象可以是静态的，也可以是动态的（非静态）。静态游戏对象和动态游戏对象在 Unity 的遮挡剔除系统中的行为不同：">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,9 +174,9 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="CamerasOverview.html">Cameras</a></li>
+<li><a href="CamerasOverview.html">摄像机</a></li>
 <li><a href="OcclusionCulling.html">遮挡剔除</a></li>
 <li>对动态游戏对象使用遮挡剔除</li>
 </ul></div>
@@ -192,11 +192,11 @@
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>GameObjects can be <a href="StaticObjects.html">static</a>, or dynamic (not static). Static GameObjects and dynamic GameObjects behave differently in Unity’s occlusion culling system:</p>
+<p>游戏对象可以是<a href="StaticObjects.html">静态的</a>，也可以是动态的（非静态）。静态游戏对象和动态游戏对象在 Unity 的遮挡剔除系统中的行为不同：</p>
 
 <ul>
-<li>Unity can bake static GameObjects into the occlusion culling data as a Static Occluder and/or a Static Occludee.</li>
-<li>Unity cannot bake dynamic GameObjects into the occlusion culling data. A dynamic GameObject can be an occludee at runtime, but it cannot be an occluder.</li>
+<li>Unity 可以将静态游戏对象作为静态遮挡物和/或静态被遮挡物烘焙到遮挡剔除数据中。</li>
+<li>Unity 无法将动态游戏对象烘焙到遮挡剔除数据中。动态游戏对象可以在运行时充当被遮挡物，而不能充当遮挡物。</li>
 </ul>
 
 <p>要确定动态游戏对象是否充当被遮挡物，可以在任何类型的渲染器组件上设置 Dynamic Occlusion 属性。启用 Dynamic Occlusion 后，渲染器在摄像机的视图中被静态遮挡物 (Static Occluder) 阻挡时，Unity 会剔除渲染器。禁用 Dynamic Occlusion 后，渲染器在摄像机的视图中被静态遮挡物 (Static Occluder) 阻挡时，Unity 不会剔除渲染器。</p>
@@ -215,7 +215,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

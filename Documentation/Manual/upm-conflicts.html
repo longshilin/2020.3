@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Resolution and conflict - Unity 手册">
-<title>Resolution and conflict - Unity 手册</title>
+<meta property="og:title" content="解析和冲突 - Unity 手册">
+<title>解析和冲突 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/upm-conflicts.svg">
-<meta name="description" content="When you add a package to a project manifest, Unity considers that package a dependency of the project (a direct dependency). However, a package can also have dependencies on other packages, which create indirect dependencies in any projects that require that package.">
-<meta property="og:description" content="When you add a package to a project manifest, Unity considers that package a dependency of the project (a direct dependency). However, a package can also have dependencies on other packages, which create indirect dependencies in any projects that require that package.">
+<meta name="description" content="将一个包添加到项目清单后，Unity 会将该包视为项目的依赖项（一个直接依赖项）。但是，一个包也会进一步依赖其他包，这可能会导致在使用这个包的项目中产生间接依赖项。">
+<meta property="og:description" content="将一个包添加到项目清单后，Unity 会将该包视为项目的依赖项（一个直接依赖项）。但是，一个包也会进一步依赖其他包，这可能会导致在使用这个包的项目中产生间接依赖项。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,55 +175,55 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="PackagesList.html">包</a></li>
 <li><a href="Packages.html">Unity 的 Package Manager</a></li>
-<li>Resolution and conflict</li>
+<li>解析和冲突</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="upm-scoped.html"></a></span><div class="tip">Scoped Registries</div>
+<span class="prev"><a href="upm-scoped.html"></a></span><div class="tip">范围注册表</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="upm-conflicts-auto.html"></a></span><div class="tip">Lock files</div>
+<span class="next"><a href="upm-conflicts-auto.html"></a></span><div class="tip">锁定文件</div>
 </div>
 </div></div>
-<h1>Resolution and conflict</h1>
+<h1>解析和冲突</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>When you add a package to a project manifest, Unity considers that package a <a href="upm-dependencies.html">dependency</a> of the project (a direct dependency). However, a package can also have dependencies on other packages, which create indirect dependencies in any projects that require that package. </p>
+<p>将一个包添加到项目清单后，Unity 会将该包视为项目的<a href="upm-dependencies.html">依赖项</a>（一个直接依赖项）。但是，一个包也会进一步依赖其他包，这可能会导致在使用这个包的项目中产生间接依赖项。</p>
 
-<p>Since most projects require more than one package in order to develop games and apps, the Package Manager has to evaluate all the requested package versions to retrieve from the registry (whether direct or indirect), and decide which among those package versions to install. To do this, it computes the set of packages that satisfies all <a href="upm-dependencies.html">direct and indirect dependencies</a> in the project, starting with the project dependencies and recursively exploring each indirect dependency, collecting all the dependency information, then picking a set of packages that satisfies the dependency requirements without any conflict. For example, this dependency graph represents a project with four direct dependencies and all of their indirect dependencies:</p>
+<p>由于大多数项目需要多个包才能开发游戏和应用，因此 Package Manager 必须评估所有请求的（直接或间接）包版本以从注册表中检索，并决定安装这些包的哪一个版本。为此，它计算一个包的集合，能满足项目中所有<a href="upm-dependencies.html">直接和间接依赖项</a>，从项目的依赖项开始，递归搜索每一个间接依赖项，收集所有的依赖信息，然后挑选出一个包的集合，能够满足依赖要求且没有任何冲突。例如，此依赖关系图表示项目中具有四个直接依赖项及其所有间接依赖项：</p>
 
 <figure>
-<img src="../uploads/Main/upm-conflicts.svg" alt="A graph of direct and indirect package dependencies for a project">
-<figcaption>A graph of direct and indirect package dependencies for a project</figcaption>
+<img src="../uploads/Main/upm-conflicts.svg" alt="项目的直接和间接包依赖关系图">
+<figcaption>项目的直接和间接包依赖关系图</figcaption>
 </figure>
 
-<p>In this example:</p>
+<p>在此示例中：</p>
 
 <ul>
-<li>The light blue nodes represent the project’s direct dependencies.</li>
-<li>The dark blue nodes show the same package and version as indirect dependencies in this project.</li>
-<li>The red nodes show two different versions of the same package, which is a conflict.</li>
+<li>浅蓝色节点代表项目的直接依赖项。</li>
+<li>深蓝色节点显示此项目中间接依赖项的相同的包和版本。</li>
+<li>红色节点显示同一个包的两个不同版本，这是一个冲突。</li>
 </ul>
 
-<p><strong>Note</strong>: Only package dependencies declared with versions need to be resolved. The Package Manager selects packages installed from other <a href="upm-concepts.html#Sources">sources</a>, such as <a href="upm-embed.html">embedded packages</a>, and dependencies declared with <a href="upm-localpath.html">local paths</a>, <a href="upm-git.html">Git URLs</a>, and <a href="pack-build.html">built-in</a> packages over version-based dependencies.</p>
+<p><strong>注意</strong>：只需要解析具有版本声明的包依赖项。相对于基于版本的依赖项，Package Manager 优先选择从其他<a href="upm-concepts.html#Sources">来源</a>安装的包（如<a href="upm-embed.html">嵌入式包</a>和使用<a href="upm-localpath.html">本地路径</a>、<a href="upm-git.html">Git URL</a> 声明的依赖项和<a href="pack-build.html">内置</a>包）。</p>
 
-<h2>Choosing the best solution</h2>
+<h2>选择最佳解决方案</h2>
 
-<p>Depending on the set of packages defined in the project manifest, it could take a long time to evaluate all possible package combinations: a project could potentially depend on hundreds of packages, each of which depend on hundreds of other packages, most requiring different versions. </p>
+<p>根据项目清单中定义的包集合，评估所有可能的包组合可能需要很长时间：一个项目可能依赖数百个包，每个包都依赖于数百个其他包，大多数需要不同的版本。</p>
 
-<h3>Lock files and resolutionStrategy</h3>
+<h3>锁定文件和 resolutionStrategy</h3>
 
-<p>To provide the most efficient solution, the Package Manager prioritizes package versions that it previously used by tracking them in a <a href="upm-conflicts-auto.html">lock file</a>. This guarantees that subsequent dependency resolution using the same inputs results in the same outputs. It also minimizes time-consuming operations such as downloading, extracting, or copying packages.</p>
+<p>为了提供最有效的解决方案，Package Manager 通过<a href="upm-conflicts-auto.html">锁定文件</a>跟踪以前使用的包版本来确定它们的优先级。这保证了使用相同输入的后续依赖解析会产生相同的输出。它还最大限度地减少了耗时的操作，例如下载、解压缩或复制包。</p>
 
-<p>Sometimes, the Package Manager cannot find a solution that only includes locked packages. In this case, the Package Manager uses the solution with the least risky upgrades, preferring patch upgrades over minor or major upgrades, and minor upgrades over major upgrades by default. However, you can customize how aggressive you want the Package Manager to be when considering a higher version with the <a href="upm-manifestPrj.html#resolutionStrategy">resolutionStrategy</a> property.</p>
+<p>有时，Package Manager 无法找到一个仅包含锁定包的解决方案。在这种情况下，Package Manager 使用升级风险最小的解决方案，默认情况下，补丁升级优先于次要或主要版本升级，次要版本升级优先于主要版本升级。但是，您可以使用 <a href="upm-manifestPrj.html#resolutionStrategy">resolutionStrategy</a> 属性自定义您希望 Package Manager 在考虑更高版本时的激进程度。</p>
 
 <h2>示例</h2>
 
-<p>In this example, there are multiple versions of the following packages requested:</p>
+<p>在此示例中，请求了以下软件包的多个版本：</p>
 
 <ul>
 <li>
@@ -237,11 +237,11 @@
 </li>
 </ul>
 
-<p>Using the set of <a href="#direct">direct</a> and <a href="#indirect">indirect</a> dependencies, the Package Manager selects the highest version of the burst package (<code>burst@1.3.0-preview.3</code>), which satisfies the <code>collections@0.5.2-preview.8</code> package’s dependency:</p>
+<p>使用<a href="#direct">直接</a>和<a href="#indirect">间接</a>依赖项集合，Package Manager 选择 burst 包的最高版本 (<code>burst@1.3.0-preview.3</code>)，从而满足 <code>collections@0.5.2-preview.8</code> 包的依赖：</p>
 
 <figure>
-<img src="../uploads/Main/upm-resolution.svg" alt="In the dependency graph, the blue nodes indicate which versions the Package Manager selected">
-<figcaption>In the dependency graph, the blue nodes indicate which versions the Package Manager selected</figcaption>
+<img src="../uploads/Main/upm-resolution.svg" alt="在依赖关系图中，蓝色节点表示 Package Manager 选择的版本">
+<figcaption>在依赖关系图中，蓝色节点表示 Package Manager 选择的版本</figcaption>
 </figure>
 
 <p><br> </p>
@@ -251,22 +251,22 @@
 <p><br> </p>
 
 <ul>
-<li><span class="page-history">New package dependency solver (SAT) added in Unity <a href="https://docs.unity3d.com/2019.4/Documentation/Manual/30_search.html?q=newin20194">2019.4</a> <span class="search-words">NewIn20194</span></span></li>
+<li><span class="page-history">新的包依赖解算器 (SAT) 添加于 Unity<a href="https://docs.unity3d.com/2019.4/Documentation/Manual/30_search.html?q=newin20194"> 2019.4</a><span class="search-words"> NewIn20194</span></span></li>
 </ul>
 
 <p><br> </p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="upm-scoped.html"></a></span><div class="tip">Scoped Registries</div>
+<span class="prev"><a href="upm-scoped.html"></a></span><div class="tip">范围注册表</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="upm-conflicts-auto.html"></a></span><div class="tip">Lock files</div>
+<span class="next"><a href="upm-conflicts-auto.html"></a></span><div class="tip">锁定文件</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

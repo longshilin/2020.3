@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Simple selectors - Unity 手册">
-<title>Simple selectors - Unity 手册</title>
+<meta property="og:title" content="简单选择器 - Unity 手册">
+<title>简单选择器 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/uss-selectors-nostyle.png">
-<meta name="description" content="USS supports the following simple selectors:">
-<meta property="og:description" content="USS supports the following simple selectors:">
+<meta name="description" content="USS 支持以下简单选择器：">
+<meta property="og:description" content="USS 支持以下简单选择器：">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,41 +175,42 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="UIToolkits.html">Creating user interfaces (UI)</a></li>
-<li><a href="UIElements.html">UI Toolkit</a></li>
-<li><a href="UIE-USS.html">样式和 Unity 样式表</a></li>
-<li><a href="UIE-USS-Selectors.html">USS Selectors</a></li>
-<li>Simple selectors</li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="UIToolkits.html">创建用户界面 (UI)</a></li>
+<li><a href="UIElements.html">UI 工具包</a></li>
+<li><a href="UIE-USS.html">Unity style sheets (USS)</a></li>
+<li><a href="UIE-USS-Selectors.html">USS 选择器</a></li>
+<li>简单选择器</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="UIE-USS-Selectors.html"></a></span><div class="tip">USS Selectors</div>
+<span class="prev"><a href="UIE-USS-Selectors.html"></a></span><div class="tip">USS 选择器</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="UIE-USS-Selectors-Complex.html"></a></span><div class="tip">Complex Selectors</div>
 </div>
 </div></div>
-<h1>Simple selectors</h1>
+<h1>简单选择器</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>USS supports the following simple selectors:</p>
+<p>USS 支持以下简单选择器：</p>
 
 <ul>
 <li>
-<strong>C# type</strong> selectors match elements of a specific C# type</li>
+<strong>C# 类型</strong>选择器匹配特定 C# 类型的元素</li>
 <li>
-<strong>USS class</strong> selectors match elements with an assigned USS class</li>
+<strong>USS 类</strong>选择器匹配具有指定 USS 类的元素</li>
 <li>
-<strong>Name</strong> selectors match elements with an assigned <code>name</code> attribute.</li>
-<li>The <strong>universal selector</strong> matches any element</li>
+<strong>名称</strong>选择器匹配具有指定 <code>name</code> 属性的元素。</li>
+<li>
+<strong>通用选择器</strong>匹配任何元素</li>
 </ul>
 
-<p>You can combine simple selectors into <a href="UIE-USS-Selectors-Complex.html">complex selectors</a>, or append <a href="UIE-USS-Selectors-Pseudo-Classes.html">pseudo-classes</a> to them to target elements in specific states.</p>
+<p>您可以将简单的选择器组合成<a href="UIE-USS-Selectors-Complex.html">复杂的选择器</a>，或附加<a href="UIE-USS-Selectors-Pseudo-Classes.html">伪类</a>以将其定位到处于特定状态的元素。</p>
 
 <p><a name="selector-example"></a>
-This page describes each type of simple selector and provides syntax and examples. It uses the following UXML document to demonstrate how simple selectors match elements.</p>
+本页面描述了每种类型的简单选择器并提供了语法和示例。它使用以下 UXML 文档来演示简单选择器如何匹配元素。</p>
 
 <pre><code class="lang-xml">&lt;UXML xmlns="UnityEngine.UIElements"&gt;
   &lt;VisualElement name="container1"&gt;
@@ -221,7 +222,7 @@ This page describes each type of simple selector and provides syntax and example
 &lt;/UXML&gt;
 </code></pre>
 
-<p>With no styles applied, the UXML document produces the UI shown below.</p>
+<p>在未应用任何样式的情况下，UXML 文档生成如下所示的 UI。</p>
 
 <table>
 <colgroup>
@@ -236,7 +237,7 @@ This page describes each type of simple selector and provides syntax and example
 
 <tbody>
 <tr>
-	<td style="text-align:left;">Example images include margins and thin blue borders to help identify individual elements for the purposes of demonstration.</td>
+	<td style="text-align:left;">示例图像包括边距和蓝色细边框，以帮助识别用于演示目的的各个元素。</td>
 </tr>
 </tbody>
 </table>
@@ -245,9 +246,9 @@ This page describes each type of simple selector and provides syntax and example
 <img src="../uploads/Main/uss-selectors-nostyle.png" alt="">
 </figure>
 
-<h2>C# type selectors</h2>
+<h2>C# 类型选择器</h2>
 
-<p>C# Type selector match elements based on their C# type.</p>
+<p>C# 类型选择器根据它们的 C# 类型匹配元素。</p>
 
 <table>
 <colgroup>
@@ -262,33 +263,33 @@ This page describes each type of simple selector and provides syntax and example
 
 <tbody>
 <tr>
-	<td style="text-align:left;">USS Type selectors are analogous to CSS Type selectors that match HTML tags. For example <code>Button {...}</code> in USS matches any elements of C# type <code>Button</code> in the same way that <code>p {...}</code> in CSS matches any paragraph (<code>&lt;p&gt;</code>) tag.</td>
+	<td style="text-align:left;">USS 类型选择器类似于匹配 HTML 标签的 CSS 类型选择器。例如，USS 中的 <code>Button {...}</code> 匹配 C# <code>Button</code> 类型的任何元素，相当于 CSS 中的 <code>p {...}</code> 匹配任何 (<code>&lt;p&gt;</code>) 段落标签。</td>
 </tr>
 </tbody>
 </table>
 
-<p><strong>Syntax:</strong></p>
+<p><strong>语法：</strong></p>
 
-<p>A C# type selector is the C# type name, written as is.</p>
+<p>C# 类型选择器是 C# 类型名称，按原样书写。</p>
 
 <pre><code class="lang-css">TypeName { ...}
 </code></pre>
 
-<p>When you write C# Type selectors, specify only the concrete object type. Don’t include the namespace in the type name.</p>
+<p>编写 C# 类型选择器时，仅指定具体的对象类型。不要在类型名称中包含命名空间。</p>
 
-<p>For example, this selector is valid:</p>
+<p>例如，这个选择器是有效的：</p>
 
-<pre><code class="lang-css">Button { ... }
+<pre><code class="lang-css">Button { ...}
 </code></pre>
 
-<p>This selector is not valid:</p>
+<p>这个选择器是无效：</p>
 
-<pre><code class="lang-css">UnityEngine.UIElements.Button { ... }
+<pre><code class="lang-css">UnityEngine.UIElements.Button { ...}
 </code></pre>
 
 <p><strong>示例：</strong></p>
 
-<p>For the <a href="#selector-example">example UXML document</a> above, the following style rule matches the two <code>Button</code> elements.</p>
+<p>对于上面的<a href="#selector-example">示例 UXML 文档</a>，以下样式规则匹配两个 <code>Button</code> 元素。</p>
 
 <pre><code class="lang-css">Button {
   border-radius: 8px;
@@ -302,17 +303,17 @@ This page describes each type of simple selector and provides syntax and example
 
 <p><a name="name-selectors"></a></p>
 
-<h2>Name selectors</h2>
+<h2>名称选择器</h2>
 
-<p>Name selectors match elements based on the value of assigned <code>name</code> attributes.</p>
+<p>名称选择器根据指定的 <code>name</code> 属性的值匹配元素。</p>
 
 <ul>
-<li>In C#, you set an element’s name using <code>VisualElement.name</code>.</li>
-<li>In UXML, you can give elements a name attribute <code>&lt;VisualElement name="my-nameName"&gt;</code>
+<li>在 C# 中，使用 <code>VisualElement.name</code> 设置元素的名称。</li>
+<li>在 UXML 中，可以为元素指定一个名称属性 <code>&lt;VisualElement name="my-nameName"&gt;</code>
 </li>
 </ul>
 
-<p>Unity does not enforce any convention for names, but you should make element names unique within a panel. Using non-unique names could lead to unexpected matches.</p>
+<p>Unity 不强制任何名称约定，但您应该使面板内的元素名称唯一。使用非唯一名称可能会导致意外匹配。</p>
 
 <table>
 <colgroup>
@@ -327,14 +328,14 @@ This page describes each type of simple selector and provides syntax and example
 
 <tbody>
 <tr>
-	<td style="text-align:left;">USS Name selectors are analogous to CSS ID selectors that match elements with a specific <code>id</code> attribute.</td>
+	<td style="text-align:left;">USS 名称选择器类似于匹配具有特定 <code>id</code> 属性的元素的 CSS ID 选择器。</td>
 </tr>
 </tbody>
 </table>
 
-<p><strong>Syntax:</strong></p>
+<p><strong>语法：</strong></p>
 
-<p>A name selector consists of an element’s assigned name prefixed with a number sign (<code>#</code>).</p>
+<p>名称选择器由元素的指定名称和数值符号 (<code>#</code>) 前缀组成。</p>
 
 <pre><code class="lang-css"># name { ...}
 </code></pre>
@@ -352,16 +353,16 @@ This page describes each type of simple selector and provides syntax and example
 
 <tbody>
 <tr>
-	<td style="text-align:left;">Only use the number sign # when you write the selector in a USS file. Don’t use it when you assign the name to an element in a UXML or C# file. An element name that includes the number sign is invalid.<br><br>For example <code>&lt;Button name="OK" /&gt;</code> is valid. <code>&lt;Button name="#OK" /&gt;</code> is not.</td>
+	<td style="text-align:left;">仅当您在 USS 文件中编写选择器时使用数值符号 #。为 UXML 或 C# 文件中的元素指定名称时不要使用它。包含数值符号的元素名称无效。<br><br>例如 <code>&lt;Button name="OK" /&gt;</code> 有效。<code>&lt;Button name="#OK" /&gt;</code> 无效。</td>
 </tr>
 </tbody>
 </table>
 
 <p><strong>示例：</strong></p>
 
-<p>For the <a href="#selector-example">example UXML document</a> above, the following style rule matches the second <code>Button</code> element.</p>
+<p>对于上面的<a href="#selector-example">示例 UXML 文档</a>，以下样式规则匹配第二个 <code>Button</code> 元素。</p>
 
-<pre><code class="lang-css">#Cancel {
+<pre><code class="lang-css"># Cancel {
     border-width: 2px;
     border-color: DarkRed;
     background-color: pink;
@@ -374,9 +375,9 @@ This page describes each type of simple selector and provides syntax and example
 
 <p><a name="uss-class-selectors"></a></p>
 
-<h2>USS class selectors</h2>
+<h2>USS 类选择器</h2>
 
-<p>Class selectors match elements that have specific USS classes assigned.</p>
+<p>类选择器匹配指定了特定 USS 类的元素。</p>
 
 <table>
 <colgroup>
@@ -391,14 +392,14 @@ This page describes each type of simple selector and provides syntax and example
 
 <tbody>
 <tr>
-	<td style="text-align:left;">Class selectors work the same way in USS as they do in CSS.</td>
+	<td style="text-align:left;">类选择器在 USS 中的工作方式与在 CSS 中的工作方式相同。</td>
 </tr>
 </tbody>
 </table>
 
-<p><strong>Syntax:</strong></p>
+<p><strong>语法：</strong></p>
 
-<p>A class selector consists of the class name prefixed with a period (<code>.</code>). Class names cannot begin with a numeral.</p>
+<p>类选择器由类名和句点 (<code>.</code>) 前缀组成。类名不能以数字开头。</p>
 
 <pre><code class="lang-css">.class { ...}
 </code></pre>
@@ -416,21 +417,21 @@ This page describes each type of simple selector and provides syntax and example
 
 <tbody>
 <tr>
-	<td style="text-align:left;">The period <code>.</code> is only used when you write the selector in a USS file. Don’t include it when you assign the class to an element in a UXML or C# file.</td>
+	<td style="text-align:left;">仅当您在 USS 文件中编写选择器时使用句点 (<code>.</code>) 。为 UXML 或 C# 文件中的元素指定类时不要包含它。</td>
 </tr>
 <tr>
-	<td style="text-align:left;">For example, use <code>&lt;Button class="yellow" /&gt;</code> and not <code>&lt;Button class=".yellow" /&gt;</code>.<br><br>Also avoid using periods in class names. Unity’s USS parser interprets a period as the beginning of a new class.<br><br>For example, if you create a class called <code>yellow.button</code>, and create the following USS rule: <br><br><code>.yellow.button{...}</code> <br><br>the parser interprets the selector as a <a href="UIE-USS-Selectors-Complex.html#multiple-selectors">multiple selector</a>, and tries to find elements that match both a <code>.yellow</code> class and a <code>.button</code> class.</td>
+	<td style="text-align:left;">例如，使用 <code>&lt;Button class="yellow" /&gt;</code> 而不是 <code>&lt;Button class=".yellow" /&gt;</code>。<br><br>还要避免在类名中使用句点。Unity 的 USS 解析器将句点解释为新类的开始。<br><br>例如，如果您创建一个名为 <code>yellow.button</code> 的类，并创建以下 USS 规则：<br><br><code>.yellow.button{...}</code> <br><br>解析器将选择器解释为<a href="UIE-USS-Selectors-Complex.html#multiple-selectors">多个选择器</a>，并尝试查找同时匹配 <code>.yellow</code> 类和 <code>.button</code> 类的元素。</td>
 </tr>
 </tbody>
 </table>
 
-<p>When an element has more than one class assigned, a selector only has to match one of them to match the element.</p>
+<p>当一个元素指定了多个类时，选择器只需要匹配其中一个类来匹配元素。</p>
 
-<p>You can also specify multiple classes in a selector, in which case an element must have all of those classes assigned in order to match. See <a href="UIE-USS-Selectors-Complex.html#multiple-selectors">Multiple selectors</a> for details.</p>
+<p>您还可以在选择器中指定多个类，在这种情况下，元素必须指定了所有这些类才能匹配。有关详细信息，请参阅<a href="UIE-USS-Selectors-Complex.html#multiple-selectors">多个选择器</a>。</p>
 
 <p><strong>示例：</strong></p>
 
-<p>For the <a href="#selector-example">example UXML document</a> above, the following style rule matches the element named <em>container2</em> and the button element named <em>OK</em>, and changes their background color to yellow.</p>
+<p>对于上面的<a href="#selector-example">示例 UXML 文档</a>，下面的样式规则匹配名为 <em>container2</em> 的元素和名为 <em>OK</em> 的按钮元素，并将其背景颜色更改为黄色。</p>
 
 <pre><code class="lang-css">.yellow {
     background-color: yellow;
@@ -441,18 +442,18 @@ This page describes each type of simple selector and provides syntax and example
 <img src="../uploads/Main/uss-selectors-class.png" alt="">
 </figure>
 
-<h2>Universal selector</h2>
+<h2>通用选择器</h2>
 
-<p>The universal selector, sometimes called the wildcard selector, matches any element.</p>
+<p>通用选择器（有时称为通配符选择器）匹配任何元素。</p>
 
-<p><strong>Syntax:</strong></p>
+<p><strong>语法：</strong></p>
 
 <pre><code class="lang-css">* { ...}
 </code></pre>
 
 <p><strong>示例：</strong></p>
 
-<p>For the <a href="#selector-example">example UXML document</a> above, the following style rule matches every element, and changes its background color to yellow. This includes the main area of the window, because the stylesheet is applied to the window’s root element.
+<p>对于上面的<a href="#selector-example">示例 UXML 文档</a>，下面的样式规则匹配每个元素，并将其背景颜色更改为黄色。这包括窗口的主要区域，因为该样式表应用于窗口的根元素。
 <!-- XREF to root element --></p>
 
 <pre><code class="lang-css">* {
@@ -477,14 +478,14 @@ This page describes each type of simple selector and provides syntax and example
 
 <tbody>
 <tr>
-	<td style="text-align:left;">Because it tests every element, the universal selector can impact performance. Use it sparingly. Avoid using the universal selector with the descendant selector. When you use that combination, the system might have to test many elements repeatedly, which can impact performance.</td>
+	<td style="text-align:left;">因为它测试每个元素，所以通用选择器会影响性能。请谨慎使用。避免将通用选择器与后代选择器一起使用。当您使用该组合时，系统可能必须反复测试许多元素，这会影响性能。</td>
 </tr>
 </tbody>
 </table>
 
-<h3>Using the universal selector in complex selectors</h3>
+<h3>在复杂选择器中使用通用选择器</h3>
 
-<p>You can include the universal selector in <a href="UIE-USS-Selectors-Complex.html">complex selectors</a>. For example, the following USS rule uses it in a <a href="UIE-USS-Selectors-Complex.html#child-selectors">child selector</a> to match any buttons that are children of any elements that are children of an element with the USS class <code>yellow</code> assigned to it:</p>
+<p>您可以将通用选择器包含在<a href="UIE-USS-Selectors-Complex.html">复杂的选择器</a>中。例如，以下 USS 规则在<a href="UIE-USS-Selectors-Complex.html#child-selectors">子选择器</a>中使用了通用选择器，匹配 USS 类为 <code>yellow</code> 的元素的任何子元素下的任何按钮子元素：</p>
 
 <pre><code class="lang-css">.yellow &gt; * &gt; Button{..}
 </code></pre>
@@ -493,7 +494,7 @@ This page describes each type of simple selector and provides syntax and example
 <!-- area:authoring -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="UIE-USS-Selectors.html"></a></span><div class="tip">USS Selectors</div>
+<span class="prev"><a href="UIE-USS-Selectors.html"></a></span><div class="tip">USS 选择器</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="UIE-USS-Selectors-Complex.html"></a></span><div class="tip">Complex Selectors</div>
@@ -502,7 +503,7 @@ This page describes each type of simple selector and provides syntax and example
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

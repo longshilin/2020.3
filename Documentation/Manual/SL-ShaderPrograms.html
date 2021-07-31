@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="编写顶点和片元着色器 - Unity 手册">
-<title>编写顶点和片元着色器 - Unity 手册</title>
-<meta name="description" content="ShaderLab shaders describe properties that the Material Inspector displays, contain multiple shader implementations for different graphics hardware, and configure fixed function hardware states. Programmable shaders like vertex and fragment programs, are just a part ShaderLab&amp;#8217;s shader concept. This page outlines the low-level hardware shaders shader programs.">
-<meta property="og:description" content="ShaderLab shaders describe properties that the Material Inspector displays, contain multiple shader implementations for different graphics hardware, and configure fixed function hardware states. Programmable shaders like vertex and fragment programs, are just a part ShaderLab&amp;#8217;s shader concept. This page outlines the low-level hardware shaders shader programs.">
+<meta property="og:title" content="Unity 中的 HLSL - Unity 手册">
+<title>Unity 中的 HLSL - Unity 手册</title>
+<meta name="description" content="在 Unity 中，可使用 HLSL 编程语言来编写着色器程序。">
+<meta property="og:description" content="在 Unity 中，可使用 HLSL 编程语言来编写着色器程序。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,78 +174,74 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
-<li><a href="ShadersOverview.html">编写着色器</a></li>
-<li><a href="SL-Reference.html">着色器参考</a></li>
-<li>编写顶点和片元着色器</li>
+<li><a href="Shaders.html">着色器</a></li>
+<li><a href="shader-writing.html">编写着色器</a></li>
+<li>Unity 中的 HLSL</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-SurfaceShaderTessellation.html"></a></span><div class="tip">支持 DX11/OpenGL Core 曲面细分的表面着色器</div>
+<span class="prev"><a href="SL-BindChannels.html"></a></span><div class="tip">ShaderLab：旧版顶点数据通道映射</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-VertexFragmentShaderExamples.html"></a></span><div class="tip">顶点和片元着色器示例</div>
+<span class="next"><a href="SL-PragmaDirectives.html"></a></span><div class="tip">着色器编译：pragma 指令</div>
 </div>
 </div></div>
-<h1>编写顶点和片元着色器</h1>
+<h1>Unity 中的 HLSL</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p><strong>ShaderLab</strong> shaders describe properties that the Material Inspector displays, contain multiple shader implementations for different graphics hardware, and configure fixed function hardware states. Programmable shaders like vertex and fragment programs, are just a part <strong>ShaderLab</strong>’s shader concept. This page outlines the low-level hardware shaders <strong>shader programs</strong>.</p>
+<p>在 Unity 中，可使用 HLSL 编程语言来编写<a href="SL-ShaderPrograms.html">着色器程序</a>。</p>
 
-<p>如果要编写与光照交互的着色器，请参阅<a href="SL-SurfaceShaders.html">表面着色器</a>文档。如需查看一些示例，请参阅<a href="SL-VertexFragmentShaderExamples.html"><strong>顶点和片元着色器示例</strong></a>。本页的其余部分假设着色器不与 Unity 光源（例如特殊效果和<a href="PostProcessingOverview.html">后期处理效果</a>）交互。</p>
+<p>本手册的这一部分介绍有关以 Unity 特定方式使用 HLSL 的信息。有关编写 HLSL 的常规信息，请参阅 <a href="https://docs.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl">Microsoft 的 HLSL 文档</a>。</p>
 
-<p>着色器程序用 <a href="SL-ShadingLanguage.html">HLSL 语言</a>编写，在着色器文本中嵌入代码片段（在 <a href="SL-Pass.html">Pass</a> 命令中的某个位置）。着色器程序通常如下所示：</p>
+<p><strong>注意：</strong>Unity 最初使用 <a href="https://en.wikipedia.org/wiki/Cg_%28programming_language%29">Cg</a> 语言，因此会使用 Unity 某些关键字的名称 (<code>CGPROGRAM</code>) 和文件扩展名 (<code>.cginc</code>)。Unity 不再使用 Cg，但这些名称仍在使用。</p>
+
+<h2>将 HLSL 代码添加到 ShaderLab 代码中</h2>
+
+<p>将 HLSL 代码放在 ShaderLab 代码中的代码块中。着色器程序通常如下所示：</p>
 
 <pre><code>  Pass {
-        // ...常规通道状态设置 ...
+        // ... 常规通道状态设置 ...
       
-        CGPROGRAM
+        HLSLPROGRAM
         // 此代码片段的编译指令，例如：
         #pragma vertex vert
         #pragma fragment frag
       
-        // Cg/HLSL 代码本身
+        // 着色器程序本身
       
-        ENDCG
-        // ...通道设置的剩余部分 ...
+        ENDHLSL
+
+        // ... 通道的剩余部分 ...
     }
 </code></pre>
 
-<h2>HLSL 代码片段</h2>
+<p>有关着色器代码块的更多信息，请参阅 <a href="shader-shaderlab-code-blocks.html">ShaderLab：添加着色器程序</a>。</p>
 
-<p>HLSL 程序代码片段写入到 <code>CGPROGRAM</code> 和 <code>ENDCG</code> 关键字之间，或者 <code>HLSLPROGRAM</code> 和 <code>ENDHLSL</code> 之间。后一种形式不会自动包含 HLSLSupport 和 UnityShaderVariables <a href="SL-BuiltinIncludes.html">内置头文件</a>。</p>
+<h2>HLSL 语法</h2>
 
-<h2>另请参阅</h2>
+<p>HLSL has two syntaxes: a legacy DirectX 9-style syntax, and a more modern DirectX 10+ style syntax. The difference is mostly in how texture sampling functions work:</p>
 
 <ul>
-<li>
-<a href="SL-PropertiesInPrograms.html">访问材质属性</a>。</li>
-<li>
-<a href="SL-MultipleProgramVariants.html">编写多个着色器程序变体</a>。</li>
-<li>
-<a href="SL-ShaderCompileTargets.html">着色器编译目标</a>。</li>
-<li>
-<a href="SL-ShadingLanguage.html">着色语言详细信息</a>。</li>
-<li>
-<a href="SL-BuiltinMacros.html">着色器预处理器宏</a>。</li>
-<li>
-<a href="SL-PlatformDifferences.html">平台特定的渲染差异</a>。</li>
+<li>The legacy syntax uses sampler2D, tex2D() and similar functions. This syntax works on all platforms.</li>
+<li>The DX10+ syntax uses Texture2D, SamplerState and .Sample() functions. Some forms of this syntax do not work on OpenGL platforms, because textures and samplers are not different objects in OpenGL.</li>
 </ul>
+
+<p>Unity provides shader libraries that contain preprocessor macros to help you manage these differences. For more information, see <a href="SL-BuiltinMacros.html">Built-in shader macros</a>.</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-SurfaceShaderTessellation.html"></a></span><div class="tip">支持 DX11/OpenGL Core 曲面细分的表面着色器</div>
+<span class="prev"><a href="SL-BindChannels.html"></a></span><div class="tip">ShaderLab：旧版顶点数据通道映射</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-VertexFragmentShaderExamples.html"></a></span><div class="tip">顶点和片元着色器示例</div>
+<span class="next"><a href="SL-PragmaDirectives.html"></a></span><div class="tip">着色器编译：pragma 指令</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

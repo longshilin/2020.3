@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
 <li><a href="CreatingEnvironments.html">创建环境</a></li>
 <li><a href="script-Terrain.html">地形</a></li>
@@ -252,17 +252,17 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><strong>Diffuse</strong></td>
-	<td style="text-align:left;" colspan="2">The Diffuse Texture represents the base color Texture of the Terrain Layer. The Alpha channel of the Diffuse Texture has different uses, which depend on the active Scriptable Render Pipeline and Shader you use to render the Terrain.<br><br>For example, the High Definition Render Pipeline (HDRP) and Universal Render Pipeline (URP) use the Alpha channel for Smoothness. However, if there is a Mask Map Texture on the Terrain Layer, it uses the Alpha channel of the Diffuse Texture for Density values.</td>
+	<td style="text-align:left;" colspan="2">漫射纹理表示地形图层的基色纹理。漫射纹理的 Alpha 通道具有不同用途，这取决于用来渲染地形的活动可编程渲染管线和着色器。<br><br>例如，高清渲染管线 (HDRP) 和通用渲染管线 (URP) 使用 Alpha 通道来获得平滑度。但是，如果地形图层上有遮罩贴图纹理，则会将漫射纹理的 Alpha 通道用于密度值。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><strong>Color Tint</strong></td>
-	<td style="text-align:left;">If you assign a Diffuse Texture, a new field called <strong>Color Tint</strong> appears in the Terrain Layer settings. Click the color picker field and select a color to use.<br><br><strong>Color Tint</strong> is a feature available in HDRP and URP.</td>
+	<td style="text-align:left;">如果分配了漫射纹理，地形图层设置中将显示一个名为 <strong>Color Tint</strong> 的新字段。单击拾色器字段并选择要使用的颜色。<br><br><strong>Color Tint</strong> 是 HDRP 和 URP 中可用的功能。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><strong>Opacity as Density</strong></td>
-	<td style="text-align:left;">Specifies whether to render the Terrain Layer using the value stored in the Alpha channel of the Terrain Layer’s Diffuse Texture, instead of the usual splatmap weight or the height value from the Mask Map. Unity uses the Alpha channel value as a threshold value for layer blending.<br><br><strong>Opacity as Density</strong> is a feature available in HDRP and URP. This option becomes available on each Terrain Layer when you disable the <strong>Enable Height-based Blend</strong> option on the Terrain’s Terrain Lit Material, and when you assign Diffuse and Mask Map Textures to the Terrain Layer.</td>
+	<td style="text-align:left;">指定是否使用存储在地形图层漫射纹理的 Alpha 通道中的值来渲染地形图层，而不是使用通常的泼溅贴图权重或遮罩贴图的高度值。Unity 使用 Alpha 通道值作为图层混合的阈值。<br><br><strong>Opacity as Density</strong> 是 HDRP 和 URP 中可用的功能。禁用地形的地形光照材质上的 <strong>Enable Height-based Blend</strong> 选项时，以及将漫射贴图和遮罩贴图纹理分配给地形图层时，此选项可用。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Normal Map</strong></td>
@@ -375,9 +375,10 @@
 <hr>
 
 <ul>
-<li><p><span class="page-edit">2021–01–27 页面已修订</span></p></li>
-<li><p><span class="page-history">Updated information about Color Tint and Opacity as Density properties</span></p></li>
+<li><span class="page-edit">2021–01–27 页面已修订</span></li>
 </ul>
+
+<p>*<span class="page-history">更新了有关 Color Tint 和 Opacity as Density 属性的信息</span></p>
 <!-- area:graphics -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -390,7 +391,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

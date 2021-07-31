@@ -14,8 +14,8 @@
 <meta property="og:title" content="Sprite Editor：Custom Outline - Unity 手册">
 <title>Sprite Editor：Custom Outline - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/2DCustomOutline_2020.2_01.png">
-<meta name="description" content="Use the Sprite Editor’s Custom Outline option to edit the shape of the Mesh that Unity renders the Sprite texture on. The Custom Outline editor allows you to use control points to create and define the shape of the Sprite’s Mesh outline.">
-<meta property="og:description" content="Use the Sprite Editor’s Custom Outline option to edit the shape of the Mesh that Unity renders the Sprite texture on. The Custom Outline editor allows you to use control points to create and define the shape of the Sprite’s Mesh outline.">
+<meta name="description" content="使用 Sprite Editor 的 Custom Outline 选项可编辑 Unity 渲染精灵纹理所在的网格的形状。Custom Outline 编辑器允许使用控制点来创建和定义精灵网格轮廓的形状。">
+<meta property="og:description" content="使用 Sprite Editor 的 Custom Outline 选项可编辑 Unity 渲染精灵纹理所在的网格的形状。Custom Outline 编辑器允许使用控制点来创建和定义精灵网格轮廓的形状。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Unity2D.html">2D</a></li>
 <li><a href="Sprites.html">精灵</a></li>
 <li><a href="SpriteEditor.html">Sprite Editor</a></li>
@@ -186,32 +186,32 @@
 <span class="prev"><a href="SpriteEditor.html"></a></span><div class="tip">Sprite Editor</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="CustomPhysicsShape.html"></a></span><div class="tip">Sprite Editor: Custom Physics Shape</div>
+<span class="next"><a href="CustomPhysicsShape.html"></a></span><div class="tip">Sprite Editor：Custom Physics Shape</div>
 </div>
 </div></div>
 <h1>Sprite Editor：Custom Outline</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>Use the <a href="SpriteEditor.html">Sprite Editor’s</a> <strong>Custom Outline</strong> option to edit the shape of the <a href="class-Mesh.html">Mesh</a> that Unity renders the <a href="Sprites.html">Sprite</a> texture on. The Custom Outline editor allows you to use control points to create and define the shape of the Sprite’s Mesh outline.</p>
+<p>使用 <a href="SpriteEditor.html">Sprite Editor</a> 的 <strong>Custom Outline</strong> 选项可编辑 Unity 渲染<a href="Sprites.html">精灵</a>纹理所在的<a href="class-Mesh.html">网格</a>的形状。Custom Outline 编辑器允许使用控制点来创建和定义精灵网格轮廓的形状。</p>
 
-<p>By default, Unity renders each Sprite on a rectangle Mesh. This Mesh might include transparent areas outside the Texture’s border, and rendering these transparent areas can negatively affect performance. When you use the Custom Outline editor to define a Mesh outline that matches the outline of the Sprite Texture, you reduce the size of the transparent areas, which improves performance.</p>
+<p>默认情况下，Unity 在矩形网格上渲染每个精灵。此网格可能包含纹理边框外部的透明区域，而渲染这些透明区域会对性能产生负面影响。使用 Custom Outline 编辑器定义与精灵纹理轮廓匹配的网格轮廓时，可以减小透明区域的大小，从而提高性能。</p>
 
-<p>To access the Custom Outline editor, select a Sprite and then in the Sprite’s Inspector window, select the <a href="SpriteEditor.html">Sprite Editor</a> button. In the Sprite Editor window, open the upper-left drop-down menu and select <strong>Custom Online</strong> to open the Custom Outline editor.</p>
-
-<figure>
-<img src="../uploads/Main/2DCustomOutline_2020.2_01.png" alt="Select Custom Outline from the Sprite Editor drop-down menu.">
-<figcaption>Select <strong>Custom Outline</strong> from the Sprite Editor drop-down menu.</figcaption>
-</figure>
-
-<h2>The Custom Outline editor</h2>
+<p>要访问 Custom Outline 编辑器，请选择一个精灵，然后在其 Inspector 窗口中选择 <a href="SpriteEditor.html">Sprite Editor</a> 按钮。在 Sprite Editor 窗口中，打开左上角的下拉选单并选择 <strong>Custom Online</strong> 打开 Custom Outline 编辑器。</p>
 
 <figure>
-<img src="../uploads/Main/2DCustomOutline_2020.2_02.png" alt="Editing a Sprite’s outline in the Custom Online editor.">
-<figcaption>Editing a Sprite’s outline in the Custom Online editor.</figcaption>
+<img src="../uploads/Main/2DCustomOutline_2020.2_01.png" alt="从 Sprite Editor 下拉选单中选择 Custom Outline">
+<figcaption>从 Sprite Editor 下拉选单中选择 <strong>Custom Outline</strong></figcaption>
 </figure>
 
-<h3>Custom Outline editor properties</h3>
+<h2>Custom Outline 编辑器</h2>
+
+<figure>
+<img src="../uploads/Main/2DCustomOutline_2020.2_02.png" alt="在 Custom Online 编辑器中编辑精灵的轮廓。">
+<figcaption>在 Custom Online 编辑器中编辑精灵的轮廓。</figcaption>
+</figure>
+
+<h3>Custom Outline 编辑器的属性</h3>
 
 <table>
 <colgroup>
@@ -233,89 +233,86 @@
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Outline Tolerance</strong></td>
-	<td style="text-align:left;">Use this slider to control how tightly and accurately the generated outline follows the outline of the Sprite texture. At the minimum value (0), the Sprite Editor generates a basic outline around the Sprite. At the maximum value (1), the Sprite Editor generates an outline that follows the outline of the Sprite texture as closely as possible.</td>
+	<td style="text-align:left;">使用此滑动条可控制生成的轮廓贴合精灵纹理轮廓的紧密和精确程度。在最小值 (0) 时，Sprite Editor 会在精灵周围生成基本轮廓。在最大值 (1) 时，Sprite Editor 生成一个尽可能贴合精灵纹理的轮廓。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Generate</strong></td>
-	<td style="text-align:left;">When you click this button, Unity automatically creates an outline based on the <strong>Outline Tolerance</strong> value you set.</td>
+	<td style="text-align:left;">当您单击此按钮时，Unity 会根据您设置的 <strong>Outline Tolerance</strong> 值自动创建一个轮廓。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Copy</strong></td>
-	<td style="text-align:left;">After you have generated or set up a custom outline, click this <strong>Copy</strong> button to duplicate the custom outline. Leaving the Custom outline module or closing the Sprite Editor removes the copied outline from memory.</td>
+	<td style="text-align:left;">生成或设置自定义轮廓后，单击此 <strong>Copy</strong> 按钮复制自定义轮廓。离开 Custom Outline 模块或关闭 Sprite Editor 会从内存中删除复制的轮廓。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Paste</strong></td>
-	<td style="text-align:left;">Use this button to paste a copied outline to the currently selected Sprite. If you have not used the <strong>Copy</strong> function to copy an outline, this button is not available. To <strong>Paste</strong> a copied custom outline to another Sprite, in the Project window select the Sprite while the Custom outline editor window is open. Then click the <strong>Paste</strong> button to paste the copied outline to the new Sprite. When you paste the outline, if a point in the outline is larger than the Sprite’s frame, Unity clamps the point to be inside the Sprite’s frame.</td>
+	<td style="text-align:left;">使用此按钮将复制的轮廓粘贴到当前选定的精灵。如果您尚未使用 <strong>Copy</strong> 功能复制一个轮廓的功能，此按钮不可用。<strong>Paste</strong> 将自定义轮廓复制到另一个精灵，在 Custom Outline 编辑器窗口打开时，在 Project 窗口中选择该精灵。然后单击 <strong>Paste</strong> 按钮将复制的轮廓粘贴到新的精灵。当您粘贴轮廓时，如果轮廓中的某个点大于精灵的框架，Unity 会将该点限制到该精灵的框架内。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Paste All</strong></td>
-	<td style="text-align:left;">Use this button to paste a copied outline to all Sprites in the Sprite Editor window, regardless of selection. If you have not used the <strong>Copy</strong> function to copy an outline, this button is unavailable. Use this function to apply the same outline to multiple Sprites in the same Texture (such as when a Texture has its <a href="TextureTypes.html#Sprite">Sprite Mode</a> set to ‘Multiple’). When you paste the outline, if a point in the outline exceeds the Sprite’s frame, Unity clamps the point to be inside that Sprite’s frame.</td>
+	<td style="text-align:left;">使用此按钮将复制的轮廓粘贴到 Sprite Editor 窗口中的所有精灵，无论选择如何。如果您尚未使用 <strong>Copy</strong> 功能复制一个轮廓的功能，此按钮不可用。使用此功能可将相同的轮廓应用于同一纹理中的多个精灵（例如当纹理的 <a href="TextureTypes.html#Sprite">Sprite Mode</a> 设置为 ‘Multiple’）。当您粘贴轮廓时，如果轮廓中的某个点超出精灵的框架，Unity 会将该点限制到该精灵的框架内。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Revert</strong></td>
-	<td style="text-align:left;">Undoes any unsaved recent changes made in the editor window. To save changes, click <strong>Apply</strong> first.</td>
+	<td style="text-align:left;">撤消在编辑器窗口中所做的任何未保存的最近更改。要保存更改，请先单击 <strong>Apply</strong>。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Apply</strong></td>
-	<td style="text-align:left;">Select this button to save all changes made in the editor window.</td>
+	<td style="text-align:left;">选择此按钮可保存在编辑器窗口中所做的所有更改。</td>
 </tr>
 </tbody>
 </table>
 
-<h2>Using the Custom Outline editor</h2>
+<h2>使用 Custom Outline 编辑器</h2>
 
-<p>The Custom Outline editor allows you to to create or generate the Mesh of the Sprite. There are two ways to create a custom outline: have Unity automatically <a href="#generateOutline">generate</a> the shape, or <a href="https://docs.google.com/document/d/19fJKUfK7HbVjBNmgb5ZjoFS-7DJFMiftGBQXv0aeIGg/edit#heading=h.13n5448iih1d">manually creating and editing</a> it in the editor window.</p>
+<p>Custom Outline 编辑器允许您创建或生成精灵的网格。有两种方法可以创建自定义轮廓：让 Unity 自动<a href="#generateOutline">生成</a>形状，或在编辑器窗口中<a href="https://docs.google.com/document/d/19fJKUfK7HbVjBNmgb5ZjoFS-7DJFMiftGBQXv0aeIGg/edit#heading=h.13n5448iih1d">手动创建和编辑</a>形状。</p>
 
-<h3>Generating the outline <a name="generateOutline"></a>
+<h3>生成轮廓<a name="generateOutline"></a>
 </h3>
 
-<p>To have Unity automatically generate an outline that follows the shape of the original Sprite texture, and that also takes into account transparent areas in the texture, click the <strong>Generate </strong>button. However, you can adjust how tightly the generated outline follows the Sprite texture by adjusting the <strong>Outline Tolerance </strong>slider.</p>
+<p>要让 Unity 自动生成轮廓，使其遵循原始精灵纹理的形状并考虑纹理中的透明区域，请单击 <strong>Generate</strong> 按钮。但是，您可以通过 **Outline Tolerance ** 滑动条来调整生成的轮廓与精灵纹理的紧密程度。</p>
 
 <figure>
-<img src="../uploads/Main/2DCustomOutline_2020.2_03.png" alt="The Generate button is next to the Outline Tolerance slider.">
-<figcaption>The <strong>Generate</strong> button is next to the <strong>Outline Tolerance</strong> slider.</figcaption>
+<img src="../uploads/Main/2DCustomOutline_2020.2_03.png" alt="Outline Tolerance 滑动条旁边的 Generate 按钮。">
+<figcaption><strong>Outline Tolerance</strong> 滑动条旁边的 <strong>Generate</strong> 按钮。</figcaption>
 </figure>
 
-<p>Adjust the <strong>Outline Tolerance</strong> slider to refine the outline of the Mesh that Unity generates. Increasing the value increases how closely the outline follows the shape of the Sprite texture. Leaving the slider at 0 generates a Mesh that more loosely follows the Sprite texture.</p>
+<p>调整 <strong>Outline Tolerance</strong> 滑动条可细化 Unity 生成的网格的轮廓。增加该值会增加轮廓与精灵纹理形状的紧密程度。将滑动条保留为 0 会生成一个较为松散地遵循精灵纹理的网格。</p>
+
+<p><img src="../uploads/Main/2DCustomOutline_7.png" alt="左：使用较小的 Outline Tolerance 自动生成的网格轮廓。右：使用较大的 Outline Tolerance"> 自动生成的网格轮廓。</p>
+
+<h3>编辑自定义轮廓</h3>
+
+<p>您可以创建自己的自定义形状并通过两种方式对其进行编辑。第一种方式是自动<a href="#generateOutline">生成</a>一个轮廓，然后移动生成的轮廓的控制点以进一步细化其形状。或者，在 Custom Outline 编辑器窗口中的任何空间上单击并拖动，以创建具有四个控制点的矩形轮廓，然后通过移动控制点或添加和删除控制点开始细化轮廓。</p>
 
 <figure>
-<img src="../uploads/Main/2DCustomOutline_7.png" alt="Left: An automatically generated Mesh outline with a low Outline Tolerance. Right: An automatically generated Mesh outline with a high Outline Tolerance.">
-<figcaption><em>Left</em>: An automatically generated Mesh outline with a low <strong>Outline Tolerance</strong>. <em>Right</em>: An automatically generated Mesh outline with a high <strong>Outline Tolerance</strong>.</figcaption>
+<img src="../uploads/Main/2DCustomOutline_2.png" alt="您可以在同一纹理中创建多个轮廓。">
+<figcaption>您可以在同一纹理中创建多个轮廓。</figcaption>
 </figure>
 
-<h3>Editing the custom outline</h3>
+<p>在编辑器窗口中单击并拖动精灵纹理，可创建包含 4 个控制点的矩形轮廓。重复此步骤在精灵中创建多个网格轮廓。Unity 仅渲染网格轮廓中包含的区域。</p>
 
-<p>You can create your own custom shape and edit it in two ways. The first way is by automatically <a href="#generateOutline">generating</a> an outline, and then moving the control points of the generated outline to further refine its shape. Alternatively click and drag over any space in the Custom Outline editor window to create a rectangular outline with four control points and begin refining the outline by moving the control points or adding and removing them.</p>
+<h4><strong>移动控制点</strong></h4>
+
+<p>要调整网格轮廓的形状，请单击并拖动其控制点。将鼠标悬停在控制点上时，控制点会变为蓝色，表示可以选择它。单击控制点并将其拖动到不同位置以调整网格轮廓的形状。您可以通过单击并拖动光标经过某个区域，以选择该区域内的所有控制点，从而一次选择多个控制点。之后您可以重新定位或一并<a href="#removePoint">移除</a>所有选定的控制点。</p>
 
 <figure>
-<img src="../uploads/Main/2DCustomOutline_2.png" alt="You can create multiple outlines in the same texture.">
-<figcaption>You can create multiple outlines in the same texture.</figcaption>
+<img src="../uploads/Main/2DCustomOutline_3.png" alt="移动控制点以更改网格轮廓的形状。">
+<figcaption>移动控制点以更改网格轮廓的形状。</figcaption>
 </figure>
 
-<p>Click and drag over the Sprite texture in the editor window to create rectangle outlines with four control points. Repeat this step to create multiple Mesh outlines within the Sprite. Unity only renders the areas enclosed within the Mesh outlines.</p>
-
-<h4><strong>Moving control points</strong></h4>
-
-<p>To adjust the shape of the Mesh outline, click and drag its control points. When you hover over a control point, it turns blue to indicate that you can select it. Click and drag the control point to different positions to adjust the shape of the Mesh outline. You can select multiple control points at once by clicking and dragging the cursor over an area to select all control points within that area. You can then re-position or <a href="#removePoint">remove</a> all selected control points altogether.</p>
-
-<figure>
-<img src="../uploads/Main/2DCustomOutline_3.png" alt="Moving a control point to change the shape of the Mesh outline.">
-<figcaption>Moving a control point to change the shape of the Mesh outline.</figcaption>
-</figure>
-
-<h4>Adding/Removing control points <a name="removePoint"></a>
+<h4>添加/移除控制点<a name="removePoint"></a>
 </h4>
 
-<p>To add a control point, place the cursor over the edge of the outline. A preview of the control point appears along the outline’s edge. Click to add a new control point at that location. To remove a control point, select it and press the <strong>Del/Command+Del keys</strong>.</p>
+<p>要添加控制点，请将光标置于轮廓边缘。沿着轮廓的边缘会出现控制点的预览。单击即可在该位置添加新控制点。要移除一个控制点，可选择该并按 <strong>Del/Command+Del 键</strong>。</p>
 
 <figure>
 <img src="../uploads/Main/2DCustomOutline_4.png" alt="向网格轮廓添加控制点">
 <figcaption>向网格轮廓添加控制点</figcaption>
 </figure>
 
-<h4>Moving edges</h4>
+<h4>移动边缘</h4>
 
-<p>To move a section between two control points, hold the <strong>Control/Ctrl</strong> key to select the edges of the outline instead of its control points. To change the shape of the outline, click and drag the highlighted edge to move them into new positions.</p>
+<p>要移动两个控制点之间一个部分，请按住 <strong>Control/Ctrl</strong> 键选择轮廓的边缘而不是其控制点。要更改轮廓的形状，请单击并拖动突出显示的边缘以将它们移动到新位置。</p>
 
 <figure>
 <img src="../uploads/Main/2DCustomOutline_5.png" alt="移动两个控制点之间的一段网格轮廓">
@@ -324,24 +321,22 @@
 
 <hr>
 
-<ul>
-<li><span class="page-history">Copy and Paste editor window functions added in <a href="https://docs.unity3d.com/2020.1/Documentation/Manual/30_search.html?q=newin20201">2020.1</a> <span class="search-words">NewIn20201</span></span></li>
-<li><span class="page-edit"> 2018–10–19 页面已修订</span></li>
-<li><span class="page-history">在 Unity 2017.3 版中将 <strong>Edit Outline</strong> 更名为 <strong>Custom Outline</strong>。</span></li>
-</ul>
+<p><em><span class="page-history">复制和粘贴编辑器窗口功能添加于 <a href="https://docs.unity3d.com/2020.1/Documentation/Manual/30_search.html?q=newin20201">2020.1</a><span class="search-words"> NewIn20201</span></span>
+</em> <span class="page-edit"> 2018–10–19 页面已修订</span>
+* <span class="page-history">在 Unity 2017.3 版中将 <strong>Edit Outline</strong> 更名为 <strong>Custom Outline</strong>。</span></p>
 <!-- area:authoring -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="SpriteEditor.html"></a></span><div class="tip">Sprite Editor</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="CustomPhysicsShape.html"></a></span><div class="tip">Sprite Editor: Custom Physics Shape</div>
+<span class="next"><a href="CustomPhysicsShape.html"></a></span><div class="tip">Sprite Editor：Custom Physics Shape</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

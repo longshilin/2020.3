@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="ShaderLab：子着色器 LOD 值 - Unity 手册">
-<title>ShaderLab：子着色器 LOD 值 - Unity 手册</title>
-<meta name="description" content="本页包含有关着色器的细节级别 (LOD) 的信息。有关网格的 LOD 的信息，请参阅网格的细节级别 (LOD)。">
-<meta property="og:description" content="本页包含有关着色器的细节级别 (LOD) 的信息。有关网格的 LOD 的信息，请参阅网格的细节级别 (LOD)。">
+<meta property="og:title" content="ShaderLab：为子着色器指定 LOD 值 - Unity 手册">
+<title>ShaderLab：为子着色器指定 LOD 值 - Unity 手册</title>
+<meta name="description" content="本页面包含有关在 ShaderLab 代码中使用 LOD 代码块为子着色器指定 LOD（细节级别）值的信息。">
+<meta property="og:description" content="本页面包含有关在 ShaderLab 代码中使用 LOD 代码块为子着色器指定 LOD（细节级别）值的信息。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,42 +174,75 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
-<li><a href="ShadersOverview.html">编写着色器</a></li>
-<li><a href="SL-Reference.html">着色器参考</a></li>
-<li><a href="SL-Shader.html">ShaderLab 语法</a></li>
-<li><a href="SL-SubShader.html">ShaderLab：SubShader</a></li>
-<li>ShaderLab：子着色器 LOD 值</li>
+<li><a href="Shaders.html">着色器</a></li>
+<li><a href="shader-writing.html">编写着色器</a></li>
+<li><a href="SL-Reference.html">ShaderLab</a></li>
+<li><a href="SL-SubShader.html">ShaderLab：定义子着色器</a></li>
+<li>ShaderLab：为子着色器指定 LOD 值</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-SubShaderTags.html"></a></span><div class="tip">ShaderLab：子着色器标签 (SubShader Tags)</div>
+<span class="prev"><a href="SL-SubShaderTags.html"></a></span><div class="tip">ShaderLab：向子着色器分配标签</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-Fallback.html"></a></span><div class="tip">ShaderLab：Fallback</div>
+<span class="next"><a href="SL-Pass.html"></a></span><div class="tip">ShaderLab：定义一个通道</div>
 </div>
 </div></div>
-<h1>ShaderLab：子着色器 LOD 值</h1>
+<h1>ShaderLab：为子着色器指定 LOD 值</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>本页包含有关着色器的细节级别 (LOD) 的信息。有关网格的 LOD 的信息，请参阅<a href="LevelOfDetail.html">网格的细节级别 (LOD)</a>。</p>
+<p>本页面包含有关在 ShaderLab 代码中使用 <code>LOD</code> 代码块为子着色器指定 LOD（细节级别）值的信息。</p>
 
-<p>可以将 LOD（细节级别）值分配给子着色器。此值指示着色器程序在计算方面的需求。在运行时，可以要求 Unity 排除高于给定 LOD 值的子着色器，以便 Unity 退回来使用具有较低 LOD 值的子着色器。</p>
+<h2>概述</h2>
 
-<p>可以使用此方法来微调不同硬件上的着色器性能。用户的硬件理论上支持着色器，但是该硬件无法很好地运行着色器时，这很有用。</p>
+<p>可以将 LOD 值指定给子着色器。此值指示其计算方面的需求。</p>
 
-<h2>设置最大 LOD 值</h2>
+<p>在运行时，您可以为单个 Shader 对象或所有 Shader 对象设置<strong>着色器 LOD</strong> 的值。然后 Unity 优先考虑具有较低 LOD 值的子着色器。有关 Unity 如何选择何时使用子着色器的信息，请参阅 <a href="shader-objects.html#order-of-operations">Shader对象：渲染期间的操作顺序</a>。</p>
 
-<p>可使用 <a href="../ScriptReference/Shader-maximumLOD.html">Shader.maximumLOD</a> 为单个着色器设置最大 LOD，也可使用 <a href="../ScriptReference/Shader-globalMaximumLOD.html">Shader.globalMaximumLOD</a> 为所有着色器全局设置最大 LOD。默认情况下，没有最大 LOD。</p>
+<p><strong>注意：</strong> 尽管此方法以用于渲染网格的 LOD 功能命名，但是仍然存在重要区别：着色器 LOD 与相对于摄像机的距离无关，并且 Unity 不会自动计算着色器 LOD。必须手动设置最大着色器 LOD。</p>
 
-<p>请注意，尽管此方法是以用于渲染网格的 <a href="LevelOfDetail.html">LOD</a> 功能命名，但是仍然存在重要区别：Unity 不会自动计算子着色器 LOD，并且此功能与相对于摄像机的距离无关。必须手动设置最大 LOD。</p>
+<h2>概述</h2>
 
-<h2>旧版着色器的 LOD 值</h2>
+<p>使用此方法来微调不同硬件上的着色器性能。在用户的硬件理论上支持，但无法很好地运行子着色器时，这很有用。</p>
 
-<p>Unity 的内置<a href="Built-inShaderGuide.html">旧版着色器</a>具有以下 LOD 值：</p>
+<h2>渲染管线兼容性</h2>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>功能名称</strong></th>
+	<th style="text-align:left;"><strong>内置渲染管线</strong></th>
+	<th style="text-align:left;"><strong>通用渲染管线 (URP)</strong></th>
+	<th style="text-align:left;"><strong>高清渲染管线 (HDRP)</strong></th>
+	<th style="text-align:left;"><strong>自定义 SRP</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>ShaderLab：子着色器 LOD 代码块</strong></td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+</tr>
+</tbody>
+</table>
+
+<h2>使用 LOD 代码块</h2>
+
+<p>在 ShaderLab 中，可以通过将 <code>LOD</code> 代码块置于 <code>SubShader</code> 代码块中来为子着色器指定 LOD 值。</p>
 
 <table>
 <colgroup>
@@ -219,8 +252,96 @@
 
 <thead>
 <tr>
-	<th style="text-align:left;">LOD 值</th>
-	<th style="text-align:left;">着色器名称</th>
+	<th style="text-align:left;"><strong>签名</strong></th>
+	<th style="text-align:left;"><strong>功能</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">LOD [value]</td>
+	<td style="text-align:left;">将给定的 LOD 值指定给子着色器。</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>注意</strong>：在您的 <code>Shader</code> 代码块中，必须将子着色器按 LOD 降序排列。例如，如果您有 LOD 值为 200、100 和 500 的子着色器，则必须先放置 LOD 值为 500 的子着色器，然后是 LOD 值为 200 的子着色器，然后是 LOD 值为 100 的子着色器。这是因为 Unity 选择所找到的第一个有效子着色器，所以如果它首先找到一个 LOD 较低的子着色器，它将始终使用它。</p>
+
+<h2>通过 C# 代码使用子着色器 LOD 值</h2>
+
+<p>要为给定的 Shader 对象设置着色器 LOD，您可以使用 <a href="../ScriptReference/Shader.MaximumLOD.html">Shader.maximumLOD</a>。要为所有 Shader 对象设置着色器 LOD，您可以使用 <a href="../ScriptReference/Shader.globalMaximumLOD.html">Shader.globalMaximumLOD</a>。默认情况下，没有最大 LOD。</p>
+
+<h2>代码示例</h2>
+
+<p>此示例代码创建了一个包含两个子着色器的 Shader 对象：一个 LOD 值为 200，一个值为 100。子着色器按 LOD 值的降序排列。</p>
+
+<pre><code>Shader "Examples/ExampleLOD"
+{
+    SubShader
+    {
+        LOD 200
+
+        Pass
+        {                
+              // 此处是定义通道的代码的其余部分。
+        }
+    }
+
+    SubShader
+    {
+        LOD 100
+
+        Pass
+        {                
+              // 此处是定义通道的代码的其余部分。
+        }
+    }
+}
+</code></pre>
+
+<h2>Unity 内置着色器的 LOD 值</h2>
+
+<p>在内置渲染管线中，Unity 的内置着色器具有以下 LOD 值：</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>LOD 值</strong></th>
+	<th style="text-align:left;"><strong>着色器名称</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">100</td>
+	<td style="text-align:left;">Unlit/Texture<br>Unlit/Color<br>Unlit/Transparent<br>Unlit/Transparent Cutout</td>
+</tr>
+<tr>
+	<td style="text-align:left;">300</td>
+	<td style="text-align:left;">Standard<br>Standard (Specular Setup)<br>Autodesk Interactive</td>
+</tr>
+</tbody>
+</table>
+
+<h2>旧版着色器的 LOD 值</h2>
+
+<p>在内置渲染管线中，Unity 的内置<a href="Built-inShaderGuide.html">旧版着色器</a>具有以下 LOD 值：</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>LOD 值</strong></th>
+	<th style="text-align:left;"><strong>着色器名称</strong></th>
 </tr>
 </thead>
 
@@ -259,19 +380,19 @@
 </tr>
 </tbody>
 </table>
-<!-- area:graphics -->
+
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-SubShaderTags.html"></a></span><div class="tip">ShaderLab：子着色器标签 (SubShader Tags)</div>
+<span class="prev"><a href="SL-SubShaderTags.html"></a></span><div class="tip">ShaderLab：向子着色器分配标签</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-Fallback.html"></a></span><div class="tip">ShaderLab：Fallback</div>
+<span class="next"><a href="SL-Pass.html"></a></span><div class="tip">ShaderLab：定义一个通道</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

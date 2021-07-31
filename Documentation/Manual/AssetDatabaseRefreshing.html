@@ -174,8 +174,8 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="AssetWorkflow.html">资源工作流程</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="AssetWorkflow.html">Asset Workflow</a></li>
 <li><a href="AssetDatabase.html">资源数据库</a></li>
 <li>刷新资源数据库</li>
 </ul></div>
@@ -232,7 +232,7 @@
 
 <h3>查找磁盘中的更改</h3>
 
-<p>Unity 查找磁盘中的更改时会扫描项目中的 <em><strong>Assets</strong></em> 和 <em><strong>Packages</strong></em> 文件夹，从而检查自上次扫描以来是否已添加、修改或删除任何文件。它将所有更改收集到列表中，以供下一步处理。</p>
+<p>When Unity looks for changes on disk, it scans the <em>Assets</em> and <em>Packages</em> folders in your Project to check if any files have been added, modified, or deleted since the last scan. It gathers any changes into a list to process in the next step.</p>
 
 <h3>更新源资源数据库</h3>
 
@@ -257,11 +257,11 @@
 
 <h5>动态依赖项</h5>
 
-<p>Unity 通常会在导入过程中发现资源的动态依赖项。这是因为这些依赖项是按源资源的_内容_定义的。例如，一个着色器可能引用另一个着色器，而一个预制件可能依赖于其他预制件。</p>
+<p>Unity typically discovers the dynamic dependencies of an Asset during the import process. This is because these dependencies are defined by the content of the source asset. For example, a Shader might reference another Shader, and a Prefab might depend on other Prefabs. </p>
 
-<p>导入器还可以根据源资源的内容，_有条件地_使用全局状态，在这种情况下也将成为动态依赖项。这种情况的示例包括目标平台、项目的颜色空间、图形 API、脚本运行时版本或纹理压缩状态。</p>
+<p>The importer might also use a global state conditionally based on the content of the source asset, in which case it also becomes a dynamic dependency. Examples of this are the target platform, the Project’s color space, the graphics API, the scripting runtime version, or the Texture compression state.</p>
 
-<p>Unity 将资源的这些动态依赖项存储在<a href="https://docs.unity3d.com/ScriptReference/Experimental.AssetImporters.AssetImportContext.html">资源导入上下文 (Asset Import Context)</a> 中。</p>
+<p>Unity stores these dynamic dependencies of an Asset in an <a href="../ScriptReference/AssetImporters.AssetImportContext.html">Asset Import Context</a>. </p>
 
 <h3>导入和编译代码相关文件</h3>
 
@@ -275,138 +275,11 @@
 
 <p>Unity 导入所有与代码相关的资源并重新加载域后，将继续导入其余资源。每个资源的导入器都会处理该类型的资源，并根据文件扩展名来识别应导入的文件类型。例如，TextureImporter 负责导入 .jpg、.png 和 .psd 文件等。</p>
 
-<p>导入器分为两组：<strong>原生导入器 (Native Importer)</strong> 和<strong>脚本化导入器 (Scripted Importer)</strong>。</p>
+<p>There are two types of importers: Native Importers and Scripted Importers, each of which is processed in a separate phase. The Native Importers group is processed first, and includes most of Unity’s <a href="BuiltInImporters.html">built-in importers</a>. Next, the <a href="ScriptedImporters.html">Scripted importers</a> are processed, which are custom importers that extend Unity’s import capabilities, and are written in C#.</p>
 
-<h4>原生导入器</h4>
+<p>When an importer imports an asset file, an <strong>AssetImportContext</strong> is generated.</p>
 
-<p>原生导入器内置于 Unity 中，并为 Unity 的大多数基本资源类型（例如 3D 模型、纹理和音频文件）提供导入功能。</p>
-
-<table>
-<colgroup>
-<col style="text-align:left;">
-<col style="text-align:left;">
-</colgroup>
-
-<thead>
-<tr>
-	<th style="text-align:left;">导入器</th>
-	<th style="text-align:left;">文件格式</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-	<td style="text-align:left;">AssemblyDefinitionImporter</td>
-	<td style="text-align:left;">asmdef</td>
-</tr>
-<tr>
-	<td style="text-align:left;">AssemblyDefinitionReferenceImporter</td>
-	<td style="text-align:left;">asmref</td>
-</tr>
-<tr>
-	<td style="text-align:left;">AudioImporter</td>
-	<td style="text-align:left;">ogg、aif、aiff、flac、wav、mp3、mod、it、s3m、xm</td>
-</tr>
-<tr>
-	<td style="text-align:left;">ComputeShaderImporter</td>
-	<td style="text-align:left;">compute</td>
-</tr>
-<tr>
-	<td style="text-align:left;">DefaultImporter</td>
-	<td style="text-align:left;">rsp、unity</td>
-</tr>
-<tr>
-	<td style="text-align:left;">FBXImporter</td>
-	<td style="text-align:left;">fbx、mb、ma、max、jas、dae、dxf、obj、c4d、blend、lxo</td>
-</tr>
-<tr>
-	<td style="text-align:left;">IHVImageFormatImporter</td>
-	<td style="text-align:left;">astc、dds、ktx、pvr</td>
-</tr>
-<tr>
-	<td style="text-align:left;">LocalizationImporter</td>
-	<td style="text-align:left;">po</td>
-</tr>
-<tr>
-	<td style="text-align:left;">Mesh3DSImporter</td>
-	<td style="text-align:left;">3ds</td>
-</tr>
-<tr>
-	<td style="text-align:left;">NativeFormatImporter</td>
-	<td style="text-align:left;">anim、animset、asset、blendtree、buildreport、colors、controller、cubemap、curves、curvesNormalized、flare、fontsettings、giparams、gradients、guiskin、ht、mask、mat、mesh、mixer、overrideController、particleCurves、particleCurvesSigned、particleDoubleCurves、particleDoubleCurvesSigned、physicMaterial、physicsMaterial2D、playable、preset、renderTexture、shadervariants、spriteatlas、state、statemachine、texture2D、transition、webCamTexture、brush、terrainlayer、signal</td>
-</tr>
-<tr>
-	<td style="text-align:left;">PackageManifestImporter</td>
-	<td style="text-align:left;">json</td>
-</tr>
-<tr>
-	<td style="text-align:left;">PluginImporter</td>
-	<td style="text-align:left;">dll、winmd、so、jar、java、kt、aar、suprx、prx、rpl、cpp、cc、c、h、jslib、jspre、bc、a、m、mm、swift、xib、bundle、dylib、config</td>
-</tr>
-<tr>
-	<td style="text-align:left;">PrefabImporter</td>
-	<td style="text-align:left;">prefab</td>
-</tr>
-<tr>
-	<td style="text-align:left;">RayTracingShaderImporter</td>
-	<td style="text-align:left;">raytrace</td>
-</tr>
-<tr>
-	<td style="text-align:left;">ShaderImporter</td>
-	<td style="text-align:left;">cginc、cg、glslinc、hlsl、shader</td>
-</tr>
-<tr>
-	<td style="text-align:left;">SketchUpImporter</td>
-	<td style="text-align:left;">skp</td>
-</tr>
-<tr>
-	<td style="text-align:left;">SpeedTreeImporter</td>
-	<td style="text-align:left;">spm、st</td>
-</tr>
-<tr>
-	<td style="text-align:left;">SubstanceImporter</td>
-	<td style="text-align:left;">.sbsar</td>
-</tr>
-<tr>
-	<td style="text-align:left;">TextScriptImporter</td>
-	<td style="text-align:left;">txt、html、htm、xml、json、csv、yaml、bytes、fnt、manifest、md、js、boo、rsp</td>
-</tr>
-<tr>
-	<td style="text-align:left;">TextureImporter</td>
-	<td style="text-align:left;">jpg、jpeg、tif、tiff、tga、gif、png、psd、bmp、iff、pict、pic、pct、exr、hdr</td>
-</tr>
-<tr>
-	<td style="text-align:left;">TrueTypeFontImporter</td>
-	<td style="text-align:left;">ttf、dfont、otf、ttc</td>
-</tr>
-<tr>
-	<td style="text-align:left;">VideoClipImporter</td>
-	<td style="text-align:left;">avi、asf、wmv、mov、dv、mp4、m4v、mpg、mpeg、ogv、vp8、webm</td>
-</tr>
-<tr>
-	<td style="text-align:left;">VisualEffectImporter</td>
-	<td style="text-align:left;">vfx、vfxoperator、vfxblock</td>
-</tr>
-</tbody>
-</table>
-
-<h4>脚本化导入器</h4>
-
-<p>您可以定义自己的导入器，从而添加新文件类型的导入功能，或覆盖现有文件类型的导入器。这些导入器被称为脚本化导入器。</p>
-
-<p><strong>注意：</strong>除了自定义导入器，Unity 自身的一些导入器也被算作脚本化导入器，并且 Unity 会在此阶段（而不是原生导入器阶段）处理它们。</p>
-
-<p>Unity 随附的脚本化导入器为：</p>
-
-<ul>
-<li>StyleSheetImporter（用于 .uss 文件）</li>
-<li>UIElementsViewImporter（用于 .uxml 文件）</li>
-</ul>
-
-<p>导入器导入资源文件时，会生成 <strong>AssetImportContext</strong>。</p>
-
-<p>AssetImportContext 用于报告资源的静态依赖项。
-</p>
+<p>The AssetImportContext is used to report the Static Dependencies of an asset.</p>
 
 <p>另外，在导入步骤中，会发生多次回调。</p>
 
@@ -458,14 +331,13 @@
 
 <p>热重载是指在 Editor 开启的状态下由 Unity 导入脚本和资源并应用所有更改的过程。无论 Editor 是否处于运行模式 (Play Mode)，都可能发生此情况。无需重新启动应用程序和 Editor 即可使更改生效。</p>
 
-<p>更改并保存脚本时，Unity 会热重载所有当前加载的脚本数据。它首先将所有可序列化变量存储在所有加载的脚本中，并在加载脚本后恢复这些变量。热重载后，所有不可序列化的数据都会丢失。</p>
+<p>When you change and save a script, Unity hot-reloads all of the project’s script data. It first stores all serializable variable values in all loaded scripts, reloads the scripts, then restores the values. All of the data stored in non-serializable variables is lost during a hot reload.</p>
 
-<p><strong>注意：</strong>默认资源先于脚本资源导入，因此不会为默认资源调用任何由脚本定义的 PostProcessAllAssets 回调。</p>
+<p><strong>Note:</strong> Assets imported by the (built-in DefaultImporter)[BuiltInImporters] are imported before script assets, so any script-defined PostProcessAllAssets callbacks are not called for default assets.</p>
 
 <h4>刷新结束</h4>
 
 <p>一旦完成所有这些步骤，就完成了 Refresh() 并使用相关信息更新了 <strong>Artifact 数据库</strong>，还会在磁盘中生成必要的导入结果文件。</p>
-<!-- area:authoring -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="AssetDatabase.html"></a></span><div class="tip">资源数据库</div>
@@ -477,7 +349,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

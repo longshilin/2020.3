@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Unity2D.html">2D</a></li>
 <li><a href="class-Tilemap.html">Tilemap</a></li>
 <li><a href="Tilemap-Isometric.html">等距瓦片地图</a></li>
@@ -183,7 +183,7 @@
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="Tilemap-Isometric-SpritesImport.html"></a></span><div class="tip">Importing and preparing Sprites for an Isometric Tilemap</div>
+<span class="prev"><a href="Tilemap-Isometric-SpritesImport.html"></a></span><div class="tip">为等距瓦片地图导入和准备精灵</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="Tilemap-Isometric-Palette.html"></a></span><div class="tip">创建用于等距瓦片地图的瓦片面板</div>
@@ -199,7 +199,7 @@
 
 <h2>自定义轴排序</h2>
 
-<p>To render the Tiles of an Isometric Tilemap, Tiles placed further to the ‘back’ of the Tilemap need to be rendered first before those in front to create the <strong>pseudo-depth</strong> of an isometric perspective. To ensure that all Renderers in the Scene conform to this logic, a Custom Axis is used as the <a href="2DSorting.html">Sorting Axis</a>. Set the <strong>Transparency Sort Mode</strong> to ‘Custom Axis’ and enter (0,1,0) for the XYZ values of the <strong>Transparency Sort Axis</strong>.</p>
+<p>为了渲染等距瓦片地图的瓦片，需要先渲染远离瓦片地图“背面”的瓦片，然后再渲染正面的瓦片，从而创建等距透视图的__伪深度<strong>。为了确保场景中的所有渲染器都符合此逻辑，请使用自定义轴 (Custom Axis) 作为<a href="2DSorting.html">排序轴 (Sorting Axis)</a>。将 </strong>Transparency Sort Mode__ 设置为“Custom Axis”，并为 <strong>Transparency Sort Axis</strong> 的 XYZ 值输入 (0,1,0)。</p>
 
 <p>选择 <strong>Edit &gt; Project Settings…&gt; Graphics &gt; Camera Settings</strong> 来设置“Custom Axis”设置。</p>
 
@@ -208,7 +208,7 @@
 <figcaption>Transparency Sort Axis 设置</figcaption>
 </figure>
 
-<p>Set the <strong>Transparency Sort Axis</strong> XYZ values to (0,1,0) to cause all Renderers which are at a higher Y position in the Scene to be rendered first, and appear behind Renderers at a lower Y position.</p>
+<p>将 <strong>Transparency Sort Axis</strong> XYZ 值设置为 (0,1,0) 会使场景中位于较大 Y 位置的所有渲染器首先渲染，并出现在较小 Y 位置的渲染器后面。</p>
 
 <p>使用 <strong>Isometric Z as Y Tilemap</strong> 选项时，具有不同 <a href="Tilemap-Isometric-Palette.html">Z 位置值</a>的瓦片会沿 Y 轴偏移并且看起来处于不同的高度，从而在相同的 XY 单元位置处产生与瓦片的“堆叠”效果。默认情况下，通用的等距 Transparency Sort Axis 设置 (0,1,0) 不会在排序期间考虑瓦片的 Z 位置值，因此会导致瓦片不按预期顺序渲染（请参阅下面的示例）。</p>
 
@@ -217,7 +217,7 @@
 <figcaption><strong>左：__设置为 (0,1,0) 时，瓦片渲染顺序不正确。</strong>右：__设置为 (0,1,–0.26) 时，瓦片正确“叠加”在一起。</figcaption>
 </figure>
 
-<p>Set the <strong>Transparency Sort Axis</strong> to <strong>(0,1,–0.26)</strong> to correctly render Tiles with different Z positions. The Z-axis is set to –0.26 to give a bias to Tiles with higher Z positions to be drawn first.</p>
+<p>将 <strong>Transparency Sort Axis</strong> 设置为 <strong>(0,1,–0.26)</strong> 可正确渲染具有不同 Z 位置的瓦片。Z 轴设置为 –0.26 可为需要首先绘制并具有较高 Z 位置的瓦片提供一个偏差。</p>
 
 <h2>Grid Cell Size 设置</h2>
 
@@ -246,7 +246,7 @@
 
 <p>等距瓦片地图使用__二维投影__或真__等距投影__平行投影角度。有关这两种投影形式的更多信息，请参阅此<a href="https://en.wikipedia.org/wiki/Isometric_computer_graphics">文章</a>以获取更多详细信息。</p>
 
-<p>Changing the Cell Size of the Grid component changes the size of angles that make up each Cell, which affects the type of projection being simulated. By default, Cell Size of the Isometric Cell Layout is <strong>(1, 0.5, 1)</strong> which simulates <strong>dimetric projection</strong> angles. To simulate true <strong>isometric projection</strong> angles instead, set the Y value to <strong>‘0.57735’</strong>.</p>
+<p>更改 Grid 组件的 Cell Size 会更改组成每个单元格的角度大小，这会影响所模拟的投影类型。默认情况下，Isometric Cell Layout 的 Cell Size 为 <strong>(1, 0.5, 1)</strong>，用于模拟__二维投影__角度。要模拟真__等距投影__角度，请将 Y 值设置为 <strong>0.57735</strong>。</p>
 
 <hr>
 
@@ -256,7 +256,7 @@
 <!-- area:authoring -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="Tilemap-Isometric-SpritesImport.html"></a></span><div class="tip">Importing and preparing Sprites for an Isometric Tilemap</div>
+<span class="prev"><a href="Tilemap-Isometric-SpritesImport.html"></a></span><div class="tip">为等距瓦片地图导入和准备精灵</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="Tilemap-Isometric-Palette.html"></a></span><div class="tip">创建用于等距瓦片地图的瓦片面板</div>
@@ -265,7 +265,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

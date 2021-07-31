@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Creating a Render Pipeline Asset and Render Pipeline Instance in a custom render pipeline - Unity 手册">
-<title>Creating a Render Pipeline Asset and Render Pipeline Instance in a custom render pipeline - Unity 手册</title>
-<meta name="description" content="If you are creating your own render pipeline based on the Scriptable Render Pipeline (SRP), your Project must contain:">
-<meta property="og:description" content="If you are creating your own render pipeline based on the Scriptable Render Pipeline (SRP), your Project must contain:">
+<meta property="og:title" content="在自定义渲染管线中创建渲染管线资源和渲染管线实例 - Unity 手册">
+<title>在自定义渲染管线中创建渲染管线资源和渲染管线实例 - Unity 手册</title>
+<meta name="description" content="如果要基于可编程渲染管线 (SRP) 创建自己的渲染管线，项目必须包含：">
+<meta property="og:description" content="如果要基于可编程渲染管线 (SRP) 创建自己的渲染管线，项目必须包含：">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,29 +174,29 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
 <li><a href="render-pipelines.html">渲染管线</a></li>
-<li><a href="srp-custom.html">Creating a custom render pipeline</a></li>
-<li>Creating a Render Pipeline Asset and Render Pipeline Instance in a custom render pipeline</li>
+<li><a href="srp-custom.html">创建自定义渲染管线</a></li>
+<li>在自定义渲染管线中创建渲染管线资源和渲染管线实例</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="srp-custom-getting-started.html"></a></span><div class="tip">Creating a custom render pipeline based on the Scriptable Render Pipeline</div>
+<span class="prev"><a href="srp-custom-getting-started.html"></a></span><div class="tip">基于可编程渲染管线创建自定义渲染管线</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="srp-creating-simple-render-loop.html"></a></span><div class="tip">Creating a simple render loop in a custom render pipeline</div>
+<span class="next"><a href="srp-creating-simple-render-loop.html"></a></span><div class="tip">在自定义渲染管线中创建简单渲染循环</div>
 </div>
 </div></div>
-<h1>Creating a Render Pipeline Asset and Render Pipeline Instance in a custom render pipeline</h1>
+<h1>在自定义渲染管线中创建渲染管线资源和渲染管线实例</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>If you are creating your own render pipeline based on the <a href="ScriptableRenderPipeline.html">Scriptable Render Pipeline</a> (SRP), your Project must contain:</p>
+<p>如果要基于<a href="ScriptableRenderPipeline.html">可编程渲染管线</a> (SRP) 创建自己的渲染管线，项目必须包含：</p>
 
 <ul>
 <li>一个继承自 <a href="../ScriptReference/Rendering.RenderPipelineAsset.html">RenderPipelineAsset</a> 并覆盖其 <code>CreatePipeline()</code> 方法的脚本。此脚本用于定义渲染管线资源。</li>
-<li>A script that inherits from <a href="../ScriptReference/Rendering.RenderPipeline.html">RenderPipeline</a>, and overrides its <code>Render()</code> method. This script defines your Render Pipeline Instance, and is where you write your custom rendering code.</li>
+<li>一个继承自 <a href="../ScriptReference/Rendering.RenderPipeline.html">RenderPipeline</a> 并覆盖其 <code>Render()</code> 方法的脚本。此脚本定义渲染管线实例，是编写自定义渲染代码的地方。</li>
 <li>一个从 <a href="../ScriptReference/Rendering.RenderPipelineAsset.html">RenderPipelineAsset</a> 脚本创建的渲染管线资源。此资源充当渲染管线实例的工厂类。</li>
 </ul>
 
@@ -240,21 +240,19 @@ public class ExampleRenderPipelineInstance : RenderPipeline
     }
 
     protected override void Render (ScriptableRenderContext context, Camera[] cameras) {
-        // This is where you can write custom rendering code. Customize this method to customize your SRP.
+        // 可以在此处编写自定义渲染代码。通过自定义此方法可以自定义 SRP。
     }
 }
 ```
 </code></pre>
 
-<ol>
-<li>In the Project view, either click the add (+) button, or open the context menu and navigate to <strong>Create</strong>, and then choose <strong>Rendering</strong> &gt; <strong>Example Render Pipeline Asset</strong>. Unity creates a new Render Pipeline Asset in the Project view.</li>
-</ol>
+<p>5.在 Project 视图中，单击添加 (+) 按钮，或者打开上下文菜单并导航至 <strong>Create</strong>，然后选择 <strong>Rendering</strong> &gt; <strong>Example Render Pipeline Asset</strong>。Unity 在 Project 视图中创建新的渲染管线资源。</p>
 
-<h2>Creating a configurable Render Pipeline Asset and Render Pipeline Instance</h2>
+<h2>创建可配置渲染管线资源和渲染管线实例</h2>
 
-<p>By default, a Render Pipeline Asset stores information about which Render Pipeline Instance to use for rendering, and the default Materials and Shaders to use in the Editor. In your <code>RenderPipelineAsset</code> script, you can extend your Render Pipeline Asset so that it stores additional data, and you can have multiple different Render Pipeline Assets with different configurations in your Project. For example, you might use a Render Pipeline Asset to hold configuration data for each different tier of hardware. The High Definition Render Pipeline (HDRP) and the Universal Render Pipeline (URP) include examples of this.</p>
+<p>默认情况下，渲染管线资源存储有关用于渲染的渲染管线实例以及在编辑器中使用的默认材质和着色器的信息。在 <code>RenderPipelineAsset</code> 脚本中，您可以扩展渲染管线资源以存储更多数据，并且可以在项目中拥有多个具有不同配置的不同渲染管线资源。例如，可使用渲染管线资源来保存每个不同硬件层的配置数据。高清渲染管线 (HDRP) 和通用渲染管线 (URP) 包含这方面的示例。</p>
 
-<p>The following example shows how to create a <code>RenderPipelineAsset</code> script that defines a Render Pipeline Asset with public data that you can set for each instance using the Inspector, and a Render Pipeline Instance that receives a Render Pipeline Asset in its constructor and uses data from that Render Pipeline Asset.</p>
+<p>以下示例显示了如何创建 <code>RenderPipelineAsset</code> 脚本（该脚本使用公共数据来定义渲染管线资源，而公共数据则可以通过 Inspector 针对每个实例加以设置）和渲染管线实例（该实例在其构造函数中接收渲染管线资源，并使用此渲染管线资源的数据）。</p>
 
 <p>1.创建一个名为 <em>ExampleRenderPipelineAsset.cs</em> 的 C# 脚本。
 2.将以下代码复制并粘贴到新脚本中：</p>
@@ -263,19 +261,19 @@ public class ExampleRenderPipelineInstance : RenderPipeline
 using UnityEngine;
 using UnityEngine.Rendering;
 
-// The CreateAssetMenu attribute lets you create instances of this class in the Unity Editor.
+// CreateAssetMenu 属性让您可以在 Unity 编辑器中创建此类的实例。
 [CreateAssetMenu(menuName = "Rendering/ExampleRenderPipelineAsset")]
 public class ExampleRenderPipelineAsset : RenderPipelineAsset
 {
-    // This data can be defined in the Inspector for each Render Pipeline Asset
+    // 可以在 Inspector 中为每个渲染管线资源定义此数据
     public Color exampleColor;
     public string exampleString;
 
-        // Unity calls this method before rendering the first frame.
-       // If a setting on the Render Pipeline Asset changes, Unity destroys the current Render Pipeline Instance and calls this method again before rendering the next frame.
+        // Unity 在渲染第一帧之前调用此方法。
+       // 如果渲染管线资源上的设置改变，Unity 将销毁当前的渲染管线实例，并在渲染下一帧之前再次调用此方法。
     protected override RenderPipeline CreatePipeline() {
-        // Instantiate the Render Pipeline that this custom SRP uses for rendering, and pass a reference to this Render Pipeline Asset.
-        // The Render Pipeline Instance can then access the configuration data defined above.
+        // 实例化此自定义 SRP 用于渲染的渲染管线，然后传递对此渲染管线资源的引用。
+        // 然后，渲染管线实例可以访问上方定义的配置数据。
         return new ExampleRenderPipelineInstance(this);
     }
 }
@@ -291,40 +289,38 @@ using UnityEngine.Rendering;
 
 public class ExampleRenderPipelineInstance : RenderPipeline
 {
-    // Use this variable to a reference to the Render Pipeline Asset that was passed to the constructor
+    // 使用此变量来引用传递给构造函数的渲染管线资源
     private ExampleRenderPipelineAsset renderPipelineAsset;
 
-    // The constructor has an instance of the ExampleRenderPipelineAsset class as its parameter.
+    // 构造函数将 ExampleRenderPipelineAsset 类的实例作为其参数。
     public ExampleRenderPipelineInstance(ExampleRenderPipelineAsset asset) {
         renderPipelineAsset = asset;
     }
 
     protected override void Render(ScriptableRenderContext context, Camera[] cameras) {
-        // This is an example of using the data from the Render Pipeline Asset.
+        // 这是使用渲染管线资源数据的示例。
         Debug.Log(renderPipelineAsset.exampleString);
 
-        // This is where you can write custom rendering code. Customize this method to customize your SRP.
+        // 可以在此处编写自定义渲染代码。通过自定义此方法可以自定义 SRP。
     }
 }
 
 ```
 </code></pre>
 
-<ol>
-<li>In the Project view, either click the add (+) button, or open the context menu and navigate to <strong>Create</strong>, and then choose <strong>Rendering</strong> &gt; <strong>Example Render Pipeline Asset</strong>. Unity creates a new Render Pipeline Asset in the Project view.</li>
-</ol>
+<p>5.在 Project 视图中，单击添加 (+) 按钮，或者打开上下文菜单并导航至 <strong>Create</strong>，然后选择 <strong>Rendering</strong> &gt; <strong>Example Render Pipeline Asset</strong>。Unity 在 Project 视图中创建新的渲染管线资源。</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="srp-custom-getting-started.html"></a></span><div class="tip">Creating a custom render pipeline based on the Scriptable Render Pipeline</div>
+<span class="prev"><a href="srp-custom-getting-started.html"></a></span><div class="tip">基于可编程渲染管线创建自定义渲染管线</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="srp-creating-simple-render-loop.html"></a></span><div class="tip">Creating a simple render loop in a custom render pipeline</div>
+<span class="next"><a href="srp-creating-simple-render-loop.html"></a></span><div class="tip">在自定义渲染管线中创建简单渲染循环</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

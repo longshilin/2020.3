@@ -14,8 +14,8 @@
 <meta property="og:title" content="脚本化导入器 (Scripted Importer) - Unity 手册">
 <title>脚本化导入器 (Scripted Importer) - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/ScriptedImporters-2.png">
-<meta name="description" content="Scripted Importers are part of the Unity Scripting API. You can use Scripted Importers to write custom Asset importers in C# for file formats not natively supported by Unity.">
-<meta property="og:description" content="Scripted Importers are part of the Unity Scripting API. You can use Scripted Importers to write custom Asset importers in C# for file formats not natively supported by Unity.">
+<meta name="description" content="Scripted Importers are part of the Unity Scripting API. You can use Scripted Importers to write custom Asset importers in C#, which allows you to add your own support for file formats that are not natively supported by Unity.">
+<meta property="og:description" content="Scripted Importers are part of the Unity Scripting API. You can use Scripted Importers to write custom Asset importers in C#, which allows you to add your own support for file formats that are not natively supported by Unity.">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,30 +175,30 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="AssetWorkflow.html">资源工作流程</a></li>
-<li><a href="ImportingAssets.html">导入</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="AssetWorkflow.html">Asset Workflow</a></li>
+<li><a href="AssetTypes.html">Supported Asset Types</a></li>
 <li>脚本化导入器 (Scripted Importer)</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="HOWTO-ImportObjectsFrom3DApps.html"></a></span><div class="tip">将模型导入 Unity 的限制</div>
+<span class="prev"><a href="BuiltInImporters.html"></a></span><div class="tip">Built-in Importers</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="ImporterConsistency.html"></a></span><div class="tip">Importer Consistency</div>
+<span class="next"><a href="ImporterConsistency.html"></a></span><div class="tip">导入器一致性</div>
 </div>
 </div></div>
 <h2>脚本化导入器 (Scripted Importer)</h2>
 
-<p>Scripted Importers are part of the <a href="ScriptingSection.html">Unity Scripting API</a>. You can use Scripted Importers to write custom Asset importers in C# for file formats not natively supported by Unity.</p>
+<p>Scripted Importers are part of the <a href="ScriptingSection.html">Unity Scripting API</a>. You can use Scripted Importers to write custom Asset importers in C#, which allows you to add your own support for file formats that are not natively supported by Unity.</p>
 
-<p>Create a custom importer by specializing the abstract class <a href="../ScriptReference/AssetImporters.ScriptedImporter.html">ScriptedImporter</a> and applying the <a href="../ScriptReference/AssetImporters.ScriptedImporterAttribute.html">ScriptedImporter</a> attribute. This registers your custom importer to handle one or more file extensions. When a file matching the registered file extensions is detected by the Asset pipeline as being new or changed, Unity invokes the method <code>OnImportAsset</code> of your custom importer.</p>
+<p>You can create a custom importer by specializing the abstract class <a href="../ScriptReference/AssetImporters.ScriptedImporter.html">ScriptedImporter</a> and applying the <a href="../ScriptReference/AssetImporters.ScriptedImporterAttribute.html">ScriptedImporter</a> attribute. This registers your custom importer to handle one or more file extensions. When a file matching the registered file extensions is detected by the Asset pipeline as being new or changed, Unity invokes the method <code>OnImportAsset</code> of your custom importer.</p>
 
-<p><em>Note: Scripted Importers cannot handle a file extension that is already natively handled by Unity.</em></p>
+<p><em>注意：Scripted Importer 无法处理已由 Unity 本身处理的文件扩展名。</em></p>
 
 <h3>示例</h3>
 
-<p>下面是 Scripted Importer 的一个简单示例：它使用立方体图元作为主资源，将扩展名为“cube”的资源文件导入 Unity 预制件，并采用了从资源文件中获取的默认材质颜色：</p>
+<p>Below is a simple example as Scripted Importer: It imports asset files with the extension “cube” into a Unity Prefab with a cube primitive as the main Asset and a default material and color, and assigns its position from a value read from the Asset file:</p>
 
 <pre><code>using UnityEngine;
 using UnityEditor.AssetImporters;
@@ -217,8 +217,8 @@ public class CubeImporter : ScriptedImporter
         cube.transform.position = position;
         cube.transform.localScale = new Vector3(m_Scale, m_Scale, m_Scale);
 
-        // 'cube' is a a GameObject and will be automatically converted into a prefab
-        // (Only the 'Main Asset' is elligible to become a Prefab.)
+        // 'cube' is a GameObject and will be automatically converted into a prefab
+        // (Only the 'Main Asset' is eligible to become a Prefab.)
         ctx.AddObjectToAsset("main obj", cube);
         ctx.SetMainObject(cube);
 
@@ -244,10 +244,10 @@ public class CubeImporter : ScriptedImporter
 <code>OnImportAsset</code> 的 ctx 参数包含导入事件的输入和输出数据。</li>
 <li>每个导入事件必须生成对 <code>SetMainAsset</code> 的一次（且仅一次）调用。</li>
 <li>每个导入事件可以根据需要生成对 <code>AddSubAsset</code> 的任意次调用。</li>
-<li>Please refer to the <a href="../ScriptReference/AssetImporters.ScriptedImporter.html">Scripting API documentation</a> for more details.</li>
+<li>请参阅<a href="../ScriptReference/AssetImporters.ScriptedImporter.html">脚本 API 文档</a>以了解更多详细信息。</li>
 </ul>
 
-<p>You may also implement a custom Import Settings Editor by specializing <a href="../ScriptReference/AssetImporters.ScriptedImporterEditor.html">ScriptedImporterEditor</a> class and decorating it with the class attribute <code>CustomEditor</code> to tell it what type of importer it is used for.</p>
+<p>您还可以实现自定义的 Import Settings Editor，为此需要专门定义 <a href="../ScriptReference/AssetImporters.ScriptedImporterEditor.html">ScriptedImporterEditor</a> 类，并使用 <code>CustomEditor</code> 类属性对其进行修饰以告知其用于哪种类型的导入器。</p>
 
 <p>例如：</p>
 
@@ -298,16 +298,16 @@ public class CubeImporterEditor: ScriptedImporterEditor
 </ul>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="HOWTO-ImportObjectsFrom3DApps.html"></a></span><div class="tip">将模型导入 Unity 的限制</div>
+<span class="prev"><a href="BuiltInImporters.html"></a></span><div class="tip">Built-in Importers</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="ImporterConsistency.html"></a></span><div class="tip">Importer Consistency</div>
+<span class="next"><a href="ImporterConsistency.html"></a></span><div class="tip">导入器一致性</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

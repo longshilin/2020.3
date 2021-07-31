@@ -11,8 +11,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Choosing and configuring a render pipeline and lighting solution - Unity 手册">
-<title>Choosing and configuring a render pipeline and lighting solution - Unity 手册</title>
+<meta property="og:title" content="选择和配置渲染管线和光照解决方案 - Unity 手册">
+<title>选择和配置渲染管线和光照解决方案 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/BestPracticeLightingPipeline3.svg">
 <meta name="description" content="本指南是以下 Unity 博客文章的更新版本：聚光灯团队最佳实践：设置光照管线 (Spotlight Team Best Practices: Setting up the Lighting Pipeline) - Pierre Yves Donzallaz。">
 <meta property="og:description" content="本指南是以下 Unity 博客文章的更新版本：聚光灯团队最佳实践：设置光照管线 (Spotlight Team Best Practices: Setting up the Lighting Pipeline) - Pierre Yves Donzallaz。">
@@ -175,20 +175,20 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="GraphicsTutorials.html">图形教程</a></li>
-<li>Choosing and configuring a render pipeline and lighting solution</li>
+<li><a href="render-pipelines.html">渲染管线</a></li>
+<li>选择和配置渲染管线和光照解决方案</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="BestPracticeMakingBelievableVisuals9.html"></a></span><div class="tip">Believable visuals: dynamic lighting</div>
+<span class="prev"><a href="srp-setting-render-pipeline-asset.html"></a></span><div class="tip">切换渲染管线</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="PhysicsSection.html"></a></span><div class="tip">物理系统</div>
+<span class="next"><a href="built-in-render-pipeline.html"></a></span><div class="tip">使用内置渲染管线</div>
 </div>
 </div></div>
-<h1>Choosing and configuring a render pipeline and lighting solution</h1>
+<h1>选择和配置渲染管线和光照解决方案</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
@@ -302,7 +302,7 @@
 
 <h2>全局光照系统</h2>
 
-<p>If you want to include indirect lighting in your Scene, you must use one of Unity’s two Global Illumination systems, or generate it using your own baking solution. The two systems available in Unity, under Window &gt; Rendering &gt; Lighting, are:</p>
+<p>如果要在场景中添加间接光照，必须使用 Unity 的两个全局光照系统之一，或者使用您自己的烘焙解决方案生成这种光照。在 Unity 的 Window &gt; Rendering &gt; Lighting 下提供的这两个系统是：</p>
 
 <p>1.<a href="realtime-gi-using-enlighten.html">实时全局光照</a>：这个系统完全依赖于第三方光照中间件 Enlighten。在 Unity 中的预计算期间，Enlighten 经历两个漫长的阶段：聚类和光线传输。第一个阶段是将场景简化为一组称为聚类的面片，第二个阶段是计算这些聚类之间的可见性。在运行时，这些预计算的数据用于以交互方式生成间接光照。Enlighten 的强大功能依赖于实时编辑光照的能力，因为预计算的数据依赖于聚类间的关系。然而，与其他传统的光照贴图技术一样，编辑场景中的静态几何体将触发新的预计算。目前正在从 Unity 中移除 Enlighten，并在研究一种新的解决方案。
  * HDRP 对于 Unity 2019.3 及更高版本中的新项目不支持实时全局光照。尽管如此，在 Unity 2019.3 之前创建的项目仍可以升级到 2019.3 或 2019 LTS。
@@ -429,26 +429,26 @@
 <p>可通过以下页面来详细了解 Unity 中的光照和渲染管线：</p>
 
 <ul>
-<li><p><a href="http://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest/index.html?subfolder=/manual/index.html">URP documentation</a> &amp; <a href="http://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest/index.html?subfolder=/manual/HDRP-Features.html">HDRP documentation</a></p></li>
-<li><p><a href="https://docs.unity3d.com/Manual/ProjectTemplates.html">Use the Unity Hub to get started with HDRP, URP or Built-In RP</a></p></li>
-<li><p><a href="https://unity3d.com/learn/tutorials/topics/graphics/introduction-lighting-and-rendering?playlist=17102">Introduction to Lighting and Rendering tutorial</a></p></li>
-<li><p><a href="https://unity3d.com/learn/tutorials/s/creating-believable-visuals">Creating Believable Visuals tutorial (Built-In RP)</a></p></li>
-<li><p><a href="https://blogs.unity3d.com/2020/01/09/how-to-set-up-unitys-unitys-high-definition-render-pipeline-for-high-end-visualizations/">Set up HDRP for high-end visualizations</a></p></li>
-<li><p><a href="https://blogs.unity3d.com/2019/02/05/create-high-quality-light-fixtures-in-unity/">Create high-quality light fixtures in Unity</a></p></li>
+<li><p><a href="http://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest/index.html?subfolder=/manual/index.html">URP 文档</a> &amp; <a href="http://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest/index.html?subfolder=/manual/HDRP-Features.html">HDRP 文档</a></p></li>
+<li><p><a href="https://docs.unity3d.com/Manual/ProjectTemplates.html">通过 Unity Hub 开始使用 HDRP、URP 或内置 RP</a></p></li>
+<li><p><a href="https://unity3d.com/learn/tutorials/topics/graphics/introduction-lighting-and-rendering?playlist=17102">光照与渲染简介 (Introduction to Lighting and Rendering) 教程</a></p></li>
+<li><p><a href="https://unity3d.com/learn/tutorials/s/creating-believable-visuals">创建逼真视觉效果 (Creating Believable Visuals) 教程（内置 RP）</a></p></li>
+<li><p><a href="https://blogs.unity3d.com/2020/01/09/how-to-set-up-unitys-unitys-high-definition-render-pipeline-for-high-end-visualizations/">设置面向高端可视化效果的 HDRP</a></p></li>
+<li><p><a href="https://blogs.unity3d.com/2019/02/05/create-high-quality-light-fixtures-in-unity/">在 Unity 中创建高品质灯具</a></p></li>
 </ul>
 <!-- area:graphics -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="BestPracticeMakingBelievableVisuals9.html"></a></span><div class="tip">Believable visuals: dynamic lighting</div>
+<span class="prev"><a href="srp-setting-render-pipeline-asset.html"></a></span><div class="tip">切换渲染管线</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="PhysicsSection.html"></a></span><div class="tip">物理系统</div>
+<span class="next"><a href="built-in-render-pipeline.html"></a></span><div class="tip">使用内置渲染管线</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

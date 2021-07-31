@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Shader compilation: targeting shader models and GPU features - Unity 手册">
-<title>Shader compilation: targeting shader models and GPU features - Unity 手册</title>
-<meta name="description" content="In HLSL, shader models are a way of describing the capabilities of a GPU. You can tell Unity to compile shaders for GPUs with certain capabilities, either by specifying the shader model that the GPU must support, or by specifying individual features that the GPU must support.">
-<meta property="og:description" content="In HLSL, shader models are a way of describing the capabilities of a GPU. You can tell Unity to compile shaders for GPUs with certain capabilities, either by specifying the shader model that the GPU must support, or by specifying individual features that the GPU must support.">
+<meta property="og:title" content="着色器编译：针对着色器模型和 GPU 功能 - Unity 手册">
+<title>着色器编译：针对着色器模型和 GPU 功能 - Unity 手册</title>
+<meta name="description" content="在 HLSL 中，着色器模型是描述 GPU 功能的一种方式。您可以通过指定 GPU 必须支持的着色器模型或指定 GPU 必须支持的单个功能让 Unity 为具有特定功能的 GPU 编译着色器。">
+<meta property="og:description" content="在 HLSL 中，着色器模型是描述 GPU 功能的一种方式。您可以通过指定 GPU 必须支持的着色器模型或指定 GPU 必须支持的单个功能让 Unity 为具有特定功能的 GPU 编译着色器。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,34 +174,33 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
-<li><a href="ShadersOverview.html">编写着色器</a></li>
-<li><a href="SL-Reference.html">着色器参考</a></li>
-<li><a href="SL-ShaderPrograms.html">编写顶点和片元着色器</a></li>
-<li>Shader compilation: targeting shader models and GPU features</li>
+<li><a href="Shaders.html">着色器</a></li>
+<li><a href="shader-writing.html">编写着色器</a></li>
+<li><a href="SL-ShaderPrograms.html">Unity 中的 HLSL</a></li>
+<li>着色器编译：针对着色器模型和 GPU 功能</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-PragmaDirectives.html"></a></span><div class="tip">Shader compilation: pragma directives</div>
+<span class="prev"><a href="SL-PragmaDirectives.html"></a></span><div class="tip">着色器编译：pragma 指令</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-ShaderCompilationAPIs.html"></a></span><div class="tip">Shader compilation: targeting graphics APIs</div>
+<span class="next"><a href="SL-ShaderCompilationAPIs.html"></a></span><div class="tip">着色器编译：针对图形 API</div>
 </div>
 </div></div>
-<h1>Shader compilation: targeting shader models and GPU features</h1>
+<h1>着色器编译：针对着色器模型和 GPU 功能</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>In HLSL, shader models are a way of describing the capabilities of a GPU. You can tell Unity to compile shaders for GPUs with certain capabilities, either by specifying the shader model that the GPU must support, or by specifying individual features that the GPU must support.</p>
+<p>在 HLSL 中，着色器模型是描述 GPU 功能的一种方式。您可以通过指定 GPU 必须支持的着色器模型或指定 GPU 必须支持的单个功能让 Unity 为具有特定功能的 GPU 编译着色器。</p>
 
-<p>For general information on shader models in HLSL, see the Microsoft documentation: <a href="https://docs.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl-models">Shader Models vs Shader Profiles
-</a>.</p>
+<p>有关 HLSL 中着色器模型的一般信息，请参阅 Microsoft 文档：<a href="https://docs.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl-models">着色器模型与着色器配置文件
+</a>。</p>
 
-<h2>Specifying a shader model or GPU feature</h2>
+<h2>指定着色器模型或 GPU 功能</h2>
 
-<p>To specify a shader model or GPU feature that your Unity shader requires, you use pragma directives in your HLSL code. You can indicate the shader model by using the <code>#pragma target</code> <em>name</em> directive, and you can indicate features using the <code>#pragma require</code> <em>feature …</em> directive.</p>
+<p>要指定 Shader 对象所需的着色器模型或 GPU 功能，可以在 HLSL 代码中使用 pragma 指令。可以使用 <code>#pragma target</code> <em>name</em> 指令来指定着色器模型，可以使用 <code>#pragma require</code> <em>feature …</em> 指令来指定功能。</p>
 
 <p>例如：</p>
 
@@ -209,7 +208,7 @@
 # pragma require integers 2darray instancing
 </code></pre>
 
-<p>For more information on pragma directives, see <a href="SL-PragmaDirectives.html">HLSL pragma directives</a>.</p>
+<p>有关 pragma 指令的更多信息，请参阅 <a href="SL-PragmaDirectives.html">HLSL pragma 指令</a>。</p>
 
 <h2>默认编译目标</h2>
 
@@ -383,16 +382,16 @@
 <!-- area:graphics -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-PragmaDirectives.html"></a></span><div class="tip">Shader compilation: pragma directives</div>
+<span class="prev"><a href="SL-PragmaDirectives.html"></a></span><div class="tip">着色器编译：pragma 指令</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-ShaderCompilationAPIs.html"></a></span><div class="tip">Shader compilation: targeting graphics APIs</div>
+<span class="next"><a href="SL-ShaderCompilationAPIs.html"></a></span><div class="tip">着色器编译：针对图形 API</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Asset loading metrics - Unity 手册">
-<title>Asset loading metrics - Unity 手册</title>
-<meta name="description" content="Use the AsyncReadManagerMetrics class to monitor runtime asset loading and file reading performance. This class records data about all the file read operations managed by the AsyncReadManager.">
-<meta property="og:description" content="Use the AsyncReadManagerMetrics class to monitor runtime asset loading and file reading performance. This class records data about all the file read operations managed by the AsyncReadManager.">
+<meta property="og:title" content="资源加载指标 - Unity 手册">
+<title>资源加载指标 - Unity 手册</title>
+<meta name="description" content="AsyncReadManagerMetrics 类用于监控运行时资源加载和文件读取性能。该类记录了有关由 AsyncReadManager 管理的所有文件读取操作的数据。">
+<meta property="og:description" content="AsyncReadManagerMetrics 类用于监控运行时资源加载和文件读取性能。该类记录了有关由 AsyncReadManager 管理的所有文件读取操作的数据。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,62 +174,62 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UnityOverview.html">在 Unity 中操作</a></li>
 <li><a href="analysis.html">分析</a></li>
-<li>Asset loading metrics</li>
+<li>资源加载指标</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="BestPracticeUnderstandingPerformanceInUnity8.html"></a></span><div class="tip">特别优化</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="AssetWorkflow.html"></a></span><div class="tip">资源工作流程</div>
+<span class="next"><a href="AssetWorkflow.html"></a></span><div class="tip">Asset Workflow</div>
 </div>
 </div></div>
-<h1>Asset loading metrics</h1>
+<h1>资源加载指标</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>Use the <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics.html">AsyncReadManagerMetrics</a> class to monitor runtime asset loading and file reading performance. This class records data about all the file read operations managed by the <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManager.html">AsyncReadManager</a>. </p>
+<p><a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics.html">AsyncReadManagerMetrics</a> 类用于监控运行时资源加载和文件读取性能。该类记录了有关由 <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManager.html">AsyncReadManager</a> 管理的所有文件读取操作的数据。</p>
 
-<p>The Unity Engine uses the <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManager.html">AsyncReadManager</a> to read most files at runtime. The files loaded with the AsyncReadManager include AssetBundles, Addressables and Resources. In addition, you can load files from scripts using <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManager.Read.html">AsyncReadManager.Read</a>. </p>
+<p>Unity 引擎使用 <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManager.html">AsyncReadManager</a> 在运行时读取大多数文件。使用 AsyncReadManager 加载的文件包括 AssetBundles、Addressables 和 Resources。此外，您可以使用 <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManager.Read.html">AsyncReadManager.Read</a> 从脚本加载文件。</p>
 
-<p>The <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics.html">AsyncReadManagerMetrics</a> class allows you to enable metrics collection and retrieve the recorded metrics data. You can also filter and summarize the recorded data to help your analysis. This metrics information can help you identify problem areas involving asset loading as well as measure the impact that your changes have on asset loading performance. </p>
+<p><a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics.html">AsyncReadManagerMetrics</a> 类允许您启用指标收集并检索记录的指标数据。您还可以过滤和汇总记录的数据以帮助您进行分析。该指标信息可帮助您识别涉及资源加载的问题区域，并衡量您的更改对资源加载性能的影响。</p>
 
-<p>The <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics.html">AsyncReadManagerMetrics</a> class is <em>only</em> available in development builds. You must guard any calls to the AsyncReadManagerMetrics APIs inside an #if preprocessor directive using the <code>ENABLE_PROFILER</code> symbol. The <code>ENABLE_PROFILER</code> symbol is only defined for development builds, so this allows your scripts to compile in builds where the metrics are unavailable. For backwards compatibility, you can also use the <code>UNITY_2020_2_OR_NEWER</code> symbol to remove the metrics code from earlier versions of Unity. For example:</p>
+<p><a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics.html">AsyncReadManagerMetrics</a> 类<em>仅</em>在开发版中提供。您必须将任何对 AsyncReadManagerMetrics API 的调用保护在使用 <code>ENABLE_PROFILER</code> 符号的 #if 预处理器指令内。<code>ENABLE_PROFILER</code> 符号仅针对开发版定义，这可使您的脚本在指标不可用的版本中编译。为了向后兼容，您还可以使用 <code>UNITY_2020_2_OR_NEWER</code> 符号从早期版本的 Unity 中去除指标代码。例如：</p>
 
-<pre><code class="lang-cs">#if ENABLE_PROFILER &amp;&amp; UNITY_2020_2_OR_NEWER
+<pre><code class="lang-cs"># if ENABLE_PROFILER &amp;&amp; UNITY_2020_2_OR_NEWER
     AsyncReadManagerMetrics.StartCollectingMetrics();
-#endif
+# endif
 </code></pre>
 
-<h2>Enabling metric collection</h2>
+<h2>启用指标收集</h2>
 
-<p>You must enable metrics collection before any data is recorded. Enable metrics collection with one of the following methods:</p>
+<p>您必须启用指标收集才能开始记录数据。使用以下方法之一启用指标收集：</p>
 
 <ul>
-<li>Calling <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics.StartCollectingMetrics.html">AsyncReadManagerMetrics.StartCollectingMetrics</a>
+<li>调用 <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics.StartCollectingMetrics.html">AsyncReadManagerMetrics.StartCollectingMetrics</a>
+*启动应用程序时传递命令行参数 <strong>-enable-file-read-metrics</strong>
 </li>
-<li>Passing <strong>-enable-file-read-metrics</strong> as a command line argument when launching your application</li>
 </ul>
 
-<p><strong>Note:</strong> you can pass <strong>-enable-file-read-metrics</strong> when launching the Unity Editor application to enable collection on entering Play mode. However, the Editor loads some categories of assets, such as textures, itself and does not reload them when you enter Playmode. To get a full picture of your file IO metrics, you must collect data from a development build of your application.</p>
+<p><strong>注意：</strong> 启动 Unity 编辑器应用程序时，您可以通过传递 <strong>-enable-file-read-metrics</strong> 在进入运行模式时启用收集。但是，编辑器本身会加载某些类别的资源（如纹理），并且不会在您进入运行模式时重新加载它们。要全面了解文件 IO 指标，您必须从应用程序的开发版中收集数据。</p>
 
-<h2>Getting metric data</h2>
+<h2>获取指标数据</h2>
 
-<p>Retrieve the metrics collected by the <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics.html">AsyncReadManagerMetrics</a> class by calling <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics.GetMetrics.html">GetMetrics</a>. Pass an <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics.Flags.html">AsyncReadManagerMetrics.Flags</a> to this function to specify whether or not to clear the metrics after retrieval. Clear the metrics to remove all the completed (including cancelled and failed) reads from the stored metrics. Clearing doesn’t affect any queued or in-process operations; you can access the metrics for unfinished operations by calling <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics.GetMetrics.html">GetMetrics</a> again after they complete. By clearing the metrics regularly, you can avoid rereading the same data and also reduce the data overhead of the system. </p>
+<p>通过调用 <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics.GetMetrics.html">GetMetrics</a> 检索由 <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics.html">AsyncReadManagerMetrics</a> 类收集的指标。向此函数传递 <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics.Flags.html">AsyncReadManagerMetrics.Flags</a> 指定是否在检索后清除指标。清除指标会将所有已完成（包括取消和失败）的读取从存储的指标中删除。清除不会影响任何排队中或进行中的操作；您可以之后通过再次调用 <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics.GetMetrics.html">GetMetrics</a> 获取未完成操作的指标。通过定期清除指标，您可以避免重复读取相同的数据，还可以减少系统的数据开销。</p>
 
-<pre><code class="lang-cs">#if ENABLE_PROFILER &amp;&amp; UNITY_2020_2_OR_NEWER
+<pre><code class="lang-cs"># if ENABLE_PROFILER &amp;&amp; UNITY_2020_2_OR_NEWER
     AsyncReadManagerRequestMetric[] metrics 
         = AsyncReadManagerMetrics.GetMetrics(AsyncReadManagerMetrics.Flags.ClearOnRead);
-#endif
+# endif
 
 </code></pre>
 
-<p>Where possible, the metric data includes context information about a read operation. This information includes the <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AssetLoadingSubsystem.html">AssetLoadingSubsystem</a> that requested the read, the <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerRequestMetric.AssetName.html">AssetName</a>, and the <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerRequestMetric.AssetTypeId.html">AssetTypeID</a>. When the AsyncReadManager doesn’t have access to this information, the value for these metrics fields is <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AssetLoadingSubsystem.Other.html">Other</a>, empty, and zero, respectively. </p>
+<p>指标数据会尽可能包括有关读取操作的上下文信息。这些信息包括：请求该读取操作的 <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AssetLoadingSubsystem.html">AssetLoadingSubsystem</a>、<a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerRequestMetric.AssetName.html">AssetName</a> 以及 <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerRequestMetric.AssetTypeId.html">AssetTypeID</a>。当 AsyncReadManager 无权访问此信息时，这些指标字段的值分别为：<a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AssetLoadingSubsystem.Other.html">Other</a>、空值和 0。</p>
 
-<p><strong>Note:</strong> The Asset TypeIDs currently known to be supported are shown in the table below. For other TypeIDs that may appear, please see <a href="ClassIDReference.html">YAML Class ID Reference</a>.</p>
+<p>__注意：__目前已知支持的资源 TypeID 如下表所示。对于可能出现的其他 TypeID，请参阅 <a href="ClassIDReference.html">YAML 类 ID 参考</a>。</p>
 
 <table>
 <colgroup>
@@ -240,7 +240,7 @@
 <thead>
 <tr>
 	<th style="text-align:left;">TypeID</th>
-	<th style="text-align:left;">Type Name</th>
+	<th style="text-align:left;">类型名</th>
 </tr>
 </thead>
 
@@ -264,83 +264,82 @@
 </tbody>
 </table>
 
-<h2>Getting summarized data</h2>
+<h2>获取汇总数据</h2>
 
-<p>You can get a summary of the AsyncReadManager metrics with the following methods:</p>
+<p>您可以使用以下方法获取 AsyncReadManager 指标的汇总：</p>
 
 <ul>
 <li>
-<a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics.GetCurrentSummaryMetrics.html">GetCurrentSummaryMetrics</a> – returns a summary of all the metrics collected since the last time you cleared the metric store.</li>
+<a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics.GetCurrentSummaryMetrics.html">GetCurrentSummaryMetrics</a> – 返回自上次清除指标存储以来收集的所有指标的汇总。</li>
 <li>
-<a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics.GetSummaryOfMetrics.html">GetSummaryOfMetrics</a> – returns a summary of the metrics in an array of <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerRequestMetric.html">AsyncReadManagerRequestMetric</a>, which you can get by calling <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics.GetMetrics.html">GetMetrics</a>.</li>
+<a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics.GetSummaryOfMetrics.html">GetSummaryOfMetrics</a> – 返回一个包含指标汇总的 <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerRequestMetric.html">AsyncReadManagerRequestMetric</a> 数组，该数组可通过调用 <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics.GetMetrics.html">GetMetrics</a> 获得。</li>
 </ul>
 
 <p>例如：</p>
 
-<pre><code class="lang-cs">#if ENABLE_PROFILER &amp;&amp; UNITY_2020_2_OR_NEWER
+<pre><code class="lang-cs"># if ENABLE_PROFILER &amp;&amp; UNITY_2020_2_OR_NEWER
     AsyncReadManagerSummaryMetrics summaryOfMetrics 
         = AsyncReadManagerMetrics.GetCurrentSummaryMetrics(AsyncReadManagerMetrics.Flags.ClearOnRead);
-#endif
+# endif
 </code></pre>
 
 <p>或者：</p>
 
-<pre><code class="lang-cs">#if ENABLE_PROFILER &amp;&amp; UNITY_2020_2_OR_NEWER
+<pre><code class="lang-cs"># if ENABLE_PROFILER &amp;&amp; UNITY_2020_2_OR_NEWER
     AsyncReadManagerRequestMetric[] metrics 
         = AsyncReadManagerMetrics.GetMetrics(AsyncReadManagerMetrics.Flags.ClearOnRead);
     AsyncReadManagerSummaryMetrics summaryOfMetrics 
         = AsyncReadManagerMetrics.GetSummaryOfMetrics(metrics);
-#endif
+# endif
 </code></pre>
 
-<p>Summary data for the metrics includes statistics such as:</p>
+<p>指标的汇总数据包括以下统计信息：</p>
 
 <ul>
-<li>Average bandwidth</li>
-<li>Average read size</li>
-<li>Asset type with longest load time</li>
-<li>Number of reads</li>
-<li>Number of requests</li>
-<li>Total bytes read</li>
+<li>平均带宽</li>
+<li>平均读取大小</li>
+<li>加载时间最长的资源类型</li>
+<li>读取数</li>
+<li>请求数</li>
+<li>读取的总字节数</li>
 </ul>
 
-<p>(See <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerSummaryMetrics.html">AsyncReadManagerSummaryMetrics</a> for a complete list.)</p>
+<p>（请参阅 <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerSummaryMetrics.html">AsyncReadManagerSummaryMetrics</a> 获取完整列表。）</p>
 
-<p>By default, the summarized statistics include all read operations, including those that are queued or in-progress. You can use a filter to limit the summary to those operations you are specifically interested in. For example, you could use a filter to limit the summarized statistics to completed read operations for texture assets. </p>
+<p>默认情况下，汇总统计信息包括所有读取操作，其中包含排队中或进行中的读取操作。您可以使用过滤器将汇总限制为您特别感兴趣的那些操作。例如，您可以使用过滤器将汇总统计数据限制为已完成的纹理资源读取操作。</p>
 
-<p><strong>Note:</strong> Calculating the summary statistics does require processing resources. To prevent these calculations from changing the measurements you are recording, you can collect the metrics first and only get the summary after the operations you are analyzing have finished. </p>
+<p><strong>注意：</strong> 计算汇总统计确实需要处理资源。为了防止这些计算改变您正在记录的测量值，您可以先收集指标，然后在您分析的操作完成后才获取汇总。</p>
 
-<h3>Summary filters</h3>
+<h3>汇总过滤器</h3>
 
-<p>Use <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetricsFilters.html">AsyncReadManagerMetricsFilters</a> with either of these methods to specify what types of data to summarize. Any metrics that do not match a filter are excluded from the summary. You can filter with the following categories:</p>
+<p>通过下列方式之一使用 <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetricsFilters.html">AsyncReadManagerMetricsFilters</a> 可指定要汇总的数据类型。任何与过滤器不匹配的指标都将从汇总中排除。您可以使用以下类别进行过滤：</p>
 
 <ul>
-<li>Asset type (by <a href="ClassIDReference.html">YAML ID</a>)</li>
+<li>资源类型（按 <a href="ClassIDReference.html">YAML ID</a>）
+*<a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.ProcessingState.html"> 处理状态</a>（读取操作是否排队、读取、完成等）</li>
 <li>
-<a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.ProcessingState.html">Processing state</a> (whether the read operation is queued, reading, completed, and so on)</li>
+<a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.FileReadType.html">读取类型</a>（异步或同步）</li>
 <li>
-<a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.FileReadType.html">Read type</a> (async or sync)</li>
-<li>
-<a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.Priority.html">Priority</a> (high or low)</li>
-<li>Subsystem (<a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AssetLoadingSubsystem.html">AssetLoadingSubsystem</a>)</li>
+<a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.Priority.html">优先级</a>（高或低）</li>
+<li>子系统 (<a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AssetLoadingSubsystem.html">AssetLoadingSubsystem</a>)</li>
 </ul>
 
-<p>You can set multiple categories for the same filter. A read operation must match all categories for the metrics of that operation to be included in the summary. For example, you can specify values for both the <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.ProcessingState.html">ProcessingState</a> and the <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AssetLoadingSubsystem.html">Subsystem</a> of a filter to summarize only operations in the designated processing states initiated by the designated subsytems.</p>
+<p>您可以为同一个过滤器设置多个类别。读取操作必须匹配所有类别才能使其指标包含在汇总中。例如，您可以为一个过滤器指定 <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.ProcessingState.html">ProcessingState</a> 和 <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AssetLoadingSubsystem.html">Subsystem</a> 值，仅汇总由指定子系统启动、处于指定处理状态中的操作。</p>
 
-<p>You can also specify multiple values for a category. In this case, a read operation can match any value you specify for a category for its metrics to be included in the summary. For example, you can specify both <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AssetLoadingSubsystem.Mesh.html">Mesh</a> and <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AssetLoadingSubsystem.Texture.html">Texture</a> for the <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AssetLoadingSubsystem.html">Subsystem</a> category to summarize operations for both Mesh and Texture assets. </p>
+<p>您还可以为一个类别指定多个值。在这种情况下，读取操作可以匹配为该类别指定的任何值，使其指标包含在汇总中。例如，您可以为 <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AssetLoadingSubsystem.html">Subsystem</a> 类别指定 <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AssetLoadingSubsystem.Mesh.html">Mesh</a> 和 <a href="../ScriptReference/Unity.IO.LowLevel.Unsafe.AssetLoadingSubsystem.Texture.html">Texture</a>，汇总网格和纹理资源的操作。</p>
 <!-- area:scripting -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="BestPracticeUnderstandingPerformanceInUnity8.html"></a></span><div class="tip">特别优化</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="AssetWorkflow.html"></a></span><div class="tip">资源工作流程</div>
+<span class="next"><a href="AssetWorkflow.html"></a></span><div class="tip">Asset Workflow</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

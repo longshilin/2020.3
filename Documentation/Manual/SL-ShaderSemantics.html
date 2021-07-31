@@ -181,17 +181,16 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
-<li><a href="ShadersOverview.html">编写着色器</a></li>
-<li><a href="SL-Reference.html">着色器参考</a></li>
-<li><a href="SL-ShaderPrograms.html">编写顶点和片元着色器</a></li>
+<li><a href="Shaders.html">着色器</a></li>
+<li><a href="shader-writing.html">编写着色器</a></li>
+<li><a href="SL-ShaderPrograms.html">Unity 中的 HLSL</a></li>
 <li>着色器语义</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-MultipleProgramVariants.html"></a></span><div class="tip">着色器变体和关键字</div>
+<span class="prev"><a href="SL-ShaderCompilationAPIs.html"></a></span><div class="tip">着色器编译：针对图形 API</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="SL-PropertiesInPrograms.html"></a></span><div class="tip">使用 Cg/HLSL 访问着色器属性</div>
@@ -205,8 +204,6 @@
 输入和输出变量需要通过<strong>语义</strong>来表明
 其“意图”。这是 HLSL 着色器语言中的
 标准概念；请参阅 <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/bb509647.aspx">MSDN 上的语义 (Semantics) 文档</a>以了解更多详细信息。</p>
-
-<p><em>可在<a href="../uploads/Examples/UnityShaderDocExamples.zip">此处</a>下载以下显示的示例（以 Unity 项目压缩包的形式提供）。</em></p>
 
 <h2>顶点着色器输入语义</h2>
 
@@ -235,8 +232,8 @@
             };
 
             v2f vert (
-                float4 vertex : POSITION, // vertex position input
-                float2 uv : TEXCOORD0 // first texture coordinate input
+                float4 vertex : POSITION, // 顶点位置输入
+                float2 uv : TEXCOORD0 // 第一个纹理坐标输入
                 )
             {
                 v2f o;
@@ -259,11 +256,9 @@
 <img src="../uploads/SL/SemanticsShowUVs.png" alt="">
 </figure>
 
-<p>不必逐个拼写出所有的每个输入，
-可以声明一个输入结构，并在该结构的
-每个单独成员变量上指示语义。
-请参阅<a href="SL-VertexFragmentShaderExamples.html">着色器程序示例</a>
-以了解如何执行此操作。</p>
+<p>Instead of spelling out all individual inputs one by one,
+it is also possible to declare a structure of them, and indicate
+semantics on each individual member variable of the struct.</p>
 
 <h2>片元着色器输出语义</h2>
 
@@ -329,9 +324,6 @@ fragOutput frag (v2f i)
 <p>为了获得最佳的跨平台支持，应将顶点输出和
 片元输入标记为 <code>TEXCOORDn</code> 语义。</p>
 
-<p>请参阅<a href="SL-VertexFragmentShaderExamples.html">着色器程序示例</a>
-以查看示例。</p>
-
 <h4>插值器数量限制</h4>
 
 <p>对于总共可以使用多少个插值器变量将信息
@@ -340,16 +332,16 @@ fragOutput frag (v2f i)
 
 <ul>
 <li>
-<strong>Up to 8 interpolators</strong>: OpenGL ES 2.0 (Android), Direct3D 11 9.x level
- (Windows Phone) and Direct3D 9 shader model 2.0 (old PCs). Since the interpolator
- count is limited, but each interpolator can be a 4-component vector,
- some shaders pack things together to stay within limits. For example, two texture
- coordinates can be passed in one <code>float4</code> variable (.xy for one coordinate, .zw
- for the second coordinate).</li>
+<strong>最多 8 个插值器：</strong>OpenGL ES 2.0 (Android)、Direct3D 11 9.x 级别
+ (Windows Phone) 和 Direct3D 9 着色器模型 2.0（老旧 PC）。由于插值器
+数量受到限制，但每个插值器可以是一个 4 分量矢量，
+所以一些着色器将内容打包在一起以便不会超过限制。例如，两个纹理
+坐标可以在一个 <code>float4</code> 变量中传递（.xy 表示一个坐标，.zw
+ 表示第二个坐标）。</li>
 <li>
 <strong>最多 10 个插值器</strong>：Direct3D 9 着色器模型 3.0 (<code>#pragma target 3.0</code>)。</li>
 <li>
-<strong>Up to 16 interpolators</strong>: OpenGL ES 3.0 (Android), Metal (iOS).</li>
+<strong>最多 16 个插值器</strong>：OpenGL ES 3.0 (Android) 和 Metal (iOS)。</li>
 <li>
 <strong>最多 32 个插值器</strong>：Direct3D 10 着色器模型 4.0 (<code>#pragma target 4.0</code>)。</li>
 </ul>
@@ -474,7 +466,7 @@ fragOutput frag (v2f i)
 }
 </code></pre>
 
-<p>上面的着色器使用 <a href="SL-CullAndDepth.html">Cull</a> 状态来关闭背面剔除（默认情况下，根本不会渲染背面三角形）。以下是应用于一组四边形网格（以不同的方向旋转）的着色器：</p>
+<p>上面的着色器使用 <a href="SL-Cull.html">Cull</a> 状态来关闭背面剔除（默认情况下，根本不会渲染背面三角形）。以下是应用于一组四边形网格（以不同的方向旋转）的着色器：</p>
 
 <figure>
 <img src="../uploads/SL/SemanticsFaceOrientation.png" alt="">
@@ -529,12 +521,9 @@ fragOutput frag (v2f i)
 <figure>
 <img src="../uploads/SL/SemanticsVertexID.png" alt="">
 </figure>
-
-<p><em>（可在<a href="../uploads/Examples/UnityShaderDocExamples.zip">此处</a>下载上文中显示的示例（以 Unity 项目压缩包的形式提供））</em></p>
-<!-- area:graphics -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-MultipleProgramVariants.html"></a></span><div class="tip">着色器变体和关键字</div>
+<span class="prev"><a href="SL-ShaderCompilationAPIs.html"></a></span><div class="tip">着色器编译：针对图形 API</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="SL-PropertiesInPrograms.html"></a></span><div class="tip">使用 Cg/HLSL 访问着色器属性</div>
@@ -543,7 +532,7 @@ fragOutput frag (v2f i)
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

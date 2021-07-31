@@ -13,8 +13,8 @@
 <meta name="twitter:card" content="summary">
 <meta property="og:title" content="合成事件 - Unity 手册">
 <title>合成事件 - Unity 手册</title>
-<meta name="description" content="Before you synthesize and send custom events, you should understand how the UI Toolkit event system allocates and sends operating system events.">
-<meta property="og:description" content="Before you synthesize and send custom events, you should understand how the UI Toolkit event system allocates and sends operating system events.">
+<meta name="description" content="在合成和发送自定义事件之前，应了解 UI 工具包事件系统如何分配和发送操作系统事件。">
+<meta property="og:description" content="在合成和发送自定义事件之前，应了解 UI 工具包事件系统如何分配和发送操作系统事件。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,38 +174,38 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="UIToolkits.html">Creating user interfaces (UI)</a></li>
-<li><a href="UIElements.html">UI Toolkit</a></li>
-<li><a href="UIE-Events.html">事件系统</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="UIToolkits.html">创建用户界面 (UI)</a></li>
+<li><a href="UIElements.html">UI 工具包</a></li>
+<li><a href="UIE-Events.html">事件类型</a></li>
 <li>合成事件</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="UIE-Events-DragAndDrop.html"></a></span><div class="tip">支持拖放</div>
+<span class="prev"><a href="UIE-Events-Handling.html"></a></span><div class="tip">处理事件</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="UIE-Events-Reference.html"></a></span><div class="tip">事件类型参考</div>
+<span class="next"><a href="UIE-Events-Reference.html"></a></span><div class="tip">事件参考</div>
 </div>
 </div></div>
 <h1>合成事件</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>Before you synthesize and send custom events, you should understand how the UI Toolkit event system allocates and sends operating system events. </p>
+<p>在合成和发送自定义事件之前，应了解 UI 工具包事件系统如何分配和发送操作系统事件。</p>
 
-<p>The event system uses a pool of events to avoid allocating event objects repeatedly. To synthesize and send your own events, you should allocate and send events by following the same steps:</p>
+<p>事件系统使用事件池来避免重复分配事件对象。要合成和发送自定义事件，应按照相同的步骤分配和发送事件：</p>
 
 <p>1.从事件池中获取一个事件对象。
 2.填写事件属性。
-3.将事件包含在 <code>using</code> 块中以确保其返回到事件池。
+3.将事件包含在 <code>using</code> 代码块中以确保其返回到事件池。
 4.将事件传递给 <code>element.SendEvent()</code>。</p>
 
-<p>If you want to send events that usually come from the operating system, such as keyboard events and some mouse events, use a <code>UnityEngine.Event</code> to initialize the UI Toolkit event.</p>
+<p>如果要发送通常来自操作系统的事件，例如键盘事件和一些鼠标事件，请使用 <code>UnityEngine.Event</code> 来初始化 UI 工具包事件。</p>
 
 <p>以下示例演示了如何合成和发送事件：</p>
 
-<pre><code class="csharp">void SynthesizeAndSendKeyDownEvent(IPanel panel, KeyCode code,
+<pre><code class="lang-csharp">void SynthesizeAndSendKeyDownEvent(IPanel panel, KeyCode code,
      char character = '\0', EventModifiers modifiers = EventModifiers.None)
 {
     // 创建 UnityEngine.Event 以保存初始化数据。
@@ -233,16 +233,16 @@
 <!-- area:authoring -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="UIE-Events-DragAndDrop.html"></a></span><div class="tip">支持拖放</div>
+<span class="prev"><a href="UIE-Events-Handling.html"></a></span><div class="tip">处理事件</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="UIE-Events-Reference.html"></a></span><div class="tip">事件类型参考</div>
+<span class="next"><a href="UIE-Events-Reference.html"></a></span><div class="tip">事件参考</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

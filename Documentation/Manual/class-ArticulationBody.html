@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Articulation Body - Unity 手册">
-<title>Articulation Body - Unity 手册</title>
+<meta property="og:title" content="接合体 - Unity 手册">
+<title>接合体 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/articulation-body-properties-root.png">
-<meta name="description" content="Articulation Bodies enable you to build physics articulations such as robotic arms or kinematic chains with GameObjects that are hierarchically organized. They help you get realistic physics behaviors in the context of simulation for industrial applications.">
-<meta property="og:description" content="Articulation Bodies enable you to build physics articulations such as robotic arms or kinematic chains with GameObjects that are hierarchically organized. They help you get realistic physics behaviors in the context of simulation for industrial applications.">
+<meta name="description" content="通过接合体可以使用分层组织的游戏对象构建物理接合，例如机器人手臂或运动链。它们可帮助在针对工业应用程序的模拟环境中获得逼真的物理行为。">
+<meta property="og:description" content="通过接合体可以使用分层组织的游戏对象构建物理接合，例如机器人手臂或运动链。它们可帮助在针对工业应用程序的模拟环境中获得逼真的物理行为。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,10 +175,10 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="PhysicsSection.html">物理系统</a></li>
 <li><a href="Physics3DReference.html">3D 物理系统参考</a></li>
-<li>Articulation Body</li>
+<li>接合体</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -188,40 +188,40 @@
 <span class="next"><a href="class-BoxCollider.html"></a></span><div class="tip">盒型碰撞体</div>
 </div>
 </div></div>
-<h1>Articulation Body</h1>
+<h1>接合体</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>Articulation Bodies enable you to build <a href="physics-articulations.html">physics articulations</a> such as robotic arms or kinematic chains with GameObjects that are hierarchically organized. They help you get realistic physics behaviors in the context of simulation for industrial applications.</p>
+<p>通过接合体可以使用分层组织的游戏对象构建<a href="physics-articulations.html">物理接合</a>，例如机器人手臂或运动链。它们可帮助在针对工业应用程序的模拟环境中获得逼真的物理行为。</p>
 
 <h2>属性</h2>
 
-<p>An Articulation Body allows you to define in one single component the properties that you would similarly define through a <a href="RigidbodiesOverview.html">RigidBody</a> and a <a href="Joints.html">regular Joint</a> in a classic configuration. That said, these properties depend on the GameObject position in the hierarchy:</p>
+<p>接合体可用于在单一组件中定义属性，而这些属性在经典配置中会通过<a href="RigidbodiesOverview.html">刚体</a>和<a href="Joints.html">常规关节</a>以类似方法进行定义。也就是说，这些属性取决于层级视图中的游戏对象位置：</p>
 
 <ul>
-<li>For the root GameObject of the articulation, you can only set up physical body properties:</li>
+<li>对于接合的根游戏对象，只能设置物理体属性：</li>
 </ul>
 
 <p><img src="../uploads/Main/articulation-body-properties-root.png" alt=""></p>
 
 <ul>
-<li>For any child GameObject within the articulation, you can set up physical body properties as well as the type and properties of the joint that links this GameObject to its parent GameObject:</li>
+<li>对于接合内的任何子游戏对象，可以设置物理体属性以及将此游戏对象链接到其父游戏对象的关节的类型和属性：</li>
 </ul>
 
 <p><img src="../uploads/Main/articulation-body-properties-child.png" alt=""></p>
 
-<p>The Articulation Body properties fall into the following main categories:</p>
+<p>接合体属性分为以下主要类别：</p>
 
 <ul>
-<li><p><a href="#physical-body-properties">Physical body properties</a></p></li>
-<li><p><a href="#joint-anchor-properties">Joint anchor properties</a></p></li>
-<li><p><a href="#joint-type-selection-and-joint-properties">Joint type selection and properties</a></p></li>
-<li><p><a href="#joint-drive-properties">Joint drive properties</a></p></li>
+<li><p><a href="#physical-body-properties">物理体属性</a></p></li>
+<li><p><a href="#joint-anchor-properties">关节锚点属性</a></p></li>
+<li><p><a href="#joint-type-selection-and-joint-properties">关节类型选择和属性</a></p></li>
+<li><p><a href="#joint-drive-properties">关节驱动属性</a></p></li>
 </ul>
 
-<h3>Physical body properties</h3>
+<h3>物理体属性</h3>
 
-<p>Define the way the Articulation Body responds to the physics environment.</p>
+<p>定义接合体响应物理环境的方式。</p>
 
 <figure>
 <img src="../uploads/Main/articulation-body-properties-physical-body.png" alt="">
@@ -243,22 +243,22 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><strong>Mass</strong></td>
-	<td style="text-align:left;">The mass of the Articulation Body (in kilograms by default).</td>
+	<td style="text-align:left;">接合体的质量（默认为千克）。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Immovable</strong></td>
-	<td style="text-align:left;">Use this property to define whether this articulation body is movable or not. You can set this property only for the root Articulation Body. This property is useful to make the base body of robotic hands immovable, for example. The physics engine solves it separately from all the other constraints and guarantees that it is not violated.</td>
+	<td style="text-align:left;">使用此属性可定义此接合体是否可移动。只能为根接合体设置此属性。例如，此属性可用于使机器人双手的基体不可移动。物理引擎将它与所有其他约束分开解决，保证不会违反它。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Use Gravity</strong></td>
-	<td style="text-align:left;">Use this property to make the gravity affect this Articulation Body or not.</td>
+	<td style="text-align:left;">使用此属性可使重力影响或不影响此接合体。</td>
 </tr>
 </tbody>
 </table>
 
-<h3>Joint anchor properties</h3>
+<h3>关节锚点属性</h3>
 
-<p>Define the coordinates of the <a href="#joint-anchors">joint anchors</a> for the Articulation Body and its parent Articulation Body.</p>
+<p>为接合体及其父接合体定义<a href="#joint-anchors">关节锚点</a>的坐标。</p>
 
 <figure>
 <img src="../uploads/Main/articulation-body-properties-joint-anchor.png" alt="">
@@ -280,34 +280,34 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><strong>Compute Parent Anchor</strong></td>
-	<td style="text-align:left;">Enable this property to make the parent-relative anchor match the anchor of the current Articulation Body. If you disable this property, you can separately set values for <strong>Parent Anchor Position</strong> and <strong>Parent Anchor Rotation</strong>.</td>
+	<td style="text-align:left;">启用此属性可使父相关锚点与当前接合体的锚点匹配。如果禁用此属性，则可以为 <strong>Parent Anchor Position</strong> 和 <strong>Parent Anchor Rotation</strong> 单独设置值。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Anchor Position</strong></td>
-	<td style="text-align:left;">The position coordinates of the Anchor, relative to the current Articulation Body.</td>
+	<td style="text-align:left;">锚点相对于当前接合体的位置坐标。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Anchor Rotation</strong></td>
-	<td style="text-align:left;">The rotation coordinates of the Anchor, relative to the current Articulation Body.</td>
+	<td style="text-align:left;">锚点相对于当前接合体的旋转坐标。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Parent Anchor Position</strong></td>
-	<td style="text-align:left;">The position coordinates of the Parent Anchor, relative to the parent Articulation Body. This property only appears if you disable <strong>Compute Parent Anchor</strong>.</td>
+	<td style="text-align:left;">父锚点相对于父接合体的位置坐标。仅当禁用 <strong>Compute Parent Anchor</strong> 时，此属性才会出现。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Parent Anchor Rotation</strong></td>
-	<td style="text-align:left;">The rotation coordinates of the Parent Anchor, relative to the parent Articulation Body. This property only appears if you disable <strong>Compute Parent Anchor</strong>.</td>
+	<td style="text-align:left;">父锚点相对于父接合体的旋转坐标。仅当禁用 <strong>Compute Parent Anchor</strong> 时，此属性才会出现。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Snap Anchor to closest contact</strong></td>
-	<td style="text-align:left;">Computes the point on the surface of this Articulation Body that is closest to the center of mass of the parent Articulation Body, and sets the anchor to it. If <strong>Compute Parent Anchor</strong> is enabled, Unity also updates the parent anchor accordingly.</td>
+	<td style="text-align:left;">计算此接合体表面上最接近父接合体质心的点，并将锚点设置到它。如果启用了 <strong>Compute Parent Anchor</strong>，则 Unity 也会相应地更新父锚点。</td>
 </tr>
 </tbody>
 </table>
 
-<h3>Joint type selection and joint properties</h3>
+<h3>关节类型选择和关节属性</h3>
 
-<p>Select the type of joint that links the current Articulation Body to its parent Articulation Body, and define its common and specific properties.</p>
+<p>选择将当前接合体链接到其父接合体的关节类型，并定义其通用和特定属性。</p>
 
 <figure>
 <img src="../uploads/Main/articulation-body-properties-joint-type.png" alt="">
@@ -332,47 +332,47 @@
 <tr>
 	<td style="text-align:left;"><strong>Articulation Joint Type</strong></td>
 	<td style="text-align:left;"></td>
-	<td style="text-align:left;">The type of joint that connects this Articulation Body to its parent Articulation Body. <strong>Note:</strong> All types of joints have in common the properties that this table describes, and some of them have specific additional properties.</td>
+	<td style="text-align:left;">将此接合体连接到其父接合体的关节类型。<strong>注意：</strong>所有类型的关节都共有此表介绍的属性，其中一些类型具有特定的附加属性。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;">Fixed</td>
-	<td style="text-align:left;">Sets a rigid, unbreakable and unstretchable link between bodies. A Fixed articulation joint has no additional properties than the ones that this table describes.</td>
+	<td style="text-align:left;">在物理体之间设置刚性、牢不可破和不可拉伸的链接。除了此表中介绍的属性外，固定结合关节没有附加属性。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;">Prismatic</td>
-	<td style="text-align:left;">Prevents all motion except sliding along a particular axis. See also the <a href="#prismatic-joint-additional-properties">Prismatic joint additional properties</a>.</td>
+	<td style="text-align:left;">阻止除了沿特定轴滑动之外的所有运动。另请参阅<a href="#prismatic-joint-additional-properties">棱形关节附加属性</a>。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;">Revolute</td>
-	<td style="text-align:left;">Allows rotation around a particular axis (like a hinge). See also the <a href="#revolute-joint-additional-properties">Revolute joint additional properties</a>.</td>
+	<td style="text-align:left;">允许绕特定轴旋转（如铰链）。另请参阅<a href="#revolute-joint-additional-properties">旋转关节附加属性</a>。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;">Spherical</td>
-	<td style="text-align:left;">Anatomical joint, which allows two swings and one twist. See also the <a href="#spherical-joint-additional-properties">Spherical joint additional properties</a>.</td>
+	<td style="text-align:left;">解剖关节，允许两次摆动和一次扭转。另请参阅<a href="#spherical-joint-additional-properties">球形关节附加属性</a>。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Linear Damping</strong></td>
 	<td style="text-align:left;"></td>
-	<td style="text-align:left;">Coefficient that controls the linear slow down.</td>
+	<td style="text-align:left;">控制线性减速的系数。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Angular Damping</strong></td>
 	<td style="text-align:left;"></td>
-	<td style="text-align:left;">Coefficient that controls the rotational slow down.</td>
+	<td style="text-align:left;">控制旋转减速的系数。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Joint Friction</strong></td>
 	<td style="text-align:left;"></td>
-	<td style="text-align:left;">Coefficient that controls the energy loss caused by friction in the joint.</td>
+	<td style="text-align:left;">控制关节中由摩擦引起的能量损失的系数。</td>
 </tr>
 </tbody>
 </table>
 
-<h4>Prismatic joint additional properties</h4>
+<h4>棱形关节附加属性</h4>
 
 <figure>
 <img src="../uploads/Main/articulation-body-properties-joint-prismatic.png" alt="">
@@ -397,34 +397,34 @@
 <tr>
 	<td style="text-align:left;"><strong>Axis</strong></td>
 	<td style="text-align:left;"></td>
-	<td style="text-align:left;">Specifies the axis that the prismatic joint allows motion along, relative to the parent anchor.</td>
+	<td style="text-align:left;">指定棱形关节允许相对于父锚点沿之运动的轴。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Motion</strong></td>
 	<td style="text-align:left;"></td>
-	<td style="text-align:left;">Specifies the motion restriction type along that axis.</td>
+	<td style="text-align:left;">指定沿该轴的运动限制类型。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;">Free</td>
-	<td style="text-align:left;">Allows the Articulation Body to freely move along the selected <strong>Axis</strong> of the parent anchor.</td>
+	<td style="text-align:left;">允许接合体沿着父锚点的所选<strong>轴</strong>自由移动。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;">受限</td>
-	<td style="text-align:left;">Restricts the movement of the Articulation Body along the selected <strong>Axis</strong> of the parent anchor, according to the <strong>Lower Limit</strong> and <strong>Upper Limit</strong> you specify in the <strong>Drive</strong> properties.</td>
+	<td style="text-align:left;">按照在 <strong>Drive</strong> 属性中指定的 <strong>Lower Limit</strong> 和 <strong>Upper Limit</strong>，限制结合体沿父锚点的所选<strong>轴</strong>的移动。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">
-<strong>X Drive</strong>, <strong>Y Drive</strong>, or <strong>Z Drive</strong>
+<strong>X Drive</strong>、<strong>Y Drive</strong> 或 <strong>Z Drive</strong>
 </td>
 	<td style="text-align:left;"></td>
-	<td style="text-align:left;">The <a href="#joint-drive-properties">properties of the linear drive</a> that is attached to the joint, according to the selected <strong>Axis</strong> of the parent anchor. <strong>Note:</strong> There is only one Drive section here. Its title automatically adjusts according to the axis selection.</td>
+	<td style="text-align:left;">按照父锚点的所选<strong>轴</strong>，附加到关节的<a href="#joint-drive-properties">线性驱动属性</a>。<strong>主要：</strong>此处只有一个 Drive 部分。其标题会根据轴选择自动调整。</td>
 </tr>
 </tbody>
 </table>
 
-<h4>Revolute joint additional properties</h4>
+<h4>旋转关节附加属性</h4>
 
 <figure>
 <img src="../uploads/Main/articulation-body-properties-joint-revolute.png" alt="">
@@ -449,27 +449,27 @@
 <tr>
 	<td style="text-align:left;"><strong>Motion</strong></td>
 	<td style="text-align:left;"></td>
-	<td style="text-align:left;">Specifies the rotation restriction type around the X axis of the parent anchor.</td>
+	<td style="text-align:left;">指定围绕父锚点 X 轴的旋转限制类型。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;">Free</td>
-	<td style="text-align:left;">Allows the Articulation Body to freely rotate around the X axis of the parent anchor.</td>
+	<td style="text-align:left;">允许接合体围绕父锚点 X 轴自由旋转。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;">受限</td>
-	<td style="text-align:left;">Restricts the rotation of the Articulation Body around the X axis of the parent anchor, according to the <strong>Lower Limit</strong> and <strong>Upper Limit</strong> you specify in the <strong>X Drive</strong> properties.</td>
+	<td style="text-align:left;">按照在 <strong>X Drive</strong> 属性中指定的 <strong>Lower Limit</strong> 和 <strong>Upper Limit</strong>，限制结合体围绕父锚点 X 轴的旋转。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>X Drive</strong></td>
 	<td style="text-align:left;"></td>
-	<td style="text-align:left;">The <a href="#joint-drive-properties">properties of the rotational drive</a> that is attached to the joint, around the X axis of the parent anchor.</td>
+	<td style="text-align:left;">围绕父锚点 X 轴，附加到关节的<a href="#joint-drive-properties">旋转驱动属性</a>。</td>
 </tr>
 </tbody>
 </table>
 
-<h4>Spherical joint additional properties</h4>
+<h4>球形关节附加属性</h4>
 
 <figure>
 <img src="../uploads/Main/articulation-body-properties-joint-spherical.png" alt="">
@@ -494,48 +494,48 @@
 <tr>
 	<td style="text-align:left;"><strong>Swing Y</strong></td>
 	<td style="text-align:left;"></td>
-	<td style="text-align:left;">Specifies the rotation restriction type around the Y axis.</td>
+	<td style="text-align:left;">指定围绕 Y 轴的旋转限制类型。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;">Free</td>
-	<td style="text-align:left;">Allows the Articulation Body to freely rotate around the Y axis of the parent anchor.</td>
+	<td style="text-align:left;">允许接合体围绕父锚点 Y 轴自由旋转。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;">受限</td>
-	<td style="text-align:left;">Restricts the rotation of the Articulation Body around the Y axis of the parent anchor, according to the <strong>Lower Limit</strong> and <strong>Upper Limit</strong> you specify in the <strong>Y Drive</strong> properties.</td>
+	<td style="text-align:left;">按照在 <strong>Y Drive</strong> 属性中指定的 <strong>Lower Limit</strong> 和 <strong>Upper Limit</strong>，限制结合体围绕父锚点 Y 轴的旋转。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;">Locked</td>
-	<td style="text-align:left;">Totally locks the rotation of the Articulation Body around the Y axis of the parent anchor. <strong>Note:</strong> You cannot lock more than two degrees of freedom at the same time.</td>
+	<td style="text-align:left;">完全锁定接合体围绕父锚点 Y 轴的旋转。<strong>注意：</strong>不能同时锁定两个以上的自由度。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Swing Z</strong></td>
 	<td style="text-align:left;"></td>
-	<td style="text-align:left;">Specifies the rotation restriction type around the Z axis. The options are the same for all 3 axes.</td>
+	<td style="text-align:left;">指定围绕 Z 轴的旋转限制类型。所有 3 个轴的选项都相同。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Twist</strong></td>
 	<td style="text-align:left;"></td>
-	<td style="text-align:left;">Specifies the rotation restriction type around the X axis. The options are the same for all 3 axes.</td>
+	<td style="text-align:left;">指定围绕 X 轴的旋转限制类型。所有 3 个轴的选项都相同。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">
-<strong>Y Drive</strong>, <strong>Z Drive</strong>, and <strong>X Drive</strong>
+<strong>Y Drive</strong>、<strong>Z Drive</strong> 和 <strong>X Drive</strong>
 </td>
 	<td style="text-align:left;"></td>
-	<td style="text-align:left;">The <a href="#joint-drive-properties">properties of the rotational drive</a> that is attached to the joint, respectively around the Y, Z and X axes of the parent anchor. <strong>Note:</strong> There is a separate subsection for each drive. If you lock an axe, the Inspector does not display its Drive properties.</td>
+	<td style="text-align:left;">分别围绕父锚点 Y、Z 和 X 轴，附加到关节的<a href="#joint-drive-properties">旋转驱动属性</a>。<strong>注意：</strong>每个驱动都有一个单独的细分部分。如果锁定某个轴，则 Inspector 不会显示其驱动属性。</td>
 </tr>
 </tbody>
 </table>
 
-<h3>Joint drive properties</h3>
+<h3>关节驱动属性</h3>
 
-<p>Set up <a href="#joint-degrees-of-freedom-and-limits">joint limits</a> about a specific
-axis, as well as the <a href="#joint-drive-effect">joint drive effect</a> parameters for
-this axis.</p>
+<p>设置有关特定轴的<a href="#joint-degrees-of-freedom-and-limits">关节限制</a>，
+以及此轴的<a href="#joint-drive-effect">关节驱动效果</a>
+参数。</p>
 
 <figure>
 <img src="../uploads/Main/articulation-body-properties-joint-drive.png" alt="">
@@ -557,155 +557,155 @@ this axis.</p>
 <tbody>
 <tr>
 	<td style="text-align:left;"><strong>Lower Limit</strong></td>
-	<td style="text-align:left;">The limit below which the joint prevents the body from moving or rotating, depending on the joint type. You can define this property only if you set the related <strong>Motion</strong>, <strong>Swing</strong> or <strong>Twist</strong> property to <strong>Limited</strong>.</td>
+	<td style="text-align:left;">关节阻止接合体的移动或旋转的下限，具体取决于关节类型。仅当将相关 <strong>Motion</strong>、<strong>Swing</strong> 或 <strong>Twist</strong> 属性设置为 <strong>Limited</strong> 时，才能定义此属性。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Upper Limit</strong></td>
-	<td style="text-align:left;">The limit above which the joint prevents the body from moving or rotating, depending on the joint type. You can define this property only if you set the related <strong>Motion</strong>, <strong>Swing</strong> or <strong>Twist</strong> property to <strong>Limited</strong>.</td>
+	<td style="text-align:left;">关节阻止接合体移动或旋转的上限，具体取决于关节类型。仅当将相关 <strong>Motion</strong>、<strong>Swing</strong> 或 <strong>Twist</strong> 属性设置为 <strong>Limited</strong> 时，才能定义此属性。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Stiffness</strong></td>
-	<td style="text-align:left;">The stiffness of the spring that attracts the joint to the target.</td>
+	<td style="text-align:left;">将关节吸引到目标的弹簧的刚度。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Damping</strong></td>
-	<td style="text-align:left;">The damping of the spring that attracts the joint to the target.</td>
+	<td style="text-align:left;">将关节吸引到目标的弹簧的阻尼。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Force limit</strong></td>
-	<td style="text-align:left;">The maximum amount of force or torque this drive can produce.</td>
+	<td style="text-align:left;">此驱动可以产生的力或扭矩的最大量。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Target</strong></td>
-	<td style="text-align:left;">The target value this drive aims to reach.</td>
+	<td style="text-align:left;">此驱动旨在达到的目标值。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Target velocity</strong></td>
-	<td style="text-align:left;">The target velocity this drive aims to reach.</td>
+	<td style="text-align:left;">此驱动旨在达到的目标速度。</td>
 </tr>
 </tbody>
 </table>
 
-<h2>Configuring articulation joints</h2>
+<h2>配置接合关节</h2>
 
-<h3>Joint drive effect</h3>
+<h3>关节驱动效果</h3>
 
-<p>Any drive is an implicit 1D spring that aims to bring the current drive parameters to the target by the application of an effect (forces or torques) computed by this formula:</p>
+<p>任何驱动都是隐式 1D 弹簧，旨在通过应用由以下公式计算的效果（力或扭矩）使当前驱动参数达到目标：</p>
 
-<p><strong>Effect = stiffness * (drivePosition - targetPosition) - damping * (driveVelocity - targetVelocity)</strong></p>
+<p><strong>效果 = 刚度 * (drivePosition - targetPosition) - 阻尼 * (driveVelocity - targetVelocity)</strong></p>
 
-<p>A drive attached to a linear degree of freedom produces forces. A drive attached to a rotational degree of freedom produces torques. You can set each parameter of this formula through the <a href="#joint-drive-properties">Joint drive properties</a> to fine-tune the desired effect for any axis involved in a joint.</p>
+<p>附加到线性自由度的驱动会产生力。附加到旋转自由度的驱动会产生扭矩。可以通过<a href="#joint-drive-properties">关节驱动属性</a>设置此公式的每个参数，以便为关节中涉及的任何轴微调所需效果。</p>
 
-<p>Notice that the effect formula consists of two independent terms that you can balance, and even cancel out. For example:</p>
-
-<ul>
-<li><p>If you set the stiffness to zero, you get a drive that only aims at reaching a specific velocity.</p></li>
-<li><p>If you set the damping to zero, you get a drive that aims at reaching a certain position without trying to reach any particular velocity. In that case, the drive does not try to eventually stop once the target is reached.</p></li>
-</ul>
-
-<h2>Joint anchors</h2>
-
-<p>There are two anchors per each joint:</p>
+<p>请注意，效果公式由两个独立的项组成，可以平衡甚至抵消它们。例如：</p>
 
 <ul>
-<li><p>The <strong>Anchor</strong>, relative to the current Articulation Body</p></li>
-<li><p>The <strong>Parent Anchor</strong>, relative to the parent Articulation Body</p></li>
+<li><p>如果将刚度设置为零，则会获得只是旨在达到特定速度的驱动。</p></li>
+<li><p>如果将阻尼设置为零，则会获得旨在达到特定位置而不尝试达到任何特定速度的驱动。在这种情况下，达到目标后，驱动不会尝试最终停止。</p></li>
 </ul>
 
-<p>By default, Unity automatically computes the Parent Anchor to match the pose of the Anchor. However, you can disable the <strong>Compute Parent Anchor</strong> property to manually set the Parent Anchor:</p>
+<h2>关节锚点</h2>
+
+<p>每个关节有两个锚点：</p>
+
+<ul>
+<li><p><strong>锚点</strong>，相对于当前接合体</p></li>
+<li><p><strong>父锚点</strong>，相对于父接合体</p></li>
+</ul>
+
+<p>默认情况下，Unity 会自动计算父锚点以匹配锚点的姿势。但是，可以禁用 <strong>Compute Parent Anchor</strong> 属性以手动设置父锚点：</p>
 
 <figure>
 <img src="../uploads/Main/articulation-body-properties-joint-anchors.png" alt="">
 </figure>
 
-<p>Currently, the Unity Editor displays the anchors with a scaled transform tool to differentiate them from the GameObject transform tool:</p>
+<p>当前，Unity 编辑器使用缩放变换组件工具显示锚点，以将它们与游戏对象变换组件工具区分开来：</p>
 
 <figure>
 <img src="../uploads/Main/articulation-body-joint-anchor-tools.png" alt="">
 </figure>
 
-<p>To change the position of the anchors, you can either use the Inspector and edit the <a href="#joint-anchor-properties">Joint anchor properties</a> or directly move and rotate their transform tools in the Scene View.</p>
+<p>若要更改锚点的位置，可以使用 Inspector 并编辑<a href="#joint-anchor-properties">关节锚点属性</a>，或者在 Scene 视图中直接移动和旋转其变换组件工具。</p>
 
-<p><strong>Note:</strong> When you create a new Articulation Body, Unity positions the anchors at the local zero of their respective bodies. However, the local zero is not an ideal default position for the anchor if the connected bodies have colliders attached, because the joint might then try to push the bodies into each other. The <strong>Snap Anchor to closest contact</strong> button helps you set a more reasonable default location of the anchors, which works with many articulations.</p>
+<p><strong>注意：</strong>创建新的接合体时，Unity 会将锚点定位在各自体的局部零点处。但是，如果所连接体附加了碰撞体，则局部零不是锚点的理想默认位置，因为关节可能会尝试使各个体相互推动。<strong>Snap Anchor to closest contact</strong> 按钮可帮助设置更合理的锚点默认位置，适用于许多接合。</p>
 
-<h3>Joint degrees of freedom and limits</h3>
+<h3>关节自由度和限制</h3>
 
-<p><strong>Note:</strong> Currently, the Scene View allows you to visualize the joint limits but not to manipulate them graphically.</p>
+<p><strong>注意：</strong>当前，Scene 视图可用于可视化关节限制，但不能以图形方式操作它们。</p>
 
-<h4>Fixed joint</h4>
+<h4>固定关节</h4>
 
-<p>A fixed joint has no degrees of freedom, so the Scene View displays no specific markers.</p>
+<p>固定关节没有自由度，因此 Scene 视图不显示任何特定标记。</p>
 
-<h4>Prismatic joint</h4>
+<h4>棱形关节</h4>
 
-<p>A prismatic joint is practically a slider along a specified axis relative to the parent anchor. This axis can only be a basis axis (X, Y, or Z) but you can still <a href="#joint-anchors">rotate the parent anchor</a> to get a different axis orientation in world space.</p>
+<p>棱形关节实际上是相对于父锚点沿着指定轴移动的滑动条。此轴只能是基础轴（X、Y 或 Z），但是仍然可以<a href="#joint-anchors">旋转父锚点</a>以在世界空间中获得不同的轴方向。</p>
 
-<p>You can set up a prismatic joint to have a free or limited translation. To do this, use the Inspector and edit the <a href="#prismatic-joint-additional-properties">prismatic joint specific properties</a>.</p>
+<p>可以设置棱形关节以进行自由或有限的移动。为此，请使用 Inspector 并编辑<a href="#prismatic-joint-additional-properties">棱形关节特定属性</a>。</p>
 
-<p><strong>Note:</strong> You cannot lock a prismatic joint, otherwise this would remove its only degree of freedom and would make it a degenerate joint.</p>
+<p><strong>注意：</strong>不能锁定棱形关节，否则这会只移除其自由度并使其成为退化关节。</p>
 
-<p>When you set the prismatic joint <strong>Motion</strong> to <strong>Limited</strong>, the Scene View displays markers to represent the translation limits:</p>
+<p>将棱形关节从 <strong>Motion</strong> 设置为 <strong>Limited</strong> 时，Scene 视图会显示标记以表示移动限制：</p>
 
 <ul>
-<li><p>The small red marker represents the lower limit.</p></li>
-<li><p>The small green marker represents the upper limit.</p></li>
-<li><p>The dotted white line materializes allowed translation between the limits.</p></li>
+<li><p>红色小标记代表下限。</p></li>
+<li><p>绿色小标记代表上限。</p></li>
+<li><p>白色虚线表示限制之间的允许移动。</p></li>
 </ul>
 
-<p>To manipulate the joint limits, you must use the Inspector and edit their values in the <a href="#joint-drive-properties">Joint drive properties</a>.</p>
+<p>若要操作关节限制，必须使用 Inspector 并在<a href="#joint-drive-properties">关节驱动属性</a>中编辑其值。</p>
 
 <p><img src="../uploads/Main/articulation-body-joint-prismatic-limited.png" alt="">
-<br><em>Example of a limited prismatic joint.</em></p>
+<br><em>有限棱形关节的示例。</em></p>
 
-<p><strong>Note:</strong> The Scene View displays no specific markers when you set the prismatic joint <strong>Motion</strong> to <strong>Free</strong>.</p>
+<p><strong>注意：</strong>将棱形关节 <strong>Motion</strong> 设置为 <strong>Free</strong> 时，Scene 视图不显示任何特定标记。</p>
 
-<h4>Revolute joint</h4>
+<h4>旋转关节</h4>
 
-<p>A revolute joint is essentially a hinge with a single rotational degree of freedom around the parent anchor’s X axis. You can still <a href="#joint-anchors">rotate the parent anchor</a> to get a different axis orientation in world space.</p>
+<p>旋转关节本质上是具有围绕父锚点 X 轴的单一旋转自由度的铰链。仍可以<a href="#joint-anchors">旋转父锚点</a>以在世界空间中获得不同的轴方向。</p>
 
-<p>You can set up a revolute joint to have a free or limited rotation. To do this, use the Inspector and edit the <a href="#revolute-joint-additional-properties">revolute joint specific properties</a>.</p>
+<p>可以设置旋转关节以进行自由或有限的旋转。为此，请使用 Inspector 并编辑<a href="#revolute-joint-additional-properties">旋转关节特定属性</a>。</p>
 
-<p><strong>Note:</strong> You cannot lock a revolute joint, otherwise this would remove its only degree of freedom and would make it a degenerate joint.</p>
+<p><strong>注意：</strong>不能锁定旋转关节，否则这会只移除其自由度并使其成为退化关节。</p>
 
-<p>When you set the revolute joint <strong>Motion</strong> to <strong>Free</strong>, the Scene View displays a red disk to represent the free rotation allowed around the X axis.</p>
+<p>将旋转关节 <strong>Motion</strong> 设置为 <strong>Free</strong> 时，Scene 视图会显示红色圆盘以表示围绕 X 轴所允许的自由旋转。</p>
 
 <p><img src="../uploads/Main/articulation-body-joint-revolute-free.png" alt="">
-<br><em>Example of a free revolute joint.</em></p>
+<br><em>自由旋转关节的示例。</em></p>
 
-<p>When you set the revolute joint <strong>Motion</strong> to <strong>Limited</strong>, the Scene View displays markers to represent the rotation limits:</p>
+<p>将旋转关节从 <strong>Motion</strong> 设置为 <strong>Limited</strong> 时，Scene 视图会显示标记以表示旋转限制：</p>
 
 <ul>
-<li><p>The small red marker represents the lower limit.</p></li>
-<li><p>The small green marker represents the upper limit.</p></li>
-<li><p>The red circle sector materializes the allowed rotation angle between the limits.</p></li>
-<li><p>The Z axis of the parent anchor serves as the reference (zero) for both limit angles.</p></li>
+<li><p>红色小标记代表下限。</p></li>
+<li><p>绿色小标记代表上限。</p></li>
+<li><p>红色扇形表示限制之间允许的旋转角度。</p></li>
+<li><p>父锚点 Z 轴用作两个限制角度的参考（零）。</p></li>
 </ul>
 
-<p>To manipulate the joint limits, you must use the Inspector and edit their values in the <a href="#joint-drive-properties">Joint drive properties</a>.</p>
+<p>若要操作关节限制，必须使用 Inspector 并在<a href="#joint-drive-properties">关节驱动属性</a>中编辑其值。</p>
 
 <p><img src="../uploads/Main/articulation-body-joint-revolute-limited.png" alt="">
-<br><em>Example of a limited revolute joint.</em></p>
+<br><em>有限旋转关节的示例。</em></p>
 
-<h4>Spherical joint</h4>
+<h4>球形关节</h4>
 
-<p>A spherical joint is an anatomical joint that is best suited for simulating humanoid limbs.</p>
+<p>球形关节是最适合模拟人形角色肢体的解剖关节。</p>
 
-<p>This joint type can have up to three rotational degrees of freedom. You can set up each of these rotations to be free, limited, or locked. To do this, use the Inspector and edit the <a href="#revolute-joint-additional-properties">revolute joint specific properties</a>.</p>
+<p>此关节类型最多可以具有三个旋转自由度。可以将所有这些属性设置为自由、有限或锁定。为此，请使用 Inspector 并编辑<a href="#revolute-joint-additional-properties">旋转关节特定属性</a>。</p>
 
-<p><strong>Note:</strong> You cannot lock all rotations at the same time for a spherical joint, otherwise this would remove all its degrees of freedom and would make it a degenerate joint. Also, you should not lock both swing axes to mimic a revolute joint, because the simulation would happen differently than with the revolute joint and would be more expensive.</p>
+<p><strong>注意：</strong>不能同时锁定球形关节的所有旋转，否则这会移除其所有自由度并使其成为退化关节。此外，不应锁定两个摆动轴来模拟旋转关节，因为模拟的发生方式与旋转关节不同，并且成本更高。</p>
 
-<p>Like with the <a href="#revolute-joint">revolute joint</a>:</p>
+<p>与<a href="#revolute-joint">旋转关节</a>一样：</p>
 
 <ul>
-<li><p>The Scene View displays free rotations with colored disks and limited rotations with colored circle sectors. Each color (red, green, blue) represents the rotation around the axis of this color (respectively: X, Y, Z).</p></li>
-<li><p>The small red and green markers respectively represent the lower and upper limits.</p></li>
+<li><p>Scene 视图显示带有彩色圆盘的自由旋转和带有彩色扇形的有限旋转。每种颜色（红色、绿色、蓝色）表示围绕具有此颜色的轴（分别为：X、Y、Z）的旋转。</p></li>
+<li><p>红色和绿色小标记分别表示下限和上限。</p></li>
 </ul>
 
 <p><img src="../uploads/Main/articulation-body-joint-spherical-free.png" alt="">
-<br><em>Example of a free spherical joint.</em></p>
+<br><em>自由球形关节的示例。</em></p>
 
 <p><img src="../uploads/Main/articulation-body-joint-spherical-limited.png" alt="">
-<br><em>Example of a spherical joint with limited swings.</em></p>
+<br><em>摆动有限的球形关节示例。</em></p>
 <!-- area:authoring -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -718,7 +718,7 @@ this axis.</p>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

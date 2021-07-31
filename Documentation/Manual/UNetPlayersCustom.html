@@ -174,7 +174,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UNet.html">多玩家和联网</a></li>
 <li><a href="UNetUsingHLAPI.html">多玩家高级 API</a></li>
 <li><a href="UNetGameObjects.html">联网游戏对象</a></li>
@@ -206,7 +206,7 @@
 <tbody>
 <tr>
 	<td style="text-align:left;">
-<strong>Note</strong>: UNet is deprecated, and will be removed from Unity in the future. A new system is under development. For more information and next steps see this <a href="https://blogs.unity3d.com/2020/12/03/accelerating-unitys-new-gameobjects-multiplayer-networking-framework/">blog post</a>.</td>
+<strong>重要</strong>：UNet 是一个已弃用的解决方案，新的多玩家和联网解决方案 (MLAPI) 正在开发中。有关更多信息和后续步骤，请参阅 <a href="https://docs-multiplayer.unity3d.com/">Unity MLAPI 网站</a>上的信息。</td>
 </tr>
 </tbody>
 </table>
@@ -215,7 +215,7 @@
 
 <p>为此，需要使用自定义的脚本重写 Network Manager 的默认行为。</p>
 
-<p>When the Network Manager adds a player, it also instantiates a GameObject from the Player Prefab and associates it with the connection. To do this, the Network Manager calls <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.NetworkServer.html#UnityEngine_Networking_NetworkServer_AddPlayerForConnection_UnityEngine_Networking_NetworkConnection_GameObject_System_Int16_">NetworkServer.AddPlayerForConnection</a>. You can modify this behaviour by overriding <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.NetworkManager.html#UnityEngine_Networking_NetworkManager_OnServerAddPlayer_UnityEngine_Networking_NetworkConnection_System_Int16_">NetworkManager.OnServerAddPlayer</a>. The default implementation of <code>OnServerAddPlayer</code> instantiates a new player instance from the player Prefab and calls <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.NetworkServer.html#UnityEngine_Networking_NetworkServer_AddPlayerForConnection_UnityEngine_Networking_NetworkConnection_GameObject_System_Int16_">NetworkServer.AddPlayerForConnection</a> to spawn the new player instance. Your custom implementation of <code>OnServerAddPlayer</code> must also call <code>NetworkServer.AddPlayerForConnection</code>, but you are free to perform any other initialization you require in that method too. </p>
+<p>Network Manager 添加玩家时，还会从玩家预制件中实例化游戏对象并将游戏对象与连接相关联。为此，Network Manager 会调用 <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.NetworkServer.html#UnityEngine_Networking_NetworkServer_AddPlayerForConnection_UnityEngine_Networking_NetworkConnection_GameObject_System_Int16_">NetworkServer.AddPlayerForConnection</a>。您可以通过重写 <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.NetworkManager.html#UnityEngine_Networking_NetworkManager_OnServerAddPlayer_UnityEngine_Networking_NetworkConnection_System_Int16_">NetworkManager.OnServerAddPlayer</a> 来修改此行为。<code>OnServerAddPlayer</code> 的默认实现将从玩家预制件实例化一个新的玩家实例，并调用 <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.NetworkServer.html#UnityEngine_Networking_NetworkServer_AddPlayerForConnection_UnityEngine_Networking_NetworkConnection_GameObject_System_Int16_">NetworkServer.AddPlayerForConnection</a> 来生成新的玩家实例。<code>OnServerAddPlayer</code> 的自定义实现也必须调用 NetworkServer.AddPlayerForConnection，但也可在该方法中任意执行所需的任何其他初始化。</p>
 
 <p>下面的示例自定义了玩家的颜色。首先，将颜色脚本添加到玩家预制件：</p>
 
@@ -228,7 +228,7 @@ class Player : NetworkBehaviour
 } 
 </code></pre>
 
-<p>Next, create a <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.NetworkManager.html">NetworkManager</a> to handle spawning.</p>
+<p>然后，创建 <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.NetworkManager.html">NetworkManager</a> 来处理生成。</p>
 
 <pre><code>using UnityEngine;
 using UnityEngine.Networking;
@@ -247,19 +247,19 @@ public class MyNetworkManager : NetworkManager
 
 <p>虽然在大多数多人游戏中，通常需要为每个客户端分配一个玩家，但 <a href="UNetUsingHLAPI.html">HLAPI</a> 将玩家和客户端视为单独的概念。这是因为，在某些情况下（例如，如果有多个控制器连接到游戏主机系统），对于单个连接可能需要多个玩家游戏对象。当一个连接上有多个玩家时，应使用 <code>playerControllerId</code> 属性来区分它们。这是一个仅用于连接作用的标识符，因此可以映射到与该客户端上的玩家相关联的控制器 ID。</p>
 
-<p>The system automatically spawns the player GameObject passed to <code>NetworkServer.AddPlayerForConnection</code> on the server, so you don’t need to call <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.NetworkServer.html#UnityEngine_Networking_NetworkServer_Spawn_GameObject_">NetworkServer.Spawn</a> for the player. Once a player is ready, the active networked GameObjects (that is, GameObjects with an associated <a href="UNetSpawning.html">NetworkIdentity</a>) in the Scene spawn on the player’s client. All networked GameObjects in the game are created on that client with their latest state, so they are in sync with the other participants of the game.</p>
+<p>系统会自动生成传递给服务器上的 <code>NetworkServer.AddPlayerForConnection</code> 的玩家游戏对象，因此您无需为玩家调用 <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.NetworkServer.html#UnityEngine_Networking_NetworkServer_Spawn_GameObject_">NetworkServer.Spawn</a>。一旦玩家准备就绪，场景中处于活动状态的联网游戏对象（即具有相关 <a href="UNetSpawning.html">NetworkIdentity</a> 的游戏对象）就会在玩家的客户端上生成。游戏中的所有联网游戏对象都是在该客户端上以最新状态创建的，因此它们与游戏的其他参与者同步。</p>
 
-<p>You don’t need to use <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.NetworkManager.html#UnityEngine_Networking_NetworkManager_playerPrefab">playerPrefab</a> on the <code>NetworkManager</code> to create player GameObjects. You could use different methods of creating different players.</p>
+<p>无需在 <code>NetworkManager</code> 上使用 <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.NetworkManager.html#UnityEngine_Networking_NetworkManager_playerPrefab">playerPrefab</a> 来创建玩家游戏对象。可使用不同的方法创建不同的玩家。</p>
 
 <h2>就绪状态</h2>
 
-<p>In addition to players, client connections also have a “ready” state. The host sends clients that are ready information about spawned GameObjects and state synchronization updates; clients which are not ready are not sent these updates. When a client initially connects to a server, it is not ready. While in this non-ready state, the client can do things that don’t require real-time interactions with the game state on the server, such as loading Scenes, allowing the player to choose an avatar, or fill in log-in boxes. Once a client has completed all its pre-game work, and all its Assets are loaded, it can call <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.ClientScene.html#UnityEngine_Networking_ClientScene_ready">ClientScene.Ready</a> to enter the “ready” state. The simple example above demonstrates implementation of ready states; because adding a player with <code>NetworkServer.AddPlayerForConnection</code> also puts the client into the ready state if it is not already in that state.</p>
+<p>除了玩家之外，客户端连接也具有“就绪”状态。主机向已就绪的客户端发送有关生成的游戏对象和状态同步更新的信息；未就绪的客户端不会收到这些更新。客户端最初连接到服务器时尚未就绪。在处于这种非就绪状态时，客户端可以执行不需要与服务器上的游戏状态进行实时交互的操作，例如加载场景、允许玩家选择头像或填写登录框。一旦客户端完成了所有游戏前工作，并且所有资源都已加载后，客户端便可调用 <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.ClientScene.html#UnityEngine_Networking_ClientScene_ready">ClientScene.Ready</a> 以进入“就绪”状态。上面的简单示例演示了就绪状态的实现；因为使用 <code>NetworkServer.AddPlayerForConnection</code> 添加玩家也会将客户端置于就绪状态（如果尚未处于该状态）。</p>
 
 <p>客户端可尚未就绪的情况下发送和接收网络消息，这也意味着它们可以在没有活动玩家游戏对象的情况下执行此操作。因此，处于菜单或选择屏幕的客户端可以连接到游戏并与之交互，即使它们没有玩家游戏对象也是如此。如需了解在不使用命令和 RPC 调用的情况下发送消息的更多详细信息，请参阅<a href="UNetMessages.html">网络消息</a>文档。</p>
 
 <h2>切换玩家</h2>
 
-<p>To replace the player GameObject for a connection, use <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.NetworkServer.html#UnityEngine_Networking_NetworkServer_ReplacePlayerForConnection_UnityEngine_Networking_NetworkConnection_GameObject_System_Int16_">NetworkServer.ReplacePlayerForConnection</a>. This is useful for restricting the commands that players can issue at certain times, such as in a pre-game lobby screen. This function takes the same arguments as <code>AddPlayerForConnection</code>, but allows there to already be a player for that connection. The old player GameObject does not have to be destroyed. The <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.NetworkLobbyManager.html">NetworkLobbyManager</a> uses this technique to switch from the <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.NetworkLobbyPlayer.html">NetworkLobbyPlayer</a> GameObject to a gameplay player GameObject when all the players in the lobby are ready.</p>
+<p>要替换用于连接的玩家游戏对象，请使用 <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.NetworkServer.html#UnityEngine_Networking_NetworkServer_ReplacePlayerForConnection_UnityEngine_Networking_NetworkConnection_GameObject_System_Int16_">NetworkServer.ReplacePlayerForConnection</a>。此功能可用于限制玩家在特定时间（例如在游戏前的大厅屏幕中）可发出的命令。此函数采用与 <code>AddPlayerForConnection</code> 相同的参数，但允许该连接的已有玩家。不必销毁旧玩家游戏对象。当大厅中的所有玩家都准备就绪时，<a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.NetworkLobbyManager.html">NetworkLobbyManager</a> 使用此技术从 <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.NetworkLobbyPlayer.html">NetworkLobbyPlayer</a> 游戏对象切换到游戏玩家游戏对象。</p>
 
 <p>还可以使用 <code>ReplacePlayerForConnection</code> 在游戏对象被销毁后重新生成一个玩家。在某些情况下，最好直接禁用游戏对象并在重新生成时重置其游戏属性。以下代码示例演示了如何使用新的游戏对象实际替换已销毁的游戏对象：</p>
 
@@ -277,9 +277,9 @@ public class MyNetworkManager : NetworkManager
 
 <p>如果用于连接的玩家游戏对象被销毁，则该客户端无法执行命令。但是，客户端仍然可以发送网络消息。</p>
 
-<p>To use <code>ReplacePlayerForConnection</code> you must have the <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.NetworkConnection.html">NetworkConnection</a> GameObject for the player’s client to establish the relationship between the GameObject and the client. This is usually the property <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.NetworkBehaviour.html#UnityEngine_Networking_NetworkBehaviour_connectionToClient">connectionToClient</a> on the <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.NetworkBehaviour.html">NetworkBehaviour</a> class, but if the old player has already been destroyed, then that might not be readily available.</p>
+<p>要使用 <code>ReplacePlayerForConnection</code>，必须拥有 <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.NetworkConnection.html">NetworkConnection</a> 游戏对象以便玩家的客户端建立游戏对象与客户端之间的关系。这通常是 <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.NetworkBehaviour.html">NetworkBehaviour</a> 类上的 <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.NetworkBehaviour.html#UnityEngine_Networking_NetworkBehaviour_connectionToClient">connectionToClient</a> 属性，但如果旧玩家已经被销毁，那么这可能不是现成的。</p>
 
-<p>To find the connection, there are some lists available. If using the <code>NetworkLobbyManager</code>, then the lobby players are available in <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.NetworkLobbyManager.html#UnityEngine_Networking_NetworkLobbyManager_lobbySlots">lobbySlots</a>. The <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.NetworkServer.html">NetworkServer</a> also has lists of <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.NetworkServer.html#UnityEngine_Networking_NetworkServer_connections">connections</a> and <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.NetworkServer.html#UnityEngine_Networking_NetworkServer_localConnections">localConnections</a>.</p>
+<p>要查找连接，可使用一些列表。如果使用 <code>NetworkLobbyManager</code>，则可使用 <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.NetworkLobbyManager.html#UnityEngine_Networking_NetworkLobbyManager_lobbySlots">lobbySlots</a> 中的大厅玩家。<a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.NetworkServer.html">NetworkServer</a> 还具有 <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.NetworkServer.html#UnityEngine_Networking_NetworkServer_connections">connections</a> 和 <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.NetworkServer.html#UnityEngine_Networking_NetworkServer_localConnections">localConnections</a> 的列表。</p>
 <!-- area:cloud -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -292,7 +292,7 @@ public class MyNetworkManager : NetworkManager
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

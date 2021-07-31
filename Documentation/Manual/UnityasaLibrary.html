@@ -174,7 +174,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="PlatformSpecific.html">平台开发</a></li>
 <li>将“Unity 用作库”用于其他应用程序</li>
 </ul></div>
@@ -211,13 +211,9 @@
 <p>由另一个应用程序托管时，Unity 不能控制运行时生命周期，因此可能无法在所有情况下都奏效。已知限制包括：</p>
 
 <ul>
-<li>在 Android 和 iOS 上：
-
-<ul>
+<li>在 Android 和 iOS 上：</li>
 <li>仅支持全屏渲染。无法仅在部分屏幕上渲染。</li>
-<li>When Unity is in an unloaded state (after calling <a href="../ScriptReference/Application.Unload.html"><code>Application.Unload</code></a>), it retains some amount of memory (between 80–180Mb) to be able to instantly switch back and run again in the same process. The amount of memory that is not released largely depends on the device’s graphics resolution.</li>
-</ul>
-</li>
+<li>Unity 处于卸载状态（调用 <a href="../ScriptReference/Application.Unload.html"><code>Application.Unload</code></a> 之后）时，它将保留一些内存（80–180Mb 之间），以便能够立即切回并在同一进程中再次运行。未释放的内存量很大程度上取决于设备的图形分辨率。</li>
 <li>在 iOS 上，如果 Unity 运行时完全退出（在调用 <a href="../ScriptReference/Application.Quit.html"><code>Application.Quit</code></a> 后），无法在同一应用程序会话中重新加载 Unity。</li>
 <li>您不能加载多个 Unity 运行时实例或集成多个 Unity 运行时。</li>
 <li>您可能需要调整您的<a href="NativePlugins.html">原生</a>和<a href="UsingDLL.html">托管</a>插件才能正常工作。</li>
@@ -242,7 +238,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

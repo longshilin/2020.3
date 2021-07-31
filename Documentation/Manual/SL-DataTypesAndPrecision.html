@@ -174,17 +174,16 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
-<li><a href="ShadersOverview.html">编写着色器</a></li>
-<li><a href="SL-Reference.html">着色器参考</a></li>
-<li><a href="SL-ShaderPrograms.html">编写顶点和片元着色器</a></li>
+<li><a href="Shaders.html">着色器</a></li>
+<li><a href="shader-writing.html">编写着色器</a></li>
+<li><a href="SL-ShaderPrograms.html">Unity 中的 HLSL</a></li>
 <li>着色器数据类型和精度</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-ShadingLanguage.html"></a></span><div class="tip">Unity 中使用的着色语言</div>
+<span class="prev"><a href="SL-MultipleProgramVariants.html"></a></span><div class="tip">着色器变体和关键字</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="SL-SamplerStates.html"></a></span><div class="tip">使用采样器状态</div>
@@ -194,7 +193,7 @@
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>Unity 中的标准着色器语言为 <a href="SL-ShadingLanguage.html">HLSL</a>，支持一般 HLSL 数据类型。但是，Unity 对 HLSL 类型有一些补充，特别是为了在移动平台上提供更好的支持。</p>
+<p>Unity 中的标准着色器语言为 <a href="SL-ShaderPrograms.html">HLSL</a>，支持一般 HLSL 数据类型。但是，Unity 对 HLSL 类型有一些补充，特别是为了在移动平台上提供更好的支持。</p>
 
 <h2>基本数据类型</h2>
 
@@ -249,7 +248,7 @@ samplerCUBE _Cubemap;
 samplerCUBE_half _Cubemap;
 </code></pre>
 
-<p>或者，如果纹理包含完整浮点精度数据（例如<a href="SL-DepthTextures.html">深度纹理</a>），请使用完整精度采样器：</p>
+<p>或者，如果纹理包含完整浮点精度数据（例如<a href="SL-CameraDepthTexture.html">深度纹理</a>），请使用完整精度采样器：</p>
 
 <pre><code>sampler2D_float _MainTex;
 samplerCUBE_float _Cubemap;
@@ -356,11 +355,10 @@ samplerCUBE_float _Cubemap;
 <ul>
 <li><a href="SL-PlatformDifferences.html">平台特定的渲染差异</a></li>
 <li><a href="SL-ShaderPerformance.html">着色器性能提示</a></li>
-<li><a href="SL-ShadingLanguage.html">着色语言</a></li>
 </ul>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-ShadingLanguage.html"></a></span><div class="tip">Unity 中使用的着色语言</div>
+<span class="prev"><a href="SL-MultipleProgramVariants.html"></a></span><div class="tip">着色器变体和关键字</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="SL-SamplerStates.html"></a></span><div class="tip">使用采样器状态</div>
@@ -369,7 +367,7 @@ samplerCUBE_float _Cubemap;
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

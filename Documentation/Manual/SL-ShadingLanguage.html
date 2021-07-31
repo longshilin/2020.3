@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Unity 中使用的着色语言 - Unity 手册">
-<title>Unity 中使用的着色语言 - Unity 手册</title>
-<meta name="description" content="在 Unity 中，可使用 HLSL 编程语言来编写着色器程序。">
-<meta property="og:description" content="在 Unity 中，可使用 HLSL 编程语言来编写着色器程序。">
+<meta property="og:title" content="编写着色器概述 - Unity 手册">
+<title>编写着色器概述 - Unity 手册</title>
+<meta name="description" content="为 Unity 编写着色器时，使用以下语言：">
+<meta property="og:description" content="为 Unity 编写着色器时，使用以下语言：">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,67 +174,62 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
-<li><a href="ShadersOverview.html">编写着色器</a></li>
-<li><a href="SL-Reference.html">着色器参考</a></li>
-<li><a href="SL-ShaderPrograms.html">编写顶点和片元着色器</a></li>
-<li>Unity 中使用的着色语言</li>
+<li><a href="Shaders.html">着色器</a></li>
+<li><a href="shader-writing.html">编写着色器</a></li>
+<li>编写着色器概述</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-GLSLShaderPrograms.html"></a></span><div class="tip">GLSL 着色器程序</div>
+<span class="prev"><a href="shader-writing.html"></a></span><div class="tip">编写着色器</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-DataTypesAndPrecision.html"></a></span><div class="tip">着色器数据类型和精度</div>
+<span class="next"><a href="SL-Reference.html"></a></span><div class="tip">ShaderLab</div>
 </div>
 </div></div>
-<h1>Unity 中使用的着色语言</h1>
+<h1>编写着色器概述</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>在 Unity 中，可使用 <a href="https://en.wikipedia.org/wiki/High-Level_Shading_Language">HLSL</a> 编程语言来编写<a href="SL-ShaderPrograms.html">着色器程序</a>。</p>
+<h2>语言</h2>
 
-<p>Unity 最初使用 <a href="https://en.wikipedia.org/wiki/Cg_%28programming_language%29">Cg</a> 语言，因此会使用 Unity 某些着色器关键字的名称 (<code>CGPROGRAM</code>) 和文件扩展名 (<code>.cginc</code>)。Unity 已不再使用 Cg，但仍支持这些关键字和文件扩展名。请注意，所有着色器程序代码都必须是有效的 HLSL，即使代码使用与 Cg 相关的关键字和文件扩展名也如此。</p>
-
-<p>使用 <code>HLSLPROGRAM</code> 与使用 <code>CGPROGRAM</code> 之间的唯一区别在于 Unity 在编译着色器程序时自动包含的文件。这是为了向后兼容。有关更多信息，请参阅<a href="SL-BuiltinIncludes.html">内置着色器 include 文件</a>。</p>
-
-<h2>HLSL 语法</h2>
-
-<p>HLSL 语言本身有两种语法：“旧版”的 DX9 样式语法以及更现代的 DX10+ 样式语法。</p>
-
-<p>不同之处主要在于纹理采样函数的工作方式：</p>
+<p>为 Unity 编写着色器时，使用以下语言：</p>
 
 <ul>
-<li>旧版语法使用 <code>sampler2D</code>、<code>tex2D()</code> 和类似函数。此语法适用于所有平台。</li>
-<li>DX10+ 语法使用 <code>Texture2D</code>、<code>SamplerState</code> 和 <code>.Sample()</code> 函数。由于纹理和采样器在 OpenGL 中_不是_不同对象，因此该语法的某些形式在 OpenGL 平台上无效。</li>
+<li>一种称为 HLSL 的编程语言。使用它可编写着色器程序本身。有关 HLSL 的更多信息，请参阅 <a href="SL-ShaderPrograms.html">Unity 中的 HLSL</a>。</li>
+<li>一种称为 ShaderLab 的 Unity 特定语言。使用它可定义 <a href="shader-objects.html">Shader 对象</a>，它充当着色器程序的容器。有关 ShaderLab 的更多信息，请参阅 <a href="SL-Reference.html">ShaderLab</a>。</li>
 </ul>
 
-<p>在 Unity 中，可使用<a href="SL-BuiltinMacros.html">预定义宏</a>来声明和采样纹理，从而避免发生 HLSL 语法平台支持问题。Unity 将根据编译着色器的目标平台，将这些宏扩展为最合适的语法。</p>
+<p>不需要为不同的平台使用不同的语言；Unity 针对不同的图形 API 将 HLSL 和 ShaderLab 代码编译为不同语言。有关更多信息，请参阅<a href="shader-compilation.html">着色器编译</a>。</p>
 
-<h2>另请参阅</h2>
+<p><strong>注意：</strong>如果需要，还可以直接用 GLSL 和 Metal 编写着色器程序。在常规工作流程中，不建议或不需要这样做。有关如何使用 GLSL 的更多信息，请参阅 <a href="SL-GLSLShaderPrograms.html">Unity 中的 GLSL</a>。</p>
+
+<h2>编写着色器的不同方法</h2>
+
+<p>有不同的着色器编写方法：</p>
 
 <ul>
-<li>
-<a href="SL-ShaderPrograms.html">着色器程序</a>。</li>
-<li>
-<a href="SL-BuiltinMacros.html">着色器预处理器宏</a>。</li>
-<li>
-<a href="SL-PlatformDifferences.html">平台特定的渲染差异</a>。</li>
+<li>最常见的方法是使用 HLSL 编写顶点和片元着色器。有关更多信息，请参阅<a href="shader-writing-vertex-fragment.html">编写顶点和片元着色器</a>。</li>
+<li>在内置渲染管线中，还可以编写表面着色器。这是编写与光照交互的着色器的一种简化方法。有关更多信息，请参阅<a href="SL-SurfaceShaders.html">表面着色器</a>。</li>
+<li>出于向后兼容的原因，Unity 还支持“固定函数风格”ShaderLab 命令。因此，您可以使用 ShaderLab 编写着色器，而无需使用 HLSL。这不再是建议方法，不过相关文档在 <a href="shader-shaderlab-legacy.html">ShaderLab 旧版功能</a>页面上。</li>
 </ul>
+
+<h2>为不同的图形 API 编写着色器</h2>
+
+<p>在某些情况下，必须根据所针对的图形 API 以不同方式编写着色器代码。有关这方面的信息，请参阅<a href="SL-PlatformDifferences.html">为不同的图形 API 编写着色器</a>。</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-GLSLShaderPrograms.html"></a></span><div class="tip">GLSL 着色器程序</div>
+<span class="prev"><a href="shader-writing.html"></a></span><div class="tip">编写着色器</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-DataTypesAndPrecision.html"></a></span><div class="tip">着色器数据类型和精度</div>
+<span class="next"><a href="SL-Reference.html"></a></span><div class="tip">ShaderLab</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

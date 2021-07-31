@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="PackagesList.html">包</a></li>
 <li><a href="Packages.html">Unity 的 Package Manager</a></li>
 <li><a href="upm-ui.html">Package Manager 窗口</a></li>
@@ -184,7 +184,7 @@
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="upm-ui-tarball.html"></a></span><div class="tip">Installing a package from a local tarball file</div>
+<span class="prev"><a href="upm-ui-tarball.html"></a></span><div class="tip">从本地 tarball 文件安装包</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="upm-ui-remove.html"></a></span><div class="tip">移除某个已安装的包</div>
@@ -196,7 +196,7 @@
 
 <p>Package Manager 可以从远程服务器上的 Git 代码仓库加载包。</p>
 
-<p>有关 Unity Package Manager 与 Git URL 结合使用的更多信息，请参阅项目清单中有关使用 <a href="upm-git.html">Git URL</a> 的文档。</p>
+<p>有关 Unity Package Manager 与 Git 依赖项结合使用的更多信息，请参阅项目清单中有关使用 <a href="upm-git.html">Git URL</a> 的文档。</p>
 
 <p>要从 Git URL 加载包，请执行以下操作：</p>
 
@@ -211,81 +211,28 @@
 
 <p>4.在文本框中输入有效的 Git URL，然后单击 <strong>Add</strong>。</p>
 
-<p><img src="../uploads/Main/PackageManagerUI-GitURLPackageButton-Add.png" alt="输入 Git URL，然后单击 Add"></p>
+<pre><code>![输入 Git URL，然后单击 Add](../uploads/Main/PackageManagerUI-GitURLPackageButton-Add.png)
 
-<p>For more information about what protocols Unity supports, see <a href="upm-git.html">Git dependencies</a>.</p>
-
-<p>如果 Unity 能够成功安装包，则该包现在将显示在<a href="upm-ui-list.html">包列表</a>中，并带有 <strong>git</strong> 标签。</p>
-
-<p>如果 Unity 无法安装包，则 <a href="Console.html">Unity 控制台</a>将显示一条错误消息。有关更多信息，请检查是否可以在下面的<a href="#errors">错误消息</a>列表中找到该消息。</p>
-
-<p><a name="errors"></a></p>
-
-<h2>错误消息</h2>
-
-<ul>
-<li><a href="#bad-url">Repository not found</a></li>
-<li><a href="#prompts-disabled">Could not read Username: terminal prompts disabled</a></li>
-</ul>
-
-<p><a name="bad-url"></a></p>
-
-<h3>Repository not found</h3>
-
-<p>如果您指定了不存在的位置，则在 <a href="Console.html">Unity 控制台</a>中会出现以下类似的消息：</p>
-
-<pre><code>Cannot perform upm operation: Unable to add package [https://mycompany.github.com/gitproject/com.mycompany.mypackage.git]:
-  Error when executing git command. fatal: repository 'https://mycompany.github.com/gitproject/com.mycompany.mypackage.git/' not found
- [NotFound]
-UnityEditor.EditorApplication:Internal_CallUpdateFunctions() (at /Users/builduser/buildslave/unity/build/Editor/Mono/EditorApplication.cs:310)
+Unity 支持多种 Git 协议和一些自定义或扩展语法。有关如何构建有效 Git URL 的更多信息，请参阅 [Git URL 和扩展语法](upm-git.html#syntax)。
 </code></pre>
 
-<p>请检查您的拼写。为了确保使用正确的 URL，请访问代码仓库的页面，然后通过 Clone 按钮复制 URL：</p>
-
-<figure>
-<img src="../uploads/Main/PackageManagerUI-GitURL-locate.png" alt="在 GitHub (A) 和 GitLab (B) 上复制 URL 的位置">
-<figcaption>在 GitHub (A) 和 GitLab (B) 上复制 URL 的位置</figcaption>
-</figure>
-
-<p>单击 GitHub <strong>(A)</strong> 或 GitLab <strong>(B)</strong> 上 URL 右侧的按钮以将 URL 复制到剪贴板。</p>
-
-<p><a name="prompts-disabled"></a></p>
-
-<h3>Could not read Username: terminal prompts disabled</h3>
-
-<p>如果您尝试从需要身份验证的专用代码仓库安装包，则在 Unity 控制台中会出现以下类似的消息：</p>
-
-<pre><code>Cannot perform upm operation: Unable to add package [https://mycompany.github.com/gitproject/com.mycompany.mypackage.git]:
-  Error when executing git command. fatal: could not read Username for 'https://mycompany.github.com': terminal prompts disabled
- [NotFound]
-UnityEditor.EditorApplication:Internal_CallUpdateFunctions() (at /Users/builduser/buildslave/unity/build/Editor/Mono/EditorApplication.cs:310)
-</code></pre>
-
-<p>在克隆或提取 Git 代码仓库时，用于身份验证的两种最常见协议是 HTTP(S) 和 SSH（即一对公有和私有 SSH 密钥）：</p>
+<p>如果 Unity 能够成功安装包，则该包现在将显示在<a href="upm-ui-list.html">包列表</a>中，并带有 <img src="../uploads/Main/iconGit.png" alt=""> 标签。如果 Unity 无法安装包，则 <a href="Console.html">Unity 控制台</a>将显示一条错误消息，如：</p>
 
 <ul>
-<li><p>如果使用 HTTP(S)，每次登录 GitHub 或 GitLab 时，都需要在终端或对话框中输入用户名和密码。</p></li>
-<li>
-<p>如果使用 SSH，您可以将公有 SSH 密钥添加到 <a href="https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh">GitHub</a> 或 <a href="https://gitlab.com/help/ssh/README.md">GitLab</a>，之后无需输入用户名和密码即可访问代码仓库。</p>
-
-<p>但是，如果您设置了一个口令短语来保护 SSH 密钥的安全，则仍然需要在终端或对话框中输入该口令短语以便授权密钥。</p>
-</li>
+<li><a href="upm-errors.html#git-not-found">No ‘git’ executable was found</a></li>
+<li><a href="upm-errors.html#git-lfs">git-lfs: command not found</a></li>
+<li><a href="upm-errors.html#bad-url">Repository not found</a></li>
+<li><a href="upm-errors.html#prompts-disabled">Could not read Username: terminal prompts disabled</a></li>
 </ul>
 
-<p>有关 Git 使用的各种协议之间的差异概述，请参阅<a href="https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols">有关使用协议的 Git 文档</a>。</p>
+<p>单击错误消息链接以获取<a href="upm-errors.html">故障排除</a>页面中的相关帮助。</p>
 
-<p>Package Manager 没有提供用来输入 HTTP 的用户名和密码或者输入口令短语来解锁 SSH 密钥的交互式终端或对话框。要绕过这一点，请使用下列其中一种变通方法：</p>
-
-<ul>
-<li>使用凭据管理器（<a href="https://github.com/Microsoft/Git-Credential-Manager-for-Windows">Git Credential Manager for Windows</a> 或 <a href="https://support.apple.com/en-ca/guide/keychain-access/welcome/mac">OSXKeyChain</a>）。</li>
-<li>从终端或命令提示符窗口中使用 <a href="https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage">git-credentials</a>。然后，从同一终端启动 Hub，以便 Unity 可以访问缓存或存储的凭证。</li>
-<li>从终端或命令提示符窗口中使用后台运行的 <a href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1ved=2ahUKEwiF0dqC-LHmAhUxmuAKHSRdAEEQFjAAegQIAhAB&amp;url=https%3A%2F%2Fwww.ssh.com%2Fssh%2Fagent&amp;usg=AOvVaw0e-qIKku7yDhb1VgW6kjqJ">ssh-agent</a>，并将进程 ID 提供给 GitHub 或 GitLab。</li>
-</ul>
+<p><strong>提示</strong>：如果要从代码仓库将 Git 依赖项更新到较新版本，请使用 <a href="upm-ui-giturl.html">Add package from git URL</a> 按钮以输入 Git URL。有关更多信息，请参阅<a href="upm-git.html#git-locks">已锁定的 Git 依赖项</a>。</p>
 
 <p><br> </p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="upm-ui-tarball.html"></a></span><div class="tip">Installing a package from a local tarball file</div>
+<span class="prev"><a href="upm-ui-tarball.html"></a></span><div class="tip">从本地 tarball 文件安装包</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="upm-ui-remove.html"></a></span><div class="tip">移除某个已安装的包</div>
@@ -294,7 +241,7 @@ UnityEditor.EditorApplication:Internal_CallUpdateFunctions() (at /Users/builduse
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

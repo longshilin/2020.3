@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Important Classes - Debug - Unity 手册">
-<title>Important Classes - Debug - Unity 手册</title>
+<meta property="og:title" content="重要的类 - Debug - Unity 手册">
+<title>重要的类 - Debug - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/ConsoleShowingMessageWarningAndError.png">
-<meta name="description" content="The Debug class allows you to visualise information in the Editor that may help you understand or investigate what is going on in your project while it is running. For example, you can use it to print messages into the Console window, draw visualization lines in the Scene view and Game view, and pause Play Mode in the Editor from script.">
-<meta property="og:description" content="The Debug class allows you to visualise information in the Editor that may help you understand or investigate what is going on in your project while it is running. For example, you can use it to print messages into the Console window, draw visualization lines in the Scene view and Game view, and pause Play Mode in the Editor from script.">
+<meta name="description" content="Debug 类用于可视化编辑器中的信息，这些信息可以帮助您了解或调查项目运行时发生的情况。例如，您可以使用该类在控制台窗口中打印消息，在 Scene 视图和 Game 视图中绘制可视化线条，以及在编辑器中从脚本暂停运行模式。">
+<meta property="og:description" content="Debug 类用于可视化编辑器中的信息，这些信息可以帮助您了解或调查项目运行时发生的情况。例如，您可以使用该类在控制台窗口中打印消息，在 Scene 视图和 Game 视图中绘制可视化线条，以及在编辑器中从脚本暂停运行模式。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,47 +175,47 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="ScriptingSection.html">Scripting</a></li>
-<li><a href="ScriptingImportantClasses.html">Important Classes </a></li>
-<li>Important Classes - Debug</li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="ScriptingSection.html">脚本</a></li>
+<li><a href="ScriptingImportantClasses.html">重要的类</a></li>
+<li>重要的类 - Debug</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="class-Random.html"></a></span><div class="tip">Important Classes - Random</div>
+<span class="prev"><a href="class-Random.html"></a></span><div class="tip">重要的类 - Random</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="GizmosAndHandles.html"></a></span><div class="tip">Important Classes - Gizmos &amp; Handles</div>
+<span class="next"><a href="GizmosAndHandles.html"></a></span><div class="tip">重要的类 - Gizmos 和 Handles</div>
 </div>
 </div></div>
-<h1>Important Classes - Debug</h1>
+<h1>重要的类 - Debug</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>The Debug class allows you to visualise information in the Editor that may help you understand or investigate what is going on in your project while it is running. For example, you can use it to print messages into the Console window, draw visualization lines in the Scene view and Game view, and pause Play Mode in the Editor from script.</p>
+<p>Debug 类用于可视化编辑器中的信息，这些信息可以帮助您了解或调查项目运行时发生的情况。例如，您可以使用该类在控制台窗口中打印消息，在 Scene 视图和 Game 视图中绘制可视化线条，以及在编辑器中从脚本暂停运行模式。</p>
 
-<p>This page provides an overview of the Debug class and its common uses when scripting with it. For an exhaustive reference of every member of the Debug class, see the <a href="../ScriptReference/Debug.html">Debug script reference</a>.</p>
+<p>此页面概述了 Debug 类及其使用该类编写脚本时的常见用法。有关 Debug 类的每个成员的详尽参考，请参阅 <a href="../ScriptReference/Debug.html">Debug 脚本参考</a>。</p>
 
-<h2>Logging errors, warnings and messages</h2>
+<h2>记录错误、警告和消息</h2>
 
-<p>Unity itself sometimes logs errors, warnings and messages to the Console window. The Debug class provides you with the ability to do exactly the same from your own code, as shown below:</p>
+<p>Unity 本身有时会将错误、警告和消息记录到控制台窗口。Debug 类使您能够从您自己的代码中执行完全相同的操作，如下所示：</p>
 
 <pre><code>Debug.Log("This is a log message.");
 Debug.LogWarning("This is a warning message!");
 Debug.LogError("This is an error message!");
 </code></pre>
 
-<p>The three types (error, warning, and message) each have their own icon type in the Console window.</p>
+<p>三种类型（错误、警告和消息）在控制台窗口中都有自己的图标类型。</p>
 
 <figure>
 <img src="../uploads/Main/ConsoleShowingMessageWarningAndError.png" alt="">
 </figure>
 
-<p>Everything that is written to the Console Window (by Unity, or your own code) is also written to a <a href="LogFiles.html">Log File</a>.</p>
+<p>写入控制台窗口的所有内容（由 Unity 或您自己的代码）也会写入到<a href="LogFiles.html">日志文件 </a>。</p>
 
-<p>If you have <strong>Error Pause</strong> enabled in the Console, any errors that you write to the Console via the Debug class will cause Unity’s Play Mode to pause.</p>
+<p>如果您在控制台中启用了 <strong>Error Pause</strong>，通过 Debug 类写入控制台的任何错误都将导致 Unity 的运行模式暂停。</p>
 
-<p>You can also optionally provide a second parameter to these log methods to indicate that the message is associated with a particular GameObject, like this:</p>
+<p>您还可以选择为这些日志方法提供第二个参数，指示消息与特定游戏对象相关联，如下所示：</p>
 
 <pre><code>using UnityEngine;
 
@@ -227,15 +227,15 @@ public class DebugExample : MonoBehaviour
 }
 </code></pre>
 
-<p>The benefit of this is that when you click the message in the console, the GameObject you associated with that message is highlighted in the Hierarchy, allowing you to identify which GameObject the message related to. In the image below you can see that clicking the “I come in peace!” warning message highlights the “Alien (8)” GameObject.</p>
+<p>这样做的好处是，当您在控制台中单击消息时，与该消息关联的游戏对象会在层级视图中突出显示，从而允许您识别与该消息相关的游戏对象。在下图中，您可以看到单击 “I come in peace!” 警告消息会突出显示 “Alien (8)” 游戏对象。</p>
 
 <figure>
 <img src="../uploads/Main/ConsoleMessageWithContextGameObject.png" alt="">
 </figure>
 
-<p>The Debug class also offers two methods for drawing lines in the Scene view and Game view. These are <a href="../ScriptReference/Debug.DrawLine.html">DrawLine</a> and <a href="../ScriptReference/Debug.DrawRay.html">DrawRay</a>.</p>
+<p>Debug 类还提供了两种在 Scene 视图和 Game 视图中绘制线条的方法。它们是：<a href="../ScriptReference/Debug.DrawLine.html">DrawLine</a> 和 <a href="../ScriptReference/Debug.DrawRay.html">DrawRay</a>。</p>
 
-<p>In this example, a script has been added to every Sphere GameObject in the scene, which uses Debug.DrawLine to indicate its vertical distance from the plane where Y equals zero. Note that the last parameter in this example is the duration in seconds that the line should stay visible in the Editor.</p>
+<p>在这个例子中，一个脚本被添加到场景中的每个球体游戏对象，它使用 Debug.DrawLine 指示它与 Y 为零的平面的垂直距离。请注意，此示例中的最后一个参数是线条在编辑器中应保持可见的持续时间（以秒为单位）。</p>
 
 <pre><code>using UnityEngine;
 
@@ -250,23 +250,23 @@ public class DebugLineExample : MonoBehaviour
 }
 </code></pre>
 
-<p>And the result in the Scene view looks like this:</p>
+<p>Scene 视图中的结果如下所示：</p>
 
 <figure>
 <img src="../uploads/Main/DebugDrawLineExampleInScene.png" alt="">
 </figure>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="class-Random.html"></a></span><div class="tip">Important Classes - Random</div>
+<span class="prev"><a href="class-Random.html"></a></span><div class="tip">重要的类 - Random</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="GizmosAndHandles.html"></a></span><div class="tip">Important Classes - Gizmos &amp; Handles</div>
+<span class="next"><a href="GizmosAndHandles.html"></a></span><div class="tip">重要的类 - Gizmos 和 Handles</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

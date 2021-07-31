@@ -11,8 +11,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Transforms - Unity 手册">
-<title>Transforms - Unity 手册</title>
+<meta property="og:title" content="变换组件 - Unity 手册">
+<title>变换组件 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/TransformExample4.png">
 <meta name="description" content="__变换组件__用于存储游戏对象的位置、旋转、缩放和父子化状态，因此非常重要。游戏对象始终附加一个变换组件，无法删除变换组件或创建没有变换组件的游戏对象。">
 <meta property="og:description" content="__变换组件__用于存储游戏对象的位置、旋转、缩放和父子化状态，因此非常重要。游戏对象始终附加一个变换组件，无法删除变换组件或创建没有变换组件的游戏对象。">
@@ -175,11 +175,11 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UnityOverview.html">在 Unity 中操作</a></li>
 <li><a href="CreatingGameplay.html">创建游戏玩法</a></li>
 <li><a href="GameObjects.html">游戏对象</a></li>
-<li>Transforms</li>
+<li>变换组件</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -189,13 +189,13 @@
 <span class="next"><a href="Components.html"></a></span><div class="tip">组件简介</div>
 </div>
 </div></div>
-<h1>Transforms</h1>
+<h1>变换组件</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
 <p>__变换组件__用于存储游戏对象的位置、旋转、缩放和父子化状态，因此非常重要。游戏对象始终附加一个变换组件，无法删除变换组件或创建没有变换组件的游戏对象。</p>
 
-<h2>The Transform Component</h2>
+<h2>Transform 组件</h2>
 
 <p><strong>Transform</strong> 组件确定每个对象在场景中的 <strong>Position</strong>、<strong>Rotation</strong> 和 <strong>Scale</strong> 属性的值。每个游戏对象都有一个变换组件。</p>
 
@@ -236,7 +236,7 @@
 
 <p>变换组件的位置、旋转和缩放值是相对于变换组件的父项测量的。如果变换组件没有父项，则按照世界空间来测量属性。</p>
 
-<h2>Editing Transforms</h2>
+<h2>编辑变换组件</h2>
 
 <p>在 3D 空间中可在 X、Y 和 Z 轴上操作变换组件，但在 2D 空间中只能在 X 和 Y 轴上操作。在 Unity 中，这些轴分别由红色、绿色和蓝色表示。</p>
 
@@ -283,7 +283,7 @@
 
 <p>请注意，Inspector 中任何子游戏对象的 Transform 值都是相对于父项 Transform 值显示的结果。这些值称为__局部坐标__。回到刚才身体和手臂的类比，身体的位置可能会随着人的行走而移动，但手臂相对于身体的位置不变。在进行场景构建时，通常使用子对象的局部坐标就足够了，但在游戏中通常需要找到这些对象在世界空间或__全局坐标__中的确切位置。变换组件的脚本 API 具有局部和全局位置、旋转和缩放的单独属性，还允许在局部和全局坐标之间转换任何点。</p>
 
-<h2>Limitations with Non-Uniform Scaling</h2>
+<h2>非一致缩放的限制</h2>
 
 <p>非一致缩放是指变换组件中的 <strong>Scale</strong> 具有不同的 x、y 和 z 值；例如 (2, 4, 2)。相反，一致缩放则具有相同 x、y 和 z 值；例如 (3, 3, 3)。在一些特殊情况下，非一致缩放可能很有用，但这种缩放方式会导致一致缩放所没有的一些奇怪现象：</p>
 
@@ -293,7 +293,7 @@
 <li>出于性能原因，如果父项非一致缩放，子对象在旋转时不会自动更新其缩放比例。因此，当缩放比例最终_更新_时，子对象的形状可能会突然发生变化，例如在子对象与父项分离的情况下。</li>
 </ul>
 
-<h2>Importance of Scale</h2>
+<h2>缩放比例的重要性</h2>
 
 <p>变换组件的缩放比例决定了网格在建模应用程序中的大小与该网格在 Unity 中的大小之间的差异。Unity 中的网格大小（因此也就是变换组件的缩放比例）_非常_重要，尤其是在物理模拟过程中。默认情况下，物理引擎假定世界空间中的一个单位对应于一米。如果一个对象非常大，可能会出现“慢动作”问题；模拟实际上自生效以来是正确的，但您会看到非常大的对象滞后很远的距离。</p>
 
@@ -307,7 +307,7 @@
 
 <p>理想情况下，不应在变换组件中调整对象的 <strong>Scale</strong> 设置。最好的选择是以真实比例创建模型，这样就不必更改变换组件的比例。次好的选择是在具体网格的 <strong>Import Settings</strong> 中调整导入网格时的比例。有些优化是基于导入大小进行的，因此实例化调整了比例值的对象可能会降低性能。有关更多信息，请参阅<a href="class-Rigidbody.html">刚体 (Rigidbody)</a> 组件参考页面上关于优化缩放比例的部分。</p>
 
-<h2>Tips for Working with Transforms</h2>
+<h2>关于使用变换组件的提示</h2>
 
 <ul>
 <li>在设置变换组件的父子关系时，一种有用的做法是在添加子项之前将父项的位置设置为 &lt;0,0,0&gt;。这意味着子项的局部坐标将与全局坐标相同，因此更容易确保子项处于正确位置。</li>
@@ -326,7 +326,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

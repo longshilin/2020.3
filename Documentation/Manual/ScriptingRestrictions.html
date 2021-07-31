@@ -13,8 +13,8 @@
 <meta name="twitter:card" content="summary">
 <meta property="og:title" content="脚本限制 - Unity 手册">
 <title>脚本限制 - Unity 手册</title>
-<meta name="description" content="Unity provides a common scripting API and experience across all platforms it supports. However, some platforms have inherent restrictions. To help you understand these restrictions, the following table describes which restrictions apply to each platform and scripting backend:">
-<meta property="og:description" content="Unity provides a common scripting API and experience across all platforms it supports. However, some platforms have inherent restrictions. To help you understand these restrictions, the following table describes which restrictions apply to each platform and scripting backend:">
+<meta name="description" content="Unity 在支持的所有平台之间提供通用的脚本 API 和体验。但是，有些平台存在固有的限制。为帮助您了解这些限制，下表描述了每个平台和脚本后端适用的限制：">
+<meta property="og:description" content="Unity 在支持的所有平台之间提供通用的脚本 API 和体验。但是，有些平台存在固有的限制。为帮助您了解这些限制，下表描述了每个平台和脚本后端适用的限制：">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,10 +174,10 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="ScriptingSection.html">Scripting</a></li>
-<li><a href="unity-architecture.html">Unity architecture</a></li>
-<li><a href="scripting-backends.html">Scripting backends</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="ScriptingSection.html">脚本</a></li>
+<li><a href="unity-architecture.html">Unity 架构</a></li>
+<li><a href="scripting-backends.html">脚本后端</a></li>
 <li>脚本限制</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
@@ -192,7 +192,7 @@
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>Unity provides a common scripting API and experience across all platforms it supports. However, some platforms have inherent restrictions. To help you understand these restrictions, the following table describes which restrictions apply to each platform and scripting backend:</p>
+<p>Unity 在支持的所有平台之间提供通用的脚本 API 和体验。但是，有些平台存在固有的限制。为帮助您了解这些限制，下表描述了每个平台和脚本后端适用的限制：</p>
 
 <h2>.NET 4.x 等效脚本运行时</h2>
 
@@ -206,10 +206,10 @@
 
 <thead>
 <tr>
-	<th style="text-align:left;"><strong>Platform (scripting backend)</strong></th>
-	<th style="text-align:left;"><strong>Ahead-of-time compile</strong></th>
-	<th style="text-align:left;"><strong>No threads</strong></th>
-	<th style="text-align:left;"><strong>.NET Core class libraries subset</strong></th>
+	<th style="text-align:left;"><strong>平台（脚本后端）</strong></th>
+	<th style="text-align:left;"><strong>提前编译</strong></th>
+	<th style="text-align:left;"><strong>无线程</strong></th>
+	<th style="text-align:left;"><strong>.NET Core 类库子集</strong></th>
 </tr>
 </thead>
 
@@ -269,7 +269,7 @@
 
 <h2>提前编译</h2>
 
-<p>Some platforms do not allow runtime code generation. Therefore, any managed code which depends upon just-in-time (JIT) compilation on the target device will fail. Instead, you must compile all of the managed code ahead-of-time (AOT). Often, this distinction doesn’t matter, but in a few specific cases, AOT platforms require additional consideration.</p>
+<p>有些平台不允许生成运行时代码。因此，任何依赖于在目标设备上即时 (JIT) 编译的托管代码都将失败。相反，必须提前 (AOT) 编译所有托管代码。通常，这种区别并不重要，但在少数特定情况下，AOT 平台需要额外注意。</p>
 
 <h3>System.Reflection.Emit</h3>
 
@@ -277,11 +277,11 @@
 
 <h3>序列化</h3>
 
-<p>AOT platforms might encounter issues with serialization and deserlization because of the use of reflection. If a type or method is only used via reflection as part of serialization or deserialization, the AOT compiler cannot detect that it needs to generate the code needs for the type or method.</p>
+<p>AOT 平台可能会由于使用了反射而遇到序列化和反序列化问题。如果仅通过反射将某个类型或方法作为序列化或反序列化的一部分使用，则 AOT 编译器无法检测到需要为该类型或方法生成代码。</p>
 
 <h3>通用虚拟方法</h3>
 
-<p>If you use generic methods, the compiler must do some additional work to expand your written code to the code executed on the device. For example, you need different code for <code>List</code> with an <code>int</code> or a <code>double</code>. If you use virtual methods, where the behavior is determined at runtime rather than compile time, the compiler can easily require runtime code generation in places where it is not entirely obvious from the source code.</p>
+<p>如果使用泛型方法，编译器必须做一些额外的工作，才能将您编写的代码扩展到设备上执行的代码。例如，对于具有 <code>int</code> 或 <code>double</code> 类型的 <code>List</code>，需要不同代码。如果使用虚拟方法，在运行时而不是编译时确定行为，存在虚拟方法时，编译器可在不完全明显的地方轻松地要求从源代码生成运行时代码。</p>
 
 <p>以下代码示例在 JIT 平台上完全按预期工作（向控制台输出一次“Message value: Zero”）：</p>
 
@@ -341,9 +341,9 @@ public interface IManager
     at AOTProblemExample.Start () [0x00000] in &lt;filename unknown&gt;:0
 </code></pre>
 
-<p>The AOT compiler does not recognize that it should generate code for the generic method <code>OnMessage</code> with a <code>T</code> of <code>AnyEnum</code>, so it continues, skipping this method. When that method is called, and the runtime can’t find the proper code to execute, it returns this error message.</p>
+<p>AOT 编译器不会意识到自己应该为 <code>T</code> 为 <code>AnyEnum</code> 的泛型方法 <code>OnMessage</code> 生成代码，它会继续往下，跳过该方法。调用该方法时，运行时无法找到要执行的正确代码，因此返回此错误消息。</p>
 
-<p>To work around an AOT issue like this, you can force the compiler to generate the proper code. To do this, add the following example method to the <code>AOTProblemExample</code> class:</p>
+<p>要解决像这样的 AOT 问题，可以强制编译器生成适当的代码。为此，可以向 <code>AOTProblemExample</code> 类添加以下示例方法：</p>
 
 <pre><code class="lang-csharp">public void UsedOnlyForAOTCodeGeneration() 
 {
@@ -359,11 +359,11 @@ public interface IManager
 }
 </code></pre>
 
-<p>When the compiler encounters the explicit call to <code>OnMessage</code> with a <code>T</code> of <code>AnyEnum</code>, it generates the proper code for the runtime to execute. The method <code>UsedOnlyForAOTCodeGeneration</code> does not need to be called; it just needs to exist for the compiler to recognize it.</p>
+<p>当编译器遇到 <code>T</code> 为 <code>AnyEnum</code> 的 <code>OnMessage</code> 的显式调用时，它会生成运行时执行的正确代码。不需要调用 <code>UsedOnlyForAOTCodeGeneration</code> 方法；该方法的存在只是为了让编译器看到而已。</p>
 
 <h3>从原生代码调用托管方法</h3>
 
-<p>Managed methods that need to be marshaled to a C function pointer so that they can be called from native code have a few restrictions on AOT platforms:</p>
+<p>需要编组到 C 函数指针以便可以从原生代码调用的托管方法会在 AOT 平台上有一些限制：</p>
 
 <ul>
 <li>托管方法必须是静态方法</li>
@@ -374,7 +374,7 @@ public interface IManager
 
 <h2>无线程</h2>
 
-<p>Some platforms do not support the use of threads, so any managed code that uses the <code>System.Threading</code> namespace fails at runtime. Also, some parts of the .NET class libraries implicitly depend upon threads. An often-used example is the <code>System.Timers.Timer</code> class, which depends on support for threads.</p>
+<p>有些平台不支持使用线程，因此任何使用 <code>System.Threading</code> 命名空间的托管代码都将在运行时失败。此外，.NET 类库的某些部分存在对线程的隐式依赖。一个常用的例子是 <code>System.Timers.Timer</code> 类，它依赖于对线程的支持。</p>
 
 <h2>异常过滤器</h2>
 
@@ -384,13 +384,13 @@ public interface IManager
 
 <p>IL2CPP 不支持 <code>System.TypedReference</code> 类型和 <code>__makeref</code> C# 关键字。</p>
 
-<h2>MarshalAs and FieldOffset attributes</h2>
+<h2>MarshalAs 和 FieldOffset 属性</h2>
 
-<p>IL2CPP does not support reflection of the <code>MarhsalAs</code> and <code>FieldOffset</code> attributes at runtime. It does support these attributes at compile time. You should use these for proper <a href="https://docs.microsoft.com/en-us/dotnet/framework/interop/marshaling-data-with-platform-invoke">platform invoke marshaling</a>.</p>
+<p>IL2CPP 不支持在运行时反射 <code>MarhsalAs</code> 和 <code>FieldOffset</code> 属性。它在编译时支持这些属性。应正确使用它们以进行正确的<a href="https://docs.microsoft.com/en-us/dotnet/framework/interop/marshaling-data-with-platform-invoke">平台调用编组</a>。</p>
 
-<h2>The dynamic keyword</h2>
+<h2>动态关键字</h2>
 
-<p>IL2CPP does not support the C# <code>dynamic</code> keyword. This keyword requires JIT compilation, which is not possible with IL2CPP.</p>
+<p>IL2CPP 不支持 C# <code>dynamic</code> 关键字。此关键字需要 JIT 编译，而 IL2CPP 无法实现。</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="IL2CPP-managed-stack-traces.html"></a></span><div class="tip">托管堆栈跟踪与 IL2CPP</div>
@@ -402,7 +402,7 @@ public interface IManager
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

@@ -14,8 +14,8 @@
 <meta property="og:title" content="Package Manager - Unity 手册">
 <title>Package Manager - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/class-PackageManager.png">
-<meta name="description" content="The Package Manager settings (menu: Edit &gt; Project Settings, then the Package Manager category) let you manage your scoped registries and modify the advanced settings for your current project.">
-<meta property="og:description" content="The Package Manager settings (menu: Edit &gt; Project Settings, then the Package Manager category) let you manage your scoped registries and modify the advanced settings for your current project.">
+<meta name="description" content="Package Manager 设置（菜单：__Edit &gt; Project Settings__，然后 Package Manager 类别）用于管理范围注册表并修改当前项目的高级设置。">
+<meta property="og:description" content="Package Manager 设置（菜单：__Edit &gt; Project Settings__，然后 Package Manager 类别）用于管理范围注册表并修改当前项目的高级设置。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UnityOverview.html">在 Unity 中操作</a></li>
 <li><a href="EditorFeatures.html">编辑器功能</a></li>
 <li><a href="comp-ManagerGroup.html">Project Settings</a></li>
@@ -193,20 +193,20 @@
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>The <strong>Package Manager</strong> settings (menu: <strong>Edit &gt; Project Settings</strong>, then the <strong>Package Manager</strong> category) let you manage your scoped registries and modify the advanced settings for your current project.</p>
+<p><strong>Package Manager</strong> 设置（菜单：__Edit &gt; Project Settings__，然后 <strong>Package Manager</strong> 类别）用于管理范围注册表并修改当前项目的高级设置。</p>
 
 <figure>
-<img src="../uploads/Main/class-PackageManager.png" alt="Settings for the Package Manager">
-<figcaption>Settings for the Package Manager</figcaption>
+<img src="../uploads/Main/class-PackageManager.png" alt="Package Manager 的设置">
+<figcaption>Package Manager 的设置</figcaption>
 </figure>
 
-<p><strong>(A)</strong> <a href="#scoped_add">Add</a>, <a href="#scoped_modify">modify</a>, and <a href="#scoped_remove">remove</a> scoped registries for your project under the <strong>Scoped Registries</strong> group, which contains the following areas:</p>
+<p><strong>(A)</strong> 在 <strong>Scoped Registries</strong> 组下为您的项目<a href="#scoped_add">添加</a>、<a href="#scoped_modify">修改</a>和<a href="#scoped_remove">删除</a> 范围注册表，其中包含以下区域：</p>
 
-<p>    <strong>(1)</strong> The list of scoped registries currently defined for this project</p>
+<p>    <strong>(1)</strong> 当前为此项目定义的范围注册表的列表</p>
 
-<p>    <strong>(2)</strong> The details for the selected scoped registry</p>
+<p>    <strong>(2)</strong> 所选范围注册表的详细信息</p>
 
-<p><strong>(B)</strong> Under the <strong>Advanced Settings</strong> section, toggle whether or not <a href="#advanced_preview">preview packages</a> and <a href="#advanced_dependencies">package dependencies</a> are visible in the Package Manager window.</p>
+<p><strong>(B)</strong> 在 <strong>Advanced Settings</strong> 部分下方，切换<a href="#advanced_preview">预览包</a>和<a href="#advanced_dependencies">包依赖关系</a>在 Package Manager 窗口中是否可见。</p>
 
 <p><br> </p>
 
@@ -214,46 +214,42 @@
 
 <h2>Scoped Registries</h2>
 
-<p>The <strong>Scoped Registries</strong> group displays a list of scoped registries already added to the current project on the left, and the details of the selected registry on the right.</p>
+<p><strong>Scoped Registries</strong> 组左侧显示已添加到当前项目的<a href="upm-scoped.html">范围注册表</a>的列表，右侧是所选注册表的详细信息。</p>
 
-<p>For detailed information about how to use and configure scoped registries with the Unity Package Manager, see the documentation on <a href="upm-scoped.html">Scoped Registries</a>.</p>
+<p>有关范围注册表的详细信息，包括如何通过 Unity Package Manager 使用和配置，请参阅有关<a href="upm-scoped.html">范围注册表</a>的文档。</p>
+
+<p><strong>注意</strong>：如果您添加了范围注册表，但在 <strong>My Registries</strong> 上下文或 <strong>My Registries</strong> 上下文根本不可用，这可能是因为您添加的包注册表服务器没有实现 <code>/-/v1/search</code> 或 <code>/-/all</code> 终端，这意味着它与 Unity 的 Package Manager 不兼容。</p>
 
 <p><a name="scoped_add"></a></p>
 
-<h3>Adding a new registry</h3>
+<h3>添加新的注册表</h3>
 
-<p>To add a new scoped registry to your project:</p>
+<p>向项目添加范围注册表：</p>
 
-<ol>
-<li>Select the <strong>+</strong> button at the bottom of the list. A new entry appears as <strong>New Scoped Registry</strong> in the list and blank values for the details on the right and the <strong>Revert</strong> and <strong>Apply</strong> buttons change to <strong>Cancel</strong> and <strong>Save</strong> buttons.</li>
-<li>Enter values for the <a href="upm-scoped.html#name">Name</a>, <a href="upm-scoped.html#url">URL</a>, and <a href="upm-scoped.html#scopes">Scope(s)</a> properties.</li>
-<li>If you need to specify more than one scope, select the <strong>+</strong> button underneath the last <strong>Scope(s)</strong> value. Another text box appears.</li>
-<li>When you are finished entering the information for the selected scoped registry, click <strong>Save</strong>. To cancel adding the new scoped registry entirely, click <strong>Cancel</strong>.</li>
-</ol>
+<p>1.选择列表底部的 <strong>+</strong> 按钮。将显示一个 <strong>New Scoped Registry</strong> 新条目，右侧的详细信息的值均为空白，而且 <strong>Revert</strong> 和 <strong>Apply</strong> 按钮变为 <strong>Cancel</strong> 和 <strong>Save</strong> 按钮。
+2.分别为 <a href="upm-scoped.html#name">Name</a>、<a href="upm-scoped.html#url">URL</a> 和 <a href="upm-scoped.html#scopes">Scope(s)</a> 属性输入值。
+3.如果您需要指定多个范围，请选择最后一个 <strong>Scope(s)</strong> 值下方的 <strong>+</strong> 按钮。将出现另一个文本框。
+4.选定范围注册表的信息输入完成后，单击 <strong>Save</strong>。要完全取消新范围注册表的添加操作，请单击 <strong>Cancel</strong>。</p>
 
 <p><a name="scoped_modify"></a></p>
 
-<h3>Modifying an existing registry</h3>
+<h3>修改现有的注册表</h3>
 
-<p>To modify an existing scoped registry:</p>
+<p>要修改现有的范围注册表：</p>
 
-<ol>
-<li>Select the registry you want to modify from the list on the left. The existing information appears on the right.</li>
-<li>Modify any of the <a href="upm-scoped.html#name">Name</a>, <a href="upm-scoped.html#url">URL</a>, and <a href="upm-scoped.html#scopes">Scope(s)</a> properties.</li>
-<li>When you are finished updating the information for the selected scoped registry, click <strong>Apply</strong>. To cancel adding the new scoped registry entirely, click <strong>Revert</strong>.</li>
-</ol>
+<p>1.从左侧的列表选择要修改的注册表。现有信息显示在右侧。
+2.修改任何一个 <a href="upm-scoped.html#name">Name</a>、<a href="upm-scoped.html#url">URL</a> 和 <a href="upm-scoped.html#scopes">Scope(s)</a> 属性。
+3.选定范围注册表的信息更新完成后，单击 <strong>Apply</strong>。要完全取消新范围注册表的添加操作，请单击 <strong>Revert</strong>。</p>
 
 <p><a name="scoped_remove"></a></p>
 
-<h3>Removing a registry</h3>
+<h3>删除注册表</h3>
 
-<p>To delete an existing scoped registry:</p>
+<p>要删除现有的范围注册表：</p>
 
-<ol>
-<li>Select the registry you want to delete from the list</li>
-<li>Click the <strong>-</strong> button underneath the list. A dialog box prompts you to confirm the removal.</li>
-<li>Click <strong>Ok</strong> to proceed or <strong>Cancel</strong> to leave it intact.</li>
-</ol>
+<p>1.从列表中选择要删除的注册表。
+2.单击列表下方的 <strong>-</strong> 按钮。出现一个对话框提示您确认删除。
+3.单击 <strong>Ok</strong> 继续或 <strong>Cancel</strong> 保持不变。</p>
 
 <p><br> </p>
 
@@ -261,76 +257,51 @@
 
 <h2>Advanced Settings</h2>
 
-<p>Use the Advanced Settings group to toggle the <a href="#advanced_preview">Enable Preview Packages</a> and <a href="#advanced_dependencies">Show Dependencies</a> settings for your current project.</p>
+<p>使用 Advanced Settings 组切换当前项目的 <a href="#advanced_preview">Enable Preview Packages</a> 和 <a href="#advanced_dependencies">Show Dependencies</a> 设置。</p>
 
 <p><a name="advanced_preview"></a></p>
 
 <h3>Enable Preview Packages</h3>
 
-<p>Enable the <strong>Enable Preview Packages</strong> setting to display <a href="pack-preview.html">preview packages</a> in the Package Manager window. Preview packages appear with the <img src="../uploads/Main/iconPreview.png" alt=""> tag in both the list view and the details view, as a reminder of which packages are in preview.</p>
+<p>启用 <strong>Enable Preview Packages</strong> 设置可在 Package Manager 窗口中显示<a href="pack-preview.html">预览包</a>。预览包在列表视图和详细信息视图中以 <img src="../uploads/Main/iconPreview.png" alt=""> 标记显示，以提示哪些包处于预览状态。</p>
 
-<table>
-<colgroup>
-<col style="text-align:left;">
-</colgroup>
+<p><br>
+<strong>警告</strong>：</p>
 
-<thead>
-<tr>
-	<th style="text-align:left;">
-<strong>Warning</strong>:</th>
-</tr>
-</thead>
+<p>默认情况下，此设置处于禁用状态，因为预览包应仅用于进行测试或向包开发人员提供反馈。有关包的预览状态和生命周期的更多信息，请参阅<a href="upm-lifecycle.html">包状态和生命周期</a>。</p>
 
-<tbody>
-<tr>
-	<td style="text-align:left;">By default this setting is disabled because you should only use preview packages for testing or providing feedback to the package developer. For more information about the preview state and the lifecycle of packages, see <a href="upm-lifecycle.html">Package states and lifecycle</a>.</td>
-</tr>
-</tbody>
-</table>
-
-<p><a name="advanced_dependencies"></a></p>
+<p><br>
+<a name="advanced_dependencies"></a></p>
 
 <h3>Show Dependencies</h3>
 
-<p>Enable the <strong>Show Dependencies</strong> setting to: </p>
+<p>启用 <strong>Show Dependencies</strong> 设置可以：</p>
 
 <ul>
-<li>Show any packages that are installed as indirect dependencies in the Package Manager window’s <a href="upm-ui-list.html">list of packages</a>.</li>
-<li>Display a package’s dependency information in the <a href="upm-ui-details.html">package’s details</a> on the Package Manager window. This includes the following:
+<li>在 Package Manager 窗口的<a href="upm-ui-list.html">包列表</a>中显示作为间接依赖项安装的所有包。</li>
+<li>在 Package Manager 窗口中的<a href="upm-ui-details.html">包列表</a>中显示包的依赖信息。包含以下信息：
 
 <ul>
 <li>
-<strong>Is using</strong> lists any packages that this package requires, including the specific version.</li>
+<strong>Is using</strong> 列出此包需要的任何包，包括特定版本。</li>
 <li>
-<strong>Used by</strong> lists the names and versions of any other packages that depend on this one.</li>
+<strong>Used by</strong> 列出依赖于此包的任何其他包的名称和版本。</li>
 </ul>
 </li>
 </ul>
 
-<table>
-<colgroup>
-<col style="text-align:left;">
-</colgroup>
+<p><br> </p>
 
-<thead>
-<tr>
-	<th style="text-align:left;">
-<strong>注意</strong>：</th>
-</tr>
-</thead>
+<p><strong>注意</strong>：</p>
 
-<tbody>
-<tr>
-	<td style="text-align:left;">By default, this setting is disabled. For more information about how dependencies work with packages, see <a href="upm-dependencies.html">Dependency and resolution</a>.</td>
-</tr>
-</tbody>
-</table>
+<p>默认情况下会禁用此设置。有关依赖关系如何处理包的更多信息，请参阅<a href="upm-dependencies.html">依赖和解析</a>。</p>
 
 <p><br> </p>
 
 <hr>
 
-<p><span class="page-history"><strong>Scoped Registries</strong>, <strong>Enable Preview Packages</strong> and <strong>Show Dependencies</strong> project settings added in <a href="https://docs.unity3d.com/2020.1/Documentation/Manual/30_search.html?q=newin20201">2020.1</a> <span class="search-words">NewIn20201</span></span></p>
+<p><br>
+<span class="page-history"><strong>Scoped Registries</strong>、<strong>Enable Preview Packages</strong> 和 <strong>Show Dependencies</strong> 项目设置添加于 <a href="https://docs.unity3d.com/2020.1/Documentation/Manual/30_search.html?q=newin20201">2020.1</a><span class="search-words"> NewIn20201</span></span></p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="class-GraphicsSettings.html"></a></span><div class="tip">Graphics</div>
@@ -342,7 +313,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

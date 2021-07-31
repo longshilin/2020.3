@@ -14,8 +14,8 @@
 <meta property="og:title" content="瓦片资源 - Unity 手册">
 <title>瓦片资源 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/2D_Tile_Asset.png">
-<meta name="description" content="Tiles are Assets that are arranged on Tilemaps to construct a 2D environment. Each Tile references a selected Sprite, which is then rendered at the Tile&amp;#8217;s location on the Tilemap Grid. Refer to the Creating Tiles documentation for information about preparing and importing Sprites for your Tiles, and the different methods for creating the Assets in the Editor.">
-<meta property="og:description" content="Tiles are Assets that are arranged on Tilemaps to construct a 2D environment. Each Tile references a selected Sprite, which is then rendered at the Tile&amp;#8217;s location on the Tilemap Grid. Refer to the Creating Tiles documentation for information about preparing and importing Sprites for your Tiles, and the different methods for creating the Assets in the Editor.">
+<meta name="description" content="__瓦片__是排列在__瓦片地图__上的__资源__，用于构建 2D 环境。每个瓦片引用一个选定的__精灵__，然后在瓦片地图网格上的瓦片位置处渲染该精灵。有关为瓦片准备和导入精灵的信息，以及在编辑器中创建资源的不同方法，请参阅创建瓦片文档。">
+<meta property="og:description" content="__瓦片__是排列在__瓦片地图__上的__资源__，用于构建 2D 环境。每个瓦片引用一个选定的__精灵__，然后在瓦片地图网格上的瓦片位置处渲染该精灵。有关为瓦片准备和导入精灵的信息，以及在编辑器中创建资源的不同方法，请参阅创建瓦片文档。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Unity2D.html">2D</a></li>
 <li><a href="class-Tilemap.html">Tilemap</a></li>
 <li>瓦片资源</li>
@@ -185,14 +185,14 @@
 <span class="prev"><a href="class-TilemapRenderer.html"></a></span><div class="tip">瓦片地图渲染器 (Tilemap Renderer)</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="Tilemap-workflow.html"></a></span><div class="tip">Tilemap workflow</div>
+<span class="next"><a href="Tilemap-workflow.html"></a></span><div class="tip">瓦片地图工作流程</div>
 </div>
 </div></div>
 <h1>瓦片资源</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p><strong>Tiles</strong> are <strong>Assets</strong> that are arranged on <strong>Tilemaps</strong> to construct a 2D environment. Each Tile references a selected <strong>Sprite</strong>, which is then rendered at the Tile’s location on the <a href="#class-Grid">Tilemap Grid</a>. Refer to the <a href="#Tilemap-CreatingTiles">Creating Tiles</a> documentation for information about preparing and importing Sprites for your Tiles, and the different methods for creating the Assets in the Editor.</p>
+<p>__瓦片__是排列在__瓦片地图__上的__资源__，用于构建 2D 环境。每个瓦片引用一个选定的__精灵__，然后在<a href="#class-Grid">瓦片地图网格</a>上的瓦片位置处渲染该精灵。有关为瓦片准备和导入精灵的信息，以及在编辑器中创建资源的不同方法，请参阅<a href="#Tilemap-CreatingTiles">创建瓦片</a>文档。</p>
 
 <figure>
 <img src="../uploads/Main/2D_Tile_Asset.png" alt="瓦片资源图标">
@@ -222,15 +222,15 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><strong>Preview</strong></td>
-	<td style="text-align:left;">Displays a visual preview of the selected Tile.</td>
+	<td style="text-align:left;">显示所选瓦片的视觉效果预览。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Sprite</strong></td>
-	<td style="text-align:left;">Select the Sprite to be rendered on this Tile. Click the circle icon to the right to open the object picker window to select from the available Sprite Assets, or drag a Sprite directly onto this box.</td>
+	<td style="text-align:left;">选择要在此瓦片上渲染的精灵。单击右侧的圆圈图标可打开对象选择器窗口，然后从可用的精灵资源中进行选择，或者将精灵直接拖到此框中。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Color</strong></td>
-	<td style="text-align:left;">Tints the Sprite placed on this Tile with the selected Color. When set to white, the Sprite is rendered without a tint.</td>
+	<td style="text-align:left;">使用所选颜色为此瓦片上放置的精灵进行着色。设置为白色时，将渲染没有色调的精灵。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Collider Type</strong></td>
@@ -246,14 +246,14 @@
 </tr>
 <tr>
 	<td style="text-align:left;">    Grid</td>
-	<td style="text-align:left;">The Collider shape is based on a cell of the <strong>Tilemap</strong>. The shape of a cell depends on the <a href="#class-Grid">Cell Layout</a> of the Tilemap.</td>
+	<td style="text-align:left;">碰撞体形状基于__瓦片地图__的单元格。单元格的形状取决于瓦片地图的<a href="#class-Grid">单元格布局</a>。</td>
 </tr>
 </tbody>
 </table>
 
-<h2>Collider Type’s effect on Collider generation</h2>
+<h2>碰撞体类型对碰撞体生成的影响</h2>
 
-<p>The Collider Type set in the <strong>Tile Asset’s</strong> properties affects the generation of Collider shapes for each Tile in the Tilemap. The component’s shape generation behavior corresponds to the <strong>Collider Types</strong> in the following ways:</p>
+<p>为瓦片地图中的每个瓦片生成的碰撞体形状取决于__瓦片资源__的属性中设置的碰撞体类型。组件的形状生成行为与__碰撞体类型__的对应关系如下：</p>
 
 <table>
 <colgroup>
@@ -275,34 +275,32 @@
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Sprite</strong></td>
-	<td style="text-align:left;">The Tilemap Collider 2D component generates a Collider shape based on the Sprite assigned to the Tile. The Collider shape is based on the <a href="#CustomPhysicsShape">Custom Physics Shape</a> set for the Sprite.</td>
+	<td style="text-align:left;">Tilemap Collider 2D 组件基于分配给瓦片的精灵生成碰撞体形状。碰撞体形状基于为精灵设置的 <a href="#CustomPhysicsShape">Custom Physics Shape</a>。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Grid</strong></td>
-	<td style="text-align:left;">The Tilemap Collider 2D component generates a Collider shape based on the shape of the Grid cell, which is determined by the selected Cell Layout of the Grid component.</td>
+	<td style="text-align:left;">Tilemap Collider 2D 组件基于网格单元格的形状（由 Grid 组件的选定单元格布局确定）生成碰撞体形状。</td>
 </tr>
 </tbody>
 </table>
 
 <hr>
 
-<ul>
-<li><span class="page-history">Page content and screenshots updated for <a href="https://docs.unity3d.com/2020.1/Documentation/Manual/30_search.html?q=newin20201">2020.1</a> <span class="search-words">NewIn20201</span></span></li>
-<li><span class="page-history">在 <a href="https://docs.unity3d.com/2017.2/Documentation/Manual/30_search.html?q=newin20172">2017.2</a> 版中添加了瓦片地图 <span class="search-words">NewIn20172</span></span></li>
-</ul>
+<p><em><span class="page-history">页面内容和屏幕截图更新于 <a href="https://docs.unity3d.com/2020.1/Documentation/Manual/30_search.html?q=newin20201">2020.1</a><span class="search-words"> NewIn20201</span></span>
+</em> <span class="page-history">在 <a href="https://docs.unity3d.com/2017.2/Documentation/Manual/30_search.html?q=newin20172">2017.2</a> 版中添加了瓦片地图 <span class="search-words">NewIn20172</span></span></p>
 <!-- area:authoring -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="class-TilemapRenderer.html"></a></span><div class="tip">瓦片地图渲染器 (Tilemap Renderer)</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="Tilemap-workflow.html"></a></span><div class="tip">Tilemap workflow</div>
+<span class="next"><a href="Tilemap-workflow.html"></a></span><div class="tip">瓦片地图工作流程</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

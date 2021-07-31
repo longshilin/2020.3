@@ -13,8 +13,8 @@
 <meta name="twitter:card" content="summary">
 <meta property="og:title" content="Lighting Mode：Shadowmask - Unity 手册">
 <title>Lighting Mode：Shadowmask - Unity 手册</title>
-<meta name="description" content="This page describes the behavior of all Mixed Lights in a Scene, when that Scene uses a Lighting Settings Asset with its Lighting Mode property set to Shadowmask.">
-<meta property="og:description" content="This page describes the behavior of all Mixed Lights in a Scene, when that Scene uses a Lighting Settings Asset with its Lighting Mode property set to Shadowmask.">
+<meta name="description" content="本页介绍在场景使用的 Lighting Settings Asset 的 Lighting Mode 属性设置为 Shadowmask 时，该场景中所有混合光源的行为。">
+<meta property="og:description" content="本页介绍在场景使用的 Lighting Settings Asset 的 Lighting Mode 属性设置为 Shadowmask 时，该场景中所有混合光源的行为。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,10 +174,10 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
 <li><a href="LightingOverview.html">光照</a></li>
-<li><a href="class-LightingSettings.html">Lighting Settings Asset</a></li>
+<li><a href="class-LightingSettings.html">光照设置资源</a></li>
 <li><a href="lighting-mode.html">光照模式</a></li>
 <li>Lighting Mode：Shadowmask</li>
 </ul></div>
@@ -193,7 +193,7 @@
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>This page describes the behavior of all <a href="LightMode-Mixed.html">Mixed Lights</a> in a Scene, when that Scene uses a <a href="class-LightingSettings.html">Lighting Settings Asset</a> with its <a href="lighting-mode.html">Lighting Mode</a> property set to <strong>Shadowmask</strong>.</p>
+<p>本页介绍在场景使用的 <a href="class-LightingSettings.html">Lighting Settings Asset</a> 的 <a href="lighting-mode.html">Lighting Mode</a> 属性设置为 <strong>Shadowmask</strong> 时，该场景中所有<a href="LightMode-Mixed.html">混合光源</a>的行为。</p>
 
 <p>类似于 <a href="LightMode-BakedIndirect">Baked Indirect 光照模式</a>，Shadowmask 光照模式将实时直接光照与烘焙间接光照结合在一起。但是，Shadowmask 光照模式与 Baked Indirect 光照模式的不同之处在于渲染阴影的方式。Shadowmask 光照模式允许 Unity 在运行时结合烘焙阴影和实时阴影，并允许渲染远处的阴影。实现这一点的方法是使用称为“阴影遮罩”的附加光照贴图纹理并将附加信息存储在<a href="LightProbes.html">光照探针</a>中。</p>
 
@@ -203,7 +203,7 @@
 
 <ul>
 <li>内置渲染管线支持 Shadowmask 光照模式。在内置渲染管线中，针对仅支持四个渲染目标的平台（例如许多移动端 GPU），Shadowmask 光照模式会强制 Unity 使用<a href="RenderTech-ForwardRendering.html">前向渲染</a>。</li>
-<li>The Universal Render Pipeline (URP) supports Shadowmask Lighting Mode in URP 10.1 and later versions.</li>
+<li>在 URP 10.1 及更高版本中，通用渲染管线 (URP) 支持 Shadowmask 光照模式。</li>
 <li>高清渲染管线 (HDRP) 支持 Shadowmask 光照模式，并基于每个光源提供其他功能。有关其他选项的信息，请参阅 <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest/index.html?subfolder=/manual/Shadows-in-HDRP.html%23shadowmasks">HDRP Shadowmask 光照模式</a>。</li>
 </ul>
 
@@ -276,14 +276,11 @@
 
 <p>在内置渲染管线中：</p>
 
-<ol>
-<li>Select the <a href="class-LightingSettings.html">Lighting Settings Asset</a> for the Scene.</li>
-<li>In the Inspector, navigate to <strong>Mixed Lighting</strong>.</li>
-<li>Use the drop-down menu to set the <strong>Lighting Mode</strong> to <strong>Shadowmask</strong>
-</li>
-<li>Open the Quality Settings (menu: <strong>Edit</strong> &gt; <strong>Project Settings</strong>, then select the <strong>Quality</strong> category).</li>
-<li>Use the Shadowmask Mode drop-down menu to select either <strong>Shadowmask</strong> or <strong>Shadowmask Distance</strong>.</li>
-</ol>
+<p>1.为场景选择 <a href="class-LightingSettings.html">Lighting Settings Asset</a>。
+2.在 Inspector 中，导航到 <strong>Mixed Lighting</strong>。
+3.使用下拉菜单将 <strong>Lighting Mode</strong> 设置为 <strong>Shadowmask</strong>。
+4.打开 Quality Settings（菜单：<strong>Edit</strong> &gt; <strong>Project Settings</strong>，然后选择 <strong>Quality</strong> 类别）。
+5.使用 Shadowmask Mode 下拉菜单选择 <strong>Shadowmask</strong> 或 <strong>Shadowmask Distance</strong>。</p>
 
 <p>在 HDRP 中：</p>
 
@@ -312,7 +309,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

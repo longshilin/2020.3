@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UNet.html">多玩家和联网</a></li>
 <li><a href="UNetUsingHLAPI.html">多玩家高级 API</a></li>
 <li><a href="UNetDealingWithClientsServers.html">处理客户端和服务器</a></li>
@@ -207,7 +207,7 @@
 <tbody>
 <tr>
 	<td style="text-align:left;">
-<strong>Note</strong>: UNet is deprecated, and will be removed from Unity in the future. A new system is under development. For more information and next steps see this <a href="https://blogs.unity3d.com/2020/12/03/accelerating-unitys-new-gameobjects-multiplayer-networking-framework/">blog post</a>.</td>
+<strong>重要</strong>：UNet 是一个已弃用的解决方案，新的多玩家和联网解决方案 (MLAPI) 正在开发中。有关更多信息和后续步骤，请参阅 <a href="https://docs-multiplayer.unity3d.com/">Unity MLAPI 网站</a>上的信息。</td>
 </tr>
 </tbody>
 </table>
@@ -238,7 +238,7 @@
 
 <p>即使由于旧主机中断连接或退出游戏而可能发生迁移，但游戏的旧主机可能作为新主机上的客户端重新加入游戏。</p>
 
-<p>During a host migration, Unity maintains the state of <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.SyncVarAttribute.html">SyncVars</a> and <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.SyncList-1.html">SyncLists</a> on all networked GameObjects in the Scene. This also applies to custom serialized data for GameObjects.</p>
+<p>在主机迁移期间，Unity 在场景中的所有联网游戏对象上维护 <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.SyncVarAttribute.html">SyncVar</a> 和 <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.SyncList-1.html">SyncList</a> 的状态。游戏对象的自定义序列化数据也是如此。</p>
 
 <p>当主机断开连接时，Unity 会禁用游戏中的所有玩家游戏对象。然后，当其他客户端在新主机上重新加入新游戏时，相应的玩家单元在新主机上重新启用这些客户端，并在其他客户端上重新生成它们。因此可确保 Unity 在主机迁移期间不会丢失玩家状态数据。</p>
 
@@ -419,7 +419,7 @@ protected virtual void OnAuthorityUpdated(
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

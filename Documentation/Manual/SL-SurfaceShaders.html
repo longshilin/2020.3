@@ -13,8 +13,8 @@
 <meta name="twitter:card" content="summary">
 <meta property="og:title" content="编写表面着色器 - Unity 手册">
 <title>编写表面着色器 - Unity 手册</title>
-<meta name="description" content="编写与光照交互的着色器非常复杂。有不同的光源类型，不同的阴影选项，不同的渲染路径（前向和延迟渲染）；着色器应该以某种方式应对所有这些复杂性。">
-<meta property="og:description" content="编写与光照交互的着色器非常复杂。有不同的光源类型，不同的阴影选项，不同的渲染路径（前向和延迟渲染）；着色器应该以某种方式应对所有这些复杂性。">
+<meta name="description" content="在内置渲染管线中，表面着色器是编写与光照交互的着色器的一种简化方式。">
+<meta property="og:description" content="在内置渲染管线中，表面着色器是编写与光照交互的着色器的一种简化方式。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,16 +174,15 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
-<li><a href="ShadersOverview.html">编写着色器</a></li>
-<li><a href="SL-Reference.html">着色器参考</a></li>
+<li><a href="Shaders.html">着色器</a></li>
+<li><a href="shader-writing.html">编写着色器</a></li>
 <li>编写表面着色器</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-Reference.html"></a></span><div class="tip">着色器参考</div>
+<span class="prev"><a href="shader-writing-vertex-fragment.html"></a></span><div class="tip">Example shaders</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="SL-RenderPipeline.html"></a></span><div class="tip">表面着色器和渲染路径</div>
@@ -193,9 +192,45 @@
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
+<p>在内置渲染管线中，表面着色器是编写与光照交互的着色器的一种简化方式。</p>
+
+<h2>渲染管线兼容性</h2>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>功能名称</strong></th>
+	<th style="text-align:left;"><strong>内置渲染管线</strong></th>
+	<th style="text-align:left;"><strong>通用渲染管线 (URP)</strong></th>
+	<th style="text-align:left;"><strong>高清渲染管线 (HDRP)</strong></th>
+	<th style="text-align:left;"><strong>自定义 SRP</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>表面着色器</strong></td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">否<br><br>有关在 URP 中创建 Shader 对象的简化方法，请参阅 <a href="shader-graph.html">Shader Graph</a>。</td>
+	<td style="text-align:left;">否<br><br>有关在 HDRP 中创建 Shader 对象的简化方法，请参阅 <a href="shader-graph.html">Shader Graph</a>。</td>
+	<td style="text-align:left;">否</td>
+</tr>
+</tbody>
+</table>
+
+<h2>概述</h2>
+
 <p>编写与光照交互的着色器非常复杂。有不同的光源类型，不同的阴影选项，不同的渲染路径（前向和延迟渲染）；着色器应该以某种方式应对所有这些复杂性。</p>
 
-<p>Unity 中的__表面着色器__是一种代码生成方法，与使用低级<a href="SL-ShaderPrograms.html">顶点/像素着色器程序</a>相比，可以更轻松地编写光照着色器。请注意，表面着色器中没有自定义的语言、魔法或忍者；它只能生成所有那些本来必须要手工编写的重复代码。您仍然需要使用 HLSL 编写着色器代码。</p>
+<p>表面着色器是一种代码生成方法，与使用低级<a href="SL-ShaderPrograms.html">顶点/像素着色器程序</a>相比，可以更轻松地编写光照着色器。</p>
 
 <p>如需了解示例，请查看<a href="SL-SurfaceShaderExamples.html">表面着色器示例</a>和<a href="SL-SurfaceShaderLightingExamples.html">表面着色器自定义光照示例</a>。</p>
 
@@ -369,7 +404,7 @@ struct SurfaceOutputStandardSpecular
 <li>
 <code>approxview</code> - 在 Unity 5.0 中已删除。请改用 <code>interpolateview</code>。</li>
 <li>
-<code>dualforward</code> - Use dual lightmaps in <a href="RenderTech-ForwardRendering.html">forward</a> rendering path.</li>
+<code>dualforward</code> - 在<a href="RenderTech-ForwardRendering.html">前向</a>渲染路径中使用双光照贴图。</li>
 <li>
 <code>dithercrossfade</code> - 使表面着色器支持抖动效果。然后，可将此着色器应用于使用<a href="class-LODGroup.html">细节级别组 (LOD Group)</a> 组件（配置为交叉淡入淡出过渡模式）的游戏对象。</li>
 </ul>
@@ -404,18 +439,10 @@ struct SurfaceOutputStandardSpecular
 
 <p>目前，表面着色器编译管线的某些部分不能理解 <a href="UsingDX11GL3Features.html">DirectX 11</a> 特有的 HLSL 语法，因此如果您正在使用 HLSL 功能，如 StructuredBuffers、RWTextures 和其他非 DX9 语法，需要将其包装到仅限 DX11 的预处理器宏中。</p>
 
-<p>有关详细信息，请参阅<a href="SL-PlatformDifferences.html">平台特定差异</a>和<a href="SL-ShadingLanguage.html">着色语言</a>页面。</p>
-
-<hr>
-
-<ul>
-<li><p><span class="page-edit"> 2017–06–08 页面已发布</span></p></li>
-<li><p><span class="page-history">在 5.6 版中添加了 <code>noshadowmask</code></span></p></li>
-</ul>
-<!-- area:graphics -->
+<p>有关详细信息，请参阅<a href="SL-PlatformDifferences.html">平台特定差异</a>和<a href="SL-ShaderPrograms.html">使用 HLSL</a> 页面。</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-Reference.html"></a></span><div class="tip">着色器参考</div>
+<span class="prev"><a href="shader-writing-vertex-fragment.html"></a></span><div class="tip">Example shaders</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="SL-RenderPipeline.html"></a></span><div class="tip">表面着色器和渲染路径</div>
@@ -424,7 +451,7 @@ struct SurfaceOutputStandardSpecular
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

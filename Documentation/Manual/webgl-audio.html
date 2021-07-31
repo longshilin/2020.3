@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="使用 WebGL 中的音频 - Unity 手册">
-<title>使用 WebGL 中的音频 - Unity 手册</title>
-<meta name="description" content="WebGL 中的音频与所有其他平台上的音频在处理方式上有所不同。在其他平台上，我们在内部使用 FMOD 来提供音频回放和混音。由于 WebGL 平台不支持线程，我们需要采用不同的实现方案，该方案在内部基于 Web 音频 API，允许浏览器为我们处理音频回放和混音。">
-<meta property="og:description" content="WebGL 中的音频与所有其他平台上的音频在处理方式上有所不同。在其他平台上，我们在内部使用 FMOD 来提供音频回放和混音。由于 WebGL 平台不支持线程，我们需要采用不同的实现方案，该方案在内部基于 Web 音频 API，允许浏览器为我们处理音频回放和混音。">
+<meta property="og:title" content="Using audio in WebGL - Unity 手册">
+<title>Using audio in WebGL - Unity 手册</title>
+<meta name="description" content="This page only provides information about audio capabilities in WebGL. To learn how to use audio in your Unity project, see the Audio Overview.">
+<meta property="og:description" content="This page only provides information about audio capabilities in WebGL. To learn how to use audio in your Unity project, see the Audio Overview.">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,11 +174,11 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="PlatformSpecific.html">平台开发</a></li>
 <li><a href="webgl.html">WebGL</a></li>
 <li><a href="webgl-gettingstarted.html">WebGL 开发入门</a></li>
-<li>使用 WebGL 中的音频</li>
+<li>Using audio in WebGL</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -188,93 +188,281 @@
 <span class="next"><a href="webgl-embeddedresources.html"></a></span><div class="tip">WebGL 中的嵌入式资源</div>
 </div>
 </div></div>
-<h1>使用 WebGL 中的音频</h1>
+<h1>Using audio in WebGL</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>WebGL 中的音频与所有其他平台上的音频在处理方式上有所不同。在其他平台上，我们在内部使用 FMOD 来提供音频回放和混音。由于 WebGL 平台不支持线程，我们需要采用不同的实现方案，该方案在内部基于 Web 音频 API，允许浏览器为我们处理音频回放和混音。</p>
+<p>This page only provides information about audio capabilities in WebGL. To learn how to use audio in your Unity project, see the <a href="https://docs.unity3d.com/2021.2/Documentation/Manual/AudioOverview.html">Audio Overview</a>. </p>
 
-<p>不幸的是，这限制了 Unity WebGL 中的音频功能，只能支持最基本的功能。本页面将介绍预期有效的功能。WebGL 目前不支持此处未列出的任何其他功能。</p>
+<p>Unity WebGL has limited audio functionality and only supports the basic features, because Unity usually uses FMOD to manage audio for platforms. However, FMOD relies on threads, which WebGL does not support. For this reason, Unity uses an implementation based on the internal Web Audio API, which enables the browser to handle audio playback and mixing. </p>
+
+<h2>Supported classes</h2>
+
+<p>Unity WebGL supports the following API classes: </p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>Class</strong></th>
+	<th style="text-align:left;"><strong>WebGL Support status</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong><a href="../ScriptReference/AudioSource.html">AudioSouce</a></strong></td>
+	<td style="text-align:left;">WebGL supports some APIs. See <a href="anchor">AudioSource</a> for specific support details.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong><a href="../ScriptReference/AudioListener.html">AudioListener</a></strong></td>
+	<td style="text-align:left;">All APIs supported.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong><a href="../ScriptReference/AudioClip.html">AudioClip</a></strong></td>
+	<td style="text-align:left;">WebGL supports some APIs. See <a href="#audioclip">AudioClip</a> for specific support details.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong><a href="../ScriptReference/Device.SystemInfo-supportsAudio.html">SystemInfo.supportsAudio</a></strong></td>
+	<td style="text-align:left;">The browser provides audio support for WebGL. For this reason, <code>SystemInfo.supportsAudio</code> is always true.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong><a href="../ScriptReference/Microphone.html">Microphone</a></strong></td>
+	<td style="text-align:left;">不支持。</td>
+</tr>
+</tbody>
+</table>
 
 <h2>AudioSource</h2>
 
-<p>音频源支持基本位置音频回放，具有暂停和恢复、平移、衰减、音高设置和多普勒效应支持。</p>
-
-<p>支持以下 <a href="../ScriptReference/AudioSource.html"><code>AudioSource</code></a> API：</p>
-
-<p><strong>属性</strong></p>
+<p>The <a href="../ScriptReference/AudioSource.html">AudioSource</a> API supports basic positional audio playback, including: </p>
 
 <ul>
-<li><a href="../ScriptReference/AudioSource-clip.html"><code>clip</code></a></li>
-<li><a href="../ScriptReference/AudioSource-dopplerLevel.html"><code>dopplerLevel</code></a></li>
-<li><a href="../ScriptReference/AudioSource-ignoreListenerPause.html"><code>ignoreListenerPause</code></a></li>
-<li><a href="../ScriptReference/AudioSource-ignoreListenerVolume.html"><code>ignoreListenerVolume</code></a></li>
-<li><a href="../ScriptReference/AudioSource-isPlaying.html"><code>isPlaying</code></a></li>
-<li><a href="../ScriptReference/AudioSource-loop.html"><code>loop</code></a></li>
-<li><a href="../ScriptReference/AudioSource-maxDistance.html"><code>maxDistance</code></a></li>
-<li><a href="../ScriptReference/AudioSource-minDistance.html"><code>minDistance</code></a></li>
-<li><a href="../ScriptReference/AudioSource-mute.html"><code>mute</code></a></li>
-<li>
-<a href="../ScriptReference/AudioSource-pitch.html"><code>pitch</code></a>（请注意，仅支持正音高值。）</li>
-<li><a href="../ScriptReference/AudioSource-playOnAwake.html"><code>playOnAwake</code></a></li>
-<li><a href="../ScriptReference/AudioSource-rolloffMode.html"><code>rolloffMode</code></a></li>
-<li><a href="../ScriptReference/AudioSource-time.html"><code>time</code></a></li>
-<li><a href="../ScriptReference/AudioSource-timeSamples.html"><code>timeSamples</code></a></li>
-<li><a href="../ScriptReference/AudioSource-velocityUpdateMode.html"><code>velocityUpdateMode</code></a></li>
-<li><a href="../ScriptReference/AudioSource-volume.html"><code>volume</code></a></li>
+<li>Pausing and resuming</li>
+<li>Panning</li>
+<li>Rolloff</li>
+<li>Pitch setting</li>
+<li>Doppler effect support</li>
 </ul>
 
-<p><strong>方法</strong></p>
+<p>Unity WebGL supports the following AudioSource APIs: </p>
 
-<ul>
-<li><a href="../ScriptReference/AudioSource.Pause.html"><code>Pause</code></a></li>
-<li><a href="../ScriptReference/AudioSource.Play.html"><code>Play</code></a></li>
-<li><a href="../ScriptReference/AudioSource.PlayDelayed.html"><code>PlayDelayed</code></a></li>
-<li><a href="../ScriptReference/AudioSource.PlayOneShot.html"><code>PlayOneShot</code></a></li>
-<li><a href="../ScriptReference/AudioSource.PlayScheduled.html"><code>PlayScheduled</code></a></li>
-<li><a href="../ScriptReference/AudioSource.SetScheduledEndTime.html"><code>SetScheduledEndTime</code></a></li>
-<li><a href="../ScriptReference/AudioSource.SetScheduledStartTime.html"><code>SetScheduledStartTime</code></a></li>
-<li><a href="../ScriptReference/AudioSource.Stop.html"><code>Stop</code></a></li>
-<li><a href="../ScriptReference/AudioSource.UnPause.html"><code>UnPause</code></a></li>
-<li><a href="../ScriptReference/AudioSource.PlayClipAtPoint.html"><code>PlayClipAtPoint</code></a></li>
-</ul>
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
 
-<h2>AudioListener</h2>
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>属性</strong></th>
+	<th style="text-align:left;"><strong>Summary</strong></th>
+</tr>
+</thead>
 
-<p>支持所有 <a href="../ScriptReference/AudioListener.html"><code>AudioListener</code></a> API。</p>
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong><a href="../ScriptReference/AudioSource-clip.html">Clip</a></strong></td>
+	<td style="text-align:left;">Determines the audio clip that plays next.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong><a href="../ScriptReference/AudioSource-dopplerLevel.html">dopplerLevel</a></strong></td>
+	<td style="text-align:left;">Sets the Doppler scale for the AudioSource.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong><a href="../ScriptReference/AudioSource-ignoreListenerPause.html">ignoreListenerPause</a></strong></td>
+	<td style="text-align:left;">Allows AudioSource to ignore <code>AudioListener.pause</code> and continue to play audio.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong><a href="../ScriptReference/AudioSource-ignoreListenerVolume.html">ignoreListenerVolume</a></strong></td>
+	<td style="text-align:left;">Ignores the end-user’s AudioSource volume.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong><a href="../ScriptReference/AudioSource-isPlaying.html">isPlaying</a></strong></td>
+	<td style="text-align:left;">Returns true if the <code>AudioSource.clip</code> is playing.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong><a href="../ScriptReference/AudioSource-loop.html">loop</a></strong></td>
+	<td style="text-align:left;">Allows the application to loop the <code>AudioSource.clip</code>.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong><a href="../ScriptReference/AudioSource-maxDistance.html">maxDistance</a></strong></td>
+	<td style="text-align:left;">Sets the maximum distance at which the <code>AudioSource.clip</code> stops attenuating or becomes inaudible.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong><a href="../ScriptReference/AudioSource-minDistance.html">minDistance</a></strong></td>
+	<td style="text-align:left;">Sets the minimum distance at which the AudioSource.clip no longer rises in volumes. The sound starts to attenuate beyond the minimum distance.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong><a href="SciptRef:AudioSource-mute">mute</a></strong></td>
+	<td style="text-align:left;">Mutes the AudioSource.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong><a href="../ScriptReference/AudioSource-pitch.html">pitch</a></strong></td>
+	<td style="text-align:left;">Sets the pitch of the <code>AudioSource.clip</code>. WebGL only supports positive pitch values.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong><a href="../ScriptReference/AudioSource-playOnAwake.html">playOnAwake</a></strong></td>
+	<td style="text-align:left;">Plays the AudioSource on Awake.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong><a href="../ScriptReference/AudioSource-rollofMode.html">rolloffMode</a></strong></td>
+	<td style="text-align:left;">Sets the AudioSource attenuation over distance.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong><a href="../ScriptReference/AudioSource-time.html">time</a></strong></td>
+	<td style="text-align:left;">Sets the playback position in seconds.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong><a href="../ScriptReference/AudioSource-timeSamples.html">timeSamples</a></strong></td>
+	<td style="text-align:left;">Sets the playback position in Pulse-code modulation (PCM) samples.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong><a href="../ScriptReference/AudioSource-velocityUpdateMode.html">velocityUpdateMode</a></strong></td>
+	<td style="text-align:left;">Sets whether the AudioSource updates in the fixed or dynamic update loop.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong><a href="../ScriptReference/AudioSource-volume.html">volume</a></strong></td>
+	<td style="text-align:left;">Sets the volume of the AudioSource (0.0 to 1.0).</td>
+</tr>
+</tbody>
+</table>
 
-<h2>AudioClip</h2>
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
 
-<p>WebGL 中的音频剪辑将始终以 AAC 格式导入，因为不同浏览器广泛支持该格式。</p>
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>方法</strong></th>
+	<th style="text-align:left;"><strong>Summary</strong></th>
+</tr>
+</thead>
 
-<p>支持以下 <a href="../ScriptReference/AudioClip.html"><code>AudioClip</code></a> API：</p>
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong><a href="../ScriptReference/AudioSource.Pause.html">Pause</a></strong></td>
+	<td style="text-align:left;">Pauses the <code>AudioSource.clip</code>.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong><a href="../ScriptReference/AudioSource.Play.html">Play</a></strong></td>
+	<td style="text-align:left;">Plays the <code>AudioSource.clip</code>.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong><a href="../ScriptReference/AudioSource.PlayDelayed.html">PlayDelayed</a></strong></td>
+	<td style="text-align:left;">Plays the <code>AudioSource.clip</code> with a delay you specify in seconds.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong><a href="../ScriptReference/AudioSource.PlayOneShot.html">PlayOneShot</a></strong></td>
+	<td style="text-align:left;">Plays an <a href="../ScriptReference/AudioSource-clip.html">AudioClip</a> and scales the AudioSource volume by volumeScale.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong><a href="../ScriptReference/AudioSource.PlayScheduled.html">PlayScheduled</a></strong></td>
+	<td style="text-align:left;">Plays the AudioSource at a time you specify.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong><a href="../ScriptReference/AudioSource.SetScheduledEndTime.html">SetScheduledEndTime</a></strong></td>
+	<td style="text-align:left;">Sets a time that a scheduled <code>AudioSource.clip</code> ends.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong><a href="../ScriptReference/AudioSource.SetScheduledStartTime.html">SetScheduledStartTime</a></strong></td>
+	<td style="text-align:left;">Sets the time that a scheduled <code>AudioSource.clip</code> starts.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong><a href="../ScriptReference/AudioSource.Stop.html">Stop</a></strong></td>
+	<td style="text-align:left;">Stops playing the <code>AudioSource.clip</code>.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong><a href="../ScriptReference/AudioSource.UnPause.html">UnPause</a></strong></td>
+	<td style="text-align:left;">Unpauses a paused <code>AudioSource.clip</code>.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong><a href="../ScriptReference/AudioSource.PlayClipAtPoint.html">PlayClipAtPoint</a></strong></td>
+	<td style="text-align:left;">Plays an <code>AudioSource.clip</code> at a given position in the worldspace.</td>
+</tr>
+</tbody>
+</table>
 
-<p><strong>属性</strong></p>
+<h2>AudioClip <a name="audioclip"></a>
+</h2>
 
-<ul>
-<li><a href="../ScriptReference/AudioClip-length.html"><code>length</code></a></li>
-<li><a href="../ScriptReference/AudioClip-loadState.html"><code>loadState</code></a></li>
-<li><a href="../ScriptReference/AudioClip-samples.html"><code>samples</code></a></li>
-</ul>
+<p>Unity WebGL imports <a href="https://docs.unity3d.com/2021.1/Documentation/ScriptReference/AudioClip.html">AudioClip</a> files in the AAC Format, which is widely browser supported. Unity WebGL supports the following AudioClip APIs: </p>
 
-<p><strong>方法</strong></p>
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
 
-<ul>
-<li>部分支持 <a href="../ScriptReference/AudioClip.Create.html"><code>AudioClip.Create</code></a>：仅当 streaming 参数设置为 false 时才有效，并可在调用 <code>AudioClip.Create</code> 时加载完整的音频样本。然后，该函数会创建剪辑并在返回控制之前加载所有样本。</li>
-<li>部分支持 <a href="../ScriptReference/AudioClip.SetData.html"><code>AudioClip.SetData</code></a>：只能用于替换 AudioClip 的全部内容。<code>offsetSamples</code> 参数将被忽略。</li>
-</ul>
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>属性</strong></th>
+	<th style="text-align:left;"><strong>Summary</strong></th>
+</tr>
+</thead>
 
-<h2>SystemInfo.supportsAudio</h2>
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong><a href="../ScriptReference/AudioClip-length.html">length</a></strong></td>
+	<td style="text-align:left;">The length of the AudioClip in seconds.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong><a href="../ScriptReference/AudioClip-loadState.html">loadState</a></strong></td>
+	<td style="text-align:left;">Returns the current load state of the audio data associated with an AudioClip.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong><a href="../ScriptReference/AudioClip-samples.html">samples</a></strong></td>
+	<td style="text-align:left;">The length of the AudioClip in samples.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong><a href="../ScriptReference/AudioClip-loadType.html">loadType</a></strong></td>
+	<td style="text-align:left;">The load type of the clip. You can set the AudioClip load type in the Inspector.</td>
+</tr>
+</tbody>
+</table>
 
-<p><a href="../ScriptReference/SystemInfo-supportsAudio.html"><code>SystemInfo.supportsAudio</code></a> 在 WebGL 上未实现，并始终返回 true。</p>
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
 
-<h2>WWW.audioClip</h2>
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>方法</strong></th>
+	<th style="text-align:left;"><strong>Summary</strong></th>
+	<th style="text-align:left;"><strong>其他信息</strong></th>
+</tr>
+</thead>
 
-<p>如果音频剪辑采用浏览器本机支持的格式，则 <a href="../ScriptReference/WWW-audioClip.html"><code>WWW.audioClip</code></a> 应该能在 WebGL 中工作。请参阅 <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats">Mozilla 关于支持的媒体格式的文档</a>以获取不同浏览器中支持的格式列表。</p>
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong><a href="../ScriptReference/AudioClip.Create.html">AudioClip.Create</a></strong></td>
+	<td style="text-align:left;">Creates an AudioClip with a name and length you specify.</td>
+	<td style="text-align:left;">Unity WebGL partially supports <code>AudioClip.Create</code>. Browsers do not support dynamic streaming, so to use <code>AudioClip.Create</code>, set the Stream to false.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong><a href="../ScriptReference/AudioClip.SetData.html">AudioClip.SetData</a></strong></td>
+	<td style="text-align:left;">Sets sample data in an AudioSource.clip.</td>
+	<td style="text-align:left;">Unity WebGL partially supports <code>AudioClip.SetData</code>. You can only use this method to replace the contents of an AudioClip. On WebGL, Unity ignores the <code>offsetSample</code> parameter.</td>
+</tr>
+</tbody>
+</table>
 
-<h2>Microphone</h2>
+<h2>Compressed Audio</h2>
 
-<p>WebGL 不支持 <a href="../ScriptReference/Microphone.html"><code>Microphone</code></a> 类。</p>
+<p>Unity WebGL does not support compressed audio. </p>
+
+<h2>Audio Playback and Browser Security</h2>
+
+<p>For security reasons, browsers don’t allow audio playback until an end user interacts with your application webpage via a mouse click, touch event or key press. Use a loading screen to allow the end user to interact with your application and start audio playback before your main content begins. </p>
 <!-- area:platforms -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -287,7 +475,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

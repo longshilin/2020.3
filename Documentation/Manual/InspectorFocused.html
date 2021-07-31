@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Focused Inspectors - Unity 手册">
-<title>Focused Inspectors - Unity 手册</title>
+<meta property="og:title" content="专属 Inspector - Unity 手册">
+<title>专属 Inspector - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/focused-inspector-multi.png">
-<meta name="description" content="A focused Inspector is a dedicated Inspector window for a specific GameObject, Unity component, or Asset. It always displays the properties of the item you opened it for, even if you select something else in the Scene or Project.">
-<meta property="og:description" content="A focused Inspector is a dedicated Inspector window for a specific GameObject, Unity component, or Asset. It always displays the properties of the item you opened it for, even if you select something else in the Scene or Project.">
+<meta name="description" content="专属 Inspector 是专门用于特定游戏对象、Unity 组件或资源的 Inspector 窗口。它始终显示为其打开的项目的属性，即使您在场景或项目中选择了其他内容。">
+<meta property="og:description" content="专属 Inspector 是专门用于特定游戏对象、Unity 组件或资源的 Inspector 窗口。它始终显示为其打开的项目的属性，即使您在场景或项目中选择了其他内容。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,122 +175,114 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UnityOverview.html">在 Unity 中操作</a></li>
 <li><a href="UsingTheEditor.html">Unity 的界面</a></li>
 <li><a href="UsingTheInspector.html">Inspector 窗口</a></li>
-<li>Focused Inspectors</li>
+<li>专属 Inspector</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="InspectorOptions.html"></a></span><div class="tip">Working in the Inspector</div>
+<span class="prev"><a href="InspectorOptions.html"></a></span><div class="tip">在 Inspector 中操作</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="EditingValueProperties.html"></a></span><div class="tip">Editing properties</div>
+<span class="next"><a href="EditingValueProperties.html"></a></span><div class="tip">编辑属性</div>
 </div>
 </div></div>
-<h1>Focused Inspectors</h1>
+<h1>专属 Inspector</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>A focused Inspector is a dedicated Inspector window for a specific GameObject, Unity component, or Asset. It always displays the properties of the item you opened it for, even if you select something else in the Scene or Project.</p>
+<p>专属 Inspector 是专门用于特定游戏对象、Unity 组件或资源的 Inspector 窗口。它始终显示为其打开的项目的属性，即使您在场景或项目中选择了其他内容。</p>
 
-<p>Focused Inspectors work just like regular Inspectors, except for the following differences:</p>
-
-<ul>
-<li>They do not update to show the properties for the current selection.</li>
-<li>You cannot lock them. Each focused Inspector shows a specific item’s properties, so there’s no need.</li>
-<li>You cannot toggle between Debug and Normal mode from a focused Inspector.</li>
-</ul>
-
-<p>You can open as many focused Inspectors as you want. Focused Inspectors open in floating windows that you can <a href="CustomizingYourWorkspace.html">reposition, dock, and resize</a> in the same way you can any other window.</p>
-
-<p>Unity saves any open focused Inspectors when you close a Project, and restores them when you reopen it.</p>
-
-<h2>Opening focused Inspectors</h2>
-
-<p>There are several ways to open a focused Inspector, depending on what you’re inspecting.</p>
-
-<p>Unity adds focused Inspectors to the list of open windows (Menu: <strong>Window &gt; Panels &gt; <em>[LIST OF OPEN WINDOWS]</em></strong>).</p>
-
-<p>Select a focused Inspector from the list to bring it to the front.</p>
-
-<h3>For GameObjects and Project Assets</h3>
-
-<p>To open a focused Inspector for a single GameObject or Asset:</p>
-
-<ol>
-<li>Right-click a GameObject in the Hierarchy view, or an Asset in the Project view.</li>
-<li>From the context menu, select <strong>Properties</strong>.</li>
-</ol>
-
-<p>Alternatively, select the GameObject or Asset and do one of the following:</p>
+<p>专属 Inspector 的工作方式与常规 Inspector 一样，但有以下不同：</p>
 
 <ul>
-<li>From the main menu, select <strong>Assets &gt; Properties</strong>.</li>
-<li>Use the <strong>Alt + P</strong> / <strong>Option + Shift + P</strong> shortcut.</li>
+<li>它显示的属性不会随当前选择而更新。</li>
+<li>您无法锁定。每个专属 Inspector 显示特定项目的属性，因此没有必要进行锁定。</li>
+<li>您无法从专属 Inspector 在调试和正常模式之间切换。</li>
 </ul>
 
-<p>Unity opens the focused Inspector in a new window.</p>
+<p>您可以根据需要打开任意数量的专属 Inspector。专属 Inspector 在一个浮动窗口中打开，您可以<a href="CustomizingYourWorkspace.html">重新定位、停靠和调整大小</a>，和其他任何窗口的方式一样。</p>
 
-<p>To open focused Inspectors for multiple GameObjects and/or Assets:</p>
+<p>当您关闭项目时，Unity 会保存所有打开的专属 Inspector，并在您重新打开项目时恢复。</p>
 
-<ol>
-<li>Select any combination of GameObjects in the Hierarchy view and Assets in the Project view.</li>
-<li>Do one of the following:</li>
-<li>Right-click one of the selected items, and from the context menu, select <strong>Properties</strong>.</li>
-<li>From the main menu, select <strong>Assets &gt; Properties</strong>.</li>
-<li>Use the <strong>Alt + P</strong> / <strong>Option + Shift + P</strong> shortcut.</li>
-</ol>
+<h2>打开专属 Inspector</h2>
 
-<p>Unity opens a new window with a focused Inspector tab for each selected item.</p>
+<p>有多种方法可以打开专属 Inspector，具体取决于您要检查的内容。</p>
 
-<p>The image below shows three selected items (left), two GameObjects and one Asset, and the window you get when you open a focused Inspector for them (right).</p>
+<p>Unity 将专属 Inspector 添加到打开的窗口列表中（菜单：<strong>Window &gt; Panels &gt; <em>[打开的窗口列表]</em></strong>）。</p>
+
+<p>从列表中选择一个专属 Inspector 以将其置于最前面。</p>
+
+<h3>对于游戏对象和项目资源</h3>
+
+<p>要为单个游戏对象或资源打开一个专属 Inspector：</p>
+
+<p>1.右键单击 Hierarchy 视图中的一个游戏对象，或 Project 视图中的一个资源。
+1.从上下文菜单中选择 <strong>Properties</strong>。</p>
+
+<p>或者，选择游戏对象或资源并执行以下操作之一：</p>
+
+<ul>
+<li>从主菜单中选择 <strong>Assets &gt; Properties</strong>。</li>
+<li>使用 <strong>Alt + P</strong>/** Option + Shift + P** 快捷键。</li>
+</ul>
+
+<p>Unity 在新窗口中打开专属 Inspector。</p>
+
+<p>要打开多个游戏对象/或资源的专属 Inspector：</p>
+
+<p>1.选择 Hierarchy 视图中的游戏对象和 Project 视图中的资源的任意组合。
+1.执行以下操作之一：
+ 右键单击选定的项之一，然后从上下文菜单中选择 <strong>Properties</strong>。
+ - 从主菜单中选择 <strong>Assets &gt; Properties</strong>。
+ - 使用 <strong>Alt + P</strong>/** Option + Shift + P** 快捷键。</p>
+
+<p>Unity 会打开一个新窗口，其中包含每个选定项目的专属 Inspector 选项卡。</p>
+
+<p>下图显示了三个选定的项目（左）：两个游戏对象和一个资源，以及为它们打开专属 Inspector 时的窗口（右）。</p>
 
 <figure>
 <img src="../uploads/Main/focused-inspector-multi.png" alt="">
 </figure>
 
-<h3>For components</h3>
+<h3>对于组件</h3>
 
-<p>To open a focused Inspector for one of a GameObject’s components:</p>
+<p>要为游戏对象的组件之一打开一个专属 Inspector：</p>
 
-<ol>
-<li>Inspect the GameObject and locate the component you want to open a focused Inspector for.</li>
-<li>From the component’s <strong>More items</strong> (<strong>⋮</strong>) menu, select <strong>Properties</strong>.</li>
-</ol>
+<p>1.查看游戏对象，并确定要为其打开专属 Inspector 的组件。
+1.从组件的 <strong>More items</strong> (<strong>⋮</strong>) 菜单，选择 <strong>Properties</strong>。</p>
 
-<p>This is useful for frequently edited properties. For example you may want to move a GameObject often, but leave the rest of its properties unchanged. In that case, you can open its Transform component.</p>
+<p>这对于经常编辑的属性很有用。例如，您可能需要频繁移动游戏对象，但保持其余属性不变。在这种情况下，您可以打开其 Transform 组件。</p>
 
-<p>The image below shows a Camera open in a regular Inspector (1), and its Transform component open in a focused Inspector (2). Notice that the focused Inspector’s tab header displays the name of the GameObject that the component belongs to.</p>
+<p>下图显示了在常规 Inspector (1) 中打开的摄像机，以及在专属 Inspector (2) 中打开的变换组件。请注意，专属 Inspector 的选项卡标题显示了该组件所属的游戏对象的名称。</p>
 
 <figure>
 <img src="../uploads/Main/focused-inspector-component.png" alt="">
 </figure>
 
-<h3>For reference properties</h3>
+<h3>用于引用属性</h3>
 
-<p>When a GameObject has reference properties, you can open focused Inspectors for the GameObjects or Assets they reference.</p>
+<p>当游戏对象具有引用属性时，您可以为它们引用的游戏对象或资源打开专属 Inspector。</p>
 
-<ol>
-<li>Inspect the GameObject and locate the property whose reference you want to open in a focused Inspector.</li>
-<li>Right-click the reference field and select <strong>Properties</strong> from the context menu.</li>
-</ol>
+<p>1.查看游戏对象并确定引用属性，其引用的内容将在专属 Inspector 中打开。
+1.右键单击引用字段，然后从上下文菜单中选择 <strong>Properties</strong> 。</p>
 
-<h3>For hover items</h3>
+<h3>对于悬停项目</h3>
 
-<p>You can set up a shortcut to open a focused Inspector for whichever item in the Hierarchy view or Project view that you hover the pointer over.</p>
+<p>您可以设置打开专属 Inspector 的快捷方式，用于将指针悬停在 Hierarchy 视图或 Project 视图中的任何项目。</p>
 
-<p>To assign a keyboard shortcut to the <strong>PropertyEditor &gt; OpenMouseOver</strong> command, use the <a href="ShortcutsManager.html">Shortcuts Manager</a>.</p>
+<p>要将键盘快捷键分配给 <strong>PropertyEditor &gt; OpenMouseOver</strong> 命令，请使用 <a href="ShortcutsManager.html">Shortcuts Manager</a>。</p>
 
-<p>This is useful when you want to open a focused Inspector for an item without affecting the current selection.</p>
+<p>当您想要打开一个项目的专属 Inspector 而不影响当前选择时，这很有用。</p>
 
-<h2>Locating a focused Inspector’s source</h2>
+<h2>定位专属 Inspector 的源</h2>
 
-<p>To locate the item whose properties are displayed in a focused Inspector, do one of the following:</p>
+<p>要定位专属 Inspector 中显示的属性所属的项目，请执行以下操作之一：</p>
 
 <ul>
-<li>From the focused Inspector’s <strong>More Items</strong> (<strong>⋮</strong>) menu, select <strong>Ping</strong>. Unity highlights the item in the Hierarchy view or the Project view.</li>
+<li>从专属 Inspector 的 <strong>More Items</strong> (<strong>⋮</strong>) 菜单，选择 <strong>Ping</strong>。Unity 在 Hierarchy 视图或 Project 视图中突出显示该项目。</li>
 </ul>
 
 <figure>
@@ -298,7 +290,7 @@
 </figure>
 
 <ul>
-<li>Hover the pointer over the focused Inspector’s tab header to display a tooltip that shows the full path to the item in the Scene Hierarchy or the Project.</li>
+<li>将指针悬停在专属 Inspector 的选项卡标题上将出现工具提示，显示项目在 Scene 层次结构或 Project 中的完整路径。</li>
 </ul>
 
 <figure>
@@ -306,16 +298,16 @@
 </figure>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="InspectorOptions.html"></a></span><div class="tip">Working in the Inspector</div>
+<span class="prev"><a href="InspectorOptions.html"></a></span><div class="tip">在 Inspector 中操作</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="EditingValueProperties.html"></a></span><div class="tip">Editing properties</div>
+<span class="next"><a href="EditingValueProperties.html"></a></span><div class="tip">编辑属性</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

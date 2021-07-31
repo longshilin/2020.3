@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Solving network issues - Unity 手册">
-<title>Solving network issues - Unity 手册</title>
-<meta name="description" content="Use these procedures to:">
-<meta property="og:description" content="Use these procedures to:">
+<meta property="og:title" content="解决网络问题 - Unity 手册">
+<title>解决网络问题 - Unity 手册</title>
+<meta name="description" content="使用这些过程来：">
+<meta property="og:description" content="使用这些过程来：">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,46 +174,49 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="PackagesList.html">包</a></li>
 <li><a href="Packages.html">Unity 的 Package Manager</a></li>
-<li><a href="upm-config.html">Configuration</a></li>
-<li>Solving network issues</li>
+<li><a href="upm-config.html">配置</a></li>
+<li>解决网络问题</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="upm-config.html"></a></span><div class="tip">Configuration</div>
+<span class="prev"><a href="upm-config.html"></a></span><div class="tip">配置</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="upm-config-scoped.html"></a></span><div class="tip">Scoped registry authentication</div>
+<span class="next"><a href="upm-config-scoped.html"></a></span><div class="tip">范围注册表身份验证</div>
 </div>
 </div></div>
-<h1>Solving network issues</h1>
+<h1>解决网络问题</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>Use these procedures to:</p>
+<p>使用这些过程来：</p>
 
 <ul>
 <li>
-<a href="#Firewall">Configure your firewall settings</a> so that Unity has access to the Package Manager registry server.</li>
+<a href="#Firewall">配置防火墙设置</a>以便 Unity 可以访问 Package Manager 注册表服务器。</li>
 <li>
-<a href="#Proxy">Configure your proxy server</a>, either by <a href="#Hub">setting environment variables for the Hub</a> or <a href="#SSL">custom certificate authority (CA) certificates</a>.</li>
+<a href="#Proxy">配置代理服务器</a>，或者通过<a href="#Hub">为 Hub 设置环境变量</a>或者<a href="#SSL">自定义证书颁发机构 (CA) 证书</a>。</li>
 </ul>
 
 <p><a name="Firewall"></a></p>
 
 <h2>配置防火墙</h2>
 
-<p>确保 Unity Package Manager 可以使用 HTTPS 访问以下域名：</p>
+<p>将以下域名添加到防火墙的允许域列表中：</p>
 
 <ul>
-<li>packages.unity.com</li>
-<li>download.packages.unity.com</li>
-<li>upm-cdn.unity.com（对于中国的地点，则是 upm-cdn-china.unitychina.cn）</li>
+<li><code>packages.unity.com</code></li>
+<li><code>download.packages.unity.com</code></li>
+<li>
+<code>upm-cdn.unity.com</code>（对于中国的地点，则是 <code>upm-cdn-china.unitychina.cn</code>）</li>
 </ul>
 
-<p>将上述域名添加到防火墙的允许域列表中。</p>
+<p>这样可确保 Unity Package Manager 可以使用 HTTPS 访问这些域名。</p>
+
+<p><strong>提示</strong>：请参阅操作系统的帮助以了解如何将域名添加到防火墙的安全列表中。</p>
 
 <p><a name="Proxy"></a></p>
 
@@ -223,22 +226,22 @@
 
 <p>您可以根据操作系统来全局设置这些变量（系统变量或用户变量）。或者，您可以<a href="#Hub">仅为 Unity Hub 设置环境变量</a>（在 Unity Hub 启动后）。</p>
 
-<p>For environments where you are behind a proxy server using a certificate that Package Manager does not recognize, you can configure <a href="#SSL">a custom certificate authority</a>.</p>
+<p>对于代理服务器之后的环境，要使用 Package Manager 无法识别的证书，您可以配置<a href="#SSL">自定义证书颁发机构</a>。</p>
 
 <p><a name="SSL"></a></p>
 
-<h3>Custom certificate authority</h3>
+<h3>自定义证书颁发机构</h3>
 
-<p>In some corporations and institutions, users can only access the internet through a proxy server. Some proxies unpack the HTTPS content and repack it with their own SSL certificate. In some cases, Unity Package Manager’s underlying HTTPS layer rejects these certificates because it does not recognize the certificate authority that emitted them, and treats the connection as a possible <a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">man-in-the-middle attack</a>. This means that you can’t use many features in Unity, including the Package Manager, unless you configure additional SSL certificate authorities to allow these certificates.</p>
+<p>在某些公司和机构中，用户只能通过代理服务器访问互联网。有些代理会解压缩 HTTPS 内容，并使用自己的 SSL 证书重新打包这些内容。某些情况下，Unity Package Manager 的基础 HTTPS 层会拒绝这些证书，因为它无法识别发出这些证书的颁发机构，因此将该连接视为可能是<a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">中间人攻击</a>。这意味着除非您配置其他 SSL 证书颁发机构以允许这些证书，否则您将无法在 Unity 中使用许多功能，包括 Package Manager。</p>
 
 <p>要配置其他 SSL 证书颁发机构，请执行以下操作：</p>
 
-<ol>
-<li><p>Locate the <a href="upm-config.html#upmconfig"><code>upmconfig.toml</code> global configuration file</a>. If the file does not already exist, create an empty text file.</p></li>
-<li>
-<p>Create a text file with one or more certificates for custom certificate authorities. The file should consist of one or more trusted certificates in the <a href="https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail">Privacy-Enhanced Mail</a> (PEM) format. For example:</p>
+<p>1.找到 <a href="upm-config.html#upmconfig"><code>upmconfig.toml</code> 全局配置文件位置</a>。如果该文件尚不存在，请创建一个空文本文件。</p>
 
-<pre><code class="lang-pem">-----BEGIN CERTIFICATE-----
+<p>1.创建一个文本文件，其中包含一个或多个自定义证书颁发机构的证书。该文件应包含一个或多个 <a href="https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail">Privacy-Enhanced Mail</a> (PEM) 格式的受信任证书。例如：</p>
+
+<pre><code>```lang-pem
+-----BEGIN CERTIFICATE-----
 MIIC+zCCAeOgAwIBAgIJAO0U6hVJnbvjMA0GCSqGSIb3DQEBBQUAMBQxEjAQBgNV
 BAMMCWxvY2FsaG9zdDAeFw0xOTAzMTIwMTIxMzRaFw0yOTAzMDkwMTIxMzRaMBQx
 EjAQBgNVBAMMCWxvY2FsaG9zdDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoC
@@ -278,16 +281,17 @@ NW1fiQG2SVufAQWbqz0lwcy2f8Lxb4bG+mRo64EtlOtCt/qMHt1i8b5QZ7dsvfPx
 H2sMNgcWfzd8qVttevESRmCD1ycEvkvOl77DZypoEd+A5wwzZr8TDRRu838fYxAe
 +o0bJW1sj6W3YQGx0qMmoRBxna3iw/nDmVG3KwcIzi7mULKn+gpFL6Lw8g==
 -----END CERTIFICATE-----
+```
 </code></pre>
-</li>
-<li><p>Save this file to the same folder as the global configuration file if possible, although Unity supports any location on the file system.</p></li>
-<li>
-<p>In the global configuration file, add the <strong>caFile</strong> attribute set to the absolute file path for your PEM file. For example:</p>
 
-<pre><code class="lang-toml">caFile = "C:\\ProgramData\\Unity\\config\\cert.pem"
+<p>2.尽管 Unity 支持文件系统上的任何位置，请尽量将此文件与全局配置文件保存在同一个文件夹中。</p>
+
+<p>4.在全局配置文件中，将 <strong>caFile</strong> 属性集添加到 PEM 文件的绝对文件路径。例如：</p>
+
+<pre><code>```lang-toml
+caFile = "C:\\ProgramData\\Unity\\config\\cert.pem"
+```
 </code></pre>
-</li>
-</ol>
 
 <p><a name="Hub"></a></p>
 
@@ -350,16 +354,16 @@ chmod +x launchUnityHub.command
 <p>3.如果愿意，可以将 <code>launchUnityHub.command</code> 文件移动到方便的位置（例如，<code>Desktop</code>）。</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="upm-config.html"></a></span><div class="tip">Configuration</div>
+<span class="prev"><a href="upm-config.html"></a></span><div class="tip">配置</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="upm-config-scoped.html"></a></span><div class="tip">Scoped registry authentication</div>
+<span class="next"><a href="upm-config-scoped.html"></a></span><div class="tip">范围注册表身份验证</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

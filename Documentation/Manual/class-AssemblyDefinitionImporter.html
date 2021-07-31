@@ -14,8 +14,8 @@
 <meta property="og:title" content="程序集定义 (Assembly Definition) 属性 - Unity 手册">
 <title>程序集定义 (Assembly Definition) 属性 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/asmdef-10.png">
-<meta name="description" content="Click on an Assembly Definition asset to set the properties for an assembly in the Inspector window.">
-<meta property="og:description" content="Click on an Assembly Definition asset to set the properties for an assembly in the Inspector window.">
+<meta name="description" content="单击程序集定义资源 (Assembly Definition Asset) 可以在 Inspector 窗口中设置程序集的属性。">
+<meta property="og:description" content="单击程序集定义资源 (Assembly Definition Asset) 可以在 Inspector 窗口中设置程序集的属性。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,28 +175,28 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="ScriptingSection.html">Scripting</a></li>
-<li><a href="unity-architecture.html">Unity architecture</a></li>
-<li><a href="script-compilation.html">Script compilation</a></li>
-<li><a href="ScriptCompilationAssemblyDefinitionFiles.html">Assembly definitions</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="ScriptingSection.html">脚本</a></li>
+<li><a href="unity-architecture.html">Unity 架构</a></li>
+<li><a href="script-compilation.html">脚本编译</a></li>
+<li><a href="ScriptCompilationAssemblyDefinitionFiles.html">程序集定义</a></li>
 <li>程序集定义 (Assembly Definition) 属性</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="ScriptCompilationAssemblyDefinitionFiles.html"></a></span><div class="tip">Assembly definitions</div>
+<span class="prev"><a href="ScriptCompilationAssemblyDefinitionFiles.html"></a></span><div class="tip">程序集定义</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="class-AssemblyDefinitionReferenceImporter.html"></a></span><div class="tip">Assembly Definition Reference properties</div>
+<span class="next"><a href="class-AssemblyDefinitionReferenceImporter.html"></a></span><div class="tip">程序集定义引用属性</div>
 </div>
 </div></div>
 <h1>程序集定义 (Assembly Definition) 属性</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>Click on an Assembly Definition asset to set the properties for an assembly in the Inspector window.</p>
+<p>单击程序集定义资源 (Assembly Definition Asset) 可以在 Inspector 窗口中设置程序集的属性。</p>
 
-<p>Assembly Definition properties are divided into the following sections:</p>
+<p>程序集定义属性分为以下部分：</p>
 
 <ul>
 <li><a href="#name">Name and General</a></li>
@@ -232,28 +232,32 @@
 <tbody>
 <tr>
 	<td style="text-align:left;">名称</td>
-	<td style="text-align:left;">The name for the assembly (without a file extension). Assembly names must be unique across the Project. Consider using a reverse-DNS naming style to reduce the chance of name conflicts, especially if you want to use the assembly in more than one Project. <br> <br>Note: Unity uses the name you assign to the Assembly Definition asset as the default value of the Name field, but you can change the name as desired. However, if you reference an Assembly Definition by its name rather than its GUID, changing the name will break the reference.</td>
+	<td style="text-align:left;">程序集的名称（不含文件扩展名）。程序集名称在整个项目中必须唯一。请考虑使用 reverse-DNS 命名样式降低名称冲突的风险，尤其是希望在多个项目中使用该程序集的情况下。<br> <br>注意：Unity 会将您分配给程序集定义资源的名称用作 Name 字段的默认值，但您可以根据需要更改此名称。但是，如果您通过名称而不是 GUID 来引用程序集定义，则更改名称将使引用无效。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">Allow ‘unsafe’ code</td>
-	<td style="text-align:left;">Enable the Allow ‘unsafe’ Code option if you have used the C# <code>unsafe</code> keyword in a script within the assembly. When you enable this setting, Unity passes the /unsafe option to the C# compiler when it compiles the assembly.</td>
+	<td style="text-align:left;">如果在程序集内的脚本中使用了 C# <code>unsafe</code> 关键字，请启用 Allow ‘unsafe’ Code 选项。启用此设置后，Unity 在编译程序集时会将 /unsafe 选项传递到 C# 编译器。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">Auto Referenced</td>
-	<td style="text-align:left;">Specify whether the predefined assemblies should reference this Project assembly. When you disable the Auto Reference option, Unity does not automatically reference the assembly during compilation. This has no effect on whether Unity includes it in the build.</td>
-</tr>
-<tr>
-	<td style="text-align:left;">Override References</td>
-	<td style="text-align:left;">Enable the Override References setting to manually specify which precompiled assemblies this assembly depends upon. When you enable Override References, the Inspector shows the Assembly References section, which you can use to specify the references. <br> <br>A precompiled assembly is a library compiled outside your Unity Project. By default, assemblies you define in your Project reference all the precompiled assemblies you add to the Project, which matches how the predefined assemblies reference all precompiled assemblies. When you enable Override References, this assembly only references the precompiled assemblies you add under Assembly References. Note: To prevent Project assemblies from automatically referencing a precompiled assembly, you can disable its Auto Referenced option. See Plugin Inspector for more information.</td>
+	<td style="text-align:left;">指定预定义的程序集是否应引用此项目程序集。禁用 Auto Reference 选项后，Unity 不会在编译过程中自动引用该程序集。这不会影响 Unity 是否将文件包含在构建中。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">No Engine References</td>
 	<td style="text-align:left;">启用此属性后，Unity 在编译程序集时不会添加对 UnityEditor 或 UnityEngine 的引用。</td>
 </tr>
+<tr>
+	<td style="text-align:left;">Override References</td>
+	<td style="text-align:left;">启用 Override References 设置可以手动指定此程序集依赖哪些预编译的程序集。启用 Override References 后，Inspector 会显示 Assembly References 部分，在此部分中可以指定引用。<br> <br>预编译的程序集是在 Unity 项目外编译的库。默认情况下，在项目中定义的程序集将会引用添加到项目中的所有预编译程序集，这一点与预定义程序集引用所有预编译程序集的方式一致。启用 Override References 后，此程序集仅引用您在 Assembly References 下添加的预编译程序集。注意：为了防止项目程序集自动引用预编译程序集，可以禁用 Auto Referenced 选项。请参阅 Plugin Inspector 以了解更多信息。</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Root Namespace</td>
+	<td style="text-align:left;">The default namespace for scripts in this assembly definition. If you use either <a href="https://docs.unity3d.com/Packages/com.unity.ide.rider@latest/">Rider</a> or <a href="https://docs.unity3d.com/Packages/com.unity.ide.visualstudio@latest/">Visual Studio</a> as your code editor, they automatically add this namespace to any new scripts you create in this assembly definition.</td>
+</tr>
 </tbody>
 </table>
 
-<p>See <a href="ScriptCompilationAssemblyDefinitionFiles.html#create-asmdef">Creating an Assembly Definition asset</a></p>
+<p>请参阅[创建程序集定义资源]。</p>
 
 <p><a name="define-constraints"></a></p>
 
@@ -263,47 +267,47 @@
 <img src="../uploads/Main/asmdef-11.png" alt="">
 </figure>
 
-<p>Specifies the compiler #define directives that must be defined for Unity to compile or reference an assembly.</p>
+<p>指定编译器 #define 指令；必须定义这些指令，才能让 Unity 编译或引用程序集。</p>
 
-<p>Unity only compiles and references a Project assembly if <strong>ALL</strong> of the <strong>Define Constraints</strong> are satisfied. Constraints work like the #if preprocessor directive in C#, but on the assembly level instead of the script level. You must define all the symbols in the <strong>Define Constraints</strong> setting for the constraints to be satisfied.</p>
+<p>Unity 仅在已满足 <strong>Define Constraints</strong> 中的__所有__约束条件时才会编译和引用项目程序集。约束的作用与 C# 中的 #if 预处理器指令类似，但在程序集级别（而不是脚本级别）运行。您必须定义 <strong>Define Constraints</strong> 设置中的所有符号，才能满足这些约束。</p>
 
-<p>To specify that a symbol must be undefined, prefix it with a negating ! (bang) symbol. For example, if you specify the following symbols as the Define Constraints:</p>
+<p>要表示必须取消定义某个符号，请在该符号前面添加否定<code>!</code>（叹号）符号作为前缀。例如，如果在 Define Constraints 中指定以下符号：</p>
 
 <pre><code>!ENABLE_IL2CPP
 UNITY_2018_3_OR_NEWER
 </code></pre>
 
-<p>The constraints are satisfied when the symbol ENABLE_IL2CPP is not defined and the symbol UNITY_2018_3_OR_NEWER is defined. In other words, Unity only compiles and references this assembly on non-IL2CPP scripting runtimes for Unity 2018.3 or newer.</p>
+<p>当符号 ENABLE_IL2CPP 未定义且符号 UNITY_2018_3_OR_NEWER 已定义时，则满足这些约束。换言之，仅在 Unity 2018.3 或更高版本的非 IL2CPP 脚本运行时中，Unity 才编译和引用此程序集。</p>
 
-<p>You can use the <code>||</code> (OR) operator to specify that at least one of the constraints must be present in order for the constraints to be satisfied. For example:</p>
+<p>可以使用 <code>||</code> (OR) 运算符来指定必须存在至少一个约束才能满足这些约束条件。例如：</p>
 
 <pre><code>UNITY_IOS || UNITY_EDITOR_OSX
 UNITY_2019_3_OR_NEWER
 !UNITY_ANDROID
 </code></pre>
 
-<p>The constraints are satisfied when either UNITY_IOS or UNITY_EDITOR_OSX and UNITY_2019_3_OR_NEWER are defined and UNITY_ANDROID is not defined. Individual lines are analogous to performing a logical AND between the constraints in them. The above example is equivalent to:</p>
+<p>例如：UNITY_IOS 或 UNITY_EDITOR_OSX 已定义且 UNITY_2019_3_OR_NEWER UNITY_ANDROID 未定义时满足约束。各行类似于在约束之间执行逻辑 AND。以上示例等同于：</p>
 
 <pre><code> (UNITY_IOS OR UNITY_EDITOR_OSX) AND (UNITY_2019_3_OR_NEWER) AND (NOT UNITY_ANDROID)
 </code></pre>
 
-<p>You can use any of Unity’s built-in #define directives, symbols defined in a global compiler response (.rsp) file, and any symbols defined in the Project’s Scripting Define Symbols Player setting. See <a href="PlatformDependentCompilation.html">Platform dependent compilation</a> for more information, including a list of the built-in symbols. </p>
+<p>可以使用 Unity 的任何内置 #define 指令、全局编译器响应文件 (.rsp) 定义的符号，以及项目的 Scripting Define Symbols Player 设置中定义的任何符号。请参阅[平台相关的编译]以了解更多信息（包括内置符号的列表）。</p>
 
-<p><strong>Note:</strong> The Scripting Define Symbols settings are platform-specific. If you use this setting to define whether Unity should use an assembly, make sure that you define the necessary symbols on all of the relevant platforms.</p>
+<p>__注意：__Scripting Define Symbols 设置与具体平台有关。如果使用此设置来定义 Unity 是否应使用程序集，请务必定义所有相关平台上的必要符号。</p>
 
-<p>See <a href="ScriptCompilationAssemblyDefinitionFiles.html#conditional-assembly">Conditionally including an assembly</a>.</p>
+<p>请参阅[有条件地包含一个程序集]。</p>
 
 <p><a name="invalid-constraints"></a></p>
 
-<h3>Invalid or incompatible constraints</h3>
+<h3>无效或不兼容的约束</h3>
 
-<p>Unity marks each constraint with an indicator based on the currently defined settings. For example, the following set of two constraints indicates that one symbol is currently defined while the other is not. Since each individual constraint must be true for the overall constraint to be satisfied, the Define Constraints box is also marked as invalid or incompatible.</p>
+<p>Unity 根据当前定义的设置使用指示器标记每个约束。例如，以下这两个约束指示当前一个符号有定义，而另一个未定义。由于要满足整体约束条件，每个单独的约束条件都必须为真，因此 Define Constraints 框也被标记为无效或不兼容。</p>
 
 <figure>
 <img src="../uploads/Main/asmdef-12.png" alt="">
 </figure>
 
-<p>To satisfy the constraints in this example, you could change the Scripting Backend to IL2CPP (in the Player Settings). However, what often matters is how the constraints are evaluated when you build the project, not how the constraints appear in the Unity Editor. For example, you might have an assembly that you only want to include in builds that use the IL2CPP backend, but not on other builds that use the Mono backend.</p>
+<p>为了满足本示例中的约束，您可以将 Scripting Backend 更改为 IL2CPP（位于 Player Settings 中）。但是，通常重要的是构建项目时如何评估约束，而不是约束在 Unity 编辑器中的显示方式。例如，您可能有一个程序集，您只想将其包含在使用 IL2CPP 后端的构建中，而不包含在使用 Mono 后端的其他构建中。</p>
 
 <p><a name="asmdef-references"></a></p>
 
@@ -329,16 +333,16 @@ UNITY_2019_3_OR_NEWER
 <tbody>
 <tr>
 	<td style="text-align:left;">Assembly Definition References</td>
-	<td style="text-align:left;">Specify references to other assemblies that you have created using Assembly Definition assets. Unity uses these references to compile the assembly and also define the dependencies between assemblies.</td>
+	<td style="text-align:left;">指定对使用程序集定义资源创建的其他程序集的引用。Unity 使用这些引用来编译程序集，还定义程序集之间的依赖关系。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">Use GUIDs</td>
-	<td style="text-align:left;">This setting controls how Unity serializes references to other Assembly Definition assets. When you enable this property, Unity saves the reference as the asset’s GUID, instead of the Assembly Definition name. It’s good practice to use the GUID instead of the name, because it means you can make changes to the name of an Assembly Definition asset without having to update other Assembly Definition files that reference it.</td>
+	<td style="text-align:left;">此设置控制 Unity 如何序列化对其他程序集定义资源的引用。启用此属性后，Unity 将这些引用另存为资源的 GUID，而不是程序集定义的名称。最好是使用 GUID 而不是名称，因为这意味着可以更改程序集定义资源的名称，而不必更新引用该程序集的其他程序集定义文件。</td>
 </tr>
 </tbody>
 </table>
 
-<p>See <a href="ScriptCompilationAssemblyDefinitionFiles.html#create-asmdef">Creating an Assembly Definition asset</a></p>
+<p>请参阅[创建程序集定义资源]。</p>
 
 <p><a name="assembly-references"></a></p>
 
@@ -348,9 +352,9 @@ UNITY_2019_3_OR_NEWER
 <img src="../uploads/Main/asmdef-14.png" alt="">
 </figure>
 
-<p>The Assembly References section only appears when you enable the <strong>Override References</strong> property (in the <a href="#general">General</a> section). Use this area to specify any references to precompiled assemblies on which this assembly depends.</p>
+<p>Assembly References 部分仅在您启用 <strong>Override References</strong> 属性（位于 [General] 部分）时出现。使用这一区域可以指定对此程序集依赖的预编译程序集的任何引用。</p>
 
-<p>See <a href="ScriptCompilationAssemblyDefinitionFiles.html#reference-precompiled-assembly">Referencing a precompiled, plugin assembly</a></p>
+<p>请参阅[引用预编译的插件程序集]</p>
 
 <p><a name="platforms"></a></p>
 
@@ -362,7 +366,7 @@ UNITY_2019_3_OR_NEWER
 
 <p>设置程序集的平台兼容性。Unity 仅在包含（或不排除）的平台上编译或引用此程序集。</p>
 
-<p>See <a href="ScriptCompilationAssemblyDefinitionFiles.html#create-platform-specific">Creating a platform-specific assembly</a></p>
+<p>请参阅[创建特定于平台的程序集]</p>
 
 <p><a name="version-defines"></a></p>
 
@@ -372,7 +376,7 @@ UNITY_2019_3_OR_NEWER
 <img src="../uploads/Main/asmdef-16.png" alt="">
 </figure>
 
-<p>Specify which symbols to define according to the versions of the packages and modules in a project.</p>
+<p>根据项目中包和模块的版本指定要定义的符号。</p>
 
 <table>
 <colgroup>
@@ -389,39 +393,47 @@ UNITY_2019_3_OR_NEWER
 
 <tbody>
 <tr>
-	<td style="text-align:left;">Resource.</td>
-	<td style="text-align:left;">A package or module</td>
+	<td style="text-align:left;">Resource</td>
+	<td style="text-align:left;">一个包或模块</td>
 </tr>
 <tr>
-	<td style="text-align:left;">Define.</td>
-	<td style="text-align:left;">The symbol to define when an applicable version of the Resource is also present in this Unity Project.</td>
+	<td style="text-align:left;">Define</td>
+	<td style="text-align:left;">该符号定义 Resource 的适用版本何时也出现在此 Unity 项目中。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">Expression</td>
-	<td style="text-align:left;">An expression defining a version or range of versions. See Version Define expressions.</td>
+	<td style="text-align:left;">定义版本或版本范围的表达式。请参阅版本定义表达式。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">Expression outcome</td>
-	<td style="text-align:left;">The Expression evaluated as a logical statement, where “x” is the version checked. If the Expression outcome says, Invalid, then the Expression is malformed.</td>
+	<td style="text-align:left;">该表达式将作为逻辑语句进行求值，其中 “x” 是要检查版本。如果表达式结果显示无效，则表达式格式错误。</td>
 </tr>
 </tbody>
 </table>
 
-<p><a href="ScriptCompilationAssemblyDefinitionFiles.html#define-symbols">Defining symbols based on project packages</a></p>
+<p>[基于项目包定义符号]</p>
 <!-- Start_links -->
-<!-- End_links -->
+
+<p>[有条件地包含一个程序集]：ScriptCompilationAssemblyDefinitionFiles.html#conditional-assembly
+[创建特定于平台的程序集]：ScriptCompilationAssemblyDefinitionFiles.html#create-platform-specific
+[创建程序集定义资源]：ScriptCompilationAssemblyDefinitionFiles.html#create-asmdef
+[基于项目包定义符号]：ScriptCompilationAssemblyDefinitionFiles.html#define-symbols
+[General]：#general
+[平台相关的编译]：PlatformDependentCompilation.html
+[引用预编译的插件程序集]：ScriptCompilationAssemblyDefinitionFiles.html#reference-precompiled-assembly
+<!-- End_links --></p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="ScriptCompilationAssemblyDefinitionFiles.html"></a></span><div class="tip">Assembly definitions</div>
+<span class="prev"><a href="ScriptCompilationAssemblyDefinitionFiles.html"></a></span><div class="tip">程序集定义</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="class-AssemblyDefinitionReferenceImporter.html"></a></span><div class="tip">Assembly Definition Reference properties</div>
+<span class="next"><a href="class-AssemblyDefinitionReferenceImporter.html"></a></span><div class="tip">程序集定义引用属性</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

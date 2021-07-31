@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Package states and lifecycle - Unity 手册">
-<title>Package states and lifecycle - Unity 手册</title>
+<meta property="og:title" content="包状态和生命周期 - Unity 手册">
+<title>包状态和生命周期 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/iconPreview.png">
-<meta name="description" content="After developing a package to the point where it is ready for Unity users to test it and provide feedback, a package enters the preview state. Packages in this state usually appear in the Unity Editor with the  label and often use preview as part of their version.">
-<meta property="og:description" content="After developing a package to the point where it is ready for Unity users to test it and provide feedback, a package enters the preview state. Packages in this state usually appear in the Unity Editor with the  label and often use preview as part of their version.">
+<meta name="description" content="在一个包开发达到 Unity 用户可以测试包并提供反馈的阶段后，该包进入预览状态。处于这种状态的包在 Unity 编辑器中显示时通常带有  标签，并通常在其版本中使用 preview 字样。">
+<meta property="og:description" content="在一个包开发达到 Unity 用户可以测试包并提供反馈的阶段后，该包进入预览状态。处于这种状态的包在 Unity 编辑器中显示时通常带有  标签，并通常在其版本中使用 preview 字样。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,25 +175,25 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="PackagesList.html">包</a></li>
 <li><a href="Packages.html">Unity 的 Package Manager</a></li>
 <li><a href="upm-concepts.html">概念</a></li>
-<li>Package states and lifecycle</li>
+<li>包状态和生命周期</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="upm-concepts.html"></a></span><div class="tip">概念</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="upm-dependencies.html"></a></span><div class="tip">Dependency and resolution</div>
+<span class="next"><a href="upm-dependencies.html"></a></span><div class="tip">依赖和解析</div>
 </div>
 </div></div>
-<h1>Package states and lifecycle</h1>
+<h1>包状态和生命周期</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>After developing a package to the point where it is ready for Unity users to test it and provide feedback, a package enters the <a href="#Preview">preview</a> state. Packages in this state usually appear in the Unity Editor with the <img src="../uploads/Main/iconPreview.png" alt=""> label and often use <code>preview</code> as part of their <a href="upm-semver.html">version</a>.</p>
+<p>在一个包开发达到 Unity 用户可以测试包并提供反馈的阶段后，该包进入<a href="#Preview">预览</a>状态。处于这种状态的包在 Unity 编辑器中显示时通常带有 <img src="../uploads/Main/iconPreview.png" alt=""> 标签，并通常在其<a href="upm-semver.html">版本</a>中使用 <code>preview</code> 字样。</p>
 
 <table>
 <colgroup>
@@ -209,21 +209,21 @@
 
 <tbody>
 <tr>
-	<td style="text-align:left;">In addition to the preview packages that are discoverable in the Package Manager window, there are some preview packages that are on Unity’s package registry server but don’t appear in the <a href="upm-ui-filter.html">Unity Registry</a> context. These packages are not discoverable in the Package Manager window because:<br><br>- They are considered to be somewhat experimental, and therefore too risky to use in production. Some of these packages require a lot of training and expertise and are therefore recommended only in specific circumstances.<br>- They are support packages, meaning that you shouldn’t use them on their own because they are designed to provide shared or additional functionality to existing packages.<br><br>Undiscoverable packages can still appear in the Package Manager window if they were previously installed in your project. However, they are hidden so that users don’t discover them by accident and use them without realizing the risks.</td>
+	<td style="text-align:left;">除了在 Package Manager 窗口中可见的预览包之外，还有一些预览包位于 Unity 的包注册表服务器上，但不出现在 <a href="upm-ui-filter.html">Unity Registry</a> 上下文中。这些包在 Package Manager 窗口中是不可见的，因为：<br><br>- 它们被视为是有点实验性的，因此在生产中使用是有风险的。其中一些包需要大量培训和专业知识，因此仅建议在特定情况下使用。<br>- 它们是支持包，这意味着您不应单独使用它们，因为它们旨在为现有包提供共享或附加功能。<br><br>如果之前在项目中安装了不可见的包，它们仍会出现在 Package Manager 窗口中。但是，它们是隐藏的，因此用户不会意外发现它们并在没有意识到风险的情况下使用它们。</td>
 </tr>
 </tbody>
 </table>
 
-<p>Unity’s release management only grants a package the <a href="#Verified">verified</a> status after it passes several testing stages and validation procedures, which also include checks for appropriate documentation, changelog, and license files. Packages in this state may appear in the Unity Editor with the <img src="/Users/amylouise/Documents/unitydoc_pacman/content/uploads/Main/iconVerified.png" alt=""> label and never use <code>preview</code> as part of their <a href="upm-semver.html">version</a>.</p>
+<p>仅当一个包通过多个测试阶段和验证过程（包括对相应文档、变更日志和许可证文件进行检查）之后，Unity 的版本管理功能才会向该包授予<a href="#Verified">已验证</a>状态。处于这种状态的包在 Unity 编辑器中显示时可能会带有 <img src="../uploads/Main/iconVerified.png" alt=""> 标签，并且绝不会在其<a href="upm-semver.html">版本</a>中使用 <code>preview</code> 字样。</p>
 
-<p>If the package developer introduces changing or breaking changes to a package (either by introducing a change that breaks an API or affects its usage), that package returns to the preview state and the Package Manager does not suggest the new preview package as a possible update for the verified version.</p>
+<p>如果包的开发者对包进行更改或重大更改（引入某项破坏 API 或影响其使用的更改），则该包将回到预览状态，并且 Package Manager 不建议使用新的预览包作为已验证版本的更新选项。</p>
 
 <figure>
 <img src="../uploads/Main/upm-lifecycle.svg" alt="Unity Package Manager 中的包生命周期">
 <figcaption>Unity Package Manager 中的包生命周期</figcaption>
 </figure>
 
-<p>These states match where the package is in the development cycle:</p>
+<p>以下状态表示包在开发周期中所处的阶段：</p>
 
 <table>
 <colgroup>
@@ -241,7 +241,7 @@
 <tbody>
 <tr>
 	<td style="text-align:left;">
-<a name="Develop"></a><strong>开发中 (In Development)</strong>
+<a name="Develop"></a><strong>自定义</strong>
 </td>
 	<td style="text-align:left;">包开发者创建包。通常，这相当于将包嵌入到开发者的项目中。</td>
 </tr>
@@ -249,7 +249,7 @@
 	<td style="text-align:left;">
 <a name="Preview"></a><strong>预览 (Preview)</strong>
 </td>
-	<td style="text-align:left;">When the package is ready for testing, the Unity package developer makes sure there is some basic test coverage, and that the package passes testing with the <a href="https://docs.unity3d.com/Packages/com.unity.package-validation-suite@latest">package validation suite</a>. The package also needs at least preliminary documentation, an updated changelog, and licensing before the Unity package developer can apply to publish the package on Unity’s official package registry.<br><br>At this point, the package is available for testing, so that any eligible Unity user can provide the developer with feedback. Most packages are available to any Unity users, although a few packages are limited to Unity IDs with specific entitlements. <br><br>Preview packages can go through many changes before they are ready to be verified for a specific version of Unity. At some point in the future, they might pass <a href="pack-safe.html">the verification requirements</a>; however, they might also be deprecated instead. Because there is no guarantee for future support, you should not use preview packages in production. For a list of preview packages available for this version, see <a href="pack-preview.html">Preview packages</a>.</td>
+	<td style="text-align:left;">当包准备好接受测试时，Unity 包开发者将确保基本的测试覆盖范围，并且确保该包通过了<a href="https://docs.unity3d.com/Packages/com.unity.package-validation-suite@latest">包验证套件 (Package Validation Suite)</a> 的测试。该包还至少需要初步文档、更新的变更日志和授权许可，然后 Unity 包开发者才能申请在 Unity 的官方包注册表上发布该包。<br><br>到此时为止，该包可供测试，这样任何符合条件的 Unity 用户都可以向开发者提供反馈。大多数包都可供任何 Unity 用户使用，但少数包仅限具有特定权利的 Unity ID 使用。<br><br>预览包可能要经历许多次更改，然后才能变为适合特定 Unity 版本的已验证状态。在将来的某个时候，预览包可能会通过<a href="pack-safe.html">验证要求</a>；但是，它们也可能被弃用。由于不能保证将来会获得支持，因此不应在实际生产中使用预览包。有关该版本可用的预览包的列表，请参阅<a href="pack-preview.html">预览包</a>。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">
@@ -260,27 +260,25 @@
 </tbody>
 </table>
 
-<p>The Package Manager window displays a <a href="upm-ui-details.html#Tags">tag</a> that corresponds to some of these states.</p>
+<p>Package Manager 窗口会显示与上述某些状态对应的<a href="upm-ui-details.html#Tags">标签</a>。</p>
 
 <p><br> </p>
 
 <hr>
 
-<ul>
-<li><span class="page-history">Some advanced or support packages are no longer discoverable in the Package Manager window <a href="https://docs.unity3d.com/2020.1/Documentation/Manual/30_search.html?q=newin20201">2020.1</a> <span class="search-words">NewIn20201</span></span></li>
-</ul>
+<p>*<span class="page-history">部分高级或支持包在 Package Manager 窗口中不再可见 <a href="https://docs.unity3d.com/2020.1/Documentation/Manual/30_search.html?q=newin20201">2020.1</a><span class="search-words"> NewIn20201</span></span></p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="upm-concepts.html"></a></span><div class="tip">概念</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="upm-dependencies.html"></a></span><div class="tip">Dependency and resolution</div>
+<span class="next"><a href="upm-dependencies.html"></a></span><div class="tip">依赖和解析</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="PlatformSpecific.html">平台开发</a></li>
 <li><a href="android.html">Android</a></li>
 <li>Android 环境设置</li>
@@ -194,7 +194,7 @@
 
 <p>要为 Android 构建和运行应用程序，必须安装 Unity <strong>Android Build Support</strong> 平台模块。还需要安装 Android 软件开发工具包（SDK）和原生开发工具包（NDK）才能在 Android 设备上构建和运行代码。默认情况下，Unity 会安装基于 <a href="http://openjdk.java.net/">OpenJDK</a> 的 Java 开发工具包。</p>
 
-<p><strong>Note</strong>: Unity supports Android 4.4 “KitKat” and above. See <a href="../ScriptReference/AndroidSdkVersions.html">AndroidSdkVersions</a> for details.</p>
+<p>__注意__：Unity 支持 Android 4.4 “KitKat” 和更高版本。请参阅 <a href="../ScriptReference/AndroidSdkVersions.html">AndroidSdkVersions</a> 以了解详细信息。</p>
 
 <h2>1.安装 Android Build Support 和 Android SDK &amp; NDK Tools</h2>
 
@@ -283,23 +283,15 @@
 
 <tbody>
 <tr>
-	<td style="text-align:left;">2017.4 LTS</td>
-	<td style="text-align:left;">r13b</td>
-</tr>
-<tr>
 	<td style="text-align:left;">2018.4 LTS</td>
 	<td style="text-align:left;">r16b</td>
 </tr>
 <tr>
-	<td style="text-align:left;">2019.1</td>
-	<td style="text-align:left;">r16b</td>
+	<td style="text-align:left;">2019.4 LTS</td>
+	<td style="text-align:left;">r19</td>
 </tr>
 <tr>
-	<td style="text-align:left;">2019.2</td>
-	<td style="text-align:left;">r16b</td>
-</tr>
-<tr>
-	<td style="text-align:left;">2019.3</td>
+	<td style="text-align:left;">2020.3 LTS</td>
 	<td style="text-align:left;">r19</td>
 </tr>
 </tbody>
@@ -307,31 +299,31 @@
 
 <p>请参阅<a href="system-requirements.html">系统要求</a>页面以查看完整要求。</p>
 
-<h2>Updating the Android SDK Target API</h2>
+<h2>更新 Android SDK Target API</h2>
 
-<p>Unity Hub installs the latest version of the Android SDK Target API required by Google Play.</p>
+<p>Unity Hub 安装了 Google Play 所需的最新版本的 Android SDK Target API。</p>
 
-<p>If you need to use a more recent version, you can change the Target API from the <strong>Target API Level</strong> field in the <strong>Player Settings</strong> window (menu: <strong>Edit &gt; Project Settings &gt; Player</strong>, then select the <strong>Android</strong> platform). You can find the <strong>Target API Level</strong> option in the <strong>Other Settings &gt; Identification</strong> section.</p>
+<p>如果您需要使用更新的版本，您可以从 <strong>Player Settings</strong> 窗口的 <strong>Target API Level</strong>字段更改 Target API（菜单：<strong>Edit &gt; Project Settings &gt; Player</strong>，然后选择 <strong>Android</strong> 平台）。您可以在 <strong>Other Settings &gt; Identification</strong> 部分找到 <strong>Target API Level</strong> 选项。</p>
 
 <figure>
-<img src="../uploads/Main/android-sdk-target-api.png" alt="Selecting a target API for the Android SDK">
-<figcaption>Selecting a target API for the Android SDK</figcaption>
+<img src="../uploads/Main/android-sdk-target-api.png" alt="为 Android SDK 选择目标 API">
+<figcaption>为 Android SDK 选择目标 API</figcaption>
 </figure>
 
-<p>After you select an option other than the default, Unity prompts you to update the Android SDK API. You can choose to either:</p>
+<p>选择默认选项以外的选项后，Unity 会提示您更新 Android SDK API。可选择执行以下操作之一：</p>
 
 <ul>
-<li>Update the Android SDK</li>
-<li>Continue to use the highest installed version of the Android SDK</li>
+<li>更新 Android SDK</li>
+<li>继续使用已安装的最高版本的 Android SDK</li>
 </ul>
 
-<p><strong>Note:</strong> If you select an older version of the Target API, the Unity Android SDK Updater will not be able to perform the update and will give you this message:</p>
+<p><strong>注意：</strong>如果您选择旧版本的 Target API，Unity Android SDK Updater 将无法执行更新，并会显示以下消息：</p>
 
-<p>Android SDK does not include your Target SDK of (version). Please use the Android SDK Manager to install your target SDK version. Restart Unity after SDK installation for the changes to take effect.</p>
+<p>Android SDK 不包括您的（版本的）目标 SDK。请使用 Android SDK Manager 安装您的目标 SDK 版本。安装 SDK 后重新启动 Unity 以使更改生效。</p>
 
-<p>In this case, to update the Android SDK Target API, you must use the Android sdkmanager from either <a href="https://developer.android.com/studio">Android Studio</a> or the <a href="https://developer.android.com/studio/command-line/sdkmanager">command line tool</a>. Regardless of the method you chose, make sure to select the correct Android SDK folder for Unity in the <strong>Edit &gt; Preferences &gt; External Tools</strong> window.</p>
+<p>在这种情况下，要更新 Android SDK Target API，您必须通过 <a href="https://developer.android.com/studio">Android Studio</a> 或者<a href="https://developer.android.com/studio/command-line/sdkmanager">命令行工具</a>使用 Android sdkmanager。无论您选择哪种方法，请确保在 <strong>Edit &gt; Preferences &gt; External Tools</strong> 窗口中为 Unity 选择正确的 Android SDK 文件夹。</p>
 
-<p>On Windows, if the Unity Editor is installed in the default folder (<code>/Program Files/</code>), you must run the sdkmanager with elevated privilege (Run as Administrator) to perform the update.</p>
+<p>在 Windows 上，如果 Unity 编辑器安装在默认文件夹 (<code>/Program Files/</code>) 中，您必须以提升的权限（以管理员身份运行）运行 sdkmanager 才能执行更新。</p>
 <!-- area:platforms -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -344,7 +336,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

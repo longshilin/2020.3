@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="离线/手动激活 - Unity 手册">
-<title>离线/手动激活 - Unity 手册</title>
-<meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/communicationProblem.png">
-<meta name="description" content="当 Unity 无法联系许可证服务器时，在线激活通常会失败。这可能是因为您无法访问 Internet，防火墙或代理设置导致连接遭到阻止，或 Unity 许可证服务器已宕机。如需详细了解发生此问题的原因，请参阅下面的故障排除。">
-<meta property="og:description" content="当 Unity 无法联系许可证服务器时，在线激活通常会失败。这可能是因为您无法访问 Internet，防火墙或代理设置导致连接遭到阻止，或 Unity 许可证服务器已宕机。如需详细了解发生此问题的原因，请参阅下面的故障排除。">
+<meta property="og:title" content="离线（手动）许可证激活 - Unity 手册">
+<title>离线（手动）许可证激活 - Unity 手册</title>
+<meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/icon-cogwheel.png">
+<meta name="description" content="如果 Unity 无法联系许可证服务器，则无法使用在线方法激活您的许可证。许可证服务器连接失败的典型原因包括：您无法访问 Internet；您的防火墙或代理设置导致连接遭到阻止；或 Unity 许可证服务器已宕机。有关更多信息，请参阅激活问题。">
+<meta property="og:description" content="如果 Unity 无法联系许可证服务器，则无法使用在线方法激活您的许可证。许可证服务器连接失败的典型原因包括：您无法访问 Internet；您的防火墙或代理设置导致连接遭到阻止；或 Unity 许可证服务器已宕机。有关更多信息，请参阅激活问题。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,134 +175,172 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UnityOverview.html">在 Unity 中操作</a></li>
 <li><a href="GettingStartedInstallingUnity.html">安装 Unity</a></li>
 <li><a href="LicensesAndActivation.html">许可证和激活</a></li>
-<li>离线/手动激活</li>
+<li>离线（手动）许可证激活</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="OnlineActivationGuide.html"></a></span><div class="tip">在线激活</div>
+<span class="prev"><a href="OnlineActivationGuide.html"></a></span><div class="tip">在线许可证激活</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="ManagingYourUnityLicense.html"></a></span><div class="tip">管理许可证</div>
+<span class="next"><a href="ManagingYourUnityLicense.html"></a></span><div class="tip">退回许可证</div>
 </div>
 </div></div>
-<h1>离线/手动激活</h1>
+<h1>离线（手动）许可证激活</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>当 Unity 无法联系许可证服务器时，在线激活通常会失败。这可能是因为您无法访问 Internet，防火墙或代理设置导致连接遭到阻止，或 Unity 许可证服务器已宕机。如需详细了解发生此问题的原因，请参阅下面的<a href="#Troubleshooting">故障排除</a>。</p>
+<p>如果 Unity 无法联系许可证服务器，则无法使用<a href="OnlineActivationGuide.html">在线方法</a>激活您的许可证。许可证服务器连接失败的典型原因包括：您无法访问 Internet；您的防火墙或代理设置导致连接遭到阻止；或 Unity 许可证服务器已宕机。有关更多信息，请参阅<a href="ActivationFAQ.html#activation">激活问题</a>。</p>
 
-<p>在线激活失败时，Unity Editor 会自动尝试执行手动激活。本页面提供在计算机上手动激活 Unity 的分步说明。<strong>您仍然需要访问一台已接入互联网的计算机</strong>，但这台计算机不一定要是尝试激活 Unity 的计算机。</p>
+<p>当在线激活失败时，您可以尝试在您的机器上手动激活 Unity。您仍然需要访问一台已接入互联网的计算机，但这台计算机不必是要尝试激活 Unity 的计算机。</p>
 
-<p>本文档假设您已经下载并安装了 Unity。要下载 Unity，您需要连接互联网。请访问 <a href="https://unity3d.com/get-unity/download">Unity 下载页面</a>获取最新版本。如果您不确定需要哪种类型的许可证，请访问 <a href="https://store.unity.com/">Unity Store</a> 并查看 Unity Personal、Plus 和 Pro 版本的比较。</p>
+<p>要手动激活您的 Unity 许可证，请按照以下流程操作：</p>
 
-<h2>步骤 1：获取许可证请求文件</h2>
+<p>1.生成许可证激活文件 (<code>.alf</code>)，可以<a href="#alf-hub">在 Hub</a> 或者<a href="#alf-commandline">从命令行</a>进行。例如 <code>Unity_v2021.1.0a7.alf</code>。
+2.使用该 <code>.alf</code> 文件从 Unity 的许可证服务器<a href="#request-ulf">请求一个 Unity 许可证文件</a> (<code>.ulf</code>)。
+3.使用该 <code>.ulf</code> 文件在 Unity 中激活您的许可证，可以<a href="#ulf-hub">在 Hub</a> 或者<a href="#ulf-commandline">从命令行</a>进行。</p>
 
-<ol>
-<li>打开 Unity。当 Unity 无法联系许可证服务器时，将在 License Management 窗口中显示一条消息，指出“No network connection”。
-<img src="../uploads/Main/communicationProblem.png" alt="">
-</li>
-</ol>
+<p><a name="alf-hub"></a></p>
 
-<p>1.单击 <strong>Manual Activation</strong>。</p>
+<h2>从 Hub 生成许可证激活文件 (<code>.alf</code>)</h2>
 
-<p>1.单击 <strong>Save License Request</strong>。
-<img src="../uploads/Main/wouldYouLikeToSave.png" alt=""></p>
+<p>如果您还没有安装 Hub，可以从 <a href="https://unity3d.com/get-unity/download">Download Unity</a> 网页下载。然后遵循以下步骤：</p>
 
-<p>1.将文件保存在自选的目录中。务必记住保存文件的位置。单击 <strong>Save</strong> 时，Unity 会显示一条通知，其中显示“License request file saved successfully”。</p>
+<p>1.选择 Hub 右上角的 <strong>Settings</strong> <img src="../uploads/Main/icon-cogwheel.png" alt=""> 按钮。将出现 <strong>Preferences</strong> 窗口。</p>
 
-<p>This license request file is tied to the machine you used to generate it. This license file does not work on any other machine, and will not recognize the machine if you reformat it or make certain hardware changes.</p>
+<p>2.从左侧列表中选择 <strong>License Management</strong>。</p>
 
-<h2>步骤 2：请求许可证</h2>
+<pre><code>![Hub &gt; Preference &gt; License Management](../uploads/Main/hub-license-management.png)
+</code></pre>
 
-<p>现在您已获得许可证请求文件，接下来的步骤需要访问互联网。如果您的计算机未接入互联网，则可以在已联网的计算机上激活许可证，方法是将文件复制到另一台计算机，按照以下步骤激活许可证，然后将文件复制回您的计算机即可使用 Unity。</p>
+<p>3.如果您在窗口底部看到一条消息，警告您需要登录才能管理您的许可证，请选择右下角的 <strong>LOGIN</strong> 按钮，然后输入您的 <a href="https://id.unity.com/">Unity ID</a> 和密码。</p>
 
-<ol>
-<li>
-<p>访问 <a href="https://license.unity3d.com/"> Unity 许可证 Manual Activation 网页</a>。单击 <strong>Browse</strong> 按钮，选择先前在步骤 1 中创建的许可证请求文件，然后单击 <strong>Next</strong></p>
+<p>4.选择 <strong>MANUAL ACTIVATION</strong> 按钮。将出现 Manual Activation 窗口。</p>
 
-<figure>
-<img src="../uploads/Main/manualactivationwindow.png" alt="">
-</figure>
-</li>
-<li>
-<p>选择要激活的许可证类型。</p>
+<pre><code>![](../uploads/Main/hub-get-alf.png)
+</code></pre>
 
-<figure>
-<img src="../uploads/Main/activateyourlicense.png" alt="">
-</figure>
-</li>
-<li>
-<p>输入序列号，然后单击 <strong>Next</strong>。</p>
+<p>5.选择 <strong>SAVE LICENSE REQUEST</strong> 按钮。</p>
 
-<figure>
-<img src="../uploads/Main/manualActivation.png" alt="注意：此窗口已隐藏序列号。">
-<figcaption>注意：此窗口已隐藏序列号。</figcaption>
-</figure>
-</li>
-<li>
-<p>单击 <strong>Download license file</strong>。</p>
+<p>6.选择您希望 Unity 保存 <code>.alf</code> 文件的位置和文件名，然后单击 <strong>Save</strong>。</p>
 
-<figure>
-<img src="../uploads/Main/youAreAlmostDone.png" alt="">
-</figure>
-</li>
-</ol>
+<p>现在您可以<a href="#request-ulf">请求 Unity 许可证 (<code>.ulf</code>) 文件</a>。</p>
 
-<p>This downloads your license to the machine you’re using to browse the website. If you’re activating Unity on a different machine to the one that has internet access, remember to transfer the license to the machine you want to activate Unity on.</p>
+<p><a name="alf-commandline"></a></p>
 
-<p>有些浏览器可能会在许可证文件名后面附加“.xml”。如果是这种情况，则在将许可证文件加载到 Unity 中之前，您需要从文件名中删除此扩展名。</p>
+<h2>从命令行生成许可证激活文件 (<code>.alf</code>)</h2>
 
-<h2>Step 3: Activate your license</h2>
+<p>在 macOS 上，在 Terminal 中输入以下内容（将 <code>&lt;editor-installation-location&gt;</code> 替换为实际安装位置，例如 <code>/Applications/Unity/Unity.app/Contents/MacOS/Unity</code>）：</p>
 
-<p>Now that you have your license file, you can activate your Unity account.</p>
+<pre><code class="lang-shell">&lt;editor-installation-location&gt; -batchmode -createManualActivationFile -logfile
+</code></pre>
 
-<p>再次打开 Unity 并返回 License Management 页面。</p>
+<p>在 Windows 上，在命令提示符中输入以下内容（将 <code>&lt;editor-installation-location&gt;</code> 替换为实际安装位置，例如 <code>C:\Program Files\Unity\Editor\Unity.exe</code>）：</p>
 
-<figure>
-<img src="../uploads/Main/loadLicense.png" alt="">
-</figure>
+<pre><code class="lang-powershell">"&lt;editor-installation-location&gt;" -batchmode -createManualActivationFile -logfile
+</code></pre>
 
-<p>单击 <strong>Load License</strong>，然后选择在步骤 2 中下载的许可证请求文件。如果许可证加载成功，Unity 将显示“Thank you!”消息。单击 <strong>Start Using Unity</strong> 继续。</p>
+<p>现在您可以<a href="#request-ulf">请求 Unity 许可证 (<code>.ulf</code>) 文件</a>。</p>
 
-<p><a name="Troubleshooting"></a></p>
+<p><a name="request-ulf"></a></p>
 
-<h2>故障排除</h2>
+<h2>请求 Unity 许可证文件 (<code>.ulf</code>) 文件</h2>
 
-<p>如果在激活过程中遇到任何错误代码或其他问题，可能是由以下原因引起的：</p>
+<p>生成许可证激活 (<code>.alf</code>) 文件后，下一步是从许可证服务器请求您的 Unity 许可证 (<code>.ulf</code>) 文件：</p>
 
-<ul>
-<li>您的计算机可能无法访问互联网。在这种情况下，可能需要手动激活许可证。可以在<a href="ManualActivationGuide.html">手动激活 (Manual Activation)</a> 文档中找到有关具体操作的说明。</li>
-<li>您的防火墙/代理或互联网安全设置可能阻止 Unity 发送和接收有关许可证文件的数据。</li>
-<li>您可能在计算机上不具有正确的读/写权限来保存许可证文件。要解决此问题，可能需要将这些权限授予在尝试激活许可证时所使用的用户帐户。这是工作场所和学校特别常见的问题；请联系 IT 管理员，了解是否存在可能阻止激活过程正常进行的限制。</li>
-<li>重大的操作系统更改或更新可能会影响您的计算机 ID，这会导致许可证停止识别您的计算机。请参阅 Unity 知识库文章：<a href="https://support.unity3d.com/hc/en-us/articles/205698949-I-have-just-updated-installed-a-new-Operating-System-Why-is-my-license-failing-to-activate-">我刚刚更新/安装了一个新的操作系统。为什么我的许可证无法激活？(I Have Just Updated/Installed A New Operating System.Why Is My License Failing To Activate?)</a>
-</li>
-<li>Unity 的许可证服务器可能已宕机。请参阅 <a href="https://status.cloud.unity3d.com/">Unity Cloud System Status Page</a> 以查看所有 Unity 服务器的最新状态。</li>
-</ul>
+<p>1.打开 <a href="https://license.unity3d.com/manual">license.unity3d.com/manual</a> 网页。</p>
 
-<p>有关所有潜在错误以及如何解决这些错误的信息，请参阅 <a href="https://support.unity3d.com/hc/en-us/sections/202242003-Activations-and-Management">Unity 支持知识库</a>。如果找不到解决方案，请联系 <a href="https://support.unity3d.com/hc/en-us/requests/new?ticket_form_id=65905">Unity 客户服务部</a>以获得更多帮助。</p>
+<p>2.如果出现提示，请登录您的 Unity ID。这是请求 Unity 许可证文件的必要步骤。</p>
+
+<pre><code>将出现 **Manual activation**  网页。
+
+![](../uploads/Main/license-request-ulf.png)
+</code></pre>
+
+<p>3.选择 <strong>Browse</strong> 按钮找到您已使用系统的文件浏览器生成的许可证激活 (<code>.alf</code>) 文件。</p>
+
+<pre><code>如果上传成功并且 Unity 检测到您选择的文件是许可证激活文件，则文件名会出现在带有绿色复选标记的文本框中。但如果看到红色的 **X**，请重试。
+</code></pre>
+
+<p>4.选择 <strong>Next</strong> 按钮。将出现 <strong>Activate your license</strong> 网页。</p>
+
+<pre><code>![](../uploads/Main/license-request-activate.png)
+</code></pre>
+
+<p>5.选择您要激活的许可证类型：</p>
+
+<pre><code>* 如果您选择 **Unity Plus or Pro** 选项，输入您在购买单个许可证时收到的电子邮件中的**序列号**。必须严格按照电子邮件中显示的格式输入密钥。例如，`PS/SC/E3-XXXX-XXXX-XXXX-XXXX`。
+* 如果您选择 **Unity Personal** 选项，您必须选择最符合您当前情况的选项。
+</code></pre>
+
+<p>6.选择 <strong>Next</strong> 按钮。将出现 <strong>Download license file</strong> 网页。</p>
+
+<pre><code>![](../uploads/Main/license-request-download.png)
+</code></pre>
+
+<p>7.选择 <strong>Download license file</strong> 按钮。</p>
+
+<p>8.如果出现系统提示，请允许 <a href="https://license.unity3d.com/manual">license.unity3d.com/manual</a> 网页的下载。</p>
+
+<p>9.打开浏览器的下载位置并查找带有 <code>.ulf</code> 扩展名的新 Unity 许可证文件。</p>
+
+<p>现在您已准备好激活您的 Unity 许可证，可以<a href="#ulf-hub">通过 Unity Hub</a> 或<a href="#ulf-commandline">从命令行</a>进行。</p>
+
+<p><a name="ulf-hub"></a></p>
+
+<h2>从 Hub 完成您的 Unity 许可证激活</h2>
+
+<p>很可能您从 Hub 生成了许可证激活文件，然后从那里直接打开了许可证服务器网页。现在您可以返回到之前离开的 Hub 的位置并继续该过程：</p>
+
+<p>1.打开 Unity Hub 进入 <strong>Manual Activation</strong> 页面。</p>
+
+<p>2.选择 <strong>Next</strong> 按钮。Manual Activation 页面现在指示您已完成保存许可证请求，现在可以加载许可证。</p>
+
+<pre><code>![](../uploads/Main/hub-finish-ulf.png)
+</code></pre>
+
+<p>3.选择 <strong>more</strong> 按钮 (<strong>…</strong>) 并通过系统的文件浏览器找到 Unity 许可证激活 (<code>.ulf</code>) 文件。</p>
+
+<p>4.选择 <strong>CONFIRM</strong> 按钮。</p>
+
+<p>如果 Unity 显示许可证激活不成功的错误消息，请查看<a href="ActivationFAQ.html">激活问题</a>为您的问题找到解决方案。</p>
+
+<p><a name="ulf-commandline"></a></p>
+
+<h2>从命令行完成您的 Unity 许可证激活</h2>
+
+<p>在 macOS 上，在 Terminal 中输入以下内容（将 <code>&lt;editor-installation-location&gt;</code> 替换为实际安装位置，例如 <code>/Applications/Unity/Unity.app/Contents/MacOS/Unity</code>）：</p>
+
+<pre><code class="lang-shell">&lt;editor-installation-location&gt; -batchmode -manualLicenseFile &lt;yourulffile&gt; -logfile
+</code></pre>
+
+<p>在 Windows 上，在命令提示符中输入以下内容（将 <code>&lt;editor-installation-location&gt;</code> 替换为实际安装位置，例如 <code>C:\Program Files\Unity\Editor\Unity.exe</code>）：</p>
+
+<pre><code class="lang-powershell">"&lt;editor-installation-location&gt;" -batchmode -manualLicenseFile &lt;yourulffile&gt; -logfile
+</code></pre>
+
+<p>如果 Unity 显示许可证激活不成功的错误消息，请查看<a href="ActivationFAQ.html">激活问题</a>为您的问题找到解决方案。</p>
 
 <hr>
 
 <ul>
 <li><span class="page-history">在 Unity 2017.2 中更新了许可证激活方法</span></li>
 </ul>
-<!-- area:none -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="OnlineActivationGuide.html"></a></span><div class="tip">在线激活</div>
+<span class="prev"><a href="OnlineActivationGuide.html"></a></span><div class="tip">在线许可证激活</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="ManagingYourUnityLicense.html"></a></span><div class="tip">管理许可证</div>
+<span class="next"><a href="ManagingYourUnityLicense.html"></a></span><div class="tip">退回许可证</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

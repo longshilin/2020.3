@@ -14,8 +14,8 @@
 <meta property="og:title" content="后期处理 - Unity 手册">
 <title>后期处理 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/PostProcessing-0.jpg">
-<meta name="description" content="Unity provides a number of post-processing effects and full-screen effects that can greatly improve the appearance of your application with little set-up time. You can use these effects to simulate physical camera and film properties, or to create stylised visuals.">
-<meta property="og:description" content="Unity provides a number of post-processing effects and full-screen effects that can greatly improve the appearance of your application with little set-up time. You can use these effects to simulate physical camera and film properties, or to create stylised visuals.">
+<meta name="description" content="Unity 提供了许多后期处理效果和全屏效果，可以用很少的设置时间大大改善应用程序的外观。可以使用这些效果模拟物理摄像机和胶片属性，或创建风格化的视觉效果。">
+<meta property="og:description" content="Unity 提供了许多后期处理效果和全屏效果，可以用很少的设置时间大大改善应用程序的外观。可以使用这些效果模拟物理摄像机和胶片属性，或创建风格化的视觉效果。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
 <li>后期处理</li>
 </ul></div>
@@ -191,11 +191,11 @@
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>Unity provides a number of <strong>post-processing</strong> effects and full-screen effects that can greatly improve the appearance of your application with little set-up time. You can use these effects to simulate physical camera and film properties, or to create stylised visuals.</p>
+<p>Unity 提供了许多<strong>后期处理</strong>效果和全屏效果，可以用很少的设置时间大大改善应用程序的外观。可以使用这些效果模拟物理摄像机和胶片属性，或创建风格化的视觉效果。</p>
 
-<p>This page contains the following information:
-<a href="#render-pipeline-compatibility">Render pipeline compatibility</a>
-<a href="#effect-availability-and-location">Effect availability and location</a></p>
+<p>本页面包含以下信息：
+<a href="#render-pipeline-compatibility">渲染管线兼容性</a>
+<a href="#effect-availability-and-location">效果可用性和位置</a></p>
 
 <p>下面的图像展示了应用和未应用后期处理的场景。</p>
 
@@ -215,7 +215,7 @@
 
 <p>可用的后期处理效果和这些效果的应用方式取决于所使用的<a href="render-pipelines.html">渲染管线</a>。一个渲染管线的后期处理解决方案与其他渲染管线不兼容。</p>
 
-<p>This table contains information about which of Unity’s post-processing solutions are compatible with each of Unity’s render pipelines.</p>
+<p>此表包含有关与每个 Unity 渲染管线兼容的 Unity 后期处理解决方案的信息。</p>
 
 <table>
 <colgroup>
@@ -250,13 +250,13 @@
 
 <p><a name="effect-availability-and-location"></a></p>
 
-<h2>Effect availability and location</h2>
+<h2>效果可用性和位置</h2>
 
-<p>This table contains information on which post-processing effects and full-screen effects are available in Unity’s different post-processing solutions, how to find those effects, and what other effects you can use to achieve a similar result.</p>
+<p>此表包含有关不同 Unity 后期处理解决方案中可用的后期处理效果和全屏效果、如何找到这些效果以及可以用于实现类似结果的其他效果的信息。</p>
 
-<p>In previous versions of Unity, you applied all post-processing effects and full-screen effects in the same way; by adding components to a Camera. In more recent versions of Unity, you can apply these effects in different ways.</p>
+<p>在以前的 Unity 版本中，以相同的方式应用所有后期处理效果和全屏效果；即通过向摄像机添加组件。在更新的 Unity 版本中，可以通过不同方式应用这些效果。</p>
 
-<p>Note that Unity implements effects differently depending on the package you are using. This means that effects vary in terms of performance, appearance, and configuration between packages.</p>
+<p>请注意，Unity 根据所使用的包，以不同方式实现效果。这意味着效果的性能、外观和配置因包而异。</p>
 
 <table>
 <colgroup>
@@ -269,215 +269,228 @@
 
 <thead>
 <tr>
-	<th style="text-align:left;"><strong>Effect Name</strong></th>
+	<th style="text-align:left;"><strong>效果名称</strong></th>
 	<th style="text-align:left;"><strong>描述</strong></th>
-	<th style="text-align:left;"><strong>Available in URP integrated solution?</strong></th>
-	<th style="text-align:left;"><strong>Available in HDRP integrated solution?</strong></th>
-	<th style="text-align:left;"><strong>Available in PPv2 package?</strong></th>
+	<th style="text-align:left;"><strong>是否在 URP 集成解决方案中可用？</strong></th>
+	<th style="text-align:left;"><strong>是否在 HDRP 集成解决方案中可用？</strong></th>
+	<th style="text-align:left;"><strong>是否在 PPv2 包中可用？</strong></th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
 	<td style="text-align:left;">环境光遮挡</td>
-	<td style="text-align:left;">The <strong>Ambient Occlusion</strong> effect darkens the areas in your scene that are not exposed to ambient lighting.</td>
-	<td style="text-align:left;">Yes <br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@10.0/manual/post-processing-ssao.html">Universal Render Pipeline: Ambient Occlusion </a> <br><br> You can also apply Ambient Occlusion as part of your baked lighting. For more information, see <a href="https://docs.unity3d.com/Manual/LightingBakedAmbientOcclusion.html">Baked Ambient Occlusion</a>
-</td>
-	<td style="text-align:left;">Yes <br><br>Choose from <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@9.0/manual/Override-Ambient-Occlusion.html">SSAO</a> using a Volume Override, or <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Ray-Traced-Ambient-Occlusion.html?q=ambientocclusion">Ray-Traced Ambient Occlusion</a> <br><br> You can also apply <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Ambient-Occlusion.html?q=ambient">per-Material Ambient Occlusion</a> <br><br> You can also apply Ambient Occlusion as part of your baked lighting. For more information, see <a href="https://docs.unity3d.com/Manual/LightingBakedAmbientOcclusion.html">Baked Ambient Occlusion</a>
-</td>
-	<td style="text-align:left;">Yes <br><br>See<a href="https://docs.unity3d.com/Packages/com.unity.postprocessing@latest?subfolder=/manual/Ambient-Occlusion.html"> Post Processing: Ambient Occlusion</a> <br> You can also apply Ambient Occlusion as part of your baked lighting. For more information, see <a href="https://docs.unity3d.com/Manual/LightingBakedAmbientOcclusion.html">Baked Ambient Occlusion</a>
-</td>
+	<td style="text-align:left;">
+<strong>环境光遮挡</strong>效果使场景中未暴露在环境光照下的区域变暗。</td>
+	<td style="text-align:left;">是 <br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@10.0/manual/post-processing-ssao.html">通用渲染管线：环境光遮挡</a><br><br>还可以将环境光遮挡作为烘焙光照的一部分进行应用。有关更多信息，请参阅<a href="https://docs.unity3d.com/Manual/LightingBakedAmbientOcclusion.html">烘焙环境光遮挡</a>。</td>
+	<td style="text-align:left;">是 <br><br>使用体积覆盖或<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Ray-Traced-Ambient-Occlusion.html?q=ambientocclusion">光线追踪环境光遮挡</a>从 <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@9.0/manual/Override-Ambient-Occlusion.html">SSAO</a> 中进行选择 <br><br> 还可以应用<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Ambient-Occlusion.html?q=ambient">每材质环境光遮挡</a> <br><br> 还可以将环境光遮挡作为烘焙光照的一部分进行应用。有关更多信息，请参阅<a href="https://docs.unity3d.com/Manual/LightingBakedAmbientOcclusion.html">烘焙环境光遮挡</a>。</td>
+	<td style="text-align:left;">是 <br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.postprocessing@latest?subfolder=/manual/Ambient-Occlusion.html">后期处理：环境光遮挡</a> <br> 还可以将环境光遮挡作为烘焙光照的一部分进行应用。有关更多信息，请参阅<a href="https://docs.unity3d.com/Manual/LightingBakedAmbientOcclusion.html">烘焙环境光遮挡</a>。</td>
 </tr>
 <tr>
-	<td style="text-align:left;">Anti-aliasing</td>
-	<td style="text-align:left;">The <strong>Anti-aliasing</strong> effect softens the appearance of edges in your scene. <br>Depending on your render pipeline, you can use MSAA (hardware anti-aliasing), or FXAA, SMAA, or TAA (anti-aliasing post-processing effects)</td>
-	<td style="text-align:left;">Yes <br><br>FXAA and SMAA can be enabled in the <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest?subfolder=/manual/camera-component-reference.html#rendering">Camera </a>component <br><br>You can also configure MSAA (hardware anti-aliasing) in <a href="https://docs.unity3d.com/Manual/class-QualitySettings.html">Quality Settings</a>
-</td>
-	<td style="text-align:left;">Yes <br><br>FXAA, SMAA, and TAA are implemented in <strong>Project Settings &gt; Frame Settings &gt; HDRP Default Settings</strong>; see <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Anti-Aliasing.html?q=ANTI">Anti-aliasing in the High Definition Render Pipeline</a><br><br>You can also configure MSAA (hardware anti-aliasing) in the HDRP Asset - see <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Anti-Aliasing.html?q=ANTI">Anti-aliasing in the High Definition Render Pipeline</a>.</td>
-	<td style="text-align:left;">Yes <br><br>For FXAA, SMAA, and TAA, see <a href="https://docs.unity3d.com/Packages/com.unity.postprocessing@latest?subfolder=/manual/Anti-aliasing.html">Post Processing: Anti-aliasing</a> <br><br>You can also configure MSAA (hardware anti-aliasing) in <a href="https://docs.unity3d.com/Manual/class-QualitySettings.html">Quality Settings</a>
-</td>
+	<td style="text-align:left;">抗锯齿</td>
+	<td style="text-align:left;">
+<strong>抗锯齿</strong>效果使场景中的边缘外观柔化。<br>根据渲染管线，可以使用 MSAA（硬件抗锯齿）或是 FXAA、SMAA 或 TAA（抗锯齿后期处理效果）</td>
+	<td style="text-align:left;">是 <br><br>FXAA 和 SMAA 可以在 <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest?subfolder=/manual/camera-component-reference.html#rendering">Camera</a> 组件中启用<br><br>还可以在<a href="https://docs.unity3d.com/Manual/class-QualitySettings.html">质量设置</a>中配置 MSAA（硬件抗锯齿）</td>
+	<td style="text-align:left;">是 <br><br>FXAA、SMAA 和 TAA 在 <strong>Project Settings &gt; Frame Settings &gt; HDRP Default Settings</strong> 中实现；请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Anti-Aliasing.html?q=ANTI">高清渲染管线中的抗锯齿</a><br><br>还可以在 HDRP 资源中配置 MSAA（硬件抗锯齿） - 请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Anti-Aliasing.html?q=ANTI">高清渲染管线中的抗锯齿</a>。</td>
+	<td style="text-align:left;">是 <br><br>对于 FXAA、SMAA 和 TAA，请参阅<a href="https://docs.unity3d.com/Packages/com.unity.postprocessing@latest?subfolder=/manual/Anti-aliasing.html">后期处理：抗锯齿</a><br><br>还可以在<a href="https://docs.unity3d.com/Manual/class-QualitySettings.html">质量设置</a>中配置 MSAA（硬件抗锯齿）</td>
 </tr>
 <tr>
-	<td style="text-align:left;">Auto Exposure</td>
-	<td style="text-align:left;">The <strong>Auto Exposure</strong> effect dynamically adjusts the exposure of an image to match its mid-tone.</td>
+	<td style="text-align:left;">自动曝光 (Auto Exposure)</td>
+	<td style="text-align:left;">
+<strong>自动曝光</strong>效果动态调整图像的曝光以匹配其中间色调。</td>
 	<td style="text-align:left;">否</td>
-	<td style="text-align:left;">Yes <br><br>In <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Override-Exposure.html">High Definition Render Pipeline: Exposure Volume Override</a>, when <strong>Mode</strong> is set to <strong>Automatic</strong>
-</td>
-	<td style="text-align:left;">Yes <br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.postprocessing@latest?subfolder=/manual/Auto-Exposure.html">Post Processing:Auto Exposure</a>
+	<td style="text-align:left;">是 <br><br>当 <strong>Mode</strong> 设置为 <strong>Automatic</strong> 时，在<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Override-Exposure.html">高清渲染管线：曝光体积覆盖</a>中</td>
+	<td style="text-align:left;">是 <br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.postprocessing@latest?subfolder=/manual/Auto-Exposure.html">后期处理：自动曝光</a>
 </td>
 </tr>
 <tr>
-	<td style="text-align:left;">Bloom</td>
-	<td style="text-align:left;">The <strong>Bloom</strong> effect makes bright areas in your image glow.Note that Bloom works differently in each package, and requires different settings; read the documentation for a given package for more information.</td>
-	<td style="text-align:left;">Yes <br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest?subfolder=/manual/post-processing-bloom.html">Universal Render Pipeline: Bloom</a>
+	<td style="text-align:left;">泛光</td>
+	<td style="text-align:left;">
+<strong>泛光</strong>效果使图像中的明亮区域发光。请注意，泛光在每个包中的工作方式有所不同，需要不同的设置；请阅读给定包的文档以获取更多信息。</td>
+	<td style="text-align:left;">是 <br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest?subfolder=/manual/post-processing-bloom.html">通用渲染管线：泛光</a>
 </td>
-	<td style="text-align:left;">Yes <br><br> See <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Post-Processing-Bloom.html">High Definition Render Pipeline: Bloom</a>
+	<td style="text-align:left;">是 <br><br> 请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Post-Processing-Bloom.html">高清渲染管线：泛光</a>
 </td>
-	<td style="text-align:left;">Yes<br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.postprocessing@latest?subfolder=/manual/Bloom.html">Post Processing: Bloom</a>
+	<td style="text-align:left;">是<br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.postprocessing@latest?subfolder=/manual/Bloom.html">后期处理：泛光</a>
 </td>
 </tr>
 <tr>
 	<td style="text-align:left;">Channel Mixer</td>
-	<td style="text-align:left;">The <strong>Channel mixer</strong> lets you adjust the balance of each input color.</td>
-	<td style="text-align:left;">Yes<br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest?subfolder=/manual/Post-Processing-Channel-Mixer.html">Universal Render Pipeline: Channel Mixer</a>
+	<td style="text-align:left;">通过<strong>通道混合器</strong>可以调整每种输入颜色的平衡。</td>
+	<td style="text-align:left;">是<br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest?subfolder=/manual/Post-Processing-Channel-Mixer.html">通用渲染管线：通道混合器</a>
 </td>
-	<td style="text-align:left;">Yes<br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Post-Processing-Channel-Mixer.html">High Definition Render Pipeline: Channel Mixer</a>
+	<td style="text-align:left;">是<br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Post-Processing-Channel-Mixer.html">高清渲染管线：通道混合器</a>
 </td>
-	<td style="text-align:left;">Yes<br><br>See <strong>Channel Mixer</strong> <a href="https://docs.unity3d.com/Packages/com.unity.postprocessing@latest?subfolder=/manual/Color-Grading.html">in Post Processing: Color Grading </a>
-</td>
-</tr>
-<tr>
-	<td style="text-align:left;">Chromatic Aberration</td>
-	<td style="text-align:left;">The <strong>Chromatic Aberration</strong> effect disperses colors along the boundaries between dark and light areas of the image.</td>
-	<td style="text-align:left;">Yes<br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest?subfolder=/manual/post-processing-chromatic-aberration.html">Universal Render Pipeline: Chromatic Aberration</a>
-</td>
-	<td style="text-align:left;">Yes<br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Post-Processing-Chromatic-Aberration.html">High Definition Render Pipeline: Chromatic Aberration</a>
-</td>
-	<td style="text-align:left;">Yes<br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.postprocessing@latest?subfolder=/manual/Chromatic-Aberration.html">Post Processing: Chromatic Aberration</a>
+	<td style="text-align:left;">是<br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.postprocessing@latest?subfolder=/manual/Color-Grading.html">后期处理：颜色分级</a>中的<strong>通道混合器</strong>
 </td>
 </tr>
 <tr>
-	<td style="text-align:left;">Color Adjustments</td>
-	<td style="text-align:left;">The <strong>Color Adjustments</strong> effect lets you change the overall tone, brightness, and contrast of the final rendered image.</td>
-	<td style="text-align:left;">Yes<br><br>See<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest?subfolder=/manual/Post-Processing-Color-Adjustments.html"> Universal Render Pipeline: Color Adjustments</a>
+	<td style="text-align:left;">色差</td>
+	<td style="text-align:left;">
+<strong>色差</strong>效果沿图像暗区和亮区之间的边界分散颜色。</td>
+	<td style="text-align:left;">是<br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest?subfolder=/manual/post-processing-chromatic-aberration.html">通用渲染管线：色差</a>
 </td>
-	<td style="text-align:left;">Yes<br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Post-Processing-Color-Adjustments.html">High Definition Render Pipeline: Color Adjustments</a>
+	<td style="text-align:left;">是<br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Post-Processing-Chromatic-Aberration.html">高清渲染管线：色差</a>
 </td>
-	<td style="text-align:left;">Yes<br><br>See <strong>Tone</strong> in <a href="https://docs.unity3d.com/Packages/com.unity.postprocessing@latest?subfolder=/manual/Color-Grading.html">Post Processing: Color Grading</a>
-</td>
-</tr>
-<tr>
-	<td style="text-align:left;">Color Curves</td>
-	<td style="text-align:left;">The <strong>Color Curves</strong> effect lets you adjust specific ranges in hue, saturation, or luminosity.</td>
-	<td style="text-align:left;">Yes<br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest?subfolder=/manual/Post-Processing-Color-Curves.html">Universal Render Pipeline: Color Curves</a>
-</td>
-	<td style="text-align:left;">Yes<br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Post-Processing-Color-Curves.html">High Definition Render Pipeline: Color Curves</a>
-</td>
-	<td style="text-align:left;">Yes<br><br>See <strong>Grading Curves</strong> in <a href="https://docs.unity3d.com/Packages/com.unity.postprocessing@latest?subfolder=/manual/Color-Grading.html">Post Processing: Color Grading</a>
+	<td style="text-align:left;">是<br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.postprocessing@latest?subfolder=/manual/Chromatic-Aberration.html">后期处理：色差</a>
 </td>
 </tr>
 <tr>
-	<td style="text-align:left;">Fog</td>
-	<td style="text-align:left;">The <strong>Fog</strong> effect simulates the look of fog or mist in outdoor environments.</td>
+	<td style="text-align:left;">颜色调整 (Color Adjustments)</td>
+	<td style="text-align:left;">通过<strong>颜色调整</strong>效果可调整最终渲染的图像的整体色调、亮度和对比度。</td>
+	<td style="text-align:left;">是<br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest?subfolder=/manual/Post-Processing-Color-Adjustments.html">通用渲染管线：颜色调整</a>
+</td>
+	<td style="text-align:left;">是<br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Post-Processing-Color-Adjustments.html">高清渲染管线：颜色调整</a>
+</td>
+	<td style="text-align:left;">是<br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.postprocessing@latest?subfolder=/manual/Color-Grading.html">后期处理：颜色分级</a>中的<strong>色调</strong>
+</td>
+</tr>
+<tr>
+	<td style="text-align:left;">颜色曲线</td>
+	<td style="text-align:left;">
+<strong>颜色曲线</strong>效果允许在特定范围调整色调、饱和度或亮度。</td>
+	<td style="text-align:left;">是<br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest?subfolder=/manual/Post-Processing-Color-Curves.html">通用渲染管线：颜色曲线</a>
+</td>
+	<td style="text-align:left;">是<br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Post-Processing-Color-Curves.html">高清渲染管线：颜色曲线</a>
+</td>
+	<td style="text-align:left;">是<br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.postprocessing@latest?subfolder=/manual/Color-Grading.html">后期处理：颜色分级</a>中的<strong>分级曲线</strong>
+</td>
+</tr>
+<tr>
+	<td style="text-align:left;">雾效</td>
+	<td style="text-align:left;">
+<strong>雾效</strong>效果模拟室外环境中的雾或雾气的外观。</td>
 	<td style="text-align:left;">否</td>
-	<td style="text-align:left;">Yes<br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Override-Fog.html?q=fog">High Definition Render Pipeline: Fog Volume Override</a> (note that this is not implemented as a full-screen effect or post-processing effect)</td>
-	<td style="text-align:left;">Yes<br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.postprocessing@latest?subfolder=/manual/Deferred-Fog.html">Post Processing: Deferred Fog</a>
+	<td style="text-align:left;">是<br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Override-Fog.html?q=fog">高清渲染管线：雾体积覆盖</a>（请注意，这不是作为全屏效果或后期处理效果进行实现）</td>
+	<td style="text-align:left;">是<br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.postprocessing@latest?subfolder=/manual/Deferred-Fog.html">后期处理：延迟雾效</a>
 </td>
 </tr>
 <tr>
-	<td style="text-align:left;">Depth of Field</td>
-	<td style="text-align:left;">The <strong>Depth of Field</strong> effect blurs the background of your image while the objects in the foreground stay in focus.</td>
-	<td style="text-align:left;">Yes<br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest?subfolder=/manual/post-processing-depth-of-field.html">Universal Render Pipeline: Depth of Field </a>
+	<td style="text-align:left;">景深</td>
+	<td style="text-align:left;">
+<strong>景深</strong>效果使图像的背景模糊，而前景中的对象保持焦点。</td>
+	<td style="text-align:left;">是<br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest?subfolder=/manual/post-processing-depth-of-field.html">通用渲染管线：景深</a>
 </td>
-	<td style="text-align:left;">Yes<br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Post-Processing-Depth-of-Field.html">High Definition Render Pipeline: Depth of Field</a>
+	<td style="text-align:left;">是<br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Post-Processing-Depth-of-Field.html">高清渲染管线：景深</a>
 </td>
-	<td style="text-align:left;">Yes<br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.postprocessing@latest?subfolder=/manual/Depth-of-Field.html">Post Processing: Depth of Field</a>
-</td>
-</tr>
-<tr>
-	<td style="text-align:left;">Grain</td>
-	<td style="text-align:left;">The <strong>Grain</strong> effect overlays film noise onto your image.</td>
-	<td style="text-align:left;">Yes<br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest?subfolder=/manual/Post-Processing-Film-Grain.html">Universal Render Pipeline: Film Grain</a>
-</td>
-	<td style="text-align:left;">Yes<br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Post-Processing-Film-Grain.html">High Definition Render Pipeline: Film Grain</a>
-</td>
-	<td style="text-align:left;">Yes<br><br>See<a href="https://docs.unity3d.com/Packages/com.unity.postprocessing@2.3/manual/Grain.html"> Post Processing: Grain</a>
+	<td style="text-align:left;">是<br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.postprocessing@latest?subfolder=/manual/Depth-of-Field.html">后期处理：景深</a>
 </td>
 </tr>
 <tr>
-	<td style="text-align:left;">Lens Distortion</td>
-	<td style="text-align:left;">The <strong>Lens Distortion</strong> effect simulates distortion caused by the shape of a real-world camera lens.</td>
-	<td style="text-align:left;">Yes<br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@8.1/manual/Post-Processing-Lens-Distortion.html">Universal Render Pipeline: Lens Distortion</a>
+	<td style="text-align:left;">颗粒</td>
+	<td style="text-align:left;">
+<strong>颗粒</strong>效果将胶片噪点叠加到图像上。</td>
+	<td style="text-align:left;">是<br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest?subfolder=/manual/Post-Processing-Film-Grain.html">通用渲染管线：胶片颗粒</a>
 </td>
-	<td style="text-align:left;">Yes<br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@9.0/manual/Post-Processing-Lens-Distortion.html">High Definition Render Pipeline: Lens Distortion</a>
+	<td style="text-align:left;">是<br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Post-Processing-Film-Grain.html">高清渲染管线：胶片颗粒</a>
 </td>
-	<td style="text-align:left;">Yes <br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.postprocessing@latest?subfolder=/manual/Lens-Distortion.html">Post Processing: Lens Distortion</a>
-</td>
-</tr>
-<tr>
-	<td style="text-align:left;">Lift, Gamma, Gain</td>
-	<td style="text-align:left;">The <strong>Lift, Gamma, Gain</strong> effect allows you to perform three-way color grading.</td>
-	<td style="text-align:left;">Yes <br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest?subfolder=/manual/Post-Processing-Lift-Gamma-Gain.html">Universal Render Pipeline: Lift, Gamma, Gain</a>
-</td>
-	<td style="text-align:left;">Yes <br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Post-Processing-Lift-Gamma-Gain.html">High Definition Render Pipeline: Lift, Gamma, Gain</a>
-</td>
-	<td style="text-align:left;">Yes<br><br>See <strong>Trackballs</strong> in <a href="https://docs.unity3d.com/Packages/com.unity.postprocessing@latest?subfolder=/manual/Color-Grading.html">Post Processing: Color Grading</a>
+	<td style="text-align:left;">是<br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.postprocessing@2.3/manual/Grain.html">后期处理：颗粒</a>
 </td>
 </tr>
 <tr>
-	<td style="text-align:left;">Motion Blur</td>
-	<td style="text-align:left;">The <strong>Motion Blur</strong> effect blurs the image in the direction of the <strong>camera’s</strong> movement</td>
-	<td style="text-align:left;">Yes <br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest?subfolder=/manual/Post-Processing-Motion-Blur.html">Universal Render Pipeline: Motion Blur</a>
+	<td style="text-align:left;">镜头失真</td>
+	<td style="text-align:left;">
+<strong>镜头失真</strong>效果模拟真实摄像机镜头的形状所导致的失真。</td>
+	<td style="text-align:left;">是<br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@8.1/manual/Post-Processing-Lens-Distortion.html">通用渲染管线：镜头失真</a>
 </td>
-	<td style="text-align:left;">Yes<br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Post-Processing-Motion-Blur.html">High Definition Render Pipeline: Motion Blur</a>
+	<td style="text-align:left;">是<br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@9.0/manual/Post-Processing-Lens-Distortion.html">高清渲染管线：镜头失真</a>
 </td>
-	<td style="text-align:left;">Yes<br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.postprocessing@latest?subfolder=/manual/Motion-Blur.html">Post Processing: Motion Blur</a>
-</td>
-</tr>
-<tr>
-	<td style="text-align:left;">Panini Projection</td>
-	<td style="text-align:left;">The <strong>Panini Projection</strong> effect corrects distortion at the edge of an image caused by a wide field of view.</td>
-	<td style="text-align:left;">Yes <br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest?subfolder=/manual/Post-Processing-Panini-Projection.html">Universal Render Pipeline: Panini Projection</a>
-</td>
-	<td style="text-align:left;">Yes <br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Post-Processing-Panini-Projection.html">High Definition Render Pipeline: Panini Projection</a>
-</td>
-	<td style="text-align:left;">否</td>
-</tr>
-<tr>
-	<td style="text-align:left;">Screen Space Reflection</td>
-	<td style="text-align:left;">The <strong>Screen Space Reflection</strong> effect creates subtle reflections that simulate wet floor surfaces or puddles.</td>
-	<td style="text-align:left;">否</td>
-	<td style="text-align:left;">Yes <br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Override-Screen-Space-Reflection.html?q=screenspace">High Definition Render Pipeline: Screen Space Reflection</a>
-</td>
-	<td style="text-align:left;">Yes<br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.postprocessing@latest?subfolder=/manual/Screen-Space-Reflections.html">Post Processing: Screen Space Reflection</a>
+	<td style="text-align:left;">是 <br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.postprocessing@latest?subfolder=/manual/Lens-Distortion.html">后期处理：镜头失真</a>
 </td>
 </tr>
 <tr>
-	<td style="text-align:left;">Shadows Midtones Highlights</td>
-	<td style="text-align:left;">The <strong>Shadows Midtones Highlights</strong> effect separately controls the tint and brightness of the shadows, midtones, and highlights in your image</td>
-	<td style="text-align:left;">Yes<br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest?subfolder=/manual/Post-Processing-Shadows-Midtones-Highlights.html">Universal Render Pipeline: Shadows, Midtones, Highlights</a>
+	<td style="text-align:left;">提升、伽马、增益</td>
+	<td style="text-align:left;">
+<strong>提升、伽马、增益</strong>效果可用于执行三向颜色分级。</td>
+	<td style="text-align:left;">是 <br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest?subfolder=/manual/Post-Processing-Lift-Gamma-Gain.html">通用渲染管线：提升、伽玛、增益</a>
 </td>
-	<td style="text-align:left;">Yes<br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Post-Processing-Shadows-Midtones-Highlights.html">High Definition Render Pipeline: Shadows Midtones Highlights</a>
+	<td style="text-align:left;">是 <br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Post-Processing-Lift-Gamma-Gain.html">高清渲染管线：提升、伽玛、增益</a>
+</td>
+	<td style="text-align:left;">是<br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.postprocessing@latest?subfolder=/manual/Color-Grading.html">后期处理：颜色分级</a>中的<strong>轨迹球</strong>
+</td>
+</tr>
+<tr>
+	<td style="text-align:left;">运动模糊</td>
+	<td style="text-align:left;">
+<strong>运动模糊</strong>效果沿<strong>摄像机</strong>移动的方向使图像模糊</td>
+	<td style="text-align:left;">是 <br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest?subfolder=/manual/Post-Processing-Motion-Blur.html">通用渲染管线：运动模糊</a>
+</td>
+	<td style="text-align:left;">是<br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Post-Processing-Motion-Blur.html">高清渲染管线：运动模糊</a>
+</td>
+	<td style="text-align:left;">是<br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.postprocessing@latest?subfolder=/manual/Motion-Blur.html">后期处理：运动模糊</a>
+</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Panini 投影</td>
+	<td style="text-align:left;">
+<strong>Panini 投影</strong>效果校正由宽视野引起的图像边缘失真。</td>
+	<td style="text-align:left;">是 <br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest?subfolder=/manual/Post-Processing-Panini-Projection.html">通用渲染管线：Panini 投影</a>
+</td>
+	<td style="text-align:left;">是 <br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Post-Processing-Panini-Projection.html">高清渲染管线：Panini 投影</a>
 </td>
 	<td style="text-align:left;">否</td>
 </tr>
 <tr>
-	<td style="text-align:left;">Split Toning</td>
-	<td style="text-align:left;">The <strong>Split Toning</strong> effect maps two different tones in your image to two specific colors.</td>
-	<td style="text-align:left;">Yes <br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest?subfolder=/manual/Post-Processing-Split-Toning.html">Universal Render Pipeline: Split Toning</a>
+	<td style="text-align:left;">屏幕空间反射</td>
+	<td style="text-align:left;">
+<strong>屏幕空间反射</strong>效果可以产生微妙的反射，模拟潮湿的地板表面或水坑。</td>
+	<td style="text-align:left;">否</td>
+	<td style="text-align:left;">是 <br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Override-Screen-Space-Reflection.html?q=screenspace">高清渲染管线：屏幕空间反射</a>
 </td>
-	<td style="text-align:left;">Yes<br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@9.0/manual/Post-Processing-Split-Toning.html">High Definition Render Pipeline: Split Toning</a>
+	<td style="text-align:left;">是<br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.postprocessing@latest?subfolder=/manual/Screen-Space-Reflections.html">后期处理：屏幕空间反射</a>
+</td>
+</tr>
+<tr>
+	<td style="text-align:left;">阴影、中间调、高光 (Shadows Midtones Highlights)</td>
+	<td style="text-align:left;">
+<strong>阴影、中间调、高光</strong>效果分别控制图像中阴影、中间调和高光的色调和亮度。</td>
+	<td style="text-align:left;">是<br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest?subfolder=/manual/Post-Processing-Shadows-Midtones-Highlights.html">通用渲染管线：阴影、中间调、高光</a>
+</td>
+	<td style="text-align:left;">是<br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Post-Processing-Shadows-Midtones-Highlights.html">高清渲染管线：阴影、中间调、高光</a>
 </td>
 	<td style="text-align:left;">否</td>
 </tr>
 <tr>
-	<td style="text-align:left;">Tonemapping</td>
-	<td style="text-align:left;">The <strong>Tonemapping</strong> effect remaps the values of an image to high dynamic range (HDR) colors</td>
-	<td style="text-align:left;">Yes<br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@8.1/manual/post-processing-tonemapping.html">Universal Render Pipeline: Tonemapping</a>
+	<td style="text-align:left;">拆分着色 (Split Toning)</td>
+	<td style="text-align:left;">
+<strong>拆分着色</strong>效果将图像中的两种不同色调映射到两种特定颜色。</td>
+	<td style="text-align:left;">是 <br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest?subfolder=/manual/Post-Processing-Split-Toning.html">通用渲染管线：拆分着色</a>
 </td>
-	<td style="text-align:left;">Yes<br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Post-Processing-Tonemapping.html">High Definition Render Pipeline: Tonemapping</a>
+	<td style="text-align:left;">是<br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@9.0/manual/Post-Processing-Split-Toning.html">高清渲染管线：拆分着色</a>
 </td>
-	<td style="text-align:left;">Yes<br><br>See <strong>Tonemapping</strong> in <a href="https://docs.unity3d.com/Packages/com.unity.postprocessing@latest?subfolder=/manual/Color-Grading.html">Post Processing: Color Grading</a>
+	<td style="text-align:left;">否</td>
+</tr>
+<tr>
+	<td style="text-align:left;">色调映射</td>
+	<td style="text-align:left;">
+<strong>色调映射</strong>将图像的值重新映射到高动态范围 (HDR) 颜色</td>
+	<td style="text-align:left;">是<br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@8.1/manual/post-processing-tonemapping.html">通用渲染管线：色调映射</a>
+</td>
+	<td style="text-align:left;">是<br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Post-Processing-Tonemapping.html">高清渲染管线：色调映射</a>
+</td>
+	<td style="text-align:left;">是<br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.postprocessing@latest?subfolder=/manual/Color-Grading.html">后期处理：颜色分级</a>中的<strong>色调映射</strong>
 </td>
 </tr>
 <tr>
-	<td style="text-align:left;">Vignette</td>
-	<td style="text-align:left;">The <strong>Vignette</strong> effect darkens the edges of an image</td>
-	<td style="text-align:left;">Yes<br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest?subfolder=/manual/post-processing-vignette.html">Universal Render Pipeline: Vignette</a>
+	<td style="text-align:left;">渐晕</td>
+	<td style="text-align:left;">
+<strong>渐晕</strong>效果使图像边缘变暗</td>
+	<td style="text-align:left;">是<br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest?subfolder=/manual/post-processing-vignette.html">通用渲染管线：渐晕</a>
 </td>
-	<td style="text-align:left;">Yes<br><br>See<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Post-Processing-Vignette.html"> High Definition Render Pipeline:Vignette</a>
+	<td style="text-align:left;">是<br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Post-Processing-Vignette.html">高清渲染管线：渐晕</a>
 </td>
-	<td style="text-align:left;">Yes<br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.postprocessing@latest?subfolder=/manual/Vignette.html">Post Processing: Vignette</a>
+	<td style="text-align:left;">是<br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.postprocessing@latest?subfolder=/manual/Vignette.html">后期处理：渐晕</a>
 </td>
 </tr>
 <tr>
-	<td style="text-align:left;">White Balance</td>
-	<td style="text-align:left;">The <strong>White Balance</strong> effect preserves the white areas in your image and balances other tones around the white areas</td>
-	<td style="text-align:left;">Yes<br><br>See<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest?subfolder=/manual/Post-Processing-White-Balance.html"> Universal Render Pipeline: White Balance</a>
+	<td style="text-align:left;">白平衡 (White Balance)</td>
+	<td style="text-align:left;">
+<strong>白平衡</strong>效果保留图像中的白色区域并平衡白色区域周围的其他色调</td>
+	<td style="text-align:left;">是<br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest?subfolder=/manual/Post-Processing-White-Balance.html">通用渲染管线：白平衡</a>
 </td>
-	<td style="text-align:left;">Yes<br><br>See <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Post-Processing-White-Balance.html">High Definition Render Pipeline: White Balance</a>
+	<td style="text-align:left;">是<br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Post-Processing-White-Balance.html">高清渲染管线：白平衡</a>
 </td>
-	<td style="text-align:left;">Yes<br><br><strong>See White balance</strong> in <a href="https://docs.unity3d.com/Packages/com.unity.postprocessing@latest?subfolder=/manual/Color-Grading.html">Post Processing: Color Grading</a>
+	<td style="text-align:left;">是<br><br>请参阅<a href="https://docs.unity3d.com/Packages/com.unity.postprocessing@latest?subfolder=/manual/Color-Grading.html">后期处理：颜色分级</a>中的<strong>白平衡</strong>
 </td>
 </tr>
 </tbody>
@@ -494,7 +507,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

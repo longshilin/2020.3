@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="常见资源类型 - Unity 手册">
-<title>常见资源类型 - Unity 手册</title>
-<meta name="description" content="Unity 支持最常见的图像文件类型，例如 BMP、TIF、TGA、JPG 和 PSD。如果将分层的 Photoshop (.psd) 文件保存到 Assets 文件夹中，Unity 会将它们导入为展平的图像。如需了解详细信息，请参阅从 Photoshop 导入包含 Alpha 通道的图像或者将图像作为精灵导入">
-<meta property="og:description" content="Unity 支持最常见的图像文件类型，例如 BMP、TIF、TGA、JPG 和 PSD。如果将分层的 Photoshop (.psd) 文件保存到 Assets 文件夹中，Unity 会将它们导入为展平的图像。如需了解详细信息，请参阅从 Photoshop 导入包含 Alpha 通道的图像或者将图像作为精灵导入">
+<meta property="og:title" content="Supported Asset Types - Unity 手册">
+<title>Supported Asset Types - Unity 手册</title>
+<meta name="description" content="Unity supports many different types of assets.">
+<meta property="og:description" content="Unity supports many different types of assets.">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,87 +174,96 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="AssetWorkflow.html">资源工作流程</a></li>
-<li>常见资源类型</li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="AssetWorkflow.html">Asset Workflow</a></li>
+<li>Supported Asset Types</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="AssetWorkflow.html"></a></span><div class="tip">资源工作流程</div>
+<span class="prev"><a href="ImportingAssets.html"></a></span><div class="tip">导入</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SpecialFolders.html"></a></span><div class="tip">特殊文件夹名称</div>
+<span class="next"><a href="BuiltInImporters.html"></a></span><div class="tip">Built-in Importers</div>
 </div>
 </div></div>
-<h1>常见资源类型</h1>
+<h1>Supported Asset Types</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<h2>图像文件</h2>
+<p>Unity supports many different types of assets. </p>
 
-<p>Unity 支持最常见的图像文件类型，例如 BMP、TIF、TGA、JPG 和 PSD。如果将分层的 Photoshop (.psd) 文件保存到 <code>Assets</code> 文件夹中，Unity 会将它们导入为展平的图像。如需了解详细信息，请参阅<a href="HOWTO-alphamaps.html">从 Photoshop 导入包含 Alpha 通道的图像</a>或者<a href="SpriteEditor.html">将图像作为精灵导入</a></p>
+<p>For the full list of Unity’s built-in importers and supported file types and filename extensions, see <a href="BuiltInImporters.html">built-in importers</a>.</p>
 
-<h2>FBX 和模型文件</h2>
+<p>Listed below are some of the more common types of asset that you might want to use when getting started with Unity, and links to find out more about how to work with them.</p>
 
-<p>As Unity supports the FBX file format, you can import data from any 3D modeling software that supports FBX. Unity also natively supports importing SketchUp files.</p>
+<h2>Commonly used asset types</h2>
 
-<p><strong>注意：</strong>还可以使用原生格式（例如 .max、.blend、.mb 和 .ma）从最常见的 3D 建模软件中保存 3D 文件。Unity 在 <code>Assets</code> 文件夹中找到这些文件时，会通过回调 3D 建模软件的 FBX 导出插件来导入它们。但是，建议将它们导出为 FBX 格式。</p>
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
 
-<h2>网格和动画</h2>
+<thead>
+<tr>
+	<th style="text-align:left;">Type</th>
+	<th style="text-align:left;">描述</th>
+</tr>
+</thead>
 
-<p>无论使用哪种 3D 建模软件，Unity 都会从每个文件中导入网格和动画。有关 Unity 支持的 3D 建模软件列表，请参阅<a href="3D-formats.html">模型文件格式</a>。</p>
-
-<p>网格文件不需要导入动画。如果需要使用动画，则可以从单个文件导入所有动画，或导入单独的文件，每个文件包含一个动画。有关导入动画的更多信息，请参阅<a href="ImportingModelFiles.html">模型导入工作流程</a>。</p>
-
-<h2>音频文件</h2>
-
-<p>如果将未压缩的音频文件保存到 <code>Assets</code> 文件夹中，Unity 会根据指定的压缩设置来导入音频文件。有关详细信息，请参阅<a href="AudioFiles.html">导入音频文件</a>。</p>
-
-<h2>其他资源类型</h2>
-
-<p>虽然在 Unity 中可以选择各种方式来压缩、修改或以其他方式处理资源，但在任何情况下，Unity 都不会修改原始的源文件。导入过程会读取源文件，并在内部创建一个可直接用于游戏的资源表示，与所选的导入设置相匹配。如果修改资源的导入设置，或者对 <code>Assets</code> 文件夹中的源文件进行更改，则会导致 Unity 再次重新导入资源以反映这些更改。</p>
-
-<p><strong>注意</strong>：导入原生 3D 格式要求 3D 建模软件与 Unity 安装在同一台计算机上。这是因为 Unity 要使用 3D 建模软件的 FBX Exporter 插件来读取文件。或者，也可以直接从应用程序导出为 FBX 格式并保存到项目文件夹中。</p>
-
-<p><a name="Standard"></a> </p>
-
-<h2>标准资源</h2>
-
-<p>Unity 附带多个__标准资源 (Standard Assets)__。这些资源是大多数 Unity 客户使用的资源集合。这些资源包括：</p>
-
-<ul>
-<li>2D</li>
-<li>Cameras</li>
-<li>Characters</li>
-<li>CrossPlatformInput</li>
-<li>Effects</li>
-<li>Environment</li>
-<li>ParticleSystems</li>
-<li>Prototyping</li>
-<li>Utility</li>
-<li>Vehicles</li>
-</ul>
-
-<p>为了将__标准资源 (Standard Assets)__ 传入和传出项目，Unity 使用__资源包__（可从 Unity <strong>Asset Store</strong> 获取）。资源包便于共享和重用 Unity 项目和资源集合。</p>
-
-<p><strong>注意：</strong>可从 <a href="https://assetstore.unity.com/packages/essentials/asset-packs/standard-assets-32351">Asset Store</a> 下载 <a href="AssetPackages.html#Standard">Standard Assets</a>。</p>
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>3D Model Files</strong></td>
+	<td style="text-align:left;">As Unity supports the FBX file format, you can import data from any 3D modeling software that supports FBX. Unity also natively supports importing SketchUp files. For a list of 3D modeling software that Unity supports, see <a href="3D-formats.html">Model file formats</a>.<br><br>3D Model files can contain many types of asset such as <a href="FBXImporter-Model.html">meshes</a>, <a href="class-AnimationClip.html">animation</a>, <a href="FBXImporter-Materials.html">materials</a> and textures.<br><br>For more information about importing 3D model files, see <a href="ImportingModelFiles.html">Importing Models</a>.<br><br>Unity also supports <a href="class-SketchUpImporter.html">SketchUp</a> and <a href="class-SpeedTreeImporter.html">SpeedTree</a> formats.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Image files</strong></td>
+	<td style="text-align:left;">Image files are imported as <strong>textures</strong>. Unity supports most common image file types, such as BMP, TIF, TGA, JPG, and PSD. If you save your layered Photoshop (.psd) files in your <code>Assets</code> folder, Unity imports them as flattened images. Read more about <a href="class-TextureImporter.html">importing textures</a>.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Audio files</strong></td>
+	<td style="text-align:left;">Unity supports many audio file formats. It’s generally best to import uncompressed audio file formats such as <strong>wav</strong> or <strong>aiff</strong>, because during import Unity will apply the compression settings specified in your import settings. Read more about <a href="AudioFiles.html">importing audio files</a>.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Text, HTML, XML, JSON</strong></td>
+	<td style="text-align:left;">Unity can import arbitrary data from files, allowing you to store and use data from external sources. These are all handled by the <a href="class-TextAsset.html">Text Asset Importer</a>.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Plug-ins and code-related assets</strong></td>
+	<td style="text-align:left;">You can drop managed and native <a href="Plugins.html">plug-ins</a> into your Unity project as assets (such as <strong>.dll</strong> files) to expand the functionality of your game or app. Unity also supports <a href="ScriptCompilationAssemblyDefinitionFiles.html">assembly definitions</a> to help you create and organize your scripts into assemblies.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Native Assets</strong></td>
+	<td style="text-align:left;">There are a range of asset types which are native to the Unity Editor. You can create assets of these types using Editor features. When you create these, Unity saves the files which represent them as asset files in the Assets folder of your project.<br><br>These include <a href="animeditor-CreatingANewAnimationClip.html">animations</a>, <a href="EditingCurves.html">curves</a>, <a href="PartSysUsage.html">gradients</a>, <a href="class-AvatarMask.html">masks</a>, <a href="Materials.html">materials</a>, and <a href="Presets.html">presets</a>. For the full list, see the NativeFormatImporter type in the <a href="BuiltInImporters.html">Built-in Importer list</a> below.</td>
+</tr>
+</tbody>
+</table>
 
 <h2>Unity Package Manager 中的资源</h2>
 
-<p>通过 <strong>Unity Package Manager (UPM)</strong> 可将各种资源（包括插件、工具和库）直接安装到 Unity 中。这些是新的资源包类型，可通过 <a href="upm-ui.html">Package Manager 窗口</a>获取。有关常规资源包的更多信息，请参阅<a href="Packages.html">资源包</a>文档。</p>
-<!-- area:authoring -->
+<p>通过 <strong>Unity Package Manager (UPM)</strong> 可将各种资源（包括插件、工具和库）直接安装到 Unity 中。这些是新的资源包类型，可通过 <a href="upm-ui.html">Package Manager 窗口</a>获取。有关常规资源包的更多信息，请参阅<span class="notooltips"><a href="Packages.html">资源包</a></span>文档。</p>
+
+<h2>Reusing assets between projects</h2>
+
+<p>在构建游戏时，Unity 会存储有关资源的大量元数据，例如导入设置、其他资源的链接以及其他信息。如果要将资源转移到其他项目并保留所有此类信息，可将资源导出到以下容器之一：</p>
+
+<ul>
+<li>
+<a href="CustomPackages.html">自定义包</a>，您可以在 <span class="notooltips"><a href="Packages.html">Unity 的 Package Manager</a></span> 内访问和管理。
+*<a href="AssetPackages.html">资源包</a>，可以在编辑器中直接创建。</li>
+</ul>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="AssetWorkflow.html"></a></span><div class="tip">资源工作流程</div>
+<span class="prev"><a href="ImportingAssets.html"></a></span><div class="tip">导入</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SpecialFolders.html"></a></span><div class="tip">特殊文件夹名称</div>
+<span class="next"><a href="BuiltInImporters.html"></a></span><div class="tip">Built-in Importers</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

@@ -13,8 +13,8 @@
 <meta name="twitter:card" content="summary">
 <meta property="og:title" content="表面着色器中的自定义光照模型 - Unity 手册">
 <title>表面着色器中的自定义光照模型 - Unity 手册</title>
-<meta name="description" content="编写表面着色器时，您将描述表面的属性（比如反照率颜色和法线），而由__光照模型__计算光照交互。">
-<meta property="og:description" content="编写表面着色器时，您将描述表面的属性（比如反照率颜色和法线），而由__光照模型__计算光照交互。">
+<meta name="description" content="在内置渲染管线中，当编写表面着色器时，将描述表面的属性（如反照率颜色和法线），而由__光照模型__计算光照交互。">
+<meta property="og:description" content="在内置渲染管线中，当编写表面着色器时，将描述表面的属性（如反照率颜色和法线），而由__光照模型__计算光照交互。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,11 +174,10 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
-<li><a href="ShadersOverview.html">编写着色器</a></li>
-<li><a href="SL-Reference.html">着色器参考</a></li>
+<li><a href="Shaders.html">着色器</a></li>
+<li><a href="shader-writing.html">编写着色器</a></li>
 <li><a href="SL-SurfaceShaders.html">编写表面着色器</a></li>
 <li>表面着色器中的自定义光照模型</li>
 </ul></div>
@@ -194,7 +193,41 @@
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>编写<a href="SL-SurfaceShaders.html">表面着色器</a>时，您将描述表面的属性（比如反照率颜色和法线），而由__光照模型__计算光照交互。</p>
+<p>在内置渲染管线中，当编写<a href="SL-SurfaceShaders.html">表面着色器</a>时，将描述表面的属性（如反照率颜色和法线），而由__光照模型__计算光照交互。</p>
+
+<h2>渲染管线兼容性</h2>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>功能名称</strong></th>
+	<th style="text-align:left;"><strong>内置渲染管线</strong></th>
+	<th style="text-align:left;"><strong>通用渲染管线 (URP)</strong></th>
+	<th style="text-align:left;"><strong>高清渲染管线 (HDRP)</strong></th>
+	<th style="text-align:left;"><strong>自定义 SRP</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>表面着色器</strong></td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">否<br><br>有关在 URP 中创建 Shader 对象的简化方法，请参阅 <a href="shader-graph.html">Shader Graph</a>。</td>
+	<td style="text-align:left;">否<br><br>有关在 HDRP 中创建 Shader 对象的简化方法，请参阅 <a href="shader-graph.html">Shader Graph</a>。</td>
+	<td style="text-align:left;">否</td>
+</tr>
+</tbody>
+</table>
+
+<h2>概述</h2>
 
 <p>有两个内置光照模型，分别是 <code>Lambert</code> 和 <code>BlinnPhong</code>，前者用于漫射光照，后者用于镜面反射光照。Unity 中的 <em>Lighting.cginc</em> 文件用于定义这些模型（Windows：<em>&lt;unity 安装路径&gt;/Data/CGIncludes/Lighting.cginc_；macOS：</em>/Applications/Unity/Unity.app/Contents/CGIncludes/Lighting.cginc_）。</p>
 
@@ -241,7 +274,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

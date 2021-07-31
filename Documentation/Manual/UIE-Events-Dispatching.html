@@ -13,9 +13,9 @@
 <meta name="twitter:card" content="summary">
 <meta property="og:title" content="分发事件 - Unity 手册">
 <title>分发事件 - Unity 手册</title>
-<meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/focus-order.png">
-<meta name="description" content="The UI Toolkit event system listens to events, coming from the operating system or scripts, and dispatches these events to visual elements using the EventDispatcher. The event dispatcher determines an appropriate dispatching strategy for each event it sends. Once determined, the dispatcher executes the strategy.">
-<meta property="og:description" content="The UI Toolkit event system listens to events, coming from the operating system or scripts, and dispatches these events to visual elements using the EventDispatcher. The event dispatcher determines an appropriate dispatching strategy for each event it sends. Once determined, the dispatcher executes the strategy.">
+<meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/UIElementsEvents.png">
+<meta name="description" content="UI 工具包事件系统监听来自操作系统或脚本的事件，并使用 EventDispatcher 将这些事件分发到视觉元素。事件分发程序为发送的每个事件确定相应分发策略。一旦确定后，分发程序就会执行该策略。">
+<meta property="og:description" content="UI 工具包事件系统监听来自操作系统或脚本的事件，并使用 EventDispatcher 将这些事件分发到视觉元素。事件分发程序为发送的每个事件确定相应分发策略。一旦确定后，分发程序就会执行该策略。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,37 +175,76 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="UIToolkits.html">Creating user interfaces (UI)</a></li>
-<li><a href="UIElements.html">UI Toolkit</a></li>
-<li><a href="UIE-Events.html">事件系统</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="UIToolkits.html">创建用户界面 (UI)</a></li>
+<li><a href="UIElements.html">UI 工具包</a></li>
+<li><a href="UIE-Events.html">事件类型</a></li>
 <li>分发事件</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="UIE-Events.html"></a></span><div class="tip">事件系统</div>
+<span class="prev"><a href="UIE-Events.html"></a></span><div class="tip">事件类型</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="UIE-Events-Handling.html"></a></span><div class="tip">事件响应</div>
+<span class="next"><a href="UIE-Events-Handling.html"></a></span><div class="tip">处理事件</div>
 </div>
 </div></div>
 <h1>分发事件</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>The UI Toolkit event system listens to events, coming from the operating system or scripts, and dispatches these events to visual elements using the <code>EventDispatcher</code>. The event dispatcher determines an appropriate dispatching strategy for each event it sends. Once determined, the dispatcher executes the strategy. </p>
+<p>UI 工具包事件系统监听来自操作系统或脚本的事件，并使用 <a href="../ScriptReference/UIElements.EventDispatcher.html">EventDispatcher</a> 将这些事件分发到视觉元素。事件分发程序为发送的每个事件确定相应分发策略。一旦确定后，分发程序就会执行该策略。</p>
 
-<p>视觉元素和其他支持类实现了几个事件的默认行为。有时，涉及创建和发送额外的事件。例如，<code>MouseMoveEvent</code> 可能生成额外的 <code>MouseEnterEvent</code> 和 <code>MouseLeaveEvent</code>。这些额外的事件将放置在队列中，并会在当前事件完成后处理这些事件。例如，完成 <code>MouseMoveEvent</code> 后处理 <code>MouseEnterEvent</code> 和 <code>MouseLeaveEvent</code> 事件。</p>
+<p>视觉元素实现了几个事件的默认行为。这可能涉及额外事件的创建和执行。例如，一个 <code>MouseMoveEvent</code> 可以生成一个额外的 <code>MouseEnterEvent</code> 和一个 <code>MouseLeaveEvent</code>。这些事件进入队列并在当前事件之后处理。例如，<code>MouseMoveEvent</code> 在 <code>MouseEnterEvent</code> 和 <code>MouseLeaveEvent</code> 事件之前完成处理。</p>
+
+<h2>事件类型的分发行为</h2>
+
+<p>每个事件类型都有自己的分发行为。每种事件类型的行为分为三个阶段：</p>
+
+<ul>
+<li>
+<strong>涓滴</strong>：在涓滴阶段发送到元素的事件。</li>
+<li>
+<strong>冒泡</strong>：在冒泡阶段发送到元素的事件。</li>
+<li>
+<strong>可取消</strong>：此类事件可以取消、停止或阻止默认操作的执行。</li>
+</ul>
+
+<p>有关每种事件类型的分发行为的列表，请参阅<a href="UIE-Events-Reference.html">事件参考页面 </a>。</p>
+
+<h2>事件传播</h2>
+
+<p>事件分发程序选择事件目标后，会计算事件的传播路径。传播路径是接收事件的视觉元素的有序列表。传播路径按以下顺序发生：</p>
+
+<p>1.路径从视觉元素树的根部开始，并朝着目标下降。此阶段称为<strong>涓滴 (trickle-down) 阶段</strong>。
+2. The event target receives the event.
+3.然后事件沿着树上升到根。此阶段称为<strong>冒泡 (bubble-up) 阶段 </strong>。</p>
+
+<figure>
+<img src="../uploads/Main/UIElementsEvents.png" alt="传播路径">
+<figcaption>传播路径</figcaption>
+</figure>
+
+<p>大多数事件类型将沿着传播路径发送到所有元素。某些事件类型跳过冒泡阶段，某些事件类型仅发送到事件目标。</p>
+
+<p>如果元素被隐藏或禁用，它将不会接收事件。事件仍会传播到被隐藏或禁用的元素的祖先和后代。</p>
+
+<p>在事件沿着传播路径行进时，<code>Event.currentTarget</code> 更新为当前正在处理该事件的元素。在事件回调函数中，有两个属性记录了分发行为：</p>
+
+<ul>
+<li>
+<code>Event.currentTarget</code> 是注册回调的视觉元素。</li>
+<li>
+<code>Event.target</code> 是发生事件的元素，例如鼠标正下方的元素。</li>
+</ul>
 
 <h2>事件目标</h2>
 
-<p><code>EventDispatcher.DispatchEvent()</code> 的首个任务是查找事件目标。</p>
+<p>事件的目标取决于事件类型。对于鼠标事件，目标最常见的是直接位于鼠标下方最上层的可选择元素。对于键盘事件，目标是当前获得焦点的元素。</p>
 
-<p>有时，这很容易，因为已经设置事件 <code>target</code> 属性。但是，对于源自操作系统的大多数事件，则并非如此。</p>
+<p>UI Toolkit events have a <code>target</code> property, containing a reference to the element where the event occurred. For most events that originate from the operating system, the dispatch process finds the event target automatically.</p>
 
-<p>事件的目标取决于事件类型。对于鼠标事件，目标通常是直接位于鼠标下面最上层的可选择元素。对于键盘事件，目标是当前聚焦的元素。</p>
-
-<p>找到目标后，目标会存储在 <code>EventBase.target</code> 中，且在分发过程中不会改变。属性 <code>Event.currentTarget</code> 会更新为当前正在处理该事件的元素。</p>
+<p>目标元素存储在 <code>EventBase.target</code> 中并且在分发过程中不会改变。属性 <code>Event.currentTarget</code> 会更新为当前正在处理该事件的视觉元素。</p>
 
 <h3>拾取模式和自定义形状</h3>
 
@@ -222,20 +261,20 @@
 
 <h3>捕获鼠标</h3>
 
-<p>有时，在鼠标按下后，元素必须捕获鼠标位置以确保所有后续的鼠标事件都只发送给自己（即使指针不再悬停在该元素上）。如果一个控件会响应鼠标按下和鼠标松开序列 - 在鼠标按下和鼠标松开事件之间可能会移动鼠标，通常便会有此要求。例如，在单击按钮、滑动条或滚动条时就属于这种情况。</p>
+<p>在 <code>MouseDownEvent</code> 之后，某些元素必须捕获指针位置，以确保能接收所有后续的鼠标事件，即使光标不再悬停在该元素上。例如，在单击按钮、滑动条或滚动条时就属于这种情况。</p>
 
 <p>要捕获鼠标，请调用 <code>element.CaptureMouse()</code> 或 <code>MouseCaptureController.CaptureMouse()</code>。</p>
 
 <p>要释放鼠标，请调用 <code>MouseCaptureController.ReleaseMouse()</code>。如果在调用 <code>CaptureMouse()</code> 时已经有另一个元素正在捕获鼠标，该元素将收到 <code>MouseCaptureOutEvent</code>
 并失去此捕获。</p>
 
-<p>在应用程序中，任何时候都只能有一个元素具有捕获。当元素具有捕获时，该元素便是除鼠标滚轮事件之外的所有后续鼠标事件的目标。</p>
+<p>在应用程序中，任何时候都只能有一个元素具有捕获。当元素具有捕获时，该元素便是除鼠标滚轮事件之外的所有后续鼠标事件的目标。这仅适用于尚未设置目标并依赖分发过程来确定目标的鼠标事件。</p>
 
-<p>注意：这只适用于尚未设置目标的鼠标事件。</p>
+<p>For more information, see <a href="UIE-Capture-Events.html">Capture events</a>.</p>
 
 <h3>焦点环和 Tab 顺序</h3>
 
-<p>每个 UIElement 面板都有一个焦点环用于定义元素的焦点顺序。默认情况下，元素的焦点顺序是通过对视觉元素树执行深度优先搜索 (DFS) 来确定的。例如，以下所示的树的焦点顺序将是 F、B、A、D、C、E、G、I、H。</p>
+<p>每个 UI 工具包面板都有一个焦点环，用于定义元素的焦点顺序。默认情况下，对视觉元素树执行深度优先搜索 (DFS) 确定元素的焦点顺序。例如，以下所示的树的焦点顺序将是 F、B、A、D、C、E、G、I、H。</p>
 
 <figure>
 <img src="../uploads/Main/focus-order.png" alt="焦点顺序">
@@ -244,292 +283,27 @@
 
 <p>有些事件使用焦点顺序来确定哪个元素获得焦点。例如，键盘事件的目标是当前获得焦点的元素。</p>
 
-<p>使用 <code>focusable</code> 属性可控制元素的可聚焦性。默认情况下，无法聚焦 <code>VisualElements</code>，但是默认可聚焦某些子类（例如 <code>TextField</code>）。</p>
+<p>使用 <code>focusable</code> 属性可控制元素的可聚焦性。默认情况下，<code>VisualElements</code> 无法聚焦，但是某些子类（例如 <code>TextField</code>）默认可聚焦。</p>
 
 <p>使用 <code>tabIndex</code> 属性可按如下方式控制焦点顺序（<code>tabIndex</code> 默认值为 0）：</p>
 
 <ul>
-<li>如果 <code>tabIndex</code> 为负，则无法用 Tab 键导航该元素。</li>
+<li>如果 <code>tabIndex</code> 为负，则无法用 Tab 键导航到该元素。</li>
 <li>如果 <code>tabIndex</code> 为零，该元素保持默认的 Tab 顺序（通过焦点环算法确定的顺序）。</li>
-<li>如果 <code>tabIndex</code> 为正，该元素将置于 <code>tabIndex</code> 为零 (<code>tabIndex = 0</code>) 或具有更高 <code>tabIndex</code> 的其他元素之前。</li>
+<li>如果 <code>tabIndex</code> 为正，该元素将置于 <code>tabIndex</code> 为零 (<code>tabIndex = 0</code>) 或 <code>tabIndex</code> 更小的其他元素之前。</li>
 </ul>
-
-<h2>事件传播</h2>
-
-<p>选择事件目标后，分发程序将计算事件的传播路径。传播路径是接收事件的视觉元素的有序列表。</p>
-
-<p>元素列表的获得方式是从视觉元素树的根开始，朝着目标往下，再朝着树的根往上。</p>
-
-<figure>
-<img src="../uploads/Main/UIElementsEvents.png" alt="传播路径">
-<figcaption>传播路径</figcaption>
-</figure>
-
-<p>传播路径的第一阶段从根下降到目标父级。此阶段称为<em>涓滴 (trickle down) 阶段</em>。</p>
-
-<p>传播路径的最后一个阶段从目标父级上升到根。此阶段称为<em>冒泡 (bubble-up) 阶段</em>。</p>
-
-<p>事件目标位于传播路径中间。</p>
-
-<p>大多数事件类型将发送到传播路径上的所有元素。但是，一些事件类型会跳过冒泡阶段。此外，一些事件类型仅发送到事件目标。</p>
-
-<p>如果元素被隐藏或禁用，它将不会接收事件。事件仍会传播到被隐藏或禁用的元素的祖先和后代。</p>
-
-<p>在沿着传播路径发送事件时，<code>Event.currentTarget</code> 更新为当前正在处理事件的元素。这意味着，在事件回调函数中，<code>Event.currentTarget</code> 是对回调注册的元素，而 <code>Event.target</code> 是发生事件的元素。</p>
-
-<h2>事件类型的分发行为</h2>
-
-<p>每个事件类型都有自己的分发行为。下表以三列的形式汇总了每个事件类型的行为：</p>
-
-<ul>
-<li>涓滴：在涓滴阶段将此类型的事件发送到元素。</li>
-<li>冒泡：在冒泡阶段将此类型的事件发送到元素。</li>
-<li>可取消：此类事件可以取消、停止或阻止默认操作的执行。</li>
-</ul>
-
-<table>
-<colgroup>
-<col style="text-align:left;">
-<col style="text-align:center;">
-<col style="text-align:center;">
-<col style="text-align:center;">
-</colgroup>
-
-<thead>
-<tr>
-	<th style="text-align:left;"></th>
-	<th style="text-align:center;">涓滴</th>
-	<th style="text-align:center;">冒泡</th>
-	<th style="text-align:center;">可取消</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-	<td style="text-align:left;">MouseCaptureOutEvent</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;"></td>
-</tr>
-<tr>
-	<td style="text-align:left;">MouseCaptureEvent</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;"></td>
-</tr>
-<tr>
-	<td style="text-align:left;">ChangeEvent</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;"></td>
-</tr>
-<tr>
-	<td style="text-align:left;">ValidateCommandEvent</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;">✔</td>
-</tr>
-<tr>
-	<td style="text-align:left;">ExecuteCommandEvent</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;">✔</td>
-</tr>
-<tr>
-	<td style="text-align:left;">DragExitedEvent</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;"></td>
-</tr>
-<tr>
-	<td style="text-align:left;">DragUpdatedEvent</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;">✔</td>
-</tr>
-<tr>
-	<td style="text-align:left;">DragPerformEvent</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;">✔</td>
-</tr>
-<tr>
-	<td style="text-align:left;">DragEnterEvent</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;"></td>
-	<td style="text-align:center;"></td>
-</tr>
-<tr>
-	<td style="text-align:left;">DragLeaveEvent</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;"></td>
-	<td style="text-align:center;"></td>
-</tr>
-<tr>
-	<td style="text-align:left;">FocusOutEvent</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;"></td>
-</tr>
-<tr>
-	<td style="text-align:left;">BlurEvent</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;"></td>
-	<td style="text-align:center;"></td>
-</tr>
-<tr>
-	<td style="text-align:left;">FocusInEvent</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;"></td>
-</tr>
-<tr>
-	<td style="text-align:left;">FocusEvent</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;"></td>
-	<td style="text-align:center;"></td>
-</tr>
-<tr>
-	<td style="text-align:left;">InputEvent</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;"></td>
-</tr>
-<tr>
-	<td style="text-align:left;">KeyDownEvent</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;">✔</td>
-</tr>
-<tr>
-	<td style="text-align:left;">KeyUpEvent</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;">✔</td>
-</tr>
-<tr>
-	<td style="text-align:left;">GeometryChangedEvent</td>
-	<td style="text-align:center;"></td>
-	<td style="text-align:center;"></td>
-	<td style="text-align:center;"></td>
-</tr>
-<tr>
-	<td style="text-align:left;">MouseDownEvent</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;">✔</td>
-</tr>
-<tr>
-	<td style="text-align:left;">MouseUpEvent</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;">✔</td>
-</tr>
-<tr>
-	<td style="text-align:left;">MouseMoveEvent</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;">✔</td>
-</tr>
-<tr>
-	<td style="text-align:left;">ContextClickEvent</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;">✔</td>
-</tr>
-<tr>
-	<td style="text-align:left;">WheelEvent</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;">✔</td>
-</tr>
-<tr>
-	<td style="text-align:left;">MouseEnterEvent</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;"></td>
-	<td style="text-align:center;">✔</td>
-</tr>
-<tr>
-	<td style="text-align:left;">MouseLeaveEvent</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;"></td>
-	<td style="text-align:center;">✔</td>
-</tr>
-<tr>
-	<td style="text-align:left;">MouseEnterWindowEvent</td>
-	<td style="text-align:center;"></td>
-	<td style="text-align:center;"></td>
-	<td style="text-align:center;">✔</td>
-</tr>
-<tr>
-	<td style="text-align:left;">MouseLeaveWindowEvent</td>
-	<td style="text-align:center;"></td>
-	<td style="text-align:center;"></td>
-	<td style="text-align:center;">✔</td>
-</tr>
-<tr>
-	<td style="text-align:left;">MouseOverEvent</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;">✔</td>
-</tr>
-<tr>
-	<td style="text-align:left;">MouseOutEvent</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;">✔</td>
-</tr>
-<tr>
-	<td style="text-align:left;">ContextualMenuPopulateEvent</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;">✔</td>
-</tr>
-<tr>
-	<td style="text-align:left;">AttachToPanelEvent</td>
-	<td style="text-align:center;"></td>
-	<td style="text-align:center;"></td>
-	<td style="text-align:center;"></td>
-</tr>
-<tr>
-	<td style="text-align:left;">DetachFromPanelEvent</td>
-	<td style="text-align:center;"></td>
-	<td style="text-align:center;"></td>
-	<td style="text-align:center;"></td>
-</tr>
-<tr>
-	<td style="text-align:left;">TooltipEvent</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;"></td>
-</tr>
-<tr>
-	<td style="text-align:left;">IMGUIEvent</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;">✔</td>
-	<td style="text-align:center;">✔</td>
-</tr>
-</tbody>
-</table>
-
-<hr>
-
-<ul>
-<li><span class="page-edit">2018–11–02 页面已修订</span></li>
-</ul>
-<!-- area:authoring -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="UIE-Events.html"></a></span><div class="tip">事件系统</div>
+<span class="prev"><a href="UIE-Events.html"></a></span><div class="tip">事件类型</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="UIE-Events-Handling.html"></a></span><div class="tip">事件响应</div>
+<span class="next"><a href="UIE-Events-Handling.html"></a></span><div class="tip">处理事件</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

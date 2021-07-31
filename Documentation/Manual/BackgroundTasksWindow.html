@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="The Background Tasks window - Unity 手册">
-<title>The Background Tasks window - Unity 手册</title>
+<meta property="og:title" content="后台任务窗口 - Unity 手册">
+<title>后台任务窗口 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/window-bg-tasks-overview.png">
-<meta name="description" content="The Background Tasks window displays the progress of any running asynchronous tasks. For example, you can see the progress for shader compilation, lightmap baking, and occlusion culling.">
-<meta property="og:description" content="The Background Tasks window displays the progress of any running asynchronous tasks. For example, you can see the progress for shader compilation, lightmap baking, and occlusion culling.">
+<meta name="description" content="后台任务窗口显示任何正在运行的异步任务的进度。例如，您可以查看着色器编译、光照贴图烘焙和遮挡剔除的进度。">
+<meta property="og:description" content="后台任务窗口显示任何正在运行的异步任务的进度。例如，您可以查看着色器编译、光照贴图烘焙和遮挡剔除的进度。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,59 +175,54 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UnityOverview.html">在 Unity 中操作</a></li>
 <li><a href="UsingTheEditor.html">Unity 的界面</a></li>
-<li>The Background Tasks window</li>
+<li>后台任务窗口</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="StatusBar.html"></a></span><div class="tip">The status bar</div>
+<span class="prev"><a href="StatusBar.html"></a></span><div class="tip">状态栏</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="Console.html"></a></span><div class="tip">Console 窗口</div>
 </div>
 </div></div>
-<h1>The Background Tasks window</h1>
+<h1>后台任务窗口</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>The Background Tasks window displays the progress of any running asynchronous tasks. For example, you can see the progress for <a href="SL-ShaderCompileTargets.html">shader compilation</a>, <a href="Lightmappers.html">lightmap</a> baking, and <a href="OcclusionCulling.html">occlusion culling</a>.</p>
+<p>后台任务窗口显示任何正在运行的异步任务的进度。例如，您可以查看<a href="SL-ShaderCompileTargets.html">着色器编译</a>、<a href="Lightmappers.html">光照贴图</a>烘焙和<a href="OcclusionCulling.html">遮挡剔除</a>的进度。</p>
 
-<p>To open the Background Tasks window, do one of the following:</p>
+<p>要打开后台任务窗口，请执行以下操作之一：</p>
 
 <ul>
-<li>From the menu, select <strong>Window &gt; General &gt; Progress</strong>.</li>
-<li>From the Unity Editor <a href="StatusBar.html">status bar</a>, click the global progress bar or the activity indicator (spinner).</li>
+<li>从菜单中，选择 <strong>Window &gt; General &gt; Progress</strong>。</li>
+<li>从 Unity 编辑器的<a href="StatusBar.html">状态栏</a>，单击全局进度条或活动指示器（微调器）。</li>
 </ul>
 
 <figure>
-<img src="../uploads/Main/window-bg-tasks-overview.png" alt="The Background Tasks Window">
-<figcaption>The Background Tasks Window</figcaption>
+<img src="../uploads/Main/window-bg-tasks-overview.png" alt="后台任务窗口">
+<figcaption>后台任务窗口</figcaption>
 </figure>
 
-<ol>
-<li><p><strong>Toolbar:</strong> Provides options for <a href="#filtering-tasks-by-status">filtering tasks</a> and <a href="#clearing-inactive-tasks">clearing inactive tasks</a> from the list.</p></li>
-<li>
-<p><strong>Task list:</strong> Displays per-task <a href="#task-information">progress information</a> for the following:</p>
+<p>1.<strong>工具栏：</strong>提供<a href="#filtering-tasks-by-status">过滤任务</a>和从列表中<a href="#clearing-inactive-tasks">清除非活动任务</a>的选项。
+1.<strong>任务列表：</strong>按任务显示以下内容的<a href="#task-information">进度信息</a>：</p>
 
-<ul>
-<li>Active tasks, including tasks that have stopped responding.</li>
-<li>Some finished tasks. By default, Unity removes these from the list, but some are designed to stay in the list until you <a href="#clearing-inactive-tasks">clear them</a> manually.</li>
-<li>Failed and canceled tasks.</li>
-</ul>
-</li>
-</ol>
+<pre><code>- 活动任务，包括已停止响应的任务。
+- 某些已完成的任务。默认情况下，Unity 会从列表中删除这些任务，但有些任务保留在列表中，直到手动[清除这些任务](#clearing-inactive-tasks)。
+- 失败和取消的任务。
+</code></pre>
 
 <p><a name="task-information"></a></p>
 
-<h2>Task information</h2>
+<h2>任务信息</h2>
 
-<p>Each entry in the Background Tasks window displays the following information about the task.</p>
+<p>后台任务窗口中的每个条目都显示有关该任务的以下信息。</p>
 
 <figure>
-<img src="../uploads/Main/window-bg-tasks-task.png" alt="Components of a background task entry">
-<figcaption>Components of a background task entry</figcaption>
+<img src="../uploads/Main/window-bg-tasks-task.png" alt="后台任务条目的组成部分">
+<figcaption>后台任务条目的组成部分</figcaption>
 </figure>
 
 <table>
@@ -240,61 +235,61 @@
 <thead>
 <tr>
 	<th style="text-align:left;"></th>
-	<th style="text-align:left;"><strong>Section:</strong></th>
-	<th style="text-align:left;"><strong>Displays:</strong></th>
+	<th style="text-align:left;"><strong>部分：</strong></th>
+	<th style="text-align:left;"><strong>显示：</strong></th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
 	<td style="text-align:left;">1</td>
-	<td style="text-align:left;">Task name/description</td>
-	<td style="text-align:left;">A name or short description for the task.</td>
+	<td style="text-align:left;">任务名称/描述</td>
+	<td style="text-align:left;">任务的名称或简短描述。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">2</td>
-	<td style="text-align:left;">Progress bar</td>
-	<td style="text-align:left;">Indicates how close the task is to completion.<br><br> If the task is indeterminate, because its progress is not measurable, the bar shows a small filled region that moves from side to side until the task is finished.</td>
+	<td style="text-align:left;">进度条</td>
+	<td style="text-align:left;">指示任务完成的程度。<br><br>如果任务因进度不可衡量而导致不确定，进度条会显示一个小的填充块，从一侧移动到另一侧，直到任务完成。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">3</td>
-	<td style="text-align:left;">Percent complete</td>
-	<td style="text-align:left;">Shows how close the task is to completion, as a percentage.<br><br> For indeterminate tasks, whose progress is not measurable, this area is empty.</td>
+	<td style="text-align:left;">完成比例</td>
+	<td style="text-align:left;">以百分比形式显示任务接近完成的程度。<br><br>对于进度不可测量的不确定任务，此区域为空。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">4</td>
-	<td style="text-align:left;">Cancel</td>
-	<td style="text-align:left;">Click to cancel an active task. <br><br>If the task cannot be cancelled, this icon does not appear.</td>
+	<td style="text-align:left;">取消</td>
+	<td style="text-align:left;">单击以取消活动任务。<br><br>如果无法取消任务，则不会出现此图标。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">5</td>
 	<td style="text-align:left;">状态</td>
-	<td style="text-align:left;">Optionally displays a short description of the current activity for an active task. <br><br> When the task finishes, this area displays its final <a href="#viewing-task-status">status</a> (for example, finished, failed, or cancelled).</td>
+	<td style="text-align:left;">（可选）显示活动任务的当前活动的简短描述。<br><br>任务完成后，此区域显示其最终<a href="#viewing-task-status">状态</a>（例如，完成、失败或取消）。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">6</td>
-	<td style="text-align:left;">Time elapsed/remaining/total</td>
-	<td style="text-align:left;">When an active task takes longer than a few seconds, displays either the current time elapsed or the estimated time remaining. <br><br>When the task finishes, this area displays the total time elapsed.</td>
+	<td style="text-align:left;">已用时间/剩余时间/总耗时</td>
+	<td style="text-align:left;">当活动任务花费的时间超过几秒钟时，显示当前已用时间或估计剩余时间。<br><br>任务完成后，此区域显示总耗时。</td>
 </tr>
 </tbody>
 </table>
 
-<h3>Subtasks</h3>
+<h3>子任务</h3>
 
-<p>Some tasks spawn subtasks. The progress window displays an overall progress entry in the parent task (1), and a sub progress entry for each child task (2).</p>
+<p>某些任务会产生子任务。进度窗口显示父任务 (1) 中的总体进度条目，以及每个子任务 (2) 的子进度条目。</p>
 
 <figure>
-<img src="../uploads/Main/window-bg-tasks-subtasks.png" alt="Subtasks in the Background Tasks window">
-<figcaption>Subtasks in the Background Tasks window</figcaption>
+<img src="../uploads/Main/window-bg-tasks-subtasks.png" alt="后台任务窗口中的子任务">
+<figcaption>后台任务窗口中的子任务</figcaption>
 </figure>
 
-<p>Monitoring subtasks can help you determine which part of a complex task takes the most time. This is useful for operations like lightmap baking, which can have hundreds of subtasks.</p>
+<p>监控子任务可以帮助您确定复杂任务耗时最多的部分。这对于光照贴图烘焙等操作很有用，它可以有数百个子任务。</p>
 
 <p><a name="viewing-task-status"></a></p>
 
-<h2>Viewing task status</h2>
+<h2>查看任务状态</h2>
 
-<p>Background tasks can have the following statuses:</p>
+<p>后台任务可以具有以下状态：</p>
 
 <table>
 <colgroup>
@@ -313,50 +308,50 @@
 
 <tbody>
 <tr>
-	<td style="text-align:left;">Active</td>
-	<td style="text-align:left;">The task is running and reports progress as percent complete, or estimated time remaining.</td>
+	<td style="text-align:left;">活动</td>
+	<td style="text-align:left;">任务正在运行并以完成百分比或估计剩余时间报告进度。</td>
 	<td style="text-align:left;">无</td>
 </tr>
 <tr>
-	<td style="text-align:left;">Indeterminate</td>
-	<td style="text-align:left;">The task is running and reports progress, but cannot determine how close it is to being complete.</td>
+	<td style="text-align:left;">不确定</td>
+	<td style="text-align:left;">任务正在运行并报告进度，但无法确定离完成还有多久。</td>
 	<td style="text-align:left;">无</td>
 </tr>
 <tr>
-	<td style="text-align:left;">Finished</td>
-	<td style="text-align:left;">The task finished successfully</td>
+	<td style="text-align:left;">完成</td>
+	<td style="text-align:left;">任务成功完成</td>
 	<td style="text-align:left;">
-<img src="../uploads/Main/CompletedTask@2x.png" alt=""><br>(check mark)</td>
+<img src="../uploads/Main/CompletedTask@2x.png" alt=""><br>（确认标记）</td>
 </tr>
 <tr>
-	<td style="text-align:left;">Unresponsive</td>
-	<td style="text-align:left;">The task has not reported any progress for five seconds.</td>
+	<td style="text-align:left;">无响应</td>
+	<td style="text-align:left;">该任务在五秒钟内没有报告任何进度。</td>
 	<td style="text-align:left;">无</td>
 </tr>
 <tr>
-	<td style="text-align:left;">Cancelled</td>
-	<td style="text-align:left;">The task is no longer active because you cancelled it manually.<br><br>Some tasks cannot be cancelled from the Background Tasks window.</td>
+	<td style="text-align:left;">已取消</td>
+	<td style="text-align:left;">该任务不再处于活动状态，因为您手动将其取消。<br><br>某些任务无法从后台任务窗口取消。</td>
 	<td style="text-align:left;">
-<img src="../uploads/Main/Warning@2x.png" alt=""><br>(warning symbol)</td>
+<img src="../uploads/Main/Warning@2x.png" alt=""><br>（警告符号）</td>
 </tr>
 <tr>
-	<td style="text-align:left;">Failed</td>
-	<td style="text-align:left;">The task is no longer active because it failed</td>
+	<td style="text-align:left;">失败</td>
+	<td style="text-align:left;">该任务因失败不再处于活动状态</td>
 	<td style="text-align:left;">
-<img src="../uploads/Main/Error@2x.png" alt=""><br>(error symbol)</td>
+<img src="../uploads/Main/Error@2x.png" alt=""><br>（错误符号）</td>
 </tr>
 </tbody>
 </table>
 
 <p><a name="filtering-tasks-by-status"></a></p>
 
-<h3>Filtering tasks by status</h3>
+<h3>按状态过滤任务</h3>
 
-<p>Use the filter options in the Background Tasks window toolbar to hide and show different types of tasks.</p>
+<p>使用后台任务窗口工具栏中的过滤器选项来隐藏和显示不同类型的任务。</p>
 
 <figure>
-<img src="../uploads/Main/window-bg-tasks-filters.png" alt="Filter toggles in the Background Tasks window">
-<figcaption>Filter toggles in the Background Tasks window</figcaption>
+<img src="../uploads/Main/window-bg-tasks-filters.png" alt="后台任务窗口中的过滤器开关">
+<figcaption>后台任务窗口中的过滤器开关</figcaption>
 </figure>
 
 <table>
@@ -367,52 +362,52 @@
 
 <thead>
 <tr>
-	<th style="text-align:left;">Filter option</th>
-	<th style="text-align:left;">Shows/hides</th>
+	<th style="text-align:left;">过滤器选项</th>
+	<th style="text-align:left;">节目/隐藏</th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
 	<td style="text-align:left;">
-<img src="../uploads/Main/CompletedTask@2x.png" alt=""><br>(check mark)</td>
-	<td style="text-align:left;">Finished tasks</td>
+<img src="../uploads/Main/CompletedTask@2x.png" alt=""><br>（确认标记）</td>
+	<td style="text-align:left;">已完成的任务。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">
-<img src="../uploads/Main/Warning@2x.png" alt=""><br>(warning symbol)</td>
-	<td style="text-align:left;">Cancelled and unresponsive tasks</td>
+<img src="../uploads/Main/Warning@2x.png" alt=""><br>（警告符号）</td>
+	<td style="text-align:left;">取消和无响应的任务</td>
 </tr>
 <tr>
 	<td style="text-align:left;">
-<img src="../uploads/Main/Error@2x.png" alt=""><br>(error symbol)</td>
-	<td style="text-align:left;">Failed tasks</td>
+<img src="../uploads/Main/Error@2x.png" alt=""><br>（错误符号）</td>
+	<td style="text-align:left;">失败的任务</td>
 </tr>
 </tbody>
 </table>
 
-<h2>Cancelling active tasks</h2>
+<h2>取消活动任务</h2>
 
-<p>You can cancel some running tasks directly from the Background Tasks window. To cancel a running task click the <strong>cancel</strong> (<strong>x</strong>) icon.</p>
+<p>您可以直接从后台任务窗口取消一些正在运行的任务。要取消正在运行的任务，请单击<strong>取消</strong> (** X**) 图标。</p>
 
 <p><a name="clearing-inactive-tasks"></a></p>
 
-<h2>Clearing inactive tasks</h2>
+<h2>清除非活动任务</h2>
 
-<p>Click the <strong>Clear inactive</strong> button in the toolbar to remove all inactive tasks from the list.</p>
+<p>单击<strong>清除非活动</strong>按钮从列表中删除所有非活动的任务。</p>
 
-<p>Unity automatically clears most finished tasks from the list. However, some tasks are designed to stay in the list until you clear them manually.</p>
+<p>Unity 会自动从列表中清除大多数已完成的任务。但是，某些任务会继续保留在列表中，直到您手动清除它们。</p>
 
-<p>Failed and cancelled tasks also stay in the list until you clear them.</p>
+<p>失败和取消的任务也会保留在列表中，直到您清除它们。</p>
 
-<p>To clear unresponsive tasks, you must cancel them first.</p>
+<p>要清除无响应的任务，您必须先取消它们。</p>
 
-<h2>Viewing global progress</h2>
+<h2>查看全局进度</h2>
 
-<p>The Unity Editor <a href="StatusBar.html">status bar</a> displays a global progress bar that shows the aggregate overall progress of all active tasks. It does not include finished, failed, or cancelled tasks.</p>
+<p>Unity 编辑器<a href="StatusBar.html">状态栏</a>显示一个全局进度条，显示所有活动任务的总体进度。它不包括已完成、失败或取消的任务。</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="StatusBar.html"></a></span><div class="tip">The status bar</div>
+<span class="prev"><a href="StatusBar.html"></a></span><div class="tip">状态栏</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="Console.html"></a></span><div class="tip">Console 窗口</div>
@@ -421,7 +416,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

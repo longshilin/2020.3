@@ -11,8 +11,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Importing and preparing Sprites for an Isometric Tilemap - Unity 手册">
-<title>Importing and preparing Sprites for an Isometric Tilemap - Unity 手册</title>
+<meta property="og:title" content="为等距瓦片地图导入和准备精灵 - Unity 手册">
+<title>为等距瓦片地图导入和准备精灵 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/2D_IsoTilemap_0.png">
 <meta name="description" content="通过将纹理放入 Assets 文件夹，即可将等距瓦片地图的各个瓦片或瓦片图集导入 Unity 项目。选择导入的图像可以在 Inspector 窗口中查看其纹理导入器 (Texture Importer) 设置。">
 <meta property="og:description" content="通过将纹理放入 Assets 文件夹，即可将等距瓦片地图的各个瓦片或瓦片图集导入 Unity 项目。选择导入的图像可以在 Inspector 窗口中查看其纹理导入器 (Texture Importer) 设置。">
@@ -175,11 +175,11 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Unity2D.html">2D</a></li>
 <li><a href="class-Tilemap.html">Tilemap</a></li>
 <li><a href="Tilemap-Isometric.html">等距瓦片地图</a></li>
-<li>Importing and preparing Sprites for an Isometric Tilemap</li>
+<li>为等距瓦片地图导入和准备精灵</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -189,24 +189,24 @@
 <span class="next"><a href="Tilemap-Isometric-CreateIso.html"></a></span><div class="tip">创建等距瓦片地图</div>
 </div>
 </div></div>
-<h1>Importing and preparing Sprites for an Isometric Tilemap</h1>
+<h1>为等距瓦片地图导入和准备精灵</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
 <p>通过将纹理放入 Assets 文件夹，即可将等距瓦片地图的各个瓦片或瓦片图集<a href="Sprites.html">导入</a> Unity 项目。选择导入的图像可以在 Inspector 窗口中查看其<a href="class-TextureImporter.html">纹理导入器 (Texture Importer)</a> 设置。</p>
 
 <figure>
-<img src="../uploads/Main/2D_IsoTilemap_0.png" alt="Sprite importer settings.">
-<figcaption>Sprite importer settings.</figcaption>
+<img src="../uploads/Main/2D_IsoTilemap_0.png" alt="精灵导入器设置。">
+<figcaption>精灵导入器设置。</figcaption>
 </figure>
 
 <p>导入精灵供等距瓦片地图中使用时，请使用以下建议设置。有关每项设置的更多信息，请参阅 <a href="TextureTypes.html#Sprite">Texture Type: Sprite (2D and UI)</a> 文档。</p>
 
 <p>1.<strong>Texture Type</strong> - 将此项设置为 <strong>Sprite (2D and UI)</strong>。瓦片地图不支持其他纹理类型。
 2.<strong>Sprite Mode</strong> - 如果纹理只包含一个精灵，将此项设置为 <strong>Single</strong>。如果包含多个精灵纹理（例如具有多个瓦片纹理的精灵图集），则设置为 <strong>Multiple</strong>。
-3. <strong>Pixels Per Unit (PPU)</strong> - This value is the number of pixels that make up one Unity unit for the selected Sprite. This determines the size of the Sprite when it is rendered on the Tilemap. This is also affected by the <strong>Cell Size</strong> setting of the Grid that contains the Tilemap, which determines how many Unity units make up a single Cell. Refer to the example below to see how PPU values and the <a href="class-Grid.html">Grid’s</a> <strong>Cell Size</strong> settings interact.
-4. <strong>Mesh Type</strong> - Set to <strong>Tight</strong> to ensure the Tile Meshes follow the outline of the imported Sprites, and the Tiles are drawn flush together on the Tilemap. Due to the general diamond shape of most Isometric Tiles, setting this to <strong>Full Rect</strong> may result in drawing of wasted transparent spaces at the corners of an Isometric Tile, and is not recommended.
-5. <strong>Generate Physics Shape</strong> - If the Tiles do not need to interact with <a href="Physics2DReference.html">Physics2D</a>, then clear this option. Leave this option enabled to generate a Physics Shape based on the shape of the Tile Sprite, for use with the <a href="Tilemap-Physics2D">Tilemap Collider</a> component. To make the generated Physics Shape match the cell of the Tilemap instead, select the Tile Asset and set its <a href="Tilemap-TileAsset.html">Collider Type</a> property to <strong>Grid</strong>.</p>
+3.<strong>Pixels Per Unit (PPU)</strong> - 此值是构成所选精灵的一个 Unity 单位的像素数。此设置决定了精灵在瓦片地图上渲染时的大小。还受到包含瓦片地图的网格的 <strong>Cell Size</strong> 设置（决定了构成单个单元格的 Unity 单位数量）的影响。请参阅下面的示例以了解 PPU 值和<a href="class-Grid.html">网格的</a> <strong>Cell Size</strong> 设置交互。
+4.<strong>Mesh Type</strong> - 设置为 <strong>Tight</strong> 可确保瓦片网格贴合导入的精灵的轮廓，并使瓦片在瓦片地图上绘制到一起保持齐平。由于大多数等距瓦片一般为菱形，将此属性设置为 <strong>Full Rect</strong> 可能会导致在等距瓦片的角点处绘制不必要的透明空间而造成浪费，因此不建议这样设置。
+5.<strong>Generate Physics Shape</strong> - 如果瓦片不需要与 <a href="Physics2DReference.html">Physics2D</a> 交互，则取消选中此选项。如果启用此选项，可根据瓦片精灵的形状生成物理形状，然后与 <a href="Tilemap-Physics2D">Tilemap Collider</a> 组件一起使用。若要使生成的物理形状与瓦片地图的单元格匹配，请选择瓦片资源并将其 <a href="Tilemap-TileAsset.html">Collider Type</a> 属性设置为 <strong>Grid</strong>。</p>
 
 <p>在下面的示例中，导入的精灵为 256x128 的图像，且等距瓦片地图的 <strong>Cell Size</strong> 为（XYZ：1, 0.5, 1）Unity 单位。要使精灵完全适合瓦片地图的单个单元格，请将其 PPU 值设置为 256。然后，精灵的整个宽度对应于一个 Unity 单位：等于单个单元格的宽度（X 值：1）。</p>
 
@@ -215,9 +215,9 @@
 <figcaption><strong>左：__设置为 256 PPU 的精灵。</strong>右：__设置为 128 PPU 的同一个精灵。</figcaption>
 </figure>
 
-<p>If the Sprite is set to a PPU value of 128, then it becomes 2 (256px/128) Unity units in width. This causes the Sprite to visually appear to cover 2 Cells in width when painted on the Tilemap. However, the original Cell position of the Tile remains unchanged.</p>
+<p>如果精灵的 PPU 值设置为 128，则其宽度变为 2 (256px/128) Unity 单位。这会导致精灵在瓦片地图上绘制时在视觉上显示为覆盖 2 个单元格的宽度。但是，瓦片的原始单元格位置保持不变。</p>
 
-<p>After the Sprites are imported, refine the outlines of the Sprites by opening the Sprite Editor for each of them and <a href="SpriteOutlineEditor.html">editing </a><a href="SpriteOutlineEditor.html">their outlines</a>. For Sprites in an Isometric Tilemap, you should set the <strong>Pivot</strong> of the Sprite so that the ‘ground’ is relative to the Sprite.</p>
+<p>导入精灵后，通过打开每个精灵的精灵编辑器并<a href="SpriteOutlineEditor.html">编辑</a><a href="SpriteOutlineEditor.html">它们的轮廓</a>即可优化轮廓。对于等距瓦片地图中的精灵，应该设置精灵的 <strong>Pivot</strong> 属性，使“ground”相对于精灵。</p>
 
 <p>如果在将 <strong>Sprite Mode</strong> 设置为 <strong>Multiple</strong> 的条件下导入纹理并且纹理包含多个精灵，则应在 Sprite Editor 中编辑每个精灵的轮廓。</p>
 
@@ -238,7 +238,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

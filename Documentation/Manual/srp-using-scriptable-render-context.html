@@ -13,8 +13,8 @@
 <meta name="twitter:card" content="summary">
 <meta property="og:title" content="在可编程渲染管线中调度和执行渲染命令 - Unity 手册">
 <title>在可编程渲染管线中调度和执行渲染命令 - Unity 手册</title>
-<meta name="description" content="This page explains how to schedule and execute rendering commands in the Scriptable Render Pipeline (SRP), either by using CommandBuffers or by making direct API calls to the ScriptableRenderContext. The information on this page is applicable to the Universal Render Pipeline (URP), the High Definition Render Pipeline (HDRP), and custom render pipelines that are based on SRP.">
-<meta property="og:description" content="This page explains how to schedule and execute rendering commands in the Scriptable Render Pipeline (SRP), either by using CommandBuffers or by making direct API calls to the ScriptableRenderContext. The information on this page is applicable to the Universal Render Pipeline (URP), the High Definition Render Pipeline (HDRP), and custom render pipelines that are based on SRP.">
+<meta name="description" content="本页介绍如何通过使用 CommandBuffers 或通过对 ScriptableRenderContext 进行直接 API 调用，在可编程渲染管线 (SRP) 中调度和执行渲染命令。本页面上的信息适用于通用渲染管线 (URP)、高清渲染管线 (HDRP) 和基于 SRP 的自定义渲染管线。">
+<meta property="og:description" content="本页介绍如何通过使用 CommandBuffers 或通过对 ScriptableRenderContext 进行直接 API 调用，在可编程渲染管线 (SRP) 中调度和执行渲染命令。本页面上的信息适用于通用渲染管线 (URP)、高清渲染管线 (HDRP) 和基于 SRP 的自定义渲染管线。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,10 +174,10 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
 <li><a href="render-pipelines.html">渲染管线</a></li>
-<li><a href="ScriptableRenderPipeline.html">Scriptable Render Pipeline fundamentals</a></li>
+<li><a href="ScriptableRenderPipeline.html">可编程渲染管线基础知识</a></li>
 <li>在可编程渲染管线中调度和执行渲染命令</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
@@ -192,28 +192,26 @@
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>This page explains how to schedule and execute rendering commands in the <a href="ScriptableRenderPipeline.html">Scriptable Render Pipeline (SRP)</a>, either by using CommandBuffers or by making direct API calls to the ScriptableRenderContext. The information on this page is applicable to the Universal Render Pipeline (URP), the High Definition Render Pipeline (HDRP), and custom render pipelines that are based on SRP.</p>
+<p>本页介绍如何通过使用 CommandBuffers 或通过对 ScriptableRenderContext 进行直接 API 调用，在<a href="ScriptableRenderPipeline.html">可编程渲染管线 (SRP)</a> 中调度和执行渲染命令。本页面上的信息适用于通用渲染管线 (URP)、高清渲染管线 (HDRP) 和基于 SRP 的自定义渲染管线。</p>
 
-<p>In SRP, you use C# scripts to configure and schedule rendering commands. You then tell Unity’s low-level graphics architecture to execute them, which sends instructions to the graphics API.</p>
+<p>在 SRP 中，应使用 C# 脚本来配置和调度渲染命令。然后，需要告诉 Unity 的低级图形架构执行这些命令，此过程会将指令发送到图形 API。</p>
 
-<p>The main way of doing this is by making API calls to the ScriptableRenderContext, but you can also execute CommandBuffers immediately.</p>
+<p>主要做法是对 ScriptableRenderContext 进行 API 调用，不过也可以立即执行 CommandBuffers。</p>
 
-<h2>Using the ScriptableRenderContext APIs</h2>
+<h2>使用 ScriptableRenderContext API</h2>
 
-<p>In SRP, the ScriptableRenderContext class acts as an interface between the C# render pipeline code and Unity’s low-level graphics code. SRP rendering works using delayed execution; you use the ScriptableRenderContext to build up a list of rendering commands, and then you tell Unity to execute them. Unity’s low-level graphics architecture then sends instructions to the graphics API.</p>
+<p>在 SRP 中，ScriptableRenderContext 类用作 C# 渲染管线代码与 Unity 的低级图形代码之间的接口。SRP 使用延迟执行的方式来实现渲染；您需要使用 ScriptableRenderContext 来构建渲染命令列表，然后告诉 Unity 执行这些命令。Unity 的低级图形架构随后将指令发送到图形 API。</p>
 
 <p>要调度渲染命令，您可以：</p>
 
 <ul>
-<li>Pass <a href="../ScriptReference/Rendering.CommandBuffer.html">CommandBuffers</a> to the ScriptableRenderContext, using <a href="../ScriptReference/Rendering.ScriptableRenderContext.ExecuteCommandBuffer.html">ScriptableRenderContext.ExecuteCommandBuffer</a>
-</li>
-<li>Make direct API calls to the Scriptable Render Context, such as <a href="../ScriptReference/Rendering.ScriptableRenderContext.Cull.html">ScriptableRenderContext.Cull</a> or <a href="../ScriptReference/Rendering.ScriptableRenderContext.DrawRenderers.html">ScriptableRenderContext.DrawRenderers</a>
-</li>
+<li>使用 <a href="../ScriptReference/Rendering.ScriptableRenderContext.ExecuteCommandBuffer.html">ScriptableRenderContext.ExecuteCommandBuffer</a> 将 <a href="../ScriptReference/Rendering.CommandBuffer.html">CommandBuffers</a> 传递到 ScriptableRenderContext</li>
+<li>对可编程渲染上下文进行直接 API 调用（例如 <a href="../ScriptReference/Rendering.ScriptableRenderContext.Cull.html">ScriptableRenderContext.Cull</a> 或 <a href="../ScriptReference/Rendering.ScriptableRenderContext.DrawRenderers.html">ScriptableRenderContext.DrawRenderers</a>）</li>
 </ul>
 
-<p>To tell Unity to perform the commands that you have scheduled, call <a href="../ScriptReference/Rendering.ScriptableRenderContext.Submit.html">ScriptableRenderContext.Submit</a>. Note that it does not matter whether you used a CommandBuffer to schedule the command, or whether you scheduled the command by calling an API; Unity schedules all rendering commands on the ScriptableRenderContext in the same way, and does not execute any of them until you call <code>Submit()</code>.</p>
+<p>为了告诉 Unity 执行您所调度的命令，请调用 <a href="../ScriptReference/Rendering.ScriptableRenderContext.Submit.html">ScriptableRenderContext.Submit</a>。请注意，使用的是 CommandBuffer 还是通过调用 API 来调度命令，这并不重要；Unity 以相同方式在 ScriptableRenderContext 中调度所有渲染命令，并且在调用 <code>Submit()</code> 之前不会执行任何这些命令。</p>
 
-<p>This example code demonstrates how to schedule and perform a command to clear the current render target, using a CommandBuffer.</p>
+<p>以下示例代码演示如何使用 CommandBuffer 来调度和执行命令以清除当前渲染目标。</p>
 
 <pre><code class="c#">using UnityEngine;
 using UnityEngine.Rendering;
@@ -224,25 +222,25 @@ public class ExampleRenderPipeline : RenderPipeline
         }
 
     protected override void Render(ScriptableRenderContext context, Camera[] cameras) {
-        // Create and schedule a command to clear the current render target
+        // 创建并调度命令以清除当前渲染目标
         var cmd = new CommandBuffer();
         cmd.ClearRenderTarget(true, true, Color.red);
         context.ExecuteCommandBuffer(cmd);
         cmd.Release();
 
-         // Tell the Scriptable Render Context to tell the graphics API to perform the scheduled commands
+         // 指示可编程渲染上下文告诉图形 API 执行调度的命令
         context.Submit();
     }
 }
 </code></pre>
 
-<h2>Executing CommandBuffers immediately</h2>
+<h2>立即执行 CommandBuffers</h2>
 
-<p>You can execute CommandBuffers immediately without using the ScriptableRenderContext, by calling <a href="../ScriptReference/Graphics.ExecuteCommandBuffer.html">Graphics.ExecuteCommandBuffer</a>. Calls to this API take place outside of the render pipeline.</p>
+<p>可通过调用 <a href="../ScriptReference/Graphics.ExecuteCommandBuffer.html">Graphics.ExecuteCommandBuffer</a> 来立即执行 CommandBuffers，而不使用 ScriptableRenderContext。对该 API 的调用发生在渲染管线之外。</p>
 
 <h2>其他信息</h2>
 
-<p>For more information on commands that you can schedule using CommandBuffers, see <a href="../ScriptReference/Rendering.CommandBuffer.html">CommandBuffers API documentation</a>.</p>
+<p>有关可以使用 CommandBuffers 来调度的命令的更多信息，请参阅 <a href="../ScriptReference/Rendering.CommandBuffer.html">CommandBuffers API 文档</a>。</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="scriptable-render-pipeline-introduction.html"></a></span><div class="tip">可编程渲染管线简介</div>
@@ -254,7 +252,7 @@ public class ExampleRenderPipeline : RenderPipeline
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

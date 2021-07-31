@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Comparison of UI systems in Unity - Unity 手册">
-<title>Comparison of UI systems in Unity - Unity 手册</title>
-<meta name="description" content="Unity intends for UI Toolkit to become the recommended UI system for new UI development projects, but it is still missing some features found in Unity UI (uGUI) and IMGUI. These older systems are more appropriate for certain use cases, and are required to support legacy projects.">
-<meta property="og:description" content="Unity intends for UI Toolkit to become the recommended UI system for new UI development projects, but it is still missing some features found in Unity UI (uGUI) and IMGUI. These older systems are more appropriate for certain use cases, and are required to support legacy projects.">
+<meta property="og:title" content="Unity 中 UI 系统的对比 - Unity 手册">
+<title>Unity 中 UI 系统的对比 - Unity 手册</title>
+<meta name="description" content="Unity 打算让 UI 工具包成为新 UI 开发项目的推荐 UI 系统，但它仍然缺少 Unity UI (uGUI) 和 IMGUI 中的一些功能。这些较旧的系统更适合特定用例，并且需要支持旧版项目。">
+<meta property="og:description" content="Unity 打算让 UI 工具包成为新 UI 开发项目的推荐 UI 系统，但它仍然缺少 Unity UI (uGUI) 和 IMGUI 中的一些功能。这些较旧的系统更适合特定用例，并且需要支持旧版项目。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,25 +174,25 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="UIToolkits.html">Creating user interfaces (UI)</a></li>
-<li>Comparison of UI systems in Unity</li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="UIToolkits.html">创建用户界面 (UI)</a></li>
+<li>Unity 中 UI 系统的对比</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="UIToolkits.html"></a></span><div class="tip">Creating user interfaces (UI)</div>
+<span class="prev"><a href="UIToolkits.html"></a></span><div class="tip">创建用户界面 (UI)</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="UIElements.html"></a></span><div class="tip">UI Toolkit</div>
+<span class="next"><a href="UIElements.html"></a></span><div class="tip">UI 工具包</div>
 </div>
 </div></div>
-<h1>Comparison of UI systems in Unity</h1>
+<h1>Unity 中 UI 系统的对比</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>Unity intends for UI Toolkit to become the recommended UI system for new UI development projects, but it is still missing some features found in Unity UI (uGUI) and IMGUI. These older systems are more appropriate for certain use cases, and are required to support legacy projects.</p>
+<p>Unity 打算让 UI 工具包成为新 UI 开发项目的推荐 UI 系统，但它仍然缺少 Unity UI (uGUI) 和 IMGUI 中的一些功能。这些较旧的系统更适合特定用例，并且需要支持旧版项目。</p>
 
-<p>This page provides a high-level feature comparison of UI Toolkit, Unity UI, and IMGUI, and notes about their respective approaches to UI design. Use it to help determine which UI system is appropriate for your project.</p>
+<p>本页面提供了 UI 工具包、Unity UI 和 IMGUI 的高级功能比较，以及有关它们各自的 UI 设计方法的说明。使用该内容可帮助确定哪种 UI 系统适合您的项目。</p>
 
 <table>
 <colgroup>
@@ -201,22 +201,22 @@
 
 <thead>
 <tr>
-	<th style="text-align:left;">IMPORTANT</th>
+	<th style="text-align:left;">重要</th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-	<td style="text-align:left;">UI Toolkit is in active development. This page will update frequently as the feature set evolves.</td>
+	<td style="text-align:left;">UI 工具包正在积极开发中。本页面将随着功能集的发展而频繁更新。</td>
 </tr>
 </tbody>
 </table>
 
-<h2>General considerations</h2>
+<h2>一般考虑因素</h2>
 
-<h3>Type of UI: Editor or runtime</h3>
+<h3>UI 的类型：编辑器或运行时</h3>
 
-<p>Your choice of UI system depends on whether you’re developing UI for the Unity Editor or runtime UI for a game or application.</p>
+<p>对 UI 系统的选择取决于是为 Unity 编辑器开发 UI，还是为游戏或应用程序开发运行时 UI。</p>
 
 <table>
 <colgroup>
@@ -229,48 +229,48 @@
 
 <thead>
 <tr>
-	<th style="text-align:left;"><strong>Type of UI</strong></th>
-	<th style="text-align:left;"><strong>UI Toolkit</strong></th>
+	<th style="text-align:left;"><strong>UI 的类型</strong></th>
+	<th style="text-align:left;"><strong>UI 工具包</strong></th>
 	<th style="text-align:left;"><strong>Unity UI(uGUI)</strong></th>
 	<th style="text-align:left;"><strong>IMGUI</strong></th>
-	<th style="text-align:left;"><strong>Notes</strong></th>
+	<th style="text-align:left;"><strong>注意事项</strong></th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-	<td style="text-align:left;"><strong>Runtime (debug)</strong></td>
+	<td style="text-align:left;"><strong>运行时（调试）</strong></td>
 	<td style="text-align:left;">✔ *</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;">✔</td>
-	<td style="text-align:left;">This refers to temporary runtime UI used for debug purposes.</td>
+	<td style="text-align:left;">这指用于调试用途的临时运行时 UI。</td>
 </tr>
 <tr>
-	<td style="text-align:left;"><strong>Runtime (in-game)</strong></td>
+	<td style="text-align:left;"><strong>运行时（游戏内）</strong></td>
 	<td style="text-align:left;">✔ *</td>
 	<td style="text-align:left;">✔</td>
-	<td style="text-align:left;">Not Recommended</td>
-	<td style="text-align:left;">For performance reasons, Unity does not recommend IMGUI for in-game runtime UI.</td>
+	<td style="text-align:left;">不推荐</td>
+	<td style="text-align:left;">出于性能原因，Unity 不推荐将 IMGUI 用于游戏内运行时 UI。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Unity Editor</strong></td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;">❌</td>
 	<td style="text-align:left;">✔</td>
-	<td style="text-align:left;">You cannot use Unity UI to make UI for the Unity Editor.</td>
+	<td style="text-align:left;">不能使用 Unity UI 为 Unity 编辑器创建 UI。</td>
 </tr>
 </tbody>
 </table>
 
-<p>* <em>Requires the <a href="UITK-package.html">UI Toolkit package</a>, currently in preview.</em></p>
+<p>* <em>Requires the <a href="UIE-UITK-package.html">UI Toolkit package</a>, currently in preview.</em></p>
 
-<p>To create runtime UI, your choice is between UI Toolkit and Unity UI (uGUI). See <a href="#feature-comparison-ui-toolkit-vs-unity-ui-ugui">Feature comparison: UI Toolkit vs. Unity UI (uGUI)</a>.</p>
+<p>若要创建运行时 UI，可在 UI 工具包与 Unity UI (uGUI) 之间进行选择。请参阅<a href="#feature-comparison-ui-toolkit-vs-unity-ui-ugui">功能比较：UI 工具包与 Unity UI (uGUI)</a>。</p>
 
-<p>To create UI for the Unity Editor, your choice is between UI Toolkit and IMGUI. See <a href="#feature-comparison-ui-toolkit-vs-imgui">Feature comparison: UI Toolkit vs. IMGUI</a>.</p>
+<p>若要为 Unity 编辑器创建 UI，可在 UI 工具包与 IMGUI 之间进行选择。请参阅<a href="#feature-comparison-ui-toolkit-vs-imgui">功能比较：UI 工具包与 IMGUI</a>。</p>
 
-<h3>Roles and skill sets</h3>
+<h3>角色和技能集</h3>
 
-<p>Your team’s skill set and comfort level with different technologies is also an important consideration.</p>
+<p>团队的技能集以及对不同技术的习惯程度也是一个重要的考虑因素。</p>
 
 <table>
 <colgroup>
@@ -283,71 +283,71 @@
 
 <thead>
 <tr>
-	<th style="text-align:left;"><strong>Type of user</strong></th>
-	<th style="text-align:left;"><strong>UI Toolkit</strong></th>
+	<th style="text-align:left;"><strong>用户的类型</strong></th>
+	<th style="text-align:left;"><strong>UI 工具包</strong></th>
 	<th style="text-align:left;"><strong>Unity UI<br>(uGUI)</strong></th>
 	<th style="text-align:left;"><strong>IMGUI</strong></th>
-	<th style="text-align:left;"><strong>Notes</strong></th>
+	<th style="text-align:left;"><strong>注意事项</strong></th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-	<td style="text-align:left;"><strong>Programmer</strong></td>
+	<td style="text-align:left;"><strong>程序员</strong></td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;">✔</td>
-	<td style="text-align:left;">Programmers can use any game development tool or API.</td>
+	<td style="text-align:left;">程序员可以使用任何游戏开发工具或 API。</td>
 </tr>
 <tr>
-	<td style="text-align:left;"><strong>Technical Artist</strong></td>
-	<td style="text-align:left;">Partial</td>
+	<td style="text-align:left;"><strong>技术美术师</strong></td>
+	<td style="text-align:left;">部分支持</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;">❌</td>
-	<td style="text-align:left;">Technical artists who are familiar with Unity’s GameObject-based tools and workflows are likely to be comfortable working with GameObjects, Components, and the Scene view. <br><br>They might not be comfortable with UI Toolkit’s web-like approach or IMGUI’s pure C# approach.</td>
+	<td style="text-align:left;">熟悉 Unity 基于游戏对象的工具和工作流程的技术美术师可能会习惯使用游戏对象、组件和 Scene 视图。<br><br>他们可能不习惯 UI 工具包类似于 Web 的方法或 IMGUI 的纯 C# 方法。</td>
 </tr>
 <tr>
-	<td style="text-align:left;"><strong>UI Designer</strong></td>
+	<td style="text-align:left;"><strong>UI 设计师</strong></td>
 	<td style="text-align:left;">✔</td>
-	<td style="text-align:left;">Partial</td>
+	<td style="text-align:left;">部分支持</td>
 	<td style="text-align:left;">❌</td>
-	<td style="text-align:left;">UI designers who are familiar with UI creation tools are likely to be comfortable with UI Toolkit’s document-based approach.<br><br>If they are not familiar with GameObject-based workflows, they might require help from programmers and/or level designers.</td>
+	<td style="text-align:left;">熟悉 UI 创建工具的 UI 设计师可能会习惯 UI 工具包基于文档的方法。<br><br>如果他们不熟悉基于游戏对象的工作流程，则可能需要程序员和/或关卡设计师提供帮助。</td>
 </tr>
 </tbody>
 </table>
 
-<h3>Innovation and development</h3>
+<h3>创新和开发</h3>
 
-<p>UI Toolkit is in active development. Unity adds new features with each release. Unity UI and IMGUI are established UI systems that are production-proven, but updated infrequently.</p>
+<p>UI 工具包正在积极开发中。Unity 会在每个版本中添加新功能。Unity UI 和 IMGUI 是成熟的 UI 系统，它们已经过生产验证，不过很少更新。</p>
 
-<p>Unity UI and IMGUI might be better choices if you need features that are not yet available in UI Toolkit, or you plan on supporting or reusing older UI content.</p>
+<p>如果需要 UI 工具包中尚未提供的功能，或者计划支持或重用较旧的 UI 内容，则 Unity UI 和 IMGUI 可能是更好的选择。</p>
 
 <p><a name="feature-comparison-ui-toolkit-vs-unity-ui-ugui"></a></p>
 
-<h2>Feature comparison: UI Toolkit vs. Unity UI (uGUI)</h2>
+<h2>功能比较：UI 工具包与 Unity UI (uGUI)</h2>
 
-<p>This section compares UI Toolkit to Unity UI (along with the <a href="com.unity.textmeshpro.html">TextMesh Pro package</a>) for developing runtime UI for games and applications.</p>
+<p>此部分将 UI 工具包与 Unity UI（以及 <a href="com.unity.textmeshpro.html">TextMesh Pro 包</a>）进行比较，以便为游戏和应用程序开发运行时 UI。</p>
 
 <ul>
-<li><a href="#unity-editor-ui-development">Unity Editor UI Development</a></li>
-<li><a href="#workflow">Workflow</a></li>
-<li><a href="#styling">Styling</a></li>
-<li><a href="#layout">Layout</a></li>
-<li><a href="#events">Events</a></li>
-<li><a href="#rendering">Rendering</a></li>
-<li><a href="#animation">Animation</a></li>
-<li><a href="#customizability">Customizability</a></li>
+<li><a href="#unity-editor-ui-development">Unity 编辑器 UI 开发</a></li>
+<li><a href="#workflow">工作流程</a></li>
+<li><a href="#styling">样式</a></li>
+<li><a href="#layout">布局</a></li>
+<li><a href="#events">事件</a></li>
+<li><a href="#rendering">渲染</a></li>
+<li><a href="#animation">动画</a></li>
+<li><a href="#customizability">可定制性</a></li>
 </ul>
 
 <p><a name="unity-editor-ui-development"></a></p>
 
-<h3>Unity Editor UI Development</h3>
+<h3>Unity 编辑器 UI 开发</h3>
 
-<p>It is not possible to develop user interfaces for the Unity Editor using Unity UI.</p>
+<p>无法使用 Unity UI 为 Unity 编辑器开发用户界面。</p>
 
 <p><a name="workflow"></a></p>
 
-<h3>Workflow</h3>
+<h3>工作流程</h3>
 
 <table>
 <colgroup>
@@ -360,49 +360,49 @@
 <thead>
 <tr>
 	<th style="text-align:left;"><strong>功能</strong></th>
-	<th style="text-align:left;"><strong>UI Toolkit</strong></th>
+	<th style="text-align:left;"><strong>UI 工具包</strong></th>
 	<th style="text-align:left;"><strong>UGUI+TMP</strong></th>
-	<th style="text-align:left;"><strong>Notes</strong></th>
+	<th style="text-align:left;"><strong>注意事项</strong></th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-	<td style="text-align:left;">Nested Prefabs</td>
-	<td style="text-align:left;">Partial</td>
+	<td style="text-align:left;">嵌套预制件</td>
+	<td style="text-align:left;">部分支持</td>
 	<td style="text-align:left;">✔</td>
-	<td style="text-align:left;">UI Toolkit’s UXML templates support <a href="UIE-WritingUXMLTemplate.html#attribute-overrides">attribute overrides</a>, which are similar to modified properties in the Unity Prefab system.<br><br>UGUI is GameObject based, and supports standard Unity Prefabs.</td>
+	<td style="text-align:left;">UI 工具包的 UXML 模板支持<a href="UIE-WritingUXMLTemplate.html#attribute-overrides">属性覆盖</a>，类似于 Unity 预制件系统中的已修改属性。<br><br>UGUI 基于游戏对象，支持标准 Unity 预制件。</td>
 </tr>
 <tr>
-	<td style="text-align:left;">WYSIWYG authoring</td>
+	<td style="text-align:left;">所见即所得的创作</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;">✔</td>
-	<td style="text-align:left;">Unity UI and UI Toolkit offer very different WYSIWYG authoring experiences.<br><br> Because Unity UI is GameObject-based, you can set up the Scene view for WYSIWYG authoring. <br><br>UI Toolkit provides the <a href="com.unity.ui.builder.html">UI Builder package</a> (currently in preview) for document-based WYSIWYG UI authoring with a web-like workflow.</td>
+	<td style="text-align:left;">Unity UI 和 UI 工具包提供非常不同的所见即所得创作体验。<br><br> 由于 Unity UI 基于游戏对象，因此可以设置 Scene 视图以便进行所见即所得创作。<br><br>UI 工具包提供 <a href="com.unity.ui.builder.html">UI Builder 包</a>（当前处于预览版），用于通过类似于 Web 的工作流程进行基于文档的所见即所得 UI 创作。</td>
 </tr>
 <tr>
-	<td style="text-align:left;">Theming</td>
-	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">主题化</td>
+	<td style="text-align:left;">计划</td>
 	<td style="text-align:left;">❌</td>
-	<td style="text-align:left;">UI Toolkit roadmap includes support for theming functionality via the UI Builder and USS imports.</td>
+	<td style="text-align:left;">UI 工具包路线图包括通过 UI Builder 和 USS 导入支持主题功能。</td>
 </tr>
 <tr>
-	<td style="text-align:left;">Layout &amp; Styling Debugger</td>
+	<td style="text-align:left;">布局和样式调试器</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;">✔</td>
-	<td style="text-align:left;">You can debug Unity UI interfaces in the Inspector window. <br><br>UI Toolkit provides a dedicated debugger (menu: <strong>Window &gt; UI Toolkit &gt; Debugger</strong>) that is similar to debug tools found in major web browsers.</td>
+	<td style="text-align:left;">可以在 Inspector 窗口中调试 Unity UI 界面。<br><br>UI 工具包提供一个专用的调试器（菜单：<strong>Window &gt; UI Toolkit &gt; Debugger</strong>），类似于主要 Web 浏览器中的调试工具。</td>
 </tr>
 <tr>
-	<td style="text-align:left;">Scene integration</td>
+	<td style="text-align:left;">场景集成</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;">✔</td>
-	<td style="text-align:left;">Unity UI GameObjects are visible in the Scene view and the Game view.<br><br>You can integrate runtime UI created with the <a href="UITK-package.html">UI Toolkit package</a> (currently in preview) via runtime components, and display it in the Game view.</td>
+	<td style="text-align:left;">Unity UI GameObjects are visible in the Scene view and the Game view.<br><br>You can integrate runtime UI created with the <a href="UIE-UITK-package.html">UI Toolkit package</a> (currently in preview) via runtime components, and display it in the Game view.</td>
 </tr>
 </tbody>
 </table>
 
 <p><a name="styling"></a></p>
 
-<h3>Styling</h3>
+<h3>样式</h3>
 
 <table>
 <colgroup>
@@ -415,61 +415,61 @@
 <thead>
 <tr>
 	<th style="text-align:left;"><strong>功能</strong></th>
-	<th style="text-align:left;"><strong>UI Toolkit</strong></th>
+	<th style="text-align:left;"><strong>UI 工具包</strong></th>
 	<th style="text-align:left;"><strong>UGUI+TMP</strong></th>
-	<th style="text-align:left;"><strong>Notes</strong></th>
+	<th style="text-align:left;"><strong>注意事项</strong></th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-	<td style="text-align:left;">Inline styles</td>
+	<td style="text-align:left;">内联样式</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;"></td>
 </tr>
 <tr>
-	<td style="text-align:left;">Cascading styles</td>
+	<td style="text-align:left;">层叠样式</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;">❌</td>
 	<td style="text-align:left;"></td>
 </tr>
 <tr>
-	<td style="text-align:left;">Pseudo-states (for example, hover or active)</td>
+	<td style="text-align:left;">伪状态（例如，悬停或激活）</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;">✔</td>
-	<td style="text-align:left;">Unity UI provides simple pseudo states, and you can create complex pseudo states for it using Unity’s Animation graph.<br><br>UI Toolkit supports <a href="UIE-USS-Selectors-Pseudo-Classes.html">pseudo-states</a> via USS.</td>
+	<td style="text-align:left;">Unity UI 提供简单的伪状态，您可以使用 Unity 的动画图为其创建复杂的伪状态。<br><br>UI 工具包通过 USS 支持<a href="UIE-USS-Selectors-Pseudo-Classes.html">伪状态</a>。</td>
 </tr>
 <tr>
-	<td style="text-align:left;">Rich text tags</td>
-	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">富文本标签</td>
+	<td style="text-align:left;">计划</td>
 	<td style="text-align:left;">✔</td>
-	<td style="text-align:left;">Rich text tag support in UI Toolkit is planned as part of an update to Unity’s text rendering backend.<br><br>Unity UI supports a basic set of rich text tags by default, and a larger set via the TextMesh Pro package.</td>
+	<td style="text-align:left;">UI 工具包中的富文本标签支持计划作为 Unity 文本渲染后端更新的一部分。<br><br>Unity UI 在默认情况下支持一组基本的富文本标签，并通过 TextMesh Pro 包支持更大的一组标签。</td>
 </tr>
 <tr>
-	<td style="text-align:left;">SDF text</td>
-	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">SDF 文本</td>
+	<td style="text-align:left;">计划</td>
 	<td style="text-align:left;">✔</td>
-	<td style="text-align:left;">SDF text support in UI Toolkit is planned as part of an overhaul of Unity’s text rendering backend. <br><br>Unity UI supports SDF text via the TextMesh Pro package.</td>
+	<td style="text-align:left;">UI 工具包中的 SDF 文本支持计划作为 Unity 文本渲染后端大幅修改的一部分。<br><br>Unity UI 通过 TextMesh Pro 包支持 SDF 文本。</td>
 </tr>
 <tr>
-	<td style="text-align:left;">Font fallbacks</td>
-	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">字体后备</td>
+	<td style="text-align:left;">计划</td>
 	<td style="text-align:left;">✔</td>
-	<td style="text-align:left;">Support for font Assets and fallback fonts in UI Toolkit is planned as part of an overhaul of Unity’s text rendering backend.<br><br> Unity UI supports fallback fonts via the TextMesh Pro package.</td>
+	<td style="text-align:left;">UI 工具包中的字体资源和后备字体支持计划作为 Unity 文本渲染后端大幅修改的一部分。<br><br> Unity UI 通过 TextMesh Pro 包支持后备字体。</td>
 </tr>
 </tbody>
 </table>
 
 <p><a name="layout"></a></p>
 
-<h3>Layout</h3>
+<h3>布局</h3>
 
-<p>While Unity UI and UI Toolkit offer the same layout possibilities, their layout systems are quite different.</p>
+<p>虽然 Unity UI 和 UI 工具包提供相同的布局可能性，但其布局系统大不相同。</p>
 
 <ul>
-<li>With Unity UI, you control layout at the GameObject level, using RectTransForm components.</li>
-<li>With UI Toolkit, you define layout in USS stylesheets, using a more web-like Flexbox-based layout system.</li>
+<li>借助 Unity UI，可以使用 RectTransForm 组件在游戏对象级别上控制布局。</li>
+<li>借助 UI 工具包，可以在 USS 样式表中定义布局，使用更类似于 Web 的基于 Flexbox 的布局系统。</li>
 </ul>
 
 <table>
@@ -483,37 +483,37 @@
 <thead>
 <tr>
 	<th style="text-align:left;"><strong>功能</strong></th>
-	<th style="text-align:left;"><strong>UI Toolkit</strong></th>
+	<th style="text-align:left;"><strong>UI 工具包</strong></th>
 	<th style="text-align:left;"><strong>UGUI+TMP</strong></th>
-	<th style="text-align:left;"><strong>Notes</strong></th>
+	<th style="text-align:left;"><strong>注意事项</strong></th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-	<td style="text-align:left;">Manual layout (absolute or relative to parent)</td>
+	<td style="text-align:left;">手动布局（绝对或相对于父项）</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;"></td>
 </tr>
 <tr>
-	<td style="text-align:left;">One-dimensional (horizontal and vertical)</td>
+	<td style="text-align:left;">一维（水平和垂直）</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;"></td>
 </tr>
 <tr>
-	<td style="text-align:left;">Two-dimensional (grid)</td>
-	<td style="text-align:left;">Research</td>
+	<td style="text-align:left;">二维（网格）</td>
+	<td style="text-align:left;">研究</td>
 	<td style="text-align:left;">✔</td>
-	<td style="text-align:left;">Unity UI provides the <a href="https://docs.unity3d.com/Packages/com.unity.ugui@latest/index.html?subfolder=/manual/script-GridLayoutGroup.html">GridLayoutGroup</a> component.<br><br>For UI Toolkit, Unity is investigating the possibility of implementing CSS-style grids in USS.</td>
+	<td style="text-align:left;">Unity UI 提供 <a href="https://docs.unity3d.com/Packages/com.unity.ugui@latest/index.html?subfolder=/manual/script-GridLayoutGroup.html">GridLayoutGroup</a> 组件。<br><br>对于 UI 工具包，Unity 在研究在 USS 中实现 CSS 样式网格的可能性。</td>
 </tr>
 </tbody>
 </table>
 
 <p><a name="events"></a></p>
 
-<h3>Events</h3>
+<h3>事件</h3>
 
 <table>
 <colgroup>
@@ -526,29 +526,28 @@
 <thead>
 <tr>
 	<th style="text-align:left;"><strong>功能</strong></th>
-	<th style="text-align:left;"><strong>UI Toolkit</strong></th>
+	<th style="text-align:left;"><strong>UI 工具包</strong></th>
 	<th style="text-align:left;"><strong>UGUI+TMP</strong></th>
-	<th style="text-align:left;"><strong>Notes</strong></th>
+	<th style="text-align:left;"><strong>注意事项</strong></th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-	<td style="text-align:left;">Integration with Unity’s new <a href="com.unity.inputsystem.html">Input System</a>
-</td>
-	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">与 Unity 新<a href="com.unity.inputsystem.html">输入系统</a>集成</td>
+	<td style="text-align:left;">计划</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;"></td>
 </tr>
 <tr>
-	<td style="text-align:left;">Serialized events</td>
-	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">序列化事件</td>
+	<td style="text-align:left;">计划</td>
 	<td style="text-align:left;">✔</td>
-	<td style="text-align:left;">UI Toolkit can only bind events to elements in C#. <br><br>Unity UI can serialize event bindings.</td>
+	<td style="text-align:left;">UI 工具包只能在 C# 中将事件绑定到元素。<br><br>Unity UI 可以序列化事件绑定。</td>
 </tr>
 <tr>
-	<td style="text-align:left;">Visual Scripting for events</td>
-	<td style="text-align:left;">Research</td>
+	<td style="text-align:left;">事件的可视化脚本</td>
+	<td style="text-align:left;">研究</td>
 	<td style="text-align:left;">❌</td>
 	<td style="text-align:left;"></td>
 </tr>
@@ -559,11 +558,11 @@
 
 <h3>Rendering</h3>
 
-<p>Choosing between UI Toolkit and Unity UI is a tradeoff between high performance and versatility/supported features.</p>
+<p>在 UI 工具包与 Unity UI 之间进行选择是高性能与多功能性/支持的功能之间的权衡。</p>
 
-<p>UI Toolkit currently supports a smaller set of capabilities, but is easier to optimize for rendering performance. It is document-based, data driven, and uses a single shader, material, and texture atlas to draw element hierarchies. It is a good choice for simple, screen space UI (for example, menus or heads-up displays) that includes complex hierarchies of elements, and performs well on any platform.</p>
+<p>UI 工具包目前支持的功能集较小，但更易于针对渲染性能进行优化。它基于文档、由数据驱动并使用单一着色器、材质和纹理图集来绘制元素层级视图。对于包含复杂元素层级视图的简单屏幕空间 UI（例如，菜单或抬头显示）而言，它是一个不错的选择，并且在任何平台上都表现良好。</p>
 
-<p>Unity UI is more versatile, and supports advanced rendering and text features. You can set up any visual element with a custom material, and take advantage of advanced clipping and masking features. However, these features might make it difficult to keep more complex UI within your performance budgets.</p>
+<p>Unity UI 的功能更多，并支持高级渲染和文本功能。可以使用自定义材质设置任何视觉元素，并利用高级裁剪和遮罩功能。但是，这些功能可能会使得难以在性能预算内保持更复杂的 UI。</p>
 
 <table>
 <colgroup>
@@ -576,99 +575,100 @@
 <thead>
 <tr>
 	<th style="text-align:left;"><strong>功能</strong></th>
-	<th style="text-align:left;"><strong>UI Toolkit</strong></th>
+	<th style="text-align:left;"><strong>UI 工具包</strong></th>
 	<th style="text-align:left;"><strong>UGUI+TMP</strong></th>
-	<th style="text-align:left;"><strong>Notes</strong></th>
+	<th style="text-align:left;"><strong>注意事项</strong></th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-	<td style="text-align:left;">Supported for <a href="built-in-render-pipeline.html">Built-in Render Pipeline</a>
+	<td style="text-align:left;">支持<a href="built-in-render-pipeline.html">内置渲染管线</a>
 </td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;"></td>
 </tr>
 <tr>
-	<td style="text-align:left;">Supported for <a href="universal-render-pipeline.html">Universal Render Pipeline (URP)</a>
+	<td style="text-align:left;">支持<a href="universal-render-pipeline.html">通用渲染管线 (URP)</a>
 </td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;"></td>
 </tr>
 <tr>
-	<td style="text-align:left;">Supported for <a href="high-definition-render-pipeline.html">High Definition Render Pipeline (HDRP)</a>
+	<td style="text-align:left;">支持<a href="high-definition-render-pipeline.html">高清渲染管线 (HDRP)</a>
 </td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;"></td>
 </tr>
 <tr>
-	<td style="text-align:left;">Screen-space (2D) rendering</td>
+	<td style="text-align:left;">屏幕空间 (2D) 渲染</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;"></td>
 </tr>
 <tr>
-	<td style="text-align:left;">World-space (3D) rendering</td>
-	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">世界空间 (3D) 渲染</td>
+	<td style="text-align:left;">计划</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;"></td>
 </tr>
 <tr>
-	<td style="text-align:left;">Custom materials and shaders</td>
-	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">自定义材质和着色器</td>
+	<td style="text-align:left;">计划</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;"></td>
 </tr>
 <tr>
-	<td style="text-align:left;">Shader Graph integration</td>
-	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">Shader Graph 集成</td>
+	<td style="text-align:left;">计划</td>
 	<td style="text-align:left;">❌</td>
 	<td style="text-align:left;"></td>
 </tr>
 <tr>
-	<td style="text-align:left;">SVG integration</td>
-	<td style="text-align:left;">Planned</td>
-	<td style="text-align:left;">Planned</td>
-	<td style="text-align:left;">The <a href="com.unity.vectorgraphics.html">com.unity.vectorgraphics</a> package provides SVG support for Unity UI. However the package is currently in preview, and is not recommended for production.</td>
+	<td style="text-align:left;">SVG 集成</td>
+	<td style="text-align:left;">计划</td>
+	<td style="text-align:left;">计划</td>
+	<td style="text-align:left;">
+<a href="com.unity.vectorgraphics.html">com.unity.vectorgraphics</a> 包为 Unity UI 提供 SVG 支持。但是，该包当前处于预览版，不建议用于生产。</td>
 </tr>
 <tr>
-	<td style="text-align:left;">Anti-aliasing</td>
-	<td style="text-align:left;">Planned</td>
-	<td style="text-align:left;">Partial</td>
-	<td style="text-align:left;">Unity UI’s <strong>Screen Space-Camera</strong>, and <strong>World Space</strong> rendering modes use Cameras, which apply antialiasing.</td>
+	<td style="text-align:left;">抗锯齿</td>
+	<td style="text-align:left;">计划</td>
+	<td style="text-align:left;">部分支持</td>
+	<td style="text-align:left;">Unity UI 的<strong>屏幕空间 - 摄像机</strong>和<strong>世界空间</strong>渲染模式使用应用抗锯齿的摄像机。</td>
 </tr>
 <tr>
-	<td style="text-align:left;">2D rotation (object remains on the UI plane)</td>
+	<td style="text-align:left;">2D 旋转（对象保持在 UI 平面上）</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;"></td>
 </tr>
 <tr>
-	<td style="text-align:left;">3D rotation</td>
-	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">3D 旋转</td>
+	<td style="text-align:left;">计划</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;"></td>
 </tr>
 <tr>
-	<td style="text-align:left;">Rectangle clipping</td>
-	<td style="text-align:left;">Partial</td>
+	<td style="text-align:left;">矩形裁剪</td>
+	<td style="text-align:left;">部分支持</td>
 	<td style="text-align:left;">✔</td>
-	<td style="text-align:left;">UI toolkit supports rectangle clipping without rotation. The rectangle must be axis-aligned.</td>
+	<td style="text-align:left;">UI 工具包支持不带旋转的矩形裁剪。矩形必须轴对齐。</td>
 </tr>
 <tr>
-	<td style="text-align:left;">Mask clipping</td>
-	<td style="text-align:left;">Partial</td>
+	<td style="text-align:left;">遮罩裁剪</td>
+	<td style="text-align:left;">部分支持</td>
 	<td style="text-align:left;">✔</td>
-	<td style="text-align:left;">UI toolkit supports mask clipping with 2D rotation.<br><br>Unity UI supports 3D mask rotation.</td>
+	<td style="text-align:left;">UI 工具包支持带 2D 旋转的遮罩裁剪。<br><br>Unity UI 支持 3D 遮罩旋转。</td>
 </tr>
 <tr>
-	<td style="text-align:left;">Nested masking</td>
-	<td style="text-align:left;">Partial/Planned</td>
+	<td style="text-align:left;">嵌套遮罩</td>
+	<td style="text-align:left;">部分支持/计划</td>
 	<td style="text-align:left;">✔</td>
-	<td style="text-align:left;">UI toolkit’s nested masking is limited to one level, but does not affect draw-call batching. Multi-level nested masking is planned.<br><br>Unity UI supports up to eight levels of nested masking, but breaks draw call batching every second level.</td>
+	<td style="text-align:left;">UI 工具包的嵌套遮罩仅限于一个级别，但不影响绘制调用批处理。多级嵌套遮罩已在计划中。<br><br>Unity UI 最多支持八个级别的嵌套遮罩，但每个第二级会中断绘制调用批处理。</td>
 </tr>
 </tbody>
 </table>
@@ -688,22 +688,22 @@
 <thead>
 <tr>
 	<th style="text-align:left;"><strong>功能</strong></th>
-	<th style="text-align:left;"><strong>UI Toolkit</strong></th>
+	<th style="text-align:left;"><strong>UI 工具包</strong></th>
 	<th style="text-align:left;"><strong>UGUI+TMP</strong></th>
-	<th style="text-align:left;"><strong>Notes</strong></th>
+	<th style="text-align:left;"><strong>注意事项</strong></th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-	<td style="text-align:left;">Tweening workflow</td>
+	<td style="text-align:left;">补间工作流程</td>
 	<td style="text-align:left;">Experimental</td>
-	<td style="text-align:left;">Partial</td>
+	<td style="text-align:left;">部分支持</td>
 	<td style="text-align:left;"></td>
 </tr>
 <tr>
-	<td style="text-align:left;">Integration with Animation Clips and Timeline</td>
-	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">与动画剪辑和时间轴集成</td>
+	<td style="text-align:left;">计划</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;"></td>
 </tr>
@@ -712,7 +712,7 @@
 
 <p><a name="customizability"></a></p>
 
-<h3>Customizability</h3>
+<h3>可定制性</h3>
 
 <table>
 <colgroup>
@@ -725,7 +725,7 @@
 <thead>
 <tr>
 	<th style="text-align:left;"><strong>功能</strong></th>
-	<th style="text-align:left;"><strong>UI Toolkit</strong></th>
+	<th style="text-align:left;"><strong>UI 工具包</strong></th>
 	<th style="text-align:left;"><strong>UGUI+TMP</strong></th>
 	<th style="text-align:left;">注意</th>
 </tr>
@@ -733,35 +733,35 @@
 
 <tbody>
 <tr>
-	<td style="text-align:left;">Open Source / Customizable</td>
-	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">开源/可定制</td>
+	<td style="text-align:left;">计划</td>
 	<td style="text-align:left;">✔</td>
-	<td style="text-align:left;">The <a href="UITK-package.html">UI Toolkit package</a> (currently in preview) is customizable.</td>
+	<td style="text-align:left;">The <a href="UIE-UITK-package.html">UI Toolkit package</a> (currently in preview) is customizable.</td>
 </tr>
 </tbody>
 </table>
 
 <p><a name="feature-comparison-ui-toolkit-vs-imgui"></a></p>
 
-<h2>Feature comparison: UI Toolkit vs. IMGUI</h2>
+<h2>功能比较：UI 工具包与 IMGUI</h2>
 
-<p>This section compares UI Toolkit to IMGUI for developing user interfaces for the Unity Editor.</p>
+<p>此部分将 UI 工具包与 IMGUI 进行比较，以便为 Unity 编辑器开发用户界面。</p>
 
 <ul>
-<li><a href="#inspector-integration">Inspector integration</a></li>
-<li><a href="#controls-and-data-binding">Controls and data binding</a></li>
-<li><a href="#workflow-1">Workflow</a></li>
-<li><a href="#styling-1">Styling</a></li>
-<li><a href="#layout-1">Layout</a></li>
-<li><a href="#events-1">Events</a></li>
-<li><a href="#rendering-1">Rendering</a></li>
-<li><a href="#animation-1">Animation</a></li>
-<li><a href="#customizability-1">Customizability</a></li>
+<li><a href="#inspector-integration">Inspector 集成</a></li>
+<li><a href="#controls-and-data-binding">控件和数据绑定</a></li>
+<li><a href="#workflow-1">工作流程</a></li>
+<li><a href="#styling-1">样式</a></li>
+<li><a href="#layout-1">布局</a></li>
+<li><a href="#events-1">事件</a></li>
+<li><a href="#rendering-1">渲染</a></li>
+<li><a href="#animation-1">动画</a></li>
+<li><a href="#customizability-1">可定制性</a></li>
 </ul>
 
 <p><a name="inspector-integration"></a></p>
 
-<h3>Inspector integration</h3>
+<h3>Inspector 集成</h3>
 
 <table>
 <colgroup>
@@ -815,7 +815,7 @@
 
 <p><a name="controls-and-data-binding"></a></p>
 
-<h3>Controls and data binding</h3>
+<h3>控件和数据绑定</h3>
 
 <table>
 <colgroup>
@@ -828,46 +828,46 @@
 <thead>
 <tr>
 	<th style="text-align:left;"><strong>功能</strong></th>
-	<th style="text-align:left;"><strong>UI Toolkit</strong></th>
+	<th style="text-align:left;"><strong>UI 工具包</strong></th>
 	<th style="text-align:left;"><strong>IMGUI</strong></th>
-	<th style="text-align:left;"><strong>Notes</strong></th>
+	<th style="text-align:left;"><strong>注意事项</strong></th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-	<td style="text-align:left;">Tree View</td>
-	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">树视图</td>
+	<td style="text-align:left;">计划</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;"></td>
 </tr>
 <tr>
-	<td style="text-align:left;">Grid View</td>
-	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">网格视图</td>
+	<td style="text-align:left;">计划</td>
 	<td style="text-align:left;">❌</td>
 	<td style="text-align:left;"></td>
 </tr>
 <tr>
-	<td style="text-align:left;">Graph View</td>
-	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">图形视图</td>
+	<td style="text-align:left;">计划</td>
 	<td style="text-align:left;">❌</td>
 	<td style="text-align:left;"></td>
 </tr>
 <tr>
-	<td style="text-align:left;">Data binding: Serialized properties</td>
+	<td style="text-align:left;">数据绑定：序列化属性</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;"></td>
 </tr>
 <tr>
-	<td style="text-align:left;">Data binding from any C# type</td>
-	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">来自任何 C# 类型的数据绑定</td>
+	<td style="text-align:left;">计划</td>
 	<td style="text-align:left;">❌</td>
 	<td style="text-align:left;"></td>
 </tr>
 <tr>
-	<td style="text-align:left;">Data binding to any attribute or style value</td>
-	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">到任何属性或样式值的数据绑定</td>
+	<td style="text-align:left;">计划</td>
 	<td style="text-align:left;">❌</td>
 	<td style="text-align:left;"></td>
 </tr>
@@ -876,7 +876,7 @@
 
 <p><a name="workflow-1"></a></p>
 
-<h3>Workflow</h3>
+<h3>工作流程</h3>
 
 <table>
 <colgroup>
@@ -930,7 +930,7 @@
 
 <p><a name="styling-1"></a></p>
 
-<h3>Styling</h3>
+<h3>样式</h3>
 
 <table>
 <colgroup>
@@ -943,46 +943,46 @@
 <thead>
 <tr>
 	<th style="text-align:left;"><strong>功能</strong></th>
-	<th style="text-align:left;"><strong>UI Toolkit</strong></th>
+	<th style="text-align:left;"><strong>UI 工具包</strong></th>
 	<th style="text-align:left;"><strong>IMGUI</strong></th>
-	<th style="text-align:left;"><strong>Notes</strong></th>
+	<th style="text-align:left;"><strong>注意事项</strong></th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-	<td style="text-align:left;">Inline styles</td>
+	<td style="text-align:left;">内联样式</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;"></td>
 </tr>
 <tr>
-	<td style="text-align:left;">Cascading styles</td>
+	<td style="text-align:left;">层叠样式</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;">❌</td>
 	<td style="text-align:left;"></td>
 </tr>
 <tr>
-	<td style="text-align:left;">Pseudo-states (for example, hover or active)</td>
+	<td style="text-align:left;">伪状态（例如，悬停或激活）</td>
 	<td style="text-align:left;">✔</td>
-	<td style="text-align:left;">Partial</td>
+	<td style="text-align:left;">部分支持</td>
 	<td style="text-align:left;"></td>
 </tr>
 <tr>
-	<td style="text-align:left;">Rich text tags</td>
-	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">富文本标签</td>
+	<td style="text-align:left;">计划</td>
 	<td style="text-align:left;">✔</td>
-	<td style="text-align:left;">Rich text tag support in UI Toolkit is planned as part of an update to Unity’s text rendering backend.</td>
+	<td style="text-align:left;">UI 工具包中的富文本标签支持计划作为 Unity 文本渲染后端更新的一部分。</td>
 </tr>
 <tr>
-	<td style="text-align:left;">SDF text</td>
-	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">SDF 文本</td>
+	<td style="text-align:left;">计划</td>
 	<td style="text-align:left;">❌</td>
-	<td style="text-align:left;">SDF text support in UI Toolkit is planned as part of an update to Unity’s text rendering backend.</td>
+	<td style="text-align:left;">UI 工具包中的 SDF 文本支持计划作为 Unity 文本渲染后端更新的一部分。</td>
 </tr>
 <tr>
-	<td style="text-align:left;">Font fallbacks</td>
-	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">字体后备</td>
+	<td style="text-align:left;">计划</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;"></td>
 </tr>
@@ -991,13 +991,13 @@
 
 <p><a name="layout-1"></a></p>
 
-<h3>Layout</h3>
+<h3>布局</h3>
 
-<p>While Unity UI and IMGUI offer the same layout possibilities, their layout systems are quite different.</p>
+<p>虽然 Unity UI 和 IMGUI 提供相同的布局可能性，但其布局系统大不相同。</p>
 
 <ul>
-<li>IMGUI uses the C#-based GUILayout system.</li>
-<li>UI Toolkit uses a more web-like Flexbox-based layout system. You control layout via USS styles.</li>
+<li>IMGUI 使用基于 C# 的 GUILayout 系统。</li>
+<li>UI 工具包使用更类似于 Web 的基于 Flexbox 的布局系统。可以通过 USS 样式控制布局。</li>
 </ul>
 
 <table>
@@ -1011,37 +1011,37 @@
 <thead>
 <tr>
 	<th style="text-align:left;"><strong>功能</strong></th>
-	<th style="text-align:left;"><strong>UI Toolkit</strong></th>
+	<th style="text-align:left;"><strong>UI 工具包</strong></th>
 	<th style="text-align:left;"><strong>IMGUI</strong></th>
-	<th style="text-align:left;"><strong>Notes</strong></th>
+	<th style="text-align:left;"><strong>注意事项</strong></th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-	<td style="text-align:left;">Manual layout (absolute or relative to parent)</td>
+	<td style="text-align:left;">手动布局（绝对或相对于父项）</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;"></td>
 </tr>
 <tr>
-	<td style="text-align:left;">One-dimensional (horizontal and vertical)</td>
+	<td style="text-align:left;">一维（水平和垂直）</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;"></td>
 </tr>
 <tr>
-	<td style="text-align:left;">Two-dimensional (grid)</td>
-	<td style="text-align:left;">In research</td>
+	<td style="text-align:left;">二维（网格）</td>
+	<td style="text-align:left;">研究中</td>
 	<td style="text-align:left;">❌</td>
-	<td style="text-align:left;">For UI Toolkit, Unity is investigating the possibility of implementing CSS-style grids in USS.</td>
+	<td style="text-align:left;">对于 UI 工具包，Unity 在研究在 USS 中实现 CSS 样式网格的可能性。</td>
 </tr>
 </tbody>
 </table>
 
 <p><a name="events-1"></a></p>
 
-<h3>Events</h3>
+<h3>事件</h3>
 
 <table>
 <colgroup>
@@ -1054,29 +1054,28 @@
 <thead>
 <tr>
 	<th style="text-align:left;"><strong>功能</strong></th>
-	<th style="text-align:left;"><strong>UI Toolkit</strong></th>
+	<th style="text-align:left;"><strong>UI 工具包</strong></th>
 	<th style="text-align:left;"><strong>IMGUI</strong></th>
-	<th style="text-align:left;"><strong>Notes</strong></th>
+	<th style="text-align:left;"><strong>注意事项</strong></th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-	<td style="text-align:left;">Integration with Unity’s new <a href="com.unity.inputsystem.html">Input System</a>
-</td>
-	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">与 Unity 新<a href="com.unity.inputsystem.html">输入系统</a>集成</td>
+	<td style="text-align:left;">计划</td>
 	<td style="text-align:left;">❌</td>
 	<td style="text-align:left;"></td>
 </tr>
 <tr>
-	<td style="text-align:left;">Serialized events</td>
-	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">序列化事件</td>
+	<td style="text-align:left;">计划</td>
 	<td style="text-align:left;">❌</td>
 	<td style="text-align:left;"></td>
 </tr>
 <tr>
-	<td style="text-align:left;">Visual Scripting for events</td>
-	<td style="text-align:left;">Research</td>
+	<td style="text-align:left;">事件的可视化脚本</td>
+	<td style="text-align:left;">研究</td>
 	<td style="text-align:left;">❌</td>
 	<td style="text-align:left;"></td>
 </tr>
@@ -1098,67 +1097,67 @@
 <thead>
 <tr>
 	<th style="text-align:left;"><strong>功能</strong></th>
-	<th style="text-align:left;"><strong>UI Toolkit</strong></th>
+	<th style="text-align:left;"><strong>UI 工具包</strong></th>
 	<th style="text-align:left;"><strong>IMGUI</strong></th>
-	<th style="text-align:left;"><strong>Notes</strong></th>
+	<th style="text-align:left;"><strong>注意事项</strong></th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-	<td style="text-align:left;">Supported for <a href="built-in-render-pipeline.html">Built-in Render Pipeline</a>
+	<td style="text-align:left;">支持<a href="built-in-render-pipeline.html">内置渲染管线</a>
 </td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;"></td>
 </tr>
 <tr>
-	<td style="text-align:left;">Supported for <a href="universal-render-pipeline.html">Universal Render Pipeline (URP)</a>
+	<td style="text-align:left;">支持<a href="universal-render-pipeline.html">通用渲染管线 (URP)</a>
 </td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;"></td>
 </tr>
 <tr>
-	<td style="text-align:left;">Supported for <a href="high-definition-render-pipeline.html">High Definition Render Pipeline (HDRP)</a>
+	<td style="text-align:left;">支持<a href="high-definition-render-pipeline.html">高清渲染管线 (HDRP)</a>
 </td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;"></td>
 </tr>
 <tr>
-	<td style="text-align:left;">Screen-space (2D) rendering</td>
+	<td style="text-align:left;">屏幕空间 (2D) 渲染</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;">✔</td>
 	<td style="text-align:left;"></td>
 </tr>
 <tr>
-	<td style="text-align:left;">World-space (3D) rendering</td>
-	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">世界空间 (3D) 渲染</td>
+	<td style="text-align:left;">计划</td>
 	<td style="text-align:left;">❌</td>
-	<td style="text-align:left;">While it is technically possible to create 3D UI in IMGUI using <code>GUI.matrix</code>, it is not recommended.</td>
+	<td style="text-align:left;">虽然在技术上可以使用 <code>GUI.matrix</code> 在 IMGUI 中创建 3D UI，但不建议这样做。</td>
 </tr>
 <tr>
-	<td style="text-align:left;">Custom materials and shaders</td>
-	<td style="text-align:left;">Planned</td>
-	<td style="text-align:left;">❌</td>
-	<td style="text-align:left;"></td>
-</tr>
-<tr>
-	<td style="text-align:left;">Shader Graph integration</td>
-	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">自定义材质和着色器</td>
+	<td style="text-align:left;">计划</td>
 	<td style="text-align:left;">❌</td>
 	<td style="text-align:left;"></td>
 </tr>
 <tr>
-	<td style="text-align:left;">SVG integration</td>
-	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">Shader Graph 集成</td>
+	<td style="text-align:left;">计划</td>
 	<td style="text-align:left;">❌</td>
 	<td style="text-align:left;"></td>
 </tr>
 <tr>
-	<td style="text-align:left;">Anti-aliasing</td>
-	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">SVG 集成</td>
+	<td style="text-align:left;">计划</td>
+	<td style="text-align:left;">❌</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">抗锯齿</td>
+	<td style="text-align:left;">计划</td>
 	<td style="text-align:left;">❌</td>
 	<td style="text-align:left;"></td>
 </tr>
@@ -1180,22 +1179,22 @@
 <thead>
 <tr>
 	<th style="text-align:left;"><strong>功能</strong></th>
-	<th style="text-align:left;"><strong>UI Toolkit</strong></th>
+	<th style="text-align:left;"><strong>UI 工具包</strong></th>
 	<th style="text-align:left;"><strong>IMGUI</strong></th>
-	<th style="text-align:left;"><strong>Notes</strong></th>
+	<th style="text-align:left;"><strong>注意事项</strong></th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-	<td style="text-align:left;">Tweening workflow</td>
+	<td style="text-align:left;">补间工作流程</td>
 	<td style="text-align:left;">Experimental</td>
 	<td style="text-align:left;">❌</td>
 	<td style="text-align:left;"></td>
 </tr>
 <tr>
-	<td style="text-align:left;">Integration with Animation Clips and Timeline</td>
-	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">与动画剪辑和时间轴集成</td>
+	<td style="text-align:left;">计划</td>
 	<td style="text-align:left;">❌</td>
 	<td style="text-align:left;"></td>
 </tr>
@@ -1204,7 +1203,7 @@
 
 <p><a name="customizability-1"></a></p>
 
-<h3>Customizability</h3>
+<h3>可定制性</h3>
 
 <table>
 <colgroup>
@@ -1217,18 +1216,18 @@
 <thead>
 <tr>
 	<th style="text-align:left;"><strong>功能</strong></th>
-	<th style="text-align:left;"><strong>UI Toolkit</strong></th>
+	<th style="text-align:left;"><strong>UI 工具包</strong></th>
 	<th style="text-align:left;"><strong>IMGUI</strong></th>
-	<th style="text-align:left;"><strong>Notes</strong></th>
+	<th style="text-align:left;"><strong>注意事项</strong></th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-	<td style="text-align:left;">Open Source / Customizable</td>
-	<td style="text-align:left;">Planned</td>
+	<td style="text-align:left;">开源/可定制</td>
+	<td style="text-align:left;">计划</td>
 	<td style="text-align:left;"></td>
-	<td style="text-align:left;">The <a href="UITK-package.html">UI Toolkit package</a> (currently in preview) is customizable.</td>
+	<td style="text-align:left;">The <a href="UIE-UITK-package.html">UI Toolkit package</a> (currently in preview) is customizable.</td>
 </tr>
 </tbody>
 </table>
@@ -1237,16 +1236,16 @@
 <!-- area:authoring -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="UIToolkits.html"></a></span><div class="tip">Creating user interfaces (UI)</div>
+<span class="prev"><a href="UIToolkits.html"></a></span><div class="tip">创建用户界面 (UI)</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="UIElements.html"></a></span><div class="tip">UI Toolkit</div>
+<span class="next"><a href="UIElements.html"></a></span><div class="tip">UI 工具包</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

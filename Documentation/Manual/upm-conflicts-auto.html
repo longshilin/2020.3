@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Lock files - Unity 手册">
-<title>Lock files - Unity 手册</title>
-<meta name="description" content="A lock file contains the results of the Package Manager&amp;#8217;s dependency resolution for a project. Package managers use lock files to provide a deterministic result when resolving a package dependency graph. When the Unity Package Manager computes a successful resolution, it stores that resolution inside the project&amp;#8217;s Packages folder in a JSON file called packages-lock.json. Any modification to the project manifest or to a mutable package&amp;#8217;s manifest (either embedded or installed from local folder) can potentially compel the Package Manager to recalculate the resolved package versions. But as long as the version of a package in the lock file satisfies the range implied by the dependency version and the resolution strategy, the package remains locked at that version.">
-<meta property="og:description" content="A lock file contains the results of the Package Manager&amp;#8217;s dependency resolution for a project. Package managers use lock files to provide a deterministic result when resolving a package dependency graph. When the Unity Package Manager computes a successful resolution, it stores that resolution inside the project&amp;#8217;s Packages folder in a JSON file called packages-lock.json. Any modification to the project manifest or to a mutable package&amp;#8217;s manifest (either embedded or installed from local folder) can potentially compel the Package Manager to recalculate the resolved package versions. But as long as the version of a package in the lock file satisfies the range implied by the dependency version and the resolution strategy, the package remains locked at that version.">
+<meta property="og:title" content="锁定文件 - Unity 手册">
+<title>锁定文件 - Unity 手册</title>
+<meta name="description" content="锁定文件包含 Package Manager 对于一个项目的依赖解析结果。Package Manager 在解析包依赖图时使用锁文件来提供确定性的结果。当 Unity Package Manager 计算出一个成功的解析结果时，它会将该解析结果存储在项目的 Packages 文件夹中的一个名为 packages-lock.json 的 JSON 文件中。对项目清单或可变包清单的任何修改（嵌入式或者从本地文件夹安装) 可能会迫使 Package Manager 重新计算已解析的包版本。但是只要锁定文件中的包版本满足依赖版本及解析策略涵盖的范围，该软件包将保持锁定在该版本。">
+<meta property="og:description" content="锁定文件包含 Package Manager 对于一个项目的依赖解析结果。Package Manager 在解析包依赖图时使用锁文件来提供确定性的结果。当 Unity Package Manager 计算出一个成功的解析结果时，它会将该解析结果存储在项目的 Packages 文件夹中的一个名为 packages-lock.json 的 JSON 文件中。对项目清单或可变包清单的任何修改（嵌入式或者从本地文件夹安装) 可能会迫使 Package Manager 重新计算已解析的包版本。但是只要锁定文件中的包版本满足依赖版本及解析策略涵盖的范围，该软件包将保持锁定在该版本。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,27 +174,27 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="PackagesList.html">包</a></li>
 <li><a href="Packages.html">Unity 的 Package Manager</a></li>
-<li><a href="upm-conflicts.html">Resolution and conflict</a></li>
-<li>Lock files</li>
+<li><a href="upm-conflicts.html">解析和冲突</a></li>
+<li>锁定文件</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="upm-conflicts.html"></a></span><div class="tip">Resolution and conflict</div>
+<span class="prev"><a href="upm-conflicts.html"></a></span><div class="tip">解析和冲突</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="upm-manifestPrj.html"></a></span><div class="tip">项目清单</div>
 </div>
 </div></div>
-<h1>Lock files</h1>
+<h1>锁定文件</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>A lock file contains the results of the Package Manager’s <a href="upm-conflicts.html">dependency resolution</a> for a project. Package managers use lock files to provide a <a href="https://en.wikipedia.org/wiki/Deterministic_algorithm">deterministic</a> result when resolving a <a href="upm-dependencies.html">package dependency graph</a>. When the Unity Package Manager computes a successful resolution, it stores that resolution inside the project’s <code>Packages</code> folder in a JSON file called <code>packages-lock.json</code>. Any modification to the project manifest or to a mutable package’s manifest (either <a href="upm-concepts.html#Embedded">embedded</a> or <a href="upm-concepts.html#Local">installed from local folder</a>) can potentially compel the Package Manager to recalculate the resolved package versions. But as long as the version of a package in the lock file satisfies the range implied by the dependency version and the <a href="upm-conflicts.html">resolution strategy</a>, the package remains locked at that version.</p>
+<p>锁定文件包含 Package Manager 对于一个项目的<a href="upm-conflicts.html">依赖解析</a>结果。Package Manager 在解析<a href="upm-dependencies.html">包依赖图</a>时使用锁文件来提供<a href="https://en.wikipedia.org/wiki/Deterministic_algorithm">确定性的</a>结果。当 Unity Package Manager 计算出一个成功的解析结果时，它会将该解析结果存储在项目的 <code>Packages</code> 文件夹中的一个名为 <code>packages-lock.json</code> 的 JSON 文件中。对项目清单或可变包清单的任何修改（<a href="upm-concepts.html#Embedded">嵌入式</a>或者<a href="upm-concepts.html#Local">从本地文件夹安装</a>) 可能会迫使 Package Manager 重新计算已解析的包版本。但是只要锁定文件中的包版本满足依赖版本及<a href="upm-conflicts.html">解析策略</a>涵盖的范围，该软件包将保持锁定在该版本。</p>
 
-<p>For example, here is a typical entry in the lock file:</p>
+<p>例如，这是锁定文件中的一个典型条目：</p>
 
 <pre><code class="lang-json">"com.unity.textmeshpro": {
   "version": "2.0.1",
@@ -208,19 +208,19 @@
     etc.
 </code></pre>
 
-<p>When the Package Manager resolves any conflicting <a href="upm-dependencies.html">indirect dependencies</a>, it tries to re-use as many locked packages as possible. This guarantees that subsequent dependency resolution produces the same results for the same set of dependencies. It also minimizes time-consuming operations such as downloading, extracting, or copying packages.</p>
+<p>当 Package Manager 解决任何冲突的<a href="upm-dependencies.html">间接依赖</a>时，它会尝试重用尽可能多的锁定包。这保证了后续的依赖解析对相同的依赖项集合产生相同的结果。它还最大限度地减少了耗时的操作，例如下载、解压缩或复制包。</p>
 
-<p>If there is no solution that only includes locked packages, then the Package Manager chooses the set of packages with the least risky upgrades, preferring patch upgrades over minor or major upgrades, and minor upgrades over major upgrades. In fact, you can customize the level of risk for upgrading. For more information, see <a href="upm-manifestPrj.html#resolutionStrategy">Customizing resolution strategies</a>.</p>
+<p>如果没有仅包含锁定包的解决方案，Package Manager 选择升级风险最小的解决方案，补丁升级优先于次要或主要版本升级，次要版本升级优先于主要版本升级。事实上，您可以自定义升级的风险级别。有关更多信息，请参阅<a href="upm-manifestPrj.html#resolutionStrategy">自定义解析策略</a>。</p>
 
-<p>To force a refresh of indirect dependency versions, delete the lock file.</p>
+<p>要强制刷新间接依赖项版本，请删除锁定文件。</p>
 
-<p>Don’t manually modify the lock file: the Package Manager creates and maintains the lock file, so it overwrites any changes you make to the file.</p>
+<p>不要手动修改锁定文件：Package Manager 创建并维护锁定文件，因此它会覆盖您对文件所做的任何更改。</p>
 
-<p>Put the lock file under source control so you can consistently reproduce the same package set to ensure your project remains consistent over time and on different machines.</p>
+<p>将锁定文件置于源代码控制之下，以便您可以一致重现相同的包集，以确保您的项目随着时间的推移和在不同的机器上保持一致。</p>
 
-<h2>Disabling the lock file</h2>
+<h2>禁用锁定文件</h2>
 
-<p>By default, the Package Manager creates or updates the lock file when it successfully computes a dependency graph. If you see unexpected results, you can set the <a href="upm-manifestPrj.html#enableLockFile">enableLockFile</a> property to <code>false</code> in your project manifest to disable locking. However, if you disable the lock file, the Package Manager clones <a href="upm-git.html">Git URL</a> packages again, which leads to reduced performance and additional network usage. It might also lead to non-deterministic results if you push newer commits to the remote Git repository between two resolutions.</p>
+<p>默认情况下，Package Manager 在成功计算依赖图时创建或更新锁定文件。如果您看到意外结果，您可以在项目清单中将 <a href="upm-manifestPrj.html#enableLockFile">enableLockFile</a> 属性设置为 <code>false</code> 以禁用锁定。但是，如果禁用锁定文件，Package Manager 会再次克隆 <a href="upm-git.html">Git URL</a> 包，这会导致性能下降和额外的网络使用。如果您在两次解析之间将较新的提交推送到远程 Git 代码仓库，也可能导致不确定的结果。</p>
 
 <p><br> </p>
 
@@ -228,12 +228,10 @@
 
 <p><br> </p>
 
-<ul>
-<li><span class="page-history">SAT solver feature added in Unity <a href="https://docs.unity3d.com/2019.4/Documentation/Manual/30_search.html?q=newin20194">2019.4</a> <span class="search-words">NewIn20194</span></span></li>
-</ul>
+<p>*<span class="page-history">SAT 解算器功能添加于 Unity <a href="https://docs.unity3d.com/2019.4/Documentation/Manual/30_search.html?q=newin20194">2019.4</a><span class="search-words"> NewIn20194</span></span></p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="upm-conflicts.html"></a></span><div class="tip">Resolution and conflict</div>
+<span class="prev"><a href="upm-conflicts.html"></a></span><div class="tip">解析和冲突</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="upm-manifestPrj.html"></a></span><div class="tip">项目清单</div>
@@ -242,7 +240,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

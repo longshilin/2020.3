@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Editing scene templates - Unity 手册">
-<title>Editing scene templates - Unity 手册</title>
+<meta property="og:title" content="编辑场景模板 - Unity 手册">
+<title>编辑场景模板 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/scene-template-inspector.png">
-<meta name="description" content="To edit a scene template, select it in the Project window, then open it in an Inspector window.">
-<meta property="og:description" content="To edit a scene template, select it in the Project window, then open it in an Inspector window.">
+<meta name="description" content="要编辑场景模板，请在 Project 窗口中选择该模板，然后在 Inspector 窗口中将其打开。">
+<meta property="og:description" content="要编辑场景模板，请在 Project 窗口中选择该模板，然后在 Inspector 窗口中将其打开。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,26 +175,26 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UnityOverview.html">在 Unity 中操作</a></li>
 <li><a href="CreatingGameplay.html">创建游戏玩法</a></li>
 <li><a href="CreatingScenes.html">场景</a></li>
-<li><a href="scene-templates.html">Scene Templates</a></li>
-<li>Editing scene templates</li>
+<li><a href="scene-templates.html">场景模板</a></li>
+<li>编辑场景模板</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="scene-templates-creating.html"></a></span><div class="tip">Creating scene templates</div>
+<span class="prev"><a href="scene-templates-creating.html"></a></span><div class="tip">创建场景模板</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="scene-templates-customizing-scene-instantiation.html"></a></span><div class="tip">Customizing new scene creation</div>
+<span class="next"><a href="scene-templates-customizing-scene-instantiation.html"></a></span><div class="tip">自定义新场景创建</div>
 </div>
 </div></div>
-<h1>Editing scene templates</h1>
+<h1>编辑场景模板</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>To edit a scene template, select it in the <a href="https://docs.unity3d.com/Manual/ProjectView.html">Project window</a>, then open it in an <a href="https://docs.unity3d.com/Manual/UsingTheInspector.html">Inspector window</a>.</p>
+<p>要编辑场景模板，请在 <a href="https://docs.unity3d.com/Manual/ProjectView.html">Project 窗口</a>中选择该模板，然后在 <a href="https://docs.unity3d.com/Manual/UsingTheInspector.html">Inspector 窗口</a>中将其打开。</p>
 
 <table>
 <colgroup>
@@ -209,31 +209,25 @@
 
 <tbody>
 <tr>
-	<td style="text-align:left;">When you first create an <a href="scene-templates-creating.md#creating-an-empty-scene-template">empty scene template</a>, you must edit its properties to associate it with a scene before you can use it. Templates that you create from the active scene, or an existing scene asset, have some properties set by default.</td>
+	<td style="text-align:left;">当您第一次创建一个<a href="scene-templates-creating.md#creating-an-empty-scene-template">空场景模板</a>时，必须先编辑其属性以将其与场景关联后方可使用。从活动场景或现有场景资源创建的模板默认设置了一些属性。</td>
 </tr>
 </tbody>
 </table>
 
-<p><img src="../uploads/Main/scene-template-inspector.png" alt="The scene template Inspector"><br><em>The scene template Inspector</em></p>
+<p><img src="../uploads/Main/scene-template-inspector.png" alt="场景模板 Inspector"><br><em>场景模板 Inspector</em></p>
 
-<p>The scene template Inspector has the following sections:</p>
+<p>场景模板 Inspector 包含以下部分：</p>
 
-<ol>
-<li>
-<strong><a href="#details">Details</a></strong>: Specifies which scene the template uses, and contains the template description that appears in the New Scene dialog.</li>
-<li>
-<strong><a href="#thumbnail">Thumbnail</a></strong>: Provides options for creating a preview image for the template.</li>
-<li>
-<strong><a href="#scene-template-pipeline">Scene Template Pipeline</a></strong>: Specifies an optional custom script to run when Unity creates a new scene from the template.</li>
-<li>
-<strong><a href="#dependencies">Dependencies</a></strong>: Lists the template scene’s dependencies, and specifies whether Unity clones them when it creates a new scene from the template.</li>
-</ol>
+<p>1.<strong><a href="#details">Details</a></strong>：指定模板使用哪个场景，并包含模板的描述，该内容将出现在 New Scene 对话框中。
+1.<strong><a href="#thumbnail">Thumbnail</a></strong>：提供用于为模板创建预览图像的选项。
+1.<strong><a href="#scene-template-pipeline">Scene Template Pipeline</a></strong>：指定在 Unity 从模板创建新场景时运行的可选自定义脚本。
+1.<strong><a href="#dependencies">Dependencies</a></strong>：列出模板场景的依赖项，并指定 Unity 在从模板创建新场景时是否克隆它们。</p>
 
 <p><a name="details"></a></p>
 
 <h3>详细信息</h3>
 
-<p>Use the Details section to specify which scene to use for a template, and control how the template appears in the <a href="CreatingScenes.html#new-scene-dialog">New Scene dialog</a>.</p>
+<p>使用 Details 部分指定要用于模板的场景，并控制模板在 <a href="CreatingScenes.html#new-scene-dialog">New Scene 对话框</a> 中如何显示。</p>
 
 <p><img src="../uploads/Main/scene-template-inspector-details.png" alt=""><br></p>
 
@@ -255,33 +249,33 @@
 <tr>
 	<td style="text-align:left;"><strong>Template Scene</strong></td>
 	<td style="text-align:left;"></td>
-	<td style="text-align:left;">Specifies the scene to use as a template. This can be any scene in the Project.</td>
+	<td style="text-align:left;">指定要用作模板的场景。可以是项目中的任何场景。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Title</strong></td>
 	<td style="text-align:left;"></td>
-	<td style="text-align:left;">The template name. The name you enter here appears in the <a href="CreatingScenes.html#new-scene-dialog">New Scene dialog</a>.</td>
+	<td style="text-align:left;">模板的名称。您在此处输入的名称将出现在 <a href="CreatingScenes.html#new-scene-dialog">New Scene 对话框</a>中。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>描述</strong></td>
 	<td style="text-align:left;"></td>
-	<td style="text-align:left;">The template description. The description you enter here appears in the <a href="CreatingScenes.html#new-scene-dialog">New Scene dialog</a>.</td>
+	<td style="text-align:left;">模板的描述。您在此处输入的描述将出现在 <a href="CreatingScenes.html#new-scene-dialog">New Scene 对话框</a>中。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Pin in New Scene Dialog</strong></td>
 	<td style="text-align:left;"></td>
-	<td style="text-align:left;">Controls whether this template is pinned in the <a href="CreatingScenes.html#new-scene-dialog">New Scene dialog</a>.<br><br>Pinned templates always appear at the top of the <strong>Scene Templates in Project</strong> list.</td>
+	<td style="text-align:left;">控制此模板是否在 <a href="CreatingScenes.html#new-scene-dialog">New Scene 对话框</a> 中固定。<br><br>固定模板始终显示在 <strong>Scene Templates in Project</strong> 列表的顶部。</td>
 </tr>
 </tbody>
 </table>
 
 <p><a name="thumbnail"></a></p>
 
-<h3>Thumbnail</h3>
+<h3>缩略图</h3>
 
-<p>The Thumbnail section contains options for creating a preview image for the template. The preview image appears in the New Scene dialog.</p>
+<p>Thumbnail 部分包含用于为模板创建预览图像的选项。预览图像将出现在 New Scene 对话框中。</p>
 
-<p><img src="../uploads/Main/scene-template-inspector-thumbnail.png" alt="The scene template Inspector"><br></p>
+<p><img src="../uploads/Main/scene-template-inspector-thumbnail.png" alt="场景模板 Inspector"><br></p>
 
 <table>
 <colgroup>
@@ -301,71 +295,71 @@
 <tr>
 	<td style="text-align:left;"><strong>Texture</strong></td>
 	<td style="text-align:left;"></td>
-	<td style="text-align:left;">Specifies a Texture asset to use as a thumbnail for this template. You can use any Texture asset in the Project. <br><br>If you don’t assign a Texture, the template uses the default scene template asset icon.</td>
+	<td style="text-align:left;">指定要用作此模板缩略图的纹理资源。项目中的任何纹理资源均可使用。<br><br>如果您不分配纹理，模板将使用默认场景模板资源图标。</td>
 </tr>
 <tr>
-	<td style="text-align:left;"><strong><em>[Thumbnail Preview]</em></strong></td>
+	<td style="text-align:left;"><strong><em>[缩略图预览]</em></strong></td>
 	<td style="text-align:left;"></td>
-	<td style="text-align:left;">Displays the template’s thumbnail texture, if it has one.</td>
+	<td style="text-align:left;">显示模板的缩略图纹理（如果有）。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Snapshot</strong></td>
 	<td style="text-align:left;"></td>
-	<td style="text-align:left;">Provides options for capturing a thumbnail image for this template.</td>
+	<td style="text-align:left;">提供用于为此模板捕获缩略图的选项。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;">View</td>
-	<td style="text-align:left;">Specifies whether to capture the <strong>Main Camera</strong> view or the <strong>Game View</strong>.</td>
+	<td style="text-align:left;">指定捕获 <strong>Main Camera</strong> 视图还是 <strong>Game 视图</strong>。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;">Take Snapshot</td>
-	<td style="text-align:left;">Click this button to capture the selected <strong>View</strong>.</td>
+	<td style="text-align:left;">单击此按钮可捕获选定的<strong>视图</strong>。</td>
 </tr>
 </tbody>
 </table>
 
 <p><a name="scene-template-pipeline"></a></p>
 
-<h3>Scene Template Pipeline</h3>
+<h3>场景模板管线</h3>
 
-<p>Use these properties to add a <strong>Scene Template Pipeline</strong> script to this template.</p>
+<p>使用这些属性可将一个<strong>场景模板管线</strong>脚本添加到此模板。</p>
 
 <p><img src="../uploads/Main/scene-template-inspector-pipeline.png" alt=""><br></p>
 
-<p>A Scene Template Pipeline script lets you execute custom code when you create a new scene from the template. See <a href="scene-templates-customizing-scene-instantiation.html">Customizing new scene creation</a>.</p>
+<p>场景模板管线脚本可让您在从模板创建新场景时执行自定义代码。请参阅<a href="scene-templates-customizing-scene-instantiation.html">自定义新场景创建</a>。</p>
 
 <p><a name="dependencies"></a></p>
 
-<h3>Dependencies</h3>
+<h3>依赖项</h3>
 
-<p>This section lists all of the template scene’s <strong>Dependencies</strong>. You can specify whether or not to <strong>Clone</strong> each dependency when you <a href="scenes-working-with.html">create a new scene from the template</a>.</p>
+<p>本部分列出了模板场景的所有<strong>依赖项</strong>。您可以指定<a href="scenes-working-with.html">从模板创建一个新场景</a>时是否<strong>克隆</strong>每一个依赖项。</p>
 
 <p><img src="../uploads/Main/Scene-template-inspector-dependencies.png" alt=""><br></p>
 
-<p>For each dependency in the list, toggle the <strong>Clone</strong> option on to clone the dependency, or off to reference the dependency.</p>
+<p>对于列表中的每个依赖项，将 <strong>Clone</strong> 选项打开则克隆该依赖项，关闭则引用该依赖项。</p>
 
-<p>When you create a new scene from the template, Unity checks whether the template scene has cloneable dependencies. If it does, Unity creates a folder with the same name as the new scene, and puts any cloned dependencies in that folder.</p>
+<p>当您从模板创建新场景时，Unity 会检查模板场景是否具有可克隆的依赖项。如果有，Unity 会创建一个与新场景同名的文件夹，并将所有克隆的依赖项放在该文件夹中。</p>
 
-<p>For more information about cloned and referenced dependencies, see <a href="scene-templates.html#templates-and-scene-dependencies">Templates and scene dependencies</a>.</p>
+<p>有关克隆和引用的依赖项的更多信息，请参阅<a href="scene-templates.html#templates-and-scene-dependencies">模板和场景依赖项</a>。</p>
 
-<p>To specify which types of asset Unity clones by default, edit the <a href="scene-templates-settings.html">scene template Project settings</a>.</p>
+<p>要指定默认情况下 Unity 克隆的资源类型，请编辑<a href="scene-templates-settings.html">场景模板项目设置</a>。</p>
 
 <hr>
 <!-- area:authoring -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="scene-templates-creating.html"></a></span><div class="tip">Creating scene templates</div>
+<span class="prev"><a href="scene-templates-creating.html"></a></span><div class="tip">创建场景模板</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="scene-templates-customizing-scene-instantiation.html"></a></span><div class="tip">Customizing new scene creation</div>
+<span class="next"><a href="scene-templates-customizing-scene-instantiation.html"></a></span><div class="tip">自定义新场景创建</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

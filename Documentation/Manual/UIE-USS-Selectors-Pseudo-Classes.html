@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Pseudo-classes - Unity 手册">
-<title>Pseudo-classes - Unity 手册</title>
+<meta property="og:title" content="伪类 - Unity 手册">
+<title>伪类 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/uss-selectors-pseudo-hover.png">
-<meta name="description" content="A pseudo-class narrows a selector&amp;#8217;s scope so it only matches elements when they enter a specific state.">
-<meta property="og:description" content="A pseudo-class narrows a selector&amp;#8217;s scope so it only matches elements when they enter a specific state.">
+<meta name="description" content="伪类缩小了选择器的范围，因此它只匹配进入特定状态的元素。">
+<meta property="og:description" content="伪类缩小了选择器的范围，因此它只匹配进入特定状态的元素。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,12 +175,12 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="UIToolkits.html">Creating user interfaces (UI)</a></li>
-<li><a href="UIElements.html">UI Toolkit</a></li>
-<li><a href="UIE-USS.html">样式和 Unity 样式表</a></li>
-<li><a href="UIE-USS-Selectors.html">USS Selectors</a></li>
-<li>Pseudo-classes</li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="UIToolkits.html">创建用户界面 (UI)</a></li>
+<li><a href="UIElements.html">UI 工具包</a></li>
+<li><a href="UIE-USS.html">Unity style sheets (USS)</a></li>
+<li><a href="UIE-USS-Selectors.html">USS 选择器</a></li>
+<li>伪类</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -190,13 +190,13 @@
 <span class="next"><a href="UIE-USS-PropertyTypes.html"></a></span><div class="tip">USS 属性类型</div>
 </div>
 </div></div>
-<h1>Pseudo-classes</h1>
+<h1>伪类</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>A pseudo-class narrows a selector’s scope so it only matches elements when they enter a specific state.</p>
+<p>伪类缩小了选择器的范围，因此它只匹配进入特定状态的元素。</p>
 
-<p>Append a pseudo-class to a simple selector to match specific elements when they’re in a specific state. For example, the following USS rule uses the <code>:hover</code> pseudo-class to change the color of <code>Button</code> elements when a user hovers the pointer over them.</p>
+<p>将伪类附加到简单的选择器以匹配处于特定状态的特定元素。例如，以下 USS 规则使用 <code>:hover</code> 伪类在用户将指针悬停在 <code>Button</code> 元素上时更改其颜色。</p>
 
 <pre><code class="lang-css">Button:hover {
     background-color: palegreen;
@@ -207,9 +207,9 @@
 <img src="../uploads/Main/uss-selectors-pseudo-hover.png" alt="">
 </figure>
 
-<h2>Supported pseudo-classes</h2>
+<h2>支持的伪类</h2>
 
-<p>The table below lists the pseudo classes that Unity supports. You cannot extend pseudo-classes or create custom ones.</p>
+<p>下表列出了 Unity 支持的伪类。您不能扩展伪类或创建自定义伪类。</p>
 
 <table>
 <colgroup>
@@ -219,54 +219,54 @@
 
 <thead>
 <tr>
-	<th style="text-align:left;">Pseudo-class</th>
-	<th style="text-align:left;">Matches an Element when</th>
+	<th style="text-align:left;">伪类</th>
+	<th style="text-align:left;">元素匹配条件</th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
 	<td style="text-align:left;"><code>:hover</code></td>
-	<td style="text-align:left;">The cursor is positioned over the Element.</td>
+	<td style="text-align:left;">光标位于元素上。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>:active</code></td>
-	<td style="text-align:left;">A user interacts with the Element.</td>
+	<td style="text-align:left;">用户与元素交互。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>:inactive</code></td>
-	<td style="text-align:left;">A user stops interacting with the element.</td>
+	<td style="text-align:left;">用户停止与元素交互。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>:focus</code></td>
-	<td style="text-align:left;">The element has focus.</td>
+	<td style="text-align:left;">元素具有焦点。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>:selected</code></td>
-	<td style="text-align:left;">N/A. Unity does not use this pseudo-state.</td>
+	<td style="text-align:left;">不可用。Unity 不使用这种伪状态。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>:disabled</code></td>
-	<td style="text-align:left;">The Element is set to <code>enabled == false</code>.</td>
+	<td style="text-align:left;">元素设置为 <code>enabled == false</code>。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>:enabled</code></td>
-	<td style="text-align:left;">The Element is set to <code>enabled == true</code>.</td>
+	<td style="text-align:left;">元素设置为 <code>enabled == true</code>。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>:checked</code></td>
-	<td style="text-align:left;">The Element is a Toggle element and it’s toggled on.</td>
+	<td style="text-align:left;">元素是一个 Toggle 元素并已启用。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>:root</code></td>
-	<td style="text-align:left;">The Element is the root element (highest-level Element in the visual tree).</td>
+	<td style="text-align:left;">元素是根元素（视觉树中的最高层级元素）。</td>
 </tr>
 </tbody>
 </table>
 
-<h2>Chaining pseudo-classes</h2>
+<h2>链接伪类</h2>
 
-<p>You can chain pseudo-classes together to apply the same style for multiple concurrent states. For example, the following USS rule chains the <code>:checked</code> and <code>:hover</code> pseudo-classes together to change the color of checked <code>Toggle</code> elements when a user hovers the pointer over them.</p>
+<p>您可以将伪类链接在一起以将相同的样式应用于多个并发状态。例如，以下 USS 规则将 <code>:checked</code> 和 <code>:hover</code> 伪类链接在一起，在用户将指针悬停在选中的 <code>Toggle</code> 元素上时更改其颜色。</p>
 
 <pre><code class="lang-css">Toggle:checked:hover {
   background-color: yellow;
@@ -277,7 +277,7 @@
 <img src="../uploads/Main/uss-selectors-pseudo-chained-match.png" alt="">
 </figure>
 
-<p>When the toggle is checked, but the pointer isn’t hovering over it, the selector no longer matches.</p>
+<p>当开关被选中，但指针没有悬停在它上面时，选择器不再匹配。</p>
 
 <figure>
 <img src="../uploads/Main/uss-selectors-pseudo-chained-nomatch.png" alt="">
@@ -285,19 +285,19 @@
 
 <p><a name="root-pseudo-class"></a></p>
 
-<h2>The root pseudo-class</h2>
+<h2>根伪类</h2>
 
-<p>The <code>:root</code> pseudo class matches the highest element in a visual tree. It’s slightly different from other supported pseudo-classes because you use it by itself to define default styles for the elements the style sheet affects.</p>
+<p><code>:root</code> 伪类匹配视觉树中最高的元素。它与其他受支持的伪类略有不同，因为您可以单独使用它来为样式表影响的元素定义默认样式。</p>
 
-<p>For example, the following USS rule sets a default font. Any element that doesn’t get its font from a more specific style rule uses that font.</p>
+<p>例如，以下 USS 规则设置默认字体。任何没有从更为具体的样式规则中获取其字体的元素都使用该字体。</p>
 
 <pre><code class="css">:root {
   -unity-font: url("../Resources/fonts/OpenSans-Regular.ttf");
 }
 </code></pre>
 
-<p>A common use for the <code>:root</code> selector is to declare “global” variables (custom properties), that other style rules can use instead of specific values. </p>
-<!-- ADD XREF For details, see [USS variables](uss-properties-custom.md). -->
+<p><code>:root</code> 选择器的一个常见用途是声明 “global” 变量（自定义属性），其他样式规则可以使用它来代替特定值。</p>
+<!-- ADD XREF 有关详细信息，请参阅 [USS 变量](uss-properties-custom.md)。-->
 
 <hr>
 <!-- area:authoring -->
@@ -312,7 +312,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

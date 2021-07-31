@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="平台特定的渲染差异 - Unity 手册">
-<title>平台特定的渲染差异 - Unity 手册</title>
-<meta name="description" content="Unity 在如下各种图形库平台上运行：Open GL、Direct3D、Metal 和游戏主机。在某些情况下，平台与着色器语言语义之间的图形渲染行为方式存在差异。大多数情况下，Unity Editor 会隐藏这些差异，但在某些情况下，Editor 无法为您执行此操作。在这些情况下，您需要确保消除平台之间的差异。下面列出了这些情况以及发生这些情况时需要采取的操作。">
-<meta property="og:description" content="Unity 在如下各种图形库平台上运行：Open GL、Direct3D、Metal 和游戏主机。在某些情况下，平台与着色器语言语义之间的图形渲染行为方式存在差异。大多数情况下，Unity Editor 会隐藏这些差异，但在某些情况下，Editor 无法为您执行此操作。在这些情况下，您需要确保消除平台之间的差异。下面列出了这些情况以及发生这些情况时需要采取的操作。">
+<meta property="og:title" content="为不同的图形 API 编写着色器 - Unity 手册">
+<title>为不同的图形 API 编写着色器 - Unity 手册</title>
+<meta name="description" content="在某些情况下，不同图形 API 之间的图形渲染行为方式存在差异。大多数情况下，Unity 编辑器会隐藏这些差异，但在某些情况下，编辑器无法为您执行此操作。下面列出了这些情况以及发生这些情况时需要采取的操作。">
+<meta property="og:description" content="在某些情况下，不同图形 API 之间的图形渲染行为方式存在差异。大多数情况下，Unity 编辑器会隐藏这些差异，但在某些情况下，编辑器无法为您执行此操作。下面列出了这些情况以及发生这些情况时需要采取的操作。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,27 +174,25 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
-<li><a href="ShadersOverview.html">编写着色器</a></li>
-<li><a href="SL-Reference.html">着色器参考</a></li>
-<li><a href="SL-AdvancedTopics.html">高级 ShaderLab 主题</a></li>
-<li>平台特定的渲染差异</li>
+<li><a href="Shaders.html">着色器</a></li>
+<li><a href="shader-writing.html">编写着色器</a></li>
+<li>为不同的图形 API 编写着色器</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-CameraDepthTexture.html"></a></span><div class="tip">摄像机的深度纹理</div>
+<span class="prev"><a href="SL-SurfaceShaderTessellation.html"></a></span><div class="tip">支持 DX11/OpenGL Core 曲面细分的表面着色器</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-TextureArrays.html"></a></span><div class="tip">在着色器中使用纹理数组</div>
+<span class="next"><a href="shader-performance-debugging.html"></a></span><div class="tip">着色器性能和性能分析</div>
 </div>
 </div></div>
-<h1>平台特定的渲染差异</h1>
+<h1>为不同的图形 API 编写着色器</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>Unity 在如下各种图形库平台上运行：<a href="https://www.opengl.org">Open GL</a>、<a href="https://msdn.microsoft.com/en-us/library/windows/desktop/hh309466.aspx">Direct3D</a>、<a href="https://developer.apple.com/metal/">Metal</a> 和游戏主机。在某些情况下，平台与着色器语言语义之间的图形渲染行为方式存在差异。大多数情况下，Unity Editor 会隐藏这些差异，但在某些情况下，Editor 无法为您执行此操作。在这些情况下，您需要确保消除平台之间的差异。下面列出了这些情况以及发生这些情况时需要采取的操作。</p>
+<p>在某些情况下，不同图形 API 之间的图形渲染行为方式存在差异。大多数情况下，Unity 编辑器会隐藏这些差异，但在某些情况下，编辑器无法为您执行此操作。下面列出了这些情况以及发生这些情况时需要采取的操作。</p>
 
 <h2>渲染纹理坐标</h2>
 
@@ -300,7 +298,7 @@ if (_MainTex_TexelSize.y &lt; 0)
 
 <h2>Direct3D 着色器编译器语法</h2>
 
-<p>Direct3D platforms use Microsoft’s <a href="shaders-compilation.html">HLSL Shader compiler</a>. The HLSL compiler is stricter than other compilers about various subtle Shader errors. For example, it doesn’t accept function output values that aren’t initialized properly.</p>
+<p>Direct3D 平台使用 Microsoft 的 <a href="shader-compilation.html">HLSL 着色器编译器</a>。对于各种细微的着色器错误，HLSL 编译器比其他编译器更严格。例如，它不接受未正确初始化的函数输出值。</p>
 
 <p>使用此编译器时，您可能遇到的最常见情况是：</p>
 
@@ -452,19 +450,18 @@ if(SystemInfo.usesReversedZBuffer)
 <ul>
 <li>使用 <a href="../ScriptReference/SystemInfo-usesReversedZBuffer.html">SystemInfo.usesReversedZBuffer</a> 可确认所在平台是否使用反转深度 (Z)。</li>
 </ul>
-<!-- area:graphics -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-CameraDepthTexture.html"></a></span><div class="tip">摄像机的深度纹理</div>
+<span class="prev"><a href="SL-SurfaceShaderTessellation.html"></a></span><div class="tip">支持 DX11/OpenGL Core 曲面细分的表面着色器</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-TextureArrays.html"></a></span><div class="tip">在着色器中使用纹理数组</div>
+<span class="next"><a href="shader-performance-debugging.html"></a></span><div class="tip">着色器性能和性能分析</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

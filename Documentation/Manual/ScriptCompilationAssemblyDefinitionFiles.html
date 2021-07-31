@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Assembly definitions - Unity 手册">
-<title>Assembly definitions - Unity 手册</title>
+<meta property="og:title" content="程序集定义 - Unity 手册">
+<title>程序集定义 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/ScriptCompilation.png">
-<meta name="description" content="Assembly Definitions and Assembly References are assets that you can create to organize your scripts into assemblies.">
-<meta property="og:description" content="Assembly Definitions and Assembly References are assets that you can create to organize your scripts into assemblies.">
+<meta name="description" content="程序集定义和程序集引用是可创建用于将脚本组织为程序集的资源。">
+<meta property="og:description" content="程序集定义和程序集引用是可创建用于将脚本组织为程序集的资源。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,11 +175,11 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="ScriptingSection.html">Scripting</a></li>
-<li><a href="unity-architecture.html">Unity architecture</a></li>
-<li><a href="script-compilation.html">Script compilation</a></li>
-<li>Assembly definitions</li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="ScriptingSection.html">脚本</a></li>
+<li><a href="unity-architecture.html">Unity 架构</a></li>
+<li><a href="script-compilation.html">脚本编译</a></li>
+<li>程序集定义</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -189,403 +189,358 @@
 <span class="next"><a href="class-AssemblyDefinitionImporter.html"></a></span><div class="tip">程序集定义 (Assembly Definition) 属性</div>
 </div>
 </div></div>
-<h1>Assembly definitions</h1>
+<h1>程序集定义</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>Assembly Definitions and Assembly References are assets that you can create to organize your scripts into assemblies.</p>
+<p>程序集定义和程序集引用是可创建用于将脚本组织为程序集的资源。</p>
 
-<p>An assembly is a C# code library that contains the compiled classes and structs that are defined by your scripts and which also define references to other assemblies. See <a href="https://docs.microsoft.com/en-us/dotnet/standard/assembly/">Assemblies in .NET</a> for general information about assemblies in C#.</p>
+<p>程序集是 C# 代码库，其中包含由脚本定义的已编译类和结构并且还定义了对其他程序集的引用。有关 C# 中的程序集的一般信息，请参阅 [.NET 中的程序集]。</p>
 
-<p>By default, Unity compiles almost all of your game scripts into the <em>predefined</em> assembly, <em>Assembly-CSharp.dll</em>. (Unity also creates a <a href="ScriptCompileOrderFolders.html">few smaller, specialized predefined assemblies</a>.)</p>
+<p>默认情况下，Unity 几乎将所有游戏脚本都编译到<em>预定义</em> 程序集 <em>Assembly-CSharp.dll</em> 中。（Unity 还会创建[一些较小的专用预定义程序集]。）</p>
 
-<p>This arrangement works acceptably for small projects, but has some drawbacks as you add more code to your project:</p>
+<p>这种安排对于小型项目而言可以接受，但是在向项目添加更多代码时会有一些缺点：</p>
 
 <ul>
-<li>Every time you change one script, Unity has to recompile all the other scripts, increasing overall compilation time for iterative code changes.</li>
-<li>Any script can directly access types defined in any other script, which can make it more difficult to refactor and improve your code.</li>
-<li>All scripts are compiled for all platforms.</li>
+<li>每次更改一个脚本时，Unity 都必须重新编译所有其他脚本，从而增加迭代代码更改的整体编译时间。</li>
+<li>任何脚本都可以直接访问任何其他脚本中定义的类型，这样可能更加难以重构和改进代码。</li>
+<li>所有脚本都针对所有平台进行编译。</li>
 </ul>
 
-<p>By defining assemblies, you can organize your code to promote modularity and reusability. Scripts in the assemblies you define for your project are no longer added to the default assemblies and can only access scripts in those other assemblies that you designate.</p>
+<p>通过定义程序集，可以组织代码以促进模块化和可重用性。为项目定义的程序集中的脚本不再添加到默认程序集中，并且只能访问指定的其他程序集中的脚本。</p>
 
 <figure>
 <img src="../uploads/Main/ScriptCompilation.png" alt="">
 </figure>
 
-<p>The above diagram illustrates how you might split up the code in your project into multiple assemblies. Because <em>Main</em> references <em>Stuff</em> and not the other way around, you know that any changes to the code in <em>Main</em> cannot affect the code in <em>Stuff</em>. Similarly, because <em>Library</em> doesn’t depend on any other assemblies, you can more easily reuse the code in <em>Library</em> in another project. </p>
+<p>上图演示了如何将项目中的代码拆分为多个程序集。因为 <em>Main</em> 引用 <em>Stuff</em> 并且不进行反向引用，所以知道对 <em>Main</em> 中的代码进行的任何更改都不会影响 <em>Stuff</em> 中的代码。同样，因为 <em>Library</em> 不依赖于任何其他程序集，所以可以更轻松地在其他项目中重用 <em>Library</em> 中的代码。</p>
 
-<p>This section discusses how to create and set up Assembly Definition and Assembly Reference assets to define assemblies for your project:</p>
+<p>本部分将讨论如何创建和设置程序集定义和程序集引用资源以便为项目定义程序集：</p>
 
 <ul>
-<li><a href="#defining-assemblies">Defining assemblies</a></li>
-<li><a href="#reference-and-assemblies">References and dependencies</a></li>
-<li><a href="#create-asmdef">Creating an Assembly Definition asset</a></li>
-<li><a href="#create-asmref">Creating an Assembly Definition Reference asset</a></li>
-<li><a href="#create-platform-specific">Creating a platform-specific assembly</a></li>
-<li><a href="#create-editor-assembly">Creating an assembly for Editor code</a></li>
-<li><a href="#create-test-assembly">Creating a test assembly</a></li>
-<li><a href="#reference-another-assembly">Referencing another assembly</a></li>
-<li><a href="#reference-precompiled-assembly">Referencing a precompiled, plugin assembly</a></li>
-<li><a href="#conditional-assembly">Conditionally building an assembly</a></li>
-<li><a href="#define-symbols">Defining symbols based on project packages</a></li>
-<li><a href="#find-assembly">Finding which assembly a script belongs to</a></li>
-<li><a href="#special-folders">Special folders</a></li>
-<li><a href="#get-assembly-info">Getting assembly information in build scripts</a></li>
+<li>[定义程序集]</li>
+<li>[引用和依赖项]</li>
+<li>[创建程序集定义资源]</li>
+<li>[创建程序集定义引用资源]</li>
+<li>[创建特定于平台的程序集]</li>
+<li>[为编辑器代码创建程序集]</li>
+<li>[创建测试程序集]</li>
+<li>[引用另一个程序集]</li>
+<li>[引用预编译的插件程序集]</li>
+<li>[有条件地构建程序集]</li>
+<li>[基于项目包定义符号]</li>
+<li>[查找脚本所属的程序集]</li>
+<li>[特殊文件夹]</li>
+<li>[在生成脚本中获取程序集信息]</li>
 </ul>
 
 <p>另请参阅：</p>
 
 <ul>
-<li><a href="class-AssemblyDefinitionImporter.html">Assembly Definition properties</a></li>
-<li><a href="class-AssemblyDefinitionImporter.html#assembly-definition-reference-properties">Assembly Definition Reference properties</a></li>
-<li><a href="AssemblyDefinitionFileFormat.html">Assembly Definition File Format</a></li>
+<li>[程序集定义属性]</li>
+<li>[程序集定义引用属性]</li>
+<li>[程序集定义文件格式]</li>
 </ul>
 
 <p><a name="defining-assemblies"></a></p>
 
-<h2>Defining assemblies</h2>
+<h2>定义程序集</h2>
 
-<p>To organize your project code into assemblies, create a folder for each desired assembly and move the scripts that should belong to each assembly into the relevant folder. Then <a href="#create-asmdef">create Assembly Definition assets</a> to specify the assembly properties.</p>
+<p>要将项目代码组织成程序集，请为每个所需程序集创建一个文件夹，并将应属于每个程序集的脚本移动到相关文件夹中。然后[创建程序集定义资源]以指定程序集属性。</p>
 
-<p>Unity takes all of the scripts in a folder that contains an Assembly Definition asset and compiles them into an assembly, using the name and other settings defined by the asset. Unity also includes scripts in any child folders in the same assembly, unless the child folder has its own Assembly Definition or Assembly Reference asset. </p>
+<p>Unity 会获取包含程序集定义资源的文件夹中的所有脚本，并使用该资源定义的名称和其他设置将它们编译为程序集。Unity 还包含同一程序集中的任何子文件夹中的脚本，除非子文件夹具有自己的程序集定义或程序集引用资源。</p>
 
-<p>To include scripts from a non-child folder in an existing assembly, create an Assembly Reference asset in the non-child folder and set it to reference the Assembly Definition asset that defines the target assembly. For example, you can combine the scripts from all the Editor folders in your project in their own assembly, no matter where those folders are located.</p>
+<p>要包含来自现有程序集中一个非子文件夹的脚本，请在该非子文件夹中创建一个程序集引用资源，并将它设置为引用定义目标程序集的程序集定义资源。例如，可以将来自项目中所有 Editor 文件夹的脚本合并到它们自己的程序集中，无论这些文件夹位于何处。</p>
 
-<p>Unity compiles assemblies in an order determined by their dependencies; you cannot specify the order in which compilation takes place.</p>
+<p>Unity 会按照由其依赖项确定的顺序编译程序集；无法指定进行编译的顺序。</p>
 
 <p><a name="reference-and-assemblies"></a></p>
 
-<h2>References and dependencies</h2>
+<h2>引用和依赖项</h2>
 
-<p>When one type (such as a class or struct) uses another type, the first type is <em>dependent</em> on the second. When Unity compiles a script, it must also have access to any types or other code the script depends upon. Likewise, when the compiled code runs, it must have access to the compiled versions of its dependencies. If two types are in different assemblies, an assembly containing a dependent type must declare a <em>reference</em> to the assembly containing the type upon which it depends.</p>
+<p>当一种类型（如类或结构）使用另一种类型时，第一种类型<em>依赖于</em> 第二种类型。当 Unity 编译脚本时，它还必须可以访问该脚本所依赖的任何类型或其他代码。同样，当已编译的代码运行时，它必须可以访问其依赖项的已编译版本。如果两种类型处于不同的程序集中，则包含依赖类型的程序集必须声明对包含它所依赖类型的程序集的<em>引用</em>。</p>
 
-<p>You can control the references between assemblies used in your project using the options of an Assembly Definition. The Assembly Definition settings include:</p>
+<p>可以使用程序集定义的选项控制项目中使用的程序集之间的引用。程序集定义设置包括：</p>
 
 <ul>
-<li>
-<a href="class-AssemblyDefinitionImporter.html#general">Auto Referenced</a> – Whether the predefined assemblies reference the assembly</li>
-<li>
-<a href="class-AssemblyDefinitionReferenceImporter.html">Assembly Definition References</a> – References to other project assemblies created with Assembly Definitions</li>
-<li>
-<a href="class-AssemblyDefinitionImporter.html#general">Override References</a> + <a href="#reference-another-assembly">Assembly References</a> – References to precompiled (plugin) assemblies</li>
-<li>
-<a href="class-AssemblyDefinitionImporter.html#general">No Engine References</a> – References to UnityEngine assemblies</li>
+<li>[Auto Referenced] – 预定义程序集是否引用相应程序集</li>
+<li>[Assembly Definition References] – 对使用程序集定义创建的其他项目程序集的引用</li>
+<li>[Override References] + [Assembly References] – 对预编译（插件）程序集的引用</li>
+<li>[No Engine References] – 对 UnityEngine 程序集的引用</li>
 </ul>
 
-<p><strong>Note:</strong> Classes in assemblies created with an Assembly Definition cannot use types defined in the predefined assemblies.</p>
+<p>__注意：__使用程序集定义创建的程序集中的类不能使用预定义程序集中定义的类型。</p>
 
 <p><a name="default-references"></a></p>
 
-<h3>Default references</h3>
+<h3>默认引用</h3>
 
-<p>By default, the predefined assemblies reference all other assemblies, including those created with Assembly Definitions (1) and precompiled assemblies added to the project as plugins (2). In addition, assemblies you create with an Assembly Definition asset automatically reference all precompiled assemblies (3):</p>
+<p>默认情况下，预定义程序集会引用所有其他程序集，包括使用程序集定义创建的程序集 (1) 以及作为插件添加到项目中的预编译程序集 (2)。此外，使用程序集定义资源创建的程序集会自动引用所有预编译程序集 (3)：</p>
 
 <figure>
 <img src="../uploads/Main/AssemblyDependencies.png" alt="">
 </figure>
 
-<p>In the default setup, classes in the predefined assemblies can use all types defined by any other assemblies in the project. Likewise, assemblies you create with an Assembly Definition asset can use all types defined in any precompiled (plug-in) assemblies.</p>
+<p>在默认设置中，预定义程序集中的类可以使用项目中任何其他程序集定义的所有类型。同样，使用程序集定义资源创建的程序集可以使用在任何预编译（插件）程序集中定义的所有类型。</p>
 
-<p>You can prevent an assembly from being referenced by the predefined assemblies by turning off the <a href="class-AssemblyDefinitionImporter.html#general">Auto Referenced option</a> in the Inspector for an Assembly Definition asset. Turning off auto-referenced means that the predefined assemblies are not recompiled when you change code in the assembly, but also means that the predefined assemblies cannot use code in this assembly directly. See <a href="class-AssemblyDefinitionImporter.html">Assembly Definition properties</a>.</p>
+<p>可以通过在程序集定义资源的 Inspector 中关闭 [Auto Referenced 选项]来防止预定义程序集引用某个程序集。关闭自动引用意味着在更改程序集中的代码时不会重新编译预定义程序集，但也意味着预定义程序集无法直接使用此程序集中的代码。请参阅[程序集定义 (Assembly Definition) 属性]。</p>
 
-<p>Likewise, you can prevent a plugin assembly from being automatically referenced by turning off the <a href="PluginInspector.html">Auto Referenced property</a> in the <a href="PluginInspector.html">Plugin Inspector</a> for a plugin asset. This affects both predefined assemblies and those you create with an Assembly Definition. For more information, see <a href="PluginInspector.html">Plugin Inspector</a>.</p>
+<p>同样，可以通过在插件资源的 [Plugin Inspector] 中关闭 [Auto Referenced 属性]来防止自动引用插件程序集。这会影响预定义程序集以及使用程序集定义创建的程序集。请参阅 [Plugin Inspector] 以了解更多信息。</p>
 
-<p>When you turn off <strong>Auto Referenced</strong> for a <strong>plug-in</strong>, you can explicitly reference it in the Inspector for an Assembly Definition asset. Enable the asset’s <a href="class-AssemblyDefinitionImporter.html#general">Override References</a> option and add a reference to the <strong>plug-in</strong>. See <a href="class-AssemblyDefinitionImporter.html">Assembly Definition properties</a>.</p>
+<p>关闭__插件__的 <strong>Auto Referenced</strong> 时，可以在 Inspector 中为程序集定义资源显式引用它。请启用该资源的 [Override References] 选项，然后添加对__插件__的引用。请参阅[程序集定义 (Assembly Definition) 属性]。</p>
 
-<p><strong>Note:</strong> You cannot declare explicit references for the precompiled assemblies. The predefined assemblies can only use code in auto-referenced assemblies.</p>
+<p>__注意：__无法声明预编译程序集的显式引用。预定义程序集只能使用自动引用的程序集中的代码。</p>
 
 <p><a name="cyclical-references"></a></p>
 
-<h3>Cyclical references</h3>
+<h3>循环引用</h3>
 
-<p>A cyclical assembly reference exists when one assembly references a second assembly that, in turn, references the first assembly. Such cyclical references between assemblies are not allowed and are reported as an error with the message, “Assembly with cyclic references detected.”</p>
+<p>当一个程序集引用第二个程序集，而第二个程序集又引用第一个程序集时，便存在循环程序集引用。程序集之间的这类循环引用是不允许的，会报告为错误并显示消息“Assembly with cyclic references detected”。</p>
 
-<p>Typically, such cyclical references between assemblies occur because of cyclical references within the classes defined in the assemblies. While there is nothing technically invalid about cyclical references between classes in the same assembly, cyclical references between classes in different assemblies are not allowed. If you encounter a cyclical reference error, you must refactor your code to remove the cyclical reference or to put the mutually referencing classes in the same assembly. </p>
+<p>通常，程序集之间的这类循环引用是由于程序集中定义的类中的循环引用而发生的。虽然同一程序集中的类之间的循环引用在技术上没有什么无效之处，但不允许不同程序集中的类之间进行循环引用。如果遇到循环引用错误，则必须重构代码以移除循环引用或将相互引用的类置于同一程序集中。</p>
 
-<p><a name="create-asmdef"></a> </p>
+<p><a name="create-asmdef"></a></p>
 
-<h2>Creating an Assembly Definition asset</h2>
+<h2>创建程序集定义资源</h2>
 
-<p>To create an Assembly Definition asset:</p>
+<p>要创建程序集定义资源，请执行以下操作：</p>
 
-<ol>
-<li>In the <strong>Project</strong> window, locate the folder containing the scripts you want to include in the assembly.</li>
-<li>Create an Assembly Definition asset in the folder (menu: <strong>Assets</strong> &gt; <strong>Create</strong> &gt; <strong>Assembly Definition</strong>).</li>
-<li>Assign a name to the asset. By default, the assembly file uses the name you assign to the asset, but you can change the name in the <strong>Inspector</strong> window.</li>
-</ol>
+<p>1.在 <strong>Project</strong> 窗口中，找到包含要包括在程序集中的脚本的文件夹。
+2.在该文件夹中创建程序集定义资源（菜单：__Assets__ &gt; <strong>Create</strong> &gt; <strong>Assembly Definition__）。
+3.为资源分配名称。默认情况下，程序集文件使用分配给资源的名称，不过可以在 </strong>Inspector__ 窗口中更改名称。</p>
 
-<p>Unity recompiles the scripts in the project to create the new assembly. Once it has finished, you can change the settings for the new Assembly Definition.</p>
+<p>Unity 会重新编译项目中的脚本以创建新程序集。完成后，便可以为新程序集定义更改设置。</p>
 
-<p>The scripts in the folder containing the Assembly Definition, including scripts in any child folders (unless those folders contain their own Assembly Definition or Reference assets), are compiled into the new assembly and removed from their previous assembly.</p>
+<p>包含程序集定义的文件夹中的脚本（包括任何子文件夹中的脚本（除非这些文件夹包含其自己的程序集定义或引用资源））会编译到新程序集中并从它们以前的程序集中移除。</p>
 
-<p><a name="create-asmref"></a> </p>
+<p><a name="create-asmref"></a></p>
 
-<h2>Creating an Assembly Definition Reference asset</h2>
+<h2>创建程序集定义引用资源</h2>
 
-<p>To create an Assembly Definition Reference asset:</p>
+<p>要创建程序集定义引用资源，请执行以下操作：</p>
 
-<ol>
-<li><p>In the <strong>Project</strong> window, locate the folder containing the scripts you want to include in the referenced assembly.</p></li>
-<li><p>Create an Assembly Reference asset in the folder (menu: <strong>Assets</strong> &gt; <strong>Create</strong> &gt; <strong>Assembly Definition Reference</strong>).</p></li>
-<li>
-<p>Assign a name to the asset.</p>
+<p>1.在 <strong>Project</strong> 窗口中，找到包含要包括在引用程序集中的脚本的文件夹。
+2.在该文件夹中创建程序集引用资源（菜单：__Assets__ &gt; <strong>Create</strong> &gt; __Assembly Definition Reference__）。
+3.为资源分配名称。</p>
 
-<p>Unity recompiles the scripts in the project to create the new assembly. Once it has finished, you can change the settings for the new Assembly Definition Reference.</p>
-</li>
-<li>
-<p>Select the new Assembly Definition Reference asset to view its properties in the <strong>Inspector</strong>.</p>
+<pre><code>Unity 会重新编译项目中的脚本以创建新程序集。完成后，便可以为新程序集定义引用更改设置。
+</code></pre>
 
-<figure>
-<img src="../uploads/Main/asmdef-2.png" alt="">
-</figure>
-</li>
-<li><p>Set the Assembly Definition property to reference the target Assembly Definition asset.</p></li>
-<li><p>Click <strong>Apply</strong>.</p></li>
-</ol>
+<p>4.选择新的程序集定义引用资源以在 <strong>Inspector</strong> 中查看其属性。</p>
 
-<p>The scripts in the folder containing the Assembly Definition Reference asset, including scripts in any child folders (unless those folders contain their own Assembly Definition or Reference assets) are compiled into the referenced assembly and removed from their previous assembly.</p>
+<pre><code>![](../uploads/Main/asmdef-2.png)
+</code></pre>
+
+<p>5.设置 Assembly Definition 属性以引用目标程序集定义资源。
+6.单击 <strong>Apply</strong>。</p>
+
+<p>包含程序集定义引用资源的文件夹中的脚本（包括任何子文件夹中的脚本（除非这些文件夹包含其自己的程序集定义或引用资源））会编译到引用程序集中并从它们以前的程序集中移除。</p>
 
 <p><a name="create-platform-specific"></a></p>
 
-<h2>Creating a platform-specific assembly</h2>
+<h2>创建特定于平台的程序集</h2>
 
-<p>To create an assembly for a specific platform:</p>
+<p>要为特定平台创建程序集，请执行以下操作：</p>
 
-<ol>
-<li><p><a href="#create-asmdef">Create an Assembly Definition asset</a>.</p></li>
-<li>
-<p>Select the new Assembly Definition Reference asset to view its properties in the <strong>Inspector</strong>.</p>
+<p>1.[创建程序集定义资源]。
+2.选择新的程序集定义引用资源以在 <strong>Inspector</strong> 中查看其属性。</p>
 
-<figure>
-<img src="../uploads/Main/asmdef-3.png" alt="">
-</figure>
-</li>
-<li><p>Check the <strong>Any Platform</strong> option and choose specific platforms to exclude. Alternately, you can uncheck Any Platform and choose specific platforms to include.</p></li>
-<li><p>Click <strong>Apply</strong>.</p></li>
-</ol>
+<pre><code>![](../uploads/Main/asmdef-3.png)
+</code></pre>
 
-<p>The assembly will be included (or excluded) according to the selected platforms when you build your project for a platform.</p>
+<p>3.选中 <strong>Any Platform</strong> 选项并选择要排除的特定平台。或者，可以取消选中 Any Platform 并选择要包含的特定平台。
+4.单击 <strong>Apply</strong>。</p>
+
+<p>为平台构建项目时，会根据选定平台包含（或排除）程序集。</p>
 
 <p><a name="create-editor-assembly"></a></p>
 
-<h2>Creating an assembly for Editor code</h2>
+<h2>为编辑器代码创建程序集</h2>
 
-<p>Editor assemblies allow you to put your Editor scripts anywhere in the project, not just in top-level folders named, <em>Editor</em>.</p>
+<p>通过编辑器程序集可以将编辑器脚本置于项目中的任何位置，而不仅仅是置于名为 <em>Editor</em> 的顶层文件夹中。</p>
 
-<p>To create an assembly that contains the Editor code in your project:</p>
+<p>要在项目中创建包含编辑器代码的程序集，请执行以下操作：</p>
 
-<ol>
-<li>
-<a href="#create-platform-specific">Create a platform-specific assembly</a> in a folder containing your Editor scripts.</li>
-<li>Include ONLY the Editor platform.</li>
-<li>If you have additional folders containing Editor scripts, <a href="#create-asmref">create Assembly Definition Reference assets</a> in those folders and set them to reference this Assembly Definition.</li>
-</ol>
+<p>1.在包含编辑器脚本的文件夹中[创建特定于平台的程序集]。
+2.仅包含编辑器平台。
+3.如果有包含编辑器脚本的其他文件夹，则在这些文件夹中[创建程序集定义引用资源]并将它们设置为引用此程序集定义。</p>
 
 <p><a name="create-test-assembly"></a></p>
 
-<h2>Creating a test assembly</h2>
+<h2>创建测试程序集</h2>
 
-<p>Test assemblies allow you to write tests and run them with the Unity TestRunner, while also keeping your test code separate from the code you ship with your application. Unity provides the TestRunner as part of the <a href="https://docs.unity3d.com/Manual/com.unity.test-framework.html">Test Framework package</a>. See the <a href="https://docs.unity3d.com/Packages/com.unity.test-framework@latest?subfolder=/manual/workflow-create-test-assembly.html">Test Framework documentation</a> for instructions on installing the Test Framework package and creating test assemblies. </p>
+<p>通过测试程序集可以编写测试并使用 Unity TestRunner 运行它们，同时还使测试代码与应用程序附带的代码分开。Unity 提供 TestRunner 作为 [Test Framework 包]的一部分。请参阅 [Test Framework 文档]以了解有关安装 Test Framework 包和创建测试程序集的说明。</p>
 
 <p><a name="reference-another-assembly"></a></p>
 
-<h2>Referencing another assembly</h2>
+<h2>引用另一个程序集</h2>
 
-<p>To use the C# types and functions that are part of another assembly, you must create a reference to that assembly in the Assembly Definition asset.</p>
+<p>要使用属于另一个程序集一部分的 C# 类型和函数，必须在程序集定义资源中创建对该程序集的引用。</p>
 
-<p>To create an assembly reference:</p>
+<p>要创建程序集引用，请执行以下操作：</p>
 
-<ol>
-<li><p>Select the Assembly Definition for the assembly that requires the reference to view its properties in the <strong>Inspector</strong>.</p></li>
-<li>
-<p>In the <strong>Assembly Definition References</strong> section, click the <strong>+</strong> button to add a new reference.</p>
+<p>1.选择需要引用的程序集的程序集定义以在 <strong>Inspector</strong> 中查看其属性。
+2.在 <strong>Assembly Definition References</strong> 部分中，单击 <strong>+</strong> 按钮以添加新引用。</p>
 
-<figure>
-<img src="../uploads/Main/asmdef-4.png" alt="">
-</figure>
-</li>
-<li><p>Assign the Assembly Definition asset to the newly created slot in the list of references.</p></li>
-</ol>
+<pre><code>![](../uploads/Main/asmdef-4.png)
+</code></pre>
 
-<p>Enabling the <strong>Use GUIDs</strong> option allows you to change the filename of the referenced Assembly Definition asset without updating references in other Assembly Definitions to reflect the new name. (Note that GUIDs must be reset if the metadata files for the asset files are deleted or you move the files outside the Unity Editor without also moving the metadata files along with them.)</p>
+<p>3.将程序集定义资源分配给引用列表中新创建的字段。</p>
+
+<p>通过启用 <strong>Use GUIDs</strong> 选项可以更改引用程序集定义资源的文件名，而无需更新其他程序集定义中的引用以反映新名称。（请注意，如果删除了资源文件的元数据文件，或者将文件移到 Unity 编辑器之外，而没有同时随它们移动元数据文件，则必须重置 GUID。）</p>
 
 <p><a name="reference-precompiled-assembly"></a></p>
 
-<h2>Referencing a precompiled, plugin assembly</h2>
+<h2>引用预编译的插件程序集</h2>
 
-<p>By default, all assemblies in your project created with Assembly Definitions automatically reference all precompiled assemblies. These automatic references mean that Unity must recompile all your assemblies when you update any one of the precompiled assemblies, even if the code in the assembly is not used. To avoid this extra overhead, you can override the automatic references and specify references to only those precompiled libraries the assembly actually uses:</p>
+<p>默认情况下，项目中使用程序集定义创建的所有程序集都会自动引用所有预编译程序集。这些自动引用意味着在更新任何一个预编译程序集时，Unity 都必须重新编译所有程序集，即使未使用程序集中的代码也是如此。要避免这种额外开销，可以覆盖自动引用并指定仅引用程序集实际使用的预编译库：</p>
 
-<ol>
-<li><p>Select the Assembly Definition for the assembly that requires the reference to view its properties in the <strong>Inspector</strong>.</p></li>
-<li>
-<p>In the <strong>General</strong> section, enable the <strong>Override References</strong> option.</p>
+<p>1.选择需要引用的程序集的程序集定义以在 <strong>Inspector</strong> 中查看其属性。
+2.在 <strong>General</strong> 部分中，启用 <strong>Override References</strong> 选项。</p>
 
-<figure>
-<img src="../uploads/Main/asmdef-5.png" alt="">
-</figure>
+<pre><code>![](../uploads/Main/asmdef-5.png)
 
-<p>The <strong>Assembly References</strong> section of the <strong>Inspector</strong> becomes available when <strong>Override References</strong> is checked.</p>
-</li>
-<li><p>In the <strong>Assembly References</strong> section, click the <strong>+</strong> button to add a new reference.</p></li>
-<li>
-<p>Use the drop-down list in the empty slot to assign a reference to a precompiled assembly. The list shows all the precompiled assemblies in the project for the platform currently set in the project <a href="BuildSettings.html">Build Settings</a>. (Set the platform compatibility for a precompiled assembly in the <a href="PluginInspector.html">Plugin Inspector</a>.)</p>
+选中 __Override References__ 后，__Inspector__ 的 __Assembly References__ 部分会成为可用状态。
+</code></pre>
 
-<figure>
-<img src="../uploads/Main/asmdef-6.png" alt="">
-</figure>
-</li>
-<li><p>Click <strong>Apply</strong>.</p></li>
-<li><p>Repeat for each platform for which you build your project.</p></li>
-</ol>
+<p>3.在 <strong>Assembly References</strong> 部分中，单击 <strong>+</strong> 按钮以添加新引用。
+4.使用空字段中的下拉列表分配对预编译程序集的引用。该列表会显示项目中适用于当前在项目 [Build Settings] 中设置的平台的所有预编译程序集。（可在 [Plugin Inspector] 中为预编译程序集设置平台兼容性。）</p>
+
+<pre><code>![](../uploads/Main/asmdef-6.png)
+</code></pre>
+
+<p>5.单击 <strong>Apply</strong>。
+6.为构建项目时针对的每个平台重复操作。</p>
 
 <p><a name="conditional-assembly"></a></p>
 
-<h2>Conditionally including an assembly</h2>
+<h2>有条件地包含一个程序集</h2>
 
-<p>You can use preprocessor symbols to control whether an assembly is compiled and included in builds of your game or application (including play mode in the Editor). You can specify which symbols must be defined for an assembly to be used with the <strong>Define Constraints</strong> list in the Assembly Definition options:</p>
+<p>可以使用预处理器符号控制程序集是否进行了编译并包含在游戏或应用程序的构建中（包括编辑器中的运行模式）。可以在程序集定义选项中通过 <strong>Define Constraints</strong> 列表指定必须为要使用的程序集定义的符号：</p>
 
-<ol>
-<li><p>Select the Assembly Definition for the assembly to view its properties in the <strong>Inspector</strong>.</p></li>
-<li>
-<p>In the <strong>Define Constraints</strong> section, click the <strong>+</strong> button to add a new symbol to the list of constraints.</p>
+<p>1.选择程序集的程序集定义以在 <strong>Inspector</strong> 中查看其属性。
+2.在 <strong>Define Constraints</strong> 部分中，单击 <strong>+</strong> 按钮以将新符号添加到约束列表中。</p>
 
-<figure>
-<img src="../uploads/Main/asmdef-7.png" alt="">
-</figure>
-</li>
-<li>
-<p>Enter the symbol name.</p>
+<pre><code>![](../uploads/Main/asmdef-7.png)
+</code></pre>
 
-<p>You can “negate” the symbol by putting an exclamation point in front of the name. For example, the constraint, <code>!UNITY_WEBGL</code> would include the assembly when UNITY_WEBGL was NOT defined.</p>
-</li>
-<li><p>Click <strong>Apply</strong>.</p></li>
-</ol>
+<p>3.输入符号名称。</p>
 
-<p>You can use the following symbols as constraints:</p>
+<pre><code>可以通过在名称前放置感叹号来"否定"符号。例如，约束 `!UNITY_WEBGL` 会在未定义 UNITY_WEBGL 时包含程序集。
+</code></pre>
+
+<p>4.单击 <strong>Apply</strong>。</p>
+
+<p>可以使用以下符号作为约束：</p>
 
 <ul>
-<li>Symbols defined in the <a href="class-PlayerSettingsStandalone.html#Configuration">Scripting Define Symbols</a> setting, which you can find in the <strong>Player</strong> section of your <strong>Project Settings</strong>. Note that the <strong>Scripting Define Symbols</strong> apply to the platform currently set in your project <a href="BuildSettings.html">Build Settings</a>. To define a symbol for multiple platforms, you must switch to each platform and modify the <strong>Scripting Define Symbols</strong> field individually.</li>
-<li>Symbols defined by Unity. See <a href="PlatformDependentCompilation.html">Platform dependent compilation</a>.</li>
-<li>Symbols defined using the <a href="#define-symbols">Version Defines</a> section of the Assembly Definition asset.</li>
+<li>[Scripting Define Symbols] 设置中定义的符号，可以在 <strong>Project Settings</strong> 的 <strong>Player</strong> 部分中找到这些符号。请注意，__Scripting Define Symbols__ 适用于当前在项目 [Build Settings] 中设置的平台。要为多个平台定义一个符号，必须切换到每个平台并单独修改 <strong>Scripting Define Symbols</strong> 字段。</li>
+<li>Unity 定义的符号。请参阅[依赖于平台的编译]。</li>
+<li>使用程序集定义资源的 [Version Defines] 部分定义的符号。</li>
 </ul>
 
-<p>Symbols defined in scripts are not considered when determining if a constraint has been satisfied.</p>
+<p>在确定是否满足约束时，不会考虑脚本中定义的符号。</p>
 
-<p>See <a href="#define-constraints">Define Constraints</a> for additional information.</p>
+<p>有关其他信息，请参阅 [Define Constraints]。</p>
 
 <p><a name="define-symbols"></a></p>
 
-<h2>Defining symbols based on project packages</h2>
+<h2>基于项目包定义符号</h2>
 
-<p>If you need to compile different code in an assembly according to whether a project uses specific packages or versions of a package, you can add entries to the <strong>Version Defines</strong> list. This list specifies rules for when a symbol should be defined. For version numbers, you can specify a logical expression that evaluates to a specific version or a range of versions.</p>
+<p>如果需要根据项目是使用特定包还是包的各个版本，在程序集中编译不同代码，则可以向 <strong>Version Defines</strong> 列表添加条目。此列表为何时定义符号指定规则。对于版本号，可以指定计算结果为特定版本或版本范围的逻辑表达式。</p>
 
-<p>To conditionally define a symbol:</p>
+<p>要有条件地定义符号，请执行以下操作：</p>
 
-<ol>
-<li><p>Select the Assembly Definition for the assembly to view its properties in the <strong>Inspector</strong>.</p></li>
-<li><p>In the <strong>Version Defines</strong> section, click the <strong>+</strong> button to add an entry to the list.</p></li>
-<li>
-<p>Set the properties:</p>
+<p>1.选择程序集的程序集定义以在 <strong>Inspector</strong> 中查看其属性。
+2.在 <strong>Version Defines</strong> 部分中，单击 <strong>+</strong> 按钮以将条目添加到列表中。
+3.设置属性：</p>
 
-<ul>
-<li>
-<strong>Resource</strong>: choose the package or module that must be installed in order for this symbol to be defined</li>
-<li>
-<strong>Define</strong>: the symbol name</li>
-<li>
-<strong>Expression</strong>: an expression that evaluates to a specific version or a range of versions. See <a href="#version-define-expressions">Version Define Expressions</a> for the rules.</li>
-</ul>
+<pre><code>*__Resource__：选择必须按顺序安装才能定义此符号的包或模块
+* __Define__：符号名称
+* __Expression__：计算结果为特定版本或版本范围的表达式。有关规则，请参阅[版本定义表达式]。
 
-<p>The <strong>Expression outcome</strong> shows which versions the expression evaluates to.</p>
+__Expression outcome__ 显示表达式计算得出的版本。
 
-<p>The following example defines the symbol, USE_TIMELINE, if the project uses Timeline 1.3.0 or later:</p>
+下面的示例定义符号 USE_TIMELINE（如果项目使用 Timeline 1.3.0 或更高版本）：
 
-<figure>
-<img src="../uploads/Main/asmdef-8.png" alt="">
-</figure>
-</li>
-<li><p>Click <strong>Apply</strong>.</p></li>
-</ol>
+![](../uploads/Main/asmdef-8.png)
+</code></pre>
 
-<p>Symbols defined in the Assembly Definition are only in scope for the scripts in the assembly created for that definition.</p>
+<p>4.单击 <strong>Apply</strong>。</p>
 
-<p>Note that you can use the symbols defined using the <strong>Version Defines</strong> list as <strong>Define Constraints</strong>. Thus you could specify that an assembly is only to be used if specific versions of a given package are installed in the project.</p>
+<p>在程序集定义中定义的符号仅在为该定义创建的程序集中的脚本范围内。</p>
+
+<p>请注意，可以使用通过 <strong>Version Defines</strong> 列表定义为 <strong>Define Constraints</strong> 的符号。因此，可以指定仅当在项目中安装了给定包的特定版本时才使用程序集。</p>
 
 <p><a name="version-define-expressions"></a></p>
 
-<h2>Version Define expressions</h2>
+<h2>版本定义表达式</h2>
 
-<p>You can use expressions to specify an exact version or a range of versions. A <strong>Version Define</strong> expression uses mathematical range notation. A square bracket, “[]” designates that the range includes the endpoint:</p>
-
-<blockquote>
-<p><code>[1.3,3.4.1]</code> evaluates to <code>1.3.0 &lt;= x &lt;= 3.4.1</code></p>
-</blockquote>
-
-<p>A parenthesis “()” designates that the range excludes the endpoint: </p>
+<p>可以使用表达式指定确切版本或版本范围。__版本定义__表达式使用数学范围表示法。方括号“[]”指定范围包括端点：</p>
 
 <blockquote>
-<p><code>(1.3.0,3.4)</code> evaluates to <code>1.3.0 &lt; x &lt; 3.4.0</code></p>
+<p><code>[1.3,3.4.1]</code> 计算为 <code>1.3.0 &lt;= x &lt;= 3.4.1</code></p>
 </blockquote>
 
-<p>You can mix both range types in a single expression:</p>
+<p>圆括号“()”指定范围不包括端点：</p>
 
 <blockquote>
-<p><code>[1.1,3.4)</code> evaluates to <code>1.1.0 &lt;= x &lt; 3.4.0</code></p>
-
-<p><code>(0.2.4,5.6.2-preview.2]</code> evaluates to <code>0.2.4 &lt; x &lt;= 5.6.2.-preview.2</code></p>
+<p><code>(1.3.0,3.4)</code> 计算为 <code>1.3.0 &lt; x &lt; 3.4.0</code></p>
 </blockquote>
 
-<p>You can use a single version designator in square brackets to designate an exact version:</p>
+<p>可以在单一表达式中混合两种范围类型：</p>
 
 <blockquote>
-<p><code>[2.4.5]</code> evaluates to <code>x = 2.4.5</code></p>
+<p><code>[1.1,3.4)</code> 计算为 <code>1.1.0 &lt;= x &lt; 3.4.0</code></p>
+
+<p><code>(0.2.4,5.6.2-preview.2]</code> 计算为 <code>0.2.4 &lt; x &lt;= 5.6.2.-preview.2</code></p>
 </blockquote>
 
-<p>As a shortcut, you can enter a single version without range brackets to indicate that the expression includes that version or later:</p>
+<p>可以在方括号中使用单一版本指示符来指定确切版本：</p>
 
 <blockquote>
-<p><code>2.1.0-preview.7</code> evaluates to <code>x &gt;= 2.1.0-preview.7</code></p>
+<p><code>[2.4.5]</code> 计算为 <code>x = 2.4.5</code></p>
 </blockquote>
 
-<p>Version designators have four parts, following the <a href="https://semver.org/">Semantic Versioning</a> format: MAJOR.MINOR.PATCH-LABEL. The first three parts are always numbers, but the label is a string. Unity packages in preview use the string, <code>preview</code> or <code>preview.n</code>, where <code>n &gt; 0</code>. You must use at least the major and minor components of a version in an expression.</p>
+<p>作为快捷方式，可以输入不带范围括号的单一版本指示表达式包含该版本或更高版本：</p>
 
-<p><strong>Note:</strong> No spaces are allowed in an expression.</p>
+<blockquote>
+<p><code>2.1.0-preview.7</code> 计算为 <code>x &gt;= 2.1.0-preview.7</code></p>
+</blockquote>
+
+<p>版本指示符有四个部分，遵循[语义版本控制]格式：MAJOR.MINOR.PATCH-LABEL。前三个部分始终是数字，但标签是字符串。预览版的 Unity 包使用字符串 <code>preview</code> 或 <code>preview.n</code>，其中 <code>n &gt; 0</code>。必须至少在表达式中使用版本的 major 和 minor 组成部分。</p>
+
+<p>__注意：__表达式中不允许存在空格。</p>
 
 <p><a name="find-assembly"></a></p>
 
-<h2>Finding which assembly a script belongs to</h2>
+<h2>查找脚本所属的程序集</h2>
 
-<p>To identify which assembly one of your C# scripts is compiled into:</p>
+<p>要确定一个 C# 脚本编译到哪个程序集中，请执行以下操作：</p>
 
-<ol>
-<li><p>Select the C# script file in the Unity <strong>Project</strong> window to view its properties in the <strong>Inspector</strong> window. </p></li>
-<li>
-<p>The assembly filename and the Assembly Definition, if one exists, are shown in the <strong>Assembly Information</strong> section of the <strong>Inspector</strong>.</p>
+<p>1.在 Unity <strong>Project</strong> 窗口中选择 C# 脚本文件以在 <strong>Inspector</strong> 窗口中查看其属性。
+2.程序集文件名和程序集定义（如果存在）会显示在 <strong>Inspector</strong> 的 <strong>Assembly Information</strong> 部分中。</p>
 
-<figure>
-<img src="../uploads/Main/asmdef-9.png" alt="">
-</figure>
-</li>
-</ol>
+<pre><code>![](../uploads/Main/asmdef-9.png)
+</code></pre>
 
-<p>In this example, the selected script is compiled into the library file, Unity.Timeline.Editor.dll, which is defined by the Unity.Timeline.Editor Assembly Definition asset.</p>
+<p>在此示例中，选定脚本会编译到库文件 Unity.Timeline.Editor.dll 中，该文件由 Unity.Timeline.Editor 程序集定义资源进行定义。</p>
 
 <p><a name="special-folders"></a></p>
 
 <h2>特殊文件夹</h2>
 
-<p>Unity treats scripts in folders with certain, special names differently than scripts in other folders. However, one of these folders loses its special treatment when you create an Assembly Definition asset inside it or in a folder above it. You might notice this change when you use Editor folders, which might be scattered throughout your Project (depending on how you organize your code and on the Asset packages you use).</p>
+<p>Unity 对具有某些特殊名称的文件夹中的脚本进行处理的方式不同于其他文件夹中的脚本。但是，在这些文件夹之一中或上级的一个文件夹中创建程序集定义资源时，该文件夹将失去特殊处理。在使用 Editor 文件夹时可能会注意到该变化，这些文件夹可能分散在整个项目中（取决于代码的组织方式以及所用的 <a href="AssetStorePackages.html">Asset Store 包</a>）。</p>
 
-<p>Unity normally compiles any scripts in folders named Editor into the predefined Assembly-CSharp-Editor assembly no matter where those scripts are located. However, if you create an Assembly Definition asset in a folder that has an Editor folder underneath it, Unity no longer puts those Editor scripts into the predefined Editor assembly. Instead, they go into the new assembly created by your Assembly Definition — where they might not belong. To manage Editor folders, you can create Assembly Definition or Reference assets in each Editor folder to place those scripts in one or more Editor assemblies. See <a href="#create-editor-assembly">Creating an assembly for Editor code</a>.</p>
+<p>Unity 通常都会将名为 Editor 的文件夹中的所有脚本编译到预定义的 Assembly-CSharp-Editor 程序集中（无论这些脚本位于何处）。但是，如果在下级有一个 Editor 文件夹的文件夹中创建程序集定义资源，则 Unity 不再将这些编辑器脚本放入预定义编辑器程序集中。实际上，这些脚本会进入通过程序集定义创建的新程序集中（脚本可能不属于该程序集）。要管理 Editor 文件夹，可以在每个 Editor 文件夹中创建程序集定义或引用资源，以将这些脚本放置在一个或多个编辑器程序集中。请参阅[为编辑器代码创建程序集]。</p>
 
 <p><a name="set-assembly-attributes"></a></p>
 
-<h2>Setting assembly attributes</h2>
+<h2>设置程序集属性</h2>
 
-<p>You can use assembly attributes to set metadata properties for your assemblies. By convention, assembly attribute statements are typically put in a file named AssemblyInfo.cs.</p>
+<p>可以使用程序集属性 (Attribute) 为程序集设置元数据属性 (Property)。按照惯例，程序集属性语句通常置于名为 AssemblyInfo.cs 的文件中。</p>
 
-<p>For example, the following assembly attributes specify a few <a href="https://docs.microsoft.com/en-us/dotnet/standard/assembly/set-attributes">.NET assembly metadata values</a>, an <a href="https://docs.microsoft.com/en-us/dotnet/api/system.runtime.compilerservices.internalsvisibletoattribute?view=netcore-2.0">InternalsVisibleTo</a> attribute, which can be useful for testing, and the Unity-defined <a href="ManagedCodeStripping.html#PreserveAttribute">Preserve attribute</a> that affects how unused code is removed from an assembly when you build your project:</p>
+<p>例如，以下程序集属性指定了一些 [.NET 程序集元数据值]、一个 [InternalsVisibleTo] 属性（对于测试可能十分有用）以及 Unity 定义的 [Preserve 属性]（影响构建项目时如何从程序集中移除未使用的代码）：</p>
 
 <pre><code class="csharp">[assembly: System.Reflection.AssemblyCompany("Bee Corp.")]
 [assembly: System.Reflection.AssemblyTitle("Bee's Assembly")]
@@ -596,11 +551,11 @@
 
 <p><a name="get-assembly-info"></a></p>
 
-<h2>Getting assembly information in build scripts</h2>
+<h2>在生成脚本中获取程序集信息</h2>
 
-<p>Use the CompilationPipeline class, in the UnityEditor.Compilation namespace, to retrieve information about all assemblies built by Unity for a project, including those created based on Assembly Definition assets.</p>
+<p>使用 UnityEditor.Compilation 命名空间中的 CompilationPipeline 类可检索 Unity 为项目构建的所有程序集（包括基于程序集定义资源创建的程序集）的相关信息。</p>
 
-<p>For example, the following script uses the CompilationPipeline class to list all the current Player assemblies in a project:</p>
+<p>例如，以下脚本使用 CompilationPipeline 类列出项目中的所有当前播放器程序集：</p>
 
 <pre><code class="csharp">using UnityEditor;
 using UnityEditor.Compilation;
@@ -621,7 +576,51 @@ public static class AssemblyLister
 }
 </code></pre>
 <!-- Start_links -->
-<!-- End_links -->
+
+<p>[.NET 程序集元数据值]：https://docs.microsoft.com/en-us/dotnet/standard/assembly/set-attributes
+[.NET 中的程序集]：https://docs.microsoft.com/en-us/dotnet/standard/assembly/
+[程序集定义文件格式]：AssemblyDefinitionFileFormat.html
+[程序集定义引用属性]：class-AssemblyDefinitionImporter.html#assembly-definition-reference-properties
+[程序集定义引用]：class-AssemblyDefinitionReferenceImporter.html
+[程序集定义属性]：class-AssemblyDefinitionImporter.html
+[程序集引用]：#reference-another-assembly
+[Auto Referenced]：class-AssemblyDefinitionImporter.html#general
+[Auto Referenced 选项]：class-AssemblyDefinitionImporter.html#general
+[Auto Referenced 属性]：PluginInspector.html
+[Build Settings]：BuildSettings.html
+[有条件地构建程序集]：#conditional-assembly
+[创建特定于平台的程序集]：#create-platform-specific
+[创建特定于平台的程序集]：#create-platform-specific
+[创建测试程序集]：#create-test-assembly
+[创建程序集定义引用资源]：#create-asmref
+[创建程序集定义资源]：#create-asmdef
+[为编辑器代码创建程序集]：#create-editor-assembly
+[Define Constraints]：#define-constraints
+[定义程序集]：#defining-assemblies
+[基于项目包定义符号]：#define-symbols
+[查找脚本所属的程序集]：#find-assembly
+[在生成脚本中获取程序集信息]：#get-assembly-info
+[InternalsVisibleTo]：https://docs.microsoft.com/en-us/dotnet/api/system.runtime.compilerservices.internalsvisibletoattribute?view=netcore–2.0
+[No Engine References]：class-AssemblyDefinitionImporter.html#general
+[Override References]：class-AssemblyDefinitionImporter.html#general
+[依赖于平台的编译]：PlatformDependentCompilation.html
+[Plugin Inspector]：PluginInspector.html
+[Preserve 属性]：ManagedCodeStripping.html#PreserveAttribute
+[引用和依赖项]：#reference-and-assemblies
+[引用预编译的插件程序集]：#reference-precompiled-assembly
+[引用另一个程序集]：#reference-another-assembly
+[Scripting Define Symbols]：class-PlayerSettingsStandalone.html#Configuration
+[语义版本控制]：https://semver.org/
+[特殊文件夹]：#special-folders
+[Test Framework 文档]：https://docs.unity3d.com/Packages/com.unity.test-framework@latest?subfolder=/manual/workflow-create-test-assembly.html
+[Test Framework 包]：https://docs.unity3d.com/Manual/com.unity.test-framework.html
+[版本定义表达式]：#version-define-expressions
+[Version Defines]：#define-symbols
+[创建程序集定义资源]：#create-asmdef
+[创建程序集定义引用资源]：#create-asmref
+[创建程序集定义资源]：#create-asmdef
+[一些较小的专用预定义程序集]：ScriptCompileOrderFolders.html
+<!-- End_links --></p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="PlatformDependentCompilation.html"></a></span><div class="tip">平台相关的编译</div>
@@ -633,7 +632,7 @@ public static class AssemblyLister
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

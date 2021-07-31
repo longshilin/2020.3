@@ -175,12 +175,11 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
-<li><a href="ShadersOverview.html">编写着色器</a></li>
-<li><a href="SL-Reference.html">着色器参考</a></li>
-<li><a href="SL-ShaderPrograms.html">编写顶点和片元着色器</a></li>
+<li><a href="Shaders.html">着色器</a></li>
+<li><a href="shader-writing.html">编写着色器</a></li>
+<li><a href="SL-ShaderPrograms.html">Unity 中的 HLSL</a></li>
 <li>使用采样器状态</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
@@ -188,7 +187,7 @@
 <span class="prev"><a href="SL-DataTypesAndPrecision.html"></a></span><div class="tip">着色器数据类型和精度</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-Shader.html"></a></span><div class="tip">ShaderLab 语法</div>
+<span class="next"><a href="SL-GLSLShaderPrograms.html"></a></span><div class="tip">Unity 中的 GLSL</div>
 </div>
 </div></div>
 <h1>使用采样器状态</h1>
@@ -234,7 +233,7 @@ color += _SecondTex.Sample(sampler_MainTex, uv);
 color += _ThirdTex.Sample(sampler_MainTex, uv);
 </code></pre>
 
-<p>但是请注意，DX11 风格的 HLSL 语法在某些较旧的平台（例如，OpenGL ES 2.0）上无效，请参阅<a href="SL-ShadingLanguage.html">着色语言</a>以了解详细信息。您可能希望指定 <code>#pragma target 3.5</code>（请参阅<a href="SL-ShaderCompileTargets.html">着色器编译目标</a>）以避免较旧的平台使用着色器。</p>
+<p>但是请注意，DX11 风格的 HLSL 语法在某些较旧的平台（例如，OpenGL ES 2.0）上无效，请参阅<a href="SL-ShaderPrograms.html">在 Unity 中使用 HLSL</a> 以了解详细信息。您可能需要指定 <code>#pragma target 3.5</code>（请参阅<a href="SL-ShaderCompileTargets.html">着色器编译目标</a>）以避免较旧的平台使用着色器。</p>
 
 <p>Unity 提供了一些着色器宏帮助您使用这种“单独采样器”方法来声明和采样纹理，请参阅<a href="SL-BuiltinMacros.html">内置宏</a>。以上示例可以采用所述的宏重写为下列形式：</p>
 
@@ -302,13 +301,13 @@ half4 color = _MainTex.Sample(my_point_clamp_sampler, uv);
 <span class="prev"><a href="SL-DataTypesAndPrecision.html"></a></span><div class="tip">着色器数据类型和精度</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-Shader.html"></a></span><div class="tip">ShaderLab 语法</div>
+<span class="next"><a href="SL-GLSLShaderPrograms.html"></a></span><div class="tip">Unity 中的 GLSL</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

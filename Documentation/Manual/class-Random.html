@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Important Classes - Random - Unity 手册">
-<title>Important Classes - Random - Unity 手册</title>
+<meta property="og:title" content="重要的类 - Random - Unity 手册">
+<title>重要的类 - Random - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/ProbStrip.png">
-<meta name="description" content="The Random class provides you with easy ways of generating various commonly required types of random values.">
-<meta property="og:description" content="The Random class provides you with easy ways of generating various commonly required types of random values.">
+<meta name="description" content="Random 类为您提供了简便的方法，可生成各种常用类型的随机值。">
+<meta property="og:description" content="Random 类为您提供了简便的方法，可生成各种常用类型的随机值。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,61 +175,61 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="ScriptingSection.html">Scripting</a></li>
-<li><a href="ScriptingImportantClasses.html">Important Classes </a></li>
-<li>Important Classes - Random</li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="ScriptingSection.html">脚本</a></li>
+<li><a href="ScriptingImportantClasses.html">重要的类</a></li>
+<li>重要的类 - Random</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="class-Mathf.html"></a></span><div class="tip">Important Classes - Mathf</div>
+<span class="prev"><a href="class-Mathf.html"></a></span><div class="tip">重要的类 - Mathf</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="class-Debug.html"></a></span><div class="tip">Important Classes - Debug</div>
+<span class="next"><a href="class-Debug.html"></a></span><div class="tip">重要的类 - Debug</div>
 </div>
 </div></div>
-<h1>Important Classes - Random</h1>
+<h1>重要的类 - Random</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>The Random class provides you with easy ways of generating various commonly required types of random values.</p>
+<p>Random 类为您提供了简便的方法，可生成各种常用类型的随机值。</p>
 
-<p>This page provides an overview of the Random class and its common uses when scripting with it. For an exhaustive reference of every member of the Random class and further technical details about it, see the <a href="../ScriptReference/Random.html">Random script reference</a>.</p>
+<p>此页面概述了 Random 类及其使用该类编写脚本时的常见用法。有关 Random 类的每个成员的详尽参考以及有关它的更多技术细节，请参阅 <a href="../ScriptReference/Random.html">Random 脚本参考</a>。</p>
 
-<p>Follow the links below for further details and examples of these useful methods.</p>
+<p>请点击以下链接，了解这些有用方法的更多详细信息和示例。</p>
 
-<h2>Simple random numbers</h2>
+<h2>简单的随机数</h2>
 
-<p><a href="../ScriptReference/Random-value.html"><code>Random.value</code></a> gives you a random <strong>floating point number</strong> between 0.0 and 1.0. A common usage is to convert it to a number between zero and a range of your choosing by multiplying the result.</p>
+<p><a href="../ScriptReference/Random-value.html"><code>Random.value</code></a> 返回一个随机<strong>浮点数</strong>，范围在 0.0 和 1.0 之间。一种常见的用法是将返回结果乘以所选范围，从而将其转换为介于 0 和该范围之间的数。</p>
 
-<p><a href="../ScriptReference/Random.Range.html"><code>Random.Range</code></a> gives you a random <strong>number between a minimum and maximum value</strong> that you provide. It returns either an integer or a float, depending on whether the min and max values provided are integers or floats.</p>
+<p><a href="../ScriptReference/Random.Range.html"><code>Random.Range</code></a> 返回一个介于所提供的<strong>最小值和最大值</strong>之间的数。它返回整数或浮点数，具体取决于提供的最小值和最大值是整数还是浮点数。</p>
 
-<h2>Random points within Circles or Spheres</h2>
+<h2>圆形或球体内的随机点</h2>
 
-<p><a href="../ScriptReference/Random-insideUnitCircle.html"><code>Random.insideUnitCircle</code></a> returns a randomly selected <strong>point inside a circle</strong> with a radius of 1 (Again you can multiply the result to get a random point within a circle of any size).</p>
+<p><a href="../ScriptReference/Random-insideUnitCircle.html"><code>Random.insideUnitCircle</code></a> 返回一个半径为 1 的圆内随机选择的<strong>圆内点</strong>（同样，您可以将结果相乘，获得任意大小的圆内的随机点）。</p>
 
-<p><a href="../ScriptReference/Random-insideUnitSphere.html"><code>Random.insideUnitSphere</code></a> returns a randomly selected <strong>point inside a sphere</strong> with a radius of 1.</p>
+<p><a href="../ScriptReference/Random-insideUnitSphere.html"><code>Random.insideUnitSphere</code></a> 返回一个半径为 1 的球内随机选择的<strong>球内点</strong>。</p>
 
-<p><a href="../ScriptReference/Random-onUnitSphere.html"><code>Random.onUnitSphere</code></a> returns a randomly selected <strong>point on the <em>surface</em> of a sphere</strong> with a radius of 1.</p>
+<p><a href="../ScriptReference/Random-onUnitSphere.html"><code>Random.onUnitSphere</code></a> 返回一个半径为 1 的球上随机选择的<strong>球体的_球面_点</strong>。</p>
 
-<h2>Other types of random values</h2>
+<h2>其他类型的随机值</h2>
 
-<p>Unity’s random class also offers a few other types of random value.</p>
+<p>Unity 的 Random 类还提供了一些其他类型的随机值。</p>
 
-<p>To generate a random <strong>rotation</strong>, use <a href="../ScriptReference/Random-rotation.html"><code>Random-rotation</code></a>.</p>
+<p>要生成一个随机<strong>旋转</strong>，使用 <a href="../ScriptReference/Random-rotation.html"><code>Random-rotation</code></a>。</p>
 
-<p>To generate a random <strong>color</strong>, use <a href="../ScriptReference/Random.ColorHSV.html"><code>Random.ColorHSV</code></a>.</p>
+<p>要生成一个随机<strong>颜色</strong>，使用 <a href="../ScriptReference/Random.ColorHSV.html"><code>Random.ColorHSV</code></a>。</p>
 
-<h2>Choosing a Random Item from an Array</h2>
+<h2>从数组中选择一个随机项</h2>
 
-<p>Picking an array element at random boils down to choosing a random integer between zero and the array’s maximum index value (which is equal to the length of the array minus one). This is easily done using the built-in <code>Random.Range</code> function:-</p>
+<p>随机选取一个数组元素归结为选择零和数组最大索引值（等于数组的长度减去 1）之间的一个随机整数。使用内置的 <code>Random.Range</code> 函数可以轻松实现：</p>
 
 <pre><code> `var element = myArray[Random.Range(0, myArray.Length)];``
 </code></pre>
 
-<p>Note that <code>Random.Range</code> returns a value from a range that includes the first parameter but excludes the second, so using <code>myArray.Length</code> here gives the correct result.</p>
+<p>请注意，<code>Random.Range</code> 从包含第一个参数但不包含第二个参数的范围内返回一个值，因此在此处使用 <code>myArray.Length</code> 会得到正确的结果。</p>
 
-<h2>Choosing Items with Different Probabilities</h2>
+<h2>选择具有不同概率的项</h2>
 
 <p>有时需要随机选择项，但有些项比其他项被选中的几率更高。例如，NPC 在遇到玩家时可能会以几种不同的方式做出反应：</p>
 
@@ -240,13 +240,13 @@
 <li>提供金钱作为礼物的几率为 5%</li>
 </ul>
 
-<p>You can visualize these different outcomes as a paper strip divided into sections each of which occupies a fraction of the strip’s total length. The fraction occupied is equal to the probability of that outcome being chosen. Making the choice is equivalent to picking a random point along the strip’s length (say by throwing a dart) and then seeing which section it is in.</p>
+<p>可将这些不同的结果可视化为一张纸条，该纸条分成几个部分，每个部分占据纸条总长度的一个比例。占据的比例等于选择结果的概率。选择行为相当于沿着纸条的长度选择一个随机点（例如通过投掷飞镖），然后查看该点处于哪个部分。</p>
 
 <figure>
 <img src="../uploads/Main/ProbStrip.png" alt="">
 </figure>
 
-<p>In the script, the paper strip is actually an array of floats that contain the different probabilities for the items in order. The random point is obtained by multiplying <code>Random.value</code> by the total of all the floats in the array (they need not add up to 1; the significant thing is the relative size of the different values). To find which array element the point is “in”, firstly check to see if it is less than the value in the first element. If so, then the first element is the one selected. Otherwise, subtract the first element’s value from the point value and compare that to the second element and so on until the correct element is found. In code, this would look something like the following:-</p>
+<p>在脚本中，纸条实际上是一个浮点数组，其中的浮点数按顺序包含项的不同概率。随机点是通过将 <code>Random.value</code> 乘以数组中所有浮点数的总和得到的（这些数值不需要加起来等于 1；重点是不同值的相对大小）。要找到该点“位于”哪个数组元素，首先要检查它是否小于第一个元素中的值。如果是，则第一个元素便是选中的元素。否则，从该点值中减去第一个元素的值，然后将其与第二个元素进行比较，依此类推，直到找到正确的元素。在代码中表示为以下所示的内容：</p>
 
 <pre><code>float Choose (float[] probs) {
 
@@ -270,25 +270,25 @@
 }
 </code></pre>
 
-<p>Note that the final return statement is necessary because <code>Random.value</code> can return a result of 1. In this case, the search will not find the random point anywhere. Changing the line</p>
+<p>请注意，最后的 return 语句是必要的，因为 <code>Random.value</code> 可以返回 1 的结果。在这种情况下，搜索将无法在任何地方找到随机点。将以下行</p>
 
 <pre><code> `if (randomPoint &lt; probs[i])`
 </code></pre>
 
 <p>…更改为“小于或等于”测试将避免额外的 return 语句，但也会允许偶尔选择某个项，即使其概率为零也是如此。</p>
 
-<h2>Weighting continuous random values</h2>
+<h2>加权连续随机值</h2>
 
 <p>如果结果是不连续的，那么浮点数组方法会很有效，但在某些情况下希望产生更连续的结果；比如说，希望随机化一个宝箱中发现的金块数量，并希望能够出现 1 到 100 之间的任何数字，但让更小数字的概率更高。使用浮点数组方法来执行此算法将需要设置一个包含 100 个浮点数（即纸条上的部分）的数组，这是很不实用的方法；如果不局限于整数而是想要在该范围内的任何数字，则不可能使用这种方法。</p>
 
-<p>A better approach for continuous results is to use an <code>AnimationCurve</code> to transform a ‘raw’ random value into a ‘weighted’ one; by drawing different curve shapes, you can produce different weightings. The code is also simpler to write:</p>
+<p>一种适用于连续结果的更好方法是使用 <code>AnimationCurve</code> 将“原始”随机值转换为“加权”值；通过绘制不同的曲线形状，可产生不同的权重。代码编写起来也更简单：</p>
 
 <pre><code>float CurveWeightedRandom(AnimationCurve curve) {
     return curve.Evaluate(Random.value);
 }
 </code></pre>
 
-<p>A ‘raw’ random value between 0 and 1 is chosen by reading from <code>Random.value</code>. It is then passed to <code>curve.Evaluate()</code>, which treats it as a horizontal coordinate, and returns the corresponding vertical coordinate of the curve at that horizontal position. Shallow parts of the curve have a greater chance of being picked, while steeper parts have a lower chance of being picked.</p>
+<p>此算法从 <code>Random.value</code> 读取值来选择 0 到 1 之间的“原始”随机值。然后，该值传递给 <code>curve.Evaluate()</code>，在此处将其视为水平坐标，并返回曲线在该水平位置处的相应垂直坐标。曲线较平缓的部分被选取的几率较高，而较陡峭的部分被选取的几率较低。</p>
 
 <figure>
 <img src="../uploads/Main/WeightedRandomCurve-linear.png" alt="线性曲线根本不对值进行加权；曲线上每个点的水平坐标等于垂直坐标。">
@@ -307,11 +307,11 @@
 
 <p>请注意，这些曲线并非概率论指南中可能介绍的概率分布曲线，而更像是反向累积概率曲线。</p>
 
-<p>By defining a public <code>AnimationCurve</code> variable on one of your scripts, you will be able to see and edit the curve through the Inspector window visually, instead of needing to calculate values.</p>
+<p>通过在一个脚本上定义 <code>AnimationCurve</code> 公共变量，可使用 Inspector 窗口直观查看和编辑曲线，而无需计算值。</p>
 
-<p>This technique produces floating-point numbers. If you want to calculate an integer result - for example, you want 82 gold pieces, rather than 82.1214 gold pieces - you can just pass the calculated value to a function like <code>Mathf.RoundToInt()</code>.</p>
+<p>这种方法会产生浮点数。如果要计算整数结果（例如，需要 82 个金块，而不是 82.1214 个金块），可将计算值传递给 <code>Mathf.RoundToInt()</code> 之类的函数。</p>
 
-<h2>Shuffling a List</h2>
+<h2>列表洗牌</h2>
 
 <p>一种常见的游戏机制是从一组已知的项中进行选择，但让这些项以随机顺序到达。例如，一副纸牌通常需要洗牌，因此不会以可预测的顺序绘制。为了对数组中的项进行随机洗牌，可访问每个元素，然后将其与数组中位于随机索引处的另一个元素进行交换：</p>
 
@@ -325,7 +325,7 @@
 }
 </code></pre>
 
-<h2>Choosing from a Set of Items Without Repetition</h2>
+<h2>从一组无重复的项中选择</h2>
 
 <p>一种常见的任务是从一组中随机选取一些项，但不可多次选取同一项。例如，可能希望在一些随机生成点生成多个 NPC，但要确保每个点只生成一个 NPC。为实现此目的，可按顺序遍历这些项，随机决定是否将每一项添加到所选集合中。当访问每一项时，该项被选取的概率等于仍然需要的项数除以仍然可供选择的项数。</p>
 
@@ -357,36 +357,36 @@ Transform[] ChooseSet (int numRequired) {
 
 <p>请注意，虽然选择是随机的，但所选集合中的项与原始数组中的项具有相同的顺序。如果要按顺序一次使用一项，那么这种排序可能使它们在一定程度上可预测，因此在使用之前可能需要对数组进行洗牌。</p>
 
-<h2>Random Points in Space</h2>
+<h2>空间中的随机点</h2>
 
-<p>A random point in a cubic volume can be chosen by setting each component of a Vector3 to a value returned by <code>Random.value</code>:-</p>
+<p>通过将 Vector3 的每个分量设置为 <code>Random.value</code> 返回的值可以选择立方体中的随机点：</p>
 
 <pre><code>` var randVec = Vector3(Random.value, Random.value, Random.value);`
 </code></pre>
 
 <p>这种算法可在边长为一个单位的立方体内部给出一个点。只需将矢量的 X、Y 和 Z 分量乘以期望的边长即可缩放该立方体。如果其中一个轴设置为零，则该点将始终位于单个平面内。例如，在“地面”上选取随机点通常需要随机设置 X 和 Z 分量并将 Y 分量设置为零。</p>
 
-<p>When the volume is a sphere (ie, when you want a random point within a given radius from a point of origin), you can use <code>Random.insideUnitSphere</code> multiplied by the desired radius:-</p>
+<p>当体积为球体时（即，希望从原点开始的给定半径内选取随机点时），可使用 <code>Random.insideUnitSphere</code> 乘以所需的半径：</p>
 
 <pre><code>` var randWithinRadius = Random.insideUnitSphere * radius;`
 </code></pre>
 
-<p>Note that if you set one of the resulting vector’s components to zero, you will <em>not</em> get a correct random point within a circle. Although the point is indeed random and lies within the right radius, the probability is heavily biased toward the edge of the circle and so points will be spread very unevenly. You should use <code>Random.insideUnitCircle</code> for this task instead:-</p>
+<p>请注意，如果将结果矢量的某个分量设置为零，则<em>不能</em>在圆内获得正确的随机点。尽管该点确实是随机点并且位于正确的半径内，但是概率严重偏向于圆的边缘，因此点分布将非常不均匀。对于此任务，应改用 <code>Random.insideUnitCircle</code>：</p>
 
 <pre><code> `var randWithinCircle = Random.insideUnitCircle * radius;`
 </code></pre>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="class-Mathf.html"></a></span><div class="tip">Important Classes - Mathf</div>
+<span class="prev"><a href="class-Mathf.html"></a></span><div class="tip">重要的类 - Mathf</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="class-Debug.html"></a></span><div class="tip">Important Classes - Debug</div>
+<span class="next"><a href="class-Debug.html"></a></span><div class="tip">重要的类 - Debug</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

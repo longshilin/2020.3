@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Overview of .NET in Unity - Unity 手册">
-<title>Overview of .NET in Unity - Unity 手册</title>
+<meta property="og:title" content="Unity 中的 .NET 概述 - Unity 手册">
+<title>Unity 中的 .NET 概述 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/unity-engine-object.png">
-<meta name="description" content="Unity uses the open-source .NET platform in order to ensure that applications you make with Unity can run on a wide variety of different hardware configurations. .NET supports a range of languages and API libraries.">
-<meta property="og:description" content="Unity uses the open-source .NET platform in order to ensure that applications you make with Unity can run on a wide variety of different hardware configurations. .NET supports a range of languages and API libraries.">
+<meta name="description" content="Unity 使用开源 .NET 平台，以确保使用 Unity 创建的应用程序可以在各种不同的硬件配置上运行。.NET 支持一系列语言和 API 库。">
+<meta property="og:description" content="Unity 使用开源 .NET 平台，以确保使用 Unity 创建的应用程序可以在各种不同的硬件配置上运行。.NET 支持一系列语言和 API 库。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,131 +175,131 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="ScriptingSection.html">Scripting</a></li>
-<li><a href="unity-architecture.html">Unity architecture</a></li>
-<li>Overview of .NET in Unity</li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="ScriptingSection.html">脚本</a></li>
+<li><a href="unity-architecture.html">Unity 架构</a></li>
+<li>Unity 中的 .NET 概述</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="unity-architecture.html"></a></span><div class="tip">Unity architecture</div>
+<span class="prev"><a href="unity-architecture.html"></a></span><div class="tip">Unity 架构</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="dotnetProfileSupport.html"></a></span><div class="tip">.NET 配置文件支持</div>
 </div>
 </div></div>
-<h1>Overview of .NET in Unity</h1>
+<h1>Unity 中的 .NET 概述</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>Unity uses the open-source .NET platform in order to ensure that applications you make with Unity can run on a wide variety of different hardware configurations. .NET supports a range of languages and API libraries.</p>
+<p>Unity 使用开源 .NET 平台，以确保使用 Unity 创建的应用程序可以在各种不同的硬件配置上运行。.NET 支持一系列语言和 API 库。</p>
 
-<h2>Scripting backends</h2>
+<h2>脚本后端</h2>
 
-<p>Unity has two scripting backends, Mono and <a href="IL2CPP.html">IL2CPP</a> (Intermediate Language To C++), each of which uses a different compilation technique:</p>
+<p>Unity 具有两个脚本后端 Mono 和 <a href="IL2CPP.html">IL2CPP</a> (Intermediate Language To C++)，它们各自使用不同的编译技术：</p>
 
 <ul>
-<li>Mono uses just-in-time (JIT) compilation and compiles code on demand at runtime.</li>
-<li>IL2CPP uses ahead-of-time (AOT) compilation and compiles your entire application before it is run.</li>
+<li>Mono 使用即时 (JIT) 编译，在运行时按需编译代码。</li>
+<li>IL2CPP 使用提前 (AOT) 编译，在运行之前编译整个应用程序。</li>
 </ul>
 
-<p>The benefit of using a JIT-based scripting backend is that the compilation time is typically much faster than AOT and it’s platform-independent.</p>
+<p>使用基于 JIT 的脚本后端的好处是编译时间通常比 AOT 快得多，而且它与平台无关。</p>
 
-<p>The Unity Editor is JIT-based and uses Mono as the scripting backend. When you build a player for your application, you can choose which scripting backend to use. To do this through the Editor, go to <strong>Edit &gt; Project Settings &gt; Player</strong>, open the <strong>Other Settings</strong> panel, then click on the <strong>Scripting Backend</strong> dropdown and select which backend you want.</p>
+<p>Unity 编辑器基于 JIT，使用 Mono 作为脚本后端。为应用程序生成播放器时，可以选择要使用的脚本后端。要通过编辑器执行此操作，请转到 <strong>Edit &gt; Project Settings &gt; Player</strong>，打开 <strong>Other Settings</strong> 面板，然后单击 <strong>Scripting Backend</strong> 下拉列表并选择所需后端。</p>
 
-<h2>Managed code stripping</h2>
+<h2>托管代码剥离</h2>
 
-<p>When you build your application, Unity scans the compiled assemblies (.DLLs) to detect and remove unused code. This process reduces the final binary size of your build, but increases build time.</p>
+<p>生成应用程序时，Unity 会扫描已编译的程序集 (.DLL) 以检测并移除未使用的代码。此过程会减少生成的最终二进制文件大小，但会增加生成时间。</p>
 
-<p>Code stripping is disabled by default when you use Mono but code stripping cannot be disabled for IL2CPP. You can control how aggressive Unity is when stripping code. Go to <strong>Edit &gt; Project Settings &gt; Player</strong>, open the <strong>Other Settings</strong> panel, then click the <strong>Managed Stripping Level</strong> dropdown and select the level of code stripping you want. For more information on code stripping, see the <a href="ManagedCodeStripping.html">Managed Code Stripping</a> documentation.</p>
+<p>使用 Mono 时，在默认情况下会禁用代码剥离，但无法为 IL2CPP 禁用代码剥离。可以控制 Unity 在剥离代码时的激进程度。转到 <strong>Edit &gt; Project Settings &gt; Player</strong>，打开 <strong>Other Settings</strong> 面板，然后单击 <strong>Managed Stripping Level</strong> 下拉列表并选择所需的代码剥离级别。有关代码剥离的更多信息，请参阅<a href="ManagedCodeStripping.html">托管代码剥离</a>文档。</p>
 
 <blockquote>
-<p><strong>Note:</strong> Code stripping might be too aggressive in some cases and might remove code that you rely on, especially when you use reflection. You can use <strong>Preserve</strong> attributes and link.xml files to prevent specific types and functions from being stripped.</p>
+<p><strong>注意：</strong>代码剥离在某些情况下可能过于激进，可能会移除所依赖的代码，尤其是在使用反射时。可以使用 <strong>Preserve</strong> 属性和 link.xml 文件来防止剥离特定类型和函数。</p>
 </blockquote>
 
-<h2>Garbage collection</h2>
+<h2>垃圾收集</h2>
 
-<p>Unity uses the <a href="https://en.wikipedia.org/wiki/Boehm_garbage_collector">Boehm garbage collector</a> for both the Mono and IL2CPP backends. Unity uses the <strong>Incremental</strong> mode by default. You can disable the <strong>Incremental</strong> mode to use “stop the world” garbage collection, although Unity recommends use of <strong>Incremental</strong> mode.</p>
+<p>Unity 将 <a href="https://en.wikipedia.org/wiki/Boehm_garbage_collector">Boehm 垃圾回收器</a>用于 Mono 和 IL2CPP 后端。Unity 在默认情况下使用<strong>增量</strong>模式。可以禁用<strong>增量</strong>模式以使用“可停止所有工作”的垃圾收集，不过 Unity 建议使用<strong>增量</strong>模式。</p>
 
-<p>To toggle between Incremental mode and “stop the world”, go to <strong>Edit &gt; Project Settings &gt; Player</strong>, open the <strong>Other Settings</strong> panel and click the <strong>Use incremental GC</strong> checkbox. In Incremental mode, Unity’s garbage collector only runs for a limited period of time and does not necessarily collect all objects in one pass. This spreads the time it takes to collect objects over a number of frames and reduces the amount of stuttering and CPU spikes. For more information, see <a href="UnderstandingAutomaticMemoryManagement.html">Understanding Automatic Memory Management</a>.</p>
+<p>要在增量模式与“可停止所有工作”之间切换，请转到 <strong>Edit &gt; Project Settings &gt; Player</strong>，打开 <strong>Other Settings</strong> 面板并单击 <strong>Use incremental GC</strong> 复选框。在增量模式下，Unity 的垃圾回收器只会运行一段有限的时间，并不一定会收集一个通道中的所有对象。这会将收集对象所需的时间分散在多个帧间，并减少卡顿和 CPU 峰值的数量。有关更多信息，请参阅<a href="UnderstandingAutomaticMemoryManagement.html">了解自动内存管理</a>。</p>
 
-<p>To check the number of allocations and possible CPU spikes in your application, use the <a href="Profiler.html">Unity Profiler</a>. You can also use the <a href="../ScriptReference/Scripting.GarbageCollector.html">GarbageCollector</a> API to completely disable garbage collection in players. When the collector is disabled, you should be careful to avoid allocating excess memory.</p>
+<p>要检查应用程序中的分配和可能 CPU 峰值的数量，请使用 <a href="Profiler.html">Unity 性能分析器</a>。还可以使用 <a href="../ScriptReference/Scripting.GarbageCollector.html">GarbageCollector</a> API 在播放器中完全禁用垃圾收集。禁用回收器后，应该小心避免分配过多的内存。</p>
 
-<h2>.NET system libraries</h2>
+<h2>.NET 系统库</h2>
 
-<p>Unity supports many platforms and might use different scripting backends depending on the platform. The .NET system libraries require platform-specific implementations to work correctly in some cases. While Unity tries its best to support as much of the .NET ecosystem as possible, there are some exceptions to parts of the .NET system libraries that Unity explicitly does not support.</p>
+<p>Unity 支持许多平台，可能会根据平台使用不同的脚本后端。在某些情况下，.NET 系统库需要特定于平台的实现才能正常工作。尽管 Unity 尽最大努力支持尽可能多的 .NET 生态系统，但对于 Unity 明确不支持的部分 .NET 系统库，也有一些例外。</p>
 
-<p>Unity makes no performance nor allocation guarantees of the .NET system libraries across Unity versions. As a general rule of thumb, Unity does not fix any performance regressions in the .NET system libraries.</p>
+<p>Unity 不保证 .NET 系统库在 Unity 版本间的性能和分配。作为一般经验法则，Unity 不会修复 .NET 系统库中的任何性能退化。</p>
 
-<p>Unity does not support the <code>System.Drawing</code> library and it is not guaranteed to work on all platforms.</p>
+<p>Unity 不支持 <code>System.Drawing</code> 库，并且不保证在所有平台上都正常工作。</p>
 
-<p>A JIT scripting backend allows you to emit dynamic C#/.NET Intermediate Language (IL) code generation during the runtime of your application, whereas an AOT scripting backend does not support dynamic code generation. This is important to consider when you use third-party libraries, because they might have different code paths for JIT and AOT, or they might use code paths that rely on dynamically generated code. For more information on how to generate code at runtime, see Microsoft’s <a href="https://docs.microsoft.com/en-us/dotnet/api/system.reflection.emit.modulebuilder?view=netcore-3.1">ModuleBuilder</a> documentation.</p>
+<p>JIT 脚本后端允许在应用程序运行时发出动态 C#/.NET 中间语言 (IL) 代码生成，而 AOT 脚本后端不支持动态代码生成。使用第三方库时考虑到这一点十分重要，因为它们对于 JIT 和 AOT 可能具有不同的代码路径，或者它们可能会使用依赖于动态生成代码的代码路径。有关如何在运行时生成代码的更多信息，请参阅 Microsoft 的 <a href="https://docs.microsoft.com/en-us/dotnet/api/system.reflection.emit.modulebuilder?view=netcore-3.1">ModuleBuilder</a> 文档。</p>
 
-<p>Although Unity supports multiple .NET API profiles, you should use the .NET Standard 2.0 <a href="../ScriptReference/ApiCompatibilityLevel.html">API Compatibility Level</a> for all new projects for the following reasons:</p>
+<p>尽管 Unity 支持多个 .NET API 配置文件，不过应该对于所有新项目都使用 .NET Standard 2.0 <a href="../ScriptReference/ApiCompatibilityLevel.html">API 兼容性级别</a>，原因如下：</p>
 
 <ul>
-<li>.NET Standard 2.0 is a smaller API surface and therefore has a smaller implementation. This reduces the size of your final executable file.</li>
-<li>.NET Standard 2.0 has better cross-platform support, so your code is more likely to work across all platforms.</li>
-<li>.NET Standard 2.0 is supported by all .NET runtimes, so your code works across more VM/runtime environments (e.g. .NET Framework. .NET Core, Xamarin, Unity).</li>
-<li>.NET Standard moves more errors to compile time. A number of APIs in .NET 4.7.1 are available at compile time, but have implementations on some platforms that throw an exception at runtime.</li>
+<li>.NET Standard 2.0 是较小的 API 表面，因此具有较小的实现。这会减小最终可执行文件的大小。</li>
+<li>.NET Standard 2.0 具有更好的跨平台支持，因此代码更有可能跨所有平台正常工作。</li>
+<li>.NET Standard 2.0 受所有 .NET 运行时支持，因此代码可以跨更多 VM/运行时环境（例如 .NET Framework、.NET Core、Xamarin、Unity）正常工作。</li>
+<li>.NET Standard 将更多错误移至编译时。.NET 4.7.1 中的一些 API 可在编译时使用，但在某些平台上的实现会在运行时抛出异常。</li>
 </ul>
 
-<p>Other profiles can be useful if, for example, you need to provide support for an older existing application. If you want a different API compatibility level, change the <strong>.NET Profile</strong> in the Player Settings. To do this go to <strong>Edit &gt; Project Settings &gt; Player &gt; Other Settings</strong>, then select the level you want from the <strong>Api Compatibility Level</strong> dropdown.</p>
+<p>例如，如果需要为较旧的现有应用程序提供支持，则其他配置文件可能会很有用。如果需要不同的 API 兼容性级别，请在 Player Settings 中更改 <strong>.NET Profile</strong>。要执行此操作，请转到 <strong>Edit &gt; Project Settings &gt; Player &gt; Other Settings</strong>，然后从 <strong>Api Compatibility Level</strong> 下拉菜单中选择所需级别。</p>
 
-<h2>Using third-party .NET libraries</h2>
+<h2>使用第三方 .NET 库</h2>
 
-<p>You should only use third-party .NET libraries that have been extensively tested on a wide range of Unity configurations and platforms.</p>
+<p>应该只使用在各种 Unity 配置和平台上经过广泛测试的第三方 .NET 库。</p>
 
 <blockquote>
-<p><strong>Note:</strong> The performance characteristics of JIT and AOT code paths in third-party libraries might be significantly different. AOT generally reduces startup times and is suited to larger applications for this reason but increases the binary file size to accommodate the compiled code. AOT also takes longer to build during development and cannot change the behavior of the compiled code to target any one specific platform. JIT adjusts at runtime based on the platform it’s running on, which can increase running performance at the cost of a potentially longer application startup time. As such, you should profile your application in both the Editor, and on your target platform. For more information, see the Unity <a href="Profiler.html">Profiler</a> documentation.</p>
+<p><strong>注意：</strong>第三方库中 JIT 和 AOT 代码路径的性能特征可能会显著不同。AOT 通常会减少启动时间，因此适用于较大的应用程序，但会增加二进制文件大小以容纳已编译代码。AOT 在开发过程中也需要较长时间进行生成，无法更改已编译代码的行为以针对任何特定平台。JIT 在运行时会基于它运行的平台进行调整，这可以提高运行性能，但代价是可能会延长应用程序启动时间。因此，应该在编辑器和目标平台上对应用程序进行性能分析。有关更多信息，请参阅 Unity <a href="Profiler.html">性能分析器</a>文档。</p>
 </blockquote>
 
-<p>You should profile the usage of your .NET system libraries on all target platforms because their performance characteristics might vary depending on the scripting backends, .NET versions and profiles you use.</p>
+<p>应该在所有目标平台上对 .NET 系统库的使用情况进行性能分析，因为其性能特征可能会因所使用的脚本后端、.NET 版本和配置文件而异。</p>
 
-<p>When you review a third-party library, consider the following areas:</p>
+<p>查看第三方库时，请考虑以下方面：</p>
 
 <ul>
-<li>Compatibility: Third-party libraries might not be compatible with some Unity platforms and scripting backends.</li>
-<li>Performance: Third-party libraries might have vastly different performance characteristics in Unity compared to other .NET runtimes.</li>
-<li>AOT binary size: Third-party libraries might increase AOT binary size significantly because of the number of dependencies the library uses.</li>
+<li>兼容性：第三方库可能与某些 Unity 平台和脚本后端不兼容。</li>
+<li>性能：与其他 .NET 运行时相比，第三方库在 Unity 中可能具有截然不同的性能特征。</li>
+<li>AOT 二进制文件大小：由于库使用的依赖项数量，第三方库可能会显著增大 AOT 二进制文件大小。</li>
 </ul>
 
-<h2>C# reflection overhead</h2>
+<h2>C# 反射开销</h2>
 
-<p>Mono and IL2CPP internally cache all C# reflection (<code>System.Reflection</code>) objects and by design, Unity does not garbage collect them. The result of this behavior is that the garbage collector continuously scans the cached C# reflection objects during the lifetime of your application, which causes unnecessary and potentially significant garbage collector overhead.</p>
+<p>Mono 和 IL2CPP 会在内部缓存所有 C# 反射 (<code>System.Reflection</code>) 对象，并且按照设计，Unity 不会对它们进行垃圾收集。此行为的结果是垃圾回收器在应用程序生命周期内持续扫描缓存的 C# 反射对象，这会导致不必要和潜在的大量垃圾回收器开销。</p>
 
-<p>To minimize the garbage collector overhead, avoid methods such as <a href="https://docs.microsoft.com/en-us/dotnet/api/system.reflection.assembly.gettypes">Assembly.GetTypes</a> and <a href="https://docs.microsoft.com/en-us/dotnet/api/system.type.getmethods">Type.GetMethods()</a> in your application, which create a lot of C# reflection objects at runtime. Instead, you should scan assemblies in the Editor for the required data and serialize and/or codegen it for use at runtime.</p>
+<p>要最大程度减少垃圾回收器开销，请在应用程序中避免使用诸如 <a href="https://docs.microsoft.com/en-us/dotnet/api/system.reflection.assembly.gettypes">Assembly.GetTypes</a> 和 <a href="https://docs.microsoft.com/en-us/dotnet/api/system.type.getmethods">Type.GetMethods()</a> 等方法，这些方法会在运行时创建许多 C# 反射对象。而是应该在编辑器中扫描程序集以获取所需数据，并进行序列化和/或代码生成以在运行时使用。</p>
 
 <p><a name="UnityEngineObject"></a></p>
 
-<h2>UnityEngine.Object special behavior</h2>
+<h2>UnityEngine.Object 特殊行为</h2>
 
-<p><a href="class-Object.html">UnityEngine.Object</a> is a special type of C# object in Unity, because it is linked to a native C++ counterpart object. For instance, when you use a <a href="../ScriptReference/Camera.html">Camera</a> component, Unity does not store the state of the object on the C# object, but rather on its native C++ counterpart.</p>
+<p><a href="class-Object.html">UnityEngine.Object</a> 是 Unity 中的一种特殊类型的 C# 对象，因为它链接到原生 C++ 对应对象。例如，使用 <a href="../ScriptReference/Camera.html">Camera</a> 组件时，Unity 不会将对象的状态存储在 C# 对象中，而是存储在其原生 C++ 对应对象中。</p>
 
 <figure>
 <img src="../uploads/Main/unity-engine-object.png" alt="">
 </figure>
 
-<p>Unity does not currently support the use of the C# WeakReference class with UnityEngine.Objects. For this reason, you should not use a WeakReference to reference a loaded asset. See Microsoft’s <a href="https://docs.microsoft.com/en-us/dotnet/api/system.weakreference?view=netcore-3.1">WeakReference documentation</a> for more information on the WeakReference class.</p>
+<p>Unity 目前不支持将 C# WeakReference 类与 UnityEngine.Object 一起使用。因此，不应使用 WeakReference 引用加载的资源。有关 WeakReference 类的更多信息，请参阅 Microsoft 的 <a href="https://docs.microsoft.com/en-us/dotnet/api/system.weakreference?view=netcore-3.1">WeakReference 文档</a>。</p>
 
-<h3>Unity C# and Unity C++ share UnityEngine Objects</h3>
+<h3>Unity C# 和 Unity C++ 共享 UnityEngine 对象</h3>
 
-<p>When you use a method such as <a href="../ScriptReference/Object.Destroy.html">Object.Destroy</a> or <a href="../ScriptReference/Object.DestroyImmediate.html">Object.DestroyImmediate</a> to destroy a UnityEngine.Object derived object, Unity destroys (unloads) the native counter object. You cannot destroy the C# object with an explicit call, because the garbage collector manages the memory. Once there are no longer any references to the managed object, the garbage collector collects and destroys it.</p>
+<p>使用诸如 <a href="../ScriptReference/Object.Destroy.html">Object.Destroy</a> 或 <a href="../ScriptReference/Object.DestroyImmediate.html">Object.DestroyImmediate</a> 等方法销毁 UnityEngine.Object 派生对象时，Unity 会销毁（卸载）原生对应对象。无法使用显式调用销毁 C# 对象，因为垃圾回收器会管理内存。一旦不再引用托管对象，垃圾回收器便会收集并销毁它。</p>
 
-<p>If a destroyed <code>UnityEngine.Object</code> is accessed again, Unity recreates the native counterpart object for most types. Two exceptions to this recreation behavior are <a href="../ScriptReference/MonoBehaviour.html">MonoBehaviour</a> and <a href="ScriptableObject">ScriptableObject</a>: Unity never reloads them once they have been destroyed.</p>
+<p>如果再次访问已销毁的 `UnityEngine.Object，则 Unity 会为大多数类型重新创建原生对应对象。此重新创建行为的两个例外是 <a href="../ScriptReference/MonoBehaviour.html">MonoBehaviour</a> 和 <a href="ScriptableObject">ScriptableObject</a>：一旦被销毁，Unity 便绝不会重新加载它们。</p>
 
-<p>MonoBehaviour and ScriptableObject override the equality (<code>==</code>) and inequality (<code>!=</code>) operators. So, if you compare a destroyed MonoBehaviour or ScriptableObject against null, the operators return true when the managed object still exists and has not yet been garbage collected.</p>
+<p>MonoBehaviour 和 ScriptableObject 会覆盖相等 (<code>==</code>) 和不相等 (<code>!=</code>) 运算符。因此，如果将销毁的 MonoBehaviour 或 ScriptableObject 与 null 进行比较，则当托管对象仍然存在且尚未进行垃圾收集时，运算符会返回 true。</p>
 
-<p>Because the <code>??</code> and <code>?.</code> operators are not overloadable, they are not compatible with objects derived from <code>UnityEngine.Object</code>. The operators do not return the same results as the equality and inequality operators when you use them on a destroyed MonoBehaviour or ScriptableObject while the managed object still exists.</p>
+<p>因为 <code>??</code> 和 <code>?.</code> 运算符不可重载，所以它们与从 <code>UnityEngine.Object</code> 派生的对象不兼容。在托管对象仍然存在的情况下对销毁的 MonoBehaviour 或 ScriptableObject 进行使用时，这些运算符不会返回与相等和不相等运算符相同的结果。</p>
 
-<h2>Avoid using async and await</h2>
+<h2>避免使用异步和等待</h2>
 
-<p>The Unity API is not thread safe and therefore, you should not use async and await tasks. Async tasks often allocate objects when invoked, which might cause performance issues if you overuse them. Additionally, Unity does not automatically stop async tasks that run on managed threads when you exit Play Mode.</p>
+<p>Unity API 不具有线程安全性，因此不应使用异步和等待任务。异步任务通常在调用时分配对象，这在过度使用它们时可能会导致性能问题。此外，退出运行模式时，Unity 不会自动停止在托管线程上运行的异步任务。</p>
 
-<p>Unity overwrites the default <a href="https://docs.microsoft.com/en-us/archive/msdn-magazine/2011/february/msdn-magazine-parallel-computing-it-s-all-about-the-synchronizationcontext">SynchronizationContext</a> with a custom <a href="https://github.com/Unity-Technologies/UnityCsReference/blob/master/Runtime/Export/Scripting/UnitySynchronizationContext.cs">UnitySynchronizationContext</a> and runs all the tasks on the main thread in both <strong>Edit</strong> and <strong>Play</strong> modes. To utilize async tasks, you must manually create and handle your own threads with a <a href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.tasks.taskfactory?view=netcore-3.1">TaskFactory</a>, as well as use the default SynchronizationContext instead of the Unity version. To listen for enter and exit play mode events to stop the tasks manually, use <a href="../ScriptReference/EditorApplication.playModeStateChanged.html">EditorApplication.playModeStateChanged</a>. However, if you take this approach, most of the Unity scripting APIs are not available to use because you are not using the UnitySynchronizationContext.</p>
+<p>Unity 会使用自定义 <a href="https://github.com/Unity-Technologies/UnityCsReference/blob/master/Runtime/Export/Scripting/UnitySynchronizationContext.cs">UnitySynchronizationContext</a> 覆盖默认 <a href="https://docs.microsoft.com/en-us/archive/msdn-magazine/2011/february/msdn-magazine-parallel-computing-it-s-all-about-the-synchronizationcontext">SynchronizationContext</a>，在<strong>编辑</strong>和<strong>播放</strong>模式下对主线程运行所有任务。要使用异步任务，必须使用 <a href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.tasks.taskfactory?view=netcore-3.1">TaskFactory</a> 手动创建和处理自己的线程，以及使用默认 SynchronizationContext 而不是 Unity 版本。要监听进入和退出运行模式事件以手动停止任务，请使用 <a href="../ScriptReference/EditorApplication.playModeStateChanged.html">EditorApplication.playModeStateChanged</a>。但是，如果采用这种方法，则大多数 Unity 脚本 API 都无法使用，因为未使用 UnitySynchronizationContext。</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="unity-architecture.html"></a></span><div class="tip">Unity architecture</div>
+<span class="prev"><a href="unity-architecture.html"></a></span><div class="tip">Unity 架构</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="dotnetProfileSupport.html"></a></span><div class="tip">.NET 配置文件支持</div>
@@ -308,7 +308,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Important Classes - GameObject - Unity 手册">
-<title>Important Classes - GameObject - Unity 手册</title>
+<meta property="og:title" content="重要的类 - GameObject - Unity 手册">
+<title>重要的类 - GameObject - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/GameObjectSceneStatusProperties.png">
-<meta name="description" content="Unity’s GameObject class is used to represent anything which can exist in a Scene.">
-<meta property="og:description" content="Unity’s GameObject class is used to represent anything which can exist in a Scene.">
+<meta name="description" content="Unity 的 GameObject 类用于表示任何可以存在于场景中的事物。">
+<meta property="og:description" content="Unity 的 GameObject 类用于表示任何可以存在于场景中的事物。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,90 +175,90 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="ScriptingSection.html">Scripting</a></li>
-<li><a href="ScriptingImportantClasses.html">Important Classes </a></li>
-<li>Important Classes - GameObject</li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="ScriptingSection.html">脚本</a></li>
+<li><a href="ScriptingImportantClasses.html">重要的类</a></li>
+<li>重要的类 - GameObject</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="ScriptingImportantClasses.html"></a></span><div class="tip">Important Classes </div>
+<span class="prev"><a href="ScriptingImportantClasses.html"></a></span><div class="tip">重要的类</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="class-MonoBehaviour.html"></a></span><div class="tip">Important Classes - MonoBehaviour</div>
+<span class="next"><a href="class-MonoBehaviour.html"></a></span><div class="tip">重要的类 - MonoBehaviour</div>
 </div>
 </div></div>
-<h1>Important Classes - GameObject</h1>
+<h1>重要的类 - GameObject</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>Unity’s GameObject class is used to represent anything which can exist in a <strong>Scene</strong>.</p>
+<p>Unity 的 GameObject 类用于表示任何可以存在于<strong>场景</strong>中的事物。</p>
 
-<p>This page relates to <strong>scripting</strong> with Unity’s GameObject class. To learn about using GameObjects in the Scene and Hierarchy in the Unity Editor, see the <a href="GameObjects.html">GameObjects section of the user manual</a>. For an exhaustive reference of every member of the GameObject class, see the <a href="../ScriptReference/GameObject.html">GameObject script reference</a>.</p>
+<p>此页面涉及使用 Unity GameObject 类进行的<strong>脚本编写</strong>。若要了解如何在 Unity 编辑器的场景和层级视图中使用 GameObject，请参阅<a href="GameObjects.html">用户手册的 GameObject 部分</a>。有关 GameObject 类的每个成员的详尽参考，请参阅 <a href="../ScriptReference/GameObject.html">GameObject 脚本参考</a>。</p>
 
-<p>GameObjects are the building blocks for scenes in Unity, and act as a container for functional components which determine how the GameObject looks, and what the GameObject does.</p>
+<p>GameObject 是 Unity 中场景的构建块，可充当用于确定 GameObject 外观以及 GameObject 作用的功能组件的容器。</p>
 
-<p>In scripting, the <a href="../ScriptReference/GameObject.html">GameObject class</a> provides a collection of methods which allow you to work with them in your code, including finding, making connections and sending messages between GameObjects, as well as adding or removing components attached to the GameObject, and setting values relating to their status within the scene.</p>
+<p>在脚本编写中，<a href="../ScriptReference/GameObject.html">GameObject 类</a>提供了允许在代码中使用的方法的集合，包括查找、建立连接和在 GameObject 之间发送消息，以及添加或移除附加到 GameObject 的组件和设置与其在场景中的状态相关的值。</p>
 
-<h2>Scene Status properties</h2>
+<h2>场景状态属性</h2>
 
-<p>There are a number of properties you can modify via script which relate to the GameObject’s status in the scene. These typically correspond to the controls visible near the top of the inspector when you have a GameObject selected in the Editor.</p>
+<p>可以通过脚本修改一些与场景中的 GameObject 状态相关的属性。在编辑器中选择了 GameObject 时，这些属性通常与 Inspector 顶部附近显示的控件对应。</p>
 
-<p>They don’t relate to any particular component, and are visible in the inspector of a GameObject at the top, above the list of components.</p>
-
-<figure>
-<img src="../uploads/Main/GameObjectSceneStatusProperties.png" alt="A typical GameObject viewed in the Inspector. In this case, a directional light. The Scene status properties are outlined in red.">
-<figcaption>A typical GameObject viewed in the Inspector. In this case, a directional light. The Scene status properties are outlined in red.</figcaption>
-</figure>
-
-<p>All GameObjects share a set of controls at the top of the inspector relating to the GameObject’s status within the scene, and these can be controlled via the GameObject’s scripting API.</p>
-
-<p>If you want a quick list of all the available API for the GameObject class, see the <a href="https://docs.unity3d.com/ScriptReference/GameObject.html">GameObject Script Reference</a>.</p>
-
-<h2>Active Status</h2>
+<p>它们不与任何特定组件相关，会显示在 GameObject 的 Inspector 顶部（组件列表上方）。</p>
 
 <figure>
-<img src="../uploads/Main/GOInspectorActiveSetting.png" alt="The Active status of a GameObject">
-<figcaption>The Active status of a GameObject</figcaption>
+<img src="../uploads/Main/GameObjectSceneStatusProperties.png" alt="在 Inspector 中查看的典型 GameObject。在此例中是方向光。场景状态属性具有红色轮廓。">
+<figcaption>在 Inspector 中查看的典型 GameObject。在此例中是方向光。场景状态属性具有红色轮廓。</figcaption>
 </figure>
 
-<p>GameObjects are active by default, but can be deactivated, which turns off all components attached to the GameObject. This generally means it will become invisible, and not receive any of the normal callbacks or events such as <a href="../ScriptReference/MonoBehaviour.Update.html"><code>Update</code></a> or <a href="../ScriptReference/MonoBehaviour.FixedUpdate.html"><code>FixedUpdate</code></a>.</p>
+<p>所有 GameObject 都在 Inspector 顶部共享一组与场景中 GameObject 状态相关的控件，这些控件可以通过 GameObject 的脚本 API 进行控制。</p>
 
-<p>The GameObject’s <strong>active</strong> status is represented by the checkbox to the left of the GameObject’s name. You can control this using <a href="../ScriptReference/GameObject.SetActive.html"><code>GameObject.SetActive</code></a>.</p>
+<p>如果要快速列出 GameObject 类的所有可用 API，请参阅 <a href="https://docs.unity3d.com/ScriptReference/GameObject.html">GameObject 脚本参考</a>。</p>
 
-<p>You can also read the current active state using <a href="../ScriptReference/GameObject-activeSelf.html"><code>GameObject.activeSelf</code></a>, and whether or not the GameObject is actually active in the scene using <a href="../ScriptReference/GameObject-activeInHierarchy.html"><code>GameObject.activeInHierarchy</code></a>. The latter of these two is necessary because whether a GameObject is actually active is determined by its own active state, plus the active state of all of its parents. If any of its parents are not active, then it will not be active despite its own active setting.</p>
-
-<h2>Static Status</h2>
+<h2>活动状态</h2>
 
 <figure>
-<img src="../uploads/Main/GOInspectorStaticSetting.png" alt="The Static status of a GameObject">
-<figcaption>The Static status of a GameObject</figcaption>
+<img src="../uploads/Main/GOInspectorActiveSetting.png" alt="GameObject 的活动状态">
+<figcaption>GameObject 的活动状态</figcaption>
 </figure>
 
-<p>Some of Unity’s systems, such as Global Illumination, Occlusion, Batching, Navigation, and Reflection Probes, rely on the static status of a GameObject. You can control which of Unity’s systems consider the GameObject to be <strong>static</strong> by using <a href="../ScriptReference/GameObjectUtility.SetStaticEditorFlags.html"><code>GameObjectUtility.SetStaticEditorFlags</code></a>. Read more about <a href="https://docs.unity3d.com/Manual/StaticObjects.html">Static GameObjects here</a>.</p>
+<p>GameObject 在默认情况下处于活动状态，但可以停用，这会关闭附加到 GameObject 的所有组件。这通常意味着它将变得不可见，不会接收任何正常回调或事件，例如 <a href="../ScriptReference/MonoBehaviour.Update.html"><code>Update</code></a> 或 <a href="../ScriptReference/MonoBehaviour.FixedUpdate.html"><code>FixedUpdate</code></a>。</p>
 
-<h2>Tags and Layers</h2>
+<p>GameObject 的<strong>活动</strong>状态由 GameObject 名称左侧的复选框表示。可以使用 <a href="../ScriptReference/GameObject.SetActive.html"><code>GameObject.SetActive</code></a> 控制此状态。</p>
+
+<p>还可以使用 <a href="../ScriptReference/GameObject-activeSelf.html"><code>GameObject.activeSelf</code></a> 读取当前活动状态，使用 <a href="../ScriptReference/GameObject-activeInHierarchy.html"><code>GameObject.activeInHierarchy</code></a> 读取 GameObject 是否在场景中实际处于活动状态。这两者中的后者是必要的，因为 GameObject 是否实际处于活动状态取决于其自身的活动状态，以及其所有父项的活动状态。如果其所有父项都不处于活动状态，则尽管它自己设置为活动状态，它也不会处于活动状态。</p>
+
+<h2>静态状态</h2>
 
 <figure>
-<img src="../uploads/Main/GOInspectorTagsAndLayers.png" alt="The Static status of a GameObject">
-<figcaption>The Static status of a GameObject</figcaption>
+<img src="../uploads/Main/GOInspectorStaticSetting.png" alt="GameObject 的静态状态">
+<figcaption>GameObject 的静态状态</figcaption>
 </figure>
 
-<p><strong>Tags</strong> provide a way of marking and identifying types of GameObject in your scene and <strong>Layers</strong> provide a similar but distinct way of including or excluding groups of GameObjects from certain built-in actions, such as <a href="class-MeshRenderer.html">rendering</a> or <a href="CollidersOverview.html">physics collisions</a>.</p>
+<p>Unity 的一些系统（如全局光照、遮挡、批处理、导航和反射探针）依赖于 GameObject 的静态状态。可以使用 <a href="../ScriptReference/GameObjectUtility.SetStaticEditorFlags.html"><code>GameObjectUtility.SetStaticEditorFlags</code></a> 控制哪些 Unity 系统将 GameObject 视为<strong>静态</strong>。有关详细信息，请阅读<a href="https://docs.unity3d.com/Manual/StaticObjects.html">此处的静态 GameObject</a>。</p>
 
-<p>For more information about how to use Tags and Layers in the editor, see the main user manual pages for <a href="Tags.html">Tags</a> and <a href="Layers.html">Layers</a>.</p>
+<h2>标签和层</h2>
 
-<p>You can modify tag and layer values via script using the <a href="../ScriptReference/GameObject-tag.html"><code>GameObject.tag</code></a> and <a href="../ScriptReference/GameObject-layer.html"><code>GameObject.layer</code></a> properties. You can also check a GameObject’s tag efficiently by using the <a href="../ScriptReference/GameObject.CompareTag.html"><code>CompareTag</code></a> method, which includes validation of whether the tag exists, and does not cause any memory allocation.</p>
+<figure>
+<img src="../uploads/Main/GOInspectorTagsAndLayers.png" alt="GameObject 的静态状态">
+<figcaption>GameObject 的静态状态</figcaption>
+</figure>
 
-<h2>Adding and Removing components</h2>
+<p><strong>标签 (Tag)</strong>提供一种在场景中标记和识别 GameObject 类型的方式，而<strong>层 (Layer)</strong>提供一种类似但不同的方式在某些内置操作（例如<a href="class-MeshRenderer.html">渲染</a>或<a href="CollidersOverview.html">物理碰撞</a>）中包括或排除 GameObject 组。</p>
 
-<p>You can add or remove components at runtime, which can be useful for procedurally creating GameObjects, or modifying how a GameObject behaves. Note, you can also <a href="../ScriptReference/Behaviour-enabled.html"><code>enable</code> or <code>disable</code></a> script components, and some types of built-in component, via script without destroying them.</p>
+<p>有关如何在编辑器中使用标签和层的更多信息，请参阅关于<a href="Tags.html">标签</a>和<a href="Layers.html">层</a>的主要用户手册页面。</p>
 
-<p>The best way to add a component at runtime is to use <a href="../ScriptReference/GameObject.AddComponent.html"><code>AddComponent&lt;Type&gt;</code></a>, specifying the type of component within angle brackets as shown. To remove a component, you must use <a href="../ScriptReference/Object.Destroy.html"><code>Object.Destroy</code></a> method on the component itself.</p>
+<p>可以使用 <a href="../ScriptReference/GameObject-tag.html"><code>GameObject.tag</code></a> 和 <a href="../ScriptReference/GameObject-layer.html"><code>GameObject.layer</code></a> 属性通过脚本修改标签和层值。还可以使用 <a href="../ScriptReference/GameObject.CompareTag.html"><code>CompareTag</code></a> 方法高效地检查 GameObject 的标签，该方法包括验证标签是否存在，不会导致任何内存分配。</p>
 
-<h2>Accessing components</h2>
+<h2>添加和移除组件</h2>
 
-<p>The simplest case is where a script on a GameObject needs to access another Component attached to the same GameObject (remember, other scripts attached to a GameObject are also Components themselves). To do this, the first step is to get a reference to the Component instance you want to work with. This is done with the <a href="../ScriptReference/Component.GetComponent.html">GetComponent</a> method. Typically, you want to assign the Component object to a variable, which is done in using the following code. In this example the script is getting a reference to a Rigidbody component on the same GameObject:</p>
+<p>可以在运行时添加或移除组件，这对于以程序化方式创建 GameObject 或修改 GameObject 行为方式可能非常有用。请注意，还可以通过脚本<a href="../ScriptReference/Behaviour-enabled.html">启用或禁用</a>脚本组件和某些类型的内置组件，而不销毁它们。</p>
+
+<p>在运行时添加组件的最佳方法是使用 <a href="../ScriptReference/GameObject.AddComponent.html"><code>AddComponent&lt;Type&gt;</code></a>（在显示的尖括号中指定组件类型）。若要移除组件，必须对组件本身使用 <a href="../ScriptReference/Object.Destroy.html"><code>Object.Destroy</code></a> 方法。</p>
+
+<h2>访问组件</h2>
+
+<p>最简单的情况是 GameObject 上的脚本需要访问附加到同一个 GameObject 的另一个组件（请记住，附加到 GameObject 的其他脚本本身也是组件）。为此，第一步是获取对要使用的组件实例的引用。这通过 <a href="../ScriptReference/Component.GetComponent.html">GetComponent</a> 方法来完成。通常要将组件对象分配给变量，而此操作使用以下代码实现。在此示例中，脚本获取对同一个 GameObject 上的 Rigidbody 组件的引用：</p>
 
 <pre><code>void Start ()
 {
@@ -272,31 +272,31 @@
 {
     Rigidbody rb = GetComponent&lt;Rigidbody&gt;();
 
-    // Change the mass of the object's Rigidbody.
+    // 更改对象的刚体质量。
     rb.mass = 10f;
 }
 </code></pre>
 
-<p>You can also call methods on the Component reference, for example:</p>
+<p>还可以对组件引用调用方法，例如：</p>
 
 <pre><code>void Start ()
 {
     Rigidbody rb = GetComponent&lt;Rigidbody&gt;();
 
-    // Add a force to the Rigidbody.
+    // 向刚体添加作用力。
     rb.AddForce(Vector3.up * 10f);
 }
 </code></pre>
 
-<p>Note: you can have multiple custom scripts attached to the same GameObject. If you need to access one script from another, you can use GetComponent as usual and just use the name of the script class (or the filename) to specify the Component type you want.</p>
+<p>注意：可以将多个自定义脚本附加到同一个 GameObject。如果需要从一个脚本访问另一个脚本，可以像往常一样使用 GetComponent，只需使用脚本类的名称（或文件名）来指定所需的组件类型。</p>
 
-<p>If you attempt to retrieve a Component type that hasn’t actually been added to the GameObject then GetComponent will return null; you will get a null reference error at runtime if you try to change any values on a null object.</p>
+<p>如果尝试检索尚未实际添加到 GameObject 的组件类型，则 GetComponent 将返回 null；如果尝试更改 null 对象上的任何值，将在运行时出现 null 引用错误。</p>
 
-<h2>Accessing components on other GameObjects</h2>
+<h2>访问其他 GameObject 上的组件</h2>
 
-<p>Although they sometimes operate in isolation, it is common for scripts to keep track of other GameObjects, or more commonly, components on other GameObjects. For example, in a cooking game, a chef might need to know the position of the stove. Unity provides a number of different ways to retrieve other objects, each appropriate to certain situations.</p>
+<p>尽管它们有时会独立运行，但脚本通常会跟踪其他 GameObject 或者（更常见的情况）其他 GameObject 上的组件。例如，在烹饪游戏中，厨师可能需要知道炉子的位置。Unity 提供了许多不同方法来检索其他对象，每种方法都适合特定情况。</p>
 
-<h3>Linking to GameObjects with variables in the inspector</h3>
+<h3>在 Inspector 中使用变量链接到 GameObject</h3>
 
 <p>查找相关游戏对象的最直接方法是向脚本添加公共的游戏对象变量：</p>
 
@@ -304,27 +304,27 @@
 {
     public GameObject stove;
 
-    // Other variables and functions...
+    // 其他变量和函数...
 }
 </code></pre>
 
-<p>This variable will be visible in the Inspector, as a <strong>GameObject field</strong>.</p>
+<p>此变量在 Inspector 中会显示为 <strong>GameObject 字段</strong>。</p>
 
-<p>You can now drag an object from the scene or Hierarchy panel onto this variable to assign it.</p>
+<p>现在可以将对象从场景或 Hierarchy 面板拖到此变量上，对其进行分配。</p>
 
 <figure>
-<img src="../uploads/Main/PrefabDragIntoField.png" alt="Dragging a Prefab from the Project window into a GameObject field in the Inspector window">
-<figcaption>Dragging a Prefab from the Project window into a GameObject field in the Inspector window</figcaption>
+<img src="../uploads/Main/PrefabDragIntoField.png" alt="将预制件从 Project 窗口拖动到 Inspector 窗口的 GameObject 字段中">
+<figcaption>将预制件从 Project 窗口拖动到 Inspector 窗口的 GameObject 字段中</figcaption>
 </figure>
 
-<p>The GetComponent function and Component access variables are available for this object as with any other, so you can use code like the following:</p>
+<p>GetComponent 函数和组件访问变量与其他任何变量一样可用于此对象，因此可以使用如下代码：</p>
 
 <pre><code>public class Chef : MonoBehaviour {
 
     public GameObject stove;
 
     void Start() {
-        // Start the chef 2 units in front of the stove.
+        // 在 stove 前方 2 个单位处启动 chef。
         transform.position = stove.transform.position + Vector3.forward * 2f;
     }
 }
@@ -337,9 +337,9 @@
 
 <p>在处理具有永久连接的单个对象时，将对象与变量链接在一起是最有用的方法。可以使用数组变量来链接同一类型的多个对象，但仍然必须在 Unity Editor 中（而不是在运行时）进行连接。在运行时定位对象通常很方便，因此 Unity 提供了两种基本方法来执行此操作，如下所述。</p>
 
-<h3>Finding child GameObjects</h3>
+<h3>查找子 GameObject</h3>
 
-<p>Sometimes, a game Scene makes use of a number of GameObjects of the same type, such as collectibles, waypoints and obstacles. These may need to be tracked by a particular script that supervises or reacts to them (for example, all waypoints might need to be available to a pathfinding script). Using variables to link these GameObjects is a possibility but it makes the design process tedious if each new waypoint has to be dragged to a variable on a script. Likewise, if a waypoint is deleted, then it is a nuisance to have to remove the variable reference to the missing GameObject. In cases like this, it is often better to manage a set of GameObjects by making them all children of one parent GameObject. The child GameObjects can be retrieved using the parent’s Transform component (because all GameObjects implicitly have a Transform):</p>
+<p>有时，游戏场景会使用许多相同类型的 GameObject，例如可收集对象、路径点和障碍物。这些游戏对象可能需要由监督或响应它们的特定脚本来跟踪（例如，寻路脚本可能需要使用所有路径点）。可以使用变量来链接这些游戏对象，但是如果必须将每个新路标拖动到脚本中的变量，会使设计过程变得繁琐。同样，如果删除一个路标，则必须删除对丢失游戏对象的变量引用，这很麻烦。此类情况下，可使一组游戏对象成为一个父游戏对象的所有子对象，这种管理多个游戏对象的方式通常会更好。可以使用父游戏对象的变换组件来检索子游戏对象（因为所有游戏对象都具有隐式变换）：</p>
 
 <pre><code>using UnityEngine;
 
@@ -359,24 +359,24 @@ public class WaypointManager : MonoBehaviour {
 }
 </code></pre>
 
-<p>You can also locate a specific child object by name using the <a href="../ScriptReference/Transform.Find.html">Transform.Find</a> method:
+<p>还可以使用 <a href="../ScriptReference/Transform.Find.html">Transform.Find</a> 方法按名称查找特定子对象：
 <code>
 transform.Find("Frying Pan");
 </code></p>
 
-<p>This can be useful when a GameObject has a child GameObject that can be added and removed during gameplay. A tool or utensil that can be picked up and put down during gameplay is a good example of this.</p>
+<p>当 GameObject 具有可以在游戏运行过程中添加和移除的子 GameObject 时，这种功能可能很有用。可以在游戏运行过程中拾取和放下的工具或器皿就是这方面的一个很好例子。</p>
 
-<h2>Sending and Broadcasting messages</h2>
+<h2>发送和广播消息</h2>
 
-<p>While editing your project you can set up references between GameObjects in the Inspector. However, sometimes it is impossible to set up these in advance (for example, finding the nearest item to a character in your game, or making references to GameObjects that were instantiated after the Scene loaded). In these cases, you can find references and send messages between GameObjects at runtime.</p>
+<p>在编辑项目时，可以在 Inspector 中设置 GameObject 之间的引用。但是，有时无法提前设置这些内容（例如，在游戏中查找与角色最近的项目，或引用在场景加载后实例化的 GameObject）。在这些情况下，可以在运行时查找引用并在 GameObject 之间发送消息。</p>
 
-<p><a href="../ScriptReference/GameObject.BroadcastMessage.html"><code>BroadcastMessage</code></a> allows you to send out a call to a named method, without being specific about where that method should be implemented. You can use it to call a named method on every MonoBehaviour on a particular GameObject or any of its children. You can optionally choose to enforce that there must be at least one receiver (or an error is generated).</p>
+<p>通过 <a href="../ScriptReference/GameObject.BroadcastMessage.html"><code>BroadcastMessage</code></a> 可以发送对命名方法的调用，而无需具体说明应实现该方法的位置。可以使用它对特定 GameObject 或其任何子项上的每个 MonoBehaviour 调用命名方法。可以选择强制要求必须至少有一个接收方（否则会生成错误）。</p>
 
-<p><a href="../ScriptReference/GameObject.SendMessage.html"><code>SendMessage</code></a> is a little more specific, and only sends the call to a named method on the GameObject itself, and not its children.</p>
+<p><a href="../ScriptReference/GameObject.SendMessage.html"><code>SendMessage</code></a> 更具体一些，只对 GameObject 本身（而不对其子项）发送对命名方法的调用。</p>
 
-<p><a href="../ScriptReference/GameObject.SendMessageUpwards.html"><code>SendMessageUpwards</code></a> is similar, but sends out the call to a named method on the GameObject and all its <em>parents</em>.</p>
+<p><a href="../ScriptReference/GameObject.SendMessageUpwards.html"><code>SendMessageUpwards</code></a> 是类似方法，但是对 GameObject 及其所有_父项_ 发送对命名方法的调用。</p>
 
-<h2>Finding GameObjects by Name or Tag</h2>
+<h2>按名称或标签查找 GameObject</h2>
 
 <p>只要有某种信息可以识别游戏对象，就可以在场景层级视图中的任何位置找到该游戏对象。可使用 <a href="../ScriptReference/GameObject.Find.html">GameObject.Find</a> 函数按名称检索各个对象：</p>
 
@@ -388,9 +388,9 @@ void Start()
 }
 </code></pre>
 
-<p>An object or a collection of objects can also be located by their tag using the <a href="../ScriptReference/GameObject.FindWithTag.html">GameObject.FindWithTag</a> and <a href="../ScriptReference/GameObject.FindGameObjectsWithTag.html">GameObject.FindGameObjectsWithTag</a> methods.</p>
+<p>还可以使用 <a href="../ScriptReference/GameObject.FindWithTag.html">GameObject.FindWithTag</a> 和 <a href="../ScriptReference/GameObject.FindGameObjectsWithTag.html">GameObject.FindGameObjectsWithTag</a> 方法按标签查找对象或者对象集合。</p>
 
-<p>For example, in a cooking game with one chef character, and multiple stoves in the kitchen (each tagged “Stove”):</p>
+<p>例如，在一个烹饪游戏中有一个厨师角色，厨房中有多个炉子（每个都标记为 “Stove”）：</p>
 
 <pre><code>GameObject chef;
 GameObject[] stoves;
@@ -402,13 +402,13 @@ void Start()
 }
 </code></pre>
 
-<h2>Creating and Destroying GameObjects</h2>
+<h2>创建和销毁 GameObject</h2>
 
-<p>You can create and destroy GameObjects while your project is running. In Unity, a GameObject can be created using the <a href="../ScriptReference/Object.Instantiate.html">Instantiate</a> method which makes a new copy of an existing object.</p>
+<p>可以在项目运行期间创建和销毁 GameObject。在 Unity 中，可以使用 <a href="../ScriptReference/Object.Instantiate.html">Instantiate</a> 方法创建 GameObject。该方法可以生成现有对象的新副本。</p>
 
-<p>For a full description and examples of how to instantiate GameObjects, see <a href="InstantiatingPrefabs.html">Instantiating Prefabs at Runtime</a>.</p>
+<p>有关如何实例化 GameObject 的完整说明和示例，请参阅<a href="InstantiatingPrefabs.html">在运行时实例化预制件</a>。</p>
 
-<p>There is also a <a href="../ScriptReference/Object.Destroy.html">Destroy</a> method that will destroy an object after the frame update has finished or optionally after a short time delay:</p>
+<p>还有一个 <a href="../ScriptReference/Object.Destroy.html">Destroy</a> 方法，该方法将在帧更新完成后或（可选）短时间延迟后销毁对象：</p>
 
 <pre><code>void OnCollisionEnter(Collision otherObj) {
     if (otherObj.gameObject.tag == "Garbage can") {
@@ -418,35 +418,35 @@ void Start()
 
 </code></pre>
 
-<p>Note that the Destroy function can destroy individual components without affecting the GameObject itself. A common mistake is to write this, assuming it will destroy the GameObject the script it’s attached to…</p>
+<p>请注意，Destroy 函数可以在不影响游戏对象本身的情况下销毁个别组件。一个常见错误编写以下代码，假设它会销毁脚本所附加到的 GameObject</p>
 
 <pre><code> Destroy(this);
 </code></pre>
 
-<p>…whereas, because “this” represents the script, and not the GameObject, it will actually just destroy the script component that calls it, leaving the GameObject behind, with the script component removed.</p>
+<p>…然而，由于 “this” 表示脚本而不是 GameObject，因此它实际上只会销毁调用它的脚本组件，而留下移除了脚本组件的 GameObject。</p>
 
-<h2>Primitives</h2>
+<h2>原始对象</h2>
 
-<p>The GameObject class offers script-based alternatives to the options available in Unity’s GameObject menu that allows you to create <a href="PrimitiveObjects.html">primitive objects</a>.</p>
+<p>GameObject 类为 Unity GameObject 菜单中的可用选项提供了基于脚本的替代方案，可用于创建<a href="PrimitiveObjects.html">原始对象</a>。</p>
 
-<p>To create instances of Unity’s built-in primitives, use <a href="../ScriptReference/GameObject.CreatePrimitive.html">GameObject.CreatePrimitive</a>, which instantiates a primitive of the type that you specify. The available primitive types are <a href="../ScriptReference/PrimitiveType.Sphere.html">Sphere</a>, <a href="../ScriptReference/PrimitiveType.Capsule.html">Capsule</a>, <a href="../ScriptReference/PrimitiveType.Cylinder.html">Cylinder</a>, <a href="../ScriptReference/PrimitiveType.Cube.html">Cube</a>, <a href="../ScriptReference/PrimitiveType.Plane.html">Plane</a> and <a href="../ScriptReference/PrimitiveType.Quad.html">Quad</a>.</p>
+<p>若要创建 Unity 内置原始对象的实例，请使用 <a href="../ScriptReference/GameObject.CreatePrimitive.html">GameObject.CreatePrimitive</a>，它会实例化所指定的类型的原始对象。可用的原始类型有 <a href="../ScriptReference/PrimitiveType.Sphere.html">Sphere</a>、<a href="../ScriptReference/PrimitiveType.Capsule.html">Capsule</a>、<a href="../ScriptReference/PrimitiveType.Cylinder.html">Cylinder</a>、<a href="../ScriptReference/PrimitiveType.Cube.html">Cube</a>、<a href="../ScriptReference/PrimitiveType.Plane.html">Plane</a> 和 <a href="../ScriptReference/PrimitiveType.Quad.html">Quad</a>。</p>
 
 <figure>
-<img src="../uploads/Main/AllPrimitives.png" alt="The Primitive shapes available in Unitys GameObject menu">
-<figcaption>The Primitive shapes available in Unity’s GameObject menu</figcaption>
+<img src="../uploads/Main/AllPrimitives.png" alt="Unity GameObject 菜单中提供的原始形状">
+<figcaption>Unity GameObject 菜单中提供的原始形状</figcaption>
 </figure>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="ScriptingImportantClasses.html"></a></span><div class="tip">Important Classes </div>
+<span class="prev"><a href="ScriptingImportantClasses.html"></a></span><div class="tip">重要的类</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="class-MonoBehaviour.html"></a></span><div class="tip">Important Classes - MonoBehaviour</div>
+<span class="next"><a href="class-MonoBehaviour.html"></a></span><div class="tip">重要的类 - MonoBehaviour</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

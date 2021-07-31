@@ -13,8 +13,8 @@
 <meta name="twitter:card" content="summary">
 <meta property="og:title" content="包布局 - Unity 手册">
 <title>包布局 - Unity 手册</title>
-<meta name="description" content="这是正式 Unity 包遵循的包布局约定：">
-<meta property="og:description" content="这是正式 Unity 包遵循的包布局约定：">
+<meta name="description" content="下面是自定义包的建议包布局：">
+<meta property="og:description" content="下面是自定义包的建议包布局：">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,7 +174,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="PackagesList.html">包</a></li>
 <li><a href="CustomPackages.html">创建自定义包</a></li>
 <li>包布局</li>
@@ -191,13 +191,14 @@
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>这是正式 Unity 包遵循的包布局约定：</p>
+<p>下面是自定义包的建议包布局：</p>
 
 <pre><code>&lt;root&gt;
   ├── package.json
   ├── README.md
   ├── CHANGELOG.md
   ├── LICENSE.md
+  ├── Third Party Notices.md
   ├── Editor
   │   ├── Unity.[YourPackageName].Editor.asmdef
   │   └── EditorExample.cs
@@ -211,10 +212,16 @@
   │   └── Runtime
   │        ├── Unity.[YourPackageName].Tests.asmdef
   │        └── RuntimeExampleTest.cs
+  ├── Samples~
+  │        ├── SampleFolder1
+  │        ├── SampleFolder2
+  │        └── ...
   └── Documentation~
        └── [YourPackageName].md
 
 </code></pre>
+
+<p>许多官方的 Unity 包也实现这种结构。</p>
 
 <table>
 <colgroup>
@@ -245,7 +252,7 @@
 </tr>
 <tr>
 	<td style="text-align:left;"><code>LICENSE.md</code></td>
-	<td style="text-align:left;">包含包许可证文本。通常，Package Manager 将从所选的 <a href="https://spdx.org/licenses/">SPDX 列表网站</a>复制文本。</td>
+	<td style="text-align:left;">包含<a href="cus-legal.html">包许可证文本</a>。通常，Package Manager 将从所选的 <a href="https://spdx.org/licenses/">SPDX 列表网站</a>复制文本。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>Editor/</code></td>
@@ -257,7 +264,7 @@
 </tr>
 <tr>
 	<td style="text-align:left;"><code>Tests/</code></td>
-	<td style="text-align:left;">包测试文件夹。</td>
+	<td style="text-align:left;">用来存储包中所有<a href="cus-tests.html">包含的测试</a>的文件夹。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>Tests/Editor/</code></td>
@@ -268,14 +275,17 @@
 	<td style="text-align:left;">特定于运行时平台的测试。请参阅<a href="cus-asmdef.html">程序集定义和包</a>以在此文件夹中正确配置运行时测试程序集。</td>
 </tr>
 <tr>
+	<td style="text-align:left;"><code>Samples~/</code></td>
+	<td style="text-align:left;">用来存储包中所有<a href="cus-samples.html">包含的示例</a>的文件夹。</td>
+</tr>
+<tr>
 	<td style="text-align:left;"><code>Documentation~</code></td>
-	<td style="text-align:left;">可选文件夹，用于存储包文档。</td>
+	<td style="text-align:left;">用来存储包中所有<a href="cus-document.html">包含的文档</a>的文件夹。</td>
 </tr>
 </tbody>
 </table>
 
-<p><br> </p>
-<!-- area:authoring -->
+<p>Unity 会忽略以 <code>~</code> 字符结尾的所有文件夹名称的内容，并且不会使用 <code>.meta</code> 文件跟踪它们。但是，您需要为 <code>Editor</code>、<code>Runtime</code> 和 <code>Tests</code> 文件夹及其内容包含 <code>.meta</code> 文件，以便它们正常运行。有关 <code>.meta</code> 文件以及 Unity 如何使用它们进行跟踪的更多信息，请参阅<a href="AssetWorkflow.html">资源工作流程</a>。</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="cus-naming.html"></a></span><div class="tip">为包命名</div>
@@ -287,7 +297,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

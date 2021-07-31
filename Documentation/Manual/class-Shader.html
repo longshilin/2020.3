@@ -14,10 +14,8 @@
 <meta property="og:title" content="着色器资源 - Unity 手册">
 <title>着色器资源 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Shaders/Inspector-Shader.png">
-<meta name="description" content="着色器是包含显卡执行代码和指令的资源。
-材质将引用着色器并设置其参数（纹理、颜色等）。">
-<meta property="og:description" content="着色器是包含显卡执行代码和指令的资源。
-材质将引用着色器并设置其参数（纹理、颜色等）。">
+<meta name="description" content="着色器资源是 Unity 项目中的资源，它定义 Shader 对象。它是一个扩展名为 .shader 的文本文件。它包含着色器代码。">
+<meta property="og:description" content="着色器资源是 Unity 项目中的资源，它定义 Shader 对象。它是一个扩展名为 .shader 的文本文件。它包含着色器代码。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -177,128 +175,76 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
-<li><a href="ShadersOverview.html">编写着色器</a></li>
-<li><a href="SL-Reference.html">着色器参考</a></li>
+<li><a href="Shaders.html">着色器</a></li>
+<li><a href="ShadersOverview.html">Shaders core concepts</a></li>
 <li>着色器资源</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-Other.html"></a></span><div class="tip">ShaderLab：其他命令</div>
+<span class="prev"><a href="shader-objects.html"></a></span><div class="tip">Shader 类</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-AdvancedTopics.html"></a></span><div class="tip">高级 ShaderLab 主题</div>
+<span class="next"><a href="shader-compilation.html"></a></span><div class="tip">着色器编译</div>
 </div>
 </div></div>
 <h1>着色器资源</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>着色器是包含显卡执行代码和指令的资源。
-<a href="class-Material.html">材质</a>将引用着色器并设置其参数（纹理、颜色等）。</p>
+<p>着色器资源是 Unity 项目中的资源，它定义 <a href="shader-objects.html">Shader 对象</a>。它是一个扩展名为 <code>.shader</code> 的文本文件。它包含<a href="shader-writing.html">着色器代码</a>。</p>
 
-<p>Unity 包含一些在项目中始终可用的内置着色器（例如，
-<a href="shader-StandardShader.html">标准着色器</a>）。您也可以<a href="ShadersOverview.html">编写自己的着色器</a>并应用<a href="PostProcessingOverview.html">后期处理效果</a>。</p>
+<h2>创建新的着色器资源</h2>
 
-<h2>创建新着色器</h2>
+<p>要创建新着色器资源，请使用主菜单或 <strong>Project View</strong> 上下文菜单中的 <strong>Assets</strong> &gt; <strong>Create</strong> &gt; <strong>Shader</strong>。</p>
 
-<p>要创建新着色器，请从主菜单或 <strong>Project 视图__上下文菜单中
-选择 </strong>Assets__ &gt; <strong>Create</strong> &gt; <strong>Shader</strong>。着色器是
-类似于 C# 脚本的文本文件，以 Cg/HLSL 和 ShaderLab 语言的组合编写而成
-（请参阅<a href="ShadersOverview.html">编写着色器</a>页面以了解详细信息）。</p>
+<h3>Inspector 参考</h3>
+
+<p>在 Unity 项目中选择着色器资源时，Inspector 会显示有关它定义的 Shader 对象的基本信息。它还提供用于编译和检查已编译代码的控件。</p>
 
 <figure>
 <img src="../uploads/Shaders/Inspector-Shader.png" alt="着色器检视面板 (Shader Inspector)。">
 <figcaption>着色器检视面板 (Shader Inspector)。</figcaption>
 </figure>
 
-<h3>着色器导入设置</h3>
+<h3>Import Settings</h3>
 
-<p>在此检视面板部分可为着色器指定默认纹理。每当使用
-此着色器创建新<a href="class-Material.html">材质</a>时，都会自动分配
-这些纹理。</p>
+<p>The Import settings section of the Inspector lets you set the default textures for a shader asset. Whenever a new <a href="class-Material.html">Material</a> is created with this shader, these textures are automatically assigned.</p>
 
-<h3>着色器检视面板</h3>
+<h3>Imported object</h3>
 
-<p>着色器检视面板显示有关着色器的基本信息（主要是<a href="SL-SubShaderTags.html">着色器标签</a>），
-并允许编译和检查低级编译代码。</p>
-
-<p>对于<a href="SL-SurfaceShaders.html">表面着色器 (Surface Shader)</a>，__Show generated code__
-按钮将显示 Unity 生成的用于处理光照和阴影的所有代码。如果确实想要
-自定义生成的代码，只需将其全部复制并粘贴回原始着色器文件
-并开始调整即可。</p>
+<p>Inspector 的 Imported object 用于查看和编辑与 Shader 对象本身相关的设置，以及着色器编译器对它的处理方式。</p>
 
 <figure>
 <img src="../uploads/Shaders/Inspector-ShaderCompilePopup.png" alt="着色器编译弹出菜单。">
 <figcaption>着色器编译弹出菜单。</figcaption>
 </figure>
 
-<p><strong>Compile and show code</strong> 按钮的弹出菜单可检查选定平台
-最终编译的着色器代码（例如 Direct3D9 上的程序集，或适用于 OpenGL ES 的
-低级优化 GLSL）。此功能在优化着色器性能时非常有用；通常情况下，您会想知道最后在此处生成了
-多少低级指令。</p>
+<p>对于<a href="SL-SurfaceShaders.html">表面着色器</a>，__Show generated code__
+按钮显示 Unity 从您的简化源文件生成的代码。如果要自定义生成的代码，只需将其复制并粘贴到着色器源文件中。</p>
 
-<p>生成的低级代码可用于粘贴到 GPU 着色器性能分析工具（如
+<p>使用 <strong>Compile and show code</strong> 弹出菜单可以：</p>
+
+<ul>
+<li>为选定的图形 API 手动编译所有着色器变体。在 Unity 编辑器中，着色器在构建之前不会为所有图形 API 编译所有着色器变体。可以手动强制执行此操作以检查错误。有关着色器编译器的作用和时间的更多信息，请参阅<a href="shader-compilation.html">着色器编译</a>
+</li>
+<li>面向所选平台检查已编译的着色器代码。此功能在优化着色器性能时非常有用；通常情况下，您会想知道生成了多少低级指令。可以将生成的代码粘贴到 GPU 着色器性能分析工具（如
 <a href="http://developer.amd.com/tools-and-sdks/graphics-development/gpu-shaderanalyzer/">AMD GPU ShaderAnalyzer</a>
-或 <a href="http://community.imgtec.com/developers/powervr/tools/pvrshadereditor/">PVRShaderEditor</a>）。</p>
-
-<h2>着色器编译详细信息</h2>
-
-<p>在着色器导入时，Unity 不会编译整个着色器。这是因为大多数着色器
-内部都有很多<a href="SL-MultipleProgramVariants.html">变体</a>，因此为所有可能的平台编译所有这些变体
-将需要很长时间。实际的操作过程为：</p>
-
-<ul>
-<li>在导入时，仅对着色器进行最低限度的处理（表面着色器生成等）。</li>
-<li>只在需要时实际编译着色器变体。</li>
-<li>不会在导入时执行编译 100–10000 个内部着色器的典型工作，此过程通常最终只编译少数着色器。</li>
+或 <a href="https://www.imaginationtech.com/developers/powervr-sdk-tools/pvrshadereditor/">PVRShaderEditor</a>）中。</li>
 </ul>
-
-<p>在播放器构建时，所有“尚未编译”的着色器变体都将被编译，因此即使 Editor 不会使用这些着色器变体，它们也会存在于游戏数据中。</p>
-
-<p>但是，这确实意味着着色器可能具有在着色器导入时未检测到的
-错误。例如，正在使用 Direct3D 11 运行 Editor，但如果着色器是针对 OpenGL 进行编译的，
-则会出错。此外，还可能着色器的某些<a href="SL-MultipleProgramVariants.html">变体</a>不符合着色器模型 2.0
-指令限制等。如果 Editor 需要了解这些错误，它们将显示在检视面板中；但是，为了检查错误，手动为所需平台
-完全编译着色器也是一种很好的做法。使用着色器检视面板
-中的 <strong>Compile and show code</strong> 弹出菜单即可执行此操作。</p>
-
-<p>着色器编译是使用名为 <code>UnityShaderCompiler</code> 的后台进程执行的，该进程由 Unity
-在需要编译着色器时即时启动。可启动多个编译器进程（通常在机器中每个 CPU
-核心对应一个），这样在播放器构建时就可以并行完成着色器编译。当
-Editor 不编译着色器时，编译器进程不执行任何操作，也不消耗计算机资源，
-所以不必担心它们。Unity Editor 退出时也将关闭这些进程。</p>
-
-<p>各个着色器变体编译结果将缓存在项目中的 <code>Library/ShaderCache</code> 文件夹下。
-这意味着 100% 相同的着色器或其代码片段将重用以前编译的结果。此外还
-意味着，如果有许多经常更改的着色器，着色器缓存文件夹可能会变得
-非常大。删除文件夹内容通常是安全的；只会导致重新编译着色器变体。</p>
-
-<h2>阅读更多信息</h2>
-
-<ul>
-<li>
-<a href="class-Material.html">材质</a>资源。</li>
-<li>
-<a href="ShadersOverview.html">编写着色器概述</a>。</li>
-<li>
-<a href="SL-Reference.html">着色器参考</a>。</li>
-</ul>
-<!-- area:graphics -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-Other.html"></a></span><div class="tip">ShaderLab：其他命令</div>
+<span class="prev"><a href="shader-objects.html"></a></span><div class="tip">Shader 类</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-AdvancedTopics.html"></a></span><div class="tip">高级 ShaderLab 主题</div>
+<span class="next"><a href="shader-compilation.html"></a></span><div class="tip">着色器编译</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

@@ -13,8 +13,8 @@
 <meta name="twitter:card" content="summary">
 <meta property="og:title" content="表面着色器和渲染路径 - Unity 手册">
 <title>表面着色器和渲染路径 - Unity 手册</title>
-<meta name="description" content="在内置渲染管线中，使用表面着色器时，如何应用光照以及使用着色器的哪些通道取决于使用的渲染路径。着色器中的每个通道均通过通道标签来表达其光照类型。">
-<meta property="og:description" content="在内置渲染管线中，使用表面着色器时，如何应用光照以及使用着色器的哪些通道取决于使用的渲染路径。着色器中的每个通道均通过通道标签来表达其光照类型。">
+<meta name="description" content="表面着色器和渲染路径">
+<meta property="og:description" content="表面着色器和渲染路径">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,11 +174,10 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
-<li><a href="ShadersOverview.html">编写着色器</a></li>
-<li><a href="SL-Reference.html">着色器参考</a></li>
+<li><a href="Shaders.html">着色器</a></li>
+<li><a href="shader-writing.html">编写着色器</a></li>
 <li><a href="SL-SurfaceShaders.html">编写表面着色器</a></li>
 <li>表面着色器和渲染路径</li>
 </ul></div>
@@ -190,11 +189,43 @@
 <span class="next"><a href="SL-SurfaceShaderExamples.html"></a></span><div class="tip">表面着色器示例</div>
 </div>
 </div></div>
-<h1>表面着色器和渲染路径</h1>
-<!--BeginSwitchLink--><!--EndSwitchLink-->
-<div class="clear"></div>
+<p>表面着色器和渲染路径</p>
 
 <p>在内置渲染管线中，使用表面着色器时，如何应用光照以及使用着色器的哪些<a href="SL-Pass.html">通道</a>取决于使用的<a href="RenderingPaths.html">渲染路径</a>。着色器中的每个通道均通过<a href="SL-PassTags.html">通道标签</a>来表达其光照类型。</p>
+
+<h2>渲染管线兼容性</h2>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>功能名称</strong></th>
+	<th style="text-align:left;"><strong>内置渲染管线</strong></th>
+	<th style="text-align:left;"><strong>通用渲染管线 (URP)</strong></th>
+	<th style="text-align:left;"><strong>高清渲染管线 (HDRP)</strong></th>
+	<th style="text-align:left;"><strong>自定义 SRP</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>表面着色器</strong></td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">否<br><br>有关在 URP 中创建 Shader 对象的简化方法，请参阅 <a href="shader-graph.html">Shader Graph</a>。</td>
+	<td style="text-align:left;">否<br><br>有关在 HDRP 中创建 Shader 对象的简化方法，请参阅 <a href="shader-graph.html">Shader Graph</a>。</td>
+	<td style="text-align:left;">否</td>
+</tr>
+</tbody>
+</table>
+
+<h2>渲染路径</h2>
 
 <ul>
 <li>在<a href="RenderTech-ForwardRendering.html">前向渲染</a>中，将使用 <code>ForwardBase</code> 和 <code>ForwardAdd</code> 通道。</li>
@@ -243,7 +274,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

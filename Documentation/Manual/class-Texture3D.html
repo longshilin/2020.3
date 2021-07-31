@@ -175,9 +175,8 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
 <li><a href="Textures.html">纹理</a></li>
 <li>3D 纹理</li>
 </ul></div>
@@ -201,30 +200,28 @@
 
 <p>请注意，随着分辨率的提高，3D 纹理在内存中和磁盘上的大小会迅速增加。一个没有 Mipmap 且分辨率为 16 x 16 x 16 的 RGBA32 3D 纹理具有 128KB 的大小，而分辨率为 256 x 256 x 256 时则具有 512MB 的大小。</p>
 
-<h2>Importing 3D textures</h2>
+<h2>导入 3D 纹理</h2>
 
-<p>You can import 3D textures from source texture files that are divided into cells. These are called flipbook textures. To do this:</p>
+<p>您可以从划分成单元格的源纹理文件导入 3D 纹理。这些被称为翻页纹理。为此需要执行以下操作：</p>
 
-<ol>
-<li>Import the source texture into your Unity Project.</li>
-<li>In your Project view, select the resulting Texture Asset. Unity displays the Texture import settings in the Inspector.</li>
-<li>In the Inspector, set <strong>Texture Shape</strong> to <strong>3D</strong>. Unity displays the Columns and Rows properties.</li>
-<li>Set <strong>Columns</strong> and <strong>Rows</strong> to the appropriate values for your flipbook texture.</li>
-<li>Click <strong>Apply</strong>.</li>
-</ol>
+<p>1.将源纹理导入您的 Unity 项目。
+2.在您的项目视图中，选择生成的纹理资源。Unity 将在 Inspector 中显示纹理导入设置。
+3.在 Inspector 中，将 <strong>Texture Shape</strong> 设置为 <strong>3D</strong>。Unity 显示 Columns 和 Rows 属性。
+4.将 <strong>Columns</strong> 和 <strong>Rows</strong> 设置为适用于翻页纹理的值。
+5.单击 <strong>Apply</strong>。</p>
 
-<p>For more information, see <a href="class-TextureImporter.html">Texture import settings</a>.</p>
+<p>有关更多信息，请参阅<a href="class-TextureImporter.html">纹理导入设置</a>。</p>
 
 <figure>
-<img src="../uploads/Main/TextureImporter-Flipbook-3D.png" alt="Flipbook image as a 3D shape">
-<figcaption>Flipbook image as a 3D shape</figcaption>
+<img src="../uploads/Main/TextureImporter-Flipbook-3D.png" alt="作为 3D 形状的翻页图像">
+<figcaption>作为 3D 形状的翻页图像</figcaption>
 </figure>
 
-<h2>Creating a 3D texture from a script</h2>
+<h2>从脚本创建 3D 纹理</h2>
 
-<p>Unity uses the <a href="../ScriptReference/Texture3D.html">Texture3D</a> class to represent 3D textures. Use this class to interact with 3D textures in C# scripts.</p>
+<p>Unity 使用 <a href="../ScriptReference/Texture3D.html">Texture3D</a> 类来表示 3D 纹理。使用此类可以在 C# 脚本中与 3D 纹理进行交互。</p>
 
-<p>The following example is an Editor script that creates an instance of the Texture3D class, populates it with color data, and then saves it to your Project as a serialized asset file.</p>
+<p>下面的示例是一个编辑器脚本，该脚本创建一个 Texture3D 类的实例，用颜色数据填充该实例，然后作为序列化资源文件保存到项目中。</p>
 
 <pre><code class="c#">using UnityEditor;
 using UnityEngine;
@@ -274,41 +271,39 @@ public class ExampleEditorScript : MonoBehaviour
 }
 </code></pre>
 
-<h2>Previewing a 3D texture</h2>
+<h2>预览 3D 纹理</h2>
 
-<p>The Unity Editor has three different visualization modes you can use to preview a 3D texture:</p>
+<p>Unity 编辑器具有三种不同的可视化模式，可用于预览 3D 纹理：</p>
 
 <ul>
 <li>
-<strong>Volumetric</strong> visualization mode renders the 3D texture as a translucent cube</li>
+<strong>体积</strong>可视化模式将 3D 纹理渲染为半透明立方体</li>
 <li>
-<strong>Slice</strong> visualization mode renders a single slice of each of the three axes of the 3D texture</li>
+<strong>切片</strong>可视化模式渲染 3D 纹理的三个轴中每个轴的单个切片</li>
 <li>
-<strong>SDF</strong> visualization mode renders the texture as a Signed Distance Field in 3D space</li>
+<strong>SDF</strong>可视化模式将纹理渲染为 3D 空间中的有向距离场</li>
 </ul>
 
-<p>You can preview the 3D texture in the Inspector, or you can write a script to preview it in the Scene view using the Handles API. Using the Inspector is quick and convenient, but does not allow the use of custom gradients. The Handles API lets you configure the preview to your exact requirements, and allows the use of custom gradients.</p>
+<p>您可以在 Inspector 中预览 3D 纹理，或者编写脚本以使用 Handles API 在 Scene 视图中预览。使用 Inspector 既快捷又方便，但不允许使用自定义渐变。Handles API 允许您根据您的确切需求来配置预览，并允许使用自定义渐变。</p>
 
-<h3>Using the Inspector</h3>
+<h3>使用 Inspector</h3>
 
-<p>To preview the 3d texture in the Inspector window:</p>
+<p>要在 Inspector 窗口中预览 3D 纹理：</p>
 
-<ol>
-<li>In your Project window, select the Texture Asset. The Texture Asset Importer for this Texture Asset is now visible in the Inspector, and Unity renders a preview of the 3D texture at the bottom of the Inspector.</li>
-<li>Navigate to the toolbar above the preview of the 3D texture.</li>
-<li>Use the buttons on the right-hand side of the toolbar to choose between Volumetric, Slice, and SDF visualization modes. The preview image and the buttons on the toolbar change depending on the preview mode.</li>
-</ol>
+<p>1.在您的 Project 窗口中，选择 Texture Asset。Inspector 现在显示此纹理资源的纹理资源导入器，Unity 会在 Inspector 底部渲染 3D 纹理的预览。
+2.导航到 3D 纹理预览上方的工具栏。
+3.使用工具栏右侧的按钮在体积、切片和 SDF 可视化模式之间进行选择。预览图像和工具栏上的按钮会根据预览模式而变化。</p>
 
-<h4>Volumetric</h4>
+<h4>体积</h4>
 
-<p>In this visualization mode, Unity renders the 3D texture as a translucent cube.</p>
+<p>在此可视化模式中，Unity 将 3D 纹理渲染为半透明立方体。</p>
 
 <figure>
 <img src="../uploads/Main/3DTexture-volumetric.png" alt=" ">
 <figcaption> </figcaption>
 </figure>
 
-<p>The following controls are available in the toolbar:</p>
+<p>工具栏中会显示以下控件：</p>
 
 <table>
 <colgroup>
@@ -318,7 +313,7 @@ public class ExampleEditorScript : MonoBehaviour
 
 <thead>
 <tr>
-	<th style="text-align:left;"><strong><em>Control:</em></strong></th>
+	<th style="text-align:left;"><strong><em>控件：</em></strong></th>
 	<th style="text-align:left;"><strong><em>功能：</em></strong></th>
 </tr>
 </thead>
@@ -326,29 +321,29 @@ public class ExampleEditorScript : MonoBehaviour
 <tbody>
 <tr>
 	<td style="text-align:left;"><strong>Ramp</strong></td>
-	<td style="text-align:left;">Enables and disables color ramp visualization. If the image contains a lot of subtle details, enable <strong>Ramp</strong> to make those details easier to see.</td>
+	<td style="text-align:left;">启用和禁用颜色渐变可视化。如果图像包含很多细微的细节，请启用 <strong>Ramp</strong> 使这些细节更容易看到。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Quality</strong></td>
-	<td style="text-align:left;">Sets the sample per texture pixel count. Higher values result in a higher quality render.</td>
+	<td style="text-align:left;">设置每纹理像素样本数。该值越高渲染质量越好。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Alpha</strong></td>
-	<td style="text-align:left;">Controls the opacity of the visualization. A value of 1 is fully opaque and a value of 0 is fully transparent. Adjust to view the inner pixels.</td>
+	<td style="text-align:left;">控制可视化的不透明度。值为 1 表示完全不透明，值为 0 表示完全透明。调整以查看内部像素。</td>
 </tr>
 </tbody>
 </table>
 
-<h4>Slice</h4>
+<h4>切片</h4>
 
-<p>In this visualization mode, Unity renders slices of each axis plane of the 3D texture.</p>
+<p>在这种可视化模式下，Unity 渲染 3D 纹理的每个轴平面的切片。</p>
 
 <figure>
 <img src="../uploads/Main/3DTexture-slice.png" alt=" ">
 <figcaption> </figcaption>
 </figure>
 
-<p>The following controls are available in the toolbar:</p>
+<p>工具栏中会显示以下控件：</p>
 
 <table>
 <colgroup>
@@ -358,7 +353,7 @@ public class ExampleEditorScript : MonoBehaviour
 
 <thead>
 <tr>
-	<th style="text-align:left;"><strong><em>Control:</em></strong></th>
+	<th style="text-align:left;"><strong><em>控件：</em></strong></th>
 	<th style="text-align:left;"><strong><em>功能：</em></strong></th>
 </tr>
 </thead>
@@ -366,34 +361,34 @@ public class ExampleEditorScript : MonoBehaviour
 <tbody>
 <tr>
 	<td style="text-align:left;"><strong>Ramp</strong></td>
-	<td style="text-align:left;">Enables and disables color ramp visualization. If the image contains a lot of subtle details, enable <strong>Ramp</strong> to make those details easier to see.</td>
+	<td style="text-align:left;">启用和禁用颜色渐变可视化。如果图像包含很多细微的细节，请启用 <strong>Ramp</strong> 使这些细节更容易看到。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>X</strong></td>
-	<td style="text-align:left;">Sets the slicing position on the x axis, in texture pixels. Adjust to view a specific slice.</td>
+	<td style="text-align:left;">设置 x 轴上的切片位置，以纹理像素为单位。调整以查看特定切片。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Y</strong></td>
-	<td style="text-align:left;">Sets the slicing position on the y axis, in texture pixels. Adjust to view a specific slice.</td>
+	<td style="text-align:left;">设置 y 轴上的切片位置，以纹理像素为单位。调整以查看特定切片。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Z</strong></td>
-	<td style="text-align:left;">Sets the slicing position on the z axis, in texture pixels. Adjust to view a specific slice.</td>
+	<td style="text-align:left;">设置 z 轴上的切片位置，以纹理像素为单位。调整以查看特定切片。</td>
 </tr>
 </tbody>
 </table>
 
 <h4>SDF</h4>
 
-<p>In this visualization mode, Unity uses Signed Distance Field rendering mode in 3D space to render the 3D texture.
-Note that this visualization mode supports only non-directional Signed Distance Fields. </p>
+<p>在这种可视化模式下，Unity 在 3D 空间中使用有向距离场渲染模式来渲染 3D 纹理。
+请注意，此可视化模式仅支持非定向的有向距离场。</p>
 
 <figure>
 <img src="../uploads/Main/3DTexture-SDF.png" alt=" ">
 <figcaption> </figcaption>
 </figure>
 
-<p>The following controls are available in the toolbar:</p>
+<p>工具栏中会显示以下控件：</p>
 
 <table>
 <colgroup>
@@ -403,7 +398,7 @@ Note that this visualization mode supports only non-directional Signed Distance 
 
 <thead>
 <tr>
-	<th style="text-align:left;"><strong><em>Control:</em></strong></th>
+	<th style="text-align:left;"><strong><em>控件：</em></strong></th>
 	<th style="text-align:left;"><strong><em>功能：</em></strong></th>
 </tr>
 </thead>
@@ -411,18 +406,18 @@ Note that this visualization mode supports only non-directional Signed Distance 
 <tbody>
 <tr>
 	<td style="text-align:left;"><strong>Scale</strong></td>
-	<td style="text-align:left;">The number by which to multiply the ray step size. The ray step size is the distance between 2 neighboring pixels.<br><br>If distant parts of the visualization are cut off, try increasing this. If the visualization is not rendered at all, try decreasing this.</td>
+	<td style="text-align:left;">与射线步长相乘的数字。射线步长是两个相邻像素之间的距离。<br><br>如果可视化的远处部分被截断，请尝试增加该值。如果根本没有渲染可视化，请尝试减少该值。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Offset</strong></td>
-	<td style="text-align:left;">The intensity of the pixels at which the surface is rendered. When this value is positive, Unity will expand the rendered surface. When this value is negative, Unity will render empty space as a surface, and a surface as empty space.</td>
+	<td style="text-align:left;">渲染表面的像素强度。当此值为正时，Unity 将扩展渲染表面。当此值为负时，Unity 会将空白空间渲染为曲面，将曲面渲染为空白空间。</td>
 </tr>
 </tbody>
 </table>
 
-<h3>Using the Handles API</h3>
+<h3>使用 Handles API</h3>
 
-<p>For information on previewing a 3D texture using the Handles API and code samples, see the following documentation:</p>
+<p>有关使用 Handles API 预览 3D 纹理及代码示例的信息，请参阅以下文档：</p>
 
 <ul>
 <li><a href="../ScriptReference/Handles.DrawTexture3DVolume.html">Handles.DrawTexture3DVolume</a></li>
@@ -551,7 +546,7 @@ Note that this visualization mode supports only non-directional Signed Distance 
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

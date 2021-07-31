@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
 <li><a href="LightingOverview.html">光照</a></li>
 <li><a href="Lightmappers.html">光照贴图</a></li>
@@ -205,7 +205,7 @@
 
 <p>可以在渐进光照贴图程序的两个后端之间进行选择。渐进 CPU 光照贴图程序后端是使用计算机 CPU 和系统 RAM 的渐进光照贴图程序的后端。渐进 GPU 光照贴图程序是使用计算机 GPU 和 VRAM 的渐进光照贴图程序的后端。</p>
 
-<p>Note that the Progressive GPU Lightmapper is a preview feature in active development, and is subject to change. For information on the Progressive GPU Lightmapper backend, see the <a href="GPUProgressiveLightmapper.html">Progressive GPU Lightmapper (preview)</a>.</p>
+<p>注意，渐进 GPU 光照贴图程序是正在开发中的预览功能并且会随时改变。有关渐进 GPU 光照贴图程序后端的信息，请参阅<a href="GPUProgressiveLightmapper.html">渐进 GPU 光照贴图程序（预览）</a>。</p>
 
 <h2>渲染管线支持</h2>
 
@@ -217,14 +217,11 @@
 
 <h2>使用渐进光照贴图程序</h2>
 
-<p>To use the Progressive Lightmapper:</p>
+<p>使用渐进光照贴图程序：</p>
 
-<ol>
-<li>Go to <strong>Window</strong> &gt; <strong>Rendering</strong> &gt; <strong>Lighting</strong>
+<p>1.转到 <strong>Window</strong> &gt; <strong>Rendering</strong> &gt; <strong>Lighting</strong>
 2.导航到 <strong>Lightmapping Settings</strong>
-3.将 <strong>Lightmapper</strong> 设置为 <strong>Progressive CPU</strong> 或 <strong>Progressive GPU</strong>
-</li>
-</ol>
+3.将 <strong>Lightmapper</strong> 设置为 <strong>Progressive CPU</strong> 或 <strong>Progressive GPU</strong></p>
 
 <p>可以使用 <a href="../ScriptReference/LightmapEditorSettings.html">LightmapEditorSettings</a> 和 <a href="../ScriptReference/Lightmapping.html">Lightmapping</a> API，通过脚本执行此窗口中提供的许多函数。</p>
 
@@ -267,7 +264,7 @@
 </tr>
 <tr>
 	<td style="text-align:left;" colspan="2"><strong>Environment Samples</strong></td>
-	<td style="text-align:left;">The Environment Samples property determines the total number of environment rays that Unity fires toward the skybox to gather light directly. Unity fires these rays from the lightmap texel or light probe position depending on the context. The default value is 500. Higher values might yield smoother results, but at the cost of increased bake times.<br><br>In Scenes with HDR skyboxes, more samples are often needed to reduce noise in the final lightmap or probe. Scenes with skyboxes that include bright singularities (such as the sun) or high-frequency details with significant contrast (such as backlit clouds) also benefit from a higher number of samples.</td>
+	<td style="text-align:left;">Environment Samples 属性确定 Unity 向天空盒发射以直接收集光线的环境光线总数。Unity 根据上下文从光照贴图纹素或光照探针位置发射这些光线。默认值为 500。较高的值可能会产生更平滑的结果，但代价是烘焙时间增加。<br><br>在有 HDR 天空盒的场景中，通常需要更多样本来减少最终光照贴图或探针中的噪声。包含明亮奇点（如太阳）或具有显著对比度的高频细节（如背光云）的天空盒场景也受益于更多的样本。</td>
 </tr>
 <tr>
 	<td style="text-align:left;" colspan="2"><strong>Light Probe Sample Multiplier</strong></td>
@@ -279,11 +276,11 @@
 </tr>
 <tr>
 	<td style="text-align:left;" colspan="2"><strong>Min Bounces</strong></td>
-	<td style="text-align:left;">The minimum number of bounces you are willing for the Progressive Lightmapper to include in indirect lighting calculations. <br><br>Default value: 2. Range: 0–100</td>
+	<td style="text-align:left;">您希望渐进光照贴图包含在间接光照计算中的最小反弹次数。<br><br>默认值：2。范围：0–100</td>
 </tr>
 <tr>
 	<td style="text-align:left;" colspan="2"><strong>Max Bounces</strong></td>
-	<td style="text-align:left;">The number of bounces you want the Progressive Lightmapper to include in indirect lighting calculations. <br><br>Default value: 2. Range: 0–100. <br><br>Each bounce increases the computational resources needed to bake your scene. Use higher bounce values for indoor Scenes, and lower bounce values for outdoor Scenes and those with many bright surfaces.<br><br>As the range between Min Bounces and Max Bounces broadens, the amount of noise visible in your lightmaps increases.</td>
+	<td style="text-align:left;">您希望渐进光照贴图包含在间接光照计算中的反弹次数。<br><br>默认值：2。范围：0–100。<br><br>每次反弹都会增加烘焙场景所需的计算资源。对室内场景使用较高的反弹值，对室外场景和具有许多明亮表面的场景使用较低的反弹值。<br><br>随着 Min Bounces 和 Max Bounces 之间的范围变宽，光照贴图中可见的噪点数量也会增加。</td>
 </tr>
 <tr>
 	<td style="text-align:left;" colspan="2"><strong>Filtering</strong></td>
@@ -472,7 +469,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="着色器参考 - Unity 手册">
-<title>着色器参考 - Unity 手册</title>
-<meta name="description" content="Unity 内置渲染管线中的着色器通过以下方式编写：">
-<meta property="og:description" content="Unity 内置渲染管线中的着色器通过以下方式编写：">
+<meta property="og:title" content="ShaderLab - Unity 手册">
+<title>ShaderLab - Unity 手册</title>
+<meta name="description" content="ShaderLab 是一种在着色器源文件中使用的声明性语言。它使用嵌套大括号语法来描述 Shader 对象。">
+<meta property="og:description" content="ShaderLab 是一种在着色器源文件中使用的声明性语言。它使用嵌套大括号语法来描述 Shader 对象。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,83 +174,47 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
-<li><a href="ShadersOverview.html">编写着色器</a></li>
-<li>着色器参考</li>
+<li><a href="Shaders.html">着色器</a></li>
+<li><a href="shader-writing.html">编写着色器</a></li>
+<li>ShaderLab</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="shader-ReflectiveBumpedVertexLit.html"></a></span><div class="tip">反光法线贴图顶点光照 (Reflective Normal mapped Vertex-lit)</div>
+<span class="prev"><a href="SL-ShadingLanguage.html"></a></span><div class="tip">编写着色器概述</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-SurfaceShaders.html"></a></span><div class="tip">编写表面着色器</div>
+<span class="next"><a href="SL-Shader.html"></a></span><div class="tip">ShaderLab：定义 Shader 对象</div>
 </div>
 </div></div>
-<h1>着色器参考</h1>
+<h1>ShaderLab</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>Unity 内置渲染管线中的着色器通过以下方式编写：</p>
+<p>ShaderLab 是一种在着色器源文件中使用的声明性语言。它使用嵌套大括号语法来描述 Shader 对象。</p>
+
+<p>在 ShaderLab 中可以定义很多内容，但最常见的是：</p>
 
 <ul>
-<li>作为表面着色器，</li>
-<li>作为顶点和片元着色器，或</li>
-<li>作为固定函数着色器。</li>
+<li>定义 Shader 对象的整体结构。参阅 <a href="SL-Shader.html">ShaderLab：创建着色器</a>、<a href="SL-SubShader.html">ShaderLab：创建子着色器</a>和 <a href="SL-Pass.html">ShaderLab：创建通道</a>。</li>
+<li>使用代码块添加用 HLSL 编写的着色器程序。参阅 <a href="shader-shaderlab-code-blocks.html">ShaderLab：添加着色器程序</a>。</li>
+<li>在执行着色器程序或执行涉及另一个通道的操作之前，使用命令设置 GPU 的渲染状态。参阅 <a href="shader-shaderlab-commands.html">ShaderLab：命令</a>。</li>
+<li>从着色器代码中公开属性，以便在 Material Inspector 中编辑它们并将其保存为材质资源的一部分。参阅 <a href="SL-Properties.html">ShaderLab：定义材质属性</a>。</li>
+<li>定义当 Unity 无法在当前硬件上使用 Shader 对象运行任何 SubShader 时的回退行为。参阅 <a href="SL-Fallback.html">ShaderLab：分配回退</a>。</li>
 </ul>
-
-<p>要确定哪种着色器最适合您的需求，请参阅<a href="Shaders.html">着色器教程</a>。</p>
-
-<p>无论何种类型，着色器代码始终由 ShaderLab 语言进行封装以组织着色器结构。以下是创建不含着色器代码的 ShaderLab 封装器的示例：</p>
-
-<pre><code>Shader "MyShader" {
-    Properties {
-        _MyTexture ("My Texture", 2D) = "white" { }
-        // 此处放置其他属性，如颜色或矢量。
-    }
-    SubShader {
-        // 此处放置以下几项的着色器代码：
-        // - 表面着色器，
-        // - 顶点和片元着色器，或
-        // - 固定函数着色器
-    }
-    SubShader {
-        // 此处放置比上面更简单的子着色器版本。
-        // 此版本用于支持较旧的显卡。
-    }
-}
-</code></pre>
-
-<p>要了解着色器基础知识和固定函数着色器，请参阅 <a href="SL-Shader.html">ShaderLab 语法</a>部分。对于其他支持的着色器类型，请参阅<a href="SL-SurfaceShaders.html">编写表面着色器</a>或<a href="SL-ShaderPrograms.html">编写顶点和片元着色器</a>。还可以将<a href="PostProcessingOverview.html">后期处理效果</a>与着色器结合使用来创建全屏滤镜和其他有趣的效果。</p>
-
-<h2>另请参阅</h2>
-
-<ul>
-<li>
-<a href="SL-SurfaceShaders.html">编写表面着色器</a>。</li>
-<li>
-<a href="SL-ShaderPrograms.html">编写顶点和片元着色器</a>。</li>
-<li>
-<a href="SL-Shader.html">ShaderLab 语法参考</a>。</li>
-<li>
-<a href="class-Shader.html">着色器资源</a>。</li>
-<li>
-<a href="SL-AdvancedTopics.html">高级 ShaderLab 主题</a>。</li>
-</ul>
-<!-- area:graphics -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="shader-ReflectiveBumpedVertexLit.html"></a></span><div class="tip">反光法线贴图顶点光照 (Reflective Normal mapped Vertex-lit)</div>
+<span class="prev"><a href="SL-ShadingLanguage.html"></a></span><div class="tip">编写着色器概述</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-SurfaceShaders.html"></a></span><div class="tip">编写表面着色器</div>
+<span class="next"><a href="SL-Shader.html"></a></span><div class="tip">ShaderLab：定义 Shader 对象</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

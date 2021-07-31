@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="顶点和片元着色器示例 - Unity 手册">
-<title>顶点和片元着色器示例 - Unity 手册</title>
+<meta property="og:title" content="Custom shader fundamentals - Unity 手册">
+<title>Custom shader fundamentals - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/SL-CapsuleSetup.png">
-<meta name="description" content="This page contains vertex and fragment program examples. For an easy way of writing regular material shaders, see Surface Shaders.">
-<meta property="og:description" content="This page contains vertex and fragment program examples. For an easy way of writing regular material shaders, see Surface Shaders.">
+<meta name="description" content="These example shaders for the Built-in Render Pipeline demonstrate the basics of writing custom shaders, and cover common use cases.">
+<meta property="og:description" content="These example shaders for the Built-in Render Pipeline demonstrate the basics of writing custom shaders, and cover common use cases.">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,35 +175,30 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
-<li><a href="ShadersOverview.html">编写着色器</a></li>
-<li><a href="SL-Reference.html">着色器参考</a></li>
-<li><a href="SL-ShaderPrograms.html">编写顶点和片元着色器</a></li>
-<li>顶点和片元着色器示例</li>
+<li><a href="render-pipelines.html">渲染管线</a></li>
+<li><a href="built-in-render-pipeline.html">使用内置渲染管线</a></li>
+<li><a href="built-in-shader-examples.html">Example shaders for the Built-in Render Pipeline</a></li>
+<li>Custom shader fundamentals</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-ShaderPrograms.html"></a></span><div class="tip">编写顶点和片元着色器</div>
+<span class="prev"><a href="built-in-shader-examples.html"></a></span><div class="tip">Example shaders for the Built-in Render Pipeline</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-PragmaDirectives.html"></a></span><div class="tip">Shader compilation: pragma directives</div>
+<span class="next"><a href="built-in-shader-examples-vertex-data.html"></a></span><div class="tip">Visualizing vertex data</div>
 </div>
 </div></div>
-<h1>顶点和片元着色器示例</h1>
+<h1>Custom shader fundamentals</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>This page contains vertex and fragment program examples. For an easy way of writing regular material shaders, see <a href="SL-SurfaceShaders.html">Surface Shaders</a>.</p>
+<p>These example shaders for the Built-in Render Pipeline demonstrate the basics of writing custom shaders, and cover common use cases.</p>
 
-<p>可通过 <a href="../uploads/Examples/UnityShaderDocExamples.zip">Unity 项目压缩包</a>的形式下载以下显示的示例。</p>
+<p>For information on writing shaders, see <a href="shader-writing.html">Writing shaders</a>.</p>
 
 <h3>设置场景</h3>
-
-<p>如果您不熟悉 Unity 的 <strong>Scene 视图</strong>、<strong>Hierarchy 视图</strong>、
-<strong>Project 视图__和 </strong>Inspector__，现在最好是阅读
-手册的前几部分，从 <a href="UsingTheEditor.html">Unity 的界面</a>开始。</p>
 
 <p>第一步是创建一些用于测试着色器的对象。在主菜单中选择 <strong>Game Object</strong> &gt; <strong>3D Object</strong> &gt; <strong>Capsule</strong>。然后，调整摄像机位置，使其显示胶囊体。在 Hierarchy 视图中双击胶囊体 (Capsule)
 以将 Scene 视图聚焦在该胶囊体上，然后选择主摄像机 (Main Camera) 对象，并单击主菜单中的
@@ -549,13 +544,13 @@
 
 <p>在所谓的“插值器”（有时称为“变化”）中，我们已经看到数据可从顶点传入片元着色器。在 HLSL 着色语言中，它们通常用 <strong>TEXCOORDn</strong> 语义进行标记，其中每一个最多可以是一个 4 分量矢量（有关详细信息，请参阅<a href="SL-ShaderSemantics.html">语义</a>页面）。</p>
 
-<p>此外，我们学习了如何使用一种简单的技术将标准化矢量（在 –1.0 到 +1.0 范围内）可视化为颜色：只需将它们乘以二分之一并加二分之一。请在<a href="SL-VertexProgramInputs.html">顶点程序输入</a>页面中查看更多顶点数据可视化示例。</p>
+<p>Also we’ve learned a simple technique in how to visualize normalized vectors (in –1.0 to +1.0 range) as colors: just multiply them by half and add half. For more vertex data visualization examples, see <a href="built-in-shader-examples-vertex-data.html">Visualizaing vertex data</a>.</p>
 
 <h4>使用世界空间法线的环境反射</h4>
 
-<p>When a <a href="class-Skybox.html">Skybox</a> is used in the scene as a reflection source (see <a href="lighting-window.html">Lighting window</a>),
-then essentially a “default” <a href="class-ReflectionProbe.html">Reflection Probe</a> is created, containing the skybox data.
-A reflection probe is internally a <a href="class-Cubemap.html">Cubemap</a> texture; we will extend the world-space normals shader above to look into it.</p>
+<p>如果在场景中使用<a href="class-Skybox.html">天空盒</a>作为反射源（请参阅 <a href="lighting-window.html">Lighting 窗口</a>），
+基本上会创建一个包含天空盒数据的“默认”<a href="class-ReflectionProbe.html">反射探针</a>。
+反射探针内部是<a href="class-Cubemap.html">立方体贴图</a>纹理；我们将扩展上面的世界空间法线着色器来对其进行深入了解。</p>
 
 <p>代码现在开始变得有点复杂。当然，如果您希望着色器能够自动处理光源、阴影、反射以及光照系统的其余部分，使用<a href="SL-SurfaceShaders.html">表面着色器</a>会容易得多。此示例旨在向您展示如何以“手动”方式使用光照系统的各个部分。</p>
 
@@ -1380,34 +1375,18 @@ UsePass "Legacy Shaders/VertexLit/SHADOWCASTER"
     }
 }
 </code></pre>
-
-<p>可在此处下载上文中显示的示例（以 <a href="../uploads/Examples/UnityShaderDocExamples.zip">Unity 项目压缩包</a>的形式提供）。</p>
-
-<h2>阅读更多信息</h2>
-
-<ul>
-<li>
-<a href="SL-ShaderPrograms.html">编写顶点和片元着色器程序</a>。</li>
-<li>
-<a href="SL-ShaderSemantics.html">着色器语义</a>。</li>
-<li>
-<a href="SL-SurfaceShaders.html">编写表面着色器</a>。</li>
-<li>
-<a href="SL-Reference.html">着色器参考</a>。</li>
-</ul>
-<!-- area:graphics -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-ShaderPrograms.html"></a></span><div class="tip">编写顶点和片元着色器</div>
+<span class="prev"><a href="built-in-shader-examples.html"></a></span><div class="tip">Example shaders for the Built-in Render Pipeline</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-PragmaDirectives.html"></a></span><div class="tip">Shader compilation: pragma directives</div>
+<span class="next"><a href="built-in-shader-examples-vertex-data.html"></a></span><div class="tip">Visualizing vertex data</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

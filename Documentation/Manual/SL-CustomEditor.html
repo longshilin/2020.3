@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="ShaderLab：CustomEditor - Unity 手册">
-<title>ShaderLab：CustomEditor - Unity 手册</title>
-<meta name="description" content="可为着色器定义一个 CustomEditor。如果执行了此操作，Unity 将查找具有此名称并能扩展 ShaderGUI 的类。如果找到，则使用此着色器的所有材质都将使用此 ShaderGUI。有关示例，请参阅自定义着色器 GUI。">
-<meta property="og:description" content="可为着色器定义一个 CustomEditor。如果执行了此操作，Unity 将查找具有此名称并能扩展 ShaderGUI 的类。如果找到，则使用此着色器的所有材质都将使用此 ShaderGUI。有关示例，请参阅自定义着色器 GUI。">
+<meta property="og:title" content="ShaderLab：指定自定义编辑器 - Unity 手册">
+<title>ShaderLab：指定自定义编辑器 - Unity 手册</title>
+<meta name="description" content="本页面包含有关在您的 ShaderLab 代码中使用 CustomEditor 或 CustomEditorForRenderPipeline 块来指定自定义编辑器 的信息。">
+<meta property="og:description" content="本页面包含有关在您的 ShaderLab 代码中使用 CustomEditor 或 CustomEditorForRenderPipeline 块来指定自定义编辑器 的信息。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,59 +174,151 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
-<li><a href="ShadersOverview.html">编写着色器</a></li>
-<li><a href="SL-Reference.html">着色器参考</a></li>
-<li><a href="SL-Shader.html">ShaderLab 语法</a></li>
-<li>ShaderLab：CustomEditor</li>
+<li><a href="Shaders.html">着色器</a></li>
+<li><a href="shader-writing.html">编写着色器</a></li>
+<li><a href="SL-Reference.html">ShaderLab</a></li>
+<li><a href="SL-Shader.html">ShaderLab：定义 Shader 对象</a></li>
+<li>ShaderLab：指定自定义编辑器</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-Fallback.html"></a></span><div class="tip">ShaderLab：Fallback</div>
+<span class="prev"><a href="SL-Fallback.html"></a></span><div class="tip">ShaderLab：分配回退</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-Other.html"></a></span><div class="tip">ShaderLab：其他命令</div>
+<span class="next"><a href="SL-SubShader.html"></a></span><div class="tip">ShaderLab：定义子着色器</div>
 </div>
 </div></div>
-<h1>ShaderLab：CustomEditor</h1>
+<h1>ShaderLab：指定自定义编辑器</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>可为着色器定义一个 CustomEditor。如果执行了此操作，Unity 将查找具有此名称并能扩展 ShaderGUI 的类。如果找到，则使用此着色器的所有材质都将使用此 ShaderGUI。有关示例，请参阅<a href="SL-CustomShaderGUI.html">自定义着色器 GUI</a>。</p>
+<p>本页面包含有关在您的 ShaderLab 代码中使用 <code>CustomEditor</code> 或 <code>CustomEditorForRenderPipeline</code> 块来指定<a href="editor-CustomEditors.html">自定义编辑器 </a>的信息。</p>
 
-<h2>语法</h2>
+<p>使用自定义编辑器可显示 Unity 无法使用其默认材质 Inspector 显示的数据类型，或定义自定义控件或数据验证。</p>
 
-<pre><code>    CustomEditor "name"
+<h2>渲染管线兼容性</h2>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>功能名称</strong></th>
+	<th style="text-align:left;"><strong>内置渲染管线</strong></th>
+	<th style="text-align:left;"><strong>通用渲染管线 (URP)</strong></th>
+	<th style="text-align:left;"><strong>高清渲染管线 (HDRP)</strong></th>
+	<th style="text-align:left;"><strong>自定义 SRP</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>ShaderLab: CustomEditor block</strong></td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>ShaderLab: CustomEditorForRenderPipeline block</strong></td>
+	<td style="text-align:left;">否</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+</tr>
+</tbody>
+</table>
+
+<h2>使用 CustomEditor 和 CustomEditorForRenderPipeline 代码块</h2>
+
+<p>在 ShaderLab 中，您可以为所有渲染管线指定一个自定义编辑器。为此，您可以在 <code>Shader</code> 代码块中放置一个 <code>CustomEditor</code> 代码块。您还可以为基于可编程渲染管线的渲染管线指定不同的自定义编辑器，方法是在 <code>Shader</code> 代码块中放置一个 <code>CustomEditorForRenderPipeline</code> 代码块。如果您的代码同时包含 <code>CustomEditor</code> 和 <code>CustomEditorForRenderPipeline</code> 块，则特定于渲染管线的块会覆盖 <code>CustomEditor</code> 块。</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>签名</strong></th>
+	<th style="text-align:left;"><strong>功能</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">CustomEditor “[custom editor class name]”</td>
+	<td style="text-align:left;">Unity 使用在命名类中定义的自定义编辑器，除非它被 <code>CustomEditorForRenderPipeline</code> 代码块覆盖。</td>
+</tr>
+<tr>
+	<td style="text-align:left;">CustomEditorForRenderPipeline “[custom editor class name]” “[render pipeline asset class name]”</td>
+	<td style="text-align:left;">当活动渲染管线资源是命名类型时，Unity 使用该命名类中定义的自定义编辑器。</td>
+</tr>
+</tbody>
+</table>
+
+<h2>为着色器资源创建自定义编辑器类</h2>
+
+<p>要为代表给定 Shader 对象的着色器资源定义一个自定义编辑器，您需要创建一个继承自 <a href="../ScriptReference/ShaderGUI.html">ShaderGUI</a> 类的脚本。请在您的 <em>Assets</em> 文件夹下，将您的脚本放在名为 <em>Editor</em> 的文件夹中。</p>
+
+<p>脚本应遵循以下格式：</p>
+
+<pre><code>using UnityEditor;
+
+public class ExampleShaderGUI : ShaderGUI 
+{
+    public override void OnGUI (MaterialEditor materialEditor, MaterialProperty[] properties)
+    {
+        // 此处是控制 Inspector 外观的自定义代码
+
+        base.OnGUI (materialEditor, properties);
+    }
+}
 </code></pre>
-
-<p>使用具有给定_名称 (name)_ 的 ShaderGUI。</p>
-
-<h2>详细信息</h2>
-
-<p>CustomEditor 语句将影响使用此着色器的所有材质</p>
 
 <h2>示例</h2>
 
-<pre><code>Shader "example" {
-    // 此处为属性和子着色器...
-    CustomEditor "MyCustomEditor"
+<p>此示例代码演示了使用 <code>CustomEditor</code> 块和 <code>CustomEditorForRenderPipeline</code> 块的语法，前者为着色器资源指定默认自定义编辑器，后者为特定渲染管线资源指定两个额外自定义编辑器。</p>
+
+<pre><code>Shader "Examples/UsesCustomEditor"
+{
+    // The Unity Editor uses the class ExampleCustomEditor to configure the Inspector for this shader asset
+    CustomEditor "ExampleShaderGUI"
+    CustomEditorForRenderPipeline "ExampleRenderPipelineShaderGUI" "ExampleRenderPipelineAsset"
+    CustomEditorForRenderPipeline "OtherExampleRenderPipelineShaderGUI" "OtherExampleRenderPipelineAsset"
+
+    SubShader
+    {
+        // Code that defines the SubShader goes here.
+
+        Pass
+        {                
+              // Code that defines the Pass goes here.
+        }
+    }
 }
 </code></pre>
-<!-- area:graphics -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-Fallback.html"></a></span><div class="tip">ShaderLab：Fallback</div>
+<span class="prev"><a href="SL-Fallback.html"></a></span><div class="tip">ShaderLab：分配回退</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-Other.html"></a></span><div class="tip">ShaderLab：其他命令</div>
+<span class="next"><a href="SL-SubShader.html"></a></span><div class="tip">ShaderLab：定义子着色器</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

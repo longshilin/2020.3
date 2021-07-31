@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Safe Mode - Unity 手册">
-<title>Safe Mode - Unity 手册</title>
+<meta property="og:title" content="安全模式 - Unity 手册">
+<title>安全模式 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/SafeModeDialog.png">
-<meta name="description" content="Unity’s Safe Mode is a mode that the Unity Editor can enter when you open a project that has script compilation errors. Safe Mode is designed to provide the best environment for resolving compilation errors, so that you can quickly return your project to a functional state.">
-<meta property="og:description" content="Unity’s Safe Mode is a mode that the Unity Editor can enter when you open a project that has script compilation errors. Safe Mode is designed to provide the best environment for resolving compilation errors, so that you can quickly return your project to a functional state.">
+<meta name="description" content="Unity 的安全模式是在打开有脚本编译错误的项目时 Unity 编辑器可以进入的模式。安全模式旨在为解决编译错误提供最佳环境，以便可以快速将项目恢复到可运行的状态。">
+<meta property="og:description" content="Unity 的安全模式是在打开有脚本编译错误的项目时 Unity 编辑器可以进入的模式。安全模式旨在为解决编译错误提供最佳环境，以便可以快速将项目恢复到可运行的状态。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,10 +175,10 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UnityOverview.html">在 Unity 中操作</a></li>
 <li><a href="EditorFeatures.html">编辑器功能</a></li>
-<li>Safe Mode</li>
+<li>安全模式</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -188,167 +188,168 @@
 <span class="next"><a href="CommandLineArguments.html"></a></span><div class="tip">命令行参数</div>
 </div>
 </div></div>
-<h1>Safe Mode</h1>
+<h1>安全模式</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
 <h2>概述</h2>
 
-<p>Unity’s Safe Mode is a mode that the Unity Editor can enter when you open a project that has script compilation errors. Safe Mode is designed to provide the best environment for resolving compilation errors, so that you can quickly return your project to a functional state.</p>
+<p>Unity 的安全模式是在打开有脚本编译错误的项目时 Unity 编辑器可以进入的模式。安全模式旨在为解决编译错误提供最佳环境，以便可以快速将项目恢复到可运行的状态。</p>
 
-<p>In Safe Mode, Unity provides a minimal version of the Editor user interface, with limited functions. It only imports script-related assets, and prevents the import of non-script assets (such as models, materials, textures and prefabs). This is because Safe Mode is not meant for content production, only for resolving compilation errors.</p>
+<p>在安全模式下，Unity 提供编辑器用户界面的最小版本，功能有限。它只导入与脚本相关的资源，并阻止导入非脚本资源（例如模型、材质、纹理和预制件）。这是因为安全模式不适用于内容制作，仅用于解决编译错误。</p>
 
-<p>Safe Mode never allows managed code to run from your project, or its packages. This means your own scripts such as <a href="ExtendingTheEditor.html">Editor scripts</a>, <a href="../ScriptReference/AssetPostprocessor.html">asset post-processors</a>, and <a href="ScriptedImporters.html">scripted importers</a> do not run. Safe Mode also disables <a href="class-AssemblyDefinitionImporter.html#assembly-references">assembly overrides</a>, and the <a href="com.unity.burst.html">Burst</a> and <a href="roslyn-analyzers.html">Roslyn</a> Analysers. This ensures the Editor in Safe Mode is always fully functional and reliable, even when it opens a project in a very broken state.</p>
+<p>安全模式绝不允许托管代码从项目或其包中运行。这意味着自己的脚本（例如<a href="ExtendingTheEditor.html">编辑器脚本</a>、<a href="../ScriptReference/AssetPostprocessor.html">资源后处理器</a>和<a href="ScriptedImporters.html">脚本化导入器</a>）不会运行。安全模式也会禁用<a href="class-AssemblyDefinitionImporter.html#assembly-references">程序集覆盖</a>以及 <a href="com.unity.burst.html">Burst</a> 和 <a href="roslyn-analyzers.html">Roslyn</a> 分析器。这可确保处于安全模式的编辑器始终功能齐全且可靠，即使它在损坏严重的状态下打开项目也是如此。</p>
 
-<p>Unity automatically exits Safe Mode when it detects there are no more compilation errors. When it exits Safe Mode, Unity imports your project in full, and the Editor restores its normal full functionality.</p>
+<p>当 Unity 检测到不再有编译错误时，它会自动退出安全模式。退出安全模式时，Unity 会完整导入项目，编辑器会恢复其正常的完整功能。</p>
 
-<h2>Common causes of compilation errors</h2>
+<h2>编译错误的常见原因</h2>
 
-<p>Some common scenarios that might result in you encountering compilation errors occur when you:</p>
+<p>执行以下操作时，会发生一些可能导致遇到编译错误的常见情况：</p>
 
 <ul>
-<li>Upgrade a project from an older version of Unity to a newer version.</li>
-<li>Open a project in a different version of Unity from the one it was created in.</li>
-<li>Open a project with a missing <a href="PackagesList.html">package</a>, or an incorrect version of a package.</li>
-<li>Open a project which has errors in your own scripts.</li>
-<li>Open a project under <a href="VersionControl.html">version control</a>, where the latest changes you pulled contained compilation errors.</li>
+<li>将项目从较旧版本的 Unity 升级到较新版本。</li>
+<li>在与创建项目时不同的 Unity 版本中打开项目。</li>
+<li>打开缺失<a href="PackagesList.html">包</a>或包的版本不正确的项目。</li>
+<li>在自己的脚本中打开有错误的项目。</li>
+<li>在提取的最新更改包含编译错误的情况下，在<a href="VersionControl.html">版本控制</a>下打开项目。</li>
 </ul>
 
-<p>Opening a project that has compilation errors without Safe Mode can cause many kinds of problems. For example, <a href="PackagesList.html">packages</a> in your project might not load or function properly, and your assets might be imported incorrectly, resulting in incorrect cached artifacts in your <a href="AssetWorkflow.html#processing">Library</a> or in your <a href="UnityAccelerator.html">Cache Server</a>. </p>
+<p>在没有安全模式的情况下打开存在编译错误的项目可能会导致许多类型的问题。例如，项目中的<a href="PackagesList.html">包</a>可能无法正确加载或运行，并且资源可能错误地导入，从而导致<a href="AssetWorkflow.html#processing">库</a>或<a href="UnityAccelerator.html">缓存服务器</a>中存在不正确的缓存工件。</p>
 
-<p>In these situations, you usually don’t want to wait for the rest of the project to import before you can resolve the errors. Safe Mode provides you with the tools to resolve these script-related problems yourself, or to use version control to update your project to a newer version that resolves the errors, without waiting for a full import of the project.</p>
+<p>在这些情况下，通常不想在解决错误之前等待项目的其余部分导入。安全模式提供了工具来自己解决这些脚本相关问题，或是使用版本控制将项目更新到解决了错误的较新版本，而无需等待项目完全导入。</p>
 
-<h2>Entering Safe Mode</h2>
+<h2>进入安全模式</h2>
 
-<p>When you open a project which has compilation errors, the Editor displays a dialog to ask whether you want to enter Safe Mode:</p>
+<p>打开存在编译错误的项目时，编辑器会显示一个对话框，询问是否要进入安全模式：</p>
 
 <figure>
-<img src="../uploads/Main/SafeModeDialog.png" alt="The Enter Safe Mode? dialog prompts you to enter Safe Mode when you open a project with compilation errors">
-<figcaption>The Enter Safe Mode? dialog prompts you to enter Safe Mode when you open a project with compilation errors</figcaption>
+<img src="../uploads/Main/SafeModeDialog.png" alt="打开存在编译错误的项目时，Enter Safe Mode? 对话框会提示进入安全模式">
+<figcaption>打开存在编译错误的项目时，Enter Safe Mode? 对话框会提示进入安全模式</figcaption>
 </figure>
 
-<p>At this point you have three choices:</p>
+<p>此时有三种选择：</p>
 
 <ul>
-<li><strong>Enter Safe Mode</strong></li>
 <li>
-<strong>Ignore</strong> the errors and open your project</li>
+<strong>Enter Safe Mode</strong>（进入安全模式）</li>
 <li>
-<strong>Quit</strong> Unity</li>
+<strong>Ignore</strong>（忽略）错误并打开项目</li>
+<li>
+<strong>Quit</strong>（退出）Unity</li>
 </ul>
 
-<p>In most cases, you should select <strong>Enter Safe Mode</strong> to resolve the errors in your project (or, if you’re working with version control, to pull changes which contain fixes to the errors). Safe Mode provides the best environment for resolving compilation errors, so that you can quickly return your project to a functional state before Unity imports the rest of your project.</p>
+<p>在大多数情况下，应该选择 <strong>Enter Safe Mode</strong> 以解决项目中的错误（或者，如果在使用版本控制，则提取包含错误修复的更改）。安全模式可为解决编译错误提供最佳环境，以便在 Unity 导入项目的其余部分之前，可以快速将项目恢复到可运行的状态。</p>
 
-<p>However, there are some cases where you might not want to enter Safe Mode, in which case you can <strong>Quit</strong> Unity, or <strong>Ignore</strong> the errors.</p>
+<p>但是，在某些情况下可能不想进入安全模式，在这种情况下可以 <strong>Quit</strong> Unity，或 <strong>Ignore</strong> 错误。</p>
 
-<p><strong>Note</strong>: <em>You can disable this dialog in <strong><em><em>Edit &gt; Preferences &gt; General &gt; Show Enter Safe Mode Dialog</em></em></strong>. If you disable the dialog, Unity automatically enters Safe Mode when it opens a project with compilation errors.</em></p>
+<p><strong>注意</strong>：<em>可以在 <strong><em><em>Edit &gt; Preferences &gt; General &gt; Show Enter Safe Mode Dialog</em></em></strong> 中禁用此对话框。如果禁用此对话框，则 Unity 在打开存在编译错误的项目时会自动进入安全模式。</em></p>
 
-<h3>Quitting without entering Safe Mode</h3>
+<h3>退出而不进入安全模式</h3>
 
-<p>Safe Mode is specifically designed for fixing compilation errors. If you are working on a Unity project as part of a team, but you are not responsible for the scripts that are causing errors, and don’t know what to do, you should select <strong>Quit </strong>in the dialog, and contact the programmers on your team for advice.</p>
+<p>安全模式专为修复编译错误而设计。如果作为团队的一部分在处理 Unity 项目，但是不对导致错误的脚本负责，并且不知道该怎么做，则应该在该对话框中选择 <strong>Quit</strong>，并联系团队中的程序员以寻求建议。</p>
 
 <p><a name="IgnoringErrors"></a></p>
 
-<h3>Ignoring the errors and continuing import</h3>
+<h3>忽略错误并继续导入</h3>
 
-<p>There are some situations where you don’t need the project to be in a usable state (for example, if you are opening an old project to copy some parts out, or to simply inspect how it is configured). In this case, you can ignore the errors and open your project in a broken state anyway.</p>
+<p>在某些情况下不需要项目处于可用状态（例如，如果打开旧项目以复制某些部分，或者只是检查其配置方式）。在这种情况下，可以忽略错误并仍然在损坏的状态下打开项目。</p>
 
-<p>If you select <strong>Ignore</strong>, and later want to open the project in Safe Mode, you can close and re-open Unity to access the “Enter Safe Mode” dialog again.</p>
+<p>如果选择 <strong>Ignore</strong>，并且以后要在安全模式下打开项目，则可以关闭并重新打开 Unity 以再次访问 “Enter Safe Mode” 对话框。</p>
 
-<h3>Implications of ignoring compilation errors</h3>
+<h3>忽略编译错误的影响</h3>
 
-<p>If you choose to ignore the errors, Unity continues to import the rest of your assets and opens your project fully. Potential implications here include:</p>
-
-<ul>
-<li><p>Your project might not be in a usable state. You might not be able to enter Play Mode, or create builds of your project, until the errors are resolved. In addition, any packages in your project might not load correctly, or at all.</p></li>
-<li><p>Unity might need to import your assets twice; once at launch, and again after you resolve the project’s compilation errors. This increases the amount of time it takes to load your project in a usable state.</p></li>
-<li><p>If your project uses a <a href="ScriptableRenderPipeline.html">Scriptable Render Pipeline</a>, your renderer might not load, resulting in visual problems such as the pink / magenta “Broken Shader” effect.</p></li>
-<li><p>Script compilation errors can cause secondary errors within your project. For example, if a <a href="ScriptedImporters.html">scripted importer</a> in your project is unable to load because of compilation errors, your assets might import in an incorrect state.</p></li>
-</ul>
-
-<p>Safe Mode is designed to help you avoid all of these problems.</p>
-
-<h2>The Editor in Safe Mode</h2>
-
-<p>In Safe Mode, Unity provides a minimal Editor interface with limited functions. </p>
-
-<figure>
-<img src="../uploads/Main/SafeModeEditor.png" alt="The Unity Editor in Safe Mode">
-<figcaption>The Unity Editor in Safe Mode</figcaption>
-</figure>
-
-<p>The Unity Editor displays a Safe Mode banner in the toolbar section at the top of the Editor, which replaces the standard Editor toolbar. The toolbar indicates that you are in Safe Mode, and provides an <strong>Exit Safe Mode</strong> button, which allows you to ignore the remaining errors and exit Safe Mode. The banner also indicates whether your project uses <a href="pack-preview.html">preview packages</a>.</p>
-
-<p>The Unity Editor retains its <a href="ScriptingToolsIDEs.html">integration with code editors</a> in Safe Mode, so you can double-click on script assets or <a href="Console.html">console error</a><a href="Console.html">s</a> to open their associated scripts, and you can open the C# project via the <strong>Assets</strong> menu. It also retains its integration with <a href="VersionControl.html">Version Control systems</a>. </p>
-
-<h3>The restricted set of windows in Safe Mode</h3>
-
-<p>The Editor displays a limited selection of windows in Safe Mode. These are:</p>
+<p>如果选择忽略错误，则 Unity 会继续导入其余资源并完整打开项目。此处的潜在影响包括：</p>
 
 <ul>
-<li>The Console window</li>
-<li>The Project window</li>
-<li>The Inspector window</li>
-<li>The Package Manager window</li>
+<li><p>项目可能未处于可用状态。在错误解决之前，可能无法进入运行模式或创建项目的编译版本。此外，项目中的任何包都可能无法正确加载，或者根本无法加载。</p></li>
+<li><p>Unity 可能需要导入资源两次；一次是在启动时，另一次是在解决项目的编译错误后。这会增加在可用状态下加载项目所需的时间量。</p></li>
+<li><p>如果项目使用<a href="ScriptableRenderPipeline.html">可编程渲染管线</a>，则渲染器可能无法加载，从而导致视觉效果问题，如粉红色/洋红色“损坏的着色器”效果。</p></li>
+<li><p>脚本编译错误可能会导致项目中出现次要错误。例如，如果项目中的<a href="ScriptedImporters.html">脚本化导入器</a>由于编译错误而无法加载，则资源可能在不正确的状态下导入。</p></li>
 </ul>
 
-<p>These are the only windows available because they relate to fixing compilation errors. No other windows are available in Safe Mode.</p>
+<p>安全模式旨在帮助避免所有这些问题。</p>
 
-<h3>The Editor Menu in Safe Mode</h3>
+<h2>安全模式下的编辑器</h2>
 
-<p>The options available in the Editor’s main menu are restricted to a limited set while in Safe Mode. You can only see and select the menu options which relate to working with scripts; the regular options for creating and working with other content are not available. For example, you cannot create or open Scenes, or create non-script assets such as primitive shapes, lights, or cameras. The <strong>GameObject</strong> and <strong>Component</strong> menus are not present, and the <strong>Window</strong> menu only offers a restricted set of windows.</p>
+<p>在安全模式下，Unity 提供功能有限的最小编辑器界面。</p>
 
 <figure>
-<img src="../uploads/Main/SafeModeLimitedMenu.png" alt="The restricted Editor Menu as it appears in Safe Mode, displaying the available options for creating assets.">
-<figcaption>The restricted Editor Menu as it appears in Safe Mode, displaying the available options for creating assets.</figcaption>
+<img src="../uploads/Main/SafeModeEditor.png" alt="安全模式下的 Unity 编辑器">
+<figcaption>安全模式下的 Unity 编辑器</figcaption>
 </figure>
 
-<h3>The Project window in Safe Mode</h3>
+<p>Unity 编辑器在编辑器顶部的工具栏部分显示一个安全模式横幅，它替代了标准编辑器工具栏。该工具栏指示处于安全模式，并提供 <strong>Exit Safe Mode</strong> 按钮，可用于忽略剩余错误并退出安全模式。该横幅还指示项目是否使用<a href="pack-preview.html">预览包</a>。</p>
 
-<p>In Safe Mode, the Project window has some functional differences compared with its normal behavior outside of Safe Mode.</p>
+<p>Unity 编辑器在安全模式下保留<a href="ScriptingToolsIDEs.html">与代码编辑器的集成</a>，因此可以双击脚本资源或<a href="Console.html">控制台错误</a><a href="Console.html"></a>以打开关联脚本，并且可以通过 <strong>Assets</strong> 菜单打开 C# 项目。它还保留了与<a href="VersionControl.html">版本控制系统</a>的集成。</p>
 
-<p>The primary difference is that you can only select compilation-related assets. Other asset types are not selectable. They remain visible as grayed-out entries in the Project window, but you cannot select or edit them.</p>
+<h3>安全模式下的有限窗口集</h3>
 
-<p>Specifically, the compilation-related asset types that you can interact with are:</p>
+<p>编辑器在安全模式下显示有限的窗口选择。它们如下：</p>
 
 <ul>
-<li>C# files (.cs)</li>
-<li>DLL files (.dll)</li>
-<li>Assembly definitions (.asm)</li>
-<li>Response files (.rsp)</li>
-<li>Ruleset files (.ruleset)</li>
+<li>Console 窗口
+*Project 窗口</li>
+<li>Inspector 窗口</li>
+<li>Package Manager 窗口</li>
 </ul>
 
-<p>In addition, the icons for the non-selectable assets do not show a preview of the content of the asset. Instead, they show a generic icon to represent the asset’s type. </p>
+<p>这些是唯一可用的窗口，因为它们与修复编译错误相关。在安全模式下没有其他窗口可用。</p>
+
+<h3>安全模式下的编辑器菜单</h3>
+
+<p>在安全模式下，编辑器主菜单中的可用选项仅限于一组有限的选项。只能查看和选择与处理脚本相关的菜单选项；用于创建和处理其他内容的常规选项不可用。例如，无法创建或打开场景，或是创建非脚本资源（例如原始形状、光线或摄像机）。<strong>GameObject</strong> 和 <strong>Component</strong> 菜单不存在，而 <strong>Window</strong> 菜单仅提供一组有限的窗口。</p>
 
 <figure>
-<img src="../uploads/Main/SafeModeProjectWindow.png" alt="The Project window displays generic icons for non-selectable assets.">
-<figcaption>The Project window displays generic icons for non-selectable assets.</figcaption>
+<img src="../uploads/Main/SafeModeLimitedMenu.png" alt="在安全模式下出现的有限编辑器菜单，其中显示用于创建资源的可用选项。">
+<figcaption>在安全模式下出现的有限编辑器菜单，其中显示用于创建资源的可用选项。</figcaption>
 </figure>
 
-<p>The <strong>create (+)</strong> menu button is disabled, and the Project window context menu has a reduced set of options available.</p>
+<h3>安全模式下的 Project 窗口</h3>
+
+<p>在安全模式下，Project 窗口与其在安全模式之外的正常行为相比有一些功能差异。</p>
+
+<p>主要区别在于只能选择与编译相关的资源。其他资源类型不可选择。它们在 Project 窗口中保持显示为灰色，但无法选择或编辑它们。</p>
+
+<p>具体来说，可以与之交互的编译相关资源类型有：</p>
+
+<ul>
+<li>C# 文件 (.cs)</li>
+<li>DLL 文件 (.dll)</li>
+<li>程序集定义 (.asm)</li>
+<li>响应文件 (.rsp)</li>
+<li>规则集文件 (.ruleset)</li>
+</ul>
+
+<p>此外，不可选择的资源的图标不会显示资源内容的预览。而是显示通用图标来表示资源的类型。</p>
 
 <figure>
-<img src="../uploads/Main/SafeModeCreateButton.png" alt="The create (+) menu button in the project window, disabled in Safe Mode">
-<figcaption>The <strong><em><em>create (+)</em></em></strong> menu button in the project window, disabled in Safe Mode</figcaption>
+<img src="../uploads/Main/SafeModeProjectWindow.png" alt="Project 窗口对不可选择的资源显示通用图标。">
+<figcaption>Project 窗口对不可选择的资源显示通用图标。</figcaption>
 </figure>
 
-<h2>Exiting Safe Mode</h2>
-
-<p>Unity automatically exits Safe Mode when you have resolved all the compilation errors. Unity then continues to open your project and import your assets.</p>
-
-<p>To exit Safe Mode while there are still compilation errors remaining, select the <strong>Exit Safe Mode</strong> button in the Safe Mode toolbar. This is not recommended (see <a href="SafeMode.html#IgnoringErrors">Implications of ignoring compilation errors</a>), and Unity prompts you with a dialog to confirm your decision. </p>
+<p><strong>创建 (+)</strong> 菜单按钮处于禁用状态，并且 Project 窗口上下文菜单中的可用选项集会减少。</p>
 
 <figure>
-<img src="../uploads/Main/SafeModeExitButton.png" alt="The Exit Safe Mode button in the Safe Mode toolbar">
-<figcaption>The <strong>Exit Safe Mode</strong> button in the Safe Mode toolbar</figcaption>
+<img src="../uploads/Main/SafeModeCreateButton.png" alt="项目窗口中的创建 (+) 菜单按钮在安全模式下处于禁用状态">
+<figcaption>项目窗口中的<strong><em><em>创建 (+)</em></em></strong> 菜单按钮在安全模式下处于禁用状态</figcaption>
 </figure>
 
-<p>If you exit Safe Mode while errors remain in your project, and later want to return to Safe Mode, you can close and re-open Unity to access the “Enter Safe Mode” dialog again.. </p>
+<h2>退出安全模式</h2>
 
-<h2>Safe Mode in Batch Mode</h2>
+<p>解决了所有编译错误后，Unity 会自动退出安全模式。Unity 随后会继续打开项目并导入资源。</p>
 
-<p>In Batch Mode, Unity automatically quits if there are compilation errors in your project, unless you use the <code>-ignoreCompilerErrors</code> <a href="CommandLineArguments.html">command line argument</a>. </p>
+<p>要在仍然剩余编译错误时退出安全模式，请选择安全模式工具栏中的 <strong>Exit Safe Mode</strong> 按钮。不推荐这样做（请参阅<a href="SafeMode.html#IgnoringErrors">忽略编译错误的影响</a>），Unity 会通过一个对话框提示确认决策。</p>
+
+<figure>
+<img src="../uploads/Main/SafeModeExitButton.png" alt="安全模式工具栏中的 Exit Safe Mode 按钮">
+<figcaption>安全模式工具栏中的 <strong>Exit Safe Mode</strong> 按钮</figcaption>
+</figure>
+
+<p>如果在项目中仍然存在错误时退出安全模式，并且以后要返回安全模式，则可以关闭并重新打开 Unity 以再次访问 “Enter Safe Mode” 对话框。</p>
+
+<h2>批处理模式下的安全模式</h2>
+
+<p>在批处理模式下，如果项目中存在编译错误，Unity 会自动退出，除非使用 <code>-ignoreCompilerErrors</code> <a href="CommandLineArguments.html">命令行参数</a>。</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="MultiSceneEditing.html"></a></span><div class="tip">多场景编辑</div>
@@ -360,7 +361,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

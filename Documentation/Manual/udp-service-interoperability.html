@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UnityServices.html">Unity 服务</a></li>
 <li><a href="udp.html">Unity 分发平台</a></li>
 <li>Using UDP with other services</li>
@@ -408,13 +408,13 @@
 
 <p>本节介绍如何让其他服务访问此信息，并提供了一个<a href="#example">示例</a>。</p>
 
-<h2>工作原理</h2>
+<h3>How does it work?</h3>
 
 <p>当游戏首次在玩家的设备上启动时，UDP 将创建 <code>udp.json</code> 文件并将其放入游戏的“持久数据路径”(Persistent Data Path) 中。此文件包含的字段 <code>udpStore</code> 会显示游戏是从哪个商店下载的。可获取该信息以按预期方式使用它。</p>
 
 <p><strong>注意：</strong>这不会在游戏清单中添加任何新的权限。</p>
 
-<h2>查找 udp.json</h2>
+<h3>Locating udp.json</h3>
 
 <p><code>udp.json</code> 文件保存在：</p>
 
@@ -444,7 +444,7 @@
 </li>
 </ul>
 
-<h2>读取 udp.json</h2>
+<h3>Reading udp.json</h3>
 
 <p><code>udp.json</code> 文件包含以下信息：</p>
 
@@ -463,7 +463,7 @@
 
 <p><a name="udp-values"></a></p>
 
-<h2>udpStore 值</h2>
+<h3>udpStore values</h3>
 
 <p>下表列出了 UDP 商店可能的 <code>udpStore</code> 值。</p>
 
@@ -496,16 +496,8 @@
 	<td style="text-align:left;">Apptutti</td>
 </tr>
 <tr>
-	<td style="text-align:left;">VIVEPORT</td>
-	<td style="text-align:left;">Htc</td>
-</tr>
-<tr>
 	<td style="text-align:left;">Mi GetApps (Xiaomi)</td>
 	<td style="text-align:left;">XiaomiStore</td>
-</tr>
-<tr>
-	<td style="text-align:left;">Mi Game Center (Xiaomi China)</td>
-	<td style="text-align:left;">XiaomiStoreCn</td>
 </tr>
 <tr>
 	<td style="text-align:left;">HUAWEI AppGallery</td>
@@ -540,7 +532,7 @@
 
 <p><a name="example"></a></p>
 
-<h2>将 udpStore 用于 Remote Config</h2>
+<h3>Using udpStore with Remote Config</h3>
 
 <p>使用 <a href="https://unity.com/remote-config">Unity Remote Config</a> 可以在不部署应用程序新版本的情况下优化游戏设置。当玩家启动游戏时，Remote Config 会检测用作规则条件的上下文属性（基于 Unity、应用程序、用户或你定义的自定义条件）。然后，相应服务会根据适用于每个玩家的规则为玩家返回自定义设置。</p>
 
@@ -672,7 +664,7 @@ foreach (var product in catalog.allValidProducts)
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

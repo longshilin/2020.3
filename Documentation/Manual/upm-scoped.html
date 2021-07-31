@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Scoped Registries - Unity 手册">
-<title>Scoped Registries - Unity 手册</title>
+<meta property="og:title" content="范围注册表 - Unity 手册">
+<title>范围注册表 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/class-PackageManager-scoped.png">
-<meta name="description" content="Scoped Registries allow Unity to communicate the location of any custom package registry server to the Package Manager so that the user has access to several collections of packages at the same time. Here are some important concepts to help you understand this feature:">
-<meta property="og:description" content="Scoped Registries allow Unity to communicate the location of any custom package registry server to the Package Manager so that the user has access to several collections of packages at the same time. Here are some important concepts to help you understand this feature:">
+<meta name="description" content="范围注册表允许 Unity 将任何自定义包注册表服务器的位置传达给 Package Manager，以便用户可以同时访问多个包集合。以下是一些重要概念，可帮助您理解此功能：">
+<meta property="og:description" content="范围注册表允许 Unity 将任何自定义包注册表服务器的位置传达给 Package Manager，以便用户可以同时访问多个包集合。以下是一些重要概念，可帮助您理解此功能：">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,24 +175,24 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="PackagesList.html">包</a></li>
 <li><a href="Packages.html">Unity 的 Package Manager</a></li>
-<li>Scoped Registries</li>
+<li>范围注册表</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="upm-assets.html"></a></span><div class="tip">访问包资源</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="upm-conflicts.html"></a></span><div class="tip">Resolution and conflict</div>
+<span class="next"><a href="upm-conflicts.html"></a></span><div class="tip">解析和冲突</div>
 </div>
 </div></div>
-<h1>Scoped Registries</h1>
+<h1>范围注册表</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>Scoped Registries allow Unity to communicate the location of any custom package registry server to the Package Manager so that the user has access to several collections of packages at the same time. Here are some important concepts to help you understand this feature:</p>
+<p>范围注册表允许 Unity 将任何自定义包注册表服务器的位置传达给 Package Manager，以便用户可以同时访问多个包集合。以下是一些重要概念，可帮助您理解此功能：</p>
 
 <table>
 <colgroup>
@@ -209,88 +209,76 @@
 
 <tbody>
 <tr>
-	<td style="text-align:left;"><strong>package registry server</strong></td>
-	<td style="text-align:left;">An application that keeps track of packages and provides a place to store them. In Unity’s Package Manager window, all packages registered on Unity’s registry appear in the <a href="upm-ui-list.html">list view</a> when you select the <a href="upm-ui-filter.html">Unity Registry</a> context.</td>
+	<td style="text-align:left;"><strong>包注册表服务器</strong></td>
+	<td style="text-align:left;">一个跟踪包并提供包存储位置的应用程序。在 Unity 的 Package Manager 窗口中，当您选择 <a href="upm-ui-filter.html">Unity Registry</a> 上下文时，所有在 Unity 注册表中注册的包都出现在<a href="upm-ui-list.html">列表视图</a>中。</td>
 </tr>
 <tr>
-	<td style="text-align:left;"><strong>package manager</strong></td>
-	<td style="text-align:left;">An application that tells the user what is available, and downloads and installs whatever package the user requests for their project. Unity has implemented its own version of a package manager, but there are several similar applications in other organizations.</td>
+	<td style="text-align:left;"><strong>Package Manager</strong></td>
+	<td style="text-align:left;">一个应用程序，它告诉用户哪些包是可用的，并下载和安装用户为其项目请求的任何包。Unity 已经实现了自己版本的 Package Manager，但在其他组织中也有几个类似的应用程序。</td>
 </tr>
 <tr>
-	<td style="text-align:left;"><strong>scope</strong></td>
-	<td style="text-align:left;">Defines a package name or namespace (in reverse domain format), such as <code>com.example.mycompany.animation</code> or <code>com.example</code>. When a user requests a package, the Package Manager fetches the package from the registry that best matches the scope. For more information, see <a href="#managing">Managing scoped registries for a project</a> below.</td>
+	<td style="text-align:left;"><strong>范围</strong></td>
+	<td style="text-align:left;">定义包名称或命名空间（以反向域格式），例如 <code>com.example.mycompany.animation</code> 或 <code>com.example</code>。当用户请求包时，Package Manager 从最匹配该范围的注册表中获取包。有关更多信息，请参阅下面的<a href="#managing">管理项目的范围注册表</a>。</td>
 </tr>
 </tbody>
 </table>
 
 <p><br> </p>
 
-<p>Package providers set up custom registry servers to host and distribute custom packages in addition to the <a href="upm-concepts.html#Registry">Unity registry</a>. Package consumers set up scoped registries for each project in order to access a custom package provider’s registry server. </p>
+<p>除了 <a href="upm-concepts.html#Registry">Unity 注册表</a>，包提供者还可以设置自定义注册表服务器来托管和分发自定义包。包使用者为每个项目设置范围注册表，以便访问自定义包提供者的注册表服务器。</p>
 
-<p>Scoped Registries can help to:</p>
+<p><strong>注意</strong>：作为包提供者，请确保您设置的任何包注册表服务器符合 Unity 的服务条款，特别是 <a href="https://unity3d.com/legal/terms-of-service/software/package-guidelines">Unity 包指导原则与指南</a>。Unity 提供对 Package Manager 的访问以促进知识和创作的共享，但不是作为第三方产品的市场。</p>
+
+<p>范围注册表可以帮助：</p>
 
 <ul>
 <li>
-<p><strong>Provide new functionality by distributing tools, libraries, and other assets</strong>.</p>
+<p><strong>通过分发工具、库和其他资源来提供新的功能</strong>。</p>
 
-<p>As a provider, you can create your own registry to distribute tools and scripts (or other types of assets) with version numbers that indicate how mature the package is, or whether updates introduce breaking API changes or minor fixes: <a href="upm-semver.html">Semantic Versioning</a>. And your code can depend on code in other packages because the Package Manager supports <a href="upm-dependencies.html">package dependencies</a>. </p>
+<p>作为提供者，您可以创建自己的注册表来分发工具和脚本（或其他类型的资源），版本号表明包的成熟度，或者更新是否引入了破坏性的 API 更改或次要修复：<a href="upm-semver.html">语义版本控制</a>。并且您的代码可以依赖于其他包中的代码，因为 Package Manager 支持<a href="upm-dependencies.html">包的依赖关系</a>。</p>
 
-<p>As a consumer, your experience of browsing and installing third-party custom packages in the Package Manager is the same as for Unity’s packages.</p>
+<p>作为使用者，您在 Package Manager 中浏览和安装第三方自定义包的体验与 Unity 包相同。</p>
 </li>
 <li>
-<p><strong>Extend existing Unity’s package features</strong>.</p>
+<p><strong>扩展现有 Unity 包的功能</strong>。</p>
 
-<p>As a consumer, you can have a seamless experience where the custom package overrides the Unity package without the having to manually switch registries or explicitly install a different package version. This is because you can map packages to a specific registry so that Package Manager fetches from either the Unity registry or a custom package registry server.</p>
+<p>作为使用者，您可以获得无缝体验，其中自定义包可覆盖 Unity 包，而无需手动切换注册表或显式安装不同的包版本。这是因为您可以将包映射到特定的注册表，以便 Package Manager 从 Unity 注册表或自定义包注册表服务器获取。</p>
 </li>
 <li>
-<p><strong>Access packages in a closed network environment</strong>.</p>
+<p><strong>在封闭网络环境中访问包</strong>。</p>
 
-<p>Some organizations work inside a closed network, which makes it difficult to access Unity’s own package registry. In these cases, the organization can set up their own package registry on a server inside their closed network. The network administrators can then periodically synchronize with Unity’s package registry to make sure the scoped registry has the latest set of packages available.</p>
+<p>一些组织在封闭的网络中工作，这使得访问 Unity 自己的包注册表变得困难。在这些情况下，组织可以在其封闭网络内的服务器上设置自己的包注册表。然后，网络管理员可以定期与 Unity 的包注册表同步，以确保范围注册表具有最新的可用包集合。</p>
 </li>
 </ul>
 
-<p>If you are a package consumer, see <a href="#managing">Managing scoped registries for a project</a> to find out how to connect to an existing custom package registry server in your Unity project. If you are a package producer, see <a href="cus-share.html">Sharing your package</a> to find out which package registry servers are supported and links to information on how to set them up to use with Scoped Registries.</p>
+<p>如果您是包裹使用者，请参阅<a href="#managing">管理项目的范围注册表</a>了解如何连接到 Unity 项目中现有的自定义包注册表服务器。如果您是包提供者，请参阅<a href="cus-share.html">分享您的包裹</a>了解受支持的包注册表服务器以及有关如何设置它们以与范围注册表一起使用的信息的链接。</p>
 
-<p><strong>Note:</strong> If you are setting up a scoped registry that points to a package registry server with restricted access, you can configure Package Manager to pass your npm authentication token to the server. For more information, see <a href="upm-config-scoped.html">Scoped registry authentication</a>.</p>
+<p><strong>注意：</strong>如果您正在设置范围注册表指向具有受限访问权限的包注册表服务器，您可以配置 Package Manager 将您的 npm 身份验证令牌传递给服务器。有关更多信息，请参阅<a href="upm-config-scoped.html">范围注册表身份认证</a>。</p>
 
-<h2>Importing scoped registries</h2>
+<h2>导入范围注册表</h2>
 
-<p>If you are working in a shared project, and another user adds a scoped registry to the project, Unity warns you that a new scoped registry has been added.</p>
+<p>如果您在一个共享项目中工作，并且另一个用户向该项目添加了一个范围注册表，Unity 会警告您已经添加了一个新的范围注册表。</p>
 
 <figure>
-<img src="../uploads/Main/class-PackageManager-scoped.png" alt="Unity warns you if there is a change to the list of scoped registries for your project">
-<figcaption>Unity warns you if there is a change to the list of scoped registries for your project</figcaption>
+<img src="../uploads/Main/class-PackageManager-scoped.png" alt="如果您的项目的范围注册表发生更改，Unity 会向您发出警告">
+<figcaption>如果您的项目的范围注册表发生更改，Unity 会向您发出警告</figcaption>
 </figure>
 
-<p>When you click the <strong>Close</strong> button, the <a href="class-PackageManager.html">Package Manager</a> project settings window appears so you can <a href="#scoped_add">add</a>, <a href="#scoped_modify">modify</a>, or <a href="#scoped_remove">remove</a> scoped registries for your project.</p>
+<p>当您单击 <strong>Close</strong> 按钮，将出现 <a href="class-PackageManager.html">Package Manager</a> 项目设置窗口，您可以<a href="#scoped_add">添加</a>、<a href="#scoped_modify">修改</a>或者<a href="#scoped_remove">移除</a>项目的范围注册表。</p>
 
-<p>If you click the <strong>Read more</strong> button instead, Unity opens this page in your default web browser.</p>
+<p>如果您单击 <strong>Read more</strong> 按钮，Unity 在您的默认 Web 浏览器中打开此页面。</p>
 
-<table>
-<colgroup>
-<col style="text-align:left;">
-</colgroup>
+<p><strong>Tip:</strong> To access the Package Manager project settings window at any time, use the main menu in Unity (menu: <strong>Edit &gt; Project Settings</strong>, then the <strong>Package Manager</strong> category) or select <strong>Advanced Project Settings</strong> from the <a href="upm-ui.html#Advanced">advanced settings</a> drop-down menu on the Package Manager window.</p>
 
-<thead>
-<tr>
-	<th style="text-align:left;"><strong>Tip:</strong></th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-	<td style="text-align:left;">To access the Package Manager project settings window at any time, use the main menu in Unity (menu: <strong>Edit &gt; Project Settings</strong>, then the <strong>Package Manager</strong> category) or select <strong>Advanced Project Settings</strong> from the <a href="upm-ui.html#Advanced">advanced settings</a> drop-down menu on the Package Manager window.</td>
-</tr>
-</tbody>
-</table>
+<p><br> </p>
 
 <p><a name="managing"></a></p>
 
-<h2>Managing scoped registries for a project</h2>
+<h2>管理项目的范围注册表</h2>
 
-<p>To manage the scoped package registries in your project, you can either edit your <a href="upm-manifestPrj.html">project manifest</a> file directly or use the <a href="class-PackageManager.html">Package Manager</a> project settings window to let Unity modify the manifest for you.</p>
+<p>要管理项目中的包范围注册表，您可以直接编辑<a href="upm-manifestPrj.html">项目清单</a>文件，或者使用 <a href="class-PackageManager.html">Package Manager</a> 的项目设置窗口让 Unity 为您修改清单。</p>
 
-<p>The project manifest uses a <a href="upm-manifestPrj.html#scopedRegistries">scopedRegistries</a> property, which contains an array of scoped registry configuration objects. Each object contains the following properties:</p>
+<p>项目清单使用一个 <a href="upm-manifestPrj.html#scopedRegistries">scopedRegistries</a> 属性，其中包含一个范围注册表配置对象数组。每个对象都包含以下属性：</p>
 
 <table>
 <colgroup>
@@ -313,29 +301,28 @@
 <a name="name"></a><strong>name</strong>
 </td>
 	<td style="text-align:left;">String</td>
-	<td style="text-align:left;">The scope name as it appears in the user interface. The Package Manager window displays this name in the <a href="upm-ui-details.html">package details view</a>. <br><br>For example, <code>"name": "Tools"</code>.</td>
+	<td style="text-align:left;">范围名称，在用户界面中显示。Package Manager 窗口在<a href="upm-ui-details.html">包详细信息视图</a>中显示此名称。<br><br>例如 <code>"name": "Tools"</code>。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">
 <a name="url"></a><strong>url</strong>
 </td>
 	<td style="text-align:left;">String</td>
-	<td style="text-align:left;">The URL to the npm-compatible registry server. <br><br>For example, <code>"url": "https://mycompany.example.com/tools-registry"</code>
-</td>
+	<td style="text-align:left;">与 npm 兼容的注册表服务器的 URL。<br><br>例如：<code>"url": "https://mycompany.example.com/tools-registry"</code><br><br><strong>注意</strong>：并非所有注册表提供程序都与 Unity 的 Package Manager 兼容。确保您要添加的包注册表服务器实现 <code>/-/v1/search</code> 或 <code>/-/all</code> 终端。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">
 <a name="scopes"></a><strong>scopes</strong>
 </td>
 	<td style="text-align:left;">字符串数组</td>
-	<td style="text-align:left;">Array of scopes that you can map to a package name, either as an exact match on the package name, or as a namespace. Wildcards and other glob patterns are not supported.<br><br>For example, <code>"scopes": [ "com.example", "com.example.tools.physics" ]</code> <br><br><strong>Note</strong>: This type of configuration assumes that packages follow the <a href="https://en.wikipedia.org/wiki/Reverse_domain_name_notation">Reverse domain name notation</a>. This ensures that <code>com.unity</code> is equivalent to any package name that matches the <code>com.unity</code> namespace, such as <code>com.unity.timeline</code> or <code>com.unity.2d.animation</code>.<br><br><strong>Warning:</strong> Unity does not support npm’s scope notation.</td>
+	<td style="text-align:left;">可映射到包名称的范围数组（可与包名称完全匹配，也可以是命名空间）。不支持通配符和其他 glob 模式。<br><br>例如 <code>"scopes": [ "com.example", "com.example.tools.physics" ]</code> <br><br><strong>注意</strong>：该类型的配置假设包遵循<a href="https://en.wikipedia.org/wiki/Reverse_domain_name_notation">反向域名表示法</a>。这确保了 <code>com.unity</code> 等价于任何与 <code>com.unity</code> 命名空间匹配的包名，例如 <code>com.unity.timeline</code> 或 <code>com.unity.2d.animation</code>。<br><br><strong>警告：</strong> Unity 不支持 npm 的范围表示法。</td>
 </tr>
 </tbody>
 </table>
 
-<p>When the Package Manager decides which registry to fetch a package from, it compares the package <strong>name</strong> to the <strong>scopes</strong> values and finds the registry whose <strong>scopes</strong> most closely match.</p>
+<p>Package Manager 决定从哪个注册表获取包时，会将包 <strong>name</strong> 的值与 <strong>scopes</strong> 的值进行比较，并找到 <strong>scopes</strong> 最匹配的注册表。</p>
 
-<p>For example, in the project manifest below, there are two scoped registries, “General” and “Tools”:</p>
+<p>例如，在以下项目清单中，有两个范围注册表（“General” 和 “Tools”）：</p>
 
 <pre><code class="lang-json">{
     "scopedRegistries": [
@@ -364,13 +351,13 @@
 
 </code></pre>
 
-<p>When the Package Manager looks up the <code>com.example.animation</code> package, it finds that the <code>com.example</code> namespace is the closest match to its name, and therefore fetches the package from the “General” registry.</p>
+<p>当 Package Manager 查找 <code>com.example.animation</code> 包时，发现 <code>com.example</code> 命名空间与其名称最匹配，因此从 “General” 注册表获取包。</p>
 
-<p>When the Package Manager looks up the <code>com.example.tools.physics</code> package, the “Tools” registry has a scope that exactly matches the package name.</p>
+<p>当 Package Manager 查找<code>com.example.tools.physics</code> 包时，“General” 注册表具有与包名称完全匹配的范围。</p>
 
-<p>When the Package Manager looks up the <code>com.example.mycompany.tools.animation</code> package, the Package Manager finds that the <code>com.example.mycompany.tools</code> namespace is the closest match to its name and therefore fetches the package from the “Tools” registry. Even though it also matches the “General” scope, the <code>com.example</code> namespace is not as close a match.</p>
+<p>当 Package Manager 查找 <code>com.example.mycompany.tools.animation</code> 包时，发现 <code>com.example.mycompany.tools</code> 命名空间与其名称最匹配，因此从 “Tools” 注册表获取包。虽然它也与 “General” 范围匹配，但 <code>com.example</code> 命名空间的匹配度不够精确。</p>
 
-<p>When the Package Manager looks up the <code>com.unity.animation</code> package, the Package Manager doesn’t find a match in any of the scoped registries, and therefore fetches the package from the default registry.</p>
+<p>当 Package Manager 查找 <code>com.unity.animation</code> 包时，在任何范围注册表中都找不到匹配项，因此从默认注册表获取该包。</p>
 
 <p><br> </p>
 <div class="nextprev clear">
@@ -378,13 +365,13 @@
 <span class="prev"><a href="upm-assets.html"></a></span><div class="tip">访问包资源</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="upm-conflicts.html"></a></span><div class="tip">Resolution and conflict</div>
+<span class="next"><a href="upm-conflicts.html"></a></span><div class="tip">解析和冲突</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

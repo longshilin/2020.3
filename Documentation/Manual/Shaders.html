@@ -11,10 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="网格、材质、着色器和纹理 - Unity 手册">
-<title>网格、材质、着色器和纹理 - Unity 手册</title>
-<meta name="description" content="Unity 中的渲染采用网格、材质、着色器和纹理。它们有着密切的关系。">
-<meta property="og:description" content="Unity 中的渲染采用网格、材质、着色器和纹理。它们有着密切的关系。">
+<meta property="og:title" content="着色器 - Unity 手册">
+<title>着色器 - Unity 手册</title>
+<meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/shaders-example.png">
+<meta name="description" content="This section contains information on working with shaders in Unity.">
+<meta property="og:description" content="This section contains information on working with shaders in Unity.">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,58 +175,87 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li>网格、材质、着色器和纹理</li>
+<li>着色器</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="GIVis.html"></a></span><div class="tip">Scene 视图光照绘制模式</div>
+<span class="prev"><a href="class-CubemapArray.html"></a></span><div class="tip">立方体贴图数组</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="comp-MeshGroup.html"></a></span><div class="tip">网格组件</div>
+<span class="next"><a href="ShadersOverview.html"></a></span><div class="tip">Shaders core concepts</div>
 </div>
 </div></div>
-<h1>网格、材质、着色器和纹理</h1>
+<h1>着色器</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>Unity 中的渲染采用<strong>网格</strong>、<strong>材质</strong>、<strong>着色器</strong>和<strong>纹理</strong>。它们有着密切的关系。</p>
+<p>This section contains information on working with shaders in Unity.</p>
+
+<figure>
+<img src="../uploads/Main/shaders-example.png" alt="使用 Unity 的 Shader Graph 工具创建的着色器。 ">
+<figcaption>使用 Unity 的 Shader Graph 工具创建的着色器。
+</figcaption>
+</figure>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>页面</strong></th>
+	<th style="text-align:left;"><strong>描述</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><a href="ShadersOverview.html">Shaders core concepts</a></td>
+	<td style="text-align:left;">The fundamentals of understanding and working with shaders in Unity.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="shader-built-in.html">Built-in shaders</a></td>
+	<td style="text-align:left;">How to use the prebuilt shaders that ship with Unity.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="shader-graph.html">Using Shader Graph</a></td>
+	<td style="text-align:left;">How to use Shader Graph, a tool that lets you create shaders without writing code.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="shader-writing.html">Writing shaders</a></td>
+	<td style="text-align:left;">How to create shaders by writing code.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="shader-performance-debugging.html">Shader performance and profiling</a></td>
+	<td style="text-align:left;">How to debug and analyse the performance of your shaders at runtime.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>更多资源</h2>
 
 <ul>
-<li><p><strong>网格</strong>是 Unity 的主要图形基元。网格定义了对象的形状。</p></li>
-<li><p><strong>材质</strong>通过包含对所用纹理的引用、平铺信息、颜色色调等来定义表面应使用的渲染方式。材质的可用选项取决于材质使用的着色器。</p></li>
-<li><p><strong>着色器</strong>是一些包含数学计算和算法的小脚本，根据光照输入和材质配置来计算每个像素渲染的颜色。</p></li>
-<li><p><strong>纹理</strong>是位图图像。材质可包含对纹理的引用，因此材质的着色器可在计算游戏对象的表面颜色时使用纹理。除了游戏对象表面的基本颜色（反照率）之外，纹理还可表示材质表面的许多其他方面，例如其反射率或粗糙度。</p></li>
+<li><a href="https://blogs.unity3d.com/tag/shader/">带有 “shader” 标签的 Unity 博客文章</a></li>
+<li><a href="https://learn.unity.com/tutorials/?k=%5B%22lang%3Aen%22%2C%22tag%3A5d351f0c7fbf7d006af48184%22%5D&amp;ob=recency">有关材质和着色器的 Unity Learn 教程</a></li>
+<li><a href="https://forum.unity.com/forums/shaders.16/">Unity 着色器论坛</a></li>
+<li><a href="https://forum.unity.com/forums/shader-graph.346/">Unity Shader Graph 论坛</a></li>
 </ul>
-
-<p>材质指定了要使用的一种特定着色器，而使用的着色器确定材质中可用的选项。着色器指定期望使用的一个或多个纹理变量，而 Unity 中的材质检视面板 (Material Inspector) 允许您将自己的纹理资源分配给这些纹理变量。</p>
-
-<p>对于大多数正常渲染（例如渲染角色、景物、环境、实体和透明游戏对象、硬表面和软表面），<a href="shader-StandardShader.html">标准着色器</a>通常是最佳选择。这是一种高度可定制的着色器，能够以高度逼真的方式渲染多种类型的表面。</p>
-
-<p>在其他情况下，可能适合采用另外的内置着色器，甚至自己编写的着色器（例如液体、树叶、折射玻璃、粒子效果、卡通、演示性效果或其他艺术效果或者其他特殊效果，如夜视、热视或 X 射线透视）。</p>
-
-<p>有关更多信息，请参阅以下页面：</p>
-
-<ul>
-<li><a href="Materials.html">创建和使用材质</a></li>
-<li><a href="shader-StandardShader.html">内置标准着色器</a></li>
-<li><a href="Built-inShaderGuide.html">其他内置着色器</a></li>
-<li><a href="ShadersOverview.html">编写您自己的着色器</a></li>
-</ul>
-<!-- area:graphics -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="GIVis.html"></a></span><div class="tip">Scene 视图光照绘制模式</div>
+<span class="prev"><a href="class-CubemapArray.html"></a></span><div class="tip">立方体贴图数组</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="comp-MeshGroup.html"></a></span><div class="tip">网格组件</div>
+<span class="next"><a href="ShadersOverview.html"></a></span><div class="tip">Shaders core concepts</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

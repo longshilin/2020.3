@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UNet.html">多玩家和联网</a></li>
 <li><a href="UNetReference.html">Multiplayer 组件参考</a></li>
 <li>Network Lobby Manager</li>
@@ -206,7 +206,7 @@
 <tbody>
 <tr>
 	<td style="text-align:left;">
-<strong>Note</strong>: UNet is deprecated, and will be removed from Unity in the future. A new system is under development. For more information and next steps see this <a href="https://blogs.unity3d.com/2020/12/03/accelerating-unitys-new-gameobjects-multiplayer-networking-framework/">blog post</a>.</td>
+<strong>重要</strong>：UNet 是一个已弃用的解决方案，新的多玩家和联网解决方案 (MLAPI) 正在开发中。有关更多信息和后续步骤，请参阅 <a href="https://docs-multiplayer.unity3d.com/">Unity MLAPI 网站</a>上的信息。</td>
 </tr>
 </tbody>
 </table>
@@ -328,14 +328,14 @@
 |<strong>Server Bind Address</strong>|只有在勾选了 Server Bind To IP 复选框时，此字段才可见。使用此字段可输入服务器应该绑定到的特定 IP 地址。|
 |<strong>Script CRC Check</strong>|启用此属性后，Unity 将检查客户端和服务器是否使用匹配的脚本。此属性可用于确保客户端的过时版本无法连接到服务器的最新（更新）版本。默认情况下会勾选此复选框。具体原理是在服务器与客户端之间执行 <a href="https://en.wikipedia.org/wiki/Cyclic_redundancy_check">CRC 校验</a>，从而确保 NetworkBehaviour 脚本匹配。这可能不适合某些情况，例如，当您故意对客户端和服务器使用不同的 Unity 项目时。但是，在大多数其他情况下，此属性应该保持启用。|
 |<strong>Max Delay</strong>|延迟缓冲消息的最长时间（以秒为单位）。默认为 0.01 秒，这意味着数据包最多将延迟 10 毫秒。将此属性设置为零将禁用 HLAPI 连接缓冲功能。默认情况下，该值设置为 0.01。|
-|<strong>Max Buffered Packets</strong>|The maximum number of packets that a <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.NetworkConnection.html">NetworkConnection</a> can buffer for each channel. This corresponds to the <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.ChannelOption.html">ChannelOption.MaxPendingBuffers</a> channel option. This is set to 16 by default.|
+|<strong>Max Buffered Packets</strong>|<a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.NetworkConnection.html">NetworkConnection</a> 可为每个通道缓冲的最大数据包数量。这对应于 <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.ChannelOption.html">ChannelOption.MaxPendingBuffers</a> 通道选项。默认情况下，该值设置为 16。|
 |<strong>Packet Fragmentation</strong>|这允许 <code>NetworkConnection</code> 实例分割大于 <code>maxPacketSize</code> 的数据包，最大为 64K。这可能导致在发送大数据包时出现延迟。默认情况下会勾选此复选框。 |
 |<strong>MatchMaker Host URI</strong>|MatchMaker 服务器的主机地址。默认情况下，指向位于 mm.unet.unity3d.com 的全球 Unity Multiplayer 服务，通常您不需要更改此设置。Unity 会自动将游戏玩家分组到全球各地的区域服务器中，这确保了在多人游戏中同一地区的玩家之间实现快速响应。例如，这意味着来自欧洲、美国和亚洲的玩家通常最终会与来自同一区域的其他玩家一起玩游戏。可以覆盖此值来显式控制游戏连接到的区域服务器。如果想让玩家选择加入所在区域之外的服务器，可以通过编写脚本来实现。例如，如果美国的“玩家 A”想要连接到由欧洲“玩家 B”通过 Matchmaker 创建的比赛，他们需要能够在游戏中设置所需的区域。因此，需要编写一个 UI 功能，允许玩家选择此设置。要了解更多信息和区域服务器 URI，请参阅有关 <a href="../ScriptReference/Networking.Match.NetworkMatch-baseUri.html">NetworkMatch.baseUri</a> 的 API 参考文档。|
 |<strong>MatchMaker Port</strong>|Matchmaker 服务器的主机端口。默认指向端口 443，通常不需要更改此设置。|
 |<strong>Match Name</strong>|定义当前比赛的名称。默认设置为“default”。|
 |<strong>Maximum Match Size</strong>|定义当前比赛中的最大玩家数量。默认情况下，该值设置为 4。|
 |<strong>SpawnInfo</strong>|可以展开 Inspector 的此部分来访问与生成相关的设置，如下所示|
-|<strong>Player Prefab</strong>|Define the default prefab Unity should use to create player GameObjects on the server. Unity creates Player GameObjects in the default handler for <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.MsgType.html">AddPlayer</a> on the server. Implement (OnServerAddPlayer)[https://docs.unity3d.com/ScriptReference/Networking.NetworkManager.OnServerAddPlayer.html] to override this behaviour.|
+|<strong>Player Prefab</strong>|定义 Unity 在服务器上创建玩家游戏对象时应该使用的默认预制件。Unity 将在服务器上 <a href="https://docs.unity3d.com/Packages/com.unity.multiplayer-hlapi@1.0/api/UnityEngine.Networking.MsgType.html">AddPlayer</a> 的默认处理程序中创建玩家游戏对象。实现 (OnServerAddPlayer)[https://docs.unity3d.com/ScriptReference/Networking.NetworkManager.OnServerAddPlayer.html] 可覆盖这种行为。|
 |<strong>Auto Create Player</strong>|如果希望在连接时以及在场景改变时 Unity 自动创建玩家游戏对象，请勾选此复选框。默认情况下会勾选此复选框。注意，如果使用的是 MigrationManager，并且不启用 Auto Create Player，则需要在客户端重新连接时调用 <a href="../ScriptReference/Networking.ClientScene.SendReconnectMessage.html">ClientScene.SendReconnectMessage</a>。|
 |<strong>Player Spawn Method</strong>|定义 Unity 应该如何决定生成新玩家游戏对象的位置。默认设置为 Random。|
 |    Random|选择 Random 可根据随机选择的 startPositions 生成玩家。|
@@ -371,7 +371,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

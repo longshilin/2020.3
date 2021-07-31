@@ -14,8 +14,8 @@
 <meta property="og:title" content="Unity Accelerator - Unity 手册">
 <title>Unity Accelerator - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/AcceleratorOverview.png">
-<meta name="description" content="The Unity Accelerator is a caching proxy agent that keeps copies of a team&amp;#8217;s imported assets to speed up teamwork. The goal of the accelerator is to help teams reduce iteration time. An Accelerator coordinates asset sharing when your team is working on the same local network so that you don’t need to reimport portions of your project. This is done via the Asset Import Pipeline v2 Unity Editor capabilities. Optionally, Accelerator can also be used with Unity Teams Advanced to share Collaborate source assets, which significantly reduces download time from the Collaborate service.">
-<meta property="og:description" content="The Unity Accelerator is a caching proxy agent that keeps copies of a team&amp;#8217;s imported assets to speed up teamwork. The goal of the accelerator is to help teams reduce iteration time. An Accelerator coordinates asset sharing when your team is working on the same local network so that you don’t need to reimport portions of your project. This is done via the Asset Import Pipeline v2 Unity Editor capabilities. Optionally, Accelerator can also be used with Unity Teams Advanced to share Collaborate source assets, which significantly reduces download time from the Collaborate service.">
+<meta name="description" content="Unity 加速器是一个缓存代理程序，可保留团队所导入资源的副本以加快团队合作。加速器的目标是帮助团队减少迭代时间。团队在同一本地网络中工作时，加速器会协调资源共享，因此无需重新导入项目的某些部分。这通过资源导入管线 v2 Unity 编辑器功能来完成。或者，加速器也可以与 Unity Teams Advanced 一起使用以共享 Collaborate 源资源，这样可显著减少从 Collaborate 服务进行下载的时间。">
+<meta property="og:description" content="Unity 加速器是一个缓存代理程序，可保留团队所导入资源的副本以加快团队合作。加速器的目标是帮助团队减少迭代时间。团队在同一本地网络中工作时，加速器会协调资源共享，因此无需重新导入项目的某些部分。这通过资源导入管线 v2 Unity 编辑器功能来完成。或者，加速器也可以与 Unity Teams Advanced 一起使用以共享 Collaborate 源资源，这样可显著减少从 Collaborate 服务进行下载的时间。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UnityServices.html">Unity 服务</a></li>
 <li><a href="UnityCollaborate.html">Unity Collaborate</a></li>
 <li>Unity Accelerator</li>
@@ -194,46 +194,46 @@
 
 <h2>概述</h2>
 
-<p>The Unity Accelerator is a caching proxy agent that keeps copies of a team’s imported assets to speed up teamwork. The goal of the accelerator is to help teams reduce iteration time. An Accelerator coordinates asset sharing when your team is working on the same local network so that you don’t need to reimport portions of your project. This is done via the <a href="AssetDatabase.html">Asset Import Pipeline</a> v2 Unity Editor capabilities. Optionally, Accelerator can also be used with <a href="https://unity3d.com/teams">Unity Teams</a> Advanced to share Collaborate source assets, which significantly reduces download time from the <a href="https://unity3d.com/unity/features/collaborate">Collaborate</a> service.</p>
+<p>Unity 加速器是一个缓存代理程序，可保留团队所导入资源的副本以加快团队合作。加速器的目标是帮助团队减少迭代时间。团队在同一本地网络中工作时，加速器会协调资源共享，因此无需重新导入项目的某些部分。这通过<a href="AssetDatabase.html">资源导入管线</a> v2 Unity 编辑器功能来完成。或者，加速器也可以与 <a href="https://unity3d.com/teams">Unity Teams</a> Advanced 一起使用以共享 Collaborate 源资源，这样可显著减少从 <a href="https://unity3d.com/unity/features/collaborate">Collaborate</a> 服务进行下载的时间。</p>
 
-<p>When you install an Accelerator on your local network, the Unity Editor (version 2019.3 or higher; see Unity Editor <a href="#reqs">requirements</a> below) communicates with it to store and retrieve assets that other team members need, have changed, or built. The Accelerator keeps temporary copies of these assets to avoid wasting time and bandwidth retrieving or reimporting them.</p>
+<p>在本地网络中安装加速器后，Unity 编辑器（2019.3 版本或更高版本；请参阅下文的 Unity 编辑器<a href="#reqs">要求</a>）与加速器进行通信以存储和获取其他团队成员需要、已更改或构建的资源。加速器会保留这些资源的临时副本以避免浪费时间和带宽来获取或重建导入资源。</p>
 
 <figure>
-<img src="../uploads/Main/AcceleratorOverview.png" alt="Accelerator overview">
-<figcaption>Accelerator overview</figcaption>
+<img src="../uploads/Main/AcceleratorOverview.png" alt="加速器概述">
+<figcaption>加速器概述</figcaption>
 </figure>
 
 <h3>内容</h3>
 
 <ul>
 <li>
-<a href="#install">Installing an Accelerator</a>
+<a href="#install">安装加速器</a>
 
 <ul>
-<li><a href="#reqs">Requirements</a></li>
-<li><a href="#installer">Installing an Accelerator via the Installer</a></li>
-<li><a href="#docker">Installing an Accelerator via Docker Hub</a></li>
-<li><a href="#UsingWithTeams">Accelerator with Unity Teams Advanced</a></li>
+<li><a href="#reqs">要求</a></li>
+<li><a href="#installer">通过安装程序安装加速器</a></li>
+<li><a href="#docker">通过 Docker Hub 安装加速器</a></li>
+<li><a href="#UsingWithTeams">加速器与 Unity Teams Advanced</a></li>
 </ul>
 </li>
 <li>
 <a href="#Monitoring">监测 Accelerator</a>
 
 <ul>
-<li><a href="#admin">Local Administrator Dashboard</a></li>
-<li><a href="#developer">Developer Dashboard (Teams Advanced Only)</a></li>
-<li><a href="#metrics">Accessing Accelerator metrics directly</a></li>
+<li><a href="#admin">本地管理员面板</a></li>
+<li><a href="#developer">开发者控制面板（仅限 Teams Advanced）</a></li>
+<li><a href="#metrics">直接访问加速器指标</a></li>
 </ul>
 </li>
 <li><a href="#Service">停止并重新启动 Accelerator 服务</a></li>
-<li><a href="#command">Command Line Tools</a></li>
-<li><a href="#mirror">Mirroring Multiple Accelerators</a></li>
+<li><a href="#command">命令行工具</a></li>
+<li><a href="#mirror">镜像多个加速器</a></li>
 <li><a href="#Troubleshooting">故障排除</a></li>
 </ul>
 
 <p><a name="install"></a> </p>
 
-<h2>Installing an Accelerator</h2>
+<h2>安装加速器</h2>
 
 <p><a name="reqs"></a></p>
 
@@ -253,34 +253,31 @@
 <li>Mac OS X 10.12 或更高版本（64 位）</li>
 </ul>
 </li>
-<li>The local host must have sufficient local storage space to host most of your project’s files, preferably on a solid-state drive separate from the drive that hosts your operating system.</li>
-<li>The local host should have as much memory as is reasonably affordable. The minimum should be 2GB of RAM, but if more memory is available it will be used by the operating system to buffer cached items, resulting in higher performance for commonly accessed items. Usual recommendation is 32GB of RAM.</li>
+<li>本地主机必须具有足够的本地存储空间来托管项目的大多数文件（最好在未托管操作系统的固态驱动器上）。</li>
+<li>本地主机应具有可合理负担成本的内存量。最少应是 2GB 的 RAM，但如果有更多内存可用，操作系统会使用它缓冲缓存项，从而提高经常访问的项的性能。通常建议使用 32GB 的 RAM。</li>
 <li>本地主机必须与您的团队连接到同一网络，或者必须采用允许访问 Accelerator IP 地址和端口 (TCP) 的相应防火墙策略在本地进行路由。</li>
-<li>Anyone with access to the host machine has access to your project’s files, regardless of permission structures within your Unity Organization. As such, Unity recommends restricting that machine so that only an <a href="OrgsManagingyourOrganization.html">Organization Owner or Manager</a> can access and interact with the Accelerator.</li>
+<li>有权访问主机的任何人都可以访问您项目的文件，而不管您 Unity 组织内的权限结构如何。因此，Unity 建议对该计算机进行限制，以便只有<a href="OrgsManagingyourOrganization.html">组织所有者或管理员</a>才能访问 Accelerator 并与之交互。</li>
 </ul>
 
 <h4>Unity Editor 要求</h4>
 
-<p>Your Unity project must use version 2019.3 or higher of the Unity Engine.</p>
+<p>Unity 项目必须使用 2019.3 版本或更高版本的 Unity 引擎。</p>
 
 <p><a name="installer"></a></p>
 
-<h3>Installing an Accelerator via the Installer</h3>
+<h3>通过安装程序安装加速器</h3>
 
 <p>如果您没有 Unity Teams Advanced，可以直接下载并安装 Unity Accelerator，并在安装过程中取消选中注册令牌：</p>
 
 <ul>
-<li>Download for <a href="https://accelerator.cloud.unity3d.com/api/v1/accelerator/download/installer?target_os=windows&amp;download_location=manual">Windows</a>
-</li>
-<li>Download for <a href="https://accelerator.cloud.unity3d.com/api/v1/accelerator/download/installer?target_os=darwin&amp;download_location=manual">Mac OS X</a>
-</li>
-<li>Download for <a href="https://accelerator.cloud.unity3d.com/api/v1/accelerator/download/installer?target_os=linux&amp;download_location=manual">Linux</a>
-</li>
+<li>下载 <a href="https://accelerator.cloud.unity3d.com/api/v1/accelerator/download/installer?target_os=windows&amp;download_location=manual">Windows</a> 版</li>
+<li>下载 <a href="https://accelerator.cloud.unity3d.com/api/v1/accelerator/download/installer?target_os=darwin&amp;download_location=manual">Mac OS X</a> 版</li>
+<li>下载 <a href="https://accelerator.cloud.unity3d.com/api/v1/accelerator/download/installer?target_os=linux&amp;download_location=manual">Linux</a> 版</li>
 </ul>
 
 <p><strong>注意</strong>：如果将 Accelerator 安装在 Linux 系统上，请参阅<a href="#verify">验证 Accelerator 版本</a>。</p>
 
-<p>You can also install the accelerator via <a href="#docker">Docker Hub</a>.</p>
+<p>还可以通过 <a href="#docker">Docker Hub</a> 安装加速器。</p>
 
 <h4>在“无头”计算机中安装 Accelerator</h4>
 
@@ -291,8 +288,8 @@
 <code>--storagedir</code> 设置 Accelerator 的目录以存储文件和配置。</li>
 <li>
 <code>--registration-token</code> 指定创建 Accelerator 后在<a href="https://developer.cloud.unity3d.com/projects/">开发者控制面板</a>中提供的令牌。这是将 Accelerator 与 Collaborate 配合使用的必需条件。</li>
-<li>Use <code>--mode</code> unattended for automated installations that should not query anything. This uses default values, or values from other option flags provided.</li>
-<li>On Mac OS X, you need to mount the disk image (DMG) and run the binary located in the installer app’s directory (located at <code>Contents/MacOS/installbuilder.sh</code>).</li>
+<li>使用 <code>--mode</code> unattended 来进行自动化安装，此类型的安装不应进行任何查询。这将使用默认值或提供的其他选项标志的值。</li>
+<li>在 Mac OS X 上，需要安装磁盘映像 (DMG) 并运行位于安装程序的应用程序目录中的二进制文件（位于 <code>Contents/MacOS/installbuilder.sh</code>）。</li>
 </ul>
 
 <h4>配置 Editor 以使用 Accelerator</h4>
@@ -303,44 +300,42 @@
 
 <p>要配置您的 Editor 来将该 Accelerator 用作资源管线版本 2 缓存服务器，请遵循以下步骤进行操作：</p>
 
-<ol>
-<li>In the Unity Editor, select <strong>Edit</strong> &gt; <strong>Project Settings…</strong> (Windows) or <strong>Unity</strong> &gt; <strong>Project Settings…</strong> (OSX).</li>
-<li>Select <strong>Editor</strong> from the left menu.</li>
-<li>Under the <strong>Cache Server</strong> section, set <strong>Mode</strong> to <strong>Enabled</strong>.</li>
-<li>Fill in the <strong>IP address</strong> with Accelerator’s IP address from the setup wizard.</li>
-<li>Press the <strong>Check Connection</strong> button to test connectivity.</li>
-</ol>
+<p>1.在 Unity 编辑器中，选择 <strong>Edit</strong> &gt; <strong>Project Settings…</strong> (Windows) 或 <strong>Unity</strong> &gt; <strong>Project Settings…</strong> (OSX)。
+2.从左侧菜单中选择 <strong>Editor</strong>。
+3.在 <strong>Cache Server</strong> 部分下，将 <strong>Mode</strong> 设置为 <strong>Enabled</strong>。
+4.使用设置向导中的加速器 IP 地址填写 <strong>IP address</strong>。
+5.按 <strong>Check Connection</strong> 按钮以测试连接。</p>
 
 <figure>
 <img src="../uploads/Main/AcceleratorProject.png" alt="Project settings">
 <figcaption>Project settings</figcaption>
 </figure>
 
-<p>You can optionally choose a different namespace prefix from the default, in case you wish to ensure isolation from other projects. You can also individually disable uploading or downloading as needed. For example, you might want a build system to only have uploading enabled, and developers’ editors only have download enabled. Note the TLS/SSL option is only a feature in editor versions from 2020.1 onward and the accelerator must be configured for TLS as well.</p>
+<p>如果希望确保与其他项目隔离，则可以选择与默认名称不同的命名空间前缀。还可以根据需要单独禁用上传或下载。例如，可能希望构建系统只启用上传，而开发人员的编辑器只启用下载。请注意，TLS/SSL 选项只是自 2020.1 起的编辑器版本中的功能，并且还必须针对 TLS 配置加速器。</p>
 
-<p>In the main editor view, you can check the accelerator connectivity by looking at the status bar on the lower right (only in editor versions from 2020.1 onward):</p>
+<p>在编辑器主视图中，可以通过查看右下方的状态栏来检查加速器连接（仅限自 2020.1 起的编辑器版本）：</p>
 
 <figure>
-<img src="../uploads/Main/AcceleratorConnect.png" alt="Project connectivity">
-<figcaption>Project connectivity</figcaption>
+<img src="../uploads/Main/AcceleratorConnect.png" alt="项目连接">
+<figcaption>项目连接</figcaption>
 </figure>
 
-<p>If you’d like, you can configure the accelerator to use via the Global settings, which will be used by default for all projects unless overridden by the project settings. To configure the global settings, select the <strong>Edit</strong> &gt; <strong>Preferences…</strong> menu item:</p>
+<p>如果愿意，可以通过全局设置配置要使用的加速器，该加速器在默认情况下将用于所有项目，除非被项目设置覆盖。若要配置全局设置，请选择 <strong>Edit</strong> &gt; <strong>Preferences…</strong> 菜单项：</p>
 
 <figure>
-<img src="../uploads/Main/AcceleratorGlobal.png" alt="Project connectivity">
-<figcaption>Project connectivity</figcaption>
+<img src="../uploads/Main/AcceleratorGlobal.png" alt="项目连接">
+<figcaption>项目连接</figcaption>
 </figure>
 
 <p><a name="docker"></a></p>
 
-<h3>Installing an Accelerator via Docker Hub</h3>
+<h3>通过 Docker Hub 安装加速器</h3>
 
-<p>A container is provided on Docker Hub at https://hub.docker.com/repository/docker/unitytechnologies/accelerator.</p>
+<p>Docker Hub 上提供了一个容器，地址为 https://hub.docker.com/repository/docker/unitytechnologies/accelerator。</p>
 
-<h4>First Time Setup</h4>
+<h4>首次设置</h4>
 
-<p>Unity recommends that you use a persistent storage area for hosting the Accelerator configuration and cache. To set this up for the first time, you will want to use one or more of the following variables when running the container for the first time (some examples will be below). The variables are only used if the startup does not find a configuration file so it’s safe to run with them set on successive runs.</p>
+<p>Unity 建议使用持久存储区域托管加速器配置和缓存。若要进行首次设置，需要在首次运行容器时使用以下一个或多个变量（下面会提供一些示例）。仅当启动找不到配置文件时才使用这些变量，因此在连续运行时可安全地设置它们。</p>
 
 <table>
 <colgroup>
@@ -350,57 +345,57 @@
 
 <thead>
 <tr>
-	<th style="text-align:left;">Variable</th>
-	<th style="text-align:left;">Usage</th>
+	<th style="text-align:left;">可变</th>
+	<th style="text-align:left;">用法</th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
 	<td style="text-align:left;">COLLAB_REGISTRATION_TOKEN</td>
-	<td style="text-align:left;">Accelerate <a href="https://unity3d.com/unity/features/collaborate">Unity Collaborate</a>
+	<td style="text-align:left;">加速 <a href="https://unity3d.com/unity/features/collaborate">Unity Collaborate</a>
 </td>
 </tr>
 <tr>
 	<td style="text-align:left;">DISABLE_USAGE_STATS</td>
-	<td style="text-align:left;">Set to true to disable usage stats – leaving usage stats enabled can help improve the Accelerator’s features and performance by giving Unity valuable feedback.</td>
+	<td style="text-align:left;">设置为 true 可禁用使用情况统计信息 – 启用使用情况统计信息可以通过向 Unity 提供有价值的反馈来帮助改进加速器的功能和性能。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">USER</td>
-	<td style="text-align:left;">The user name for the local, built-in dashboard.</td>
+	<td style="text-align:left;">本地内置面板的用户名。</td>
 </tr>
 <tr>
-	<td style="text-align:left;">PASSWORD</td>
-	<td style="text-align:left;">The password for the local, built-in dashboard.</td>
+	<td style="text-align:left;">密码</td>
+	<td style="text-align:left;">本地内置面板的密码。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">CERT_HOSTNAME</td>
-	<td style="text-align:left;">The hostname to use for TLS support. This is used for redirects, etc. and goes along with CERT_PEM and KEY_PEM below.</td>
+	<td style="text-align:left;">用于实现 TLS 支持的主机名。这用于重定向等功能，与下面的 CERT_PEM 和 KEY_PEM 一起使用。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">CERT_PEM</td>
-	<td style="text-align:left;">The path to a cert.pem to use for TLS support. If you set CERT_HOSTNAME but do not set CERT_PEM, &lt;persist_dir&gt;/cert.pem will be assumed.</td>
+	<td style="text-align:left;">用于实现 TLS 支持的 cert.pem 路径。如果设置 CERT_HOSTNAME，但是未设置 CERT_PEM，则会采用 &lt;persist_dir&gt;/cert.pem。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">KEY_PEM</td>
-	<td style="text-align:left;">The path to a key.pem to use for TLS support. If you set CERT_HOSTNAME but do not set KEY_PEM, &lt;persist_dir&gt;/key.pem will be assumed.</td>
+	<td style="text-align:left;">用于实现 TLS 支持的 key.pem 路径。如果设置 CERT_HOSTNAME，但是未设置 KEY_PEM，则会采用 &lt;persist_dir&gt;/key.pem。</td>
 </tr>
 </tbody>
 </table>
 
-<p>For example, to start up and register for use with the Collaborate service, you might run something like this:</p>
+<p>例如，若要启动并注册以便与 Collaborate 服务结合使用，可以运行如下所示的内容：</p>
 
 <pre><code>$ docker run --rm -ti -v "${PWD}/agent:/agent" -e 'COLLAB_REGISTRATION_TOKEN=ft0bJvbRD' unitytechnologies/accelerator:latest
 </code></pre>
 
-<p>To override TLS settings, continuing with the above example, ensure you have your cert.pem and key.pem in the /agent path specified and then include a CERT_HOSTNAME like this:</p>
+<p>若要继续使用上面的示例并覆盖 TLS 设置，请确保在指定的 /agent 路径中有 cert.pem 和 key.pem，然后包含一个 CERT_HOSTNAME，如下所示：</p>
 
 <pre><code>$ docker run --rm -ti -v "${PWD}/agent:/agent" -e 'CERT_HOSTNAME=myhostname.com' -e 'COLLAB_REGISTRATION_TOKEN=ft0bJvbRD' unitytechnologies/accelerator:latest
 </code></pre>
 
-<h4>Subsequent Execution</h4>
+<h4>后续执行</h4>
 
-<p>You can also set any environment variables the accelerator would normally recognize. See <code>unity-accelerator --all-help</code> and look for options that indicate <code>Default: $SOME_VARIABLE</code>. There are two that the container will set if you do not:</p>
+<p>还可以设置加速器通常会识别的任何环境变量。请查看 <code>unity-accelerator --all-help</code> 并查找指示 <code>Default: $SOME_VARIABLE</code> 的选项。容器会在您未设置时设置两个选项：</p>
 
 <table>
 <colgroup>
@@ -410,48 +405,48 @@
 
 <thead>
 <tr>
-	<th style="text-align:left;">variable</th>
-	<th style="text-align:left;">usage</th>
+	<th style="text-align:left;">变量</th>
+	<th style="text-align:left;">用法</th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
 	<td style="text-align:left;">UNITY_ACCELERATOR_PERSIST</td>
-	<td style="text-align:left;">Container default is /agent. This is the directory where unity-accelerator.cfg resides as well as other persisted data (cachedir possibly being different).</td>
+	<td style="text-align:left;">容器默认值为 /agent。这是 unity-accelerator.cfg 以及其他持久数据所驻留的目录（cachedir 可能不同）。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">UNITY_ACCELERATOR_LOG_STDOUT</td>
-	<td style="text-align:left;">Container default is true. This, if true, will output logs to stdout only; false if you want actual log files written within the persist directory.</td>
+	<td style="text-align:left;">容器默认值为 true。如果为 true，则仅将日志输出到 stdout；如果希望将实际日志文件写入持久目录中，则为 false。</td>
 </tr>
 </tbody>
 </table>
 
-<h4>Running the container</h4>
+<h4>运行容器</h4>
 
-<p>We sign our docker images so we strongly recommend you <a href="https://success.docker.com/article/introduction-to-docker-content-trust">enable Docker Content Trust</a>:</p>
+<p>我们对 docker 映像进行了签名，所以强烈建议<a href="https://success.docker.com/article/introduction-to-docker-content-trust">启用 Docker 内容信任</a>：</p>
 
 <pre><code>$ export DOCKER_CONTENT_TRUST=1
 </code></pre>
 
-<p>Normally, you should be able to run the Accelerator like the following:</p>
+<p>通常，应该能够按如下所示运行加速器：</p>
 
 <pre><code>$ docker run -p 80:80 -p 443:443 -p 10080:10080 -v "${PWD}/agent:/agent" unitytechnologies/accelerator:latest
 </code></pre>
 
-<p>However, If you would like to choose a different location for where the Accelerator will store the configuration and cached artifacts, you might choose to provide additional environment variable configuration values like this:</p>
+<p>但是，如果要选择不同的位置供加速器存储配置和缓存工件，则可以选择提供附加环境变量配置值，如下所示：</p>
 
 <pre><code>$ docker run -p 80:80 -p 443:443 -p 10080:10080 -v "${PWD}/agent:/mnt/another_spot" -e "UNITY_ACCELERATOR_PERSIST=/mnt/another_spot" -e "UNITY_ACCELERATOR_DEBUG=true" unitytechnologies/accelerator:latest
 </code></pre>
 
-<p>To set username and password for local dashboard, you can use USER and PASSWORD environment variables:</p>
+<p>若要为本地面板设置用户名和密码，可以使用 USER 和 PASSWORD 环境变量：</p>
 
 <pre><code>$ docker run -p 80:80 --env PASSWORD=[PASSWORD] --env USER=[USERNAME] unitytechnologies/accelerator:latest
 </code></pre>
 
-<h4>Exposed Ports</h4>
+<h4>公开的端口</h4>
 
-<p>The following are the default values for ports used by Unity Accelerator: 80, 443, 10080, 10443.</p>
+<p>以下是 Unity 加速器使用的端口的默认值：80、443、10080、10443。</p>
 
 <p><a name="UsingWithTeams"></a></p>
 
@@ -461,9 +456,9 @@
 
 <ul>
 <li>
-<a href="https://unity3d.com/unity/features/collaborate">Collaborate</a> integration to ensure recently added or modified source assets are delivered on the local network, dramatically reducing download times.</li>
+<a href="https://unity3d.com/unity/features/collaborate">Collaborate</a> 集成可确保最近添加或修改的源资源在本地网络上传输，从而大大缩短下载时间。</li>
 <li>在<a href="https://developer.cloud.unity3d.com/projects/">开发者控制面板</a>中进行远程监测（请参阅<a href="#Monitoring">监测 Accelerator</a>）。</li>
-<li>Secure transport and access control of source assets shared between Unity Editors and the Accelerator (see <a href="#Security">source asset security</a>).</li>
+<li>对 Unity 编辑器和加速器之间共享的源资源进行安全传输和访问控制（请参阅<a href="#Security">源资源安全性</a>）。</li>
 </ul>
 
 <figure>
@@ -475,24 +470,21 @@
 
 <p>如果您拥有 Unity Teams Advanced，则您组织的某个所有者或管理员可以按照以下步骤从<a href="https://developer.cloud.unity3d.com/projects/">开发者控制面板</a>中创建 Accelerator：</p>
 
-<ol>
-<li>From the <strong>Develop</strong> tab of the dashboard, select the project you want to create an Accelerator for.</li>
-<li>In the project view, select <strong>Collaborate</strong> &gt; <strong>Accelerator</strong> from the left navigation bar.
-3.单击 <strong>New Accelerator</strong> 按钮。</li>
-<li>In the <strong>New Accelerator</strong> prompt, enter an <strong>agent name</strong> for Unity to use to identify the Accelerator agent. You can also optionally specify a <strong>port number</strong>.<br><img src="../uploads/Main/AcceleratorNew.png" alt="New Accelerator window"><br><strong>Note</strong>: The current limit is three Accelerators per Organization.<br><br>
-</li>
-<li>Click <strong>Save</strong> to confirm your settings.</li>
-<li>On the following screen, copy the <strong>registration token</strong>, then click the <strong>Download Accelerator</strong> button in the top-right corner, and select the appropriate operating system.<br><br><img src="../uploads/Main/AcceleratorDetails.png" alt="Download Accelerator from the developer dashboard."><br>You can also install the accelerator via <a href="https://hub.docker.com/repository/docker/unitytechnologies/accelerator">Docker Hub</a>.</li>
-<li>Launch the downloaded installer, and follow the installation wizard. Use the <strong>registration token</strong> you copied to register the Accelerator with Unity Collaborate. This will allow you to use the Accelerator for enhanced Collaborate performance.</li>
-</ol>
+<p>1.从面板的 <strong>Develop</strong> 选项卡，选择需要创建加速器的项目。
+2.在 Project 视图中，从左侧导航栏选择 <strong>Collaborate</strong> &gt; <strong>Accelerator</strong>。
+3.单击 <strong>New Accelerator</strong> 按钮。
+4.在 <strong>New Accelerator</strong> 提示符处，输入一个<strong>代理名称</strong>以供 Unity 识别 Accelerator 代理。还可以（可选）指定<strong>端口号</strong>。<br><img src="../uploads/Main/AcceleratorNew.png" alt="New Accelerator 窗口"><br><strong>注意</strong>：当前限制是每个组织可有三个加速器。<br><br>
+5.单击 <strong>Save</strong> 以确认您的设置。
+6.在以下屏幕中，复制<strong>注册令牌</strong> (Registration Token)，然后单击右上角的 <strong>Download Accelerator</strong> 按钮，并选择相应操作系统。<br><br><img src="../uploads/Main/AcceleratorDetails.png" alt="从开发者控制面板下载加速器。"><br>还可以通过 <a href="https://hub.docker.com/repository/docker/unitytechnologies/accelerator">Docker Hub</a> 安装加速器。
+7.启动下载的安装程序，然后遵循安装向导进行操作。使用所复制的<strong>注册令牌</strong>，向 Unity Collaborate 注册 Accelerator。这样就可以使用 Accelerator 来增强 Collaborate 性能。</p>
 
 <p><strong>注意</strong>：如果将 Accelerator 安装在 Linux 系统上，请参阅<a href="#verify">验证 Accelerator 版本</a>。</p>
 
 <p><a name="Security"></a></p>
 
-<h3>Source asset security</h3>
+<h3>源资源安全性</h3>
 
-<p>When used with <a href="https://unity3d.com/teams">Unity Teams</a> Advanced, each Accelerator receives its own security certificate to prove it has permission to access your Organization. Before an Accelerator uploads or downloads any content, the Unity Editor making the request uses SSL/TLS to securely connect to the Accelerator and verifies its authenticity. When Unity Editors discover and connect to an Accelerator, instead of passing a normal Unity user token, they receive a special token from the Unity Identity service. These tokens verify the user’s identity and access to a single project within your Organization, thereby protecting access to any other Organizations and projects while using an Accelerator.</p>
+<p>与 <a href="https://unity3d.com/teams">Unity Teams</a> Advanced 配合使用时，每个 Accelerator 会收到自己的安全证书以证明有权访问您的组织。在 Accelerator 上传或下载任何内容之前，发出请求的 Unity Editor 使用 SSL/TLS 来安全连接到 Accelerator 并验证其真实性。Unity Editor 发现并连接到 Accelerator 时，Editor 不会传递普通的 Unity 用户令牌，而是从 Unity Identity 服务接收特殊令牌。这些令牌用于验证用户的身份并可以访问您组织内的单个项目，从而在使用加速器时保护任何其他组织和项目的访问权限。</p>
 
 <p>或者，在启动 Unity Editor 时，您可以使用<a href="CommandLineArguments.html">命令行参数</a>来提供 Accelerator 缓存服务器配置详细信息。</p>
 
@@ -508,24 +500,24 @@
 
 <p><a name="admin"></a></p>
 
-<h3>Local administrator dashboard</h3>
+<h3>本地管理员面板</h3>
 
-<p>The Accelerator has a built-in dashboard for quick monitoring and configuration changes.</p>
+<p>加速器有一个内置面板，用于进行快速监控和配置更改。</p>
 
 <figure>
-<img src="../uploads/Main/AcceleratorConfig.png" alt="Accelerator configuration">
-<figcaption>Accelerator configuration</figcaption>
+<img src="../uploads/Main/AcceleratorConfig.png" alt="加速器配置">
+<figcaption>加速器配置</figcaption>
 </figure>
 
-<p>See the <a href="#command">Command Line Tools</a> section for information on how to find out what your dashboard URL is; though if you know the ip and port of the accelerator you can just use http://ip:port/dashboard and the accelerator will handle any needed redirects. For full metrics monitoring see <a href="#access">Accessing Accelerator metrics directly</a> and the full configuration of the Accelerator is available through its unity-accelerator.cfg file.</p>
+<p>有关如何查明面板 URL 的信息，请参阅<a href="#command">命令行工具</a>部分；不过如果知道加速器的 ip 和端口，则可以只需使用 http://ip:port/dashboard，加速器便会处理任何需要的重定向。有关完整的指标监控，请参阅<a href="#access">直接访问加速器指标</a>，加速器的完整配置可通过其 unity-accelerator.cfg 文件获得。</p>
 
 <p><a name="developer"></a></p>
 
 <h3>开发者控制面板（仅限 Unity Teams Advanced 用户）</h3>
 
-<p>If you are a Unity Teams Advanced user, you can monitor Accelerator metrics from the <a href="https://developer.cloud.unity3d.com/projects/">developer dashboard</a>. These metrics only apply to source assets, and do not apply to generated (imported) assets. </p>
+<p>如果您是 Unity Teams Advanced 用户，可以从<a href="https://developer.cloud.unity3d.com/projects/">开发者控制面板</a>监测 Accelerator 指标。这些指标仅适用于源资源，不适用于生成（导入）的资源。</p>
 
-<p>To view a summary of your project’s Accelerators, select that project, then select <strong>Collaborate</strong> &gt; <strong>Accelerators</strong> from the left navigation bar. In this menu, you can view the following information:</p>
+<p>要查看项目的加速器汇总，请选择该项目，然后从左侧导航栏中选择 <strong>Collaborate</strong> &gt; <strong>Accelerators</strong>。在此菜单中，可查看以下信息：</p>
 
 <table>
 <colgroup>
@@ -578,9 +570,9 @@
 
 <h4>已移除的字节数 (Bytes Removed)</h4>
 
-<p>Periodically, the Accelerator clears space to store new assets. When it does, the dashboard reports the number of bytes allocated to older assets that the Accelerator removed from local storage. </p>
+<p>加速器会定期清理空间以存储新资源。加速器清理空间时，面板会报告分配给旧资源并且已被加速器从本地存储中移除的字节数。</p>
 
-<p><strong>Note</strong>: This is a normal operation to help maintain a healthy Accelerator. However, if this value seems to be adversely affecting the Accelerator’s efficiency, you might need to add more storage space to accommodate your team’s usage. Ideally, the file system running the Accelerator should use a solid-state hard drive with enough free disk space to house all files in the most recent version of active projects, but this is not a requirement. If insufficient storage is available, the overall efficiency of the Accelerator declines.</p>
+<p><strong>注意</strong>：这是正常操作，有助于维持 Accelerator 的健康状态。但是，如果此值似乎对 Accelerator 的效率产生了不利影响，您可能需要添加更多存储空间来适应团队的使用需求。理想情况下，运行加速器的文件系统应使用具有足够可用磁盘空间的固态硬盘驱动器来容纳最新版激活项目中的所有文件，但这不是硬性要求。如果没有足够的存储空间，Accelerator 的整体效率将下降。</p>
 
 <h4>传输的字节数 (Bytes Delivered)</h4>
 
@@ -590,9 +582,9 @@
 
 <h4>节省的时间 (Time Saved)</h4>
 
-<p>The Accelerator tracks bandwidth when it delivers locally stored assets instead of downloading them from the Collaborate service, and reports the difference in time the Unity Editor would have waited to download assets remotely as time saved.</p>
+<p>加速器在传输本地存储的资源（而不是从 Collaborate 服务下载资源）时会跟踪带宽，并将 Unity 编辑器等待远程下载资源的时间差报告为节省的时间。</p>
 
-<p><strong>Note</strong>: The aforementioned metrics apply only to source assets. They do not apply to generated (imported) assets.</p>
+<p><strong>注意</strong>：前述指标仅适用于源资源。这些指标不适用于生成（导入）的资源。</p>
 
 <p><a name="metrics"></a></p>
 
@@ -684,11 +676,11 @@
 </tr>
 <tr>
 	<td style="text-align:left;"><code>uta_agent_cache_bytes_evicted_unscheduled</code></td>
-	<td style="text-align:left;">Number of bytes evicted from cache during an “unscheduled” pass. Unscheduled evictions occur when running out of disk space while processing a request. Normally, scheduled background evictions should keep up with demand, so an increase in this metric’s value indicates an overwhelmed server. Increasing the configuration’s CacheMinFreeBytes or CacheMinFreePercent may help to give more of a free space buffer, or you may need to upgrade the underlying hardware or install an additional accelerator.</td>
+	<td style="text-align:left;">“计划外”通道期间从缓存中逐出的字节数。在处理请求期间，磁盘空间不足时会发生计划外逐出。通常，计划的后台逐出应与需求保持一致，因此该指标值的增加表明服务器不堪重负。增加配置的 CacheMinFreeBytes 或 CacheMinFreePercent 可能有助于提供更多可用空间缓冲区，或者可能需要升级基础硬件或安装额外的加速器。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>uta_agent_cache_files_evicted_unscheduled</code></td>
-	<td style="text-align:left;">Similar to the above uta_agent_cache_bytes_evicted_unscheduled metrics, but counts files evicted instead of byte count. This might be an easier metric to alert on. For example: Alert when files metric increases by more than 1 per second.</td>
+	<td style="text-align:left;">类似于上面的 uta_agent_cache_bytes_evicted_unscheduled 指标，不过是对逐出的文件计数而不是进行字节计数。这可能是更容易发出警报的指标。例如：当文件指标每秒增加超过 1 时发出警报。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>uta_agent_protobuf_cache_hits</code></td>
@@ -750,15 +742,15 @@ RemoteAssetCache - Download - Artifact - success:true, namespace:78b2fdc254b0a4f
 
 <p>Accelerator 服务会在维护期间自动自我更新。当前，该维护期根据运行 Accelerator 的计算机而设置为当地时间凌晨 01:00–02:00。仅当 Accelerator 发现可用的更新版本时，才会进行自我更新。</p>
 
-<p>Accelerator’s installation and uninstallation logs are saved in the operating system’s standard temp directory as <code>unity-accelerator-*install.log</code>. Accelerator’s logs are saved in the storage directory as <code>unity-accelerator.log</code>.</p>
+<p>Accelerator 的安装日志和卸载日志保存在操作系统的标准临时目录中，名为 <code>unity-accelerator-*install.log</code>。加速器的日志保存在存储目录中，名为 <code>unity-accelerator.log</code>。</p>
 
 <p><a name="command"></a></p>
 
-<h2>Command line tools</h2>
+<h2>命令行工具</h2>
 
-<p>The Accelerator has a large set of command line tools you can use to troubleshoot, configure, and just generally make use of one or more accelerators. For ease of use, it’s best to add the location of the unity-accelerator executable to your PATH. The executable was installed in the path you chose when running the installer, C:\Program Files\Unity\accelerator for example.</p>
+<p>加速器具有一组大量的命令行工具，可以通过这些工具进行故障排除、配置以及通常只是使用一个或多个加速器。为了便于使用，最好将 unity-accelerator 可执行文件的位置添加到 PATH 中。该可执行文件安装在运行安装程序时选择的路径中，例如 C:\Program Files\Unity\accelerator。</p>
 
-<p>The CLI tool has an extensive help system; you can run unity-accelerator with no arguments to get started:</p>
+<p>CLI 工具有一个广泛的帮助系统；可以运行不带参数的 unity-accelerator 以开始使用：</p>
 
 <pre><code>$ unity-accelerator
 Unity Accelerator v1.0.524+g96c5e18
@@ -768,11 +760,11 @@ Run on a local network to speed up transactions with Unity Services.
 .....
 </code></pre>
 
-<p>You can also run <code>unity-accelerator --all-help</code> to output all the help text for all commands in one go. It’s probably best to pipe the output through less or redirect output to a text file to read.</p>
+<p>还可以运行 <code>unity-accelerator --all-help</code>，以便一次性输出所有命令的所有帮助文本。最好通过 less 对输出进行管道传输或是将输出重定向到文本文件以进行读取。</p>
 
-<p>When working on a specific accelerator, to reconfigure it for example, it’s best to change your working directory to the same as where the <code>unity-accelerator.cfg</code> file is. You can also set the <code>UNITY_ACCELERATOR_PERSIST</code> environment variable to that directory, or you can try to remember to always use the <code>--persist &lt;dir&gt;</code> option, but most find changing the working directory easiest.</p>
+<p>在处理特定加速器时（例如若要重新配置它），最好将工作目录更改为与 <code>unity-accelerator.cfg</code> 文件所处的位置相同。还可以将 <code>UNITY_ACCELERATOR_PERSIST</code> 环境变量设置为该目录，也可以尝试记住始终使用 <code>--persist &lt;dir&gt;</code> 选项，不过大多数人发现更改工作目录最简单。</p>
 
-<p>One rather common set of cli tools used are the dashboard tools:</p>
+<p>使用的一组相当常见的 cli 工具是面板工具：</p>
 
 <pre><code>$ unity-accelerator dashboard password newaccount
 Password: ****
@@ -784,17 +776,17 @@ $ unity-accelerator dashboard url
 http://172.18.37.249:8080/dashboard/
 </code></pre>
 
-<p>That final tool, <code>dashboard url</code>, is useful to find out what url to put in your browser to visit the built-in dashboard.</p>
+<p>最后一个工具 <code>dashboard url</code> 可用于查明在浏览器中放置什么 url 来访问内置面板。</p>
 
 <p><a name="mirror"></a></p>
 
-<h2>Mirroring multiple accelerators</h2>
+<h2>镜像多个加速器</h2>
 
-<p>You can configure multiple accelerators to mirror the same cached data if desired. You might want to have two mirrored accelerators running on the same network for high availability – if one crashes, has a hardware failure, or needs maintenance for whatever reason, the other accelerator can compensate. You might also mirror cache servers that are remote from each other, for example a main office might mirror its data to a branch office, providing copies of its cached data for use at the branch office as well.</p>
+<p>如果需要，可以配置多个加速器以镜像相同的缓存数据。您可能希望在同一网络上运行两个镜像加速器以实现高可用性 – 如果其中一个加速器崩溃、出现硬件故障或出于任何原因需要维护，另一个加速器可以进行补偿。还可以镜像彼此相距遥远的缓存服务器，例如，总部可能会将其数据镜像到分支机构，从而提供其缓存数据的副本以便也可在分支机构使用。</p>
 
-<p>For now, the mirroring features only provide outgoing data capabilities, also known as “push” or “forwarding”. You can push/forward to multiple accelerators, or even chain them: A sending to B, with B sending to C, and even C sending back to A. You do not need to worry about circular chains; items are time stamped so a receiving accelerator will ignore any incoming items that aren’t newer than what it already has.</p>
+<p>目前，镜像功能仅提供传出数据功能，也称为“推送”或“转发”。可以推送/转发到多个加速器，甚至是链接它们：A 发送给 B，B 发送给 C，甚至 C 发送回给 A。无需担心循环链；项具有时间戳，因此接收加速器会忽略任何不比已有内容更新的传入项。</p>
 
-<p>Let’s walk through an example where accelerator A has an ip:port of 1.1.1.1:1111 and accelerator B is 2.2.2.2:2222. Let’s say both have no data to start with, so let’s put an item into A and note that it is not in B.</p>
+<p>我们来演练一个示例，其中加速器 A 的“ip:端口”为 1.1.1.1:1111，加速器 B 为 2.2.2.2:2222。假设两者在开始时都没有数据，因此我们将一个项放入 A 中，请注意它不在 B 中。</p>
 
 <pre><code>$ echo test1 | unity-accelerator cache put 1.1.1.1:1111 namespace1 key1
 $ unity-accelerator cache get 1.1.1.1:1111 namespace1 key1
@@ -803,7 +795,7 @@ $ unity-accelerator cache get 2.2.2.2:2222 namespace1 key1
 key not found
 </code></pre>
 
-<p>Now let’s configure A to forward to B. We do this by altering A’s configuration, so log into the machine running accelerator A, shut down the accelerator and:</p>
+<p>现在我们将 A 配置为转发到 B。我们通过更改 A 的配置来实现此目标，因此登录运行加速器 A 的计算机，关闭加速器，并且：</p>
 
 <pre><code># Shutdown Accelerator A
 $ cd &lt;directory where unity-accelerator.cfg is&gt;
@@ -811,7 +803,7 @@ $ unity-accelerator config set ProtobufForwardPuts protobuf:2.2.2.2:2222
 # Start Accelerator A back up
 </code></pre>
 
-<p>We should now be able to put another item into A’s cache and see it forwarded to B.</p>
+<p>我们现在应该能够将另一个项放入 A 的缓存中并看到它转发给 B。</p>
 
 <pre><code>$ echo test2 | unity-accelerator cache put 1.1.1.1:1111 namespace2 key2
 $ unity-accelerator cache get 1.1.1.1:1111 namespace2 key2
@@ -823,13 +815,13 @@ $ unity-accelerator cache get 2.2.2.2:2222 namespace2 key2
 test2
 </code></pre>
 
-<p>However, this only covers new data (any new items put into accelerator A will be forwarded to accelerator B) but doesn’t cover any existing data. In our example, the first item still is not in accelerator B.</p>
+<p>但是，这仅涵盖新数据（放入加速器 A 的任何新项都会转发给加速器 B），但不涵盖任何现有数据。在我们的示例中，第一个项仍然不在加速器 B 中。</p>
 
 <pre><code>$ unity-accelerator cache get 2.2.2.2:2222 namespace1 key1
 key not found
 </code></pre>
 
-<p>To cover this case, and in cases where you just want to forward all data one time (could be useful when switching from one accelerator to a new one) you can use the “push” command line tool:</p>
+<p>若要涵盖这种情况，并且如果只想一次性转发所有数据（在从一个加速器切换到新加速器时可能很有用），可以使用“推送”命令行工具：</p>
 
 <pre><code>$ unity-accelerator cache push 1.1.1.1:1111 2.2.2.2:2222
 {"msg":"push completed", "destination":"2.2.2.2:2222", "namespaces":2, "keys":2, "bytes":12, "supercededs":1, "errors":0, "elapsed":"44.054078ms"}
@@ -837,11 +829,11 @@ $ unity-accelerator cache get 2.2.2.2:2222 namespace1 key1
 test1
 </code></pre>
 
-<p>The push tool will send a request to the first accelerator and ask it to send all its data to the second accelerator. When it is done, the first accelerator will send back the “push completed” response with detail as to what was done.</p>
+<p>推送工具会向第一个加速器发送请求，要求它将所有数据发送给第二个加速器。完成后，第一个加速器会发送回 “push completed” 响应，其中包含有关所执行操作的详细信息。</p>
 
-<p>There are additional, advanced configuration options you can research by running <code>unity-accelerator config help | less</code> and searching for Forward. You can specify the forwarding concurrency, queue size, error handling, etc.</p>
+<p>可以通过运行 <code>unity-accelerator config help | less</code> 并搜索 Forward，来研究附加高级配置选项。可以指定转发并发性、队列大小、错误处理等。</p>
 
-<p>Also note that you may wish to alter the configuration values for the MaintenanceStart and MaintenanceDuration of each mirrored accelerator so that they do not all shutdown for maintenance at the same time.</p>
+<p>另请注意，您可能希望更改每个镜像加速器的 MaintenanceStart 和 MaintenanceDuration 的配置值，以便它们不会同时全部关闭以进行维护。</p>
 
 <p><a name="Troubleshooting"></a></p>
 
@@ -851,11 +843,11 @@ test1
 
 <h4>检查使用的 Unity Editor 版本</h4>
 
-<p>Each project contributor must be using an Editor version 2019.3 or higher to use an Accelerator.</p>
+<p>每个项目参与者都必须使用编辑器版本 2019.3 或更高版本才能使用加速器。</p>
 
 <h4>验证用户是否在 Accelerator 的本地网络中</h4>
 
-<p>Make sure the Accelerator is running on the same local area network as the project contributors experiencing issues. Accelerator does not affect contributors who are working remotely.</p>
+<p>确保加速器与遇到问题的项目参与者在同一局域网中运行。Accelerator 对远程工作的参与者无效。</p>
 
 <h4>测试 Accelerator 的连接</h4>
 
@@ -871,9 +863,9 @@ test1
 
 <p>如果测试未通过，请确保所有主机和网络防火墙都允许访问 Accelerator 的监听 IP 地址和端口 (TCP)。您可能需要与网络管理员协调以允许访问此端口。</p>
 
-<h4>Check the Accelerator’s project configuration</h4>
+<h4>检查加速器的项目配置</h4>
 
-<p>If you use Unity Teams Advanced, verify that the Accelerator is configured for the project in question. Navigate to the project in the <a href="https://developer.cloud.unity3d.com/projects/">developer dashboard</a>, and select <strong>Collaborate</strong> &gt; <strong>Accelerator</strong> from the left navigation bar. You should see the Accelerator listed for that project.</p>
+<p>如果使用 Unity Teams Advanced，请验证是否为相关项目配置了加速器。在<a href="https://developer.cloud.unity3d.com/projects/">开发者控制面板</a>中导航到此项目，然后从左侧导航栏中选择 <strong>Collaborate</strong> &gt; <strong>Accelerator</strong>。您应该会看到为该项目列出了加速器。</p>
 
 <p><a name="verify"></a></p>
 
@@ -938,7 +930,7 @@ Primary key fingerprint: 9BC4 B04D F2E8 74E5 64AA  47E7 6D44 3B8B 002C F61F
 
 <h3>支持</h3>
 
-<p>For help regarding Accelerator with Unity Teams, <a href="mailto:collabsupport@unity3d.com">email support</a> or submit a help ticket from the <a href="https://developer.cloud.unity3d.com/projects/">developer dashboard</a>. To submit a ticket for a Unity Teams Advanced project, select your project, then select <strong>Collaborate</strong> &gt; <strong>Support</strong> from the left navigation bar.</p>
+<p>有关 Accelerator 与 Unity Teams 配合使用的帮助信息，请向<a href="mailto:collabsupport@unity3d.com">支持服务部门</a>发送电子邮件，或者从<a href="https://developer.cloud.unity3d.com/projects/">开发者控制面板</a>中提交支持工单。要为 Unity Teams Advanced 项目提交支持工单，请选择项目，然后从左侧导航栏中选择 <strong>Collaborate</strong> &gt; <strong>Support</strong>。</p>
 
 <p>有关 Accelerator 与资源导入管线配合使用的帮助信息，请访问 <a href="https://forum.unity.com/forums/unity-accelerator.392/">Accelerator 论坛</a>。</p>
 <!-- area:authoring -->
@@ -953,7 +945,7 @@ Primary key fingerprint: 9BC4 B04D F2E8 74E5 64AA  47E7 6D44 3B8B 002C F61F
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

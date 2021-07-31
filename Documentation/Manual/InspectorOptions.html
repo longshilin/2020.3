@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Working in the Inspector - Unity 手册">
-<title>Working in the Inspector - Unity 手册</title>
+<meta property="og:title" content="在 Inspector 中操作 - Unity 手册">
+<title>在 Inspector 中操作 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/inspector-lock-button.png">
-<meta name="description" content="This page describes some options for controlling the Inspector window itself. For information about setting properties for GameObjects, scripts, and Assets, see Editing properties.">
-<meta property="og:description" content="This page describes some options for controlling the Inspector window itself. For information about setting properties for GameObjects, scripts, and Assets, see Editing properties.">
+<meta name="description" content="本页面描述了一些用于控制 Inspector 窗口本身的选项。有关设置游戏对象、脚本和资源的属性的信息，请参阅编辑属性。">
+<meta property="og:description" content="本页面描述了一些用于控制 Inspector 窗口本身的选项。有关设置游戏对象、脚本和资源的属性的信息，请参阅编辑属性。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,40 +175,40 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UnityOverview.html">在 Unity 中操作</a></li>
 <li><a href="UsingTheEditor.html">Unity 的界面</a></li>
 <li><a href="UsingTheInspector.html">Inspector 窗口</a></li>
-<li>Working in the Inspector</li>
+<li>在 Inspector 中操作</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="UsingTheInspector.html"></a></span><div class="tip">Inspector 窗口</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="InspectorFocused.html"></a></span><div class="tip">Focused Inspectors</div>
+<span class="next"><a href="InspectorFocused.html"></a></span><div class="tip">专属 Inspector</div>
 </div>
 </div></div>
-<h1>Working in the Inspector</h1>
+<h1>在 Inspector 中操作</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>This page describes some options for controlling the Inspector window itself. For information about setting properties for GameObjects, scripts, and Assets, see <a href="EditingValueProperties.html">Editing properties</a>. </p>
+<p>本页面描述了一些用于控制 Inspector 窗口本身的选项。有关设置游戏对象、脚本和资源的属性的信息，请参阅<a href="EditingValueProperties.html">编辑属性</a>。</p>
 
 <p><a name="locking-the-inspector"></a></p>
 
-<h2>Locking the Inspector</h2>
+<h2>锁定 Inspector</h2>
 
-<p>Normally, the Inspector shows the properties of the currently selected GameObject, script, or Asset. But sometimes, it’s useful to keep one item in the Inspector while you work with other items. In that case, you can lock an Inspector window to a specific item.</p>
+<p>通常，Inspector 会显示当前选定的游戏对象、脚本或资源的属性。但有时，在处理其他项目时将一项保留在 Inspector 中很有用。在这种情况下，您可以将 Inspector 窗口锁定到特定项目。</p>
 
-<p>To lock an Inspector window to an item, click the lock icon in the Inspector window. The lock icon changes to show that the Inspector is now locked to the selection.</p>
+<p>要将 Inspector 窗口锁定到某个项目，请单击 Inspector 窗口中的锁定图标。锁定图标会发生变化，显示 Inspector 现已锁定到所选项目。</p>
 
 <figure>
-<img src="../uploads/Main/inspector-lock-button.png" alt="The Inspector lock button in in its unlocked (left) and locked (right) states">
-<figcaption>The Inspector lock button in in its unlocked (left) and locked (right) states</figcaption>
+<img src="../uploads/Main/inspector-lock-button.png" alt="Inspector 锁定按钮处于解锁（左）和锁定（右）状态">
+<figcaption>Inspector 锁定按钮处于解锁（左）和锁定（右）状态</figcaption>
 </figure>
 
-<p>This is useful when you’re editing one item’s properties frequently. For example, if you’re fine-tuning a Camera’s position, you can lock an Inspector window to the Camera, and open a second Inspector window (<strong>More Items</strong> (<strong>⋮</strong>) menu: <strong>Add Tab &gt; Inspector</strong>) to continue displaying the properties of the current selection.</p>
+<p>当您经常编辑一个项目的属性时，这很有用。例如，如果您要微调一台摄像机的位置，您可以将一个 Inspector 窗口锁定到该摄像机，然后打开第二个 Inspector 窗口 (<strong>More Items</strong> (<strong>⋮</strong>) 菜单：<strong>Add Tab &gt; Inspector</strong>) 继续显示当前选择的属性。</p>
 
 <table>
 <colgroup>
@@ -224,56 +224,56 @@
 <tbody>
 <tr>
 	<td style="text-align:left;">
-<a href="InspectorFocused.html">Focused Inspectors</a> are an alternative to locking the Inspector window. A focused Inspector only ever displays the properties of the item you open it for.</td>
+<a href="InspectorFocused.html">专属 Inspector</a>是锁定 Inspector 窗口的替代方法。专属 Inspector 只显示为其打开的项目的属性。</td>
 </tr>
 </tbody>
 </table>
 
 <p><a name="reordering-components"></a></p>
 
-<h2>Reordering GameObject components</h2>
+<h2>重新排序游戏对象的组件</h2>
 
-<p>You can reorder a GameObject’s components in the Inspector window. The component order you apply in the Inspector is the same order that you need to use when you query components in your scripts.</p>
+<p>您可以在 Inspector 窗口中重新排序游戏对象的组件。在 Inspector 窗口中应用的组件顺序也是在您的脚本中查询组件时需使用的顺序。</p>
 
-<p>A GameObject’s Transform component is always the topmost component. You cannot move it, or place other components above it.</p>
+<p>游戏对象的 Transform 组件始终是最顶层的组件。您不能移动它，也不能在它上面放置其他组件。</p>
 
-<p>To reorder a GameObject’s components in the Inspector window, do one of the following:</p>
+<p>要在 Inspector 窗口中重新排序游戏对象的组件，请执行以下操作之一：</p>
 
 <ul>
-<li>Drag-and-drop component headers from one position to another. When you drag a component header, a blue insertion marker appears where Unity will place the component.</li>
+<li>将组件标题从一个位置拖放到另一个位置。当您拖动组件标题时，Unity 将放置组件的位置会出现一个蓝色插入标记。</li>
 </ul>
 
 <figure>
-<img src="../uploads/Main/inspector-component-reorder-drag.png" alt="Reordering GameObject components in the Inspector by dragging and dropping">
-<figcaption>Reordering GameObject components in the Inspector by dragging and dropping</figcaption>
+<img src="../uploads/Main/inspector-component-reorder-drag.png" alt="通过在 Inspector 中拖放操作重新排序游戏对象的组件">
+<figcaption>通过在 Inspector 中拖放操作重新排序游戏对象的组件</figcaption>
 </figure>
 
 <ul>
-<li>Right-click a component to open the context menu, and select <strong>Move Up</strong> or <strong>Move Down</strong>.</li>
+<li>右键单击一个组件以打开上下文菜单，然后选择 <strong>Move Up</strong> 或 <strong>Move Down</strong>。</li>
 </ul>
 
 <figure>
-<img src="../uploads/Main/inspector-component-reorder-menu.png" alt="Reordering GameObject components in the Inspector using the context menu">
-<figcaption>Reordering GameObject components in the Inspector using the context menu</figcaption>
+<img src="../uploads/Main/inspector-component-reorder-menu.png" alt="通过在 Inspector 中使用上下文菜单重新排序游戏对象的组件">
+<figcaption>通过在 Inspector 中使用上下文菜单重新排序游戏对象的组件</figcaption>
 </figure>
 
-<h3>Reordering components for multiple GameObjects</h3>
+<h3>为多个游戏对象重新排序组件</h3>
 
-<p>When you select <a href="UsingTheInspector.html#inspecting-multiple-items">multiple GameObjects</a>, the Inspector displays all of the components that the selected GameObjects have in common. If you reorder these common components, the changes apply to all of the selected GameObjects.</p>
+<p>选择<a href="UsingTheInspector.html#inspecting-multiple-items">多个游戏对象</a>时，Inspector 会显示选定游戏对象的所有共有的组件。如果您对这些公共组件重新排序，该更改将应用于所有选定的游戏对象。</p>
 
 <p><a name="assigning-icons"></a></p>
 
-<h2>Assigning icons</h2>
+<h2>分配图标</h2>
 
-<p>You can assign custom icons to GameObjects, Prefabs, and scripts from the Inspector window. Custom icons appear in the <a href="UsingTheSceneView.html">Scene view</a> in the same way as default icons for items such as Lights and Cameras.</p>
+<p>您可以从 Inspector 窗口将自定义图标分配给游戏对象、预制件和脚本。自定义图标出现在 <a href="UsingTheSceneView.html">Scene 视图</a>的方式与光照和摄像机等项目的默认图标相同。</p>
 
 <ul>
-<li>When you assign an icon to a GameObject, the icon appears in the Scene view over that GameObject, and any duplicates.</li>
-<li>When you assign an icon to a Prefab, the icon appears in the Scene view over any instances of that Prefab.</li>
-<li>When you assign an icon to a script, the icon appears in the Scene view over any GameObject that has the script attached.</li>
+<li>为游戏对象分配一个图标后，Scene 视图中该游戏对象（以及之后的任何重复项）的上方都会显示此图标。</li>
+<li>为预制件分配一个图标后，Scene 视图中该预制件所有实例的上方都会显示此图标。</li>
+<li>为脚本分配一个图标后，Scene 视图中任何附加了此脚本的游戏对象上方都会显示此图标。</li>
 </ul>
 
-<p>To control how Unity draws custom icons in the Scene view, use the <a href="GizmosMenu.html">Gizmos menu</a>.</p>
+<p>要控制 Unity 在 Scene 视图中绘制自定义图标的方式，请使用 <a href="GizmosMenu.html">Gizmos 菜单</a>。</p>
 
 <table>
 <colgroup>
@@ -282,37 +282,35 @@
 
 <thead>
 <tr>
-	<th style="text-align:left;">NOTE</th>
+	<th style="text-align:left;">注意</th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-	<td style="text-align:left;">When you change an Asset’s icon, Unity marks the Asset as modified, and version control systems register the change.</td>
+	<td style="text-align:left;">当您更改资源的图标时，Unity 会将该资源标记为已修改，并且版本控制系统会注册此更改。</td>
 </tr>
 </tbody>
 </table>
 
-<h3>Assigning custom icons to GameObjects, scripts, and Prefabs</h3>
+<h3>为游戏对象、脚本和预制件分配自定义图标</h3>
 
-<p>To assign a custom icon to a GameObject or a script:</p>
+<p>要将自定义图标分配给游戏对象或脚本：</p>
 
-<ol>
-<li>Open the item in an Inspector window.</li>
-<li>Click the <strong>Select icon</strong> button.</li>
-<li>Choose an icon from the <strong>Select icon</strong> menu (see below).</li>
-</ol>
+<p>1.在 Inspector 窗口中打开该项目。
+1.单击 <strong>Select icon</strong> 按钮。
+1.从 <strong>Select icon</strong> 菜单选择一个图标（如下）。</p>
 
 <figure>
-<img src="../uploads/Main/inspector-select-icon-button.png" alt="The Select Icon button for GameObjects/Prefabs (left) and scripts (right)">
-<figcaption>The Select Icon button for GameObjects/Prefabs (left) and scripts (right)</figcaption>
+<img src="../uploads/Main/inspector-select-icon-button.png" alt="Select Icon 按钮：游戏对象/预制件（左）和脚本（右）">
+<figcaption>Select Icon 按钮：游戏对象/预制件（左）和脚本（右）</figcaption>
 </figure>
 
-<p>To assign a custom icon to a Prefab, you must open the Prefab in <a href="EditingInPrefabMode.html">Prefab Mode</a>.</p>
+<p>要将自定义图标分配给某个预制件，您必须在<a href="EditingInPrefabMode.html">预制件模式</a>打开该预制件。</p>
 
-<h3>Choosing icons from the Select icon menu</h3>
+<h3>从 Select icon 菜单中选择图标</h3>
 
-<p>You assign custom Icons from the <strong>Select Icon</strong> menu.</p>
+<p>从 <strong>Select Icon</strong> 菜单分配自定义图标。</p>
 
 <figure>
 <img src="../uploads/Main/IconSelectorPopup.png" alt="">
@@ -326,47 +324,47 @@
 
 <thead>
 <tr>
-	<th style="text-align:left;">Icon type:</th>
-	<th style="text-align:left;">Description:</th>
+	<th style="text-align:left;">图标类型：</th>
+	<th style="text-align:left;">描述：</th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
 	<td style="text-align:left;">1</td>
-	<td style="text-align:left;">Label icons are colored capsules. In the Scene view, they display the names of the items they’re assigned to.<br><br>Click a label icon to assign it.</td>
+	<td style="text-align:left;">标签图标是彩色胶囊。在 Scene 视图中，它们显示所分配的项目的名称。<br><br>单击标签图标进行分配。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">2</td>
-	<td style="text-align:left;">Image-only icons are colored divots. They’re useful when you work with objects that may not have a visual representation. For example, you can assign image-only icons to navigation waypoints so you can see and select them in the Scene view. <br><br>Click an image-only icon to assign it.</td>
+	<td style="text-align:left;">仅图像图标是彩色的色块。当您处理可能没有直观表示的对象时，它们很有用。例如，您可以为导航路径点分配仅图像图标，以便在 Scene 视图中查看和选择它们。<br><br>单击一个仅图像图标进行分配。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">3</td>
-	<td style="text-align:left;">Asset icons are image Assets in your Scene that you use as custom icons. For example, you could use a skull and crossbones icon to indicate danger areas in a game level.<br><br>Click the <strong>Other</strong> button to open an Object Picker window and select an image Asset to assign as an icon.</td>
+	<td style="text-align:left;">资源图标是场景中用作自定义图标的图像资源。例如，您可以使用骷髅头图标来指示游戏关卡中的危险区域。<br><br>单击 <strong>Other</strong> 按钮打开 Object Picker 窗口，然后选择要指定为图标的图像资源。</td>
 </tr>
 </tbody>
 </table>
 
-<h2>Toggling Debug Mode</h2>
+<h2>切换调试模式</h2>
 
-<p>Normally, the Inspector window is configured as an editor for the selection’s properties. But sometimes it’s useful to only see the properties and their values. When you activate Debug mode, the Inspector shows only the properties and their values. If the selection has script components, Debug mode also displays private variables, although you can’t edit their values.</p>
+<p>通常，Inspector 窗口被配置为选择内容的属性的编辑器。但有时仅查看属性及其值即可。当您激活调试模式时，Inspector 仅显示属性及其值。如果选择内容具有脚本组件，调试模式也会显示私有变量，但您无法编辑它们的值。</p>
 
-<p>You can toggle Debug mode for each Inspector window individually.</p>
+<p>您可以单独为每个 Inspector 窗口切换调试模式。</p>
 
 <ul>
-<li>To turn on Debug mode, click the <strong>More Items</strong> (<strong>⋮</strong>) button to open the context menu, and select <strong>Debug</strong>.</li>
-<li>To return to Normal mode, click the <strong>More Items</strong> (<strong>⋮</strong>) button to open the context menu, and select <strong>Normal</strong>.</li>
+<li>要打开调试模式，请单击 <strong>More Items</strong> (<strong>⋮</strong>) 按钮打开上下文菜单，然后选择 <strong>Debug</strong>。</li>
+<li>要返回到正常模式，请单击 <strong>More Items</strong> (<strong>⋮</strong>) 按钮打开上下文菜单，然后选择 <strong>Normal</strong>。</li>
 </ul>
 
 <figure>
-<img src="../uploads/Main/DebugModeInspector.png" alt="A Mesh Renderer component in Normal mode (left) and Debug mode (right)">
-<figcaption>A Mesh Renderer component in Normal mode (left) and Debug mode (right)</figcaption>
+<img src="../uploads/Main/DebugModeInspector.png" alt="处于正常模式（左）和调试模式（右）的 Mesh Renderer 组件">
+<figcaption>处于正常模式（左）和调试模式（右）的 Mesh Renderer 组件</figcaption>
 </figure>
 
 <hr>
 
 <ul>
-<li><span class="page-history">Reorganized Inspector section pages in Unity 2020.1</span></li>
+<li><span class="page-history">在 Unity 2020.1 中重新组织了 Inspector 部分页面</span></li>
 </ul>
 <!-- area:authoring -->
 <div class="nextprev clear">
@@ -374,13 +372,13 @@
 <span class="prev"><a href="UsingTheInspector.html"></a></span><div class="tip">Inspector 窗口</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="InspectorFocused.html"></a></span><div class="tip">Focused Inspectors</div>
+<span class="next"><a href="InspectorFocused.html"></a></span><div class="tip">专属 Inspector</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

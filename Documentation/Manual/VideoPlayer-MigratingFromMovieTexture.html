@@ -174,7 +174,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="VideoPlayer.html">视频概述</a></li>
 <li><a href="class-VideoPlayer.html">视频播放器 (Video Player) 组件</a></li>
 <li>从 MovieTexture 迁移到 VideoPlayer</li>
@@ -290,7 +290,7 @@ public class DownloadMovieMT : MonoBehaviour
 
     IEnumerator GetMovieTexture()
     {
-        using (var uwr = UnityWebRequestMultimedia.GetMovieTexture("http://myserver.com/mymovie.ogv"))
+        using (var uwr = UnityWebRequestMultimedia.GetMovieTexture("https://myserver.com/mymovie.ogv"))
         {
             yield return uwr.SendWebRequest();
             if (uwr.isNetworkError || uwr.isHttpError)
@@ -318,7 +318,7 @@ public class DownloadMovieVP : MonoBehaviour
     void Start()
     {
         var vp = gameObject.AddComponent&lt;UnityEngine.Video.VideoPlayer&gt;();
-        vp.url = "http://myserver.com/mymovie.mp4";
+        vp.url = "https://myserver.com/mymovie.mp4";
 
         vp.isLooping = true;
         vp.renderMode = UnityEngine.Video.VideoRenderMode.MaterialOverride;
@@ -347,7 +347,7 @@ public class DownloadMovieVP : MonoBehaviour
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

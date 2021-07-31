@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
 <li><a href="LightingOverview.html">光照</a></li>
 <li>Scene 视图光照绘制模式</li>
@@ -185,7 +185,7 @@
 <span class="prev"><a href="GICache.html"></a></span><div class="tip">GI 缓存</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="Shaders.html"></a></span><div class="tip">网格、材质、着色器和纹理</div>
+<span class="next"><a href="3D-formats.html"></a></span><div class="tip">支持的模型文件格式</div>
 </div>
 </div></div>
 <h1>Scene 视图光照绘制模式</h1>
@@ -254,17 +254,17 @@
 
 <h3>Contributors/Receivers</h3>
 
-<p>This Draw Mode draws Mesh Renderers and Terrain in different colors based on whether <strong>ContributeGI</strong> is enabled in their <a href="StaticObjects.html">Static Editor Flags</a>, and the value of their <a href="../ScriptReference/MeshRenderer.ReceiveGI.html">ReceiveGI</a> property.</p>
+<p>此绘制模式根据网格渲染器和地形的 <a href="StaticObjects.html">Static Editor Flags</a> 中的 <strong>ContributeGI</strong> 是否已启用，以及其 <a href="../ScriptReference/MeshRenderer.ReceiveGI.html">ReceiveGI</a> 属性的值，用不同颜色绘制网格渲染器和地形。</p>
 
-<p>In the default colors:</p>
+<p>在默认颜色中：</p>
 
 <ul>
-<li>Yellow means that <strong>ContributeGI</strong> is not enabled in the GameObject’s Static Editor Flags.</li>
-<li>Blue means that <strong>ContributeGI</strong> is enabled in the GameObject’s Static Editor Flags, and the Renderer’s <strong>ReceiveGI</strong> property is set to <strong>Lightmaps</strong>.</li>
-<li>Red means that <strong>ContributeGI</strong> is enabled in the GameObject’s Static Editor Flags, and the Renderer’s <strong>ReceiveGI</strong> property is set to <strong>Light Probes</strong>.</li>
+<li>黄色表示游戏对象的 Static Editor Flags 中未启用 <strong>ContributeGI</strong>。</li>
+<li>蓝色表示游戏对象的 Static Editor Flags 中已启用 <strong>ContributeGI</strong>，并且渲染器的 <strong>ReceiveGI</strong> 属性设置为 <strong>Lightmaps</strong>。</li>
+<li>红色表示游戏对象的 Static Editor Flags 中已启用 <strong>ContributeGI</strong>，并且渲染器的 <strong>ReceiveGI</strong> 属性设置为 <strong>Light Probes</strong>。</li>
 </ul>
 
-<p>You can customize the colors in the <a href="Preferences.html">Preferences window</a>.</p>
+<p>您可以在 <a href="Preferences.html">Preferences 窗口</a>中自定义颜色。</p>
 
 <figure>
 <img src="../uploads/Main/GIVis-contributors-receivers.png" alt="">
@@ -290,9 +290,9 @@
 
 <h3>Indirect</h3>
 
-<p>The Indirect view displays indirect lighting as captured in the Realtime Global Illumination lightmaps that Enlighten generates. Unity presents the resolution of the irradiance texture as a checkered overlay. Irradiance is a radiometric unit that describes how much power (radiant flux) a surface receives per unit area. Unity uses irradiance to store indirect light data. If you disable Realtime Global Illumination, the Indirect view mode isn’t selectable. </p>
+<p>Indirect 视图显示在 Enlighten 生成的 Realtime Global Illumination 光照贴图中捕获的间接光照。Unity 将辐照度纹理的分辨率呈现为方格覆盖层。辐照度是一个辐射单位，用于描述表面每单位面积接收到多少功率（辐射通量）。Unity 使用辐照度来存储间接光数据。如果禁用 Realtime Global Illumination，则 Indirect 视图模式不可选。</p>
 
-<p>In the Indirect view mode, you can use a Lightmap Exposure control to help you assess HDR lightmaps more effectively. </p>
+<p>在 Indirect 视图模式下，可以使用光照贴图曝光控件来帮助更有效地评估 HDR 光照贴图。</p>
 
 <figure>
 <img src="../uploads/Main/GIVis7.png" alt="">
@@ -310,7 +310,7 @@
 
 <h3>Baked Lightmap</h3>
 
-<p>The Baked Lightmap view displays baked lightmaps applied to the Scene geometry. Unity presents the resolution of these lightmaps as a checkered overlay. In this mode, you can use a Lightmap Exposure control to help you assess HDR lightmaps more effectively. Scenes with high lighting intensities might require you to use exposure compensation to bring the Baked Lightmap Scene View into an easily readable range. </p>
+<p>Baked Lightmap 视图显示应用于场景几何体的烘焙光照贴图。Unity 将这些光照贴图的分辨率呈现为方格覆盖层。在这种模式下，可以使用光照贴图曝光控件来帮助更有效地评估 HDR 光照贴图。具有高光照强度的场景可能需要您使用曝光补偿将烘焙光照贴图场景视图置于易于读取的范围内。</p>
 
 <figure>
 <img src="../uploads/Main/GIVis9.jpg" alt="">
@@ -349,7 +349,7 @@
 </figure>
 
 <ul>
-<li><span class="page-history">[GI Contributors/Receivers Draw Mode] added in <a href="https://docs.unity3d.com/2020.1/Documentation/Manual/30_search.html?q=newin20201">2020.1</a> <span class="search-words">NewIn20201</span></span></li>
+<li><span class="page-history">[GI Contributors/Receivers 绘制模式]于 <a href="https://docs.unity3d.com/2020.1/Documentation/Manual/30_search.html?q=newin20201">2020.1</a> <span class="search-words">NewIn20201</span> 添加</span></li>
 </ul>
 <!-- area:graphics -->
 <div class="nextprev clear">
@@ -357,13 +357,13 @@
 <span class="prev"><a href="GICache.html"></a></span><div class="tip">GI 缓存</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="Shaders.html"></a></span><div class="tip">网格、材质、着色器和纹理</div>
+<span class="next"><a href="3D-formats.html"></a></span><div class="tip">支持的模型文件格式</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

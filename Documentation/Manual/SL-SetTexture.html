@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="ShaderLab：旧版纹理组合器 - Unity 手册">
-<title>ShaderLab：旧版纹理组合器 - Unity 手册</title>
+<meta property="og:title" content="ShaderLab：旧版纹理组合 - Unity 手册">
+<title>ShaderLab：旧版纹理组合 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/SL/SetTextureGraph.png">
-<meta name="description" content="在计算基本顶点光照之后将应用纹理。在 ShaderLab 中使用 SetTexture 命令来完成此操作。">
-<meta property="og:description" content="在计算基本顶点光照之后将应用纹理。在 ShaderLab 中使用 SetTexture 命令来完成此操作。">
+<meta name="description" content="注意：此页面上的 ShaderLab 是旧版功能，仅用于向后兼容。如果着色器源文件包含 HLSL 代码，Unity 将完全忽略这些命令。如果着色器源文件不包含 HLSL 代码，Unity 会在导入时将这些命令编译为常规着色器程序。">
+<meta property="og:description" content="注意：此页面上的 ShaderLab 是旧版功能，仅用于向后兼容。如果着色器源文件包含 HLSL 代码，Unity 将完全忽略这些命令。如果着色器源文件不包含 HLSL 代码，Unity 会在导入时将这些命令编译为常规着色器程序。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,31 +175,64 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
-<li><a href="ShadersOverview.html">编写着色器</a></li>
-<li><a href="SL-Reference.html">着色器参考</a></li>
-<li><a href="SL-Shader.html">ShaderLab 语法</a></li>
-<li><a href="SL-SubShader.html">ShaderLab：SubShader</a></li>
-<li><a href="SL-Pass.html">ShaderLab：Pass</a></li>
-<li>ShaderLab：旧版纹理组合器</li>
+<li><a href="Shaders.html">着色器</a></li>
+<li><a href="shader-writing.html">编写着色器</a></li>
+<li><a href="SL-Reference.html">ShaderLab</a></li>
+<li><a href="shader-shaderlab-commands.html">ShaderLab：命令</a></li>
+<li><a href="shader-shaderlab-legacy.html">ShaderLab 旧版功能</a></li>
+<li>ShaderLab：旧版纹理组合</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-Material.html"></a></span><div class="tip">ShaderLab：旧版光照</div>
+<span class="prev"><a href="SL-AlphaTest.html"></a></span><div class="tip">ShaderLab：旧版 Alpha 测试</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-AlphaTest.html"></a></span><div class="tip">ShaderLab：旧版 Alpha 测试</div>
+<span class="next"><a href="SL-BindChannels.html"></a></span><div class="tip">ShaderLab：旧版顶点数据通道映射</div>
 </div>
 </div></div>
-<h1>ShaderLab：旧版纹理组合器</h1>
+<h1>ShaderLab：旧版纹理组合</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>在计算基本顶点光照之后将应用纹理。在 ShaderLab 中使用 <strong>SetTexture</strong> 命令来完成此操作。</p>
+<p><strong>注意</strong>：此页面上的 ShaderLab 是旧版功能，仅用于向后兼容。如果着色器源文件包含 HLSL 代码，Unity 将完全忽略这些命令。如果着色器源文件不包含 HLSL 代码，Unity 会在导入时将这些命令编译为常规着色器程序。</p>
 
-<p><em><strong>注意：</strong>使用<a href="SL-ShaderPrograms.html">片元程序</a>时，SetTexture 命令无效；因为在这种情况下，像素运算在着色器中完整描述。建议现在使用可编程着色器，而不是 SetTexture 命令。</em></p>
+<h2>渲染管线兼容性</h2>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>功能名称</strong></th>
+	<th style="text-align:left;"><strong>内置渲染管线</strong></th>
+	<th style="text-align:left;"><strong>通用渲染管线 (URP)</strong></th>
+	<th style="text-align:left;"><strong>高清渲染管线 (HDRP)</strong></th>
+	<th style="text-align:left;"><strong>自定义 SRP</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>旧版纹理组合</strong></td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">否</td>
+	<td style="text-align:left;">否</td>
+	<td style="text-align:left;">否</td>
+</tr>
+</tbody>
+</table>
+
+<h1>概述</h1>
+
+<p>在计算基本顶点光照之后将应用纹理。在 ShaderLab 中使用 <strong>SetTexture</strong> 命令来完成此操作。</p>
 
 <p>可在固定函数纹理中实现旧式组合器效果。您可以在一个通道中包含多个 SetTexture 命令；所有纹理都按顺序应用，就像绘画程序中的图层一样。SetTexture 命令必须放在 <a href="SL-Pass.html">Pass</a> 的末尾。</p>
 
@@ -412,16 +445,16 @@
 <!-- area:graphics -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-Material.html"></a></span><div class="tip">ShaderLab：旧版光照</div>
+<span class="prev"><a href="SL-AlphaTest.html"></a></span><div class="tip">ShaderLab：旧版 Alpha 测试</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-AlphaTest.html"></a></span><div class="tip">ShaderLab：旧版 Alpha 测试</div>
+<span class="next"><a href="SL-BindChannels.html"></a></span><div class="tip">ShaderLab：旧版顶点数据通道映射</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

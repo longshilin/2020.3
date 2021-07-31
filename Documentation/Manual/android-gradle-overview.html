@@ -14,8 +14,8 @@
 <meta property="og:title" content="Gradle for Android - Unity 手册">
 <title>Gradle for Android - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/gradlebuildsettings.png">
-<meta name="description" content="Gradle is an Android build system that automates a number of build processes and prevents many common build errors. In Unity, Gradle reduces the method reference count in DEX (Dalvik Executable format) files, which means you are less likely to come across DEX limit problems.">
-<meta property="og:description" content="Gradle is an Android build system that automates a number of build processes and prevents many common build errors. In Unity, Gradle reduces the method reference count in DEX (Dalvik Executable format) files, which means you are less likely to come across DEX limit problems.">
+<meta name="description" content="Gradle 是一种 Android 构建系统，可自动执行许多构建过程并预防许多常见的构建错误。在 Unity 中，Gradle 可减少 DEX（Dalvik 可执行文件格式）文件中的方法引用数量，这意味着可降低遇到 DEX 限制问题的可能性。">
+<meta property="og:description" content="Gradle 是一种 Android 构建系统，可自动执行许多构建过程并预防许多常见的构建错误。在 Unity 中，Gradle 可减少 DEX（Dalvik 可执行文件格式）文件中的方法引用数量，这意味着可降低遇到 DEX 限制问题的可能性。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="PlatformSpecific.html">平台开发</a></li>
 <li><a href="android.html">Android</a></li>
 <li><a href="android-BuildProcess.html">构建 Android 应用程序</a></li>
@@ -193,7 +193,7 @@
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>Gradle is an Android build system that automates a number of build processes and prevents many common build errors. In Unity, Gradle reduces the method reference count in DEX (Dalvik Executable format) files, which means you are less likely to come across DEX limit problems.</p>
+<p>Gradle 是一种 Android 构建系统，可自动执行许多构建过程并预防许多常见的构建错误。在 Unity 中，Gradle 可减少 DEX（Dalvik 可执行文件格式）文件中的方法引用数量，这意味着可降低遇到 DEX 限制问题的可能性。</p>
 
 <p>Unity 将 Gradle 用于所有 Android 构建。可以在 Unity 中构建输出包（.apk、.aab），也可以从 Unity 导出 Gradle 项目，然后通过外部工具（如 Android Studio）进行构建。</p>
 
@@ -216,11 +216,11 @@
 	<td style="text-align:left;">5.6.4</td>
 </tr>
 <tr>
-	<td style="text-align:left;">2018.4 starting from 2018.4.4f1<br>2019.1 starting from 2019.1.7f1, 2019.2, 2019.3, and 2019.4</td>
+	<td style="text-align:left;">2018.4（从 2018.4.4f1 开始）<br>2019.1（从 2019.1.7f1 开始）、2019.2、2019.3 和 2019.4</td>
 	<td style="text-align:left;">5.1.1</td>
 </tr>
 <tr>
-	<td style="text-align:left;">2018.3, 2018.4 up to and including 2018.4.3f1<br>2019.1 up to and including 2019.1.6f1</td>
+	<td style="text-align:left;">2018.3、2018.4 到 2018.4.3f1（含）<br>2019.1 到 2019.1.6f1（含）</td>
 	<td style="text-align:left;">4.6</td>
 </tr>
 <tr>
@@ -232,7 +232,7 @@
 	<td style="text-align:left;">4.0.1</td>
 </tr>
 <tr>
-	<td style="text-align:left;">2017.4, starting from 2017.4.17</td>
+	<td style="text-align:left;">2017.4（从 2017.4.17 开始）</td>
 	<td style="text-align:left;">4.6</td>
 </tr>
 <tr>
@@ -317,19 +317,18 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><code>baseProjectTemplate.gradle</code></td>
-	<td style="text-align:left;">In the exported project, <code>root/build.gradle</code> folder</td>
+	<td style="text-align:left;">在导出的项目中，<code>root/build.gradle</code> 文件夹</td>
 	<td style="text-align:left;">所含的配置会在其他所有模板/Gradle 项目之间共享（代码仓库以及对 Android Gradle 插件的依赖关系）。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>launcherTemplate.gradle_</code></td>
-	<td style="text-align:left;">In the exported project, <code>root/launcher/build.gradle folder</code>
-</td>
+	<td style="text-align:left;">在导出的项目中，<code>root/launcher/build.gradle</code> 文件夹</td>
 	<td style="text-align:left;">包含有关如何构建 Android 应用程序的指令（捆绑、签名、APK 拆分）。它依赖于 unityLibrary 项目并输出 .apk 文件或应用程序捆绑包。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>mainTemplate.gradle</code></td>
-	<td style="text-align:left;">In the exported project, <code>root/unityLibrary/build.gradle</code> folder</td>
-	<td style="text-align:left;">Contains instructions on how to build Unity as a Library. Outputs an .aar file. You can override the Unity template with a custom template in the Unity Editor. See the <strong>Providing a custom Gradle build template</strong> section on this page for more details.</td>
+	<td style="text-align:left;">在导出的项目中，<code>root/unityLibrary/build.gradle</code> 文件夹</td>
+	<td style="text-align:left;">包含关于如何将 Unity 构建为库的指令。输出 .aar 文件。在 Unity 编辑器中，可以用自定义模板来覆盖 Unity 模板。请参阅本页的<strong>提供自定义 Gradle 构建模板</strong>部分以了解更多详细信息。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>libTemplate.gradle</code></td>
@@ -341,41 +340,36 @@
 
 <h2>自定义 Gradle 构建</h2>
 
-<p>You can provide a custom Gradle build template and select minification options in the <strong>Publishing Settings</strong> section of the <a href="class-PlayerSettingsAndroid.html">Player Settings</a> window.</p>
+<p>在 <a href="class-PlayerSettingsAndroid.html">Player Settings</a> 窗口的 <strong>Publishing Settings</strong> 部分中可以提供自定义 Gradle 构建模板并选择缩小选项。</p>
 
-<p><img src="../uploads/Main/PublishingSettingsGradle.png" alt="Gradle-specific settings in the Publishing Settings section of the Player settings window">
+<p><img src="../uploads/Main/PublishingSettingsGradle.png" alt="Player Settings 窗口的 Publishing Settings 部分中特定于 Gradle 的设置">
 <a name="providingacustomgradlebuildtemplate"></a></p>
 
 <h3>提供自定义 Gradle 构建模板</h3>
 
-<p>You can use a custom <code>build.gradle</code> file for the <strong>unityLibrary</strong> module when you build the APK from Unity. This file contains specific build instructions specified in <strong>template variables</strong>. For a list of template variables, see the next section.</p>
+<p>从 Unity 构建 APK 时，可以将自定义 <code>build.gradle</code> 文件用于 <strong>unityLibrary</strong> 模块。该文件包含 <strong>template variables</strong> 中指定的特定构建指令。有关模板变量的列表，请参阅下一部分。</p>
 
-<p>To use your own <code>build.gradle</code> file for the <strong>unityLibrary</strong> module, follow these steps:</p>
+<p>要将您自己的 <code>build.gradle</code> 文件用于 <strong>unityLibrary</strong> 模块，请执行以下操作：</p>
 
-<ol>
-<li>In the Unity Editor, open the <a href="class-PlayerSettingsAndroid.html">Player Settings</a> window (menu: <strong>Edit</strong> &gt; <strong>Project Settings</strong> &gt; <strong>Player</strong>), and select <strong>Android</strong>.</li>
-<li>In the <strong>Publishing Settings</strong> section, enable the <strong>Custom Main Gradle Template</strong> setting.</li>
-</ol>
+<p>1.在 Unity 编辑器中，打开 <a href="class-PlayerSettingsAndroid.html">Player Settings</a> 窗口（菜单：<strong>Edit</strong> &gt; <strong>Project Settings</strong> &gt; <strong>Player</strong>），然后选择 <strong>Android</strong>。
+2.在 <strong>Publishing Settings</strong> 部分中，启用 <strong>Custom Gradle Template</strong> 设置。</p>
 
-<p>Unity then generates a default <code>mainTemplate.gradle</code> file in your Project’s <code>Assets/Plugins/Android/</code> folder. The path to the new file also appears under the <strong>Custom Main Gradle Template</strong> option in the Player Settings. Double-click the <code>mainTemplate.gradle</code> file in the Project view to open it in an external text editor.</p>
+<p>随后，Unity 在项目的 <code>Assets/Plugins/Android/</code> 文件夹中生成默认的 <code>mainTemplate.gradle</code> 文件。新文件的路径也显示在 Player Settings 中的 <strong>Custom Main Gradle Template</strong> 选项之下。双击 Project 视图中的 <code>mainTemplate.gradle</code> 文件，从而在外部文本编辑器中打开此文件。</p>
 
-<figure>
-<img src="../uploads/Main/MainTemplateGradleFileN.png" alt="mainTemplate.gradle file in the Project view for the unityLibrary module">
-<figcaption><code>mainTemplate.gradle</code> file in the Project view for the <strong>unityLibrary</strong> module</figcaption>
-</figure>
+<p>!Project 视图中，<strong>unityLibrary</strong> 模块的 <a href="../uploads/Main/MainTemplateGradleFileN.png"><code>mainTemplate.gradle</code> 文件</a></p>
 
-<p>By default, Unity uses the <code>settingsTemplate.gradle</code> file from the Unity install directory to create the <code>settings.gradle</code> file for your build. The <code>settings.gradle</code> file contains project components which are involved in the build process. Unity creates the following components by default, which should always be included in the <code>settings.gradle</code> file:</p>
+<p>默认情况下，Unity 使用 Unity 安装目录的 <code>settingsTemplate.gradle</code> 文件创建<code>settings.gradle</code> 文件用于您的构建。<code>settings.gradle</code> 文件包含参与构建过程的项目组件。Unity 默认创建以下组件，这些组件应始终包含在 <code>settings.gradle</code> 文件中：</p>
 
 <ul>
 <li>launcher</li>
 <li>unityLibrary</li>
 </ul>
 
-<p>Additionally, if you add Android library plugins to your project, Unity automatically includes them in the settings file by replacing the **INCLUDES** entry.</p>
+<p>此外，如果您将 Android 库插件添加到项目中，Unity 会通过替换 **INCLUDES** 条目自动将它们包含在设置文件中。</p>
 
-<p>If you want to add additional components to the <code>settings.gradle</code> file that Unity doesn’t include by default, create a <code>settingsTemplate.gradle</code> file in your project’s <code>Assets/Plugins/Android/</code> folder. This overrides the default template.</p>
+<p>如果您要向 <code>settings.gradle</code> 添加 Unity 默认不包含的额外组件，请在项目的 <code>Assets/Plugins/Android/</code> 文件夹中创建一个 <code>settingsTemplate.gradle</code> 文件。这将覆盖默认的模板。</p>
 
-<p>If you use your own <code>settingsTemplate.gradle</code> file, it must contain the following lines:</p>
+<p>如果您使用自己的 <code>settingsTemplate.gradle</code> 文件，它必须包含以下行：</p>
 
 <pre><code>include ':launcher', ':unityLibrary'
 **INCLUDES**
@@ -387,7 +381,7 @@
 
 <h3>模板变量</h3>
 
-<p>The <code>mainTemplate.gradle</code> file can contain the following variables:</p>
+<p><code>mainTemplate.gradle</code> 文件可以包含以下变量：</p>
 
 <table>
 <colgroup>
@@ -445,7 +439,7 @@
 </tr>
 <tr>
 	<td style="text-align:left;">USER_PROGUARD</td>
-	<td style="text-align:left;">Custom user proguard file (for example, <code>proguard-user.txt</code>).</td>
+	<td style="text-align:left;">自定义用户 proguard 文件（例如 <code>proguard-user.txt</code>）。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">SIGN</td>
@@ -470,20 +464,18 @@
 
 <p>可以使用 Proguard 缩小选项来缩小和优化您的应用程序。要激活此选项，请执行以下步骤：</p>
 
-<ol>
-<li>Open the <a href="class-PlayerSettingsAndroid.html">Player Settings</a> window (menu: <strong>Edit</strong> &gt; <strong>Project Settings</strong> &gt; <strong>Player</strong>), and select <strong>Android</strong>.
-2.在 <strong>Publishing Settings</strong> 部分中的 <strong>Minify</strong> 下，为发布版本和/或调试版本选择 <strong>Proguard</strong>。</li>
-</ol>
+<p>1.打开 <a href="class-PlayerSettingsAndroid.html">Player Settings</a> 窗口（菜单：<strong>Edit</strong> &gt; <strong>Project Settings</strong> &gt; <strong>Player</strong>），然后选择 <strong>Android</strong>。
+2.在 <strong>Publishing Settings</strong> 部分中的 <strong>Minify</strong> 下，为发布版本和/或调试版本选择 <strong>Proguard</strong>。</p>
 
 <p><strong>注意：</strong>Proguard 可能会剥离应用程序所需的重要代码，因此请谨慎使用这些选项。</p>
 
-<p>To generate a custom <code>proguard.txt</code> file, enable the <strong>User Proguard File</strong> setting in the <strong>Publishing Settings</strong> section of the Player Settings. This immediately generates the <code>proguard.txt</code> file in your Project’s <code>Assets/Plugins/Android/</code> folder.</p>
+<p>要生成自定义 <code>proguard.txt</code> 文件，请启用 Player Settings 的 <strong>Publishing Settings</strong> 部分中的 <strong>User Proguard File</strong> 设置。这样会立即在项目的 <code>Assets/Plugins/Android/</code> 文件夹中生成 <code>proguard.txt</code> 文件。</p>
 
 <p>要了解有关 ProGuard 的更多信息，请参阅 <a href="https://www.guardsquare.com/en/products/proguard/manual/usage">ProGuard 手册</a>。</p>
 
 <h2>使用 Gradle 进行构建时的错误</h2>
 
-<p>If an error occurs when you use Gradle to build your app for Android, Unity displays an error dialog box. Select the <strong>Troubleshoot</strong> button to open the <a href="android-gradle-troubleshooting.html">Gradle troubleshooting</a> Unity documentation in your system’s browser.</p>
+<p>如果在使用 Gradle 为应用程序进行 Android 版本构建时发生错误，Unity 将显示“错误”对话框。请选择 <strong>Troubleshoot</strong> 按钮，在系统的浏览器中打开有关 <a href="android-gradle-troubleshooting.html">Gradle 故障排除</a>的 Unity 文档。</p>
 
 <hr>
 
@@ -504,7 +496,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

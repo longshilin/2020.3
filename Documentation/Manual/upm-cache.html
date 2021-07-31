@@ -174,7 +174,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="PackagesList.html">包</a></li>
 <li><a href="Packages.html">Unity 的 Package Manager</a></li>
 <li><a href="upm-concepts.html">概念</a></li>
@@ -182,10 +182,10 @@
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="upm-dependencies.html"></a></span><div class="tip">Dependency and resolution</div>
+<span class="prev"><a href="upm-dependencies.html"></a></span><div class="tip">依赖和解析</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="upm-config.html"></a></span><div class="tip">Configuration</div>
+<span class="next"><a href="upm-config.html"></a></span><div class="tip">配置</div>
 </div>
 </div></div>
 <h1>全局缓存</h1>
@@ -262,42 +262,25 @@
 
 <p>在每个子文件夹中，每个注册表都有其自己的路径，因此不会混淆托管在不同注册表中的包。</p>
 
+<p><strong>提示</strong>：您可以使用环境变量覆盖这些文件夹的位置。有关更多信息，请参阅<a href="upm-config.html#cacheconfig">自定义共享缓存位置</a>。</p>
+
 <h2>要求</h2>
 
 <p>运行 Unity Editor 进程的用户帐户必须对根目录及其内容具有完全写权限。没有这些权限，Package Manager 将无法下载包元数据和内容，也无法将它们保存在缓存中。</p>
 
-<h2>自定义共享缓存位置</h2>
-
-<p>可以使用两个环境变量来覆盖任一全局缓存文件夹：</p>
-
-<ul>
-<li>
-<p><strong>UPM_NPM_CACHE_PATH</strong> 覆盖 <strong>npm</strong> 文件夹路径。例如 (macOS)：</p>
-
-<p><code>UPM_NPM_CACHE_PATH=/dev/ssd/shared/Unity/cache/npm</code></p>
-</li>
-<li>
-<p><strong>UPM_CACHE_PATH</strong> 覆盖 <strong>packages</strong> 文件夹路径。例如 (macOS)：</p>
-
-<p><code>UPM_CACHE_PATH=/dev/ssd/shared/Unity/cache/packages</code></p>
-</li>
-</ul>
-
-<p>更改这些环境变量中的任何一个后，必须重新启动 Unity Editor 和 Hub 才能使更改生效。</p>
-
 <p><br> </p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="upm-dependencies.html"></a></span><div class="tip">Dependency and resolution</div>
+<span class="prev"><a href="upm-dependencies.html"></a></span><div class="tip">依赖和解析</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="upm-config.html"></a></span><div class="tip">Configuration</div>
+<span class="next"><a href="upm-config.html"></a></span><div class="tip">配置</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

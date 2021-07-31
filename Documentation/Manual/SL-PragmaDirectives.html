@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Shader compilation: pragma directives - Unity 手册">
-<title>Shader compilation: pragma directives - Unity 手册</title>
-<meta name="description" content="In HLSL, you can use preprocessor directives to tell the compiler how to compile a shader program. Pragma directives are a type of preprocessor directive. This page contains information about pragma directives that you can use in your Unity shader source code.">
-<meta property="og:description" content="In HLSL, you can use preprocessor directives to tell the compiler how to compile a shader program. Pragma directives are a type of preprocessor directive. This page contains information about pragma directives that you can use in your Unity shader source code.">
+<meta property="og:title" content="着色器编译：pragma 指令 - Unity 手册">
+<title>着色器编译：pragma 指令 - Unity 手册</title>
+<meta name="description" content="在 HLSL 中，您可以使用预处理器指令来告诉编译器如何编译着色器程序。Pragma 指令是一种预处理器指令。本页面包含有关可在着色器源代码中使用的 pragma 指令的信息。">
+<meta property="og:description" content="在 HLSL 中，您可以使用预处理器指令来告诉编译器如何编译着色器程序。Pragma 指令是一种预处理器指令。本页面包含有关可在着色器源代码中使用的 pragma 指令的信息。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,43 +174,42 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
-<li><a href="ShadersOverview.html">编写着色器</a></li>
-<li><a href="SL-Reference.html">着色器参考</a></li>
-<li><a href="SL-ShaderPrograms.html">编写顶点和片元着色器</a></li>
-<li>Shader compilation: pragma directives</li>
+<li><a href="Shaders.html">着色器</a></li>
+<li><a href="shader-writing.html">编写着色器</a></li>
+<li><a href="SL-ShaderPrograms.html">Unity 中的 HLSL</a></li>
+<li>着色器编译：pragma 指令</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-VertexFragmentShaderExamples.html"></a></span><div class="tip">顶点和片元着色器示例</div>
+<span class="prev"><a href="SL-ShaderPrograms.html"></a></span><div class="tip">Unity 中的 HLSL</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-ShaderCompileTargets.html"></a></span><div class="tip">Shader compilation: targeting shader models and GPU features</div>
+<span class="next"><a href="SL-ShaderCompileTargets.html"></a></span><div class="tip">着色器编译：针对着色器模型和 GPU 功能</div>
 </div>
 </div></div>
-<h1>Shader compilation: pragma directives</h1>
+<h1>着色器编译：pragma 指令</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>In HLSL, you can use preprocessor directives to tell the compiler how to compile a shader program. Pragma directives are a type of preprocessor directive. This page contains information about pragma directives that you can use in your Unity shader source code.</p>
+<p>在 HLSL 中，您可以使用预处理器指令来告诉编译器如何编译着色器程序。Pragma 指令是一种预处理器指令。本页面包含有关可在着色器源代码中使用的 pragma 指令的信息。</p>
 
-<p>For general information on preprocessor directives in HLSL, see the Microsoft documentation: <a href="https://docs.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl-appendix-preprocessor">Preprocessor directives (HLSL)</a>.</p>
+<p>有关 HLSL 中预处理器指令的一般信息，请参阅 Microsoft 文档：<a href="https://docs.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl-appendix-preprocessor">预处理器指令 (HLSL) </a>。</p>
 
-<h2>Using pragma directives</h2>
+<h2>使用 pragma 指令</h2>
 
-<p>Put pragma directives inside an HLSL code block, in your Unity shader source file.</p>
+<p>将 pragma 指令放在着色器源文件中的 HLSL 代码块中。</p>
 
-<p>By default, Unity does not support pragma directives in include files. If you enable the Caching Preprocessor in your Editor Settings, you can use the <code>#include_with_pragmas</code> preprocessor directive. This directive lets you put pragma directives in include files. This can be especially useful for enabling or disabling shader debug symbols for multiple files.</p>
+<p>默认情况下，Unity 不支持 include 文件中的 pragma 指令。如果在编辑器设置中启用缓存预处理器，则可以使用 <code>#include_with_pragmas</code> 预处理器指令。该指令允许您将 pragma 指令放在 include 文件中。这对于启用或禁用多个文件的着色器调试符号特别有用。</p>
 
-<h2>Supported pragma directives</h2>
+<h2>支持的 pragma 指令</h2>
 
-<h3>Shader stages</h3>
+<h3>着色器阶段</h3>
 
-<p>Use these pragma directives to tell the compiler which parts of your shader code to compile as different shader stages.</p>
+<p>使用这些 pragma 指令告诉编译器将着色器代码的哪些部分编译为不同的着色器阶段。</p>
 
-<p>An HLSL snippet must contain at least a vertex program and a fragment program, so <code>#pragma vertex</code> and <code>#pragma fragment</code> directives are required.</p>
+<p>HLSL 代码片段必须至少包含一个顶点程序和一个片元程序，因此需要使用 <code>#pragma vertex</code> 和 <code>#pragma fragment</code> 指令。</p>
 
 <table>
 <colgroup>
@@ -249,9 +248,9 @@
 </tbody>
 </table>
 
-<h3>Shader variants and keywords</h3>
+<h3>着色器变体和关键字</h3>
 
-<p>Use these pragma directives to tell the shader compiler how to handle shader variants and keywords.</p>
+<p>使用这些 pragma 指令告诉着色器编译器如何处理着色器变体和关键字。</p>
 
 <table>
 <colgroup>
@@ -269,26 +268,26 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><code>#pragma multi_compile ...</code></td>
-	<td style="text-align:left;">Create shader variants for a given keyword. Unused variants of <code>multi_compile</code> shaders are included in the game build. For more information, see <a href="SL-MultipleProgramVariants.html">Shader variants and keywords</a>.</td>
+	<td style="text-align:left;">为给定的关键字创建着色器变体。<code>multi_compile</code> 着色器的未使用变体会包含在游戏构建中。有关更多信息，请参阅<a href="SL-MultipleProgramVariants.html">着色器关键字和变体</a>。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>#pragma multi_compile_local ...</code></td>
-	<td style="text-align:left;">This statement is similar to <code>multi_compile</code>, but enumerated keywords are local. For more information, see <a href="SL-MultipleProgramVariants.html">Shader variants and keywords</a>.</td>
+	<td style="text-align:left;">此语句类似于 <code>multi_compile</code>，但是枚举的关键字为本地关键字。有关更多信息，请参阅<a href="SL-MultipleProgramVariants.html">着色器关键字和变体</a>。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>#pragma shader_feature ...</code></td>
-	<td style="text-align:left;">Create shader variants for a given keyword. Unused variants of <code>shader_feature</code> shaders are not included in the game build. For more information, see <a href="SL-MultipleProgramVariants.html">Shader variants and keywords</a>.</td>
+	<td style="text-align:left;">为给定的关键字创建着色器变体。<code>shader_feature</code> 着色器的未使用变体不会包含在游戏构建中。有关更多信息，请参阅<a href="SL-MultipleProgramVariants.html">着色器关键字和变体</a>。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>#pragma shader_feature_local ...</code></td>
-	<td style="text-align:left;">This statement is similar to <code>shader_feature</code>, but enumerated keywords are local. For more information, see <a href="SL-MultipleProgramVariants.html">Shader variants and keywords</a>.</td>
+	<td style="text-align:left;">此语句类似于 <code>shader_feature</code>，但是枚举的关键字为本地关键字。有关更多信息，请参阅<a href="SL-MultipleProgramVariants.html">着色器关键字和变体</a>。</td>
 </tr>
 </tbody>
 </table>
 
-<h3>Shader model and GPU features</h3>
+<h3>着色器模型和 GPU 功能</h3>
 
-<p>Use these pragma directives to tell the compiler that your shader targets a specific shader model, or requires specific GPU features.</p>
+<p>使用这些 pragma 指令告诉编译器您的着色器针对特定的着色器模型，或需要特定的 GPU 功能。</p>
 
 <table>
 <colgroup>
@@ -306,18 +305,18 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><code>#pragma target name</code></td>
-	<td style="text-align:left;">Which shader model to compile this shader program for. For more information, see <a href="SL-ShaderCompileTargets.html">Shader compilation: targeting shader models and GPU features</a>.</td>
+	<td style="text-align:left;">为哪个着色器模型编译此着色器程序。有关更多信息，请参阅<a href="SL-ShaderCompileTargets.html">着色器编译：针对着色器模型和 GPU 功能</a>。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>#pragma require feature ...</code></td>
-	<td style="text-align:left;">Which GPU features the shader program needs. For more information, see <a href="SL-ShaderCompileTargets.html">Shader compilation: targeting shader models and GPU features</a>.</td>
+	<td style="text-align:left;">着色器程序需要哪些 GPU 功能。有关更多信息，请参阅<a href="SL-ShaderCompileTargets.html">着色器编译：针对着色器模型和 GPU 功能</a>。</td>
 </tr>
 </tbody>
 </table>
 
-<h3>Graphics APIs</h3>
+<h3>图形 API</h3>
 
-<p>Use these pragma directives to tell the compiler to compile your shader for specific graphics APIs.</p>
+<p>使用这些 pragma 指令告诉编译器为特定的图形 API 编译着色器。</p>
 
 <table>
 <colgroup>
@@ -335,16 +334,16 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><code>#pragma only_renderers space separated names</code></td>
-	<td style="text-align:left;">Compile this shader program only for given graphics APIs. For more information, see <a href="SL-ShaderCompilationAPIs.html">Shader compilation: targeting graphics APIs</a>.</td>
+	<td style="text-align:left;">仅为给定的图形 API 编译此着色器程序。有关更多信息，请参阅<a href="SL-ShaderCompilationAPIs.html">着色器编译：针对图形 API</a>文档。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>#pragma exclude_renderers space separated names</code></td>
-	<td style="text-align:left;">Do not compile this shader program for given graphics APIs. For more information, see <a href="SL-ShaderCompilationAPIs.html">Shader compilation: targeting graphics APIs</a>.</td>
+	<td style="text-align:left;">不为给定的图形 API 编译此着色器程序。有关更多信息，请参阅<a href="SL-ShaderCompilationAPIs.html">着色器编译：针对图形 API</a>文档。</td>
 </tr>
 </tbody>
 </table>
 
-<h3>Other pragma directives</h3>
+<h3>其他 pragma 指令</h3>
 
 <table>
 <colgroup>
@@ -362,11 +361,11 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><code>#pragma enable_d3d11_debug_symbols</code></td>
-	<td style="text-align:left;">Generates shader debug symbols and/or disables optimizations. Use this for debugging shader code in an external tool.<br><br>For Vulkan, DirectX 11 and 12, and supported console platforms, Unity generates debug symbols and disables optimizations.<br><br>For Metal and OpenGL, you can already debug shaders by default. When you use this pragma directive, Unity disables optimizations.<br><br><strong>Warning:</strong> Using this directive results in an increased file size and reduced shader performance. When you have finished debugging your shaders and you are ready to make a final build of your application, remove this line from your Unity shader source code and recompile the shaders.</td>
+	<td style="text-align:left;">生成着色器调试符号和/或禁用优化。使用此指令在外部工具中调试着色器代码。<br><br>对于 Vulkan、DirectX 11 和 12 以及支持的游戏主机平台，Unity 会生成调试符号并禁用优化。<br><br>对于 Metal 和 OpenGL，默认情况下您已经可以调试着色器。当您使用此 pragma 指令时，Unity 会禁用优化。<br><br><strong>警告：</strong>使用此指令会导致文件大小增加并降低着色器性能。当您完成对着色器的调试并准备好对应用程序进行最终构建时，请从着色器源代码中删除此行并重新编译着色器。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>#pragma hardware_tier_variants renderer name</code></td>
-	<td style="text-align:left;">Generate <a href="SL-MultipleProgramVariants.html">multiple shader hardware variants</a> of each shader the system compiles for each hardware tier that can run the selected renderer. <br>This statement is only supported in the <a href="built-in-render-pipeline.html">Built-in Render Pipeline</a>.</td>
+	<td style="text-align:left;">针对每个可运行所选渲染器的硬件层，生成每个由系统编译的着色器的<a href="SL-MultipleProgramVariants.html">多个着色器硬件变体</a>。<br>仅在<a href="built-in-render-pipeline.html">内置渲染管线</a>中支持此语句。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>#pragma hlslcc_bytecode_disassembly</code></td>
@@ -382,7 +381,7 @@
 </tr>
 <tr>
 	<td style="text-align:left;"><code>#pragma editor_sync_compilation</code></td>
-	<td style="text-align:left;">Force synchronous compilation. This affects the Unity Editor only. For more information, see <a href="AsynchronousShaderCompilation.html">Asynchronous Shader compilation</a>.</td>
+	<td style="text-align:left;">强制进行同步编译。这仅影响 Unity 编辑器。有关更多信息，请参阅<a href="AsynchronousShaderCompilation.html">异步着色器编译</a>。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>#pragma enable_cbuffer</code></td>
@@ -391,7 +390,7 @@
 </tbody>
 </table>
 
-<h2>Unused pragma directives</h2>
+<h2>未使用的 pragma 指令</h2>
 
 <p>以下编译指令不执行任何操作，因此可以安全删除：</p>
 
@@ -403,16 +402,16 @@
 </ul>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-VertexFragmentShaderExamples.html"></a></span><div class="tip">顶点和片元着色器示例</div>
+<span class="prev"><a href="SL-ShaderPrograms.html"></a></span><div class="tip">Unity 中的 HLSL</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-ShaderCompileTargets.html"></a></span><div class="tip">Shader compilation: targeting shader models and GPU features</div>
+<span class="next"><a href="SL-ShaderCompileTargets.html"></a></span><div class="tip">着色器编译：针对着色器模型和 GPU 功能</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

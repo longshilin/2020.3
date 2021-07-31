@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Creating cookies for the Built-in Render Pipeline - Unity 手册">
-<title>Creating cookies for the Built-in Render Pipeline - Unity 手册</title>
+<meta property="og:title" content="为内置渲染管线创建剪影 - Unity 手册">
+<title>为内置渲染管线创建剪影 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/Cookie.png">
-<meta name="description" content="The most convenient way to create a cookie for use with the Built-in Render Pipeline is to create a grayscale texture, import that texture to Unity, and then let Unity convert the texture&amp;#8217;s brightness to alpha.">
-<meta property="og:description" content="The most convenient way to create a cookie for use with the Built-in Render Pipeline is to create a grayscale texture, import that texture to Unity, and then let Unity convert the texture&amp;#8217;s brightness to alpha.">
+<meta name="description" content="为内置渲染管线创建剪影的最便捷方法，是创建一个灰度纹理，将该纹理导入 Unity，然后 Unity 将纹理的亮度转换为 Alpha。">
+<meta property="og:description" content="为内置渲染管线创建剪影的最便捷方法，是创建一个灰度纹理，将该纹理导入 Unity，然后 Unity 将纹理的亮度转换为 Alpha。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,66 +175,58 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
 <li><a href="LightingOverview.html">光照</a></li>
 <li><a href="lighting-light-sources.html">光源</a></li>
 <li><a href="class-Light.html">光源</a></li>
-<li><a href="Cookies.html">Cookies (filename: Cookies.md)</a></li>
-<li>Creating cookies for the Built-in Render Pipeline</li>
+<li><a href="Cookies.html">剪影</a></li>
+<li>为内置渲染管线创建剪影</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="Cookies.html"></a></span><div class="tip">Cookies (filename: Cookies.md)</div>
+<span class="prev"><a href="Cookies.html"></a></span><div class="tip">剪影</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="lighting-emissive-materials.html"></a></span><div class="tip">发光材质</div>
 </div>
 </div></div>
-<h1>Creating cookies for the Built-in Render Pipeline</h1>
+<h1>为内置渲染管线创建剪影</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>The most convenient way to create a <a href="Cookies.html">cookie</a> for use with the Built-in Render Pipeline is to create a grayscale texture, import that texture to Unity, and then let Unity convert the texture’s brightness to alpha. </p>
+<p>为内置渲染管线创建<a href="Cookies.html">剪影</a>的最便捷方法，是创建一个灰度纹理，将该纹理导入 Unity，然后 Unity 将纹理的亮度转换为 Alpha。</p>
 
-<p>Note that in the Built-in Render Pipeline, cookies only use data from the alpha channel. This means that you can define a shape for a cookie, but not a color.</p>
+<p>请注意：在内置渲染管线中，剪影仅使用来自 Alpha 通道的数据。这意味着您可以为剪影定义形状，而不是定义颜色。</p>
 
 <figure>
-<img src="../uploads/Main/Cookie.png" alt="A simple grayscale cookie for a window light">
-<figcaption>A simple grayscale cookie for a window light</figcaption>
+<img src="../uploads/Main/Cookie.png" alt="一种用于体现窗户光线的简单灰度剪影">
+<figcaption>一种用于体现窗户光线的简单灰度剪影</figcaption>
 </figure>
 
 <figure>
-<img src="../uploads/Main/CookieExample.png" alt="The same cookie simulating light from a window">
-<figcaption>The same cookie simulating light from a window</figcaption>
+<img src="../uploads/Main/CookieExample.png" alt="模拟来自窗户的光线的同一个剪影">
+<figcaption>模拟来自窗户的光线的同一个剪影</figcaption>
 </figure>
 
-<p>To do this:</p>
+<p>为此需要执行以下操作：</p>
 
-<ol>
-<li>Create a grayscale texture in the image editor of your choice. If you are creating a cookie to use with a Spot Light, lay your texture out as a cubemap. If you are creating a cookie to use with a Point Light or Directional Light, lay your texture out as a regular 2D texture.</li>
-<li>Place the texture in your Project’s Asset folder to import the texture into Unity.</li>
-<li>In your Project view, select the Texture Asset that represents the texture. Unity displays the <a href="class-TextureImporter.html">Texture import settings</a> in the Inspector.</li>
-<li>In the Inspector, set the following values:
+<p>1.在所选择的图像编辑器中创建灰度纹理。如果要创建一个与聚光灯一起使用的剪影，请将纹理布置为立方体贴图。如果要创建用于点光源或定向光源的剪影，请将纹理布置为常规 2D 纹理。
+2.将纹理放在项目的 Asset 文件夹中以将纹理导入 Unity。
+3.在 Project 视图中，选择代表纹理的纹理资源。Unity 在 Inspector 中显示<a href="class-TextureImporter.html">纹理导入设置</a>。
+4.在 Inspector 中，设置以下值：
+ * 将 <strong>Texture Type</strong> 设置为 <strong>Cookie</strong>
+ * 将 <strong>Light Type</strong> 设置为与要为其创建剪影的光线类型一致
+ * 将 <strong>Alpha Source</strong> 设置为 <strong>From Gray Scale</strong>。
+5.在 Inspector 底部，单击 <strong>Apply</strong>。Unity 将更新的导入设置应用于纹理资源。</p>
 
-<ul>
-<li>Set <strong>Texture Type</strong> to <strong>Cookie</strong>
-</li>
-<li>Set <strong>Light Type</strong> to match the Type of the Light that you are creating the cookie for</li>
-<li>Set <strong>Alpha Source</strong> to <strong>From Gray Scale</strong>
-</li>
-</ul>
-</li>
-<li>At the bottom of the Inspector, click <strong>Apply</strong>. Unity applies the updated import settings to the Texture Asset.</li>
-</ol>
+<p>请注意，剪影的像素不需要完全透明或不透明，但也可以包含两者之间的任何值。可以使用中间值来模拟光路中的灰尘或污垢，或模拟焦散效果，例如汽车前灯中的脊产生的效果。</p>
 
-<p>Note that the pixels of a cookie does not need to be completely transparent or opaque, but can also incorporate any values in between. You can use in-between values to simulate dust or dirt in the path of the light, or to simulate caustic effects such as those produced by the ridges in a car’s headlight.</p>
-
-<p>For more information on configuring the import settings for cookies in the Built-in Render Pipeline, see <a href="TextureTypes.html#Cookie">Texture Type: Cookie</a>.</p>
+<p>有关在内置渲染管线中为剪影配置导入设置的更多信息，请参阅<a href="TextureTypes.html#Cookie">纹理类型：剪影</a>。</p>
 <!-- area:graphics -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="Cookies.html"></a></span><div class="tip">Cookies (filename: Cookies.md)</div>
+<span class="prev"><a href="Cookies.html"></a></span><div class="tip">剪影</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="lighting-emissive-materials.html"></a></span><div class="tip">发光材质</div>
@@ -243,7 +235,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

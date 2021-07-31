@@ -175,8 +175,8 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="AssetWorkflow.html">资源工作流程</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="AssetWorkflow.html">Asset Workflow</a></li>
 <li><a href="AssetBundlesIntro.html">AssetBundle</a></li>
 <li>本机使用 AssetBundle</li>
 </ul></div>
@@ -201,7 +201,7 @@
 <li><a href="https://docs.unity3d.com/ScriptReference/AssetBundle.LoadFromFile.html?_ga=1.259297550.563709772.1479226228">AssetBundle.LoadFromFile</a></li>
 <li><a href="https://docs.unity3d.com/ScriptReference/WWW.LoadFromCacheOrDownload.html?_ga=1.226802969.563709772.1479226228">WWW.LoadfromCacheOrDownload</a></li>
 <li>
-<a href="https://docs.unity3d.com/ScriptReference/Networking.UnityWebRequestAssetBundle.html?_ga=1.259297550.563709772.1479226228">UnityWebRequestAssetBundle</a>’s <a href="https://docs.unity3d.com/ScriptReference/Networking.DownloadHandlerAssetBundle.html?_ga=1.264500235.563709772.1479226228">DownloadHandlerAssetBundle </a>(Unity 5.3 or newer)</li>
+<a href="https://docs.unity3d.com/ScriptReference/Networking.UnityWebRequestAssetBundle.html?_ga=1.259297550.563709772.1479226228">UnityWebRequestAssetBundle</a> 的 <a href="https://docs.unity3d.com/ScriptReference/Networking.DownloadHandlerAssetBundle.html?_ga=1.264500235.563709772.1479226228">DownloadHandlerAssetBundle </a>（Unity 5.3 或更高版本）</li>
 </ul>
 
 <h2>AssetBundle.LoadFromMemoryAsync</h2>
@@ -265,7 +265,7 @@ public class LoadFromFileExample : MonoBehaviour
 
 <p><a href="../ScriptReference/Networking.UnityWebRequestAssetBundle.GetAssetBundle.html">UnityWebRequestAssetBundle</a></p>
 
-<p>The UnityWebRequestAssetBundle has a specific API call to deal with AssetBundles. To begin, you’ll need to create your web request using <code>UnityWebRequestAssetBundle.GetAssetBundle</code>. After returning the request, pass the request object into <code>DownloadHandlerAssetBundle.GetContent(UnityWebRequestAssetBundle)</code>. This <code>GetContent</code> call will return your AssetBundle object.</p>
+<p>UnityWebRequestAssetBundle 有一个特定 API 调用来处理 AssetBundle。首先，需要使用 <code>UnityWebRequestAssetBundle.GetAssetBundle</code> 来创建 Web 请求。返回请求后，请将请求对象传递给 <code>DownloadHandlerAssetBundle.GetContent(UnityWebRequestAssetBundle)</code>。<code>GetContent</code> 调用将返回 AssetBundle 对象。</p>
 
 <p>下载捆绑包后，还可以在 <a href="../ScriptReference/Networking.DownloadHandlerAssetBundle.html">DownloadHandlerAssetBundle</a> 类上使用 <code>assetBundle</code> 属性，从而以 <code>AssetBundle.LoadFromFile</code> 的效率加载 AssetBundle。</p>
 
@@ -355,7 +355,7 @@ foreach(string dependency in dependencies)
 
 <h2>管理已加载的 AssetBundle</h2>
 
-<p><strong>Note:</strong> The <a href="http://docs.unity3d.com/Packages/com.unity.addressables@latest/index.html">Addressable Assets</a> package provides a ready-made system to manage loading Asset Bundes, dependencies, and Assets. Unity recommends using Addressables rather than managing AssetBundles yourself.</p>
+<p><strong>注意：</strong> <a href="http://docs.unity3d.com/Packages/com.unity.addressables@latest/index.html">Addressable Assets</a> 包提供了一个现成的系统来管理加载资源包、依赖项和资源。Unity 建议使用 Addressables 而不是自己管理 AssetBundles。</p>
 
 <p>另请参阅：Unity 学习教程 - <a href="https://unity3d.com/fr/learn/tutorials/topics/best-practices/assetbundle-usage-patterns#Managing_Loaded_Assets">管理已加载的 AssetBundle (Managing Loaded AssetBundles)</a></p>
 
@@ -363,11 +363,11 @@ foreach(string dependency in dependencies)
 
 <p>了解何时加载和卸载 AssetBundle 非常重要。不正确地卸载 AssetBundle 会导致在内存中复制对象或其他不良情况，例如缺少纹理。</p>
 
-<p>The biggest things to understand about AssetBundle management is when to call <a href="../ScriptReference/AssetBundle.Unload.html">AssetBundle.Unload(bool)</a> – or <a href="../ScriptReference/AssetBundle.Unload.html">AssetBundle.UnloadAsync(bool)</a> – and if you should pass true or false into the function call. Unload is a non-static function that will unload your AssetBundle. This API unloads the header information of the AssetBundle being called. The argument indicates whether to also unload all Objects instantiated from this AssetBundle.</p>
+<p>关于 AssetBundle 管理的最需要了解的是何时调用<a href="../ScriptReference/AssetBundle.Unload.html">AssetBundle.Unload(bool)</a> – 或者<a href="../ScriptReference/AssetBundle.Unload.html">AssetBundle.UnloadAsync(bool)</a> – 以及应该将 true 还是 false 传递到函数调用中。Unload 是一个非静态函数，可用于卸载 AssetBundle。此 API 会卸载正在调用的 AssetBundle 的标头信息。该参数指示是否还要卸载通过此 AssetBundle 实例化的所有对象。</p>
 
 <p><code>AssetBundle.Unload(true)</code> 卸载从 AssetBundle 加载的所有游戏对象（及其依赖项）。这不包括复制的游戏对象（例如实例化的游戏对象），因为它们不再属于 AssetBundle。发生这种情况时，从该 AssetBundle 加载的纹理（并且仍然属于它）会从场景中的游戏对象消失，因此 Unity 将它们视为缺少纹理。</p>
 
-<p>Let’s assume Material M is loaded from AssetBundle AB as shown below and used in Prefab P.</p>
+<p>假设 Material M 是从 AssetBundle AB 如下所示加载并在 Prefab P 中使用。</p>
 
 <p>如果调用 AB.Unload(true)，活动场景中的任何 M 实例也将被卸载并销毁。</p>
 
@@ -377,19 +377,19 @@ foreach(string dependency in dependencies)
 <img src="../uploads/Main/AssetBundles-Native-1.png" alt="">
 </figure>
 
-<p>If AB is loaded again later and AB.LoadAsset() is called, Unity will not re-link the existing copies of M to the newly loaded Material. </p>
+<p>如果稍后再次加载 AB 并且调用 AB.LoadAsset()，则 Unity 不会将现有 M 副本重新链接到新加载的材质。</p>
 
 <figure>
 <img src="../uploads/Main/AssetBundles-Native-2.png" alt="">
 </figure>
 
-<p>If you create another instance of Prefab P, it will not use the existing copy of M. Instead two copies of M are loaded.</p>
+<p>如果您创建另一个 Prefab P 的实例，它将不会使用 M 的现有副本。而是加载 M 的两个副本。</p>
 
 <figure>
 <img src="../uploads/Main/AssetBundles-Native-3.png" alt="">
 </figure>
 
-<p>Generally, using <code>AssetBundle.Unload(false)</code> does not lead to an ideal situation. Most projects should use <code>AssetBundle.Unload(true)</code> and adopt a method to ensure that Objects are not duplicated. Two common methods are:</p>
+<p>通常，使用 <code>AssetBundle.Unload(false)</code> 不会获得理想的情况。大多数项目应该使用 <code>AssetBundle.Unload(true)</code> 并采用一种方法来确保对象不会重复。两种常用方法是：</p>
 
 <ul>
 <li><p>在应用程序生命周期中具有明确定义的卸载瞬态 AssetBundle 的时间点，例如在关卡之间或在加载屏幕期间。</p></li>
@@ -414,7 +414,7 @@ foreach(string dependency in dependencies)
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

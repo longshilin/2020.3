@@ -174,7 +174,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li>包</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
@@ -193,7 +193,7 @@
 
 <p>有关使用包的更多一般信息，请参阅<a href="Packages.html">使用 Package Manager</a>。</p>
 
-<p>If you are only interested in finding documentation or information about a specific package, click the links on the <a href="pack-safe.html">Verified packages</a>, <a href="pack-preview.html">Preview packages</a> and <a href="pack-build.html">Built-in packages</a> pages. To find a package by keyword, see the <a href="pack-keys.html">Packages by keywords</a> page.</p>
+<p>如果只想查找有关特定包的文档或信息，请单击<a href="pack-safe.html">已验证包</a>、<a href="pack-preview.html">预览包</a>和<a href="pack-build.html">内置包</a>页面上的链接。要按关键字查找包，请参阅<a href="pack-keys.html">按关键字排列的包</a>页面。</p>
 
 <p>有关借助 Unity Package Manager 来使用包的信息，请单击下表提供的指向相应文档各个主题的链接：</p>
 
@@ -213,32 +213,35 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><strong>获取包的简介</strong></td>
-	<td style="text-align:left;">The <a href="upm-concepts.html">Concepts</a> section explains principles and features of the Package Manager, including basic concepts like versions, manifests, registries, states, sources, and the package lifecycle, as well as <a href="upm-dependencies.html">dependency and resolution</a>.<br><br><a href="upm-ui-find.html">Finding packages</a> explains how to use the Package Manager window to: <br><br>- Find specific versions of each package.<br>- Find Asset Store packages that you can import or download into your project.<br><br>The <a href="upm-ui.html">Package Manager window</a> section explains how to interact with the Unity Package Manager inside Unity.</td>
+	<td style="text-align:left;">
+<a href="upm-concepts.html">概念</a>部分解释了 Package Manager 的原理和功能，包括版本、清单、注册表、状态、源和包的生命周期等基本概念，以及<a href="upm-dependencies.html">依赖和解析</a>。<br><br><a href="upm-ui-find.html">查找包</a>解释了如何使用 Package Manager 窗口来：<br><br> - 查找每个包的特定版本。<br> - 查找可以导入或下载到项目中的 Asset Store 资源包。<br><br><a href="upm-ui.html">Package Manager 窗口</a>部分解释了如何与 Unity 中的 Unity Package Manager 交互。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>安装包</strong></td>
-	<td style="text-align:left;">These pages describe how to use the Package Manager window to install packages from the following sources:<br><br>- <a href="upm-ui-install.html">Installing from the registry</a> <br>- <a href="upm-ui-local.html">Installing from a local folder</a> <br>- <a href="upm-ui-tarball.html">Installing from a local tarball file</a> <br>- <a href="upm-ui-giturl.html">Installing from a Git URL</a> <br><br><a href="upm-embed.html">Embedded dependencies</a> describes where to put your package in order to embed it in your project. You can either embed a package manually or use the Scripting API to embed a package that is already installed in your project.<br><br><a href="upm-ui-update.html">Switching to another package version</a> describes how to use the Package Manager window to switch versions of a package already installed.<br><br><a href="upm-ui-remove.html">Removing an installed package</a> describes how to use the Package Manager window to remove a package from your project.<br><br><a href="upm-ui-disable.html">Disabling a built-in package</a> describes how to use the Package Manager window to enable and disable built-in packages.</td>
+	<td style="text-align:left;">这些页面描述了如何使用 Package Manager 窗口从以下来源安装包：<br><br>- <a href="upm-ui-install.html">从注册表安装</a><br>- <a href="upm-ui-local.html">从本地文件夹安装</a><br>- <a href="upm-ui-tarball.html">从本地 tarball 文件安装</a><br>- <a href="upm-ui-giturl.html">从 Git URL 安装</a><br><br><a href="upm-embed.html">嵌入式依赖项</a>描述如何放置包以将其嵌入您的项目中。您可以手动嵌入包，也可以使用脚本 API 嵌入已安装在项目中的包。<br><br><a href="upm-ui-update.html">切换到另一个包版本</a>介绍如何使用 Package Manager 窗口切换已安装包的版本。<br><br><a href="upm-ui-remove.html">移除某个已安装的包</a>介绍如何使用 Package Manager 窗口从项目中移除包。<br><br><a href="upm-ui-disable.html">禁用内置包</a>介绍如何使用 Package Manager 窗口启用和禁用内置包。</td>
 </tr>
 <tr>
-	<td style="text-align:left;"><strong>Working with Asset packages</strong></td>
-	<td style="text-align:left;">For information on working with Asset packages directly inside the Package Manager window, see:<br><br>- <a href="upm-ui-import.html">Importing an Asset package</a><br>- <a href="upm-ui-update2.html">Updating your Asset package</a>
+	<td style="text-align:left;"><strong>使用 Asset Store 资源包</strong></td>
+	<td style="text-align:left;">有关直接在 Package Manager 窗口中使用 Asset Store 资源包的信息，请参阅：<br><br>- <a href="upm-ui-import.html">导入 Asset Store 资源包</a><br>-<a href="upm-ui-update2.html">更新您的 Asset Store 资源包</a>
 </td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>对包进行故障排除</strong></td>
-	<td style="text-align:left;">If any of your project’s packages, including the <a href="upm-ui.html">Package Manager window</a> itself, fails to load correctly, refer to the <a href="upm-errors.html">Troubleshooting</a> and <a href="upm-conflicts.html">Package conflicts</a> sections.</td>
+	<td style="text-align:left;">如果项目的任何包（包括 <a href="upm-ui.html">Package Manager 窗口</a> 本身）无法正确加载，请参阅<a href="upm-errors.html">故障排除</a>和<a href="upm-conflicts.html">包冲突</a>部分。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>进一步了解如何使用清单</strong></td>
-	<td style="text-align:left;">The <a href="upm-manifestPrj.html">project manifest</a> reference page describes each attribute, including what values are valid and what role they play.<br><br>The <a href="upm-inspect.html">Inspecting packages</a> reference page describes how to view a package manifest in the Inspector. If the package is mutable (editable), you can also use the Inspector to modify the manifest itself.</td>
+	<td style="text-align:left;">
+<a href="upm-manifestPrj.html">项目清单</a>参考页面介绍了每个属性，包括哪些值有效以及各个值的作用。<br><br><a href="upm-inspect.html">检查包</a>参考页面介绍了如何在 Inspector 中查看包清单。如果包是可变的（可编辑的），那么还可以使用 Inspector 来修改清单本身。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>了解包的高级使用方式</strong></td>
-	<td style="text-align:left;">To get started creating scripts that interact with the Package Manager, see <a href="upm-api.html">Scripting API for packages</a>. It provides a high-level overview of working with the Package Manager APIs and code samples for <a href="upm-api.html#Find">browsing the list of packages</a>, <a href="upm-api.html#Install">adding a package to a project</a>, and <a href="upm-api.html#Embed">embedding a package that is already installed in the project</a>.<br><br>If you want to find out about how to use your own package registry server in addition to the standard Unity registry, see <a href="upm-scoped.html">Scoped Registries</a>.</td>
+	<td style="text-align:left;">要开始创建与 Package Manager 交互的脚本，请参阅<a href="upm-api.html">包的脚本 API</a>。本页面概要介绍了如何使用 Package Manager API 和代码示例（说明如何<a href="upm-api.html#Find">浏览包列表</a>、<a href="upm-api.html#Install">将包添加到项目</a>以及<a href="upm-api.html#Embed">嵌入已在项目中安装的包</a>）。<br><br>除了标准 Unity 注册表之外，如果还想了解有关如何使用自己的包注册表服务器的信息，请参阅<a href="upm-scoped.html">有作用域的包注册表</a>。</td>
 </tr>
 <tr>
-	<td style="text-align:left;"><strong>Build and share your own tools and assets in a package</strong></td>
-	<td style="text-align:left;">The <a href="CustomPackages.html">Custom packages</a> section is a complete guide on building your own packages. It explains custom package requirements, such as naming and file structure. It also covers how to fill out the <a href="upm-manifestPkg.html">package manifest</a>, share your package, and more.</td>
+	<td style="text-align:left;"><strong>在包中构建和共享您自己的工具和资源</strong></td>
+	<td style="text-align:left;">
+<a href="CustomPackages.html">自定义包</a>部分完整介绍了如何构建您自己的包。此部分介绍了自定义包的要求，例如命名和文件结构。还介绍了如何填充<a href="upm-manifestPkg.html">包清单</a>、共享包等。</td>
 </tr>
 </tbody>
 </table>
@@ -254,7 +257,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

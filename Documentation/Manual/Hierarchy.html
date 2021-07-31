@@ -14,8 +14,8 @@
 <meta property="og:title" content="Hierarchy 窗口 - Unity 手册">
 <title>Hierarchy 窗口 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/Hierarchy_01.png">
-<meta name="description" content="The Hierarchy window displays every GameObject in a Scene, such as models, Cameras, or Prefabs. You can use the Hierarchy window to sort and group the GameObjects you use in a Scene. When you add or remove GameObjects in the Scene view, you also add or remove them from the Hierarchy window.">
-<meta property="og:description" content="The Hierarchy window displays every GameObject in a Scene, such as models, Cameras, or Prefabs. You can use the Hierarchy window to sort and group the GameObjects you use in a Scene. When you add or remove GameObjects in the Scene view, you also add or remove them from the Hierarchy window.">
+<meta name="description" content="Hierarchy 窗口显示场景中的每个游戏对象，如模型、摄像机或预制件。可以使用 Hierarchy 窗口对场景中使用的游戏对象进行排序和分组。在 Scene 视图中添加或移除游戏对象时，也会从 Hierarchy 窗口添加或移除它们。">
+<meta property="og:description" content="Hierarchy 窗口显示场景中的每个游戏对象，如模型、摄像机或预制件。可以使用 Hierarchy 窗口对场景中使用的游戏对象进行排序和分组。在 Scene 视图中添加或移除游戏对象时，也会从 Hierarchy 窗口添加或移除它们。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UnityOverview.html">在 Unity 中操作</a></li>
 <li><a href="UsingTheEditor.html">Unity 的界面</a></li>
 <li>Hierarchy 窗口</li>
@@ -197,159 +197,145 @@
 <figcaption>打开 Unity 新项目时的默认 Hierarchy 窗口视图</figcaption>
 </figure>
 
-<p>The <strong>Hierarchy</strong> window displays every <a href="GameObjects.html">GameObject</a> in a Scene, such as models, Cameras, or <span class="no tooltip"><a href="Prefabs.html">Prefabs</a></span>. You can use the Hierarchy window to sort and group the GameObjects you use in a Scene. When you add or remove GameObjects in the Scene view, you also add or remove them from the Hierarchy window.</p>
+<p><strong>Hierarchy</strong> 窗口显示场景中的每个<a href="GameObjects.html">游戏对象</a>，如模型、摄像机或<span class="no tooltip"><a href="Prefabs.html">预制件</a></span>。可以使用 Hierarchy 窗口对场景中使用的游戏对象进行排序和分组。在 Scene 视图中添加或移除游戏对象时，也会从 Hierarchy 窗口添加或移除它们。</p>
 
-<p>The Hierarchy window can also contain other Scenes, with each Scene containing their own GameObjects.</p>
+<p>Hierarchy 窗口还可以包含其他场景，每个场景都包含自己的游戏对象。</p>
 
 <h2>父子化</h2>
 
-<p>Unity uses the concept of parent-child hierarchies, or parenting, to group GameObjects. An object can contain other GameObjects that inherit its properties.You can link GameObjects together to help move, scale, or transform a collection of GameObjects. When you move the top-level object, or parent GameObject, you also move all child GameObjects.</p>
+<p>Unity 使用父子层级视图或父子化的概念对游戏对象进行分组。一个对象可以包含继承其属性的其他游戏对象。可以将游戏对象链接在一起以帮助移动、缩放或变换游戏对象的集合。移动顶层对象或父游戏对象时，也会移动所有子游戏对象。</p>
 
-<p>You can also create nested parent-child GameObjects. All nested objects are still descendants of the original parent GameObject, or root GameObject.</p>
+<p>还可以创建嵌套父子游戏对象。所有嵌套对象仍然是原始父游戏对象或根游戏对象的后代。</p>
 
 <p>子游戏对象会继承父游戏对象的移动和旋转。要了解与此相关的更多信息，请参阅关于<a href="class-Transform.html">变换组件</a>的文档。</p>
 
 <figure>
-<img src="../uploads/Main/HierarchyParenting1_01.png" alt=" Child 1 and Child 2 are the child GameObjects of Parent. Child 3 is a child GameObject of Child 2, and a descendant GameObject of Parent.">
-<figcaption> <strong>Child 1</strong> and <strong>Child 2</strong> are the child GameObjects of <strong>Parent</strong>. <strong>Child 3</strong> is a child GameObject of <strong>Child 2</strong>, and a descendant GameObject of <strong>Parent</strong>.</figcaption>
+<img src="../uploads/Main/HierarchyParenting1_01.png" alt="Child 1 和 Child 2 是 Parent 的子游戏对象。Child 3 是 Child 2 的子游戏对象，也是 Parent 的后代游戏对象。">
+<figcaption><strong>Child 1</strong> 和 <strong>Child 2</strong> 是 <strong>Parent</strong> 的子游戏对象。<strong>Child 3</strong> 是 <strong>Child 2</strong> 的子游戏对象，也是 <strong>Parent</strong> 的后代游戏对象。</figcaption>
 </figure>
 
-<h2>Organizing GameObjects</h2>
+<h2>组织游戏对象</h2>
 
-<h3>Creating new GameObjects</h3>
+<h3>创建新游戏对象</h3>
 
-<p>To create a new GameObject in the Hierarchy window:</p>
+<p>要在 Hierarchy 窗口中创建新游戏对象，请执行以下操作：</p>
 
-<ol>
-<li>Right-click on empty space in the selected Scene.</li>
-<li>Select the GameObject you want to create.</li>
-</ol>
+<p>1.右键单击选定场景中的空白区域。
+2.选择要创建的游戏对象。</p>
 
-<p>You can also press <strong>Ctrl+Shift+N</strong> (Windows) or <strong>Command+Shift+N</strong> (macOS) to create a new empty GameObject.</p>
+<p>也可以按 <strong>Ctrl+Shift+N</strong> (Windows) 或 <strong>Command+Shift+N</strong> (macOS) 以创建新的空游戏对象。</p>
 
-<p><strong>Note</strong>: New GameObjects are created in “rename” mode automatically. To disable this behavior, select the More (⋮) menu in the Hierarchy window and deselect <strong>Rename New Objects</strong>.</p>
+<p><strong>注意</strong>：新游戏对象会自动在“重命名”模式下创建。要禁用此行为，请选择 Hierarchy 窗口中的 More (⋮) 菜单并取消选择 <strong>Rename New Objects</strong>。</p>
 
-<h3>Toggling child GameObject visibility</h3>
+<h3>切换子游戏对象可见性</h3>
 
-<p>To toggle the visibility of child GameObjects:</p>
+<p>要切换子游戏对象的可见性，请执行以下操作：</p>
 
-<ol>
-<li>Select the drop-down arrow (►) to the left of the parent GameObject.</li>
-<li>Press <strong>Alt</strong> while clicking the drop-down arrow (►) to toggle visibility of all descendant GameObjects of the root GameObject.</li>
-<li>Select the drop-down arrow again (▼) to collapse all descendant GameObjects.</li>
-</ol>
+<p>1.选择父游戏对象左侧的下拉箭头 (►)。
+2.按 <strong>Alt</strong> 的同时单击下拉箭头 (►) 以切换根游戏对象的所有后代游戏对象的可见性。
+3.再次选择下拉箭头 (▼) 以折叠所有后代游戏对象。</p>
 
-<h3>Creating child GameObjects</h3>
+<h3>创建子游戏对象</h3>
 
-<p>To create a child GameObject:</p>
+<p>要创建子游戏对象，请执行以下操作：</p>
 
 <ul>
-<li>Drag the GameObject onto the parent GameObject in the Hierarchy.</li>
+<li>在 Hierarchy 窗口中，将游戏对象拖动到父游戏对象上。</li>
 </ul>
 
 <figure>
-<img src="../uploads/Main/HierarchyParenting2.png" alt="Drag Object 4 (selected) onto the parent GameObject, Object 1 (highlighted in a blue) to create a child GameObject.">
-<figcaption>Drag <strong>Object 4</strong> (selected) onto the parent GameObject, <strong>Object 1</strong> (highlighted in a blue) to create a child GameObject.</figcaption>
+<img src="../uploads/Main/HierarchyParenting2.png" alt="将 Object 4（选定对象）拖动到父游戏对象 Object 1（以蓝色突出显示）以创建子游戏对象。">
+<figcaption>将 <strong>Object 4</strong>（选定对象）拖动到父游戏对象 <strong>Object 1</strong>（以蓝色突出显示）以创建子游戏对象。</figcaption>
 </figure>
 
-<h3>Creating parent GameObjects</h3>
+<h3>创建父游戏对象</h3>
 
-<p>You can add a new GameObject into the Hierarchy view as the parent of existing GameObjects.</p>
+<p>可以将新游戏对象作为现有游戏对象的父项添加到 Hierarchy 视图中。</p>
 
-<p>To create a parent GameObject:</p>
+<p>要创建父游戏对象，请执行以下操作：</p>
 
-<ol>
-<li>Right-click a GameObject, or select multiple GameObjects on the same level and right-click.</li>
-<li>Select <strong>Create Empty Parent</strong>.</li>
-</ol>
+<p>1.右键单击游戏对象，或选择同一级别上的多个游戏对象并单击右键。
+1.选择 <strong>Create Empty Parent</strong>。</p>
 
-<p>You can also press <strong>Ctrl+Shift+G</strong> (Windows) or <strong>Command+Shift+G</strong> (macOS) to create a parent GameObject.</p>
+<p>也可以按 <strong>Ctrl+Shift+G</strong> (Windows) 或 <strong>Command+Shift+G</strong> (macOS) 以创建父游戏对象。</p>
 
-<p><strong>Note</strong>: If you have set a default parent GameObject, Create Empty Parent creates the new GameObject as a child of the default parent, not as the parent of the selected GameObjects.</p>
+<p><strong>注意</strong>：如果设置了默认父游戏对象，则 Create Empty Parent 会将新游戏对象创建为默认父项的子项，而不是选定游戏对象的父项。</p>
 
-<h3>Creating sibling GameObjects</h3>
+<h3>创建同级游戏对象</h3>
 
-<p>A sibling GameObject is a GameObject with the same hierarchy as another child GameObject. To create a sibling GameObject:</p>
+<p>同级游戏对象是与另一个子游戏对象具有相同层级的游戏对象。要创建同级游戏对象，请执行以下操作：</p>
 
-<ol>
-<li>Drag the GameObject above or below an existing GameObject.</li>
-<li>Use the horizontal blue line to determine the order of the GameObject.</li>
-</ol>
+<p>1.将游戏对象拖动到现有游戏对象的上方或下方。
+2.使用水平蓝色线确定游戏对象的顺序。</p>
 
 <figure>
-<img src="../uploads/Main/HierarchyParenting3_01.png" alt="Drag Object 4 (selected) between Object 2 and Object 3 (indicated by the blue horizontal line), to create a sibling GameObject under the parent GameObject Object 1 (highlighted in a blue).">
-<figcaption>Drag <strong>Object 4</strong> (selected) between <strong>Object 2</strong> and <strong>Object 3</strong> (indicated by the blue horizontal line), to create a sibling GameObject under the parent GameObject <strong>Object 1</strong> (highlighted in a blue).</figcaption>
+<img src="../uploads/Main/HierarchyParenting3_01.png" alt="将 Object 4（选定对象）拖动到 Object 2 与 Object 3 之间（以蓝色水平线指示），以在父游戏对象 Object 1（以蓝色突出显示）下方创建同级游戏对象。">
+<figcaption>将 <strong>Object 4</strong>（选定对象）拖动到 <strong>Object 2</strong> 与 <strong>Object 3</strong> 之间（以蓝色水平线指示），以在父游戏对象 <strong>Object 1</strong>（以蓝色突出显示）下方创建同级游戏对象。</figcaption>
 </figure>
 
-<h3>Duplicating GameObjects</h3>
+<h3>复制游戏对象</h3>
 
-<p>To duplicate GameObjects, right-click the target GameObject and select <strong>Duplicate</strong>.</p>
+<p>要复制游戏对象，请右键单击目标游戏对象并选择 <strong>Duplicate</strong>。</p>
 
-<p>You can also press <strong>Ctrl+D</strong> (Windows) or <strong>Command+D</strong> (macOS) to duplicate the selected GameObject.</p>
+<p>也可以按 <strong>Ctrl+D</strong> (Windows) 或 <strong>Command+D</strong> (macOS) 以复制选定游戏对象。</p>
 
-<h3>Pasting GameObjects as child</h3>
+<h3>将游戏对象粘贴为子项</h3>
 
-<p>You can cut or copy a selected GameObject and then paste it as a child of another GameObject. Pasted child GameObjects keep their world position.</p>
+<p>可以剪切或复制选定游戏对象，然后将它粘贴为另一个游戏对象的子项。粘贴的子游戏对象会保留其世界位置。</p>
 
-<p>To paste a GameObject as child:</p>
+<p>要将游戏对象粘贴为子项，请执行以下操作：</p>
 
-<ol>
-<li>Right-click the selected GameObject, and then select <strong>Cut</strong> or <strong>Copy</strong>.</li>
-<li>Right-click the intended parent GameObject, and then select <strong>Paste as Child</strong>.</li>
-</ol>
+<p>1.右键单击选定游戏对象，然后选择 <strong>Cut</strong> 或 <strong>Copy</strong>。
+2.右键单击预期父游戏对象，然后选择 <strong>Paste as Child</strong>。</p>
 
-<p>You can also press <strong>Ctrl+Shift+V</strong> (Windows) or <strong>Command+Shift+V</strong> (macOS) to paste a GameObject as a child.</p>
+<p>也可以按 <strong>Ctrl+Shift+V</strong> (Windows) 或 <strong>Command+Shift+V</strong> (macOS) 以将游戏对象粘贴为子项。</p>
 
-<h3>Organizing GameObjects with default parent</h3>
+<h3>使用默认父项组织游戏对象</h3>
 
-<p>You can make any GameObject in the Hierarchy window a “default parent”. When you drag a GameObject into the Scene view, Unity automatically makes this GameObject the child of the GameObject you set as the default parent.</p>
+<p>可以将 Hierarchy 窗口中的任何游戏对象设为“默认父项”。将游戏对象拖动到 Scene 视图中时，Unity 会自动将该游戏对象设为设置为默认父项的游戏对象的子项。</p>
 
-<p>To make a GameObject a default parent:</p>
+<p>要将游戏对象设为默认父项：</p>
 
-<ol>
-<li>In the Hierarchy window, right-click on the GameObject.</li>
-<li>Select <strong>Set as Default Parent</strong>.</li>
-</ol>
+<p>1.在 Hierarchy 窗口中，右键单击游戏对象。
+2.选择 <strong>Set as Default Parent</strong>。</p>
 
-<p>When you drag a GameObject into the Scene view, in the Hierarchy window, the child GameObject is indented below the default parent GameObject. The name of the default parent GameObject is bold.</p>
+<p>将游戏对象拖动到 Scene 视图中时，在 Hierarchy 窗口中，子游戏对象会在默认父游戏对象下方缩进。默认父游戏对象的名称为粗体。</p>
 
 <figure>
-<img src="../uploads/Main/default-parent.png" alt="In this image, the Cube GameObject is the default parent. When the user drags the Car GameObject into the Scene view, Unity automatically makes it the child of the Cube GameObject.">
-<figcaption>In this image, the <strong>Cube</strong> GameObject is the default parent. When the user drags the <strong>Car</strong> GameObject into the Scene view, Unity automatically makes it the child of the <strong>Cube</strong> GameObject.</figcaption>
+<img src="../uploads/Main/default-parent.png" alt="在此图中，Cube 游戏对象是默认父项。用户将 Car 游戏对象拖动到 Scene 视图中时，Unity 会自动将它设为 Cube 游戏对象的子项。">
+<figcaption>在此图中，<strong>Cube</strong> 游戏对象是默认父项。用户将 <strong>Car</strong> 游戏对象拖动到 Scene 视图中时，Unity 会自动将它设为 <strong>Cube</strong> 游戏对象的子项。</figcaption>
 </figure>
 
-<p>To remove default parent status from a GameObject:</p>
+<p>要从游戏对象中移除默认父项状态，请执行以下操作：</p>
 
-<ol>
-<li>In the Hierarchy window, right-click on the GameObject.</li>
-<li>Select <strong>Clear Default Parent</strong>.</li>
-</ol>
+<p>1.在 Hierarchy 窗口中，右键单击游戏对象。
+2.选择 <strong>Clear Default Parent</strong>。</p>
 
-<p>The name of the GameObject that was previously the default parent is no longer bold. When you drag a GameObject into the Scene view, it appears at the top level in the Hierarchy window. In other words, Unity does not make this GameObject the child of the GameObject that was previously the default parent.</p>
+<p>以前是默认父项的游戏对象的名称不再是粗体。将游戏对象拖动到 Scene 视图中时，它会出现在 Hierarchy 窗口的顶层。换句话说，Unity 不会将此游戏对象设为以前是默认父项的游戏对象的子项。</p>
 
 <figure>
-<img src="../uploads/Main/no-default-parent.png" alt="In this image, no GameObjects in the Hierarchy window are set as the default parent. When the user drags the Car GameObject into the Scene view, Unity adds it at the top level of the hierarchy.">
-<figcaption>In this image, no GameObjects in the Hierarchy window are set as the default parent. When the user drags the <strong>Car</strong> GameObject into the Scene view, Unity adds it at the top level of the hierarchy.</figcaption>
+<img src="../uploads/Main/no-default-parent.png" alt="在此图中，Hierarchy 窗口中没有游戏对象设置为默认父项。用户将 Car 游戏对象拖动到 Scene 视图中时，Unity 会在层级视图顶层添加它。">
+<figcaption>在此图中，Hierarchy 窗口中没有游戏对象设置为默认父项。用户将 <strong>Car</strong> 游戏对象拖动到 Scene 视图中时，Unity 会在层级视图顶层添加它。</figcaption>
 </figure>
 
-<p>You can only set one default parent per Scene. In the Hierarchy window, if you set a GameObject as the default parent, and then you make a different GameObject in the same Scene the default parent, only the second GameObject is the default parent.</p>
+<p>每个场景只能设置一个默认父项。在 Hierarchy 窗口中，如果将一个游戏对象设置为默认父项，然后将同一场景中的不同游戏对象设为默认父项，则只有第二个游戏对象是默认父项。</p>
 
-<p>If you have multiple Scenes in the Hierarchy window, and you set default parents in each Scene, when you drag a GameObject into the Scene view, Unity makes the default parent GameObject in the active Scene the parent of the new GameObject.</p>
+<p>如果在 Hierarchy 窗口中有多个场景，并且在每个场景中设置了默认父项，则在将游戏对象拖动到 Scene 视图时，Unity 会将活动场景中的默认父游戏对象设为新游戏对象的父项。</p>
 
 <figure>
-<img src="../uploads/Main/multi-scene-default-parent.png" alt="In this image, the Cube GameObjects in both Scene1 and Scene2 are set as default parents. Unity sets the Cube in Scene1 as the parent of the Car GameObject, because Scene1 is the active Scene.">
-<figcaption>In this image, the <strong>Cube</strong> GameObjects in both <strong>Scene1</strong> and <strong>Scene2</strong> are set as default parents. Unity sets the <strong>Cube</strong> in Scene1 as the parent of the <strong>Car</strong> GameObject, because <strong>Scene1</strong> is the active Scene.</figcaption>
+<img src="../uploads/Main/multi-scene-default-parent.png" alt="在此图中，Scene1 和 Scene2 中的 Cube 游戏对象设置为默认父项。Unity 将 Scene1 中的 Cube 设置为 Car 游戏对象的父项，因为 Scene1 是活动场景。">
+<figcaption>在此图中，<strong>Scene1</strong> 和 <strong>Scene2</strong> 中的 <strong>Cube</strong> 游戏对象设置为默认父项。Unity 将 Scene1 中的 <strong>Cube</strong> 设置为 <strong>Car</strong> 游戏对象的父项，因为 <strong>Scene1</strong> 是活动场景。</figcaption>
 </figure>
 
-<p>You can set a keyboard shortcut for the default parent setting in the <a href="https://docs.unity3d.com/Manual/ShortcutsManager.html">Shortcuts manager</a>. On the Shortcuts window, assign a keyboard shortcut to <strong>Hierarchy View</strong> &gt; <strong>Set as Default Parent</strong>. If there is no default parent set, and in the Hierarchy window you select a GameObject, use the shortcut to make this GameObject the default parent. When a default parent is set, use the shortcut to remove default parent status from any GameObject that has it.</p>
+<p>可以在 <a href="https://docs.unity3d.com/Manual/ShortcutsManager.html">Shortcuts Manager</a> 中为默认父项设置来设置键盘快捷键。在 Shortcuts 窗口中，将键盘快捷键分配给 <strong>Hierarchy 视图</strong> &gt; <strong>Set as Default Parent</strong>。如果未设置默认父项，并且在 Hierarchy 窗口中选择了游戏对象，请使用快捷键将此游戏对象设为默认父项。设置默认父项后，使用快捷键可从任何具有它的游戏对象中移除默认父项状态。</p>
 
-<h2>Setting Scene visibility and pickability</h2>
+<h2>设置场景的可见性和可拾取性</h2>
 
-<p>Click the Scene visibility icon to hide and show GameObjects in the <a href="UsingTheSceneView.html">Scene view</a> without changing their in-application visibility.</p>
+<p>单击场景可见性图标可在 <a href="UsingTheSceneView.html">Scene 视图</a>中隐藏和显示游戏对象，而无需更改它们在应用程序中的可见性。</p>
 
-<p>Select the Scene picking icon to toggle the ability to select GameObjects in the Scene view while you are editing.</p>
+<p>选择场景拾取图标可切换是否能够在编辑期间在 Scene 视图中选择游戏对象。</p>
 
-<p>These controls are useful for working with large or complex Scenes where it’s difficult to view and select specific GameObjects.</p>
+<p>这些控件在处理难以查看和选择特定游戏对象的大型或复杂场景时非常有用。</p>
 
 <figure>
 <img src="../uploads/Main/SceneVisIconsHierarchy_01.png" alt="场景可见性图标/开关">
@@ -358,20 +344,18 @@
 
 <p>有关更多信息，请参阅<a href="SceneVisibility.html">场景可见性</a>和<a href="ScenePicking.html">场景拾取</a>文档。</p>
 
-<h2>Sorting GameObjects</h2>
+<h2>对游戏对象进行排序</h2>
 
-<p>By default, the Hierarchy window lists GameObjects in the order they’re created. You can drag the selected GameObject up or down in the Scene to change the order of the GameObjects.</p>
+<p>默认情况下，Hierarchy 窗口会按创建顺序列出游戏对象。可以在场景中向上或向下拖动选定游戏对象以更改游戏对象的顺序。</p>
 
-<h3>Alphanumeric sorting</h3>
+<h3>字母数字排序</h3>
 
-<p>To sort GameObjects in alphanumeric order:</p>
+<p>要按字母数字顺序对游戏对象进行排序，请执行以下操作：</p>
 
-<ol>
-<li>Select <strong>Edit &gt; Preferences</strong> (Windows) or <strong>Unity &gt; Preferences</strong> (macOS).</li>
-<li>Select <strong>Enable Alphanumeric Sorting</strong>.</li>
-</ol>
+<p>1.选择 <strong>Edit &gt; Preferences</strong> (Windows) 或 <strong>Unity &gt; Preferences</strong> (macOS)。
+2.选择 <strong>Enable Alphanumeric Sorting</strong>。</p>
 
-<p>When selected, an icon appears in the Hierarchy window that allows you to toggle between <strong>Transform</strong> sorting (the default value) or <strong>Alphabetical</strong> sorting.</p>
+<p>选择后，一个图标会出现在 Hierarchy 窗口中，允许在 <strong>Transform</strong> 排序（默认值）或 <strong>Alphabetical</strong> 排序之间切换。</p>
 
 <figure>
 <img src="../uploads/Main/AlphanumericToggle_01.png" alt="">
@@ -379,7 +363,7 @@
 
 <h2>多场景编辑</h2>
 
-<p>You can have more than one Scene open in the Hierarchy window at the same time. For more information, see the <a href="MultiSceneEditing.html">Multi Scene Editing</a> page.</p>
+<p>可以在 Hierarchy 窗口中同时打开多个场景。有关更多信息，请参阅<a href="MultiSceneEditing.html">多场景编辑</a>页面。</p>
 
 <hr>
 
@@ -399,7 +383,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

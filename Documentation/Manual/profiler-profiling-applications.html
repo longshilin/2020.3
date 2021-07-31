@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Profiling your application - Unity 手册">
-<title>Profiling your application - Unity 手册</title>
+<meta property="og:title" content="应用程序性能分析 - Unity 手册">
+<title>应用程序性能分析 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/profiler-build-settings.png">
-<meta name="description" content="When you use the Unity Profiler to profile your application, there are three main ways to record data:">
-<meta property="og:description" content="When you use the Unity Profiler to profile your application, there are three main ways to record data:">
+<meta name="description" content="使用 Unity 性能分析器对应用程序进行性能分析时，可以通过三种主要方式记录数据：">
+<meta property="og:description" content="使用 Unity 性能分析器对应用程序进行性能分析时，可以通过三种主要方式记录数据：">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,89 +175,95 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UnityOverview.html">在 Unity 中操作</a></li>
 <li><a href="analysis.html">分析</a></li>
-<li><a href="Profiler.html">Profiler overview</a></li>
-<li>Profiling your application</li>
+<li><a href="Profiler.html">性能分析器概述</a></li>
+<li>应用程序性能分析</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="Profiler.html"></a></span><div class="tip">Profiler overview</div>
+<span class="prev"><a href="Profiler.html"></a></span><div class="tip">性能分析器概述</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="profiler-markers.html"></a></span><div class="tip">Common Profiler markers</div>
+<span class="next"><a href="profiler-markers.html"></a></span><div class="tip">常见性能分析器标记</div>
 </div>
 </div></div>
-<h1>Profiling your application</h1>
+<h1>应用程序性能分析</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>When you use the <a href="Profiler.html">Unity Profiler</a> to profile your application, there are three main ways to record data:</p>
+<p>使用 <a href="Profiler.html">Unity 性能分析器</a>对应用程序进行性能分析时，可以通过三种主要方式记录数据：</p>
 
 <ul>
-<li>Profile your application in a player on your target platform</li>
-<li>Profile your application in Play mode in the Unity Editor</li>
-<li>Profile the Unity Editor</li>
+<li>在目标平台上的播放器中对应用程序进行性能分析</li>
+<li>在 Unity 编辑器中以运行模式对应用程序进行性能分析</li>
+<li>对 Unity 编辑器进行性能分析</li>
 </ul>
 
-<p>The best way to get accurate timings about your application is to profile it on the end platform you intend to publish it on. This gives you accurate timings about what impacts the performance of your application.</p>
+<p>获得有关应用程序的准确时序的最佳方法是在打算发布它的终端平台上对它进行性能分析。这样可提供有关影响应用程序性能的因素的准确时序。</p>
 
-<p>However, it can be time-consuming to build your application every time you would like to improve elements of its performance. So, to quickly assess the performance of your application you can profile it directly in Play mode in the Editor. Profiling in Play mode doesn’t give you an accurate reflection of what the performance of your application looks like on a real device, but it is a useful tool to quickly check to see if the changes you make improve your application’s performance, after initially profiling on the end platform.</p>
+<p>但是，每次要改进其性能元素时都构建应用程序可能会非常耗时。因此，要快速评估应用程序的性能，可以直接在编辑器中以运行模式对它进行性能分析。在运行模式下进行性能分析不会准确反映应用程序在真实设备上表现出的性能，但它是一个有用的工具，可在终端平台上进行初始分析后快速检查进行的更改是否可提高应用程序的性能。</p>
 
-<p>The Unity Editor might affect the performance of your application, because it uses the same resources as your application when it’s running in Play mode, so you can also profile the Editor separately to determine what resources it uses. This is particularly useful if your application has only been designed to work in Play mode, such as for movie making.</p>
+<p>Unity 编辑器可能会影响应用程序的性能，因为它在运行模式下运行时使用与应用程序相同的资源，因此还可以单独对编辑器进行性能分析以确定它使用的资源。如果应用程序仅设计为在运行模式下工作（例如用于电影制作），这会特别有用。</p>
 
-<h2>Profile your application on a target platform</h2>
+<h2>在目标平台上对应用程序进行性能分析</h2>
 
-<p>To profile your application on its target release platform, connect the target device to your network or directly to your computer via cable. You can also connect to a device via IP address. You can only profile your application as a <strong>Development Build</strong>. To set this up, go to <strong>Build Settings</strong> (menu: <strong>File</strong> &gt; <strong>Build Settings</strong>) and select your application’s target platform. Enable the <strong>Development Build</strong> setting. When you enable this setting, two settings related to the Profiler become available: <strong>Autoconnect Profiler</strong> and <strong>Deep Profiling Support</strong>.</p>
+<p>要在目标发布平台上分析您的应用程序，请将目标设备连接到网络或通过线缆直接连接到计算机。还可以通过 IP 地址连接到设备。只能以<strong>开发版</strong>形式对应用程序进行性能分析。要进行此设置，请打开 <strong>Build Settings</strong>（菜单：<strong>File</strong> &gt; <strong>Build Settings</strong>），然后选择应用程序的目标平台。启用 <strong>Development Build</strong> 设置。启用此设置后，与性能分析器相关的以下两个设置将变为可用状态：<strong>Autoconnect to Profiler</strong> 和 <strong>Deep Profiling Support</strong>。</p>
 
 <figure>
 <img src="../uploads/Main/profiler-build-settings.png" alt="Build Settings 窗口，已启用性能分析选项">
 <figcaption>Build Settings 窗口，已启用性能分析选项</figcaption>
 </figure>
 
-<p>When you enable the <strong>Autoconnect Profiler</strong> setting, the Unity Editor bakes its IP address into the built Player during the build process. When you start the Player, it attempts to connect to the Profiler in the Editor located at the baked IP address.</p>
+<p>启用 <strong>Autoconnect Profiler</strong> 设置后，Unity 编辑器在构建过程中将自己的 IP 地址烘焙到已构建的播放器中。播放器启动时会尝试连接到位于所烘焙 IP 地址的编辑器中的性能分析器。</p>
 
-<p>If you additionally enable the <strong>Deep Profiling Support</strong> setting, Unity performs <a href="ProfilerWindow.html#deep-profiling">Deep Profiling</a> when the built Player starts, which means that the Profiler profiles every part of your code, and not just code timings explicitly wrapped in <a href="../ScriptReference/Unity.Profiling.ProfilerMarker.html">ProfilerMarkers</a>. This is useful to get Deep Profiling information on your application’s start up times, however, this adds a small amount of overhead to your build.</p>
+<p>如果还启用了 <strong>Deep Profiling Support</strong> 设置，Unity 会在构建的播放器启动时执行<a href="ProfilerWindow.html#deep-profiling">深度性能分析</a>，这意味着性能分析器会对代码的每个部分进行性能分析，而不仅仅是在 <a href="../ScriptReference/Unity.Profiling.ProfilerMarker.html">ProfilerMarker</a> 中显式包裹的代码时序。这对于获取有关应用程序启动时间的深度性能分析信息很有用，但是，这会为构建增加少量开销。</p>
 
-<h3>Connecting to your Player in the Profiler window</h3>
+<h3>在 Profiler 窗口中连接到播放器</h3>
 
-<p>If you do not enable the <strong>Autoconnect Profiler</strong> setting in the Build Settings, you can manually connect to a platform running your application. While your application is running in a player, the player appears in the <strong>Attach to Player</strong> drop-down of the Profiler window. The <strong>Attach to Player</strong> drop-down shows all Unity Players running on your local network. You can identify these Players by player type and the hostname that is running the player (for example, “iPhonePlayer (Toms iPhone)”).</p>
+<p>如果未在 Build Settings 中启用 <strong>Autoconnect Profiler</strong>，则可以手动连接到运行应用程序的平台。应用程序在播放器中运行时，播放器会显示在 Profiler 窗口的 <strong>Attach to Player</strong> 下拉选单中。<strong>Attach to Player</strong> 下拉选单会显示本地网络上运行的所有 Unity 播放器。通过播放器类型和运行播放器的主机名可以识别这些播放器（例如 “iPhonePlayer (Toms iPhone)”）。</p>
 
-<p>You can also connect to a player directly via its IP address. To do this, select the <strong>Attach to Player</strong> menu, and then select <strong>&lt;Enter IP&gt;</strong> in the dropdown. A dialog box appears, where you can type the IP address and (optionally) the port of the player you want to connect to.</p>
+<p>还可以通过 IP 地址远程连接到播放器。为此，请选择 <strong>Attach to Player</strong> 菜单，然后在下拉选单中选择 <strong>&lt;Enter IP&gt;</strong>。一个对话框会出现，可以在其中键入要连接的播放器的 IP 地址和（可选）端口。</p>
 
 <figure>
-<img src="../uploads/Main/profiler-player-dropdown.png" alt="The Attach to Player dropdown">
-<figcaption>The Attach to Player dropdown</figcaption>
+<img src="../uploads/Main/profiler-player-dropdown.png" alt="Attach to Player 下拉选单">
+<figcaption>Attach to Player 下拉选单</figcaption>
 </figure>
 
-<p>To start collecting profiling information on your application, select the player from the dropdown menu, and then click <strong>Record</strong>. To continuously collect data while your application runs, enable the <strong>Run In Background</strong> setting in Player Settings (menu: <strong>Edit</strong> &gt; <strong>Project Settings</strong> &gt; <strong>Player</strong> &gt; <strong>Resolution and Presentation</strong>). When you enable this setting, the Profiler collects data even when you leave your application running in the background. If you disable it, the Profiler only collects data when the application is running in an active window.</p>
+<p>要开始收集有关应用程序的性能分析信息，请从下拉菜单中选择播放器，然后单击 <strong>Record</strong>。要在应用程序运行时持续收集数据，请启用 Player Settings 中的 <strong>Run In Background</strong> 设置（菜单：<strong>Edit</strong> &gt; <strong>Project Settings</strong> &gt; <strong>Player</strong> &gt; <strong>Resolution and Presentation</strong>）。启用此设置后，即使让应用程序在后台运行，性能分析器也会收集数据。如果禁用此设置，性能分析器仅在应用程序在活动窗口中运行时才收集数据。</p>
 
-<h3>Platform specific profiling guidance</h3>
+<h3>平台特定性能分析指南</h3>
 
-<p>Different platforms behave in different ways when you connect them to the Unity Profiler. The following sections provide guidance on some common behaviors each platform has:</p>
+<p>将不同平台连接到 Unity 性能分析器时，它们会具有不同的行为方式。以下部分提供有关每个平台的一些常见行为的指导：</p>
+
+<p><a name="profiling-webgl"></a></p>
 
 <h4>WebGL</h4>
 
-<p>You can use the Unity Profiler in WebGL, but you cannot attach to a running player built with WebGL via the Editor. This is because WebGL uses WebSockets for communication, which does not allow incoming connections on the browser side. To attach to a running player, you need to enable the <strong>Autoconnect Profiler</strong> checkbox in <strong>Build Settings</strong> (menu: <strong>File</strong> &gt; <strong>Build Settings</strong>). Unity cannot profile draw calls for WebGL.</p>
+<p>可以在 WebGL 中使用 Unity 性能分析器，但不能通过编辑器连接到使用 WebGL 构建的正在运行的播放器。这是因为 WebGL 使用 WebSocket 进行通信，所以不允许浏览器端的传入连接。要连接到运行的播放器，必须在 <strong>Build Settings</strong>（菜单：<strong>File</strong> &gt; <strong>Build Settings</strong>）中启用 <strong>Autoconnect Profiler</strong> 复选框。Unity 无法对 WebGL 的绘制调用进行性能分析。</p>
 
-<h4>Profiling on mobile devices</h4>
+<h4>移动设备上的性能分析</h4>
 
 <p>iOS 和 Android 设备均支持通过网络进行远程性能分析。如果使用了防火墙，请在防火墙的出站规则中开放端口 54998 至 55511。这些是 Unity 用于远程性能分析的端口。</p>
 
-<p>Sometimes, when you set up remote profiling, the Unity Editor might not auto-connect to the device. If this happens, you can initiate the Profiler connection manually. To do this, select the <strong>Attach to Player</strong> drop-down menu in the Profiler window and choose the appropriate device.</p>
+<p>有时，在设置远程性能分析后，Unity 编辑器可能无法自动连接到设备。如果发生此情况，可以手动发起性能分析器连接。为此，请选择 Profiler 窗口中的 <strong>Attach to Player</strong> 下拉菜单，然后选择相应设备。</p>
 
 <p>也可以将目标设备直接插入计算机以避免网络或连接问题。</p>
 
-<h5>iOS remote profiling</h5>
+<p><a name="profiling-ios"></a></p>
+
+<h5>iOS 远程性能分析</h5>
 
 <p>要对 iOS 设备启用远程性能分析，请遵循以下步骤：</p>
 
 <p>1.将 iOS 设备连接到 WiFi 网络。性能分析器会使用本地 WiFi 网络将性能分析数据从设备发送到 Unity Editor。
-1. Attach your device to your computer via cable. Go to the Build Settings (menu: <strong>File</strong> &gt; <strong>Build Settings</strong>), enable the <strong>Development Build</strong> and <strong>Autoconnect Profiler</strong> checkboxes, then select <strong>Build &amp; Run</strong>.
-1. When the application launches on the device, open the Profiler window in the Unity Editor (menu: <strong>Window</strong> &gt; <strong>Analysis</strong> &gt; <strong>Profiler</strong>).</p>
+1.通过线缆将设备连接到计算机。打开 Build Settings（菜单：<strong>File</strong> &gt; <strong>Build Settings</strong>），选中 <strong>Development Build</strong> 和 <strong>Autoconnect Profiler</strong> 复选框，然后选择 <strong>Build &amp; Run</strong>。
+1.应用程序在设备上启动时，请在 Unity 编辑器中打开 Profiler 窗口（菜单：<strong>Window</strong> &gt; <strong>Analysis</strong> &gt; <strong>Profiler</strong>）。</p>
 
-<h5>Android remote profiling</h5>
+<p><a name="profiling-android"></a></p>
+
+<h5>Android 远程性能分析</h5>
 
 <p>Android 设备支持两种远程性能分析方法：通过 WiFi 或通过 <a href="https://developer.android.com/studio/command-line/adb">Android Debug Bridge (adb)</a>。</p>
 
@@ -265,87 +271,84 @@
 
 <p>1.在 Android 设备上禁用移动数据。
 1.将 Android 设备连接到 WiFi 网络。性能分析器会使用本地 WiFi 网络将性能分析数据从设备发送到 Unity Editor。
-1. Attach your device to your computer via cable. Go to the Build Settings (menu: <strong>File</strong> &gt; <strong>Build Settings</strong>), enable the <strong>Development Build</strong> and <strong>Autoconnect Profiler</strong> checkboxes, then select <strong>Build &amp; Run</strong>.
-1. When the application launches on the device, open the Profiler window in the Unity Editor (menu: <strong>Window</strong> &gt; <strong>Analysis</strong> &gt; <strong>Profiler</strong>).</p>
+1.通过线缆将设备连接到计算机。打开 Build Settings（菜单：<strong>File</strong> &gt; <strong>Build Settings</strong>），选中 <strong>Development Build</strong> 和 <strong>Autoconnect Profiler</strong> 复选框，然后选择 <strong>Build &amp; Run</strong>。
+1.应用程序在设备上启动时，请在 Unity 编辑器中打开 Profiler 窗口（菜单：<strong>Window</strong> &gt; <strong>Analysis</strong> &gt; <strong>Profiler</strong>）。</p>
 
-<p><strong>Note</strong>: The Android device and host computer that is running the Unity Editor must both be on the same subnet for device detection to work.</p>
+<p><strong>注意</strong>：Android 设备和主机（运行 Unity 编辑器）必须位于同一子网上才能正常进行设备检测。</p>
 
 <p>要进行 Android Debug Bridge (adb) 性能分析，请遵循以下步骤：</p>
 
-<ol>
-<li>Make sure the device is in <strong>Development mode</strong> and enable the <strong>USB debugging</strong> setting
-1.通过线缆将设备连接到计算机，并确保在 adb 设备列表中显示了该设备。</li>
-<li>Go to the Build Settings (menu: <strong>File</strong> &gt; <strong>Build Settings</strong>), enable the <strong>Development Build</strong> checkbox, and then select <strong>Build &amp; Run.</strong>
-</li>
-<li>When the application launches on the device, open the Profiler window in the Unity Editor (menu: <strong>Window</strong> &gt; <strong>Analysis</strong> &gt; <strong>Profiler</strong>).</li>
-<li>From the <strong>Attach to Player</strong> drop-down menu, select <strong>AndroidProfiler(ADB@127.0.0.1:34999)</strong>. The entry in the drop-down menu is only visible when the selected target is Android.</li>
-</ol>
+<p>1.确保设备处于<strong>开发模式</strong>并启用 <strong>USB debugging</strong> 设置
+1.通过线缆将设备连接到计算机，并确保在 adb 设备列表中显示了该设备。
+1.打开 Build Settings（菜单：<strong>File</strong> &gt; <strong>Build Settings</strong>），选中 <strong>Development Build</strong> 复选框，然后选择 <strong>Build &amp; Run</strong>。
+1.应用程序在设备上启动时，请在 Unity 编辑器中打开 Profiler 窗口（菜单：<strong>Window</strong> &gt; <strong>Analysis</strong> &gt; <strong>Profiler</strong>）。
+1.从 <strong>Attach to Player</strong> 下拉菜单中，选择 <strong>AndroidProfiler(ADB@127.0.0.1:34999)</strong>。仅当所选目标为 Android 时，下拉菜单中才会显示该条目。</p>
 
-<p>The Unity Editor automatically creates an adb tunnel for your application when you select <strong>Build &amp; Run</strong>. If you want to profile another application, or you restart the adb server, you need to configure this tunnel manually. To do this, open a Terminal window or Command prompt and enter the following:</p>
+<p>选择 <strong>Build &amp; Run</strong> 时，Unity Editor 会自动为应用程序创建 adb 隧道。如果要对另一应用程序进行性能分析，或者重新启动 adb 服务器，则需要手动配置此隧道。为此，请打开终端窗口或命令提示符窗口，并输入以下内容：</p>
 
 <ul>
 <li>
-<p>Required when Editor-to-Android connection is established via USB cable</p>
+<p>通过 USB 线缆建立编辑器到 Android 的连接时需要</p>
 
 <p><code>adb forward tcp:34999 localabstract:Unity-{insert bundle identifier here}</code></p>
 </li>
 <li>
-<p>Required when Android-to-Editor connection is established via USB cable</p>
+<p>通过 USB 线缆建立 Android 到编辑器的连接时需要</p>
 
 <p><code>adb reverse tcp:34998 tcp:34999</code></p>
 </li>
 </ul>
 
-<p>To use Deep Profiling with an Android build, you need to enable the Mono Scripting Backend setting in the <a href="class-PlayerSettingsAndroid.html">Android Player Settings</a> (menu: <strong>Edit</strong> &gt; <strong>Project Settings</strong> &gt; <strong>Player</strong> &gt; <strong>Android</strong> &gt; <strong>Other Settings</strong>) and enter the following to start the game through an adb command:</p>
+<p>要将深度性能分析用于 Android 构建，必须启用 <a href="class-PlayerSettingsAndroid.html">Android Player Settings</a> 中的 Mono Scripting Backend 设置（菜单：<strong>Edit</strong> &gt; <strong>Project Settings</strong> &gt; <strong>Player</strong> &gt; <strong>Android</strong> &gt; <strong>Other Settings</strong>），然后输入以下内容以便通过 adb 命令来启动游戏：</p>
 
 <pre><code>~$ adb shell am start -n {insert bundle identifier here}/com.unity3d.player.UnityPlayerActivity -e 'unity' '-deepprofiling'
 </code></pre>
 
-<h2>Profiling in the Unity Editor</h2>
+<h2>在 Unity 编辑器中进行性能分析</h2>
 
-<p>When you use the Profiler window to run and profile your application in the Editor, the results are only an approximation of your application’s behavior when the target platform runs it. This is because Play mode runs in the same process as the Editor, so you cannot fully isolate your application’s CPU, GPU, and memory usage from the Unity Editor’s usage. This skews the resulting profiling data.</p>
+<p>使用 Profiler 窗口在编辑器中运行应用程序并进行性能分析时，结果只是该应用程序在目标平台上运行时的行为的近似值。这是因为运行模式与编辑器的运行过程相同，所以无法将应用程序的 CPU、GPU 和内存使用量数据与 Unity 编辑器的使用量数据完全隔离。这会导致得出的性能分析数据出现误差。</p>
 
-<p>To get better profiling results, you should always profile your application on a target device, and only profile in the Editor to quickly iterate over issues you have already identified on a device.</p>
+<p>要获得更好的性能分析结果，应该始终在目标设备上对应用程序进行性能分析，并且仅在编辑器中进行性能分析以快速迭代在设备上已确定的问题。</p>
 
-<p>You can also profile in Play mode or profile the Editor to identify issues unrelated to the performance of your application, such as whether long load times or an unresponsive Editor slows down iteration time, or if your application performs badly in Play mode.</p>
+<p>还可以在运行模式下进行性能分析或是对编辑器进行性能分析以确定与应用程序性能无关的问题，例如较长的加载时间或无响应的编辑器是否会减慢迭代时间，或者应用程序是否在运行模式下性能不佳。</p>
 
-<p>Whenever you profile in the Editor, you should make sure that you open Play mode in maximized view, and reduce the amount of open Editor windows. This ensures that other Editor windows do not use up time on the render thread and GPU, and therefore affect the performance data. When Play mode is in a maximized view it runs your application at a resolution closer to that of your target device, which directly affects performance issues such as those related to fill rate.</p>
+<p>每当在编辑器中进行性能分析时，都应确保在最大化视图中打开运行模式，并减少打开的编辑器窗口的数量。这可确保其他编辑器窗口不会在渲染线程和 GPU 上耗尽时间，从而影响性能数据。当运行模式处于最大化视图时，它会以更接近目标设备的分辨率运行应用程序，这会直接影响性能问题，例如与填充率相关的问题。</p>
 
-<h3>Profiling in Play mode</h3>
+<h3>在运行模式下进行性能分析</h3>
 
-<p>The Profiler’s default target is Play mode, which records activities when the Editor is running Play mode. Play mode profiling is useful to test out quick changes without having to rebuild a player, but you should not use it as a replacement for validating builds on your application’s target platform and devices. This is because Play mode runs in the same application and main thread as the Editor, which means that when you profile in Play mode, the Editor’s systems such as the UI, Inspectors, Scene View rendering, and asset management affect the performance and memory profiling measurements of your application.</p>
+<p>性能分析器的默认目标是运行模式，这会在编辑器运行运行模式时记录活动。运行模式性能分析可用于测试快速更改而无需重新构建播放器，但是不应用于替代验证应用程序目标平台和设备上的构建。这是因为运行模式在与编辑器相同的应用程序和主线程中运行，这意味着在运行模式下进行性能分析时，编辑器的系统（例如 UI、Inspector、Scene 视图渲染和资源管理）会影响应用程序的性能和内存性能分析测量。</p>
 
-<p>To effectively profile in Play mode, you should regularly make builds of your application and deploy them to a range of target devices (both high and low spec devices), and test and profile your application on these devices. If you identify performance issues with your application on these devices, narrow down the area that needs the most attention.</p>
+<p>要在运行模式下有效地进行性能分析，应该定期构建应用程序并将它们部署到一系列目标设备（高规格和低规格设备），并在这些设备上对应用程序进行测试和性能分析。如果在这些设备上发现应用程序方面的性能问题，请缩小最需要关注的区域。</p>
 
-<p>You can then profile your application in Play mode and quickly iterate over any changes you make to your application. You can use the information you got from profiling your application on target devices to identify if there is any similar behavior after profiling your application in Play mode. You can then make changes to your application and profile again in Play mode to quickly see the effects that your changes made. Once you are satisfied with your changes, build and deploy your application to the target devices again to validate your changes.</p>
+<p>随后可以在运行模式下对应用程序进行性能分析，并快速迭代对应用程序进行的任何更改。可以使用通过在目标设备上对应用程序进行性能分析而获得的信息来确定在运行模式下对应用程序进行性能分析后是否存在任何类似行为。随后可以更改应用程序，并再次在运行模式下进行性能分析以快速查看更改所产生的效果。一旦对更改感到满意，请再次构建应用程序并部署到目标设备以验证更改。</p>
 
-<h4>PlayerLoop and EditorLoop samples</h4>
+<h4>PlayerLoop 和 EditorLoop 样本</h4>
 
-<p>To reduce the amount of noise and misleading measurements in the profiling data that the Editor creates while running Play mode, the CPU and GPU Profiler modules split their timings into those that happen in the <strong>PlayerLoop</strong> and those that happen in the <strong>EditorLoop.</strong> Unity assigns Profiler samples of these types with the <a href="profiler-markers.html">PlayerLoop and EditorLoop markers</a>.</p>
+<p>为了减少编辑器在运行运行模式时创建的性能分析数据中的噪声和误导性测量数量，CPU 和 GPU 性能分析器模块将其时序拆分为在 <strong>PlayerLoop</strong> 和 <strong>EditorLoop</strong> 中发生的时序。Unity 会向这些类型的性能分析器样本分配 <a href="profiler-markers.html">PlayerLoop 和 EditorLoop 标记</a>。</p>
 
-<p>When the Profiler targets Play mode, it only collects timing samples that happened inside the PlayerLoop.</p>
+<p>当性能分析器以运行模式为目标时，它只收集发生在 PlayerLoop 内部发生的时序样本。</p>
 
-<p>Unity categorizes any EditorLoop samples as <strong>Others</strong> in the <a href="ProfilerCPU.html#charts">CPU Profiler module charts</a>. As a result, EditorLoop samples are the biggest contributors to that category. If you want to see what the Editor does in this time and also get a more detailed breakdown of what else contributes to the <strong>Others</strong> category, change the Profiler target to the Editor instead.</p>
+<p>在 <a href="ProfilerCPU.html#charts">CPU 性能分析器模块图表</a>中，Unity 将所有 EditorLoop 样本都分类为 <strong>Others</strong>。因此，EditorLoop 样本是该类别的最大贡献者。如果想了解编辑器在这段时间内的操作，并且还想获得有关 <strong>Others</strong> 类别的其他贡献者的更详细细分，请将性能分析器目标更改为编辑器。</p>
 
-<p><strong>Important:</strong> If you use <a href="ProfilerWindow.html#deep-profiling">Deep Profiling</a>, and target Play mode, it has a performance impact on every function call that happens in both PlayerLoop and EditorLoop. This is because Deep Profiling hooks into the beginning and end of any scripting method call on domain reload and it does not detect which parts are never called from the PlayerLoop. The method calls that happen in the EditorLoop don’t incur the full overhead of creating a sample, but they still check if they should emit one, which causes a smaller but still present overhead.</p>
+<p><strong>重要信息：</strong>如果使用<a href="ProfilerWindow.html#deep-profiling">深度性能分析</a>并以运行模式为目标，则它对在 PlayerLoop 和 EditorLoop 中发生的每个函数调用都会产生性能影响。这是因为深度性能分析会在域重新加载时挂接到任何脚本方法调用的开始和结束，不会检测哪些部分从未从 PlayerLoop 进行调用。EditorLoop 中发生的方法调用不会产生完整的样本创建开销，但它们仍会检查是否应发出样本，这会导致较小但仍然存在的开销。</p>
 
-<h3>Profiling the Editor</h3>
+<h3>对编辑器进行性能分析</h3>
 
-<p>When you change the Profiler’s target to <strong>Editor</strong>, all the samples that were previously hidden under the EditorLoop marker contribute to their respective categories. This means that the information in the CPU Profiler module’s detail pane and its charts changes significantly.</p>
+<p>将性能分析器的目标更改为<strong>编辑器</strong>时，之前隐藏在 EditorLoop 标记下的所有样本都会归类到其各自的类别中。这意味着 CPU 性能分析器模块详细信息面板及其图表中的信息会显著更改。</p>
 
-<p>To profile the Editor’s startup times, start the Editor with the command line option <code>-profiler-enable</code>.</p>
+<p>要对编辑器的启动时间进行性能分析，请使用命令行选项 <code>-profiler-enable</code> 启动编辑器。</p>
 
-<p>To reduce the impact that the Profiler window has on Editor performance, you can use the <a href="ProfilerWindow.html#standalone">Standalone Profiler</a>, which opens the Profiler window in its own process. This is especially useful if you select the Editor as the profiling target, or are <a href="ProfilerWindow.html#deep-profiling">Deep Profiling your application</a>, because the Profiler window itself usually uses resources that might skew the performance data.</p>
+<p>要减少 Profiler 窗口对编辑器性能的影响，可以使用<a href="ProfilerWindow.html#standalone">独立性能分析器</a>（它会在自己的进程中打开 Profiler 窗口）。如果选择编辑器作为性能分析目标，或是<a href="ProfilerWindow.html#deep-profiling">对应用程序进行深度性能分析</a>，那么这会尤其有用，因为 Profiler 窗口本身通常使用可能会使性能数据出现偏差的资源。</p>
 
-<h2>Best practices for profiling your application</h2>
+<h2>对应用程序进行性能分析的最佳实践</h2>
 
-<p>When you profile your application, there are a few things that you can do to ensure consistency across profiling sessions, and to make sure that the processes that Unity uses does not affect your profiling data:</p>
+<p>对应用程序进行性能分析时，可以采取一些措施来确保性能分析会话之间的一致性，并确保 Unity 使用的进程不会影响性能分析数据：</p>
 
 <ul>
-<li>Only add the <a href="ProfilerWindow.html#modules">Profiler modules</a> related to the area that you want to investigate to the Profiler window. To add and remove modules to the Profiler, select the drop-down in the top left of the Profiler window.</li>
-<li>Avoid using Deep Profiling, because it creates a high overhead when you use it. If you want to see more details on samples with markers such as GC.Alloc or JobFence.Complete, navigate to the Profiler window toolbar and enable the <a href="ProfilerWindow.html#controls">Call Stacks setting</a>. This provides the sample’s full call stack, which gives you the information you need without incurring the overhead of Deep Profiling.</li>
-<li>Disable the Live setting if you do not need to see the Hierarchy or Timeline view updating as the Profiler collects data. Stop recording to see the data update to the window.</li>
-<li>Use the F9 shortcut to enable or disable the Profiler. You can use this shortcut to capture performance data without the Profiler window needing to be open. If you have the Standalone Profiler open, using this shortcut starts recording in this window.</li>
+<li>只添加与要调查到 Profiler 窗口的区域相关的<a href="ProfilerWindow.html#modules">性能分析器模块</a>。要向性能分析器添加和移除模块，请选择 Profiler 窗口左上角的下拉选单。</li>
+<li>避免使用深度性能分析，因为它会在使用时产生较高开销。如果要查看有关带有标记（如 GC.Alloc 或 JobFence.Complete）的样本的更多详细信息，请导航到 Profiler 窗口工具栏并启用 <a href="ProfilerWindow.html#controls">Call Stacks 设置</a>。这可提供样本的完整调用栈，其中会提供所需信息，而不会产生深度性能分析的开销。</li>
+<li>如果在性能分析器收集数据时不需要查看 Hierarchy 或 Timeline 视图更新，请禁用 Live 设置。停止记录以查看窗口的数据更新。</li>
+<li>使用 F9 快捷键启用或禁用性能分析器。可以使用此快捷键捕获性能数据，而无需打开 Profiler 窗口。如果打开了独立性能分析器，则使用此快捷键会在此窗口中开始记录。</li>
 </ul>
 
 <hr>
@@ -355,16 +358,16 @@
 </ul>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="Profiler.html"></a></span><div class="tip">Profiler overview</div>
+<span class="prev"><a href="Profiler.html"></a></span><div class="tip">性能分析器概述</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="profiler-markers.html"></a></span><div class="tip">Common Profiler markers</div>
+<span class="next"><a href="profiler-markers.html"></a></span><div class="tip">常见性能分析器标记</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

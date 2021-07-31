@@ -175,15 +175,15 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
-<li><a href="ShadersOverview.html">编写着色器</a></li>
+<li><a href="Shaders.html">着色器</a></li>
+<li><a href="shader-built-in.html">内置着色器</a></li>
 <li>标准着色器</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="ShadersOverview.html"></a></span><div class="tip">编写着色器</div>
+<span class="prev"><a href="shader-built-in.html"></a></span><div class="tip">内置着色器</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="StandardShaderContextAndContent.html"></a></span><div class="tip">内容和上下文</div>
@@ -208,7 +208,7 @@
 
 <p>通过标准着色器，可将大量着色器类型（例如漫射、镜面反射、凹凸镜面反射、反射）组合到同一个可处理所有材质类型的着色器中。这样做的好处是，在场景的所有区域都使用相同的光照计算，从而在使用该着色器的所有模型中提供逼真、一致且可信的光照和着色分布。</p>
 
-<p>标准着色器光照数学实现方案对漫射组件使用 <a href="https://disney-animation.s3.amazonaws.com/library/s2012_pbs_disney_brdf_notes_v2.pdf">Disney 模型</a>，对镜面反射使用 <a href="https://www.cs.cornell.edu/~srm/publications/EGSR07-btdf.pdf">GGX 模型</a>，并采用 <a href="http://jcgt.org/published/0003/02/03/paper.pdf">Smith 联合 GGX 可见性术语</a>和 <a href="https://en.wikipedia.org/wiki/Schlick%27s_approximation">Schlick 菲涅耳近似法</a>。</p>
+<p>The Standard Shader lighting math implementation uses the Disney model for diffuse component, <a href="https://www.cs.cornell.edu/~srm/publications/EGSR07-btdf.pdf">GGX model</a> for specular, with <a href="http://jcgt.org/published/0003/02/03/paper.pdf">Smith Joint GGX visibility term</a> and <a href="https://en.wikipedia.org/wiki/Schlick%27s_approximation">Schlick Fresnel appromixation</a>.</p>
 
 <h2>术语</h2>
 
@@ -236,7 +236,7 @@
 <!-- area:graphics -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="ShadersOverview.html"></a></span><div class="tip">编写着色器</div>
+<span class="prev"><a href="shader-built-in.html"></a></span><div class="tip">内置着色器</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="StandardShaderContextAndContent.html"></a></span><div class="tip">内容和上下文</div>
@@ -245,7 +245,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

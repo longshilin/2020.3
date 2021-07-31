@@ -11,10 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="内置控件 - Unity 手册">
-<title>内置控件 - Unity 手册</title>
-<meta name="description" content="The following standard controls are built into UI Toolkit:">
-<meta property="og:description" content="The following standard controls are built into UI Toolkit:">
+<meta property="og:title" content="控件 - Unity 手册">
+<title>控件 - Unity 手册</title>
+<meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/uie-toggle-control.png">
+<meta name="description" content="A control is an element of a graphical user interface, such as a button, label or checkbox. It includes the visuals of the control, and the scripted logic to operate and interact with the control.">
+<meta property="og:description" content="A control is an element of a graphical user interface, such as a button, label or checkbox. It includes the visuals of the control, and the scripted logic to operate and interact with the control.">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,99 +175,138 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="UIToolkits.html">Creating user interfaces (UI)</a></li>
-<li><a href="UIElements.html">UI Toolkit</a></li>
-<li>内置控件</li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="UIToolkits.html">创建用户界面 (UI)</a></li>
+<li><a href="UIElements.html">UI 工具包</a></li>
+<li>控件</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="UIE-Events-Reference.html"></a></span><div class="tip">事件类型参考</div>
+<span class="prev"><a href="UIE-IMGUI-Events.html"></a></span><div class="tip">IMGUI 事件</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="UIE-Binding.html"></a></span><div class="tip">绑定</div>
+<span class="next"><a href="UIE-Controls-Reference.html"></a></span><div class="tip">Controls reference</div>
 </div>
 </div></div>
-<h1>内置控件</h1>
+<h1>控件</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>The following standard controls are built into UI Toolkit:</p>
+<p>A control is an element of a graphical user interface, such as a button, label or checkbox. It includes the visuals of the control, and the scripted logic to operate and interact with the control.</p>
+
+<p>In UI Toolkit, a control is similar to a <a href="Prefabs.html">Prefab</a>, combining visual elements and scripting into a template you can use inside a UI panel.</p>
+
+<p>Controls can consist of a single visual element, or a combination of multiple visual elements.</p>
+
+<figure>
+<img src="../uploads/Main/uie-toggle-control.png" alt="Toggle control">
+<figcaption>Toggle control</figcaption>
+</figure>
+
+<p>For example, the <code>Toggle</code> control, shown above, contains three elements:</p>
 
 <ul>
-<li>按钮 (Button)</li>
-<li>上下文菜单 (Contextual menu)</li>
-<li>编辑器文本字段 (EditorTextField)</li>
-<li>标签 (Label)</li>
-<li>滚动视图 (ScrollView)</li>
-<li>文本字段 (TextField)</li>
-<li>开关 (Toggle)</li>
+<li>A text label</li>
+<li>An image of a box</li>
+<li>An image of a checkmark</li>
 </ul>
 
-<h2>上下文菜单</h2>
+<p>The implementation of the <code>Toggle</code> control defines the behavior of the control. It has an internal value of whether the toggle state is true or false. This logic alternates the visibility of the checkmark image when the value changes.</p>
 
-<p>上下文菜单根据上下文向用户显示一组选项或操作。此上下文可以指代任何事物，通常是指当前选择对象。</p>
+<h2>Adding controls to a UI</h2>
 
-<h3>启用上下文菜单</h3>
+<p>To use a control in a UI, you need add it to a UI hierarchy, called the <a href="UIE-VisualTree.html">Visual Tree</a>. You can add the control through a script, <a href="UIE-UXML.html">UXML</a>, or in the UI Builder.</p>
 
-<p>要启用上下文菜单，请将 <code>ContextualMenuManipulator</code> 操控器添加到视觉元素。此操控器会在发生鼠标右键按下事件或菜单键松开事件后显示上下文菜单。<code>ContextualMenuManipulator</code> 操控器还会添加一个对应于 <code>ContextualMenuPopulateEvent</code> 的回调。以下代码示例展示了如何执行此操作：</p>
+<p>The code snippet below shows how to add a <code>Button</code> control to an existing visual tree.</p>
 
-<pre><code class="csharp">void InstallManipulator(VisualElement element)
-{
-    ContextualMenuManipulator m = new ContextualMenuManipulator(MyDelegate);
-    m.target = element;
-}
-
-void MyDelegate(ContextualMenuPopulateEvent event)
-{
-    // 修改 event.menu
-    event.menu.AppendAction("Properties", DisplayProperties, DropdownMenu.MenuAction.AlwaysEnabled);
-}
-
-void DisplayProperties(DropdownMenu.MenuAction menuItem)
-{
-    // ...
-}
+<pre><code class="lang-csharp">var newButton = new Button("Click me!");
+rootVisualElement.Add(newButton);
 </code></pre>
 
-<p>提供给 <code>ContextualMenuManipulator</code> 构造函数的回调在最后调用，以便子元素可以填充菜单。</p>
+<p>When adding controls to a UI hierarchy, the layout engine automatically handles the sizing and positioning. For more information about the automatic layout, see the <a href="UIE-LayoutEngine.html">Layout Engine</a>.</p>
 
-<p>在内部，操控器会发送一个 <code>ContextualMenuPopulateEvent</code> 事件，此事件沿以下传播路径传播到目标元素层级视图：从视觉树的根到事件目标，再退回到视觉树的根。沿着传播路径，具有 <code>ContextualMenuPopulateEvent</code> 事件回调的元素可以在上下文菜单中添加、删除或修改菜单项。</p>
+<p>You can also manually override the size and position of visual elements. To learn more about controlling the position manually, see the <a href="UIE-VisualTree.html">Visual Tree</a> page.</p>
 
-<h3>响应用户选择</h3>
-
-<p>一个元素收到 <code>ContextualMenuPopulateEvent</code> 时会通过调用 <code>DropdownMenu.InsertAction()</code> 或 <code>DropdownMenu.AppendAction()</code> 将菜单项添加到上下文菜单中。</p>
-
-<p>这些函数中的每一个函数都采用两个回调作为参数。用户在菜单中选择菜单项时执行第一个回调。第二个回调在显示菜单之前执行，还会检查菜单项是否已启用。</p>
-
-<p>两个回调都接收一个 <code>MenuAction</code> 作为参数。<code>MenuAction</code> 代表菜单项，具有以下其他有用的属性：</p>
+<p>All visual elements in UI Toolkit use styles to define their attributes. You can modify style properties in three ways:</p>
 
 <ul>
-<li>
-<code>MenuAction.userData</code> 会引用可能已用于 <code>AppendAction()</code> 或 <code>InsertAction()</code> 的用户数据。</li>
-<li>
-<code>MenuAction.eventInfo</code> 包含触发上下文菜单显示的事件的
-相关信息。应在响应事件的操作中使用 <code>MenuAction.eventInfo</code>。例如，可以使用鼠标位置根据所选的上下文菜单项创建和放置对象。</li>
+<li>Creating a <a href="UIE-USS.html">USS style sheet</a>.</li>
+<li>Applying the appropriate properties in UI Builder.</li>
+<li>Modifying the style property of the element via code.</li>
 </ul>
 
-<hr>
+<h2>Interaction with controls</h2>
+
+<p>Controls are interactive and represent a value that you can change. For example, a <code>FloatField</code> represents a float value. You can use code to react to changes, such as:</p>
 
 <ul>
-<li><span class="page-edit">2018–11–02 页面已修订</span></li>
+<li>Registering a callback.</li>
+<li>Reading the control value directly.</li>
+<li>Data binding.</li>
 </ul>
-<!-- area:authoring -->
+
+<h2>Control value property</h2>
+
+<p>If a control represents a modifiable value, it contains a <code>value</code> property. Scripts can use the <code>value</code> property to directly access the value of the control. The code snippet below creates a <code>Toggle</code> control and a <code>Button</code> control. When you click the button, the value of the toggle flips.</p>
+
+<pre><code class="lang-csharp">// Create a toggle and register callback
+m_MyToggle = new Toggle("Test Toggle") { name = "My Toggle" };
+rootVisualElement.Add(m_MyToggle);
+
+// Create button to flip the toggle's value
+Button button01 = new Button() { text = "Toggle" };
+button01.clicked += () =&gt;
+{
+    m_MyToggle.value = !m_MyToggle.value;
+};
+rootVisualElement.Add(button01);
+</code></pre>
+
+<p>To learn more about the properties of a specific control, see the <a href="UIE-Controls-Reference.html">UI Toolkit controls reference</a>.</p>
+
+<h2>Registering a callback</h2>
+
+<p>All built-in controls that have <code>value</code> properties send an event if the value changes. The code can register a callback to receive this event. The following code snippet shows how to create a <code>Toggle</code> control and register a callback:</p>
+
+<pre><code class="lang-csharp">// Create a toggle and register callback
+m_MyToggle = new Toggle("Test Toggle") { name = "My Toggle" };
+m_MyToggle.RegisterValueChangedCallback((evt) =&gt; { Debug.Log("Change Event received"); });
+rootVisualElement.Add(m_MyToggle);
+</code></pre>
+
+<p>To learn more about callbacks and events, see <a href="UIE-Events-Handling.html">Events Handling</a>.</p>
+
+<h2>Data Binding</h2>
+
+<p>Controls can bind directly to an object or serialized property. For example, a <code>FloatField</code> control can bind to a public float variable that belongs to a <code>MonoBehaviour</code>. When the control binds to the property, it automatically displays the value of the property. When the user modifies the control, the value of the property updates. </p>
+
+<p>Similarly, when the property value changes via code, the UI displays the updated value. This two-way connection is useful when creating custom inspectors.</p>
+
+<p>To learn more about data binding, see the <a href="UIE-Binding.html">Binding</a> page.</p>
+
+<p>Not all controls are bindable. To see a list of all built-in controls and whether they support binding, see the <a href="UIE-Controls-Reference.html">UI Toolkit controls reference</a>.</p>
+
+<h2>Creating custom controls</h2>
+
+<p>UI Toolkit allows you to create custom controls. This makes it possible to create complex controls, or implement custom logic for user interface elements.
+Controls derive directly from <code>VisualElement</code>, or a subclass of <code>VisualElement</code>, such as <code>TextElement</code>. They might also add manipulators to implement the behavior of the control. For example, the <code>Button</code> control adds a <code>Clickable</code> manipulator.</p>
+
+<h2>Built-in controls</h2>
+
+<p>Unity includes a large range of standard controls, such as labels, text fields, and toggles. Some controls are only available in the Editor.
+For a complete list of built-in controls for UI Toolkit, see the <a href="UIE-Controls-Reference.html">UI Toolkit controls reference</a>.</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="UIE-Events-Reference.html"></a></span><div class="tip">事件类型参考</div>
+<span class="prev"><a href="UIE-IMGUI-Events.html"></a></span><div class="tip">IMGUI 事件</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="UIE-Binding.html"></a></span><div class="tip">绑定</div>
+<span class="next"><a href="UIE-Controls-Reference.html"></a></span><div class="tip">Controls reference</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

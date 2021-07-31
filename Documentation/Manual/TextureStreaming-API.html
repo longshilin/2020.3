@@ -11,8 +11,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Mip Map Streaming API - Unity 手册">
-<title>Mip Map Streaming API - Unity 手册</title>
+<meta property="og:title" content="Mipmap 串流 API - Unity 手册">
+<title>Mipmap 串流 API - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/StreamingController.png">
 <meta name="description" content="本页包含以下部分：">
 <meta property="og:description" content="本页包含以下部分：">
@@ -175,21 +175,21 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
 <li><a href="OptimizingGraphicsPerformance.html">优化图形性能</a></li>
-<li><a href="TextureStreaming.html">Mip Map Streaming</a></li>
-<li>Mip Map Streaming API</li>
+<li><a href="TextureStreaming.html">Mipmap 串流</a></li>
+<li>Mipmap 串流 API</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="class-StreamingController.html"></a></span><div class="tip">串流控制器 (Streaming Controller)</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="LinearLighting.html"></a></span><div class="tip">颜色空间</div>
+<span class="next"><a href="graphics-color.html"></a></span><div class="tip">Color</div>
 </div>
 </div></div>
-<h1>Mip Map Streaming API</h1>
+<h1>Mipmap 串流 API</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
@@ -197,19 +197,19 @@
 
 <ul>
 <li><a href="#Overview">概述</a></li>
-<li><a href="#ControlMipmapStreaming">Control the Mip Map Streaming system</a></li>
-<li><a href="#ControlCameras">Control the Cameras for Mip Map Streaming</a></li>
-<li><a href="#LoadSpecificMipmap">Load a specific mip map</a></li>
-<li><a href="#Debugging">Debugging</a></li>
+<li><a href="#ControlMipmapStreaming">控制 Mipmap 串流系统</a></li>
+<li><a href="#ControlCameras">控制 Mipmap 串流的摄像机</a></li>
+<li><a href="#LoadSpecificMipmap">加载特定 Mipmap</a></li>
+<li><a href="#Debugging">调试</a></li>
 </ul>
 
 <p><a name="Overview"> </a></p>
 
 <h2>概述</h2>
 
-<p>Use the API to apply more control over how Unity streams Textures. You can override which mip map level to load for specific Textures, while the Mip Map Streaming system automatically manages all other Textures. You might have specific gameplay scenarios where you know that Unity needs to fully load certain Textures. For example, moving large distances quickly, or using instantaneous Camera cuts, can cause noticeable Texture quality changes while the Mip Map Streaming system streams the mip maps from the disk into memory. To reduce this problem, you can use the API to preload mip maps at a new Camera location .</p>
+<p>使用 API 可对 Unity 串流纹理的方式进行更有力的控制。您可以覆盖要为特定纹理加载的 Mipmap 级别，而 Mipmap 串流系统将自动管理所有其他纹理。在特定的游戏项目中，您可能知道 Unity 需要完全加载某些纹理。例如，远距离快速移动或者使用瞬间摄像机切换镜头，可能会导致明显的纹理质量变化，而 Mipmap 串流系统会将 Mipmap 从磁盘串流到内存。为了减少这个问题，可以使用 API 在新的摄像机位置预加载 Mipmap。</p>
 
-<p>To enable and control Mip Map Streaming on a Texture, use the following properties:</p>
+<p>要对纹理启用和控制 Mipmap 串流，请使用以下属性：</p>
 
 <ul>
 <li><a href="../ScriptReference/TextureImporter-streamingMipmaps.html">TextureImporter.streamingMipmaps</a></li>
@@ -218,13 +218,13 @@
 <li><a href="../ScriptReference/IHVImageFormatImporter-streamingMipmapsPriority.html">IHVImageFormatImporter.streamingMipmapsPriority</a></li>
 </ul>
 
-<p>Mip Map Streaming automatically reduces the size of Textures until they fit into the Mip Map Streaming <strong>Memory Budget</strong>. The Texture’s <strong>Mip Map Priority</strong> number is roughly a mip map offset for the <strong>Memory Budget</strong>. For example, with a priority of 2, the Mip Map Streaming system tries to use a mip map that is two mip levels higher than other Textures with a priority of 0. Negative values are also valid. If it can’t do this, it uses a lower mip level to fit the <strong>Memory Budget</strong>.</p>
+<p>Mipmap 串流可自动减小纹理的大小，直到它们符合 Mipmap 串流__内存预算 (Memory Budget)<strong>。纹理的 </strong>Mipmap 优先级__ 数值大致是__内存预算__ 的 Mipmap 偏移。例如，优先级为 2 时，Mipmap 串流系统尝试使用比优先级为 0 的其他纹理高出两个 Mip 级别的 Mipmap。负值也有效。如果无法实现，则会使用更低的 Mip 级别来适应__内存预算 (Memory Budget)__。</p>
 
 <p><a name="ControlMipmapStreaming"> </a></p>
 
-<h2>Controlling the Mip Map Streaming system</h2>
+<h2>控制 Mipmap 串流系统</h2>
 
-<p>These properties are read-only at runtime:</p>
+<p>以下属性在运行时为只读：</p>
 
 <ul>
 <li><a href="../ScriptReference/SystemInfo-supportsMipStreaming.html">SystemInfo.supportsMipStreaming</a></li>
@@ -232,7 +232,7 @@
 <li><a href="../ScriptReference/Texture2D-streamingMipmapsPriority.html">Texture2D.streamingMipmapsPriority</a></li>
 </ul>
 
-<p>To control what happens at runtime, use the following static properties:</p>
+<p>要控制运行时的行为，请使用以下静态属性：</p>
 
 <ul>
 <li><a href="../ScriptReference/QualitySettings-streamingMipmapsActive.html">QualitySettings.streamingMipmapsActive</a></li>
@@ -245,31 +245,29 @@
 <li>
 <a href="../ScriptReference/QualitySettings-streamingMipmapsMaxFileIORequests.html">QualitySettings.streamingMipmapsMaxFileIORequests</a>（默认为 1024）</li>
 <li>
-<a href="../ScriptReference/Texture-streamingTextureDiscardUnusedMips.html">Texture2D.streamingTextureDiscardUnusedMips</a> (defaults to false)</li>
+<a href="../ScriptReference/Texture-streamingTextureDiscardUnusedMips.html">Texture2D.streamingTextureDiscardUnusedMips</a>（默认为 false）。</li>
 </ul>
 
-<h2>Configuring the Memory Budget</h2>
+<h2>配置内存预算</h2>
 
-<p>The <strong>Memory Budget</strong> property determines the maximum amount of memory Unity uses for the textures in your scene. It is set to 512MB by default. The <strong>Memory Budget</strong> has a high impact on your scene when using texture streaming. If your memory budget is too small, Unity lowers the resolution of textures in your scene. This can cause textures to pop or load slowly. However, the memory budget should be as small as possible to allow memory for other resources. </p>
+<p><strong>Memory Budget（内存预算）</strong> 属性确定 Unity 用于场景中纹理的最大内存量。默认情况下，此设置为 512MB。使用纹理串流时，__内存预算__ 对您的场景有很大影响。如果您的内存预算太小，Unity 会降低场景中纹理的分辨率。这可能会导致纹理突变或加载缓慢。但是，内存预算应尽可能小，以便为其他资源留出内存。</p>
 
-<p>To figure out what your memory budget should be:</p>
+<p>要确定您的内存预算的合理数量：</p>
 
-<ol>
-<li>Look at the <a href="../ScriptReference/Texture-desiredTextureMemory.html">Texture.desiredTextureMemory</a> value when your project is running.</li>
-<li>Set the <strong>Memory Budget</strong> value slightly higher than the <a href="../ScriptReference/Texture-desiredTextureMemory.html">Texture.desiredTextureMemory</a> value.</li>
-</ol>
+<p>1.在项目运行时查看 <a href="../ScriptReference/Texture-desiredTextureMemory.html">Texture.desiredTextureMemory</a> 值。
+2.将 <strong>Memory Budget</strong> 值设置为略高于<a href="../ScriptReference/Texture-desiredTextureMemory.html">Texture.desiredTextureMemory</a> 的值。</p>
 
-<p>This makes sure there is enough texture memory available for the most resource-intensive areas of your scene and prevents textures from dropping to a lower resolution. If you have extra memory available, you can set a larger memory budget so that Unity can keep texture data that is not visible in your scene in the streaming cache.</p>
+<p>这确保有足够的纹理内存可用于场景中资源最密集的区域，并防止纹理下降到较低的分辨率。如果您有额外的可用内存，可以设置更大的内存预算，以便 Unity 可以将场景中不可见的纹理数据保留在串流缓存中。</p>
 
 <p><a name="ControlCameras"> </a></p>
 
-<h2>Controlling Cameras for Mip Map Streaming</h2>
+<h2>控制 Mipmap 串流的摄像机</h2>
 
 <p>In the Quality Settings (<strong>Edit</strong> &gt; <strong>Project Settings</strong> &gt; <strong>Quality</strong>), use <strong>Add All Cameras</strong> to specify whether Unity should calculate Mip Map Streaming for all Cameras in the Project. This is enabled by default.</p>
 
 <p>为了更精细地控制哪些摄像机处于活动状态，请在与 Camera 组件相同的游戏对象上使用 <a href="class-StreamingController.html">Streaming Controller</a> 组件。这会直接从 Camera 组件获取位置和摄像机设置（如 __Field of View__）。</p>
 
-<p>If the Camera is disabled, Unity does not calculate Mip Map Streaming for it, unless the Streaming Controller is enabled and in the preloading state. When the Streaming Controller and associated Camera are enabled, or if the Streaming Controller is in a preloading state, then Unity calculates Mip Map Streaming for this Camera. If the Streaming Controller is disabled, then Unity does not calculate Mip Map Streaming for this Camera. </p>
+<p>如果禁用了摄像机，除非启用 Streaming Controller 并处于预加载状态，否则 Unity 不会为摄像机计算 Mipmap 串流。启用了 Streaming Controller 或关联的摄像机时，或者如果 Streaming Controller 处于预加载状态，则 Unity 将为此摄像机计算 Mipmap 串流。如果禁用了 Streaming Controller，则 Unity 将不会为此摄像机计算 Mipmap 串流。</p>
 
 <figure>
 <img src="../uploads/Main/StreamingController.png" alt="Streaming Controller 组件">
@@ -278,11 +276,11 @@
 
 <p>Streaming Controller 组件包含 <strong>Mip Map Bias</strong> 设置。要通过 API 来控制此设置，请使用 <a href="../ScriptReference/StreamingController-streamingMipmapBias.html">StreamingController.streamingMipmapBias</a>。</p>
 
-<p>Use this setting to force Unity to load smaller or larger mip map levels than the Mip Map Streaming system has chosen for those Textures. Use the numerical field to set the offset that Unity applies to the mip map level. Unity adds this offset to all Textures visible from this Camera. </p>
+<p>使用此设置可以强制 Unity 加载比 Mipmap 串流系统为这些纹理选择的更高或更低的 Mipmap 级别。使用数字字段来设置 Unity 应用于 Mipmap 级别的偏移。Unity 可将此偏移添加到在此摄像机中可见的所有纹理。</p>
 
 <h3>摄像机切换镜头</h3>
 
-<p>When cutting from one location to another, the Mip Map Streaming system needs time to stream the required Textures into Unity. To trigger preloading at a disabled target Camera location, call <a href="../ScriptReference/StreamingController.SetPreloading.html">StreamingController.SetPreloading</a> on the target Camera’s Streaming Controller component. You can specify a time-out to end the preloading phase. To automatically enable the Camera at the end of the preloading phase, set the <code>activateCameraOnTimeout</code> flag to true in script. To disable a Camera after you cut from it to the new one, pass that Camera as the <code>disableCameraCuttingFrom</code> parameter.</p>
+<p>从一个位置切换到另一个位置时，Mipmap 串流系统需要一定的时间将所需纹理串流到 Unity。要在某个禁用的目标摄像机位置触发预加载，请在目标摄像机的 Streaming Controller 组件上调用 <a href="../ScriptReference/StreamingController.SetPreloading.html">StreamingController.SetPreloading</a>。可指定一个超时来结束预加载阶段。要在预加载阶段结束时自动启用摄像机，请在脚本中将 <code>activateCameraOnTimeout</code> 标志设置为 true。要在从某个摄像机切换到新摄像机之后禁用此摄像机，请以 <code>disableCameraCuttingFrom</code> 参数传递该摄像机。</p>
 
 <pre><code>void StreamingController.SetPreloading(float timeoutSeconds=0.0f, bool activateCameraOnTimeout=false, Camera disableCameraCuttingFrom=null)
 </code></pre>
@@ -294,18 +292,18 @@
 <li><a href="../ScriptReference/StreamingController.IsPreloading.html">StreamingController.IsPreloading</a></li>
 </ul>
 
-<p>To determine whether the Mip Map Streaming system is still loading Textures, you can query the following properties: </p>
+<p>要确定 Mipmap 串流系统是否仍在加载纹理，可以查询以下属性：</p>
 
 <ul>
 <li><a href="../ScriptReference/Texture-streamingTextureLoadingCount.html">Texture.streamingTextureLoadingCount</a></li>
 <li><a href="../ScriptReference/Texture-streamingTexturePendingLoadCount.html">Texture.streamingTexturePendingLoadCount</a></li>
 </ul>
 
-<p>Note that there is delay between when you enable a Camera and when these properties become a value other than zero. This delay is because the Mip Map Streaming system calculates the mip maps using time-sliced processing. For this reason, during a Camera cut you should wait a minimum length of time before the cut. Texture budget and Scene movement can cause continuous Mip Map Streaming, so you also need to set a maximum length of time before the cut.</p>
+<p>请注意，启用摄像机与这些属性变为非零值之间存在延迟。这种延迟是因为 Mipmap 串流系统使用时间切片处理技术来计算 Mipmap。鉴于此原因，在摄像机切换镜头时，应该在切换镜头之前等待一个最短时间。纹理预算和场景移动会导致连续的 Mipmap 串流，所以还需要设置在切换镜头之前的最长等待时间。</p>
 
 <p><a name="LoadSpecificMipmap"> </a></p>
 
-<h2>Load a specific mip map</h2>
+<h2>加载特定 Mipmap</h2>
 
 <p>要覆盖特定纹理的 Mip 级别计算，请使用 <a href="../ScriptReference/Texture2D-requestedMipmapLevel.html">Texture2D.requestedMipmapLevel</a>。这是一个精确的 Mip 级别，范围从 0 到特定纹理的最高 Mip 级别或者是 <strong>Max Level Reduction</strong> 值（如果该值更大）。0 表示最高分辨率的 Mip。</p>
 
@@ -340,11 +338,11 @@
 
 <p><a name="DebuggingAPI"> </a></p>
 
-<h3>Debug or profiling API</h3>
+<h3>调试或性能分析 API</h3>
 
-<p>To get per-texture streaming info in material properties that can be used for creating debug visualisations use <a href="../ScriptReference/Texture.SetStreamingTextureMaterialDebugProperties.html">Texture.SetStreamingTextureMaterialDebugProperties</a>.</p>
+<p>要获取可用于创建调试可视化的材质属性中每个纹理串流信息，请使用 <a href="../ScriptReference/Texture.SetStreamingTextureMaterialDebugProperties.html">Texture.SetStreamingTextureMaterialDebugProperties</a>。</p>
 
-<p>The following Texture properties may also be usefull for developing Mipmap Streaming profiling/debugging tools for your project.</p>
+<p>以下纹理属性也可用于为项目开发 Mipmap 串流性能分析/调试工具。</p>
 
 <ul>
 <li><a href="../ScriptReference/Texture-currentTextureMemory.html">Texture.currentTextureMemory</a></li>
@@ -354,7 +352,7 @@
 <li><a href="../ScriptReference/Texture-nonStreamingTextureMemory.html">Texture.nonStreamingTextureMemory</a></li>
 </ul>
 
-<p>To get information about the number of Textures or renderers the Mip Map Streaming system is interacting with, use the following properties:</p>
+<p>要获取与 Mipmap 串流系统交互的纹理或渲染器的数量信息，请使用以下属性：</p>
 
 <ul>
 <li><a href="../ScriptReference/Texture-streamingMipmapUploadCount.html">Texture.streamingMipmapUploadCount</a></li>
@@ -363,7 +361,7 @@
 <li><a href="../ScriptReference/Texture-streamingRendererCount.html">Texture.streamingRendererCount</a></li>
 </ul>
 
-<p>To get information about mipmap levels for a texture, use the following properties:</p>
+<p>要获取有关纹理的 Mipmap 级别的信息，请使用以下属性：</p>
 
 <ul>
 <li><a href="../ScriptReference/Texture2D-desiredMipmapLevel.html">Texture2D.desiredMipmapLevel</a></li>
@@ -371,7 +369,7 @@
 <li><a href="../ScriptReference/Texture2D-loadedMipmapLevel.html">Texture2D.loadedMipmapLevel</a></li>
 </ul>
 
-<h3>Lightmaps</h3>
+<h3>光照贴图</h3>
 
 <p>You can use the Mip Map Streaming system to stream lightmaps. You can edit the Texture settings directly, but they reset to their default values when Unity regenerates the lightmaps. The <a href="class-PlayerSettings.html">Player Settings</a> (<strong>Edit</strong> &gt; <strong>Project Settings</strong> &gt; <strong>Player</strong>) provide two controls to set streaming and priority for generated lightmaps: <strong>Lightmap Streaming Enabled</strong> and <strong>Streaming Priority</strong>.</p>
 
@@ -382,9 +380,9 @@
 
 <h3>播放模式</h3>
 
-<p>Mip Map Streaming is enabled in Play Mode by default. However, when running in Play Mode, the Editor overheads bias the statistics. To get accurate figures, test the application on the target device.</p>
+<p>默认情况下，在运行模式下会启用 Mipmap 串流。但是，在运行模式下运行时，Editor 开销会导致统计信息出现偏差。要获取精确数字，请在目标设备上测试应用程序。</p>
 
-<p>When Mip Map Streaming is enabled in Play mode, but not enabled in Edit mode (or the other way around), toggling in and out of Play mode takes slightly longer. To disable Mip Map Streaming in Play mode, go to the Editor Settings (<strong>Edit</strong> &gt; <strong>Project Settings</strong> &gt; <strong>Editor</strong>), navigate to <strong>Streaming Settings</strong> and disable <strong>Enabled Texture Streaming in Play Mode</strong>. This prevents Unity from unloading and reloading mip map data, and should speed up the Play mode workflow. </p>
+<p>如果在运行模式下启用了 Mipmap 串流，但在编辑模式下未启用（或者是相反的情况），则切换到运行模式和从运行模式退出时所花费的时间会稍长一些。要在运行模式下禁用 Mipmap 串流，请选择 Editor 设置 (<strong>Edit</strong> &gt; <strong>Project Settings</strong> &gt; <strong>Editor</strong>)，导航到 <strong>Streaming Settings__，并禁用 </strong>Enabled Texture Streaming in Play Mode__。这会阻止 Unity 卸载和重新加载 Mipmap 数据，并且应该会加快运行模式工作流程。</p>
 
 <figure>
 <img src="../uploads/Main/StreamingSettings2019-1.png" alt="Edit &amp;gt; Project Settings &amp;gt; Editor &amp;gt; Streaming Settings">
@@ -396,13 +394,13 @@
 <span class="prev"><a href="class-StreamingController.html"></a></span><div class="tip">串流控制器 (Streaming Controller)</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="LinearLighting.html"></a></span><div class="tip">颜色空间</div>
+<span class="next"><a href="graphics-color.html"></a></span><div class="tip">Color</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

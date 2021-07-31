@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Shader compilation: targeting graphics APIs - Unity 手册">
-<title>Shader compilation: targeting graphics APIs - Unity 手册</title>
-<meta name="description" content="By default, Unity compiles all shader programs for all supported graphics APIs. You can tell the compiler to exclude or include specific APIs. This is useful when you use shader language features that are not supported on all platforms.">
-<meta property="og:description" content="By default, Unity compiles all shader programs for all supported graphics APIs. You can tell the compiler to exclude or include specific APIs. This is useful when you use shader language features that are not supported on all platforms.">
+<meta property="og:title" content="着色器编译：针对图形 API - Unity 手册">
+<title>着色器编译：针对图形 API - Unity 手册</title>
+<meta name="description" content="默认情况下，Unity 为所有支持的图形 API 编译所有着色器程序。您可以让编译器排除或包含特定的 API。在使用并非所有平台都支持的着色器语言功能时，这很有用。">
+<meta property="og:description" content="默认情况下，Unity 为所有支持的图形 API 编译所有着色器程序。您可以让编译器排除或包含特定的 API。在使用并非所有平台都支持的着色器语言功能时，这很有用。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,42 +174,41 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
-<li><a href="ShadersOverview.html">编写着色器</a></li>
-<li><a href="SL-Reference.html">着色器参考</a></li>
-<li><a href="SL-ShaderPrograms.html">编写顶点和片元着色器</a></li>
-<li>Shader compilation: targeting graphics APIs</li>
+<li><a href="Shaders.html">着色器</a></li>
+<li><a href="shader-writing.html">编写着色器</a></li>
+<li><a href="SL-ShaderPrograms.html">Unity 中的 HLSL</a></li>
+<li>着色器编译：针对图形 API</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-ShaderCompileTargets.html"></a></span><div class="tip">Shader compilation: targeting shader models and GPU features</div>
+<span class="prev"><a href="SL-ShaderCompileTargets.html"></a></span><div class="tip">着色器编译：针对着色器模型和 GPU 功能</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-MultipleProgramVariants.html"></a></span><div class="tip">着色器变体和关键字</div>
+<span class="next"><a href="SL-ShaderSemantics.html"></a></span><div class="tip">着色器语义</div>
 </div>
 </div></div>
-<h1>Shader compilation: targeting graphics APIs</h1>
+<h1>着色器编译：针对图形 API</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>By default, Unity compiles all shader programs for all supported graphics APIs. You can tell the compiler to exclude or include specific APIs. This is useful when you use shader language features that are not supported on all platforms.</p>
+<p>默认情况下，Unity 为所有支持的图形 API 编译所有着色器程序。您可以让编译器排除或包含特定的 API。在使用并非所有平台都支持的着色器语言功能时，这很有用。</p>
 
-<h2>Including or excluding graphics APIs</h2>
+<h2>包含或排除图形 API</h2>
 
-<p>To compile a shader program only for a given graphics API, use the <code>#pragma only_renderers</code> directive. To exclude given APIs from compilation, use the <code>#pragma exclude_renderers</code> directive.</p>
+<p>要仅为给定的图形 API 编译着色器程序，请使用 <code>#pragma only_renderers</code> 指令。要从编译中排除给定的 API，请使用 <code>#pragma exclude_renderers</code> 指令。</p>
 
 <p>例如：</p>
 
 <pre><code># pragma only_renderers d3d11
 </code></pre>
 
-<p>For more information on pragma directives, see <a href="SL-PragmaDirectives.html">Shader compilation: pragma directives</a>.</p>
+<p>有关 pragma 指令的更多信息，请参阅<a href="SL-PragmaDirectives.html">着色器编译：pragma 指令</a>。</p>
 
-<h2>Supported graphics API names</h2>
+<h2>支持的图形 API 名称</h2>
 
-<p>Supported names are:</p>
+<p>支持的名称包括：</p>
 
 <table>
 <colgroup>
@@ -274,16 +273,16 @@
 
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-ShaderCompileTargets.html"></a></span><div class="tip">Shader compilation: targeting shader models and GPU features</div>
+<span class="prev"><a href="SL-ShaderCompileTargets.html"></a></span><div class="tip">着色器编译：针对着色器模型和 GPU 功能</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-MultipleProgramVariants.html"></a></span><div class="tip">着色器变体和关键字</div>
+<span class="next"><a href="SL-ShaderSemantics.html"></a></span><div class="tip">着色器语义</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

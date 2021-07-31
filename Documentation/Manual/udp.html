@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UnityServices.html">Unity 服务</a></li>
 <li>Unity 分发平台</li>
 </ul></div>
@@ -215,12 +215,12 @@ UDP 概览</p>
 
 <h2>UDP package</h2>
 
-<p>The <a href="https://docs.unity3d.com/Packages/com.unity.purchasing.udp@2.1/manual/index.html">UDP package</a> contains an SDK for working with UDP. It also enables the UDP settings in the Unity Editor. The UDP settings are displayed in the Project Settings window under Services.</p>
+<p>The <a href="https://docs.unity3d.com/Packages/com.unity.purchasing.udp@latest/">UDP package</a> contains an SDK for working with UDP. It also enables the UDP settings in the Unity Editor. The UDP settings are displayed in the Project Settings window under Services.</p>
 
 <h2>UDP client</h2>
 
-<p>要使用 UDP，游戏必须具有 UDP 客户端，包括 UDP 客户端 ID。这样可以在 UDP 服务中标识游戏。<a href="udp-distribution.html#create">在 UDP 上创建游戏时</a>会生成该 ID，并且必须将该游戏链接到 <a href="https://docs.unity3d.com/Packages/com.unity.purchasing.udp@2.1/manual/getting-started.html#linking">Unity 项目</a>。
-要取消 Unity 项目与 UDP 客户端的链接，请在 UDP 控制台的“<a href="udp-reference.html#integrate">集成信息</a>”部分中移除相应的 Unity 项目 ID。</p>
+<p>To use UDP, your game must have a UDP client, including UDP client ID. This identifies your game on the UDP service. The ID is generated when you <a href="udp-distribution.html#create">create a game on UDP</a> and you must <a href="https://docs.unity3d.com/Packages/com.unity.purchasing.udp@latest/index.html?subfolder=/manual/getting-started.html%23linking">link it to your Unity project</a>.
+To unlink a Unity project from a UDP client, remove the Unity project ID from the <a href="udp-reference.html#integrate">Integration Information</a> section in the UDP console.</p>
 
 <h2>UDP 沙盒</h2>
 
@@ -246,11 +246,11 @@ UDP 概览</p>
 <li>在编辑器中实现应用内购
 
 <ul>
-<li><a href="https://docs.unity3d.com/Packages/com.unity.purchasing.udp@2.1/manual/games-with-iap.html">使用 UDP 包</a></li>
+<li><a href="https://docs.unity3d.com/Packages/com.unity.purchasing.udp@latest/index.html?subfolder=/manual/games-with-iap.html">with the UDP package</a></li>
 <li><a href="udp-service-interoperability.html#iap">使用 Unity IAP</a></li>
 </ul>
 </li>
-<li><a href="https://docs.unity3d.com/Packages/com.unity.purchasing.udp@2.1/manual/games-with-iap.html#server-side">在服务器端实现应用内购</a></li>
+<li><a href="https://docs.unity3d.com/Packages/com.unity.purchasing.udp@latest/index.html?subfolder=/manual/games-with-iap.html%23server-side">Implement in-app purchases on the server side</a></li>
 </ul>
 
 <h3>IAP 商品类型</h3>
@@ -271,7 +271,7 @@ UDP 概览</p>
 
 <p>用户购买了可消耗商品后，必须先消耗，然后才能再次购买。通过消耗可以确保购买的商品已成功交付。</p>
 
-<p>要<a href="https://docs.unity3d.com/Packages/com.unity.purchasing.udp@2.1/manual/games-with-iap.html#consume">消耗商品</a>，游戏需要向 UDP SDK 发送一个 Consume 请求。在商品被消耗后，游戏应交付该商品。这样可以防止重复交付商品。</p>
+<p>To <a href="https://docs.unity3d.com/Packages/com.unity.purchasing.udp@latest/index.html?subfolder=/manual/games-with-iap.html%23consume">consume a product</a>, your game needs to send a Consume request to the UDP SDK. Your game should deliver a product when it is consumed. This prevents the product being delivered repeatedly.</p>
 
 <p><a name="iap-catalog"></a></p>
 
@@ -292,7 +292,7 @@ UDP 概览</p>
 
 <p>UDP 控制台上的 IAP 目录是提交到商店后端系统的真实信息来源。</p>
 
-<p>为了成功实现，请遵循 <a href="https://docs.unity3d.com/Packages/com.unity.purchasing.udp@2.1/manual/games-with-iap.html">UDP 实现指南</a>。为确保 IAP 正常运行，请<a href="https://docs.unity3d.com/Packages/com.unity.purchasing.udp@2.1/manual/building-your-game.html#testing">在 UDP 沙盒环境中测试游戏</a>。</p>
+<p>For a successful implementation, follow the <a href="https://docs.unity3d.com/Packages/com.unity.purchasing.udp@latest/index.html?subfolder=/manual/games-with-iap.html">UDP implementation guidance</a>. To ensure your IAPs behave properly, <a href="https://docs.unity3d.com/Packages/com.unity.purchasing.udp@latest/index.html?subfolder=/manual/building-your-game.html%23testing">test your game in the UDP Sandbox environment</a>.</p>
 
 <h2>付费游戏</h2>
 
@@ -304,7 +304,7 @@ UDP 概览</p>
 
 <p>UDP 游戏属于某个 <a href="https://docs.unity3d.com/Manual/OrgsManagingyourOrganization.html">Unity 组织</a>，而不属于任何个人用户。一个组织的所有用户都可以访问该组织的 UDP 游戏。权限因组织中具体用户的角色而异。</p>
 
-<p>你还可以将不在组织中的用户添加到特定项目。应在 Unity Dashboard 中的 <strong>Project</strong> &gt; <strong>Settings</strong> &gt; <strong>Users</strong> 下添加用户。</p>
+<p>You can also add users who aren’t in the Organization to specific projects. Add users in the Unity Dashboard under <strong>Project</strong> &gt; <strong>Settings</strong> &gt; <strong>Users</strong>.</p>
 
 <p>你可以在 Unity 组织中将任务划分到 Unity 编辑器用户和非编辑器用户，例如：</p>
 
@@ -324,7 +324,7 @@ UDP 概览</p>
 
 <ul>
 <li>在项目中实现 UDP</li>
-<li>构建并测试游戏 APK</li>
+<li>Builds and tests the game’s APK or AAB</li>
 <li>将游戏构建版本部署到 UDP 控制台</li>
 </ul>
 </li>
@@ -484,6 +484,12 @@ UDP 概览</p>
 	<td style="text-align:left;">是</td>
 	<td style="text-align:left;">是</td>
 </tr>
+<tr>
+	<td style="text-align:left;">Generate an authentication token</td>
+	<td style="text-align:left;">No</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+</tr>
 </tbody>
 </table>
 
@@ -578,7 +584,7 @@ UDP 概览</p>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="PlatformSpecific.html">平台开发</a></li>
 <li><a href="Standalone.html">独立平台</a></li>
 <li>独立平台 Player 设置</li>
@@ -516,14 +516,25 @@
 </tr>
 <tr>
 	<td style="text-align:left;" colspan="2"><strong>Frame Timing Stats</strong></td>
-	<td style="text-align:left;">Enable this property to gather CPU and GPU frame time statistics. Use this together with the <a href="DynamicResolution.html">Dynamic Resolution</a> camera setting to determine if your application is CPU or GPU bound.</td>
+	<td style="text-align:left;">启用此属性可收集 CPU 和 GPU 帧时间统计信息。此属性与<a href="DynamicResolution.html">动态分辨率</a>摄像机设置同时使用可确定应用程序是受 CPU 还是受 GPU 限制。</td>
 </tr>
 <tr>
-	<td style="text-align:left;">
-<strong>Use Display In HDR Mode__（仅限 Windows）||选中此复选框可使游戏在运行时自动切换到 HDR 模式输出。这项设置仅适用于支持该功能的显示屏。如果显示屏不支持 HDR 模式，则游戏将在标准模式下运行。||
-|</strong>Swap Chain Bit Depth_<em>||选择每个颜色通道中用于交换链缓冲区的位数。仅在启用 HDR 模式的情况下可用。|
-||</em>Bit Depth 10<em>|Unity 将使用 R10G10B10A2 缓冲区格式和 Rec2020 原色（采用 ST2084 PQ 编码）。|
-||</em>Bit Depth 16_</td>
+	<td style="text-align:left;" colspan="2">
+<strong>Use Display In HDR Mode</strong> (Windows Only)</td>
+	<td style="text-align:left;" colspan="2">选中此复选框可使游戏在运行时自动切换到 HDR 模式输出。这项设置仅适用于支持该功能的显示屏。如果显示屏不支持 HDR 模式，则游戏将在标准模式下运行。</td>
+</tr>
+<tr>
+	<td style="text-align:left;" colspan="2"><strong>Swap Chain Bit Depth</strong></td>
+	<td style="text-align:left;">选择每个颜色通道中用于交换链缓冲区的位数。仅在启用 HDR 模式的情况下可用。</td>
+</tr>
+<tr>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"><em>Bit Depth 10</em></td>
+	<td style="text-align:left;">Unity 将使用 R10G10B10A2 缓冲区格式和 Rec2020 原色（采用 ST2084 PQ 编码）。</td>
+</tr>
+<tr>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"><em>Bit Depth 16</em></td>
 	<td style="text-align:left;">Unity 将使用 R16G16B16A16 缓冲区格式和 Rec709 原色及线性颜色（无编码）。</td>
 </tr>
 </tbody>
@@ -654,10 +665,7 @@
 
 <h3>Script Compilation</h3>
 
-<figure>
-<img src="../uploads/Main/ProjectSettingsScriptCompilation.png" alt="Script compilation settings for Standalone Player platforms">
-<figcaption>Script compilation settings for Standalone Player platforms</figcaption>
-</figure>
+<p><a href="../uploads/Main/ProjectSettingsScriptCompilation.png">独立平台播放器平台的 Script compilation 设置</a></p>
 
 <table>
 <colgroup>
@@ -879,7 +887,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

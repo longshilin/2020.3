@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Assembly Definition File Format - Unity 手册">
-<title>Assembly Definition File Format - Unity 手册</title>
-<meta name="description" content="Assembly Definition and Assembly Definition Reference assets are JSON files. You can edit the asset files inside the Unity Editor using the Inspector window, but you can also modify the JSON content with an external tool.">
-<meta property="og:description" content="Assembly Definition and Assembly Definition Reference assets are JSON files. You can edit the asset files inside the Unity Editor using the Inspector window, but you can also modify the JSON content with an external tool.">
+<meta property="og:title" content="程序集定义文件格式 - Unity 手册">
+<title>程序集定义文件格式 - Unity 手册</title>
+<meta name="description" content="程序集定义和程序集定义引用资源是 JSON 文件。可以使用 Inspector 窗口在 Unity 编辑器中编辑资源文件，不过也可以使用外部工具修改 JSON 内容。">
+<meta property="og:description" content="程序集定义和程序集定义引用资源是 JSON 文件。可以使用 Inspector 窗口在 Unity 编辑器中编辑资源文件，不过也可以使用外部工具修改 JSON 内容。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,48 +174,48 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="ScriptingSection.html">Scripting</a></li>
-<li><a href="unity-architecture.html">Unity architecture</a></li>
-<li><a href="script-compilation.html">Script compilation</a></li>
-<li><a href="ScriptCompilationAssemblyDefinitionFiles.html">Assembly definitions</a></li>
-<li>Assembly Definition File Format</li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="ScriptingSection.html">脚本</a></li>
+<li><a href="unity-architecture.html">Unity 架构</a></li>
+<li><a href="script-compilation.html">脚本编译</a></li>
+<li><a href="ScriptCompilationAssemblyDefinitionFiles.html">程序集定义</a></li>
+<li>程序集定义文件格式</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="class-AssemblyDefinitionReferenceImporter.html"></a></span><div class="tip">Assembly Definition Reference properties</div>
+<span class="prev"><a href="class-AssemblyDefinitionReferenceImporter.html"></a></span><div class="tip">程序集定义引用属性</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="Plugins.html"></a></span><div class="tip">插件</div>
 </div>
 </div></div>
-<h1>Assembly Definition File Format</h1>
+<h1>程序集定义文件格式</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>Assembly Definition and Assembly Definition Reference assets are JSON files. You can edit the asset files inside the Unity Editor using the <strong>Inspector</strong> window, but you can also modify the JSON content with an external tool.</p>
+<p>程序集定义和程序集定义引用资源是 JSON 文件。可以使用 <strong>Inspector</strong> 窗口在 Unity 编辑器中编辑资源文件，不过也可以使用外部工具修改 JSON 内容。</p>
 
-<h2>Assembly Definition JSON</h2>
+<h2>程序集定义 JSON</h2>
 
 <p>程序集定义是具有以下字段的一种 JSON 对象：</p>
 
 <h4>allowUnsafeCode bool</h4>
 
-<p>Optional. Defaults to false. See <a href="class-AssemblyDefinitionImporter.html#general">Allow ‘unsafe’ Code</a>.</p>
+<p>可选。默认为 false。请参阅 <a href="class-AssemblyDefinitionImporter.html#general">Allow ‘unsafe’ Code</a>。</p>
 
 <pre><code class="yml">"allowUnsafeCode" : true
 </code></pre>
 
 <h4>autoReferenced bool</h4>
 
-<p>Optional. Defaults to true. See <a href="class-AssemblyDefinitionImporter.html#general">Auto Referenced</a>.</p>
+<p>可选。默认为 true。请参阅 <a href="class-AssemblyDefinitionImporter.html#general">Auto Referenced</a>。</p>
 
 <pre><code class="yml">"autoReferenced": false
 </code></pre>
 
 <h4>defineConstraints string[]</h4>
 
-<p>Optional. The symbols that serve as constraints. Can be empty. See <a href="class-AssemblyDefinitionImporter.html#define-constraints">Define Constraints</a>.</p>
+<p>可选。用作约束的符号。可以为空。请参阅 <a href="class-AssemblyDefinitionImporter.html#define-constraints">Define Constraints</a>。</p>
 
 <pre><code class="yml">"defineConstraints": [
         "UNITY_2019",
@@ -227,7 +227,7 @@
 
 <h4>excludePlatforms string[]</h4>
 
-<p>Optional. The platform name strings to exclude or an empty array. The excludePlatforms array must be empty if <a href="#include-platforms">includePlatforms</a> contains values. You can retrieve the platform name strings with the <a href="ScriptRef:CompilationPipeline.GetAssemblyDefinitionPlatforms.html">CompilationPipeline.GetAssemblyDefinitionPlatforms</a> function (support for a platform must be installed for the current Editor when calling this function.) See <a href="class-AssemblyDefinitionImporter.html#platforms">Platforms</a>.</p>
+<p>可选。要排除的平台名称字符串或空数组。如果 <a href="#include-platforms">includePlatforms</a> 包含值，则 excludePlatforms 数组必须为空。可以使用 <a href="ScriptRef:CompilationPipeline.GetAssemblyDefinitionPlatforms.html">CompilationPipeline.GetAssemblyDefinitionPlatforms</a> 函数检索平台名称字符串（调用此函数时，必须为当前编辑器安装对平台的支持。）请参阅 <a href="class-AssemblyDefinitionImporter.html#platforms">Platforms</a>。</p>
 
 <pre><code class="yml">"includePlatforms": [],
 "excludePlatforms": [
@@ -241,7 +241,7 @@
 
 <h4>includePlatforms string[]</h4>
 
-<p>Optional. The platform name strings to include or an empty array. The includePlatforms array must be empty if <a href="#exclude-platforms">excludePlatforms</a> contains values. You can retrieve the platform name strings with the <a href="ScriptRef:CompilationPipeline.GetAssemblyDefinitionPlatforms.html">CompilationPipeline.GetAssemblyDefinitionPlatforms</a> function (support for a platform must be installed for the current Editor when calling this function.) See <a href="class-AssemblyDefinitionImporter.html#platforms">Platforms</a>.</p>
+<p>可选。要包含的平台名称字符串或空数组。如果 <a href="#exclude-platforms">excludePlatforms</a> 包含值，则 includePlatforms 数组必须为空。可以使用 <a href="ScriptRef:CompilationPipeline.GetAssemblyDefinitionPlatforms.html">CompilationPipeline.GetAssemblyDefinitionPlatforms</a> 函数检索平台名称字符串（调用此函数时，必须为当前编辑器安装对平台的支持。）请参阅 <a href="class-AssemblyDefinitionImporter.html#platforms">Platforms</a>。</p>
 
 <pre><code class="yml">"includePlatforms": [
         "Android",
@@ -253,23 +253,23 @@
 
 <h4>name string</h4>
 
-<p>Required. Any <a href="https://docs.microsoft.com/en-us/dotnet/standard/assembly/names">legal assembly name</a>.</p>
+<p>必需。任何<a href="https://docs.microsoft.com/en-us/dotnet/standard/assembly/names">合法程序集名称</a>。</p>
 
-<pre><code class="yml">"name" : "MyAssemblyName" 
+<pre><code class="yml">"name" : "MyAssemblyName"
 </code></pre>
 
 <h4>noEngineReferences bool</h4>
 
-<p>Optional. Defaults to false. See <a href="class-AssemblyDefinitionImporter.html#general">No Engine References</a>. </p>
+<p>可选。默认为 false。请参阅 <a href="class-AssemblyDefinitionImporter.html#general">No Engine References</a>。</p>
 
 <pre><code class="yml">"noEngineReferences": false
 </code></pre>
 
 <h4>optionalUnityReferences string[]</h4>
 
-<p>Optional. In earlier versions of Unity, this field serialized the <strong>Unity References : Test Assemblies</strong> option used to designate the assembly as a test assembly. As of Unity 2019.3, the option is no longer displayed. The field is still supported, but if the asset is reserialized in a newer version of the Unity Editor, the field is replaced by the equivalent assembly references.</p>
+<p>可选。在较早版本的 Unity 中，此字段对用于将程序集指定为测试程序集的 <strong>Unity References : Test Assemblies</strong> 选项进行序列化。从 Unity 2019.3 开始，不再显示该选项。该字段仍受支持，但如果在较新版本的 Unity 编辑器中重新序列化资源，则该字段会替换为等效的程序集引用。</p>
 
-<p>See <a href="ScriptCompilationAssemblyDefinitionFiles.html#create-test-assembly">Creating a test assembly</a> for more information about test assemblies.</p>
+<p>请参阅<a href="ScriptCompilationAssemblyDefinitionFiles.html#create-test-assembly">创建测试程序集</a>以了解有关测试程序集的更多信息。</p>
 
 <pre><code class="yml">"optionalUnityReferences": [
     "TestAssemblies"
@@ -280,9 +280,9 @@
 
 <h4>overrideReferences bool</h4>
 
-<p>Optional. Set to true if <a href="#precompiled-references">precompiledReferences</a> contains values. Defaults to false. </p>
+<p>可选。如果 <a href="#precompiled-references">precompiledReferences</a> 包含值，则设置为 true。默认为 false。</p>
 
-<p>See [Override References].</p>
+<p>请参阅 [Override References]。</p>
 
 <pre><code class="yml">"overrideReferences": true
 </code></pre>
@@ -291,9 +291,9 @@
 
 <h4>precompiledReferences string[]</h4>
 
-<p>Optional. The file names of referenced DLL libraries including extension, but without other path elements. Can be empty. This array is ignored unless you set <a href="#override-references">overrideReferences</a> to true. </p>
+<p>可选。引用的 DLL 库的文件名，包括扩展名，但没有其他路径元素。可以为空。除非将 <a href="#override-references">overrideReferences</a> 设置为 true，否则会忽略此数组。</p>
 
-<p>See <a href="class-AssemblyDefinitionImporter.html#assembly-references">Assembly References</a>.</p>
+<p>请参阅 <a href="class-AssemblyDefinitionImporter.html#assembly-references">Assembly References</a>。</p>
 
 <pre><code class="yml">"overrideReferences": true,
 "precompiledReferences": [
@@ -304,15 +304,15 @@
 
 <h4>references string[]</h4>
 
-<p>Optional. References to other assemblies created with Assembly Definition assets. You can use either the GUID of the Assembly Definition asset file or the name of the assembly (as defined by the <a href="class-AssemblyDefinitionImporter.html#name">name</a> field of the Assembly Definition). You must use the same form for all references in the list. Can be empty.</p>
+<p>可选。对使用程序集定义资源创建的其他程序集的引用。可以使用程序集定义资源文件的 GUID 或程序集的名称（由程序集定义的 <a href="class-AssemblyDefinitionImporter.html#name">name</a> 字段定义）。必须对列表中的所有引用使用相同格式。可以为空。</p>
 
-<p>You can use the <a href="ScriptRef:AssetDatabase.AssetPathToGUID.html">AssetDatabase.AssetPathToGUID</a> function to retrieve the GUID of an asset. (The GUID is also part of the metadata associated with every asset.)</p>
+<p>可以使用 <a href="ScriptRef:AssetDatabase.AssetPathToGUID.html">AssetDatabase.AssetPathToGUID</a> 函数检索资源的 GUID。（GUID 也是与每个资源关联的元数据的一部分。）</p>
 
-<p>Note that the Editor displays a <strong>Use GUIDs</strong> option in the Assembly Definition Inspector. This option is not serialized in the associated JSON file. Instead, the choice is inferred from the form of reference found in the file.</p>
+<p>请注意，编辑器在 Assembly Definition Inspector 中显示一个 <strong>Use GUIDs</strong> 选项。此选项不在关联 JSON 文件中进行序列化。而是从文件中找到的引用格式推断选择。</p>
 
-<p>See <a href="ScriptCompilationAssemblyDefinitionFiles.html#reference-another-assembly">Referencing another assembly</a>.</p>
+<p>请参阅<a href="ScriptCompilationAssemblyDefinitionFiles.html#reference-another-assembly">引用另一个程序集</a>。</p>
 
-<p>Using GUIDs:</p>
+<p>使用 GUID：</p>
 
 <pre><code class="yml">"references": [
         "GUID:17b36165d09634a48bf5a0e4bb27f4bd",
@@ -323,7 +323,7 @@
 ]
 </code></pre>
 
-<p>Using assembly names:</p>
+<p>使用程序集名称：</p>
 
 <pre><code class="yml">"references": [
         "Unity.CollabProxy.Editor",
@@ -336,15 +336,15 @@
 
 <h4>versionDefines object[]</h4>
 
-<p>Optional. Contains an object for each version define. This object has three fields:</p>
+<p>可选。包含每个版本定义的对象。此对象具有三个字段：</p>
 
 <ul>
-<li>name:string – the name of the resource</li>
-<li>expression:string – the expression defining the version or range of versions of the resource</li>
-<li>define:string – the symbol to define</li>
+<li>name:string – 资源的名称
+*expression:string – 定义资源的版本或版本范围的表达式</li>
+<li>define:string – 要定义的符号</li>
 </ul>
 
-<p>See <a href="class-AssemblyDefinitionImporter.html#version-defines">Version Defines</a>.</p>
+<p>请参阅 <a href="class-AssemblyDefinitionImporter.html#version-defines">Version Defines</a>。</p>
 
 <pre><code class="yml">"versionDefines": [
     {
@@ -360,9 +360,9 @@
 ]
 </code></pre>
 
-<h3>Example Assembly Definition JSON strings</h3>
+<h3>示例程序集定义 JSON 字符串</h3>
 
-<p>Using assembly names for references to other Assembly Definitions and <em>includePlatforms</em>:</p>
+<p>使用对其他程序集定义的引用的程序集名称和 <em>includePlatforms</em>：</p>
 
 <pre><code class="yml">{
     "name": "BeeAssembly",
@@ -405,7 +405,7 @@
 }
 </code></pre>
 
-<p>Using GUIDS for references to other Assembly Definitions and <em>excludePlatforms</em>:</p>
+<p>使用对其他程序集定义的引用的 GUID 和 <em>excludePlatforms</em>：</p>
 
 <pre><code class="yml">{
     "name": "BeeAssembly",
@@ -449,36 +449,36 @@
 }
 </code></pre>
 
-<h2>Assembly Definition Reference JSON</h2>
+<h2>程序集定义引用 JSON</h2>
 
 <p>程序集定义引用是具有以下字段的一种 JSON 对象：</p>
 
 <h4>reference string</h4>
 
-<p>Required. The assembly definition to reference. See <a href="class-AssemblyDefinitionReferenceImporter.html">Assembly Definition References</a>.</p>
+<p>必需。要引用的程序集定义。请参阅<a href="class-AssemblyDefinitionReferenceImporter.html">程序集定义引用</a>。</p>
 
-<p>You can reference an Assembly Definition asset using either the name of the assembly or the GUID of the asset.You can use the <a href="ScriptRef:AssetDatabase.AssetPathToGUID.html">AssetDatabase.AssetPathToGUID</a> function to retrieve the GUID of an asset. (The GUID is also part of the metadata associated with every asset.)</p>
+<p>可以使用程序集的名称或资源的 GUID 引用程序集定义资源。可以使用 <a href="ScriptRef:AssetDatabase.AssetPathToGUID.html">AssetDatabase.AssetPathToGUID</a> 函数检索资源的 GUID。（GUID 也是与每个资源关联的元数据的一部分。）</p>
 
-<p>Using assembly name:</p>
+<p>使用程序集名称：</p>
 
 <pre><code class="yml">{
     "reference": "AssemblyA"
 }
 </code></pre>
 
-<p>Using Assembly Definition asset GUID</p>
+<p>使用程序集定义资源 GUID</p>
 
 <pre><code class="yml">{
     "reference": "GUID:f4de40948f4904ecb94b59dd38aab8a1"
 }
 </code></pre>
 
-<p>See <a href="ScriptCompilationAssemblyDefinitionFiles.html#create-asmref">Creating an Assembly Definition Reference asset</a>.</p>
+<p>请参阅<a href="ScriptCompilationAssemblyDefinitionFiles.html#create-asmref">创建程序集定义引用资源</a>。</p>
 <!-- Start_links -->
 <!-- End_links -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="class-AssemblyDefinitionReferenceImporter.html"></a></span><div class="tip">Assembly Definition Reference properties</div>
+<span class="prev"><a href="class-AssemblyDefinitionReferenceImporter.html"></a></span><div class="tip">程序集定义引用属性</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="Plugins.html"></a></span><div class="tip">插件</div>
@@ -487,7 +487,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

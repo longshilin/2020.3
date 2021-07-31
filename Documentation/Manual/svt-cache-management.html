@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Cache Management for Virtual Texturing - Unity 手册">
-<title>Cache Management for Virtual Texturing - Unity 手册</title>
+<meta property="og:title" content="虚拟纹理的缓存管理 - Unity 手册">
+<title>虚拟纹理的缓存管理 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/svt-cache-management01.png">
-<meta name="description" content="Virtual Texturing uses fixed-size texture caches in GPU memory. There is one cache per graphics format. You can configure the default size of a cache and overwrite its default size.">
-<meta property="og:description" content="Virtual Texturing uses fixed-size texture caches in GPU memory. There is one cache per graphics format. You can configure the default size of a cache and overwrite its default size.">
+<meta name="description" content="虚拟纹理在 GPU 内存中使用固定大小的纹理缓存。每种图形格式有一个缓存。您可以配置缓存的默认大小并覆盖其默认大小。">
+<meta property="og:description" content="虚拟纹理在 GPU 内存中使用固定大小的纹理缓存。每种图形格式有一个缓存。您可以配置缓存的默认大小并覆盖其默认大小。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,55 +175,55 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
 <li>高级渲染功能</li>
 <li><a href="svt-streaming-virtual-texturing.html">Streaming Virtual Texturing</a></li>
-<li>Cache Management for Virtual Texturing</li>
+<li>虚拟纹理的缓存管理</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="svt-use-in-shader-graph.html"></a></span><div class="tip">Using Streaming Virtual Texturing in Shader Graph</div>
+<span class="prev"><a href="svt-use-in-shader-graph.html"></a></span><div class="tip">在 Shader Graph 中使用 Streaming Virtual Texturing</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="svt-marking-textures.html"></a></span><div class="tip">Marking textures as "Virtual Texturing Only"</div>
+<span class="next"><a href="svt-marking-textures.html"></a></span><div class="tip">将纹理标记为"仅虚拟纹理"</div>
 </div>
 </div></div>
-<h1>Cache Management for Virtual Texturing</h1>
+<h1>虚拟纹理的缓存管理</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>Virtual Texturing uses fixed-size texture caches in GPU memory. There is one cache per graphics format. You can configure the default size of a cache and overwrite its default size. </p>
+<p>虚拟纹理在 GPU 内存中使用固定大小的纹理缓存。每种图形格式有一个缓存。您可以配置缓存的默认大小并覆盖其默认大小。</p>
 
-<p>The Streaming Virtual Texturing (SVT) system also uses one CPU cache in main memory to store tile pages. A tile page contains multiple tiles that the SVT system reads all together from disk into the CPU cache. This increases the speed of the read throughput from disk on slower drives. When the Virtual Texturing system requests a tile, it reads the page that contains that tile. It’s likely that the system will request other tiles in that page in the following frames, so the CPU cache retains that page to avoid another read from disk. The larger the CPU cache size, the longer Virtual Texturing can keep the page in main memory.</p>
+<p>Streaming Virtual Texturing (SVT) 系统还使用主内存中的一个 CPU 缓存来存储图块页面。一个图块页面包含多个图块，SVT 系统将这些图块一起从磁盘读取到 CPU 缓存中。这提高了从较慢驱动器上的磁盘读取吞吐量的速度。当虚拟纹理系统请求一个图块时，它会读取包含该图块的页面。系统很可能会在接下来的帧中请求该页面中的其他图块，因此 CPU 缓存会保留该页面以避免再次从磁盘读取。CPU 缓存越大，虚拟纹理将页面保留在主内存中的时间就越长。</p>
 
-<p>Virtual Texturing allocates the GPU cache of a given graphics format when it renders a Material that has a Texture Stack with a texture that uses that format. You can configure the cache size (in MB) on the <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest/index.html?subfolder=/manual/HDRP-Asset.html">HDRP Asset</a>, which allows you to have different configurations for each quality level.</p>
+<p>在渲染具有使用该格式纹理的纹理堆栈的材质时，虚拟纹理会为给定图形格式分配 GPU 缓存。您可以在 <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest/index.html?subfolder=/manual/HDRP-Asset.html">HDRP 资源</a>上配置缓存大小（以 MB 为单位），它允许您为每个质量级别设置不同的配置。</p>
 
 <figure>
 <img src="../uploads/Main/svt-cache-management01.png" alt="">
 </figure>
 
-<p>You can also use the <a href="../ScriptReference/Rendering.VirtualTexturing.Streaming.SetGPUCacheSettings.html"><code>VirtualTexturing.Streaming.SetGPUCacheSettings</code></a> method to set the cache size in a script.</p>
+<p>您还可以使用 <a href="../ScriptReference/Rendering.VirtualTexturing.Streaming.SetGPUCacheSettings.html"><code>VirtualTexturing.Streaming.SetGPUCacheSettings</code></a> 方法在脚本中设置缓存大小。</p>
 
-<p>You can change the cache size, but this results in resource-heavy CPU and GPU operations, and blocks both the main thread and the render thread. The length of time it takes to change the cache size depends on the size and number of caches. To avoid noticeable freezes or stuttering, you should change the cache size at a time when frame rate is less important (such as when loading a level).</p>
+<p>您可以更改缓存大小，但这会导致资源密集型 CPU 和 GPU 操作，并阻塞主线程和渲染线程。更改缓存大小所需的时间长度取决于缓存的大小和数量。为避免出现明显的冻结或卡顿，您应该在帧率不太重要的时候（例如加载关卡时）更改缓存大小。</p>
 
-<p>The main factors that influence the optimal size of a given cache are the output screen resolution, and the number of layers in each Texture Stack that use that graphics format. The number of Materials in the scene and the resolution of the textures don’t influence the optimal size as much. For a full HD screen resolution on the highest quality setting, the combined total GPU cache size is typically 700MB.</p>
+<p>影响给定缓存最佳大小的主要因素是输出屏幕分辨率以及使用该图形格式的每个纹理堆栈中的层数。场景中的材质数量和纹理的分辨率对最佳尺寸的影响不大。对于最高质量设置下的全高清屏幕分辨率，总 GPU 缓存大小通常为 700MB。</p>
 
-<p>An issue called “cache thrashing” occurs when the size of a cache is too low to accommodate its contents, and it must load and unload tiles in the same frame. To prevent cache thrashing, the Virtual Texturing system automatically reduces texture quality as needed. It monitors cache usage, and automatically manages a mipmap bias for the Texture Stack sampling in pixel shaders. If the cache fills up, the mipmap bias increases. This ensures that the Virtual Texturing system requests lower resolution tiles, which saves space in the cache, allowing it to contain all of the requested tiles.</p>
+<p>当缓存的大小太小而无法容纳其内容时，必须在同一帧中加载和卸载图块，导致所谓“缓存抖动”的问题。为防止缓存抖动，虚拟纹理系统会根据需要自动降低纹理质量。它会监控缓存的使用情况，并自动管理像素着色器中纹理堆栈采样的 Mipmap 偏差。如果缓存填满，则 Mipmap 偏差会增加。这可确保虚拟纹理系统请求较低分辨率的图块，从而节省缓存空间，使其能够包含所有请求的图块。</p>
 
-<p>If your textures look blurry, try increasing the size of your caches. If the caches are already large enough to render frames at the highest quality, further increasing the cache size means that the cache can retain tiles for longer before evicting them. This can reduce unwanted effects such as texture popping when you move or turn the Camera, because tiles that were recently visible are more likely to still be in the cache.</p>
+<p>如果您的纹理看起来模糊，请尝试增加缓存的大小。如果缓存足够大，能以最高质量渲染帧，进一步增加缓存大小意味着可以延长图块在缓存中保留而不被清除的时间。这样可以减少需避免的效果，例如移动或转动摄像机时出现的纹理突变，因为最近可见的图块更有可能仍在缓存中。</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="svt-use-in-shader-graph.html"></a></span><div class="tip">Using Streaming Virtual Texturing in Shader Graph</div>
+<span class="prev"><a href="svt-use-in-shader-graph.html"></a></span><div class="tip">在 Shader Graph 中使用 Streaming Virtual Texturing</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="svt-marking-textures.html"></a></span><div class="tip">Marking textures as "Virtual Texturing Only"</div>
+<span class="next"><a href="svt-marking-textures.html"></a></span><div class="tip">将纹理标记为"仅虚拟纹理"</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

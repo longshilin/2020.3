@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Streaming Virtual Texturing requirements and compatibility - Unity 手册">
-<title>Streaming Virtual Texturing requirements and compatibility - Unity 手册</title>
-<meta name="description" content="In the High Definition Render Pipeline (HDRP) you can use Streaming Virtual Texturing (SVT) in Shaders you create with Shader Graph.">
-<meta property="og:description" content="In the High Definition Render Pipeline (HDRP) you can use Streaming Virtual Texturing (SVT) in Shaders you create with Shader Graph.">
+<meta property="og:title" content="Streaming Virtual Texturing 要求和兼容性 - Unity 手册">
+<title>Streaming Virtual Texturing 要求和兼容性 - Unity 手册</title>
+<meta name="description" content="在高清渲染管线 (HDRP) 中，可以在您使用 Shader Graph 创建的着色器中使用 Streaming Virtual Texturing (SVT)。">
+<meta property="og:description" content="在高清渲染管线 (HDRP) 中，可以在您使用 Shader Graph 创建的着色器中使用 Streaming Virtual Texturing (SVT)。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,39 +174,39 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
 <li>高级渲染功能</li>
 <li><a href="svt-streaming-virtual-texturing.html">Streaming Virtual Texturing</a></li>
-<li>Streaming Virtual Texturing requirements and compatibility</li>
+<li>Streaming Virtual Texturing 要求和兼容性</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="svt-streaming-virtual-texturing.html"></a></span><div class="tip">Streaming Virtual Texturing</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="svt-how-it-works.html"></a></span><div class="tip">How Streaming Virtual Texturing works</div>
+<span class="next"><a href="svt-how-it-works.html"></a></span><div class="tip">Streaming Virtual Texturing 的工作原理</div>
 </div>
 </div></div>
-<h1>Streaming Virtual Texturing requirements and compatibility</h1>
+<h1>Streaming Virtual Texturing 要求和兼容性</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
 <h2>渲染管线支持</h2>
 
-<p>In the <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest/">High Definition Render Pipeline (HDRP)</a> you can use Streaming Virtual Texturing (SVT) in Shaders you create with <a href="https://docs.unity3d.com/Packages/com.unity.shadergraph@latest">Shader Graph</a>.</p>
+<p>在<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest/">高清渲染管线 (HDRP)</a> 中，可以在您使用 <a href="https://docs.unity3d.com/Packages/com.unity.shadergraph@latest">Shader Graph</a> 创建的着色器中使用 Streaming Virtual Texturing (SVT)。</p>
 
 <h2>系统要求</h2>
 
-<h3>GPU requirements</h3>
+<h3>GPU 要求</h3>
 
 <ul>
-<li>GPU compute</li>
+<li>GPU 计算</li>
 <li>Texture2DArrays</li>
 <li>AsyncReadBack</li>
 </ul>
 
-<h3>Supported platforms</h3>
+<h3>支持的平台</h3>
 
 <ul>
 <li>Windows</li>
@@ -216,7 +216,7 @@
 <li>Xbox One</li>
 </ul>
 
-<h3>Supported graphics APIs</h3>
+<h3>支持的图形 API</h3>
 
 <ul>
 <li>DirectX 11</li>
@@ -225,12 +225,12 @@
 <li>Vulkan</li>
 </ul>
 
-<h2>Texture compatibility</h2>
+<h2>纹理兼容性</h2>
 
 <ul>
-<li><p>SVT is built on top of <a href="../ScriptReference/Texture2D.html">Texture2D</a>. SVT Textures go through the same importer, which limits the maximum texture size. SVT doesn’t support textures larger than 16K x 16K. It also does not support UDIM Textures, or merging tiled image files into one large texture.</p></li>
+<li><p>SVT 建立在 <a href="../ScriptReference/Texture2D.html">Texture2D</a> 上。SVT 纹理通过相同的导入器，这限制了最大纹理大小。SVT 不支持大于 16K x 16K 的纹理。它也不支持 UDIM 纹理或将平铺图像文件合并为一个大纹理。</p></li>
 <li>
-<p>SVT doesn’t support all Texture graphics formats. The supported formats are:</p>
+<p>SVT 不支持所有纹理图形格式。支持的格式如下：</p>
 
 <ul>
 <li><code>GraphicsFormat::kFormatRGBA_DXT1_SRGB</code></li>
@@ -264,47 +264,47 @@
 </ul>
 </li>
 <li>
-<p>SVT does not support the following:</p>
+<p>SVT 不支持：</p>
 
 <ul>
-<li>Mirror wrap mode.</li>
-<li>Per-axis clamping (for example, repeating horizontally while clamping vertically).</li>
-<li>Textures with resolutions that aren’t a power of two.</li>
+<li>镜像包裹模式。</li>
+<li>每轴钳制（例如，水平重复同时垂直钳制）。</li>
+<li>分辨率不是 2 的幂的纹理。</li>
 </ul>
 </li>
-<li><p>Textures in SVT don’t have mipmaps smaller than the tile size (128 x 128 pixels). SVT clamps the sampling to this mip, so you can see aliasing for certain content at a distance.</p></li>
-<li><p>SVT only supports trilinear filtering in the Player, and not in the Editor.</p></li>
-<li><p>SVT only supports streaming from disk in the Player, and not in the Editor.</p></li>
-<li><p>The maximum anisotropic filtering level is 8. This is because each tile has an 8-pixel border.</p></li>
-<li><p>You cannot set Textures that are part of a stack dynamically in the Player. In the Player, you cannot call <code>Material.SetTexture</code> or <code>Renderer.SetPropertyBlock</code> to modify the Texture Stack.</p></li>
+<li><p>SVT 中的纹理没有小于平铺大小（128 x 128 像素）的 Mipmap。SVT 将采样钳制到此 mip，因此您可以在远处看到某些内容的锯齿。</p></li>
+<li><p>SVT 仅在播放器中支持三线性过滤，在编辑器中不支持。</p></li>
+<li><p>SVT 仅支持在播放器中从磁盘的串流，而在编辑器中不支持。</p></li>
+<li><p>最大各向异性过滤级别为 8。这是因为每个瓦片都有一个 8 像素的边框。</p></li>
+<li><p>不能在播放器中动态设置属于堆栈一部分的纹理。在播放器中，不能调用 <code>Material.SetTexture</code> 或 <code>Renderer.SetPropertyBlock</code> 来修改纹理堆栈。</p></li>
 </ul>
 
-<h2>Unity feature compatibility</h2>
+<h2>Unity 功能兼容性</h2>
 
 <ul>
 <li>
-<p>SVT does not support the following:</p>
+<p>SVT 不支持：</p>
 
 <ul>
-<li>AssetBundles, including Addressables and Live Link.</li>
-<li>Scriptable Build Pipeline (SBP) and Subscenes.</li>
-<li>Crunch compression.</li>
+<li>AssetBundles，包括 Addressables 和 Live Link。</li>
+<li>可编程构建管线 (SBP) 和子场景。</li>
+<li>Crunch 压缩。</li>
 </ul>
 </li>
-<li><p>The aspect ratios of stack layers must match.</p></li>
+<li><p>堆叠层的纵横比必须匹配。</p></li>
 </ul>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="svt-streaming-virtual-texturing.html"></a></span><div class="tip">Streaming Virtual Texturing</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="svt-how-it-works.html"></a></span><div class="tip">How Streaming Virtual Texturing works</div>
+<span class="next"><a href="svt-how-it-works.html"></a></span><div class="tip">Streaming Virtual Texturing 的工作原理</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

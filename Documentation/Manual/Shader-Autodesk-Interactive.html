@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Autodesk Interactive shader - Unity 手册">
-<title>Autodesk Interactive shader - Unity 手册</title>
+<meta property="og:title" content="Autodesk Interactive 着色器 - Unity 手册">
+<title>Autodesk Interactive 着色器 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/Autodesk_Interactive_Material_Maya.png">
-<meta name="description" content="The Autodesk Interactive shader replicates the Interactive PBS shader available in Autodesk® 3DsMax and Autodesk® Maya, for you to use in Unity.">
-<meta property="og:description" content="The Autodesk Interactive shader replicates the Interactive PBS shader available in Autodesk® 3DsMax and Autodesk® Maya, for you to use in Unity.">
+<meta name="description" content="Autodesk Interactive 着色器与 Autodesk® 3DsMax 和 Autodesk® Maya 中的 Interactive PBS 着色器类似，可供在 Unity 中使用。">
+<meta property="og:description" content="Autodesk Interactive 着色器与 Autodesk® 3DsMax 和 Autodesk® Maya 中的 Interactive PBS 着色器类似，可供在 Unity 中使用。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,11 +175,11 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
-<li><a href="ShadersOverview.html">编写着色器</a></li>
-<li>Autodesk Interactive shader</li>
+<li><a href="Shaders.html">着色器</a></li>
+<li><a href="shader-built-in.html">内置着色器</a></li>
+<li>Autodesk Interactive 着色器</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -189,40 +189,39 @@
 <span class="next"><a href="Built-inShaderGuide.html"></a></span><div class="tip">旧版着色器</div>
 </div>
 </div></div>
-<h1>Autodesk Interactive shader</h1>
+<h1>Autodesk Interactive 着色器</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>The <strong>Autodesk Interactive shader</strong> replicates the Interactive PBS shader available in Autodesk® 3DsMax and Autodesk® Maya, for you to use in Unity.</p>
+<p><strong>Autodesk Interactive 着色器</strong>与 Autodesk® 3DsMax 和 Autodesk® Maya 中的 Interactive PBS 着色器类似，可供在 Unity 中使用。</p>
 
-<p>When Unity imports an FBX exported from one of these softwares, it checks whether the FBX includes materials with Interactive PBS shaders. If it does, Unity imports these materials as Autodesk Interactive materials. The Autodesk Interactive material properties are identical to their original Interactive PBS materials. They also look and respond to light in a similar way. </p>
+<p>当 Unity 导入从这些软件之一导出的 FBX 时，它会检查 FBX 是否包含具有 Interactive PBS 着色器的材质。如果包含，Unity 会将这些材质导入为 Autodesk Interactive 材质。Autodesk Interactive 材质属性与其原始 Interactive PBS 材质相同。它们也以类似的方式观察和响应光源。</p>
 
-<p>There are slight differences between what you see in Autodesk® Maya or Autodesk® 3DsMax and what you see in Unity:</p>
+<p>在 Autodesk® Maya 或 Autodesk® 3DsMax 中看到的效果与在 Unity 中看到的效果之间存在细微差别：</p>
 
 <figure>
-<img src="../uploads/Main/Autodesk_Interactive_Material_Maya.png" alt="Interactive PBS materials in Autodesk® Maya viewport.">
-<figcaption>Interactive PBS materials in <strong>Autodesk® Maya</strong> viewport.</figcaption>
+<img src="../uploads/Main/Autodesk_Interactive_Material_Maya.png" alt="Autodesk® Maya 视口中的 Interactive PBS 材质。">
+<figcaption><strong>Autodesk® Maya</strong> 视口中的 Interactive PBS 材质。</figcaption>
 </figure>
 
 <figure>
-<img src="../uploads/Main/Autodesk_Interactive_Material_Unity.png" alt="The same materials imported from FBX, as seen in Unity.">
-<figcaption>The same materials imported from FBX, as seen in Unity.</figcaption>
+<img src="../uploads/Main/Autodesk_Interactive_Material_Unity.png" alt="在 Unity 中看到的从 FBX 导入的相同材质。">
+<figcaption>在 Unity 中看到的从 FBX 导入的相同材质。</figcaption>
 </figure>
 
-<h2>Creating an Autodesk Interactive material</h2>
+<h2>创建 Autodesk Interactive 材质</h2>
 
-<p>When Unity imports an FBX file with a compatible Autodesk shader, it automatically creates an Autodesk Interactive material. If you want to manually create an Autodesk Interactive material:</p>
+<p>当 Unity 导入一个 FBX 文件且其中具有兼容的 Autodesk 着色器时，它会自动创建 Autodesk Interactive 材质。如果要手动创建 Autodesk Interactive 材质，请执行以下操作：</p>
 
-<ol>
-<li><p>Create a new material from the menu: <strong>Assets &gt; Create &gt; Material</strong>.</p></li>
-<li><p>In the Inspector for the Material, click the <strong>Shader</strong> drop-down then click <strong>Autodesk Interactive</strong>.</p></li>
-</ol>
+<p>1.从菜单创建新的材质：<strong>Assets &gt; Create &gt; Material</strong>。</p>
+
+<p>2.在材质的 Inspector 中，单击 <strong>Shader</strong> 下拉菜单，然后单击 <strong>Autodesk Interactive</strong>。</p>
 
 <h2>属性</h2>
 
-<p>The properties of the Autodesk Interactive shader work in the same way as the material parameters in the Standard Shader, with the exception of Roughness. </p>
+<p>Autodesk Interactive 着色器的属性与标准着色器中的材质参数的工作方式相同，但 Roughness 除外。</p>
 
-<p>For more information on all other properties, see <a href="StandardShaderMaterialParameters.html">Material Parameters</a>.</p>
+<p>有关所有其他属性的更多信息，请参阅<a href="StandardShaderMaterialParameters.html">材质参数</a>。</p>
 
 <figure>
 <img src="../uploads/Main/Autodesk_Interactive_Material.png" alt="Autodesk_Interactive_Material">
@@ -248,107 +247,107 @@
 <tr>
 	<td style="text-align:left;"><strong>Rendering Mode</strong></td>
 	<td style="text-align:left;"></td>
-	<td style="text-align:left;">Controls how Unity displays this material. Choose from <strong>Opaque</strong>, <strong>Cutout</strong>, <strong>Fade</strong>, or <strong>Transparent</strong>. <br><br>This property functions in the same way as the standard shader. For more information, see <a href="StandardShaderMaterialParameterRenderingMode.html">Rendering mode</a>.</td>
+	<td style="text-align:left;">控制 Unity 如何显示此材质。从 <strong>Opaque</strong>、<strong>Cutout</strong>、<strong>Fade</strong> 或 <strong>Transparent</strong> 中选择。<br><br>此属性的功能与标准着色器相同。有关更多信息，请参阅<a href="StandardShaderMaterialParameterRenderingMode.html">渲染模式</a>。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Main Maps</strong></td>
 	<td style="text-align:left;"><strong>Albedo</strong></td>
-	<td style="text-align:left;">Defines the color of the material. <br><br>You can assign a texture to control this property; to do this, use the texture picker button to the left of the property name. <br><br>For more information, see <a href="StandardShaderMaterialParameterAlbedoColor.html">Albedo Color and Transparency</a>.</td>
+	<td style="text-align:left;">定义材质的颜色。<br><br>您可以分配一个纹理来控制这个属性；为此，请使用属性名称左侧的纹理选择器按钮。<br><br>有关更多信息，请参阅<a href="StandardShaderMaterialParameterAlbedoColor.html">反照率颜色和透明度</a>。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><strong>Metallic</strong></td>
-	<td style="text-align:left;">Determines how metal-like the surface is. <br><br>You can assign a texture to control this property; to do this, use the texture picker button to the left of the property name. <br><br>For more information, see <a href="StandardShaderMaterialParameterMetallic.html">Metallic mode: Metallic Parameter</a>.</td>
+	<td style="text-align:left;">确定表面的金属度。<br><br>您可以分配一个纹理来控制这个属性；为此，请使用属性名称左侧的纹理选择器按钮。<br><br>有关更多信息，请参阅 <a href="StandardShaderMaterialParameterMetallic.html">Metallic 模式：Metallic 参数</a>。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><strong>Roughness</strong></td>
-	<td style="text-align:left;">Controls how rough or smooth the surface of this material appears.<br><br> You can assign a texture to control this property; to do this, use the texture picker button to the left of the property name.</td>
+	<td style="text-align:left;">控制该材质表面的粗糙程度或平滑程度。<br><br>您可以分配一个纹理来控制这个属性；为此，请使用属性名称左侧的纹理选择器按钮。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><strong>Normal Map</strong></td>
-	<td style="text-align:left;">Defines the normal map for this material, in tangent space. <br><br> To assign a normal map to this material, use the texture picker button to the left of the property name.<br><br> For more information about normal maps, see <a href="StandardShaderMaterialParameterNormalMap.html">Normal Map</a>.</td>
+	<td style="text-align:left;">定义此材质在切线空间中的法线贴图。<br><br>要为该材质指定法线贴图，请使用属性名称左侧的纹理选择器按钮。<br><br>有关法线贴图的更多信息，请参阅<a href="StandardShaderMaterialParameterNormalMap.html">法线贴图</a>。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><strong>Height Map</strong></td>
-	<td style="text-align:left;">Defines the height map this material uses.<br><br> To assign a height map to this material, use the texture picker button to the left of the property name.<br><br>For more information about height maps, see <a href="StandardShaderMaterialParameterHeightMap.html">Height Map</a>.</td>
+	<td style="text-align:left;">定义此材质使用的高度贴图。<br><br>要为该材质指定高度贴图，请使用属性名称左侧的纹理选择器按钮。<br><br>有关高度贴图的更多信息，请参阅<a href="StandardShaderMaterialParameterHeightMap.html">高度贴图</a>。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><strong>Occlusion</strong></td>
-	<td style="text-align:left;">Defines the occlusion map this material uses.<br><br>To assign an occlusion map to this material, use the texture picker button to the left of the property name. <br><br>For more information about occlusion maps, see <a href="StandardShaderMaterialParameterOcclusionMap.html">Occlusion Map</a>.</td>
+	<td style="text-align:left;">定义此材质使用的遮挡贴图。<br><br>要为该材质指定遮挡贴图，请使用属性名称左侧的纹理选择器按钮。<br><br>有关遮挡贴图的更多信息，请参阅<a href="StandardShaderMaterialParameterOcclusionMap.html">遮挡贴图</a>。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><strong>Detail Mask</strong></td>
-	<td style="text-align:left;">Defines the detail mask this material uses.<br><br> To assign a detail mask to this material, use the texture picker button to the left of the property name.<br><br> For more information about detail masks, see <a href="StandardShaderMaterialParameterDetail.html">Secondary Maps</a>.</td>
+	<td style="text-align:left;">定义此材质使用的细节遮罩。<br><br>要为该材质指定细节遮罩，请使用属性名称左侧的纹理选择器按钮。<br><br>有关细节遮罩的更多信息，请参阅<a href="StandardShaderMaterialParameterDetail.html">辅助贴图</a>。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><strong>Emission</strong></td>
-	<td style="text-align:left;">Controls the color and intensity of light that the surface of a Material emits.<br><br>For more information, see Standard shader <a href="StandardShaderMaterialParameterEmission.html">Emission</a>.</td>
+	<td style="text-align:left;">控制材质表面发光的颜色和强度。<br><br>有关更多信息，请参阅标准着色器 <a href="StandardShaderMaterialParameterEmission.html">Emission</a>。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><strong>Tiling</strong></td>
-	<td style="text-align:left;">Controls the <strong>X</strong> and <strong>Y</strong> UV tiling for all the textures on this material.</td>
+	<td style="text-align:left;">控制此材质上所有纹理的 <strong>X</strong> 和 <strong>Y</strong> 的 UV 平铺。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><strong>Offset</strong></td>
-	<td style="text-align:left;">Controls the <strong>X</strong> and <strong>Y</strong> UV offset for all the textures on this material.<br><br>Unity uses the <strong>X</strong> and <strong>Y</strong> values to offset these textures across the material’s surface, in texture space.</td>
+	<td style="text-align:left;">控制此材质上所有纹理的 <strong>X</strong> 和 <strong>Y</strong> 的 UV 偏移。<br><br>Unity 使用<strong>X</strong> 和 <strong>Y</strong> 值在材质整个表面上偏移这些纹理（在纹理空间中）。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Secondary Maps</strong></td>
 	<td style="text-align:left;"></td>
-	<td style="text-align:left;">Secondary Maps (or Detail maps) allow you to overlay a second set of textures on top of the main textures listed above.<br><br>This second layer of maps allows you to repeat textures over a material on a smaller scale to give the impression of sharp detail when viewed up-close.<br><br>For more information, see <a href="StandardShaderMaterialParameterDetail.html">Secondary Maps</a>.</td>
+	<td style="text-align:left;">辅助贴图（或细节贴图）允许您在上面列出的主要纹理之上叠加第二组纹理。<br><br>第二层贴图允许您以较小的比例在材质上重复纹理，以在近距离观察时产生清晰的细节印象。<br><br>有关更多信息，请参阅<a href="StandardShaderMaterialParameterDetail.html">辅助贴图</a>。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><strong>Detail Albedo x2</strong></td>
-	<td style="text-align:left;">Use the texture picker button to apply a second albedo colour map to this material.</td>
+	<td style="text-align:left;">使用纹理选择器按钮将第二个反照率颜色贴图应用到此材质。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><strong>Normal map</strong></td>
-	<td style="text-align:left;">Use the texture picker button to apply a second normal map to this material.<br><br> You can control the intensity of this normal map by entering a value greater than 0 in the field next to this property.</td>
+	<td style="text-align:left;">使用纹理选择器按钮将第二个法线贴图应用到该材质。<br><br>您可以通过在此属性旁边的字段中输入一个大于 0 的值来控制此法线贴图的强度。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><strong>Tiling</strong></td>
-	<td style="text-align:left;">The <strong>X</strong> and <strong>Y</strong> UV tiling for all the textures on this material</td>
+	<td style="text-align:left;">此材质上所有纹理的 <strong>X</strong> 和 <strong>Y</strong> 的 UV 平铺。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><strong>Offset</strong></td>
-	<td style="text-align:left;">The <strong>X</strong> and <strong>Y</strong> UV offset for the secondary textures on this material.</td>
+	<td style="text-align:left;">此材质上辅助纹理的 <strong>X</strong> 和 <strong>Y</strong> 的 UV 偏移。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><strong>UV Set</strong></td>
-	<td style="text-align:left;">If this mesh contains more than one set of UV coordinates, you can use this to assign the secondary textures to a different UV set from the primary textures.</td>
+	<td style="text-align:left;">如果此网格包含多个 UV 坐标集，可用于将辅助纹理分配给不同于主要纹理的 UV 集。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Forward Rendering Options</strong></td>
 	<td style="text-align:left;"><strong>Specular Highlights</strong></td>
-	<td style="text-align:left;">Enable this checkbox to give this material <a href="shader-NormalSpecular.html">Specular</a> highlights.</td>
+	<td style="text-align:left;">启用此复选框可为此材质提供<a href="shader-NormalSpecular.html">镜面反射</a>高光。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><strong>Reflections</strong></td>
-	<td style="text-align:left;">Enable this checkbox to give this material a reflective surface.</td>
+	<td style="text-align:left;">启用此复选框可为该材质提供反射面。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Advanced Options</strong></td>
 	<td style="text-align:left;"><strong>Enable GPU Instancing</strong></td>
-	<td style="text-align:left;">Enable this checkbox to tell Unity to render Meshes with the same geometry and material in one batch when possible. This makes rendering faster.<br><br> Unity cannot render Meshes in one batch if they have different materials, or if the hardware does not support GPU instancing. For example, you cannot static-batch GameObjects that have an animation based on the object pivot, but the GPU can instance them.<br><br>For more information, see <a href="GPUInstancing.html">GPU Instancing</a>.</td>
+	<td style="text-align:left;">启用此复选框可以指示 Unity 在一个批次中使用相同的几何体和材质来渲染网格（如果可能）。这样可以加快渲染速度。<br><br>如果网格具有不同的材质或者硬件不支持 GPU 实例化，则 Unity 无法在一个批次中渲染这些网格。例如，如果游戏对象具有基于对象轴心的动画，则不能对它们进行静态批处理，但 GPU 可以实例化它们。<br><br>有关更多信息，请参阅 <a href="GPUInstancing.html">GPU 实例化</a>。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><strong>Double Sided Global Illumination</strong></td>
-	<td style="text-align:left;">Enable this checkbox to tell the lightmapper to take both sides of the geometry into account when it calculates Global Illumination.<br><br>When this is enabled, Unity does not render backfaces or add them to lightmaps, but does treat them as valid when other GameObjects detect them.<br><br>When using the <a href="progressive-lightmapper.html">Progressive Lightmapper</a>, the GameObject’s backfaces bounce light using the same emission and albedo as its frontfaces.</td>
+	<td style="text-align:left;">启用此复选框可告知光照贴图在计算全局光照时考虑几何体的两面。<br><br>启用此功能后，Unity 不会渲染背面或将它们添加到光照贴图中，但会在其他游戏对象检测到它们时将其视为有效。<br><br>使用<a href="progressive-lightmapper.html">渐进光照贴图</a>时，游戏对象的背面使用与其正面相同的发射和反照率反射光。</td>
 </tr>
 </tbody>
 </table>
@@ -364,7 +363,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

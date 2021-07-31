@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Details of disabling Domain and Scene Reload - Unity 手册">
-<title>Details of disabling Domain and Scene Reload - Unity 手册</title>
+<meta property="og:title" content="禁用 Domain Reload 和 Scene Reload 的详细信息 - Unity 手册">
+<title>禁用 Domain Reload 和 Scene Reload 的详细信息 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/EnterPlayModeEvents.svg">
-<meta name="description" content="From a high-level perspective, entering Play Mode consists of the following main stages:">
-<meta property="og:description" content="From a high-level perspective, entering Play Mode consists of the following main stages:">
+<meta name="description" content="从较高的角度看，进入运行模式包括以下主要阶段：">
+<meta property="og:description" content="从较高的角度看，进入运行模式包括以下主要阶段：">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,12 +175,12 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="ScriptingSection.html">Scripting</a></li>
-<li><a href="unity-architecture.html">Unity architecture</a></li>
-<li><a href="code-reloading-editor.html">Code reloading in the Unity Editor</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="ScriptingSection.html">脚本</a></li>
+<li><a href="unity-architecture.html">Unity 架构</a></li>
+<li><a href="code-reloading-editor.html">在 Unity 编辑器中重新加载代码</a></li>
 <li><a href="ConfigurableEnterPlayMode.html">可配置的进入运行模式</a></li>
-<li>Details of disabling Domain and Scene Reload</li>
+<li>禁用 Domain Reload 和 Scene Reload 的详细信息</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -190,34 +190,34 @@
 <span class="next"><a href="RunningEditorCodeOnLaunch.html"></a></span><div class="tip">启动时运行 Editor 脚本代码</div>
 </div>
 </div></div>
-<h1>Details of disabling Domain and Scene Reload</h1>
+<h1>禁用 Domain Reload 和 Scene Reload 的详细信息</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<h2>What Unity skips when Domain Reload and Scene Reload is disabled</h2>
+<h2>禁用 Domain Reload 和 Scene Reload 时，Unity 会跳过什么</h2>
 
-<p>From a high-level perspective, entering Play Mode consists of the following main stages:</p>
+<p>从较高的角度看，进入运行模式包括以下主要阶段：</p>
 
 <ul>
 <li>
-<strong>Backup current Scenes</strong>. This only happens when the Scene has been modified. Allows Unity to revert the Scenes when Play Mode is exited to the state they were in before Play Mode started.</li>
+<strong>备份当前场景</strong>。这仅在场景被修改后发生。这样当退出运行模式时，Unity 将场景恢复为运行模式开始前的状态。</li>
 <li>
-<strong>Domain Reload</strong>. Resets the scripting state, by reloading the scripting domain.</li>
+<strong>Domain Reload</strong>。通过重新加载脚本域来重置脚本状态。</li>
 <li>
-<strong>Scene Reload</strong>. Resets the Scene state, by reloading the Scene.</li>
+<strong>Scene Reload</strong>。通过重新加载场景重置场景状态。</li>
 <li>
-<strong>Update Scene</strong>. This happens twice; once without rendering, and once with rendering.</li>
+<strong>Update Scene</strong>。这会发生两次；一次没有渲染，一次有渲染。</li>
 </ul>
 
-<p>The combined tasks of <strong>Domain Reload</strong> and <strong>Scene Reload</strong> resets the scripting domain and simulates the startup behavior of your application as it would run in the player. Unity skips these steps when you disable them in your Project Settings.</p>
+<p><strong>Domain Reload</strong> 和 <strong>Scene Reload</strong> 的组合任务会重置脚本域并模拟应用程序在播放器中运行时的启动行为。如果在 Project Settings 中禁用这些步骤，Unity 会跳过这些步骤。</p>
 
-<p>The diagram below provides detailed information about the exact events which Unity skips when Domain Reload and Scene Reload are disabled. Blue indicates the events Unity skips when Domain Reload is disabled, and green indicates the events Unity skips when Scene Reload is disabled.</p>
+<p>下图提供了有关禁用 Domain Reload 和 Scene Reload 时 Unity 跳过的确切事件的详细信息。蓝色表示禁用 Domain Reload 时 Unity 跳过的事件，绿色表示禁用 Scene Reload 时 Unity 跳过的事件。</p>
 
 <figure>
 <img src="../uploads/Main/EnterPlayModeEvents.svg" alt="">
 </figure>
 
-<h2>What Unity performs when Scene Reloading and Domain Reloading are both enabled</h2>
+<h2>当 Scene Reloading 和 Domain Reloading 都启用时 Unity 执行什么</h2>
 
 <p>启用场景重新加载和域重新加载后，以下是 Unity 进入运行模式时执行的所有进程和事件的完整列表：</p>
 
@@ -267,7 +267,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

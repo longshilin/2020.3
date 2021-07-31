@@ -174,7 +174,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
 <li><a href="LightingOverview.html">光照</a></li>
 <li><a href="Lightmappers.html">光照贴图</a></li>
@@ -195,49 +195,47 @@
 
 <p><strong>注意：</strong>这是一个预览功能，将来可能会更改。如果有使用此功能的场景，可能需要在以后的发行版中更新这些场景。在该功能尚未正式发布之前，请勿在大规模生产环境中依赖此功能。</p>
 
-<p>The <strong>Progressive GPU Lightmapper</strong> is a backend for Unity’s <a href="https://docs.unity3d.com/Manual/progressive-lightmapper.html">Progressive Lightmapper</a> which uses your GPU and Dedicated Video RAM (VRAM) to generate baked lightmaps and Light Probes. </p>
+<p><strong>渐进 GPU 光照贴图</strong>是<a href="https://docs.unity3d.com/Manual/progressive-lightmapper.html">渐进光照贴图</a>的后端，它使用计算机的 GPU 和专用视频 RAM (VRAM) 来生成烘焙光照贴图和光照探针。</p>
 
 <h2>硬件和软件要求</h2>
 
-<p>In order to use the Progressive GPU Lightmapper, your computer must meet these minimum specifications: </p>
+<p>为了使用渐进 GPU 光照贴图，您的计算机必须满足以下最低规格：</p>
 
 <ul>
 <li>至少一个支持 OpenCL 1.2 的 GPU</li>
-<li>At least 4 GB of dedicated GPU memory</li>
+<li>至少 4GB 的专用 GPU 内存</li>
 <li>一个支持 SSE4.1 指令的 CPU</li>
 </ul>
 
-<p>If the Scene you are baking requires more VRAM than is available on the designated GPU, bake times can significantly increase. See Performance for information to help you reduce the time it takes to bake your Scene.</p>
+<p>如果您正在烘焙的场景所需的 VRAM 多于指定 GPU 上可用 VRAM，则烘焙时间会显著增加。有关可帮助您减少烘焙场景所需时间的信息，请参阅性能。</p>
 
 <h2>性能</h2>
 
-<p>The specifications of the GPU you use to bake and the amount of VRAM dedicated to that GPU both influence your experience of the lightmapper’s performance. See Hardware and software requirements.</p>
+<p>您用于烘焙的 GPU 的规格以及专用于该 GPU 的 VRAM 数量都会影响您对光照贴图性能的体验。请参阅硬件和软件要求。</p>
 
-<p>Other applications competing for GPU resources also have an impact on baking performance. Depending on your hardware vendor, reductions in the amount of VRAM available to Unity can slow down the bake, cause it to fail, or even result in the Lightmapper falling back to the CPU if the GPU cannot meet minimum memory requirements. Closing other applications while you are working with this functionality can improve stability and performance.</p>
+<p>其他争用 GPU 资源的应用程序也会对烘焙性能产生影响。根据您的硬件供应商，Unity 可用 VRAM 数量的减少可能会减慢烘焙速度，导致烘焙失败，甚至如果 GPU 无法满足最低内存要求，甚至会导致光照贴图回退到 CPU。在使用此功能时关闭其他应用程序可以提高稳定性和性能。</p>
 
-<h2>How to optimize your bake speed</h2>
+<h2>如何优化烘焙速度</h2>
 
-<p>There are several ways you can reduce bake times and avoid situations where bakes exceed the VRAM available to the GPU designated for baking. </p>
+<p>有多种方法可以减少烘焙时间并避免烘焙超过指定给 GPU 用于烘焙的 VRAM 的情况。</p>
 
 <ul>
-<li><p>Close other GPU-accelerated applications. GPU-accelerated 2D image editing and 3D modelling software uses VRAM. Turn off accelerated graphics functionality or quit these applications. </p></li>
-<li><p>Switch to a CPU-based denoiser. GPU-based denoisers also use VRAM capacity. Switch to a CPU-based option, like <a href="https://www.openimagedenoise.org/">Intel Open Image</a>, which uses system RAM instead.</p></li>
-<li><p>Use Light Probes for smaller GameObjects. GameObjects such as debris or small props use up space in lightmaps but might not contribute significantly to the look of a scene. To optimize bake speed, <a href="https://docs.unity3d.com/Manual/class-MeshRenderer.html#Lighting">disable <strong>Contribute Global Illumination</strong> for these GameObjects’ Mesh Renderers</a> and light them with <a href="https://docs.unity3d.com/Manual/LightProbes.html">Light Probes</a> instead.</p></li>
-<li><p>Designate separate GPUs for rendering and baking. If your computer has more than one GPU, you can designate one for rendering and one for baking. See <a href="https://docs.unity3d.com/Manual/GPUProgressiveLightmapper.html#configure">Configure GPU selection</a>.</p></li>
-<li><p>Use a lower number of <strong>Anti-aliasing samples.</strong> The default value for this setting in the <a href="https://docs.unity3d.com/Manual/class-LightmapParameters.html">Lightmap Parameters Asset</a> is 8. When you increase it, Unity uses more VRAM. When you are using a lightmap size of 4096 or above, this can quickly exceed the memory of many consumer GPUs.</p></li>
+<li><p>关闭其他使用 GPU 加速的应用程序。使用 GPU 加速的 2D 图像编辑和 3D 建模软件均消耗 VRAM。关闭使用加速的图形功能或退出这些应用程序。</p></li>
+<li><p>切换到基于 CPU 的降噪器。基于 GPU 的降噪器也会使用 VRAM 容量。切换到基于 CPU 的选项，例如 <a href="https://www.openimagedenoise.org/">Intel Open Image</a>，它使用的是系统 RAM。</p></li>
+<li><p>对较小的游戏对象使用光照探针。诸如碎片或小道具之类的游戏对象会占用光照贴图中的空间，但可能不会对场景的外观产生重大影响。为了优化烘焙速度，<a href="https://docs.unity3d.com/Manual/class-MeshRenderer.html#Lighting">对这些游戏对象的网格渲染器禁用 <strong>Contribute Global Illumination</strong></a>，改用<a href="https://docs.unity3d.com/Manual/LightProbes.html">光照探针</a>照亮它们。</p></li>
+<li><p>为渲染和烘焙指定单独的 GPU。如果计算机有多个 GPU，可以分别为渲染和光照烘焙指定一个 GPU。请参阅<a href="https://docs.unity3d.com/Manual/GPUProgressiveLightmapper.html#configure">配置 GPU 选择 </a>。</p></li>
+<li><p>减少所使用的<strong>抗锯齿样本数</strong>。在 <a href="https://docs.unity3d.com/Manual/class-LightmapParameters.html">Lightmap Parameters Asset</a> 中，此设置的默认值是 8。增加该值会导致 Unity 使用更多的 VRAM。当您使用的光照贴图的大小达到或超过 4096 时，会很快超过许多消费级 GPU 的内存。</p></li>
 </ul>
 
-<h2>Configure GPU selection</h2>
+<h2>配置 GPU 选择</h2>
 
-<p>If you have at least two GPUs, you can specify one GPU for rendering the Scene and another for baking lighting. This might be desirable in cases where there is insufficient VRAM available for the default GPU to both render your scene and bake it using the Progressive GPU Lightmapper.</p>
+<p>如果您至少有两个 GPU，则可以指定一个 GPU 用于渲染场景，另一个用于烘焙光照。如果默认 GPU 没有足够的 VRAM 来渲染您的场景，并使用渐进 GPU 光照贴图对其进行烘焙，可能需要采用这种方法。</p>
 
-<p>To change which GPU Unity uses for baking:</p>
+<p>要更改 Unity 用于烘焙的 GPU，请执行以下操作：</p>
 
-<ol>
-<li>Open the <strong>Lighting</strong> window (menu: <strong>Window &gt; Rendering &gt; Lighting</strong>).</li>
-<li>Navigate to the <strong>Workflow Settings</strong> section.</li>
-<li>Use the <strong>GPU Baking Device</strong> drop-down menu to select a GPU.</li>
-</ol>
+<p>1.打开 <strong>Lighting</strong> 窗口（菜单：<strong>Window &gt; Rendering &gt; Lighting</strong>）。
+2.导航到 <strong>Workflow Settings</strong> 部分。
+3.使用 <strong>GPU Baking Device</strong> 下拉菜单选择一个 GPU。</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="progressive-lightmapper.html"></a></span><div class="tip">渐进光照贴图程序</div>
@@ -249,7 +247,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

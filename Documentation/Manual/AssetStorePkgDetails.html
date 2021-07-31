@@ -175,8 +175,9 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="AssetStorePublishing.html">Asset Store 发布</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="AssetStore.html">Unity Asset Store</a></li>
+<li><a href="AssetStorePublishing.html">发布到 Asset Store</a></li>
 <li>填写资源包详情</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
@@ -236,7 +237,7 @@
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Version</strong></td>
-	<td style="text-align:left;">资源包的版本号（例如 1.5、1.6、1.7）。新建资源包应该使用默认版本 1.0。<br><br>发布资源的更新时，可以在此处增大版本号。例如，如果需要修订一个错误，请更改次要版本号（将 1.3 改为 1.4）。如果是进行重大更改，请更改主版本（将 1.3 改为 2.0）。</td>
+	<td style="text-align:left;">资源包的版本号（例如 1.5、1.6、1.7）。新的 Asset Store 资源包应该使用默认版本 1.0。<br><br>发布资源的更新时，可以在此处增大版本号。例如，如果需要修订一个错误，请更改次要版本号（将 1.3 改为 1.4）。如果是进行重大更改，请更改主版本（将 1.3 改为 2.0）。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Version Changes</strong></td>
@@ -248,7 +249,7 @@
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Price USD</strong></td>
-	<td style="text-align:left;">You can set a price of $4.99 or any higher amount in US dollars. For any lower price, enable <strong>Free</strong> instead.</td>
+	<td style="text-align:left;">可以将价格设置为 4.99 美元或任何更高金额（以美元为单位）。对于任何更低价格，只能启用 <strong>Free</strong>。</td>
 </tr>
 </tbody>
 </table>
@@ -291,25 +292,17 @@
 
 <p>3.在 <strong>Description</strong> 中输入资源包的描述：</p>
 
-<ul>
-<li>如果资源包中含有 3D 资源，请提供有关多边形数量、纹理大小以及兼容的渲染管线的信息。</li>
-<li>如果资源包中含有脚本和工具，请提及该资源所需的所有依赖项（例如，另一个资源或第三方软件），因为您不能将这些依赖项添加到资源包中，因此用户需要单独导入这些依赖项。</li>
-</ul>
+<pre><code>* 如果资源包中含有 3D 资源，请提供有关多边形数量、纹理大小以及兼容的渲染管线的信息。
+* 如果资源包中含有脚本和工具，请提及该资源所需的所有依赖项（例如，另一个资源或第三方软件），因为您不能将这些依赖项添加到 Asset Store 资源包中，因此用户需要单独导入这些依赖项。
 
-<p>可以使用以下任何 HTML 标签来修饰此文本：</p>
+可以使用以下任何 HTML 标签来修饰此文本：
 
-<ul>
-<li>
-<strong>EM</strong>（表示斜体）。例如：<code>This is for &lt;EM&gt;italicized&lt;/EM&gt; text</code>。</li>
-<li>
-<strong>STRONG</strong>（表示粗体）。例如：<code>This is for &lt;STRONG&gt;bold&lt;/STRONG&gt; text</code>。</li>
-<li>
-<strong>A</strong>（表示超链接）。例如：<code>This links &lt;A HREF="http://www.example.com"&gt;here&lt;/A&gt;</code>。</li>
-<li>
-<strong>P</strong>（定义段落）。例如：<code>&lt;P&gt;This is a new paragraph&lt;/P&gt;</code>。</li>
-<li>
-<strong>BR</strong>（表示换行）。例如：<code>This is the first line.&lt;/BR&gt;This text appears on the next line</code>。</li>
-</ul>
+* **EM**（表示斜体）。例如：`This is for &lt;EM&gt;italicized&lt;/EM&gt; text`。
+* **STRONG**（表示粗体）。例如：`This is for &lt;STRONG&gt;bold&lt;/STRONG&gt; text`。
+* **A**（表示超链接）。例如：`This links &lt;A HREF="http://www.example.com"&gt;here&lt;/A&gt;`。
+* **P**（定义段落）。例如：`&lt;P&gt;This is a new paragraph&lt;/P&gt;`。
+* **BR**（表示换行）。例如：`This is the first line.&lt;/BR&gt;This text appears on the next line`。
+</code></pre>
 
 <p>4.可以根据需要添加一个以空格分隔的 <strong>Keywords</strong> 列表来影响资源在 Asset Store 中的搜索结果。不超过 255 个字符。</p>
 
@@ -321,7 +314,7 @@
 
 <h3>Key image</h3>
 
-<p>Key Images 部分的关键图像应该指出资源包的功能并帮助其脱颖而出。可以设置四种不同的分辨率，以便关键图像在客户浏览或筛选 Asset Store 中的可用资源包列表时显示为图标或缩略图，而在产品主页面或社交媒体上显示为更大图像。这些图像也可能显示在促销材料中。</p>
+<p>Key Images 部分的关键图像应该指明 Asset Store 资源包的功能并帮助其脱颖而出。可以设置四种不同的分辨率，以便关键图像在客户浏览或筛选 Asset Store 中的可用资源包列表时显示为图标或缩略图，而在产品主页面或社交媒体上显示为更大图像。这些图像也可能显示在促销材料中。</p>
 
 <p>以下是在此部分中上传图像时对于图像的一些一般性要求：</p>
 
@@ -522,7 +515,6 @@
 </figure>
 
 <p>有关详细说明，请参阅<a href="AssetStoreSubmit.html">提交资源包以供批准</a>。</p>
-<!-- area:authoring -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="AssetStoreUpload.html"></a></span><div class="tip">向资源包上传资源</div>
@@ -534,7 +526,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

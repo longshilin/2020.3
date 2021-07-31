@@ -175,9 +175,8 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
 <li><a href="Textures.html">纹理</a></li>
 <li><a href="ImportingTextures.html">导入纹理</a></li>
 <li>Texture Import Settings</li>
@@ -198,7 +197,7 @@
 
 <p>要访问此窗口，请在 Project 窗口中选择图像文件。此时会在 Inspector 中显示 <strong>Texture Import Settings</strong> 窗口。</p>
 
-<p><strong>Note:</strong> Some of the less commonly used properties are hidden by default. Expand the <a href="#advanced">Advanced</a> section in the Inspector window to view these properties.</p>
+<p><strong>注意：</strong>默认情况下会隐藏一些不太常用的属性。在 Inspector 窗口中展开 <a href="#advanced">Advanced</a> 部分即可查看这些属性。</p>
 
 <figure>
 <img src="../uploads/Main/class-TextureImporter.png" alt="Texture Import Settings 窗口">
@@ -278,22 +277,22 @@
 
 <h2>Texture Shape</h2>
 
-<p>Use the <strong>Texture Shape</strong> property to select and define the shape and structure of the Texture. There are four shape types:</p>
+<p>使用 <strong>Texture Shape</strong> 属性可选择和定义纹理的形状和结构。有四种形状类型：</p>
 
 <ul>
 <li>
 <strong>2D</strong> 是用于所有纹理的最常用设置；它将图像文件定义为 2D 纹理。这些设置用于将纹理映射到 3D 网格和 GUI 元素以及其他项目元素。</li>
 <li>
-<strong>Cube</strong> defines the Texture as a <a href="class-Cubemap.html">cubemap</a>. You could use this for Skyboxes or Reflection Probes, for example. This type is only available with the <a href="TextureTypes.html#Default">Default</a>, <a href="TextureTypes.html#NormalMap">Normal Map</a>, and <a href="TextureTypes.html#SingleChannel">Single Channel</a> Texture types.</li>
+<strong>Cube</strong> 将纹理定义为<a href="class-Cubemap.html">立方体贴图</a>。例如，可将其用于天空盒或反射探针。此类型仅可用于 <a href="TextureTypes.html#Default">Default</a>、<a href="TextureTypes.html#NormalMap">Normal Map</a> 和 <a href="TextureTypes.html#SingleChannel">Single Channel</a> 纹理类型。</li>
 <li>
-<strong>2D Array</strong> defines the Texture as a <a href="class-Texture2DArray.html">2D array texture</a>. This is commonly used as an optimization for some rendering techniques, where many textures of the same size &amp; format are used.</li>
+<strong>2D Array</strong> 将纹理定义为 <a href="class-Texture2DArray.html">2D 数组纹理</a>。这通常用作某些渲染技术的优化，其中会使用许多具有相同大小和格式的纹理。</li>
 <li>
-<strong>3D</strong> defines the Texture as a <a href="class-Texture3D.html">3D texture</a>. 3D textures are used by some rendering techniques to represent volumetric data.</li>
+<strong>3D</strong> 将纹理定义为 <a href="class-Texture3D.html">3D 纹理</a>。某些渲染技术使用 3D 纹理表示体积数据。</li>
 </ul>
 
 <h3>立方体贴图</h3>
 
-<p>You can further refine <strong>Cubemap</strong> shape textures with the following properties:</p>
+<p>可使用以下属性进一步优化 <strong>Cubemap</strong> 形状纹理：</p>
 
 <table>
 <colgroup>
@@ -360,11 +359,11 @@
 </tbody>
 </table>
 
-<h3>2D Array and 3D columns and rows</h3>
+<h3>2D 数组以及 3D 列和行</h3>
 
-<p>The source texture files for <strong>2D Array</strong> and <strong>3D</strong> Textures are divided into cells; these textures are called flipbook textures. When Unity imports flipbook textures, it places the contents of each cell into its own 2D array layer or 3D texture slice.</p>
+<p><strong>2D 数组__和 </strong>3D__ 纹理的源纹理文件会划分为单元格；这些纹理称为翻页纹理。当 Unity 导入翻页纹理时，它会将每个单元格的内容放入其自己的 2D 数组层或 3D 纹理切片中。</p>
 
-<p>When you set the <strong>Texture Shape</strong> property to <strong>2D Array</strong> or <strong>3D</strong>, Unity displays the <strong>Columns</strong> and <strong>Rows</strong> properties. Use these to tell Unity how to divide the flipbook texture into cells.</p>
+<p>将 <strong>Texture Shape</strong> 属性设置为 <strong>2D Array</strong> 或 <strong>3D</strong> 时，Unity 会显示 <strong>Columns</strong> 和 <strong>Rows</strong> 属性。使用这些属性可告诉 Unity 如何将翻页纹理划分为单元格。</p>
 
 <table>
 <colgroup>
@@ -382,27 +381,27 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><strong>Columns</strong></td>
-	<td style="text-align:left;">The number of columns that the source flipbook texture is divided into.</td>
+	<td style="text-align:left;">源翻页纹理划分为的列数。</td>
 </tr>
 <tr>
-	<td style="text-align:left;"><strong>Rows</strong></td>
-	<td style="text-align:left;">The number of rows that the source flipbook texture is divided into.</td>
+	<td style="text-align:left;"><strong>行</strong></td>
+	<td style="text-align:left;">源翻页纹理划分为的行数。</td>
 </tr>
 </tbody>
 </table>
 
-<p>For example, an image with 8x8 cells of smoke effect frames looks like this as a default 2D texture:</p>
+<p>例如，具有 8x8 单元格烟雾效果帧的图像如下所示（作为默认 2D 纹理）：</p>
 
 <figure>
-<img src="../uploads/Main/TextureImporter-Flipbook-2D.png" alt="Flipbook image as a 2D shape">
-<figcaption>Flipbook image as a 2D shape</figcaption>
+<img src="../uploads/Main/TextureImporter-Flipbook-2D.png" alt="作为 2D 形状的翻页图像">
+<figcaption>作为 2D 形状的翻页图像</figcaption>
 </figure>
 
-<p>But when you correctly import is as a 3D texture with 8 Columns and 8 Rows, it looks like this:</p>
+<p>但是当正确导入具有 8 列和 8 行的 3D 纹理时，它会如下所示：</p>
 
 <figure>
-<img src="../uploads/Main/TextureImporter-Flipbook-3D.png" alt="Flipbook image as a 3D shape">
-<figcaption>Flipbook image as a 3D shape</figcaption>
+<img src="../uploads/Main/TextureImporter-Flipbook-3D.png" alt="作为 3D 形状的翻页图像">
+<figcaption>作为 3D 形状的翻页图像</figcaption>
 </figure>
 
 <p><a name="advanced"></a></p>
@@ -544,7 +543,7 @@
 	<td style="text-align:left;" colspan="2">
 <a name="Streaming"></a><strong>Streaming Mip Maps</strong>
 </td>
-	<td style="text-align:left;">Enable this property to use <a href="TextureStreaming.html">Mip Map Streaming</a> on this Texture. This setting is valid for any Texture in the 3D environment that Unity displays with a Mesh Renderer. Diffuse Textures, normal maps and light maps are all valid for Mip Map Streaming.</td>
+	<td style="text-align:left;">启用此属性可对该纹理使用 <a href="TextureStreaming.html">Mipmap 串流</a>。此设置适用于 Unity 使用网格渲染器 (Mesh Renderer) 显示的 3D 环境中的任何纹理。漫射纹理、法线贴图和光照贴图都对 Mipmap 串流有效。</td>
 	<td style="text-align:left;">
 <a href="TextureTypes.html#Default">Default</a>、<br><a href="TextureTypes.html#NormalMap">Normal map</a>、<br><a href="TextureTypes.html#Lightmap">Lightmap</a>、<br><a href="TextureTypes.html#SingleChannel">Single Channel</a>
 </td>
@@ -552,13 +551,8 @@
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><strong>Mip Map Priority</strong></td>
-	<td style="text-align:left;">Use this to set the priority of the mipmap. Unity uses this to determine which mipmaps to prioritize when assigning resources. Higher values represent a higher priority (for example, <strong>3</strong> is a higher priority than <strong>1</strong>). This setting is only available when <strong>Streaming Mip Maps</strong> is enabled.<br><br>The <strong>Mip Map Priority</strong> number is also a mipmap offset for the <strong>Memory Budget </strong>(set in the <a href="class-QualitySettings.html">Quality Settings</a> when <strong>Texture Streaming</strong> is enabled). For example, with a priority of 2, the Mip Map Streaming system tries to use a mipmap two mip levels higher than Textures with a priority of 0. One mip level higher is 2x in each axis and two levels higher is 4x in each axis, so two mip levels higher results in a texture 16x larger. If it can’t do this, it uses a lower mip level to fit the <strong>Memory Budget</strong>. Negative values are also valid. See <a href="TextureStreaming-API.html">Mip Map Streaming API</a> for more details.</td>
-	<td style="text-align:left;"></td>
-</tr>
-<tr>
-	<td style="text-align:left;" colspan="2">
-<a name="GenerateMipMaps"></a><strong>Generate Mip Maps</strong>
-</td>
+	<td style="text-align:left;" colspan="2">此属性用于设置 Mipmap 的优先级。Unity 使用此设置来确定在分配资源时要优先考虑哪些 Mipmap。值越高表示优先级越高（例如，__3__ 的优先级高于 <strong>1__）。此设置仅在启用 </strong>Streaming Mip Maps__ 的情况下可用。<br><br><strong>Mip Map Priority</strong> 编号也是 <strong>Memory Budget__（启用 </strong>Texture Streaming__ 时在 <a href="class-QualitySettings.html">Quality Settings</a> 中设置）的 Mipmap 偏移。例如，优先级为 2 时，Mipmap 串流系统尝试使用比优先级为 0 的纹理高出两个 Mip 级别的 Mipmap。高一个 Mip 级别表示在每个轴上增大为 2 倍，高两个级别表示在每个轴上增大为 4 倍，因此高出两个 Mip 级别会使纹理的大小增大为 16 倍。如果无法实现，则会使用更低的 Mip 级别来适应__内存预算 (Memory Budget)<strong>。负值也有效。有关更多详细信息，请参阅 <a href="TextureStreaming-API.html">Mipmap 串流 API</a>。 | |
+| <a name="GenerateMipMaps"></a></strong>Generate Mip Maps__</td>
 	<td style="text-align:left;">启用此属性可禁止生成 Mipmap。Mipmap 是纹理的一系列较小版本，适合纹理在屏幕上非常小时使用。有关 Mipmap 的更多信息，请参阅<a href="ImportingTextures.html">导入纹理</a>文档。<br><br><strong>警告</strong>：每次选择新的纹理类型时，此属性将恢复为新纹理类型的默认值（如果已定义）。请参阅<a href="TextureTypes.html">纹理类型</a>以查找此属性对于每个类型的默认值。</td>
 	<td style="text-align:left;"><a href="TextureTypes.html">All Texture Types</a></td>
 </tr>
@@ -666,7 +660,7 @@
 	<td style="text-align:left;" colspan="2">
 <a name="AnisoLevel"></a><strong>Aniso Level</strong>
 </td>
-	<td style="text-align:left;">Increases Texture quality when viewing the Texture at a steep angle. Anisotropic filtering is good for floor and ground Textures but comes at a high performance cost. See documentation on <a href="ImportingTextures.html">Importing Textures</a> for more information on Anisotropic filtering.</td>
+	<td style="text-align:left;">以大角度查看纹理时提高纹理质量。各向异性过滤对于地板和地面纹理很有用，但伴随较高的性能成本。有关各向异性过滤的更多信息，请参阅<a href="ImportingTextures.html">导入纹理</a>文档。</td>
 	<td style="text-align:left;"><a href="TextureTypes.html">All Texture Types</a></td>
 </tr>
 </tbody>
@@ -795,7 +789,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

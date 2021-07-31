@@ -14,8 +14,8 @@
 <meta property="og:title" content="多玩家和联网 - Unity 手册">
 <title>多玩家和联网 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/UnetIntroImage.jpg">
-<meta name="description" content="本部分包含有关为项目实现多玩家功能的概述和详细参考页面。">
-<meta property="og:description" content="本部分包含有关为项目实现多玩家功能的概述和详细参考页面。">
+<meta name="description" content="Unity Multiplayer 仍在开发，UNet 是一个已弃用的解决方案，相对于其他解决方案，不推荐使用。如果需要在应用程序中包含多人游戏元素，可以使用以下解决方案：">
+<meta property="og:description" content="Unity Multiplayer 仍在开发，UNet 是一个已弃用的解决方案，相对于其他解决方案，不推荐使用。如果需要在应用程序中包含多人游戏元素，可以使用以下解决方案：">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li>多玩家和联网</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
@@ -204,7 +204,7 @@
 <tbody>
 <tr>
 	<td style="text-align:left;">
-<strong>注意</strong>：已弃用 UNet，未来会将其从 Unity 中删除。一个新系统正在开发中。如需了解更多信息和后续步骤，请参阅此<a href="https://blogs.unity3d.com/2018/08/02/evolving-multiplayer-games-beyond-unet/">博客文章</a>以及<a href="https://support.unity3d.com/hc/en-us/articles/360001252086-UNet-Deprecation-FAQ">常见问题解答 (FAQ)</a>。</td>
+<strong>重要</strong>：UNet 是一个已弃用的解决方案，新的多玩家和联网解决方案 (MLAPI) 正在开发中。有关更多信息和后续步骤，请参阅 <a href="https://docs-multiplayer.unity3d.com/">Unity MLAPI 网站</a>上的信息。</td>
 </tr>
 </tbody>
 </table>
@@ -213,8 +213,17 @@
 <img src="../uploads/Main/UnetIntroImage.jpg" alt="">
 </figure>
 
-<p>本部分包含有关为项目实现多玩家功能的概述和详细参考页面。</p>
-<!-- area:cloud -->
+<p>Unity Multiplayer 仍在开发，UNet 是一个已弃用的解决方案，相对于其他解决方案，不推荐使用。如果需要在应用程序中包含多人游戏元素，可以使用以下解决方案：</p>
+
+<h2>游戏对象联网</h2>
+
+<p>我们正在开发 Unity 开源 <a href="https://docs-multiplayer.unity3d.com/">MLAPI</a> 解决方案，它将成为新的 Unity 网络代码基础。它是可自定义的，可适应多种多人游戏类型的需求。有关此实验性包的更多信息，请参阅 <a href="https://github.com/Unity-Technologies/com.unity.multiplayer.mlapi">MLAPI 文档</a>。</p>
+
+<p>您还可以使用各种第三方解决方案。有关更多信息，请参阅 Unity 博客文章<a href="https://blogs.unity3d.com/2020/09/08/choosing-the-right-netcode-for-your-game/">为游戏选择正确的网络代码</a>。</p>
+
+<h2>基于 ECS 的联网</h2>
+
+<p>有关基于 ECS 的解决方案，请参阅 <a href="https://github.com/Unity-Technologies/multiplayer">DOTS Netcode 包</a>。<strong>注意：</strong>实体核心系统是实验性的。</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="JobSystemTroubleshooting.html"></a></span><div class="tip">C# 作业系统提示和故障排除</div>
@@ -226,7 +235,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

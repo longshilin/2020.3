@@ -14,8 +14,8 @@
 <meta property="og:title" content="GPU 实例化 - Unity 手册">
 <title>GPU 实例化 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/GPUInstancing-0.png">
-<meta name="description" content="Use GPU Instancing to draw (or render) multiple copies of the same Mesh at once, using a small number of draw calls. This is useful for drawing objects such as buildings, trees, grass, or other things that appear repeatedly in a Scene.">
-<meta property="og:description" content="Use GPU Instancing to draw (or render) multiple copies of the same Mesh at once, using a small number of draw calls. This is useful for drawing objects such as buildings, trees, grass, or other things that appear repeatedly in a Scene.">
+<meta name="description" content="使用 GPU 实例化可使用少量绘制调用一次绘制（或渲染）同一网格的多个副本。这对于绘制诸如建筑物、树木、草地或其他在场景中重复出现的对象非常有用。">
+<meta property="og:description" content="使用 GPU 实例化可使用少量绘制调用一次绘制（或渲染）同一网格的多个副本。这对于绘制诸如建筑物、树木、草地或其他在场景中重复出现的对象非常有用。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
 <li>高级渲染功能</li>
 <li>GPU 实例化</li>
@@ -194,7 +194,7 @@
 
 <h2>简介</h2>
 
-<p>Use GPU Instancing to draw (or render) multiple copies of the same Mesh at once, using a small number of <a href="DrawCallBatching.html">draw calls</a>. This is useful for drawing objects such as buildings, trees, grass, or other things that appear repeatedly in a Scene.</p>
+<p>使用 GPU 实例化可使用少量<a href="DrawCallBatching.html">绘制调用</a>一次绘制（或渲染）同一网格的多个副本。这对于绘制诸如建筑物、树木、草地或其他在场景中重复出现的对象非常有用。</p>
 
 <p>GPU 实例化在每次绘制调用时仅渲染相同的网格，但每个实例可以具有不同的参数（例如，颜色或比例）以增加变化并减少外观上的重复。</p>
 
@@ -236,7 +236,7 @@
 
 <ul>
 <li><p>Windows 上的 <strong>DirectX 11</strong> 和 <strong>DirectX 12</strong></p></li>
-<li><p><strong>OpenGL Core 4.1+/ES3.0+</strong> on Windows, macOS, Linux, and Android</p></li>
+<li><p>Windows、macOS、Linux 和 Android 上的 <strong>OpenGL Core 4.1+/ES3.0+</strong></p></li>
 <li><p>macOS 和 iOS 上的 <strong>Metal</strong></p></li>
 <li><p>Windows、Linux 和 Android 上的 <strong>Vulkan</strong></p></li>
 <li><p><strong>PlayStation 4</strong> 和 <strong>Xbox One</strong></p></li>
@@ -245,7 +245,7 @@
 
 <h2>添加每个实例的数据</h2>
 
-<p>By default, Unity only batches instances of GameObjects with different <a href="class-Transform.html">Transforms</a> in each instanced draw call. To add more variance to your instanced GameObjects, modify your Shader to add per-instance properties such as Material color. </p>
+<p>默认情况下，仅当游戏对象在每个实例化绘制调用中具有不同的<a href="class-Transform.html">变换</a>时，Unity 才会对这些游戏对象的实例进行批处理。要为实例化的游戏对象添加更多变体，请修改着色器以添加每实例属性，例如材质颜色。</p>
 
 <p>下面的示例演示了如何为每个实例创建具有不同颜色值的实例化着色器。</p>
 
@@ -350,7 +350,7 @@ Shader "SimplestInstancedShader"
             struct v2f
             {
                 float4 vertex : SV_POSITION;
-                UNITY_VERTEX_INPUT_INSTANCE_ID // necessary only if you want to access instanced properties in fragment Shader.
+                UNITY_VERTEX_INPUT_INSTANCE_ID // 仅当要访问片元着色器中的实例化属性时才需要。
             };
 
             UNITY_INSTANCING_BUFFER_START(Props)
@@ -362,7 +362,7 @@ Shader "SimplestInstancedShader"
                 v2f o;
 
                 UNITY_SETUP_INSTANCE_ID(v);
-                UNITY_TRANSFER_INSTANCE_ID(v, o); // necessary only if you want to access instanced properties in the fragment Shader.
+                UNITY_TRANSFER_INSTANCE_ID(v, o); // 仅当要访问片元着色器中的实例化属性时才需要。
 
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 return o;
@@ -370,7 +370,7 @@ Shader "SimplestInstancedShader"
 
             fixed4 frag(v2f i) : SV_Target
             {
-                UNITY_SETUP_INSTANCE_ID(i); // necessary only if any instanced properties are going to be accessed in the fragment Shader.
+                UNITY_SETUP_INSTANCE_ID(i); // 仅当要访问片元着色器中的任何实例化属性时才需要。
                 return UNITY_ACCESS_INSTANCED_PROP(Props, _Color);
             }
             ENDCG
@@ -469,11 +469,11 @@ Shader "SimplestInstancedShader"
 
 <p>或者，您可以将 LPPV 组件引用和 <a href="../ScriptReference/Rendering.LightProbeUsage.UseProxyVolume.html">LightProbeUsage.UseProxyVolume</a> 传递到 <code>Graphics.DrawMeshInstanced</code>。执行此操作时，所有实例都会对光照探针数据的 L0 和 L1 带宽进行采样。如果您希望补充 L2 数据和遮挡数据，请使用 <code>MaterialPropertyBlock</code>。有关更多信息，请参阅<a href="LightProbes-TechnicalInformation.html">光照探针：技术信息</a>。</p>
 
-<h3>Shader prewarming</h3>
+<h3>着色器预热</h3>
 
-<p>You need to prewarm shaders to use instancing on OpenGL if you want absolutely smooth rendering when the shader renders for the first time.</p>
+<p>如果您希望在着色器第一次渲染时获得绝对平滑的渲染，则需要预热着色器以便在 OpenGL 上使用实例化。</p>
 
-<p>For more information, see <a href="shader-loading.html">Shader loading</a>.</p>
+<p>有关更多信息，请参阅<a href="shader-loading.html">着色器加载</a>。</p>
 
 <h3>#pragma instancing_options</h3>
 
@@ -539,7 +539,7 @@ Shader "SimplestInstancedShader"
 
 <h3>UnityObjectToClipPos</h3>
 
-<p>When you write shader scripts, always use <code>UnityObjectToClipPos(v.vertex)</code> instead of <code>mul(UNITY_MATRIX_MVP,v.vertex)</code>.</p>
+<p>编写着色器脚本时，请始终使用 <code>UnityObjectToClipPos(v.vertex)</code> 而不是 <code>mul(UNITY_MATRIX_MVP,v.vertex)</code>。</p>
 
 <p>虽然您可以继续在实例化的着色器中正常使用 <code>UNITY_MATRIX_MVP</code>，但 <code>UnityObjectToClipPos</code> 是将顶点位置从对象空间转换为裁剪空间的最有效方法。Unity 还实现了一个着色器升级程序，此程序可扫描项目中的所有着色器，并自动用 <code>UnityObjectToClipPos(v)</code> 替换任何出现的 <code>mul(UNITY_MATRIX_MVP, v)</code>。</p>
 
@@ -578,7 +578,7 @@ Shader "SimplestInstancedShader"
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

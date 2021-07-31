@@ -174,9 +174,9 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="UIToolkits.html">Creating user interfaces (UI)</a></li>
-<li><a href="UIElements.html">UI Toolkit</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="UIToolkits.html">创建用户界面 (UI)</a></li>
+<li><a href="UIElements.html">UI 工具包</a></li>
 <li><a href="UIE-UXML.html">UXML 格式</a></li>
 <li>编写 UXML 模板</li>
 </ul></div>
@@ -218,7 +218,7 @@
 
 <p>下一行定义文档根 <code>&lt;UXML&gt;</code>。<code>&lt;UXML&gt;</code> 元素包含命名空间前缀定义的属性和架构定义文件的位置。可以按任意顺序指定这些属性。</p>
 
-<p>In UI Toolkit, each element is defined in either the <code>UnityEngine.UIElements</code> or the <code>UnityEditor.UIElements</code> namespace:</p>
+<p>在 UI 工具包中，每个元素都在 <code>UnityEngine.UIElements</code> 或 <code>UnityEditor.UIElements</code> 命名空间中定义：</p>
 
 <ul>
 <li>
@@ -324,85 +324,86 @@
 
 <p><a name="attribute-overrides"></a></p>
 
-<h3>Overriding UXML attributes</h3>
+<h3>覆盖 UXML 属性</h3>
 
-<p>When you create instances of a UXML template, you can override the default attribute values of its elements. Attribute overrides allow you to instance the same template many times with different values for each instance.</p>
+<p>创建 UXML 模板的实例时，您可以覆盖其元素的默认属性值。属性覆盖允许多次实例化同一模板，每个实例使用不同的值。</p>
 
-<p>To override an attribute, you must specify:</p>
+<p>要覆盖属性，您必须指定：</p>
 
 <ul>
-<li>The <code>element-name attribute</code> of the element whose attributes you want to override</li>
-<li>The name of the attribute to override</li>
-<li>The new attribute value</li>
+<li>要覆盖其属性的元素的 <code>element-name 属性</code>
+</li>
+<li>要覆盖的属性的名称。</li>
+<li>新属性值</li>
 </ul>
 
-<p>In the following example,</p>
+<p>在下面的示例中，</p>
 
 <ul>
 <li>
-<code>player-name-label</code> is the element’s <code>element-name</code> attribute.</li>
+<code>player-name-label</code> 是元素的 <code>element-name</code> 属性。</li>
 <li>
-<code>text</code> is the attribute to overrides.</li>
+<code>text</code> 是要覆盖的属性。</li>
 <li>
-<code>Alice</code> is the new attribute value</li>
+<code>Alice</code> 是新属性值</li>
 </ul>
 
 <pre><code class="xml">&lt;AttributeOverrides element-name="player-name-label" text="Alice" /&gt;
 </code></pre>
 
-<p>Attribute overrides affect the entire instance, so if the instance has two elements named <code>player-name-label</code>, and both have <code>text</code> attributes, the override affects both of them.</p>
+<p>属性覆盖会影响整个实例，因此如果实例有两个名为 <code>player-name-label</code> 的元素，并且都具有 <code>text</code> 属性，则覆盖会对二者都有影响。</p>
 
-<h4>Attribute override example</h4>
+<h4>属性覆盖示例</h4>
 
-<p>Let’s say you’re making a game, and you want to display the same set of information for each player. You could create a single reusable template, and use attribute overrides to create player-specific instances.</p>
+<p>假设您正在制作一款游戏，并且希望为每个玩家显示相同的信息集。您可以创建一个可重用的模板，并使用属性覆盖来创建特定于玩家的实例。</p>
 
-<p>For example, if you create the following template:</p>
+<p>例如，如果您创建以下模板：</p>
 
 <pre><code class="xml">    &lt;UXML xmlns="UnityEngine.UIElements"&gt;
-        &lt;Label name="player-name-label" text="default name" /&gt;
-        &lt;Label name="player-score-label" text="default score" /&gt;
-    &lt;/UXML&gt;
+            &lt;Label name="player-name-label" text="default name" /&gt;
+            &lt;Label name="player-score-label" text="default score" /&gt;
+        &lt;/UXML&gt;
 </code></pre>
 
-<p>You can instance it from another UXML file and override its attributes to display each player’s name and score:</p>
+<p>您可以从另一个 UXML 文件中实例化它并覆盖其属性以显示每个玩家的姓名和分数：</p>
 
 <pre><code class="xml">    &lt;UXML xmlns="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements"&gt;
-        &lt;Template src="MyTemplate.uxml" name="MyTemplate" /&gt;
-        &lt;Instance name="player1" template="MyTemplate"&gt;
-            &lt;AttributeOverrides element-name="player-name-label" text="Alice" /&gt;
-            &lt;AttributeOverrides element-name="player-score-label" text="2" /&gt;
-        &lt;/Instance&gt;
-        &lt;Instance name="player2" template="MyTemplate"&gt;
-            &lt;AttributeOverrides element-name="player-name-label" text="Bob" /&gt;
-            &lt;AttributeOverrides element-name="player-score-label" text="1" /&gt;
-        &lt;/Instance&gt;
-    &lt;/UXML&gt;
+            &lt;Template src="MyTemplate.uxml" name="MyTemplate" /&gt;
+            &lt;Instance name="player1" template="MyTemplate"&gt;
+                &lt;AttributeOverrides element-name="player-name-label" text="Alice" /&gt;
+                &lt;AttributeOverrides element-name="player-score-label" text="2" /&gt;
+            &lt;/Instance&gt;
+            &lt;Instance name="player2" template="MyTemplate"&gt;
+                &lt;AttributeOverrides element-name="player-name-label" text="Bob" /&gt;
+                &lt;AttributeOverrides element-name="player-score-label" text="1" /&gt;
+            &lt;/Instance&gt;
+        &lt;/UXML&gt;
 </code></pre>
 
-<h4>Overriding multiple attributes</h4>
+<h4>覆盖多个属性</h4>
 
-<p>You can specify more than one attribute per override. For example, the following syntax finds any element in the instance named <code>player-name-label</code>, and</p>
+<p>您可以为每个覆盖指定多个属性。例如，以下语法查找名为 <code>player-name-label</code> 的实例中的任何元素，并且</p>
 
 <ul>
-<li>Overrides the default value of its <code>text</code> attribute with the new value, <code>Alice</code>.</li>
-<li>Overrides the default value of its <code>tooltip</code> attribute with the new value, <code>Tooltip 1</code>.</li>
+<li>用新值 <code>Alice</code> 覆盖其 <code>text</code> 属性的默认值。</li>
+<li>用新值 <code>Tooltip 1</code> 覆盖其 <code>tooltip</code> 属性的默认值。</li>
 </ul>
 
 <pre><code class="xml">&lt;AttributeOverrides element-name="player-name-label" text="Alice" tooltip="Tooltip 1" /&gt;
 </code></pre>
 
-<h4>Nesting attribute overrides</h4>
+<h4>嵌套属性覆盖</h4>
 
-<p>Attribute overrides propagate through nested templates in the element hierarchy. For example, if template A instances template B, and template B instances template C, both template A and template B can override attributes in template C.</p>
+<p>属性覆盖通过元素层级结构中的嵌套模板传播。例如，如果模板 A 实例化模板 B，而模板 B 实例化模板 C，则模板 A 和模板 B 都可以覆盖模板 C 中的属性。</p>
 
-<p>When you override attributes in nested templates, the deepest override takes precedence. So in the above example if template A and template B both override the same attribute of template C, the override in template B determines what actually appears in the rendered UI.</p>
+<p>当您覆盖嵌套模板中的属性时，最深的覆盖优先。因此，在上面的示例中，如果模板 A 和模板 B 都覆盖了模板 C 的相同属性，则模板 B 中的覆盖决定了呈现的 UI 中实际出现的内容。</p>
 
 <h4>限制</h4>
 
 <ul>
-<li>Attribute overrides find matching attributes according to the element name you specify. They do not use <a href="UIE-USS-Selectors.html">USS Selectors</a> or <a href="UIE-UQuery.html">UQUery</a> to match elements.</li>
-<li>Attribute overrides are not tied to data binding, although you can override an element’s <code>binding-path</code> attribute.</li>
-<li>You cannot override an element’s <code>name</code> or <code>style</code> attributes.</li>
+<li>属性覆盖根据您指定的元素名称查找匹配的属性。它们不使用 <a href="UIE-USS-Selectors.html">USS 选择器</a>或者 <a href="UIE-UQuery.html">UQUery</a> 来匹配元素。</li>
+<li>属性覆盖与数据绑定无关，尽管您可以覆盖元素的 <code>binding-path</code> 属性。</li>
+<li>您不能覆盖元素的 <code>name</code> 或 <code>style</code> 属性。</li>
 </ul>
 
 <h2>引用 UXML 的其他文件</h2>
@@ -453,7 +454,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

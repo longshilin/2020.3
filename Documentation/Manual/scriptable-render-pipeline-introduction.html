@@ -13,8 +13,8 @@
 <meta name="twitter:card" content="summary">
 <meta property="og:title" content="可编程渲染管线简介 - Unity 手册">
 <title>可编程渲染管线简介 - Unity 手册</title>
-<meta name="description" content="This page explains how Unity&amp;#8217;s Scriptable Render Pipeline (SRP) works, and introduces some key concepts and terminology. The information on this page is applicable to the Universal Render Pipeline (URP), the High Definition Render Pipeline (HDRP), and custom render pipelines that are based on SRP.">
-<meta property="og:description" content="This page explains how Unity&amp;#8217;s Scriptable Render Pipeline (SRP) works, and introduces some key concepts and terminology. The information on this page is applicable to the Universal Render Pipeline (URP), the High Definition Render Pipeline (HDRP), and custom render pipelines that are based on SRP.">
+<meta name="description" content="本页说明 Unity 的可编程渲染管线 (SRP) 的工作原理，并介绍一些关键概念和术语。本页面上的信息适用于通用渲染管线 (URP)、高清渲染管线 (HDRP) 和基于 SRP 的自定义渲染管线。">
+<meta property="og:description" content="本页说明 Unity 的可编程渲染管线 (SRP) 的工作原理，并介绍一些关键概念和术语。本页面上的信息适用于通用渲染管线 (URP)、高清渲染管线 (HDRP) 和基于 SRP 的自定义渲染管线。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,15 +174,15 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
 <li><a href="render-pipelines.html">渲染管线</a></li>
-<li><a href="ScriptableRenderPipeline.html">Scriptable Render Pipeline fundamentals</a></li>
+<li><a href="ScriptableRenderPipeline.html">可编程渲染管线基础知识</a></li>
 <li>可编程渲染管线简介</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="ScriptableRenderPipeline.html"></a></span><div class="tip">Scriptable Render Pipeline fundamentals</div>
+<span class="prev"><a href="ScriptableRenderPipeline.html"></a></span><div class="tip">可编程渲染管线基础知识</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="srp-using-scriptable-render-context.html"></a></span><div class="tip">在可编程渲染管线中调度和执行渲染命令</div>
@@ -192,37 +192,38 @@
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>This page explains how Unity’s <a href="ScriptableRenderPipeline.html">Scriptable Render Pipeline (SRP)</a> works, and introduces some key concepts and terminology. The information on this page is applicable to the Universal Render Pipeline (URP), the High Definition Render Pipeline (HDRP), and custom render pipelines that are based on SRP.</p>
+<p>本页说明 Unity 的<a href="ScriptableRenderPipeline.html">可编程渲染管线 (SRP)</a> 的工作原理，并介绍一些关键概念和术语。本页面上的信息适用于通用渲染管线 (URP)、高清渲染管线 (HDRP) 和基于 SRP 的自定义渲染管线。</p>
 
-<p>The Scriptable Render Pipeline is a thin API layer that lets you schedule and configure rendering commands using C# scripts. Unity passes these commands to its low-level graphics architecture, which then sends instructions to the graphics API.</p>
+<p>可编程渲染管线是一个瘦 API 层，允许使用 C# 脚本来调度和配置渲染命令。Unity 将这些命令传递给它的低级图形架构，后者随后将指令发送给图形 API。</p>
 
-<p>URP and HDRP are built on top of SRP. You can also create your own custom render pipeline on top of SRP.</p>
+<p>URP 和 HDRP 建立在 SRP 之上。您还可以在 SRP 之上创建自己的自定义渲染管线。</p>
 
-<h2>Render Pipeline Asset and Render Pipeline Instance</h2>
+<h2>渲染管线资源和渲染管线实例</h2>
 
-<p>Every render pipeline based on SRP has two key customized elements:</p>
+<p>每个基于 SRP 的渲染管线都有两个关键的自定义元素：</p>
 
 <ul>
-<li>A Render Pipeline Asset, which is an asset in your Unity Project that stores configuration data about the render pipeline.</li>
-<li>A Render Pipeline Instance, which is a class that inherits from <a href="../ScriptReference/Rendering.RenderPipeline.html"><code>RenderPipeline</code></a>. Its <code>Render</code> method is the main entry point to SRP.</li>
+<li>渲染管线资源是 Unity 项目中的资源，用于存储有关渲染管线的配置数据。</li>
+<li>渲染管线实例，它是继承自 <a href="../ScriptReference/Rendering.RenderPipeline.html"><code>RenderPipeline</code></a> 的类。它的 <code>Render</code> 方法是 SRP 的主要入口点。</li>
 </ul>
 
-<p>For information about creating these elements in a custom render pipeline, see <a href="srp-creating-render-pipeline-asset-and-render-pipeline-instance.html">Creating a Render Pipeline Asset and a Render Pipeline Instance</a>.</p>
+<p>有关在自定义渲染管线中创建这些元素的信息，请参阅<a href="srp-creating-render-pipeline-asset-and-render-pipeline-instance.html">创建渲染管线资源和渲染管线实例</a>。</p>
 
 <h2>ScriptableRenderContext</h2>
 
-<p><code>ScriptableRenderContext</code> is a class that acts as an interface between the custom C# code in the render pipeline and Unity’s low-level graphics code.</p>
+<p><code>ScriptableRenderContext</code> 是一个类，用作渲染管线中的自定义 C# 代码与 Unity 的低级图形代码之间的接口。</p>
 
-<p>Use the <a href="../ScriptReference/Rendering.ScriptableRenderContext.html">ScriptableRenderContext</a> API to schedule and execute rendering commands. For information, see <a href="srp-using-scriptable-render-context.html">Scheduling and executing rendering commands in the Scriptable Render Pipeline</a>.</p>
+<p>使用 <a href="../ScriptReference/Rendering.ScriptableRenderContext.html">ScriptableRenderContext</a> API 可以调度和执行渲染命令。有关信息，请参阅<a href="srp-using-scriptable-render-context.html">在可编程渲染管线中调度和执行渲染命令</a>。</p>
 
 <h2>入口点和回调</h2>
 
-<p>When working with SRP, use these to make Unity call your C# code at specific times.</p>
+<p>使用 SRP 时，使用它们可让 Unity 在特定时间调用您的 C# 代码。</p>
 
 <ul>
 <li>
-<a href="../ScriptReference/Rendering.RenderPipeline.Render.html">RenderPipeline.Render</a> is the main entry point to the SRP. Unity calls this method automatically. If you are writing a custom render pipeline, this is where you begin to write your code.</li>
-<li>The <a href="../ScriptReference/Rendering.RenderPipelineManager.html">RenderPipelineManager</a> class has the following events that you can subscribe to, so that you can execute custom code at specific points in the render loop:
+<a href="../ScriptReference/Rendering.RenderPipeline.Render.html">RenderPipeline.Render</a> 是 SRP 的主要入口点。Unity 会自动调用此方法。如果要编写自定义渲染管线，这就是开始编写代码的地方。</li>
+<li>
+<a href="../ScriptReference/Rendering.RenderPipelineManager.html">RenderPipelineManager</a> 类有以下事件可供您订阅，以便您可以在渲染循环中的特定点执行自定义代码：
 
 <ul>
 <li><a href="../ScriptReference/Rendering.RenderPipelineManager-beginFrameRendering.html">beginFrameRendering</a></li>
@@ -234,7 +235,7 @@
 </ul>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="ScriptableRenderPipeline.html"></a></span><div class="tip">Scriptable Render Pipeline fundamentals</div>
+<span class="prev"><a href="ScriptableRenderPipeline.html"></a></span><div class="tip">可编程渲染管线基础知识</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="srp-using-scriptable-render-context.html"></a></span><div class="tip">在可编程渲染管线中调度和执行渲染命令</div>
@@ -243,7 +244,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

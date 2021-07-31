@@ -13,8 +13,8 @@
 <meta name="twitter:card" content="summary">
 <meta property="og:title" content="导入模型 - Unity 手册">
 <title>导入模型 - Unity 手册</title>
-<meta name="description" content="模型文件可包含各种数据，例如角色和地形网格、动画骨架和剪辑以及材质和纹理。最有可能的情况是，文件未同时包含所有这些元素，但可以根据需要按照本工作流程的任何部分进行操作：">
-<meta property="og:description" content="模型文件可包含各种数据，例如角色和地形网格、动画骨架和剪辑以及材质和纹理。最有可能的情况是，文件未同时包含所有这些元素，但可以根据需要按照本工作流程的任何部分进行操作：">
+<meta name="description" content="Model files can contain a variety of data, such as Meshes, Animation Rigs and Clips, as well as Materials and Textures. Most likely, your file does not contain all of these elements at once, but you can follow any portion of the workflow that you need to:">
+<meta property="og:description" content="Model files can contain a variety of data, such as Meshes, Animation Rigs and Clips, as well as Materials and Textures. Most likely, your file does not contain all of these elements at once, but you can follow any portion of the workflow that you need to:">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,14 +174,14 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="AssetWorkflow.html">资源工作流程</a></li>
-<li><a href="ImportingAssets.html">导入</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="Graphics.html">图形</a></li>
+<li><a href="3D-formats.html">支持的模型文件格式</a></li>
 <li>导入模型</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="Presets.html"></a></span><div class="tip">预设</div>
+<span class="prev"><a href="3D-formats.html"></a></span><div class="tip">支持的模型文件格式</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="ConfiguringtheAvatar.html"></a></span><div class="tip">导入人形动画</div>
@@ -191,7 +191,7 @@
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>模型文件可包含各种数据，例如角色和地形网格、动画骨架和剪辑以及材质和纹理。最有可能的情况是，文件未同时包含所有这些元素，但可以根据需要按照本工作流程的任何部分进行操作：</p>
+<p>Model files can contain a variety of data, such as Meshes, Animation Rigs and Clips, as well as Materials and Textures. Most likely, your file does not contain all of these elements at once, but you can follow any portion of the workflow that you need to:</p>
 
 <p>1.<a href="#project">在 Project 视图中选择文件以查看 Import Settings 窗口</a>
 2.<a href="#model">设置模型特有的选项或常规导入器选项</a>
@@ -199,7 +199,13 @@
 4.<a href="#materials">处理材质和纹理</a>
 5.<a href="#drag">将文件拖入 Unity 中</a></p>
 
-<p>For guidelines on how to export <em>Humanoid</em> animation from your 3D modeling software, see <a href="UsingHumanoidChars.html">Preparing Humanoid Models for export</a>.</p>
+<p>有关如何从 3D 建模软件导出 <em>Humanoid</em> 动画的指南，请参阅<a href="UsingHumanoidChars.html">做好导出人形模型的准备</a>。</p>
+
+<p><strong>Note:</strong> Unity’s primary support for Model files is the FBX format. </p>
+
+<p><em>You can however save your 3D files from most common 3D modeling software in their native format (for example, .max, .blend, .mb, .ma). When Unity finds them in your <code>Assets</code> folder, it imports them by calling back to your 3D modeling software’s FBX export plug-in.</em></p>
+
+<p><em>However, because importing native 3D formats requires that the 3D modeling software be installed on the same computer as Unity, we recommend you directly export as FBX from your application into your project folder.</em></p>
 
 <p><a name="project"></a></p>
 
@@ -272,7 +278,7 @@
 <!-- area:authoring -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="Presets.html"></a></span><div class="tip">预设</div>
+<span class="prev"><a href="3D-formats.html"></a></span><div class="tip">支持的模型文件格式</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="ConfiguringtheAvatar.html"></a></span><div class="tip">导入人形动画</div>
@@ -281,7 +287,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

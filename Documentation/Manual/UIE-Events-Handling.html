@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="事件响应 - Unity 手册">
-<title>事件响应 - Unity 手册</title>
-<meta name="description" content="可让视觉元素以两种方式对接收的事件做出反应：">
-<meta property="og:description" content="可让视觉元素以两种方式对接收的事件做出反应：">
+<meta property="og:title" content="处理事件 - Unity 手册">
+<title>处理事件 - Unity 手册</title>
+<meta name="description" content="Events in UI Toolkit are similar to HTML events. When an event occurs, it&amp;#8217;s sent along the propagation path in the visual element tree. The event isn&amp;#8217;t only sent to the target visual element, but to all elements within the propagation path.">
+<meta property="og:description" content="Events in UI Toolkit are similar to HTML events. When an event occurs, it&amp;#8217;s sent along the propagation path in the visual element tree. The event isn&amp;#8217;t only sent to the target visual element, but to all elements within the propagation path.">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,158 +174,199 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="UIToolkits.html">Creating user interfaces (UI)</a></li>
-<li><a href="UIElements.html">UI Toolkit</a></li>
-<li><a href="UIE-Events.html">事件系统</a></li>
-<li>事件响应</li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="UIToolkits.html">创建用户界面 (UI)</a></li>
+<li><a href="UIElements.html">UI 工具包</a></li>
+<li><a href="UIE-Events.html">事件类型</a></li>
+<li>处理事件</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="UIE-Events-Dispatching.html"></a></span><div class="tip">分发事件</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="UIE-Events-DragAndDrop.html"></a></span><div class="tip">支持拖放</div>
+<span class="next"><a href="UIE-Events-Synthesizing.html"></a></span><div class="tip">合成事件</div>
 </div>
 </div></div>
-<h1>事件响应</h1>
+<h1>处理事件</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>可让视觉元素以两种方式对接收的事件做出反应：</p>
+<h2>事件处理顺序</h2>
+
+<p>Events in UI Toolkit are similar to <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events">HTML events</a>. When an event occurs, it’s sent along the propagation path in the visual element tree. The event isn’t only sent to the target visual element, but to all elements within the propagation path.</p>
+
+<p>The event handling sequence is as follows:</p>
+
+<ol>
+<li>Execute event callbacks on elements from the root element down to the parent of the event target. This is the <strong>trickle-down phase</strong> of the dispatch process.
+2.在事件目标上执行事件回调。这是分发过程的<strong>目标阶段</strong>。
+3.在事件目标上调用 <code>ExecuteDefaultActionAtTarget()</code>。</li>
+<li>Execute event callbacks on elements from the event target parent up to the root. This is the <strong>bubble-up phase</strong> of the dispatch process.
+5.在事件目标上调用 <code>ExecuteDefaultAction()</code>。</li>
+</ol>
+
+<p>在沿着传播路径发送事件时，<code>Event.currentTarget</code> 属性更新为当前正在处理事件的元素。在事件回调函数中：</p>
 
 <ul>
-<li>对事件回调进行注册。</li>
-<li>实现默认操作。</li>
+<li>
+<code>Event.currentTarget</code> 是回调注册的视觉元素。</li>
+<li>
+<code>Event.target</code> 是原始事件发生的视觉元素。</li>
 </ul>
 
-<p>应该对事件回调进行注册还是实现默认操作，取决于许多因素。</p>
-
-<p>例如，如果将现有类的对象实例化，并希望实例在接收事件时以特定方式做出反应，则唯一的选择是在此实例上注册回调。</p>
-
-<p>但是，如果从 VisualElement 派生新类，并希望该类的所有实例以相同方式对事件做出反应，则可以使用构造函数在该类的所有实例上注册回调，或者实现该类的默认操作。</p>
-
-<p>回调和默认操作之间的重要区别如下：</p>
-
-<ul>
-<li>必须在类的实例上注册回调。默认操作在类上实现为虚拟函数。</li>
-<li>传播路径上的所有元素都会执行回调。仅对事件目标执行默认操作。</li>
-</ul>
-
-<p>可以调用 <code>event.PreventDefault()</code> 来阻止执行默认操作。无法取消某些事件类型，这意味着无法取消其默认操作。即使对于无法取消的事件，也可以调用 <code>event.StopPropagation()</code> 或 <code>event.StopImmediatePropagation()</code> 来阻止执行回调。</p>
-
-<p>应该将默认操作视为特定类型的元素在接收事件时应该具有的行为。</p>
-
-<p>例如，复选框应通过切换单击事件的状态来响应该事件。应通过覆盖默认操作虚拟函数（而不是在所有复选框上注册回调）来实现此行为。</p>
-
-<p>通常，应该优先使用默认操作实现元素中正常需要的行为。这样确保了可以通过在附加到实例的回调中调用 <code>PreventDefault()</code> 来逐个实例取消默认元素行为。</p>
-
-<p>将行为实现为默认操作的其他好处在于，执行这些行为时不需要在回调注册表中进行查找，并且无回调的实例在涓滴/冒泡传播过程中得到优化。</p>
-
-<p>为了获得更大灵活性，可在事件分发过程中的以下两个时刻执行事件目标的默认操作：</p>
-
-<ul>
-<li>在涓滴与冒泡传播阶段之间，刚执行目标回调之后，通过覆盖 <code>ExecuteDefaultActionsAtTarget()</code>；</li>
-<li>在事件分发过程结束时，通过覆盖 <code>ExecuteDefaultActions()</code>。</li>
-</ul>
-
-<p>如有可能，尽量在 <code>ExecuteDefaultActions()</code> 中实现类的默认操作。这样可以给类用户提供更多覆盖这些操作的选择：他们可以在事件传播过程的涓滴阶段或冒泡阶段调用 <code>PreventDefault()</code>。</p>
-
-<p>但是，有时必须确保在类上执行默认操作的事件不会传播到元素的父级。例如，文本字段收到修改字段值的键按下事件。这些键按下事件不会传播到父级，例如，父级可能使用 Delete 键来删除内容。在此情况下，请使用 <code>ExecuteDefaultActionsAtTarget()</code> 实现默认操作并调用 <code>StopPropagation()</code>。这样可以确保回调在冒泡阶段不会处理该事件。</p>
-
-<p>只有事件目标才执行默认操作。如果元素由于事件传播过程而接收事件，则不执行默认操作。如果您希望自己的类响应以其子项或父级为目标的事件，必须在该类的每个实例上注册回调。有时，这是必要的，但是为了更好的可扩展性和更好的性能，请尽量避免在类的每个实例上注册回调。</p>
+<p>有关更多信息，请参阅<a href="UIE-Events-Dispatching.html">分发事件</a>。</p>
 
 <h2>对事件回调进行注册</h2>
 
-<p>要向视觉元素的特定实例添加自定义行为，必须为触发自定义行为的事件注册回调。</p>
+<p>通过注册事件回调，您可以自定义现有类的单个实例的行为，例如对鼠标单击文本标签做出反应。</p>
 
-<p>注册事件回调的优点是允许自定义现有类的单个实例的行为。注册事件回调的缺点是执行时间更长，所以性能更差。执行需要更长时间的原因在于，无论何时收到事件，都要检查注册的事件以确定应该执行哪个回调。</p>
+<p>传播路径上的每个元素（目标除外）对一个事件可以接收两次：</p>
 
-<p>例如，以下代码为 <code>MouseDownEvent</code> 注册两个回调：</p>
+<ul>
+<li>Once during the trickle-down phase.</li>
+<li>在冒泡阶段一次。</li>
+</ul>
 
-<pre><code class="csharp">    // 对鼠标按下事件注册回调
-        myElement.RegisterCallback&lt;MouseDownEvent&gt;(MyCallback);
-        // 同上，而且将一些用户数据发送到回调
-        myElement.RegisterCallback&lt;MouseDownEvent, MyType&gt;(MyCallbackWithData, myData);
+<p>默认情况下，注册的回调会在目标阶段和冒泡阶段执行。此默认行为可确保父元素在其子元素之后做出反应。例如，如果您希望父元素在其子元素之前做出反应，请使用 <code>TrickleDown.TrickleDown</code> 选项注册回调：</p>
+
+<pre><code class="lang-csharp">// Register a callback for the trickle-down phase
+myElement.RegisterCallback&lt;MouseDownEvent&gt;(MyCallback, TrickleDown.TrickleDown);
+</code></pre>
+
+<p>This informs the dispatcher to execute the callback at the target phase and the trickle-down phase.</p>
+
+<p>要将自定义行为添加到特定的视觉元素，您必须在该元素上注册事件回调。例如，以下代码为 <code>MouseDownEvent</code> 注册一个回调：</p>
+
+<pre><code class="lang-csharp">// Register a callback on a mouse down event
+myElement.RegisterCallback&lt;MouseDownEvent&gt;(MyCallback);
 </code></pre>
 
 <p>回调签名应如下所示：</p>
 
-<pre><code class="csharp">void MyCallback(MouseDownEvent evt) { /* ... */ }
-void MyCallbackWithData(MouseDownEvent evt, MyType data) { /* ... */ }
+<pre><code class="lang-csharp">void MyCallback(MouseDownEvent evt) { /* ...*/ }
 </code></pre>
 
-<p>可为事件注册任意数量的回调。但是，回调注册系统会阻止对给定的事件和传播阶段多次注册相同的回调函数。通过调用 <code>myElement.UnregisterCallback()</code> 方法，可从 <code>VisualElement</code> 中移除回调。</p>
+<p>You can register multiple callbacks for an event. You can only register the same callback function on the same event and propagation phase once. To remove a callback from a <code>VisualElement</code>, call the <code>myElement.UnregisterCallback()</code> method.</p>
 
-<p>传播路径上除了目标之外的每个元素都接收该事件两次：一次在涓滴阶段，另一次在冒泡阶段。要避免执行两次已注册的回调，请使用可选的 <code>RegisterCallback</code> 来指定在哪个阶段执行回调。</p>
+<h3>为事件回调添加自定义数据</h3>
 
-<p>默认情况下，在目标阶段和冒泡阶段执行已注册的回调。此默认行为可确保父元素在其子元素之后做出反应。例如，如果希望父级先做出反应来覆盖其子项的行为，可使用 <code>TrickleDown.TrickleDown</code> 选项来注册回调：</p>
+<p>您可以将自定义数据随同回调一起发送到事件。要附加自定义数据，您必须通过扩展该调用的方式来注册回调。</p>
 
-<pre><code class="csharp">    // 为涓滴阶段注册回调
-        myElement.RegisterCallback&lt;MouseDownEvent&gt;(MyCallback, TrickleDown.TrickleDown);
+<p>以下代码为 <code>MouseDownEvent</code> 注册一个回调并将自定义数据发送到回调函数：</p>
+
+<pre><code class="lang-csharp">//将用户数据一起发送到回调
+myElement.RegisterCallback&lt;MouseDownEvent, MyType&gt;(MyCallbackWithData, myData);
 </code></pre>
 
-<p>此代码将通知分发程序在目标阶段和涓滴阶段执行回调。</p>
+<p>回调函数应返回此签名：</p>
 
-<h2>实现默认操作</h2>
+<pre><code class="lang-csharp">void MyCallbackWithData(MouseDownEvent evt, MyType data) { /* ...*/ }
+</code></pre>
 
-<p>默认操作适用于该类的所有实例。这意味着会为元素收到的每个事件调用一个或两个方法。</p>
+<h2>使用自定义控件响应事件</h2>
 
-<p>实现默认操作的类也可以在该类的实例上注册回调。</p>
+<p>如果您要实现自定义控件，则可以通过两种方式响应 UI 工具包事件：</p>
 
-<p>事件类实现在处理事件之前或之后执行的行为。事件类通过覆盖 <code>EventBase</code> 类的 <code>PreDispatch()</code> 方法或 <code>PostDispatch()</code> 来达到此目的。由于会对事件进行排队，所以这些方法可以在处理事件（而不是发出事件）后更新状态或执行任务。例如，<code>BlurEvent</code> 更改当前聚焦的元素，然后处理该元素。</p>
+<ul>
+<li>注册事件回调。</li>
+<li>实现默认操作。</li>
+</ul>
 
-<p>为了实现默认操作，需要派生 <code>VisualElement</code> 的新子类并实现 <code>ExecuteDefaultActionAtTarget()</code> 和/或 <code>ExecuteDefaultAction()</code> 方法。</p>
+<p>您选择如何响应事件取决于情况。</p>
 
-<p>默认操作是视觉元素子类的每个实例在接收事件时执行的操作。可以覆盖 <code>ExecuteDefaultActionAtTarget()</code> 和 <code>ExecuteDefaultAction()</code> 来自定义默认操作：</p>
+<p>回调和默认操作之间的区别是：</p>
 
-<pre><code class="csharp">override void ExecuteDefaultActionAtTarget(EventBase evt)
+<ul>
+<li>回调必须在类的实例上注册。默认操作作为类上的虚拟函数运行。</li>
+<li>回调在传播路径上的所有视觉元素都会执行。默认操作仅对事件目标执行。</li>
+<li>回调可能会执行额外的检查，以确定它们是否应该对事件做出反应。例如，处理鼠标单击的回调可能会检查元素是否是事件的目标。默认操作可以跳过此步骤。</li>
+<li>默认操作在性能上略有优势，因为它们在传播阶段不需要在回调注册表中查找。</li>
+</ul>
+
+<h3>实现默认操作</h3>
+
+<p>默认操作适用于该类的所有实例。实现默认操作的类也可以在该类的实例上注册回调。</p>
+
+<p>When a class implements a default action, it must derive a new subclass of <code>VisualElement</code> and implement either the <code>ExecuteDefaultActionAtTarget()</code> method, the <code>ExecuteDefaultAction()</code> method, or both.</p>
+
+<p>Default actions execute on each instance of a visual element sub-class when that instance receives an event. To customize default actions, you can override <code>ExecuteDefaultActionAtTarget()</code> and <code>ExecuteDefaultAction()</code>, as shown in the example below:</p>
+
+<pre><code class="lang-csharp">override void ExecuteDefaultActionAtTarget(EventBase evt)
 {
-    // 不要忘记调用基础函数。
+    // Call the base function.
     base.ExecuteDefaultActionAtTarget(evt);
 
     if (evt.GetEventTypeId() == MouseDownEvent.TypeId())
     {
-        //...
+        // ...
     }
     else if (evt.GetEventTypeId() == MouseUpEvent.TypeId())
     {
-        //...
+        // ...
     }
-    //更多事件类型
+    // More event types
 }
 </code></pre>
 
-<p>为了实现更大灵活性，应在 <code>ExecuteDefaultAction()</code> 中实现默认操作。这允许用户在必要时停止或阻止默认操作的执行。</p>
+<p>通过在 <code>ExecuteDefaultAction()</code> 中实现您的默认操作，您可以停止或阻止一个默认操作的执行。</p>
 
-<p>如果希望在父级回调之前执行目标默认操作，请在 <code>ExecuteDefaultActionAtTarget()</code> 中实现默认操作。</p>
+<p>如果希望在父级回调之前执行目标默认操作，请在 `ExecuteDefaultActionAtTarget() 中实现默认操作。</p>
 
-<h1>事件处理顺序</h1>
+<p>You should view default actions as the behaviors that an element type should have when it receives an event. For example, a checkbox should toggle its state in response to a click event. To execute this, you can override a default action virtual function, instead of registering callbacks on all checkboxes.</p>
 
-<p>事件发生时，将沿着视觉元素树中的传播路径发送事件。假设事件类型要求遵循事件传播的所有阶段，事件将发送到每个视觉元素。事件处理顺序如下：</p>
+<h2>自定义控件的最佳实践</h2>
 
-<p>1.针对从根元素往下到事件目标父级的元素执行事件回调。这是分发过程的<em>涓滴阶段</em>。
-2.针对事件目标执行事件回调。这是分发过程的<em>目标阶段</em>。
-3.调用目标 <code>ExecuteDefaultActionAtTarget()</code>。
-4.针对从事件目标父级往上到根的元素执行事件回调。这是分发过程的<em>冒泡阶段</em>。
-5.调用目标 <code>ExecuteDefaultAction()</code>。</p>
+<h3>实施行为</h3>
 
-<p>在沿着传播路径发送事件时，<code>Event.currentTarget</code> 更新为当前正在处理事件的元素。这意味着，在事件回调函数中，<code>Event.currentTarget</code> 是对回调注册的元素，而 <code>Event.target</code> 是发生事件的元素。</p>
+<p>您应该通过具有默认操作的元素来实现行为。您可以在附加到实例的回调中调用 <code>PreventDefault()</code> 取消默认元素行为。</p>
 
-<h2>停止事件传播并取消默认操作</h2>
+<p>将行为实现为默认操作的其他好处是：</p>
 
-<p>可以使用回调来停止、阻止和取消操作的执行。然而，无法阻止 <code>EventBase.PreDispatch()</code> 和 <code>EventBase.PostDispatch()</code> 方法的执行。</p>
+<ul>
+<li>默认操作不需要在回调注册表中查找。</li>
+<li>没有回调的实例不进入传播过程。</li>
+</ul>
+
+<p>为了获得更大灵活性，可在事件分发过程中的以下两个时刻执行事件目标的默认操作：</p>
+
+<ol>
+<li>Between the trickle-down and the bubble-up propagation phase, immediately after execution of the target callbacks, override <code>ExecuteDefaultActionsAtTarget()</code>.</li>
+<li>At the end of the event dispatch process, override <code>ExecuteDefaultActions()</code>.</li>
+</ol>
+
+<h3>类的默认操作</h3>
+
+<p>Implement your class default actions in <code>ExecuteDefaultActions()</code>, if possible. This allows more options to override the class. You can call <code>PreventDefault()</code> to override the class during the trickle-down phase or the bubble-up phase of the event propagation process.</p>
+
+<p>You must stop propagation of an event during a default action if the event shouldn’t propagate to the parent element. For example, a text field receives a <code>KeyDownEvent</code> that modifies its value, such as the <code>Delete</code> key to delete content. This event must not propagate to the parent visual element. Use <code>ExecuteDefaultActionsAtTarget()</code> to implement a default action, and call <code>StopPropagation()</code> to make sure the event isn’t processed during the bubble-up phase.</p>
+
+<p>仅对事件目标执行默认操作。要使类对针对其子元素或父元素的事件做出反应，您必须注册回调以在涓流或冒泡传播阶段接收事件。避免在类中注册回调以提高性能。</p>
+
+<h3>停止事件传播并取消默认操作</h3>
+
+<p>When handling an event inside a callback or a default action, you can stop further event propagation and the execution of default actions. For example, a parent panel could stop propagation during the trickle-down phase to prevent its children from receiving events.</p>
+
+<p>You can’t prevent the execution of the <code>EventBase.PreDispatch()</code> and <code>EventBase.PostDispatch()</code> methods inside the event class itself.</p>
 
 <p>以下方法影响事件传播和默认操作：</p>
 
+<h4><code>StopImmediatePropagation()</code></h4>
+
 <ul>
-<li>
-<code>StopImmediatePropagation()</code> 立即停止事件传播过程。不会为此事件执行其他回调。但是，仍然执行 <code>ExecuteDefaultActionAtTarget()</code> 和 <code>ExecuteDefaultAction()</code> 默认操作。</li>
-<li>
-<code>StopPropagation()</code> 在当前元素的上次回调后停止事件传播过程。这将确保当前元素的所有回调都得到执行，但是其他元素不会再对事件做出反应。仍然会执行 <code>ExecuteDefaultActionAtTarget()</code> 和 <code>ExecuteDefaultAction()</code> 默认操作。</li>
-<li>
-<code>PreventDefaultAction()</code> 阻止会调用 <code>ExecuteDefaultActionAtTarget()</code> 和
- <code>ExecuteDefaultAction()</code> 默认操作。<code>PreventDefaultAction()</code> 不会阻止其他回调的执行。此外，如果在冒泡阶段调用 <code>PreventDefaultAction()</code>，则不会阻止 <code>ExecuteDefaultActionAtTarget()</code> 默认操作，因为已经执行该操作。在涓滴阶段已执行 <code>ExecuteDefaultActionAtTarget()</code> 默认操作。</li>
+<li>立即停止事件传播过程，因此不会为该事件执行其他回调。但是，<code>ExecuteDefaultActionAtTarget()</code> 和 <code>ExecuteDefaultAction()</code> 默认操作仍然执行。</li>
+</ul>
+
+<h4><code>StopPropagation()</code></h4>
+
+<ul>
+<li>在当前元素的上次回调后停止事件传播过程。这将确保当前元素的所有回调都得到执行，但是其他元素不会再对事件做出反应。<code>ExecuteDefaultActionAtTarget()</code> 和 <code>ExecuteDefaultAction()</code> 默认操作仍然执行。</li>
+</ul>
+
+<h4><code>PreventDefaultAction()</code></h4>
+
+<ul>
+<li>Prevents the event propagation process from calling the <code>ExecuteDefaultActionAtTarget()</code> and <code>ExecuteDefaultAction()</code> default actions. <code>PreventDefaultAction()</code> doesn’t prevent the execution of other callbacks, and is ineffective on <code>ExecuteDefaultActionAtTarget()</code> when called during the bubble-up phase.</li>
 </ul>
 
 <hr>
@@ -339,13 +380,13 @@ void MyCallbackWithData(MouseDownEvent evt, MyType data) { /* ... */ }
 <span class="prev"><a href="UIE-Events-Dispatching.html"></a></span><div class="tip">分发事件</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="UIE-Events-DragAndDrop.html"></a></span><div class="tip">支持拖放</div>
+<span class="next"><a href="UIE-Events-Synthesizing.html"></a></span><div class="tip">合成事件</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

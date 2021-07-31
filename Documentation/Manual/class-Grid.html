@@ -14,8 +14,8 @@
 <meta property="og:title" content="Grid - Unity 手册">
 <title>Grid - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/2D_Grid.png">
-<meta name="description" content="The Grid component is a guide which helps to align GameObjects, such as Tiles, based on a selected layout. The component transforms Grid cell positions to the corresponding local coordinates of the GameObject. The Transform component then converts these local coordinates to world space or global coordinates.">
-<meta property="og:description" content="The Grid component is a guide which helps to align GameObjects, such as Tiles, based on a selected layout. The component transforms Grid cell positions to the corresponding local coordinates of the GameObject. The Transform component then converts these local coordinates to world space or global coordinates.">
+<meta name="description" content="Grid 组件是有助于根据选定的布局来对齐游戏对象（如瓦片）的导引网格。该组件将网格单元格位置转换为游戏对象的相应__局部坐标。然后，Transform 组件将这些局部坐标转换为世界空间或__全局坐标。">
+<meta property="og:description" content="Grid 组件是有助于根据选定的布局来对齐游戏对象（如瓦片）的导引网格。该组件将网格单元格位置转换为游戏对象的相应__局部坐标。然后，Transform 组件将这些局部坐标转换为世界空间或__全局坐标。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Unity2D.html">2D</a></li>
 <li><a href="class-Tilemap.html">Tilemap</a></li>
 <li>Grid</li>
@@ -192,7 +192,7 @@
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>The <strong>Grid</strong> component is a guide which helps to align GameObjects, such as <a href="class-Tilemap.html">Tiles</a>, based on a selected layout. The component transforms Grid cell positions to the corresponding <strong>local coordinates</strong> of the GameObject. The <a href="class-Transform.html">Transform</a> component then converts these local coordinates to world space or <strong>global coordinates</strong>.</p>
+<p><strong>Grid</strong> 组件是有助于根据选定的布局来对齐游戏对象（如<a href="class-Tilemap.html">瓦片</a>）的导引网格。该组件将网格单元格位置转换为游戏对象的相应__局部坐标<strong>。然后，<a href="class-Transform.html">Transform</a> 组件将这些局部坐标转换为世界空间或__全局坐标</strong>。</p>
 
 <figure>
 <img src="../uploads/Main/2D_Grid.png" alt="Grid 组件设置窗口">
@@ -215,15 +215,15 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><strong>Cell Size</strong></td>
-	<td style="text-align:left;">The size of a cell on this Grid.</td>
+	<td style="text-align:left;">该网格单元格的大小。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Cell Gap</strong></td>
-	<td style="text-align:left;">Enter the size (in Unity units) of gaps between cells on this Grid. If a negative number with an absolute value higher than the <strong>Cell Size</strong> is entered, then Unity will automatically change the absolute value to match the <strong>Cell Size</strong> instead.<br>For example, if <strong>Cell Size</strong> is (1, 1, 0) and <strong>Cell Gap</strong> is set to (–2, –2, 0), the Editor will automatically change the <strong>Cell Gap</strong> values to (–1, –1, 0) instead.</td>
+	<td style="text-align:left;">输入该网格单元格之间的间隙大小（使用 Unity 单位）。如果输入一个负数，其绝对值高于__Cell Size__，Unity 会自动更改该绝对值，以匹配 <strong>Cell Size</strong>。<br>例如，如果 <strong>Cell Size</strong> 是 (1, 1, 0) 且 <strong>Cell Gap</strong> 设置为 (–2, –2, 0)，编辑器将自动将 <strong>Cell Gap</strong> 的值更改为 (–1, –1, 0)。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Cell Layout</strong></td>
-	<td style="text-align:left;">Select an option from the drop-down menu to define the shape and arrangement of cells on this Grid.</td>
+	<td style="text-align:left;">从下拉菜单中选择一个选项来定义此网格上单元格的形状和排列。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Rectangle</strong></td>
@@ -243,7 +243,7 @@
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Cell Swizzle</strong></td>
-	<td style="text-align:left;">Select the order that Unity reorders the XYZ cell coordinates to for transform conversions. See the Wikipedia article on <a href="https://en.wikipedia.org/wiki/Swizzling_(computer_graphics)">Swizzling</a> for more details.</td>
+	<td style="text-align:left;">选择一个顺序，Unity 为变换转换重新排序 XYZ 单元格坐标。请参阅 Wikipedia 上有关<a href="https://en.wikipedia.org/wiki/Swizzling_(computer_graphics)">重排 (Swizzling)</a>的文章以了解更多详细信息。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">    XYZ</td>
@@ -251,33 +251,31 @@
 </tr>
 <tr>
 	<td style="text-align:left;">    XZY</td>
-	<td style="text-align:left;">The Grid component reorders the XYZ coordinates to XZY.</td>
+	<td style="text-align:left;">Grid 组件将 XYZ 坐标重新排序为 XZY。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">    YXZ</td>
-	<td style="text-align:left;">The Grid component reorders the XYZ coordinates to YXZ.</td>
+	<td style="text-align:left;">Grid 组件将 XYZ 坐标重新排序为 YXZ。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">    YZX</td>
-	<td style="text-align:left;">The Grid component reorders the XYZ coordinates to YZX.</td>
+	<td style="text-align:left;">Grid 组件将 XYZ 坐标重新排序为 YZX。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">    ZXY</td>
-	<td style="text-align:left;">The Grid component reorders the XYZ coordinates to ZXY.</td>
+	<td style="text-align:left;">Grid 组件将 XYZ 坐标重新排序为 ZXY。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">    ZYX</td>
-	<td style="text-align:left;">The Grid component reorders the XYZ coordinates to ZYX.</td>
+	<td style="text-align:left;">Grid 组件将 XYZ 坐标重新排序为 ZYX。</td>
 </tr>
 </tbody>
 </table>
 
 <hr>
 
-<ul>
-<li><span class="page-history">Page content and screenshots updated for <a href="https://docs.unity3d.com/2020.1/Documentation/Manual/30_search.html?q=newin20201">2020.1</a> <span class="search-words">NewIn20201</span></span></li>
-<li><span class="page-history">在 <a href="https://docs.unity3d.com/2017.2/Documentation/Manual/30_search.html?q=newin20172">2017.2</a> 版中添加了瓦片地图 <span class="search-words">NewIn20172</span></span></li>
-</ul>
+<p><em><span class="page-history">页面内容和屏幕截图更新于 <a href="https://docs.unity3d.com/2020.1/Documentation/Manual/30_search.html?q=newin20201">2020.1</a><span class="search-words"> NewIn20201</span></span>
+</em> <span class="page-history">在 <a href="https://docs.unity3d.com/2017.2/Documentation/Manual/30_search.html?q=newin20172">2017.2</a> 版中添加了瓦片地图 <span class="search-words">NewIn20172</span></span></p>
 <!-- area:authoring -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -290,7 +288,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

@@ -11,8 +11,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Trees - Unity 手册">
-<title>Trees - Unity 手册</title>
+<meta property="og:title" content="树 - Unity 手册">
+<title>树 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/TerrainWithTrees.jpg">
 <meta name="description" content="可使用类似于绘制高度贴图和纹理的方式在地形上绘制树。然而，树是从表面生长的 3D 对象实体。Unity 使用优化（比如针对远处树的公告牌）来保持良好的渲染性能。这意味着可以实现茂密森林（拥有数以千计的树），而仍然保持可接受的帧率。">
 <meta property="og:description" content="可使用类似于绘制高度贴图和纹理的方式在地形上绘制树。然而，树是从表面生长的 3D 对象实体。Unity 使用优化（比如针对远处树的公告牌）来保持良好的渲染性能。这意味着可以实现茂密森林（拥有数以千计的树），而仍然保持可接受的帧率。">
@@ -175,11 +175,11 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
 <li><a href="CreatingEnvironments.html">创建环境</a></li>
 <li><a href="script-Terrain.html">地形</a></li>
-<li>Trees</li>
+<li>树</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -189,7 +189,7 @@
 <span class="next"><a href="SpeedTree.html"></a></span><div class="tip">SpeedTree</div>
 </div>
 </div></div>
-<h1>Trees</h1>
+<h1>树</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
@@ -200,7 +200,7 @@
 <figcaption>有树的地形</figcaption>
 </figure>
 
-<h2>Painting Trees</h2>
+<h2>绘制树</h2>
 
 <p>工具栏上的 <strong>Paint Trees</strong> 按钮可用于绘制树：</p>
 
@@ -287,7 +287,7 @@
 
 <h2>创建树</h2>
 
-<p>There are two ways to create new Tree models. Use the <a href="https://store.speedtree.com/unity/">SpeedTree Modeler</a> from IDV, Inc. to create Trees with advanced visual effects, such as smooth LOD transition, fast billboarding, and natural wind animation. For more detailed information, refer to the <a href="http://docs8.speedTree.com/">SpeedTree Modeler documentation</a>. Alternatively, use the <a href="class-Tree.html">Tree Editor</a> to create Tree Models.</p>
+<p>可通过两种方法来新建树模型。使用 IDV, Inc. 提供的 <a href="https://store.speedtree.com/unity/">SpeedTree Modeler</a> 来创建具有高级视觉效果（例如，平滑的 LOD 过渡、快速公告牌以及自然风动画）的树。有关更多详细信息，请参阅 <a href="http://docs8.speedTree.com/">SpeedTree Modeler 文档</a>。或者，使用 <a href="class-Tree.html">Tree Editor</a> 来创建树模型。</p>
 
 <p>在内部，地形引擎通过确定树预制件的根游戏对象上是否存在 <a href="class-LODGroup.html">LOD 组</a>来区分这两种类型的模型。SpeedTree 预制件具有 <em>LODGroup</em> 组件，但 Tree Editor 预制件没有该组件。</p>
 
@@ -330,7 +330,7 @@
 
 <p>在默认设置下，诸如阔叶树 (Broadleaf) 预制件（在 Standard Assets Environment 包中提供）之类的树可以平稳而逼真地摆动。但是，如果您使用自己的树预制件，可能需要调整 Wind Zone 属性值。如果树预制件的树干彻底弯向一侧，请尝试减小 <strong>Main</strong> 值。或者，如果树预制件的树枝过度弯曲或伸展，请减小 <strong>Turbulence</strong> 值。</p>
 
-<h2>Tree Level of Detail (LOD) transition zone</h2>
+<h2>树细节级别 (LOD) 过渡区</h2>
 
 <p>对于 Tree Editor 树，Unity 的 LOD 系统使用 2D 到 3D 过渡区将 2D 公告牌与 3D 树模型进行无缝混合。这样可以防止 2D 和 3D 树显得过于突兀，这一点在 VR 中至关重要。请注意，公告牌树不接收局部光照（例如点光源和聚光灯）。这些树可使用方向光，但是公告牌上的光照仅在旋转摄像机时更新。</p>
 
@@ -354,7 +354,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

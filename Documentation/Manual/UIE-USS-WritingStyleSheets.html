@@ -13,8 +13,8 @@
 <meta name="twitter:card" content="summary">
 <meta property="og:title" content="USS 编写样式表 - Unity 手册">
 <title>USS 编写样式表 - Unity 手册</title>
-<meta name="description" content="To keep things organized, UI Toolkit has adopted BEM as the methodology for styling elements. While using BEM is not mandatory, it is recommended.">
-<meta property="og:description" content="To keep things organized, UI Toolkit has adopted BEM as the methodology for styling elements. While using BEM is not mandatory, it is recommended.">
+<meta name="description" content="为了使各项井井有条，UI 工具包已采用 BEM 作为元素的样式设置方法。虽然并非必须使用 BEM，但是建议采用。">
+<meta property="og:description" content="为了使各项井井有条，UI 工具包已采用 BEM 作为元素的样式设置方法。虽然并非必须使用 BEM，但是建议采用。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,25 +174,25 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="UIToolkits.html">Creating user interfaces (UI)</a></li>
-<li><a href="UIElements.html">UI Toolkit</a></li>
-<li><a href="UIE-USS.html">样式和 Unity 样式表</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="UIToolkits.html">创建用户界面 (UI)</a></li>
+<li><a href="UIElements.html">UI 工具包</a></li>
+<li><a href="UIE-USS.html">Unity style sheets (USS)</a></li>
 <li>USS 编写样式表</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="UIE-USS-UnityVariables.html"></a></span><div class="tip">Built-in Unity variables</div>
+<span class="prev"><a href="UIE-USS-UnityVariables.html"></a></span><div class="tip">内置 Unity 变量</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="UIE-Events.html"></a></span><div class="tip">事件系统</div>
+<span class="next"><a href="UIE-USS-Properties-Reference.html"></a></span><div class="tip">USS properties reference</div>
 </div>
 </div></div>
 <h1>USS 编写样式表</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>To keep things organized, UI Toolkit has adopted <a href="http://getbem.com">BEM</a> as the methodology for styling elements. While using BEM is not mandatory, it is recommended.</p>
+<p>为了使各项井井有条，UI 工具包已采用 <a href="http://getbem.com">BEM</a> 作为元素的样式设置方法。虽然并非必须使用 BEM，但是建议采用。</p>
 
 <h2>关于 BEM</h2>
 
@@ -212,7 +212,7 @@
 
 <p>以下示例显示了菜单的 XML 代码：</p>
 
-<pre><code class="xml">&lt;VisualElement class="menu"&gt;
+<pre><code class="lang-xml">&lt;VisualElement class="menu"&gt;
     &lt;Label class="menu__item" text="Banana" /&gt;
     &lt;Label class="menu__item" text="Apple" /&gt;
     &lt;Label class="menu__item menu__item--disabled" text="Orange" /&gt;
@@ -223,7 +223,7 @@
 
 <p>由于每个元素都配有描述其作用和外观的类，因此您可以仅使用一个类名来编写大多数选择器：</p>
 
-<pre><code class="css">.menu {
+<pre><code class="lang-css">.menu {
 }
 
 .menu__item {
@@ -235,7 +235,7 @@
 
 <p>应该能够使用单个类名来设置元素的样式。但是在某些情况下，可能需要使用复杂的选择器。例如，元素的样式取决于其块的修饰符时，可以使用复杂的选择器：</p>
 
-<pre><code class="css">.button {
+<pre><code class="lang-css">.button {
 }
 
 .button__icon {
@@ -252,7 +252,7 @@
 
 <h2>使 <code>VisualElement</code> 支持 BEM</h2>
 
-<p>UI Toolkit adheres to BEM. Each visual element has the necessary class names attached. For example, all <code>TextElement</code> have the <code>unity-text-element</code> class. Each instance of <code>Button</code>, which derives from <code>TextElement</code>, has its class list populated with the <code>unity-button</code> and <code>unity-text-element</code> classes.</p>
+<p>UI 工具包遵循 BEM。每个视觉元素都附有必要的类名。例如，所有 <code>TextElement</code> 具有 <code>unity-text-element</code> 类。从 <code>TextElement</code> 派生的 <code>Button</code> 的每个实例在类列表中都填充有 <code>unity-button</code> 和 <code>unity-text-element</code> 类。</p>
 
 <p>如果从 <code>VisualElement</code> 或其某个后代派生新元素，请遵循以下准则以确保元素易于使用 BEM 方法进行样式设置：</p>
 
@@ -265,16 +265,16 @@
 <!-- area:authoring -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="UIE-USS-UnityVariables.html"></a></span><div class="tip">Built-in Unity variables</div>
+<span class="prev"><a href="UIE-USS-UnityVariables.html"></a></span><div class="tip">内置 Unity 变量</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="UIE-Events.html"></a></span><div class="tip">事件系统</div>
+<span class="next"><a href="UIE-USS-Properties-Reference.html"></a></span><div class="tip">USS properties reference</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

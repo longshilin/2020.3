@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="设置 Unity IAP - Unity 手册">
-<title>设置 Unity IAP - Unity 手册</title>
-<meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/IapService.png">
-<meta name="description" content="Once you have set up your project for Unity Services, you can enable the Unity IAP service. To enable Unity IAP in your project:">
-<meta property="og:description" content="Once you have set up your project for Unity Services, you can enable the Unity IAP service. To enable Unity IAP in your project:">
+<meta property="og:title" content="Setting up Unity IAP - Unity 手册">
+<title>Setting up Unity IAP - Unity 手册</title>
+<meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/images/IAP-DemoButtons.png">
+<meta name="description" content="Note: Screen shots and menu choices may differ between release versions.">
+<meta property="og:description" content="Note: Screen shots and menu choices may differ between release versions.">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,10 +175,10 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UnityServices.html">Unity 服务</a></li>
 <li><a href="UnityIAP.html">﻿Unity IAP</a></li>
-<li>设置 Unity IAP</li>
+<li>Setting up Unity IAP</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -188,61 +188,145 @@
 <span class="next"><a href="UnityIAPAppleConfiguration.html"></a></span><div class="tip">针对 Apple App Store 和 Mac App Store 进行配置</div>
 </div>
 </div></div>
-<h1>设置 Unity IAP</h1>
+<h1>Setting up Unity IAP</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>Once you have <a href="#SettingUpProjectServices">set up your project for Unity Services</a>, you can enable the Unity IAP service. To enable Unity IAP in your project:</p>
+<p><strong>Note</strong>: Screen shots and menu choices may differ between release versions.</p>
 
-<ol>
-<li>In the Unity Editor, open the <strong>Services</strong> window (<strong>Window</strong> &gt; <strong>General</strong> &gt; <strong>Services</strong>), and click <strong>In-App Purchasing</strong>.<br><img src="../uploads/Main/IapService.png" alt="Selecting In-App Purchasing from the Services window.">
-</li>
-<li>In the <strong>In-App Purchasing</strong> section of the <strong>Project Settings</strong> menu, click the <strong>OFF</strong> button to enable the service.</li>
-</ol>
+<h2>概述</h2>
 
-<figure>
-<img src="../uploads/Main/IapEnable.png" alt="Enabling the IAP service.">
-<figcaption>Enabling the IAP service.</figcaption>
-</figure>
+<p>This document explains how to activate <strong>In-App Purchasing</strong> (IAP). </p>
 
-<p><strong>Note</strong>: Enabling Unity IAP also enables Unity Analytics in your project.</p>
+<p>The Unity IAP package provides coded and codeless approaches that you set up to:
+- Allow users to buy items in your games.
+- Connect to stores so that you can obtain revenue from these purchases.</p>
 
-<p>Unity will automatically import the latest verified In-App Purchasing <a href="#pack-alpha">package</a>. If you’ve already imported a version of the package, you can open the <a href="#Packages">Package Manager</a> from this menu to update or modify your previous installation.</p>
-
-<figure>
-<img src="../uploads/Main/IapPackageVersion.png" alt="Managing the IAP package version.">
-<figcaption>Managing the IAP package version.</figcaption>
-</figure>
-
-<p>Click <strong>Import</strong> to import Unity’s IAP’s store package Asset to access app store functionality on the following platforms: </p>
-
-<figure>
-<img src="../uploads/Main/IapAssetImport.png" alt="Importing the IAP store package Asset.">
-<figcaption>Importing the IAP store package Asset.</figcaption>
-</figure>
-
-<p>The Unity IAP Installer will take you through the <a href="#AssetPackages">Asset package import</a> process. This adds a new folder <em>Assets</em>/<em>Plugins</em> to your project, containing the Unity Purchasing assets required to use Unity IAP. For more information, see documentation on <a href="#UnityIAPiOSMAS">store guides</a>.</p>
-
-<h2>Common Unity IAP integration compiler errors</h2>
-
-<p>以下错误消息可能表示在 Unity Cloud Services 窗口中已禁用 Unity IAP，或者 Unity 已经与互联网断开连接：</p>
+<p>Here is an overview of the steps:</p>
 
 <ul>
-<li><code>CS0246</code></li>
-<li><code>System.Reflection.ReflectionTypeLoadException</code></li>
-<li><code>UnityPurchasing/Bin/Stores.dll</code></li>
-<li><code>UnityEngine.Purchasing</code></li>
+<li>Define your In-app purchase strategy for this game.</li>
+<li>Setup your project as a Unity service.</li>
+<li>Activate IAP to automatically install the package.</li>
+<li>Configure settings.</li>
+<li>Create and catalog your the in-game items that you want to sell.</li>
+<li>Use the Codeless IAP button to give users a way to buy items. Then, once you have the logic working, consider customizing the button look and feel. Or use the scripted IAP for a rich API to enhance this process. <img src="images/IAP-DemoButtons.png" alt=" Demo">
+</li>
+<li>Connect your app to the relevant app-stores, such as Google, Apple, or Android.</li>
+<li>Add items to the stores.</li>
 </ul>
 
-<p>To resolve these errors: </p>
+<p>Put it all together:</p>
+
+<ul>
+<li>Configure your IAP using guidance from this doc, support, and the IAP forum.</li>
+<li>Test everything.</li>
+<li>Make it live.</li>
+</ul>
+
+<p>You can also do many of these steps, or fine tune what you create, with the In-App Purchasing API.</p>
+
+<h2>Getting Started</h2>
+
+<p><strong>Note</strong>: The Samsung Galaxy store is now obsolete and is no longer supported in the Unity In-App Purchasing package 4.0.0 and higher. This guide to configure the Samsung Galaxy store only applies to the IAP package version 3.1.0 and earlier. If you’re using the Unity IAP package 4.0.0 and higher and want to implement a Samsung Galaxy store, use the <a href="https://docs.unity3d.com/Manual/udp.html">Unity Distribution Platform</a> instead.</p>
 
 <ol>
-<li>Reload the Services window by closing, then reopening it. Once reloaded, ensure that the Unity IAP service is enabled.</li>
-<li>If this doesn’t work, try disconnecting and reconnecting to the Internet, then sign back into Unity Services and re-enable Unity IAP.</li>
+<li>Open your Unity project in the Unity Editor.</li>
+<li>Choose <strong>Window\General\Services</strong>. The services window will appear.</li>
+<li>Create a Project ID, then connect the project to an organization.</li>
+<li>Answer the COPPA compliance questions.</li>
+<li>The services window will display a list of services. Click <strong>In-App Purchasing</strong>.</li>
 </ol>
 
-<p><strong>Note</strong>: You must have an “Owner” or “Manager” <a href="#OrgsManagingyourOrganization">role</a> for the project’s registered Organization to enable the Unity IAP Service.</p>
-<!-- area:monetization -->
+<figure>
+<img src="images/IAP-ServicesList.png" alt="Services">
+<figcaption>Services</figcaption>
+</figure>
+
+<ol>
+<li>The Project Settings window appears.</li>
+</ol>
+
+<figure>
+<img src="images/IAP-ProjectSettings.png" alt="Project Settings">
+<figcaption>Project Settings</figcaption>
+</figure>
+
+<ol>
+<li>Click the toggle next to <strong>In-App Purchasing Settings</strong> to <strong>ON</strong>.</li>
+</ol>
+
+<p>This will automatically install the IAP package from the package manager, providing you with new features and menu items to help you manage IAP. </p>
+
+<h2>Next Steps</h2>
+
+<h3>Define your In-App Purchase strategy</h3>
+
+<p>Your task will be to create items for players to buy and obtain their identifiers.</p>
+
+<p>To make this happen behind the scenes, you must tie product identifiers (strings) to each item you are selling, using a specified format. Some stores require that you customize the <strong>Product ID</strong> for their stores.</p>
+
+<h4>Planning:</h4>
+
+<ul>
+<li>Define your strategy to determinhe when/how users can buy things</li>
+<li>Define your pricing strategy</li>
+<li>Define the types of products (subscriber, consumable, non consumable)</li>
+</ul>
+
+<h2>Where to learn more</h2>
+
+<h4>IAP Samples</h4>
+
+<ol>
+<li>From the <strong>IAP Project Settings Page</strong>, click <strong>Open Package Manager</strong> from <strong>Options</strong>.</li>
+<li>Navigate to <strong>In App Purchasing</strong>. On the right information panel, find <strong>Samples</strong>.</li>
+<li>Expand <strong>Samples</strong>, then click <strong>Import</strong>.</li>
+</ol>
+
+<figure>
+<img src="images/IAP-Samples.png" alt="Samples">
+<figcaption>Samples</figcaption>
+</figure>
+
+<h4>Forum tutorials</h4>
+
+<p><a href="https://forum.unity.com/threads/sample-iap-project.529555/">See the Unity forum</a>. </p>
+
+<h4>Unity Learn IAP classes</h4>
+
+<p><a href="https://learn.unity.com/tutorial/unity-iap">Refer to the Unity Learn IAP classes</a> for more guidance. </p>
+
+<h2>故障排除</h2>
+
+<h4>How to resolve compilation errors during upgrades</h4>
+
+<p><strong>Important notes if you are upgrading from Unity IAP version 2.x to future versions.</strong></p>
+
+<p>If updating from Unity IAP (com.unity.purchasing + the Asset Store plugin) versions 2.x to future versions, complete the following actions in order to resolve compilation errors:</p>
+
+<ul>
+<li>Move <code>IAPProductCatalog.json</code> and <code>BillingMode.json</code>from <code>Assets/Plugins/UnityPurchasing/Resources/</code> to <code>Assets/Resources/</code>
+</li>
+<li>Move <code>AppleTangle.cs</code> and <code>GooglePlayTangle.cs</code> FROM: ‘Assets/Plugins/UnityPurchasing/generated’ TO: <code>Assets/Scripts/UnityPurchasing/generated</code>.</li>
+<li>Remove all remaining Asset Store plugin folders and files in <code>Assets/Plugins/UnityPurchasing</code> from your
+project.</li>
+</ul>
+
+<h4>Common Unity IAP integration compiler errors</h4>
+
+<p>以下错误消息可能表示在 Unity Cloud Services 窗口中已禁用 Unity IAP，或者 Unity 已经与互联网断开连接：
+* <code>CS0246</code>
+* <code>System.Reflection.ReflectionTypeLoadException</code>
+* <code>UnityPurchasing/Bin/Stores.dll</code>
+* <code>UnityEngine.Purchasing</code></p>
+
+<p>To resolve these errors:</p>
+
+<p>Reload the Services window by closing, then reopening it. Once reloaded, ensure that the Unity IAP service is enabled.
+If this doesn’t work, try disconnecting and reconnecting to the Internet, then sign back into Unity Services and re-enable Unity IAP.</p>
+
+<p><strong>Note</strong>: You must have an <strong>Owner</strong> or <strong>Manager</strong> role for the project.</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="UnityIAP.html"></a></span><div class="tip">﻿Unity IAP</div>
@@ -254,7 +338,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

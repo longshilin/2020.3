@@ -174,14 +174,14 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="AssetWorkflow.html">资源工作流程</a></li>
-<li><a href="AssetStore.html">使用 Asset Store</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="AssetWorkflow.html">Asset Workflow</a></li>
+<li><a href="AssetPackages.html">资源包</a></li>
 <li>创建您自己的资源包</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="AssetPackagesLabels.html"></a></span><div class="tip">使用标签来组织“My Assets”</div>
+<span class="prev"><a href="AssetPackages.html"></a></span><div class="tip">资源包</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="AssetPackagesImport.html"></a></span><div class="tip">导入本地资源包</div>
@@ -193,12 +193,9 @@
 
 <p><strong>注意</strong>：如果要共享场景、示例、工具或其他资源，Unity 建议<a href="CustomPackages.html">创建您自己的资源包</a>。但是，也可以使用资源包 (<code>.unitypackage</code>) 格式。例如，您可能想要创建一个资源包，将多个资源或整个场景从一个项目复制到另一个项目。</p>
 
-<p>可使用以下两种方法之一来创建资源包：</p>
+<p>按本节中的说明，从 Unity 编辑器的 <strong>Assets</strong> 菜单中导出资源包。</p>
 
-<ul>
-<li>按本节中的说明，从 Unity Editor 的 <strong>Assets</strong> 菜单中导出资源包。</li>
-<li>如果您的资源质量很高，并且您相信其他用户会认为它们很有用，请按照 <a href="AssetStorePublishing.html">Asset Store 发布</a>文档中的说明创建资源包草案并将其上传到 Asset Store</li>
-</ul>
+<p><strong>注意</strong>：如果您的资源质量很高，并且您相信其他用户会认为它们很有用，请按照 <a href="AssetStorePublishing.html">发布到 Asset Store </a>文档中的说明创建资源包草案并将其上传到 Asset Store</p>
 
 <p>要创建您自己的自定义资源包，请执行以下操作：</p>
 
@@ -219,6 +216,8 @@
 
 <p><strong>提示：</strong>导出资源包时，Unity 也可以导出所有依赖项。因此，例如，如果选择一个场景并导出包含所有依赖项的资源包，那么 Unity 也将导出场景中出现的所有模型、纹理和其他资源。这是导出多个资源的快捷方法，无需手动定位所有资源。</p>
 
+<p><strong>Note:</strong> If you select “Include dependencies”, and your curent selection contains or references any scripts, Unity will include <em>all scripts</em> in your project. This is because Unity does not have a way of determining whether other scripts are referenced by the ones used in your selection. For example, if you select a Scene asset in your project to export, and that scene contains a GameObject with a script attached, then all scripts in your project will be counted as dependencies. If you do not want this behaviour, you should uncheck “Include dependencies”.</p>
+
 <h2>重新导出资源包</h2>
 
 <p>如果要更改资源包的内容并创建资源包的更新版本，请在资源包中选择所需的资源文件（未更改的资源文件和新的资源文件）。然后，按照上述说明导出文件。</p>
@@ -230,7 +229,7 @@
 <p><strong>警告：</strong>不要从资源包中删除文件，然后添加具有相同名称的不同文件。Unity <a href="AssetWorkflow.html#uniqueID">使用唯一的 ID</a> 来跟踪文件，因此它会将它们识别为不同并可能相互冲突的文件。在这些情况下，Unity 在导入它们时会显示警告符号。如果已删除文件然后决定替换它，请将其重命名（即使它与原始名称很接近）。</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="AssetPackagesLabels.html"></a></span><div class="tip">使用标签来组织“My Assets”</div>
+<span class="prev"><a href="AssetPackages.html"></a></span><div class="tip">资源包</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="AssetPackagesImport.html"></a></span><div class="tip">导入本地资源包</div>
@@ -239,7 +238,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

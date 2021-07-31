@@ -14,12 +14,12 @@
 <meta property="og:title" content="在 UDP 控制台上管理和发布游戏 - Unity 手册">
 <title>在 UDP 控制台上管理和发布游戏 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/UDPManagingGame_18.png">
-<meta name="description" content="在 Unity 编辑器中构建游戏后，UDP 控制台需要使用每个商店的 SDK 重新打包游戏，然后才能将游戏发布到受支持的商店。
-要将构建版本上传到 UDP 控制台，请按照下列步骤操作。
-注意：UDP 控制台仅接受采用 UDP 实现方式的 APK。">
-<meta property="og:description" content="在 Unity 编辑器中构建游戏后，UDP 控制台需要使用每个商店的 SDK 重新打包游戏，然后才能将游戏发布到受支持的商店。
-要将构建版本上传到 UDP 控制台，请按照下列步骤操作。
-注意：UDP 控制台仅接受采用 UDP 实现方式的 APK。">
+<meta name="description" content="Once you’ve built your game in the Unity Editor, the UDP console needs to repack it with each store’s SDK before you can publish your game to the supported stores.
+To upload your build to the UDP Console, follow these steps.
+Note: The UDP console only accepts APKs or AABs that have a UDP implementation.">
+<meta property="og:description" content="Once you’ve built your game in the Unity Editor, the UDP console needs to repack it with each store’s SDK before you can publish your game to the supported stores.
+To upload your build to the UDP Console, follow these steps.
+Note: The UDP console only accepts APKs or AABs that have a UDP implementation.">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -179,7 +179,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UnityServices.html">Unity 服务</a></li>
 <li><a href="udp.html">Unity 分发平台</a></li>
 <li>在 UDP 控制台上管理和发布游戏</li>
@@ -198,22 +198,93 @@
 
 <h2>将游戏上传到 UDP 控制台</h2>
 
-<p>在 Unity 编辑器中构建游戏后，UDP 控制台需要使用每个商店的 SDK 重新打包游戏，然后才能将游戏发布到受支持的商店。
-要将构建版本上传到 UDP 控制台，请按照下列步骤操作。
-<strong>注意</strong>：UDP 控制台仅接受采用 UDP 实现方式的 APK。</p>
+<p>Once you’ve built your game in the Unity Editor, the UDP console needs to repack it with each store’s SDK before you can publish your game to the supported stores.
+To upload your build to the UDP Console, follow these steps.
+<strong>Note</strong>: The UDP console only accepts APKs or AABs that have a UDP implementation. </p>
 
 <p>1.在 UDP 控制台上的<strong>我的游戏</strong>中选择你的项目。
 1.在“游戏信息”选项卡中，找到<strong>二进制文件</strong>部分。
-1.选择<strong>上传 APK</strong>，然后上传游戏的 APK 文件（和 OBB 文件 - 如果有的话）。</p>
+ * Select <strong>Upload APK</strong> and upload the APK file (and OBB files, if any) of your game.
+ * To upload AAB files, select <strong>Convert from AAB file</strong> and upload the file.</p>
 
 <p>还可以通过以下方式将游戏部署到 UDP 控制台：</p>
 
 <ul>
+<li><a href="#api-upload">Using the UDP API</a></li>
 <li>
 <a href="udp-service-interoperability.html#upload">将 APK 上传到 CloudBuild</a>，然后从那里部署到 UDP</li>
 <li>
 <a href="udp-service-interoperability.html#build">使用 CloudBuild 构建你的游戏</a>，然后从那里部署到 UDP</li>
 </ul>
+
+<p><a name="api-upload"></a></p>
+
+<h3>Uploading your game to the UDP console using the UDP API</h3>
+
+<p>You can only use the <a href="udp-api.html">UDP API</a> to upload binary files for the draft version of your game. If there is no draft version of your game, UDP creates one based on the latest version of your game. If the upload process is successful, UDP returns the “upload success” message with status code 200. If the upload process is unsuccessful, UDP returns an error message with a non–2xx status code.</p>
+
+<p>You can upload either:</p>
+
+<ul>
+<li>An APK file, a main OBB file (optional) and a patch OBB file (optional).<br>This overwrites any existing AAB file in the UDP console.</li>
+<li>An AAB file.<br>This overwrites any existing APK or OBB file in the UDP console.</li>
+</ul>
+
+<p>You can only upload one binary file at a time; you can’t specify multiple binary files for a command. If you upload the same type of binary file multiple times, the most recent file overrides the previous one.</p>
+
+<h4>Prerequisites</h4>
+
+<p>To use the UDP API, you need:</p>
+
+<ul>
+<li>A valid authentication token from the UDP console.<br>To generate an authentication token in the UDP console, go to the Developer API page and select <strong>New Token</strong>.</li>
+<li>A tool to send HTTPS POST messages. Unity recommends using <a href="https://curl.se/">curl</a>.</li>
+</ul>
+
+<h4>Uploading binary files</h4>
+
+<p>To upload binary files to the UDP console using the UDP API, use the HTTP POST method, and set the <code>Content-Type</code> to <code>multipart/form-data</code>. For information on the supported API parameters, see <a href="udp-api.html">UDP API</a>.</p>
+
+<h4>Uploading APK files</h4>
+
+<p>To upload an APK file, specify the path to your APK file in the POST method with the form key <code>uploadFile</code>.</p>
+
+<p>Example:</p>
+
+<pre><code>$ curl -XPOST -F 'whatsNew="example"' -F 'useGoogleService=false'  -F 'uploadFile=@/path/to/your/APK/example.apk' 
+https://distribute.dashboard.unity.com/developer/api/upload/12369536319506/1d1a4cxq774MzPKwsiHgXA?token=NWQxMWIzZmYyNjk0Njc2NGYwMDU0ZTA3ZTk3YjA2ZDA=
+</code></pre>
+
+<h4>Uploading AAB files</h4>
+
+<p>To upload an AAB file, specify the path to your AAB file with the form key <code>uploadFile</code>.</p>
+
+<p>Example:</p>
+
+<pre><code>$ curl -XPOST -F 'whatsNew="example"' -F 'useGoogleService=true  -F 'uploadFile=@/path/to/your/AAB/example.aab' 
+https://distribute.dashboard.unity.com/developer/api/upload/12369536319506/1d1a4cxq774MzPKwsiHgXA?token=NWQxMWIzZmYyNjk0Njc2NGYwMDU0ZTA3ZTk3YjA2ZDA=
+</code></pre>
+
+<h4>Uploading OBB files</h4>
+
+<p>To upload an OBB file:</p>
+
+<ol>
+<li>Specify the path to your OBB file with the form key <code>uploadFile</code>.</li>
+<li>Specify the OBB type. Set the query parameter key <code>obbType</code> to <code>mainObb</code> or <code>patchObb</code>.</li>
+</ol>
+
+<p>Example main OBB file upload:</p>
+
+<pre><code>$ curl -XPOST -F 'uploadFile=@/path/to/your/OBB/exampleMain.obb'
+https://distribute.dashboard.unity.com/developer/api/upload/12369536319506/1d1a4cxq774MzPKwsiHgXA?token=NWQxMWIzZmYyNjk0Njc2NGYwMDU0ZTA3ZTk3YjA2ZDA=&amp;obbType=mainObb
+</code></pre>
+
+<p>Example patch OBB file upload:</p>
+
+<pre><code>$ curl -XPOST -F 'uploadFile=@/path/to/your/OBB/examplePatch.obb'
+https://distribute.dashboard.unity.com/developer/api/upload/12369536319506/1d1a4cxq774MzPKwsiHgXA?token=NWQxMWIzZmYyNjk0Njc2NGYwMDU0ZTA3ZTk3YjA2ZDA=&amp;obbType=patchObb
+</code></pre>
 
 <h2>完成游戏信息</h2>
 
@@ -431,7 +502,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

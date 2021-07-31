@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
 <li><a href="ParticleSystems.html">粒子系统</a></li>
 <li><a href="Built-inParticleSystem.html">内置粒子系统</a></li>
@@ -232,7 +232,7 @@
 
 <h3>在 OnParticleTrigger() 中访问粒子</h3>
 
-<p>If you select <strong>Callback</strong> as the reaction to one of the trigger events, you can access the particles that fulfill the event condition from an attached script. To do this, you first need to add the <code>OnParticleTrigger()</code> function to an attached script. Inside this function, call the <a href="../ScriptReference/ParticlePhysicsExtensions.GetTriggerParticles.html">ParticlePhysicsExtensions.GetTriggerParticles()</a> function to get the list of particles that fulfill the trigger event’s criteria. This function takes a <a href="../ScriptReference/ParticleSystemTriggerEventType.html">ParticleSystemTriggerEventType</a>, which specifies the trigger event you want to get the particles for (<strong>Inside</strong>, <strong>Outside</strong>, <strong>Enter</strong>, or <strong>Exit</strong>), and a list of <a href="../ScriptReference/ParticleSystem.Particle.html">Particles</a> which the function populates with the result. From the list, you can access, modify, or destroy any particle. The function can also take an optional parameter which outputs collision information, such as which Collider each particle triggered. The <strong>Collider Query Mode</strong> property controls what information is available through this parameter.</p>
+<p>如果选择 <strong>Callback</strong> 作为对某一触发事件的反应，则可以从附加的脚本访问满足事件条件的粒子。为此，首先需要将 <code>OnParticleTrigger()</code> 函数添加到附加的脚本。在此函数中，调用 <a href="../ScriptReference/ParticlePhysicsExtensions.GetTriggerParticles.html">ParticlePhysicsExtensions.GetTriggerParticles()</a> 函数可获取满足触发事件条件的粒子列表。此函数接受 <a href="../ScriptReference/ParticleSystemTriggerEventType.html">ParticleSystemTriggerEventType</a>（用于指定需要获取粒子的触发事件，即 <strong>Inside</strong>、<strong>Outside</strong>、<strong>Enter</strong> 还是 <strong>Exit</strong>）以及一个<a href="../ScriptReference/ParticleSystem.Particle.html">粒子</a>列表（函数将向其中填充结果）。从这一列表中，可以访问、修改或销毁任何粒子。该函数还可以采用一个可选参数来输出碰撞信息，例如每个粒子触发哪个碰撞体。<strong>Collider Query Mode</strong> 属性通过此参数控制可以获得哪些信息。</p>
 
 <p>有关该 API 以及如何使用该 API 的更多信息，请参阅<a href="#Example">下文的示例</a>。</p>
 
@@ -270,7 +270,7 @@
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Collider Query Mode</strong></td>
-	<td style="text-align:left;">Specifies the method this Particle System uses to get information about the Colliders that particles interact with. This increases the resource intensity of processing the Triggers module so, if you do not need any extra collision information, set this property to <strong>Disabled</strong>. The options are:<br>• <strong>Disabled</strong>: Does not get any information about which Collider each particle interacts with.<br>• <strong>One</strong>: Gets information about the first Collider each particle interacts. If a particle interacts with multiple Colliders in the frame, this returns the first Collider in the <strong>Collider</strong> list the particle interacted with.<br>• <strong>All</strong>: Gets information about every Collider each particle interacts with.</td>
+	<td style="text-align:left;">指定此粒子系统用于获取有关与粒子交互的碰撞体的信息的方法。这增加了处理触发器模块所需的资源，因此，如果不需要任何额外的碰撞信息，请将此属性设置为 <strong>Disabled</strong>。选项是：<br>• <strong>Disabled</strong>：没有获取关于每个粒子与哪个碰撞体交互的任何信息。<br>• <strong>One</strong>：获取有关每个粒子交互的第一个碰撞体的信息。如果粒子与帧中的多个碰撞体交互，则返回 <strong>Collider</strong> 列表中与粒子交互的第一个碰撞体。<br>• <strong>All</strong>：获取有关每个粒子交互的每个碰撞体的信息。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Radius Scale</strong></td>
@@ -287,7 +287,7 @@
 
 <h2>示例</h2>
 
-<h3>Interaction with a collider</h3>
+<h3>与碰撞体交互</h3>
 
 <p>下面的示例会导致粒子在进入碰撞体的边界时变为红色，然后在离开碰撞体的边界时变为绿色。</p>
 
@@ -352,9 +352,9 @@ public class TriggerScript : MonoBehaviour
 <figcaption>Game 视图</figcaption>
 </figure>
 
-<h3>Interaction with multiple colliders</h3>
+<h3>与多个碰撞体交互</h3>
 
-<p>The following example takes advantage of the additional collision data you can extract from the <code>GetTriggerParticles()</code> function. It causes particles inside the first Collider’s bounds to turn red, inside the second Collider’s bounds to turn blue, or inside both Colliders to turn green. It also turns particles white if they are not inside a Collider. For this example, <strong>Collider Query Mode</strong> is set to <strong>All</strong>.</p>
+<p>以下示例利用了您可以从 <code>GetTriggerParticles()</code> 函数中提取的附加碰撞数据。它会导致第一个碰撞体边界内的粒子变为红色，第二个碰撞体边界内的粒子变为蓝色，或者两个碰撞体内的粒子都变为绿色。如果粒子不在碰撞体内，也会变成白色。在本例中，<strong>Collider Query Mode</strong> 设置为 <strong>All</strong>。</p>
 
 <pre><code>using UnityEngine;
 using System.Collections;
@@ -367,15 +367,15 @@ public class TriggerScript : MonoBehaviour
     {
         ParticleSystem ps = GetComponent();
  
-        // particles
+        // 粒子
         List inside = new List();
         List exit = new List();
  
-        // get
+        // 获取
         int numInside = ps.GetTriggerParticles(ParticleSystemTriggerEventType.Inside, inside, out var insideData);
         int numExit = ps.GetTriggerParticles(ParticleSystemTriggerEventType.Exit, exit);
  
-        // iterate
+        // 迭代
         for (int i = 0; i &lt; numInside; i++)
         {
             ParticleSystem.Particle p = inside[i];
@@ -399,7 +399,7 @@ public class TriggerScript : MonoBehaviour
             exit[i] = p;
         }
  
-        // set
+        // 设置
         ps.SetTriggerParticles(ParticleSystemTriggerEventType.Inside, inside);
         ps.SetTriggerParticles(ParticleSystemTriggerEventType.Exit, exit);
     }
@@ -407,7 +407,7 @@ public class TriggerScript : MonoBehaviour
 
 </code></pre>
 
-<p>See the following image for the result of this example:</p>
+<p>请查看以下图像以了解此示例的结果：</p>
 
 <figure>
 <img src="../uploads/main/PartSysTriggersModule-Example2.png" alt="">
@@ -424,7 +424,7 @@ public class TriggerScript : MonoBehaviour
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

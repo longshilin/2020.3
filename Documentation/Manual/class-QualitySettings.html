@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UnityOverview.html">在 Unity 中操作</a></li>
 <li><a href="EditorFeatures.html">编辑器功能</a></li>
 <li><a href="comp-ManagerGroup.html">Project Settings</a></li>
@@ -291,13 +291,15 @@
 <figcaption>通过 4x 抗锯齿，可以平滑多边形边缘。</figcaption>
 </figure>
 
-<p>Hardware anti-aliasing does not work with <a href="RenderTech-DeferredShading.html">Deferred Shading</a> or <a href="HDR.html">HDR</a> rendering. For more information on anti-aliasing compatibility, see <a href="PostProcessingOverview.html">Post processing</a>.</p>
+<p>硬件抗锯齿功能不适用于<a href="RenderTech-DeferredShading.html">延迟着色</a>或 <a href="HDR.html">HDR</a> 渲染。有关抗锯齿兼容性的更多信息，请参阅<a href="PostProcessingOverview.html">后期处理</a>.</p>
 
 <p><a name="softicles"></a></p>
 
 <h3>软粒子</h3>
 
-<p>软粒子在与其他场景几何体的交叉处附近淡出。这种视觉效果将大幅提升，但计算成本更高（更复杂的像素着色器），并且仅适用于支持<a href="SL-DepthTextures.html">深度纹理</a>的平台。此外，必须使用<a href="RenderTech-DeferredShading.html">延迟着色</a>或<a href="RenderTech-DeferredLighting.html">旧版延迟光照</a>渲染路径，或使摄像机从脚本渲染<a href="SL-CameraDepthTexture.html">深度纹理</a>。</p>
+<p>软粒子在与其他场景几何体的交叉处附近淡出。这种视觉效果将大幅提升，但计算成本更高（更复杂的像素着色器），并且仅适用于支持<a href="SL-CameraDepthTexture.html">深度纹理</a>的平台。此外，必须使用<a href="RenderTech-DeferredShading.html">延迟着色</a>或<a href="RenderTech-DeferredLighting.html">旧版延迟光照</a>渲染路径，或使摄像机从脚本渲染<a href="SL-CameraDepthTexture.html">深度纹理</a>。</p>
+
+<p>软粒子在与其他场景几何体的交叉处附近淡出。这种视觉效果将大幅提升，但需要更多资源进行处理，并且仅适用于支持<a href="SL-CameraDepthTexture.html">深度纹理</a>的平台。此外，必须使用<a href="RenderTech-DeferredShading.html">延迟着色</a>或<a href="RenderTech-DeferredLighting.html">旧版延迟光照</a>渲染路径，或使摄像机从脚本渲染<a href="SL-CameraDepthTexture.html">深度纹理</a>。</p>
 
 <figure>
 <img src="../uploads/Main/SoftParticlesOff.jpg" alt="没有软粒子 - 与场景的可见交叉。">
@@ -330,11 +332,8 @@
 <tbody>
 <tr>
 	<td style="text-align:left;" colspan="2"><strong>Shadowmask Mode</strong></td>
-	<td style="text-align:left;">Choose the shadowmask behavior when using the <a href="LightMode-Mixed-Shadowmask.html">Shadowmask</a> Mixed lighting mode. Use the Lighting window (menu: <strong>Window</strong> &gt; <strong>Rendering</strong> &gt; <strong>Lighting</strong>) to set this up in your Scene.</td>
-</tr>
-<tr>
-	<td style="text-align:left;"></td>
-	<td style="text-align:left;"><strong>Distance Shadowmask</strong></td>
+	<td style="text-align:left;">使用 <a href="LightMode-Mixed-Shadowmask.html">Shadowmask</a> 混合光照模式时选择阴影遮罩行为。使用 Lighting 窗口（菜单：__Window__ &gt; <strong>Rendering</strong> &gt; <strong>Lighting__）可在场景中设置此属性。 |
+||</strong>Distance Shadowmask__</td>
 	<td style="text-align:left;">Unity 对于 <strong>Shadow Distance</strong> 范围内的值使用实时阴影，超过此距离则使用烘焙阴影。</td>
 </tr>
 <tr>
@@ -475,7 +474,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

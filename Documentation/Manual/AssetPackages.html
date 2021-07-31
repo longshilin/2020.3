@@ -13,8 +13,8 @@
 <meta name="twitter:card" content="summary">
 <meta property="og:title" content="资源包 - Unity 手册">
 <title>资源包 - Unity 手册</title>
-<meta name="description" content="Import assets acquired from the Unity Asset Store using the Package Manager.">
-<meta property="og:description" content="Import assets acquired from the Unity Asset Store using the Package Manager.">
+<meta name="description" content="资源包集合了来自 Unity 项目或项目元素的文件和数据，Unity 将它们压缩并存储在一个扩展名为 .unitypackage 的文件中。与 zip 文件一样，资源包在解压缩后保持其原始目录结构，其中还包括资源的元数据（例如导入设置和指向其他资源的链接）。">
+<meta property="og:description" content="资源包集合了来自 Unity 项目或项目元素的文件和数据，Unity 将它们压缩并存储在一个扩展名为 .unitypackage 的文件中。与 zip 文件一样，资源包在解压缩后保持其原始目录结构，其中还包括资源的元数据（例如导入设置和指向其他资源的链接）。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,58 +174,27 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="AssetWorkflow.html">资源工作流程</a></li>
-<li><a href="AssetStore.html">使用 Asset Store</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="AssetWorkflow.html">Asset Workflow</a></li>
 <li>资源包</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="AssetStore.html"></a></span><div class="tip">使用 Asset Store</div>
+<span class="prev"><a href="ModifyingSourceAssetsThroughScripting.html"></a></span><div class="tip">通过脚本修改源资源</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="AssetPackagesPurchase.html"></a></span><div class="tip">在 Asset Store 中购买或下载资源包</div>
+<span class="next"><a href="AssetPackagesCreate.html"></a></span><div class="tip">创建您自己的资源包</div>
 </div>
 </div></div>
 <h1>资源包</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>Import assets acquired from the Unity Asset Store using the <a href="upm-ui-import.html">Package Manager</a>.</p>
+<p>资源包集合了来自 Unity 项目或项目元素的文件和数据，Unity 将它们压缩并存储在一个扩展名为 <code>.unitypackage</code> 的文件中。与 zip 文件一样，资源包在解压缩后保持其原始目录结构，其中还包括资源的元数据（例如导入设置和指向其他资源的链接）。</p>
 
-<p>Unity <strong>Standard Assets</strong> and items on the Unity Asset Store are supplied in asset packages. Asset packages are collections of files and data from Unity projects, or elements of projects, which Unity compresses and stores in one file with the <code>.unitypackage</code> extension. Like a zip file, an asset package maintains its original directory structure when it is unpacked, as well as metadata about assets (such as import settings and links to other assets). </p>
+<p>要创建您自己的（自定义）资源包，请使用 <strong>Assets</strong> &gt; <strong>Export Package</strong> 菜单选项将资源集合压缩到您当前的 Unity 项目中。有关更多信息，请参阅<a href="AssetPackagesCreate.html">创建您自己的资源包</a>。</p>
 
-<p>Starting from Unity 2020.1, the dedicated Asset Store window is no longer hosted inside the Unity Editor. However, you can still access the Asset Store website at https://assetstore.unity.com/ and you can still search for your purchased and downloaded Asset Store packages, as well as import and download them directly in the Package Manager window.</p>
-
-<p>To purchase an Asset Store package from Unity or a third-party publisher, start by <a href="https://assetstore.unity.com/">searching the Unity Asset Store</a> to find asset packages that meet your needs. When you find an asset package you want to use, <a href="AssetPackagesPurchase.html">purchase or download</a> it in the Asset Store. You can also make it easier to locate packages by <a href="AssetPackagesLabels.html">organizing your assets with labels</a> and <a href="AssetPackagesOrganize.html">hiding Asset Store packages</a> that are deprecated or unused.</p>
-
-<p>In the Unity Package Manager, select the <a href="upm-ui-filter.html">My Assets</a> filter to see your <a href="upm-ui-list.html">list of available Asset Store packages</a>. You can <a href="upm-ui-search.html">search by name</a> for Asset Store packages. When you find the Asset Store package you want to use, you can <a href="upm-ui-import.html">download and import</a> it inside the Package Manager. If your Asset Store package has a newer version available, you can also <a href="upm-ui-update2.html">update</a> it directly in the Package Manager window.</p>
-
-<p>To create your own (custom) asset package, you can:</p>
-
-<ul>
-<li>使用 <strong>Assets</strong> &gt; <strong>Export Package</strong> 菜单选项将资源集合压缩到您当前的 Unity 项目中。有关更多信息，请参阅<a href="AssetPackagesCreate.html">创建您自己的资源包</a>。</li>
-<li>Follow the instructions in <a href="AssetStorePublishing.html">Asset Store Publishing</a> for <a href="AssetStoreCreatePkg.html">creating a package draft</a> and <a href="AssetStoreUpload.html">uploading your assets</a> from Unity into it for publication on the <a href="https://assetstore.unity.com/">Unity Asset Store</a>.</li>
-</ul>
-
-<p>To import a local custom asset package into your project:</p>
-
-<ul>
-<li>使用 <strong>Assets</strong> &gt; <strong>Import Package</strong> 菜单选项将资源集合解压到您当前打开的 Unity 项目中。有关更多信息，请参阅<a href="AssetPackagesImport.html">导入资源包</a>。</li>
-</ul>
-
-<h2>下载的资源文件的位置</h2>
-
-<p>You can use the Package Manager window to manage your Asset Store packages within your project. However, if you need to access your asset files directly, you can find them in the following paths (which might be within hidden folders depending on your computer settings):</p>
-
-<ul>
-<li>macOS: <code>~/Library/Unity/Asset Store-5.x</code>
-</li>
-<li>Windows: <code>C:\Users\accountName\AppData\Roaming\Unity\Asset Store-5.x</code>
-</li>
-</ul>
-
-<p>These folders contain subfolders that correspond to particular Asset Store vendors and are available after download and import. The asset files are contained inside the subfolders using a structure defined by the Asset Store package publisher.</p>
+<p>要将本地自定义资源包导入您的项目，请使用 <strong>Assets</strong> &gt; <strong>Import Package</strong> 菜单选项将集合解压缩到您当前打开的 Unity 项目中。有关更多信息，请参阅<a href="AssetPackagesImport.html">导入资源包</a>。</p>
 
 <p><br> </p>
 
@@ -235,23 +204,23 @@
 
 <ul>
 <li><span class="page-history">在 Unity <a href="https://docs.unity3d.com/2019.3/Documentation/Manual/30_search.html?q=newin20193">2019.3</a> 中添加了 My Assets 筛选条件 <span class="search-words">NewIn20193</span></span></li>
-<li><span class="search-words">重新安装标准资源, 升级标准资源, 升级 Standard Assets, 安装标准资源, 安装 Standard Assets, 导入标准资源, 导入 Standard Assets</span></li>
 </ul>
 
+<p><span class="search-words">重新安装标准资源, 升级标准资源, 升级 Standard Assets, 安装标准资源, 安装 Standard Assets, 导入标准资源, 导入 Standard Assets</span></p>
+
 <p><br> </p>
-<!-- area:authoring -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="AssetStore.html"></a></span><div class="tip">使用 Asset Store</div>
+<span class="prev"><a href="ModifyingSourceAssetsThroughScripting.html"></a></span><div class="tip">通过脚本修改源资源</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="AssetPackagesPurchase.html"></a></span><div class="tip">在 Asset Store 中购买或下载资源包</div>
+<span class="next"><a href="AssetPackagesCreate.html"></a></span><div class="tip">创建您自己的资源包</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

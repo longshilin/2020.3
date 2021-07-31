@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Cubemap arrays - Unity 手册">
-<title>Cubemap arrays - Unity 手册</title>
+<meta property="og:title" content="立方体贴图数组 - Unity 手册">
+<title>立方体贴图数组 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/cubemap-array-preview.png">
-<meta name="description" content="A cubemap array is an array of cubemaps that are the same size and format, and that the GPU can access as a single texture resource. Cubemap arrays are often used for implementing efficient reflection probe, lighting and shadowing systems.">
-<meta property="og:description" content="A cubemap array is an array of cubemaps that are the same size and format, and that the GPU can access as a single texture resource. Cubemap arrays are often used for implementing efficient reflection probe, lighting and shadowing systems.">
+<meta name="description" content="立方体贴图数组是一个包含有大小和格式均相同的立方体贴图的数组，GPU 可以将其作为单个纹理资源进行访问。立方体贴图数组通常用于实现高效的反射探针、光照和阴影系统。">
+<meta property="og:description" content="立方体贴图数组是一个包含有大小和格式均相同的立方体贴图的数组，GPU 可以将其作为单个纹理资源进行访问。立方体贴图数组通常用于实现高效的反射探针、光照和阴影系统。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,33 +175,32 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
 <li><a href="Textures.html">纹理</a></li>
-<li>Cubemap arrays</li>
+<li>立方体贴图数组</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="class-Cubemap.html"></a></span><div class="tip">立方体贴图</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="ShadersOverview.html"></a></span><div class="tip">编写着色器</div>
+<span class="next"><a href="Shaders.html"></a></span><div class="tip">着色器</div>
 </div>
 </div></div>
-<h1>Cubemap arrays</h1>
+<h1>立方体贴图数组</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>A cubemap array is an array of cubemaps that are the same size and format, and that the GPU can access as a single texture resource. Cubemap arrays are often used for implementing efficient reflection probe, lighting and shadowing systems.</p>
+<p>立方体贴图数组是一个包含有大小和格式均相同的立方体贴图的数组，GPU 可以将其作为单个纹理资源进行访问。立方体贴图数组通常用于实现高效的反射探针、光照和阴影系统。</p>
 
-<p>In your Unity Project, the Unity Editor represents cubemap arrays as Texture Assets.To configure a Texture Asset’s import settings you can use the <a href="class-TextureImporter.html">Inspector</a>, or write a script that uses the <a href="../ScriptReference/TextureImporter.html">TextureImporter</a> API. In the Unity engine, Unity uses the <a href="../ScriptReference/CubemapArray.html">CubemapArray</a> class to represent cubemap arrays.</p>
+<p>在您的 Unity 项目中，Unity 编辑器将立方体贴图数组表示为纹理资源。要配置纹理资源的导入设置，您可以使用 <a href="class-TextureImporter.html">Inspector</a>，或使用 <a href="../ScriptReference/TextureImporter.html">TextureImporter</a> API 编写一个脚本。在 Unity 引擎中，Unity 使用 <a href="../ScriptReference/CubemapArray.html">CubemapArray</a> 类来表示立方体贴图数组。</p>
 
-<h2>Creating a cubemap array</h2>
+<h2>创建立方体贴图数组</h2>
 
-<p>To create a cubemap array in your Project, you must use a script.</p>
+<p>要在项目中创建立方体贴图数组，必须使用脚本。</p>
 
-<p>The following example is an Editor script that creates an instance of the <code>CubemapArray</code> class, populates it with color data, and then saves it to your Project as a Texture Asset.</p>
+<p>下面的示例是一个编辑器脚本，该脚本创建一个 <code>CubemapArray</code> 类的实例，用颜色数据填充该实例，然后作为纹理资源保存到项目中。</p>
 
 <pre><code class="c#">using UnityEngine;
 public class CreateCubeArrayTexture : MonoBehaviour
@@ -209,7 +208,7 @@ public class CreateCubeArrayTexture : MonoBehaviour
     [UnityEditor.MenuItem("CreateExamples/CubemapArray")]
     static void CreateCubemapArray()
     {
-        // Configure the cubemap array and color data
+        // 配置立方体贴图数组和颜色数据
         int faceSize = 16;
         int arraySize = 4;
         int[] kCubeXRemap = new int[] { 2, 2, 0, 0, 0, 0 };
@@ -220,29 +219,29 @@ public class CreateCubeArrayTexture : MonoBehaviour
         float[] kCubeZSign = new float[] { 1.0F, -1.0F, 1.0F, -1.0F, 1.0F, -1.0F };
         var baseCols = new Color[] { Color.white, new Color(1, .5f, .5f, 1), new Color(.5f, 1, .5f, 1), new Color(.5f, .5f, 1, 1), Color.gray };
         
-        // Create an instance of CubemapArray
+        // 创建 CubemapArray 的实例
         var tex = new CubemapArray(faceSize, arraySize, TextureFormat.ARGB32, true);
         tex.filterMode = FilterMode.Trilinear;
         
-        // Iterate over each cubemap
+        // 遍历每个立方体贴图
         var col = new Color[tex.width * tex.width];
         float invSize = 1.0f / tex.width;
         for (var i = 0; i &lt; tex.cubemapCount; ++i)
         {
             var baseCol = baseCols[i % baseCols.Length];
 
-            // Iterate over each face of the current cubemap
+            // 遍历当前立方体贴图的每个面
             for (var face = 0; face &lt; 6; ++face)
             {
                 var idx = 0;
                 Vector3 signScale = new Vector3(kCubeXSign[face], kCubeYSign[face], kCubeZSign[face]);
                 
-                // Iterate over each pixel of the current face
+                // 遍历当前的面的每个像素
                 for (int y = 0; y &lt; tex.width; ++y)
                 {
                     for (int x = 0; x &lt; tex.width; ++x)
                     {
-                        // Calculate a "normal direction" color for the current pixel
+                        // 计算当前像素的"法线方向"的颜色
                         Vector3 uvDir = new Vector3(x * invSize * 2.0f - 1.0f, y * invSize * 2.0f - 1.0f, 1.0f);
                         uvDir = uvDir.normalized;
                         uvDir.Scale(signScale);
@@ -251,10 +250,10 @@ public class CreateCubeArrayTexture : MonoBehaviour
                         dir[kCubeYRemap[face]] = uvDir[1];
                         dir[kCubeZRemap[face]] = uvDir[2];
 
-                        // Shift the color into the 0.4..1.0 range
+                        // 将颜色移至 0.4..1.0 范围
                         Color c = new Color(dir.x * 0.3f + 0.7f, dir.y * 0.3f + 0.7f, dir.z * 0.3f + 0.7f, 1.0f);
                         
-                        // Add a pattern to some pixels, so that mipmaps are more clearly visible
+                        // 将模式添加到一些像素中，以使 Mipmap 更清晰可见
                         if (((x ^ y) &amp; 3) == 1)
                             c *= 0.5f;
                         
@@ -264,30 +263,30 @@ public class CreateCubeArrayTexture : MonoBehaviour
                     }
                 }
 
-                // Copy the color values for this face to the texture
+                // 将此面的颜色值复制到纹理
                 tex.SetPixels(col, (CubemapFace)face, i);
             }
         }
 
-        // Apply the changes to the texture and upload the updated texture to the GPU
+        // 将更改应用到纹理并将更新后的纹理上传到 GPU
         tex.Apply();        
 
-        // Save the texture to your Unity Project
+        // 将该纹理保存到您的 Unity 项目
         AssetDatabase.CreateAsset(tex, "Assets/ExampleCubemapArray.asset");
         UnityEditor.AssetDatabase.SaveAssets();
     }
 }
 </code></pre>
 
-<h2>Previewing a cubemap array</h2>
+<h2>预览立方体贴图数组</h2>
 
-<p>To preview a cubemap array in the Inspector window, navigate to the Project window and select the Texture Asset. The Texture import settings for this Texture Asset are now visible in the Inspector, and Unity renders a preview of the cubemap array at the bottom of the Inspector.</p>
+<p>要在 Inspector 窗口中预览立方体贴图数组，请导航到 Project 窗口并选择 Texture Asset。Inspector 现在显示此纹理资源的纹理导入设置，Unity 会在 Inspector 底部渲染立方体贴图数组的预览。</p>
 
 <figure>
 <img src="../uploads/Main/cubemap-array-preview.png" alt="">
 </figure>
 
-<p>The following controls are available in the toolbar:</p>
+<p>工具栏中会显示以下控件：</p>
 
 <table>
 <colgroup>
@@ -305,15 +304,14 @@ public class CreateCubeArrayTexture : MonoBehaviour
 <tbody>
 <tr>
 	<td style="text-align:left;"><strong>Filter Mode</strong></td>
-	<td style="text-align:left;">The filtering to use for the preview. See the documentation on <a href="../ScriptReference/FilterMode.html">Filter Mode</a>
-</td>
+	<td style="text-align:left;">用于预览的过滤。请参阅有关<a href="../ScriptReference/FilterMode.html">过滤模式</a>的文档</td>
 </tr>
 </tbody>
 </table>
 
-<h2>Using a cubemap array in a shader</h2>
+<h2>在着色器中使用立方体贴图数组</h2>
 
-<p>Here is an example of a shader that uses a cubemap array.</p>
+<p>下面是一个使用立方体贴图数组的着色器示例。</p>
 
 <pre><code class="c#">Shader "CubemapArrayShaderExample" {
 Properties {
@@ -383,7 +381,7 @@ SubShader {
 
 </code></pre>
 
-<p>If you use this shader with the Cubemap Array created in the example at the top of the page, the result looks like this:</p>
+<p>如果将此着色器用于在页面顶部的示例中创建的立方体贴图，则结果将如下所示：</p>
 
 <figure>
 <img src="../uploads/Main/cubemap-array-shader-example.png" alt="">
@@ -391,20 +389,20 @@ SubShader {
 
 <hr>
 
-<p><span class="page-history">[Cubemap array support] added in <a href="https://docs.unity3d.com/2020.1/Documentation/Manual/30_search.html?q=newin20201">2020.1</a> <span class="search-words">NewIn20201</span></span></p>
+<p><span class="page-history">[立方体贴图数组支持]添加于 <a href="https://docs.unity3d.com/2020.1/Documentation/Manual/30_search.html?q=newin20201">2020.1</a><span class="search-words"> NewIn20201</span></span></p>
 <!-- area:graphics -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="class-Cubemap.html"></a></span><div class="tip">立方体贴图</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="ShadersOverview.html"></a></span><div class="tip">编写着色器</div>
+<span class="next"><a href="Shaders.html"></a></span><div class="tip">着色器</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

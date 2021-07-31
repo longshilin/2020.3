@@ -175,10 +175,10 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="ScriptingSection.html">Scripting</a></li>
-<li><a href="unity-architecture.html">Unity architecture</a></li>
-<li><a href="overview-of-dot-net-in-unity.html">Overview of .NET in Unity</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="ScriptingSection.html">脚本</a></li>
+<li><a href="unity-architecture.html">Unity 架构</a></li>
+<li><a href="overview-of-dot-net-in-unity.html">Unity 中的 .NET 概述</a></li>
 <li>了解自动内存管理</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
@@ -287,7 +287,7 @@ public class ExampleScript : MonoBehaviour {
     float[] RandomList(int numElements) {
         var result = new float[numElements];
         
-        for (int i = 0; i &amp;lt; numElements; i++) {
+        for (int i = 0; i &lt; numElements; i++) {
             result[i] = Random.value;
         }
         
@@ -376,49 +376,49 @@ public class ExampleScript : MonoBehaviour {
 
 <h1>增量垃圾收集</h1>
 
-<p>Incremental garbage collection spreads out the process of garbage collection over multiple frames.</p>
+<p>增量式垃圾收集将垃圾收集过程分散到多个帧中。</p>
 
-<p>Incremental garbage collection is the default garbage collection method Unity uses. This is still the Boehm-Demers-Weiser garbage collector, but Unity runs it in an incremental mode. Instead of doing a full garbage collection each time it runs, Unity splits up the garbage collection workload over multiple frames. This means that instead of one long interruption to your program’s execution to allow the garbage collector to do its work, Unity makes multiple, much shorter interruptions. While this does not make garbage collection faster overall, distributing the workload over multiple frames can significantly reduce the problem of garbage collection “spikes” that break the smoothness of your application.</p>
+<p>增量式垃圾收集是 Unity 使用的默认垃圾收集方法。Unity 仍然使用 Boehm–Demers–Weiser 垃圾收集器，但是以增量模式运行。Unity 不会在每次运行时进行完整的垃圾收集，而是将垃圾收集工作负载拆分到多个帧中。这意味着，不必单次长时间中断程序的执行来让垃圾收集器完成工作，Unity 会进行多次短时间的中断。虽然这不能整体上加快垃圾收集速度，但将工作负载分布到多个帧可以极大减少垃圾收集“尖峰”破坏应用程序流畅性的问题。</p>
 
-<p>The following screenshots from the Unity Profiler illustrate how incremental collection reduces framerate hiccups. In these profile traces, the light blue parts of the frame show how much time is used by script operations, the yellow parts show the time remaining in the frame until Vsync (waiting for the next frame to begin), and the dark green parts show the time spent for garbage collection.</p>
+<p>下面的 Unity Profiler 屏幕截图说明了增量式收集如何减少帧率中断。在这些性能分析跟踪中，帧的浅蓝色部分显示脚本操作所用的时间，黄色部分显示在 Vsync 之前（等待下一帧开始）的帧中剩余时间，而深绿色部分显示垃圾收集花费的时间。</p>
 
-<p>The following screenshot displays a frame capture from the Unity Profiler in an application that does not use incremental garbage collection:</p>
+<p>以下屏幕截图显示了在不使用增量式垃圾收集的应用程序中从 Unity Profiler 捕获的帧：</p>
 
 <figure>
-<img src="../uploads/Main/gc_spike.png" alt="Profile without using incremental garbage collection">
-<figcaption>Profile without using incremental garbage collection</figcaption>
+<img src="../uploads/Main/gc_spike.png" alt="未使用增量式垃圾收集的性能分析">
+<figcaption>未使用增量式垃圾收集的性能分析</figcaption>
 </figure>
 
-<p>Without incremental garbage collection, a spike interrupts the otherwise smooth 60fps frame rate. This spike pushes the frame in which garbage collection occurs well over the 16 millisecond limit required to maintain 60FPS (this example drops more than one frame because of garbage collection.)</p>
+<p>如果不进行增量式垃圾收集，尖峰中断了原本平滑的 60fps 帧率。这个尖峰将发生垃圾收集的帧推到了维持 60FPS 所需的 16 毫秒限制之上（本示例由于垃圾收集而丢弃了不止一帧。）</p>
 
-<p>The following screenshot displays a frame capture from the Unity Profiler in an application that does use incremental garbage collection:</p>
+<p>以下屏幕截图显示了在使用增量式垃圾收集的应用程序中从 Unity Profiler 捕获的帧：</p>
 
 <figure>
-<img src="../uploads/Main/gc_auto.png" alt="Incremental garbage collection profile">
-<figcaption>Incremental garbage collection profile</figcaption>
+<img src="../uploads/Main/gc_auto.png" alt="增量垃圾收集性能分析">
+<figcaption>增量垃圾收集性能分析</figcaption>
 </figure>
 
 <p>启用增量垃圾收集（上图）后，同一项目将保持一致的 60fps 帧率，因为垃圾收集操作被分解到若干帧中，只占用每帧的一小段时间（位于黄色 Vsync 跟踪上方的深绿色条纹）。</p>
 
-<p>The following screenshot displays a frame capture in the Unity Profiler from the same project, also running with incremental garbage collection enabled, but this time with fewer scripting operations per frame. </p>
+<p>下面的屏幕截图显示了同一项目的 Unity Profiler 中捕获的帧，该项目也在启用增量式垃圾收集的情况下运行，但是这次每帧脚本操作减少。</p>
 
 <figure>
-<img src="../uploads/Main/gc_incremental.png" alt="Incremental garbage collection using left over time in frame">
-<figcaption>Incremental garbage collection using left over time in frame</figcaption>
+<img src="../uploads/Main/gc_incremental.png" alt="使用帧中剩余时间的增量式垃圾收集">
+<figcaption>使用帧中剩余时间的增量式垃圾收集</figcaption>
 </figure>
 
-<p>Again, the garbage collection operation is broken up over several frames. The difference is that this time, the garbage collection uses more time each frame, and requires fewer total frames to finish. This is because Unity adjusts the time it allocates to garbage collection based on the remaining available frame time if your application uses <a href="../ScriptReference/QualitySettings-vSyncCount.html">Vsync</a> or <a href="../ScriptReference/Application-targetFrameRate.html">Application.targetFrameRate</a>. This way, Unity can run the garbage collection in time it would otherwise spend waiting, and therefore carry out garbage collection with a minimal performance impact.</p>
+<p>同样，垃圾收集操作也分解到若干帧中。差异在于这次垃圾收集占用每帧的更多时间，而需要更少的总帧数即可完成。这是因为如果应用程序使用 <a href="../ScriptReference/QualitySettings-vSyncCount.html">Vsync</a> 或 <a href="../ScriptReference/Application-targetFrameRate.html">Application.targetFrameRate</a>，Unity 根据剩余的可用帧时间来调整分配给垃圾收集的时间。这样，Unity 可以及时运行垃圾收集（否则需要等待），从而以最小的性能影响执行垃圾收集。</p>
 
-<p>All platforms other than WebGL support incremental garbage collection.</p>
+<p>除 WebGL 之外的所有平台都支持增量式垃圾收集。</p>
 
 <figure>
-<img src="../uploads/Main/gc_settings.png" alt="Player Settings to disable incremental garbage collection">
-<figcaption>Player Settings to disable incremental garbage collection</figcaption>
+<img src="../uploads/Main/gc_settings.png" alt="在 Player Settings 中禁用增量式垃圾收集">
+<figcaption>在 Player Settings 中禁用增量式垃圾收集</figcaption>
 </figure>
 
-<p>In addition, if you set the <strong>VSync Count</strong> to anything other than <strong>Don’t Sync</strong> (in your project’s <a href="class-QualitySettings.html">Quality settings</a> or with the <a href="../ScriptReference/QualitySettings-vSyncCount.html">Application.VSync</a> property) or you enable the <a href="../ScriptReference/Application-targetFrameRate.html">Application.targetFrameRate</a> property, Unity automatically uses any idle time left at the end of a given frame for incremental garbage collection.</p>
+<p>此外，如果将 <strong>VSync Count</strong> 设置为 <strong>Don’t Sync</strong> 之外的选项（在项目的 <a href="class-QualitySettings.html">Quality 设置</a>中或通过 <a href="../ScriptReference/QualitySettings-vSyncCount.html">Application.VSync</a> 属性），或者启用 <a href="../ScriptReference/Application-targetFrameRate.html">Application.targetFrameRate</a> 属性），则 Unity 会自动使用给定帧末尾剩余的空闲时间来进行增量式垃圾收集。</p>
 
-<p>To exercise more precise control over incremental garbage collection behavior, you can use the <a href="../ScriptReference/Scripting.GarbageCollector.html">Scripting.GarbageCollector</a> class. For example, if you do not want to use VSync or a target frame rate, you can calculate the amount of time available before the end of a frame yourself, and provide that time to the garbage collector to use.</p>
+<p>要对增量式垃圾收集行为进行更精确的控制，可以使用 <a href="../ScriptReference/Scripting.GarbageCollector.html">Scripting.GarbageCollector</a> 类。例如，如果不想使用 VSync 或目标帧率，则可以自行计算帧结束之前的可用时间，并将该时间提供给垃圾收集器使用。</p>
 
 <h2>增量垃圾收集的可能问题</h2>
 
@@ -456,7 +456,7 @@ public class ExampleScript : MonoBehaviour {
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

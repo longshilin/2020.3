@@ -175,11 +175,10 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
-<li><a href="ShadersOverview.html">编写着色器</a></li>
-<li><a href="SL-Reference.html">着色器参考</a></li>
+<li><a href="Shaders.html">着色器</a></li>
+<li><a href="shader-writing.html">编写着色器</a></li>
 <li><a href="SL-SurfaceShaders.html">编写表面着色器</a></li>
 <li>表面着色器示例</li>
 </ul></div>
@@ -196,6 +195,40 @@
 <div class="clear"></div>
 
 <p>本页上的<a href="SL-SurfaceShaders.html">表面着色器</a>示例说明了如何使用内置光照模型。如需查看如何实现自定义光照模型的示例，请参阅<a href="SL-SurfaceShaderLightingExamples.html">表面着色器光照示例</a>。</p>
+
+<p>在内置渲染管线中，表面着色器是编写与光照交互的着色器的一种简化方式。</p>
+
+<h2>渲染管线兼容性</h2>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>功能名称</strong></th>
+	<th style="text-align:left;"><strong>内置渲染管线</strong></th>
+	<th style="text-align:left;"><strong>通用渲染管线 (URP)</strong></th>
+	<th style="text-align:left;"><strong>高清渲染管线 (HDRP)</strong></th>
+	<th style="text-align:left;"><strong>自定义 SRP</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>表面着色器</strong></td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">否<br><br>有关在 URP 中创建 Shader 对象的简化方法，请参阅 <a href="shader-graph.html">Shader Graph</a>。</td>
+	<td style="text-align:left;">否<br><br>有关在 HDRP 中创建 Shader 对象的简化方法，请参阅 <a href="shader-graph.html">Shader Graph</a>。</td>
+	<td style="text-align:left;">否</td>
+</tr>
+</tbody>
+</table>
 
 <h2>简单的着色器示例</h2>
 
@@ -226,7 +259,7 @@
 
 <h2>纹理</h2>
 
-<p>一个全白的对象很无聊，所以让我们添加一个纹理。我们将向着色器添加 <a href="SL-Properties.html">Properties</a> 代码块，这样我们将在材质中看到纹理选择器。其他更改在下文中以粗体显示。</p>
+<p>一个全白的对象很无聊，所以让我们添加一个纹理。我们将向着色器添加 <a href="SL-Properties.html">Properties</a> 代码块，这样我们将在材质中看到纹理选择器。</p>
 
 <pre><code>  Shader "Example/Diffuse Texture" {
       Properties {
@@ -678,7 +711,7 @@
 <img src="../uploads/Main/SurfaceShaderFinalColorFog.jpg" alt="">
 </figure>
 
-<h2>线性雾效</h2>
+<h2>线性雾</h2>
 
 <pre><code>Shader "Example/Linear Fog" {
   Properties {
@@ -760,7 +793,6 @@
     }
 }
 </code></pre>
-<!-- area:graphics -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="SL-RenderPipeline.html"></a></span><div class="tip">表面着色器和渲染路径</div>
@@ -772,7 +804,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

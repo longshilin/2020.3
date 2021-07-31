@@ -13,8 +13,8 @@
 <meta name="twitter:card" content="summary">
 <meta property="og:title" content="Input Manager - Unity 手册">
 <title>Input Manager - Unity 手册</title>
-<meta name="description" content="The Input Manager window allows you to define input axes and their associated actions for your Project. To access it, from Unity&amp;#8217;s main menu, go to Edit &gt; Project Settings, then select Input Manager from teh navigation on the right.">
-<meta property="og:description" content="The Input Manager window allows you to define input axes and their associated actions for your Project. To access it, from Unity&amp;#8217;s main menu, go to Edit &gt; Project Settings, then select Input Manager from teh navigation on the right.">
+<meta name="description" content="在 Input Manager 窗口中可以为项目定义输入轴及其关联操作。要访问该窗口，请从 Unity 的主菜单中转到 Edit &gt; Project Settings，然后从右侧的导航选择 Input Manager。">
+<meta property="og:description" content="在 Input Manager 窗口中可以为项目定义输入轴及其关联操作。要访问该窗口，请从 Unity 的主菜单中转到 Edit &gt; Project Settings，然后从右侧的导航选择 Input Manager。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,7 +174,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Input.html">输入</a></li>
 <li>Input Manager</li>
 </ul></div>
@@ -190,7 +190,7 @@
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>The <strong>Input Manager</strong> window allows you to define input axes and their associated actions for your Project. To access it, from Unity’s main menu, go to <strong>Edit &gt; Project Settings</strong>, then select <strong>Input Manager</strong> from teh navigation on the right.</p>
+<p>在 <strong>Input Manager</strong> 窗口中可以为项目定义输入轴及其关联操作。要访问该窗口，请从 Unity 的主菜单中转到 <strong>Edit &gt; Project Settings</strong>，然后从右侧的导航选择 <strong>Input Manager</strong>。</p>
 
 <p>Input Manager 使用以下类型的控件：</p>
 
@@ -412,16 +412,16 @@
 <p>可以使用 <strong>Horizontal</strong> 和 <strong>Vertical</strong> 轴的输入以及 <a href="../ScriptReference/Transform.Translate.html"><code>transform.Translate</code></a> 方法来移动 XZ 空间中的游戏对象（前移、后移、左移或右移）。在附加到待移动游戏对象的脚本上，将以下代码添加到脚本的 <code>update()</code> 方法中：</p>
 
 <pre><code>float moveSpeed = 10;
-//Define the speed at which the object moves.
+//定义对象移动的速度。
 
 float horizontalInput = Input.GetAxis("Horizontal");
-//Get the value of the Horizontal input axis.
+//获取水平输入轴的数值。
 
 float verticalInput = Input.GetAxis("Vertical");
-//Get the value of the Vertical input axis.
+//获取垂直输入轴的数值。
 
 transform.Translate(new Vector3(horizontalInput, verticalInput, 0) * moveSpeed * Time.deltaTime);
-//Move the object to XYZ coordinates defined as horizontalInput, 0, and verticalInput respectively.
+//将对象移动到 XYZ 坐标，分别定义为 horizontalInput、0 以及 verticalInput。
 </code></pre>
 
 <p><a href="../ScriptReference/Time-deltaTime.html"><code>Time.deltaTime</code></a> 表示自上一帧以来经过的时间。将 <code>moveSpeed</code> 变量乘以 <code>Time.deltaTime</code> 可确保游戏对象在每一帧匀速移动。</p>
@@ -437,7 +437,7 @@ transform.Translate(new Vector3(horizontalInput, verticalInput, 0) * moveSpeed *
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

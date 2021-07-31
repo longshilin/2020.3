@@ -174,7 +174,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li>XR</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
@@ -199,11 +199,11 @@
 <li>增强现实 (AR)：这种应用程序在现实世界的数字视图上将内容分层。</li>
 </ul>
 
-<h2>官方支持的平台</h2>
+<h2>支持的平台</h2>
 
 <p>Unity 与战略合作伙伴紧密合作，以确保创作者在为 Unity 支持的平台开发内容时获得所需的所有支持。这涉及深度平台集成、Unity 引擎改进以及每个平台的 XR 技术堆栈优化。</p>
 
-<p>从 2019.3 开始，Unity 官方支持以下 XR 平台：</p>
+<p>Unity supports these platforms for XR:</p>
 
 <ul>
 <li>ARKit</li>
@@ -212,12 +212,11 @@
 <li>Windows Mixed Reality</li>
 <li>Magic Leap</li>
 <li>Oculus</li>
+<li>OpenXR</li>
 <li>PlayStation VR</li>
 </ul>
 
 <p>Unity does not support XR on WebGL.</p>
-
-<p>注意：Valve 和 Google 已使用 Unity 的 XR SDK 为 OpenVR 和 Cardboard 分别开发了自己的插件。这些插件与 Unity 2019.3 及更高版本兼容。有关更多信息，请参阅 <a href="VROverview.html">VR 开发入门</a>页面。</p>
 
 <h2>Unity XR 插件框架</h2>
 
@@ -228,43 +227,13 @@
 <li>要了解有关新框架的运行方式，请参阅 <a href="XRPluginArchitecture.html">XR 插件框架</a>页面。</li>
 </ul>
 
-<h2>弃用内置 XR 平台集成</h2>
-
-<p>在 2019.3 中，Unity 已过渡到新的插件框架以支持 XR 平台集成。因此，内置的 XR 平台集成已被标记为已弃用。<strong>这些集成在 2019.3 中仍可使用，并将在 2019.4 中继续有效。</strong>Unity 不会为这些集成开发任何新功能，但是将继续提供重要的错误修复。</p>
-
-<p>内置的集成及其相应的文档如下所示：</p>
-
-<ul>
-<li>
-<a href="https://docs.unity3d.com/Packages/com.unity.xr.windowsmr.metro@latest">Windows Mixed Reality</a>（HoloLens 和 Windows MR 设备）</li>
-<li>
-<a href="https://docs.unity3d.com/Packages/com.unity.xr.oculus.android@latest">Oculus Android</a> 和 <a href="https://docs.unity3d.com/Packages/com.unity.xr.oculus.standalone@latest">Oculus Desktop</a>
-</li>
-<li><a href="https://docs.unity3d.com/Packages/com.unity.xr.openvr.standalone@latest">OpenVR (Desktop)</a></li>
-<li>
-<a href="https://docs.unity3d.com/Packages/com.unity.xr.googlevr.android@2.0/manual/index.html">Google VR Android</a> 和 <a href="https://docs.unity3d.com/Packages/com.unity.xr.googlevr.ios@2.0/manual/index.html">Google VR iOS</a>
-</li>
-<li>
-<a href="https://docs.unity3d.com/Packages/com.ptc.vuforia.engine@8.5/manual/index.html">Vuforia Engine AR</a> (1)</li>
-</ul>
-
-<p><strong>注意：</strong>(1) 从 2019.3 开始，Vuforia Engine 内置包 (Vuforia Engine AR) 将不再原生分发，也不再直接由 Unity 支持。您将继续能够通过 <a href="https://developer.vuforia.com/">Vuforia 开发者门户网站</a>下载新版本的 Vuforia Engine for Unity。</p>
-
 <h2>Unity 中的 AR 开发</h2>
 
-<p><a href="AROverview.html">AR 概述</a>页面详细介绍了创建 AR 应用程序的入门知识，列出了您需要下载的包，并提供了指向其他文档的相关链接。Unity 建议下载 <strong>AR Foundation</strong> 和 <strong>XR Management</strong> 包，以便为 Unity 支持的手持式和可穿戴式 AR 设备创建应用程序。</p>
+<p>The <a href="AROverview.html">AR overview</a> page details how to get started with creating an AR application, lists the packages you need to download, and offers related links to additional documentation. Unity recommends downloading the <strong>AR Template</strong> from the Unity Hub to create your application for Unity’s supported handheld and wearable AR devices.</p>
 
 <h2>Unity 中的 VR 开发</h2>
 
-<p><a href="VROverview.html">VR 概述</a>页面详细介绍了创建 VR 应用程序的入门知识，列出了您需要下载的包，并提供了指向其他文档的相关链接。首先，Unity 建议下载 <strong>XR Management</strong> 和 <strong>XR Interaction Toolkit</strong> <strong>(Preview)</strong> 包，以便为 Unity 支持的 VR 设备创建应用程序。</p>
-
-<h2>Unity Package Manager</h2>
-
-<p>Unity 的大多数 XR 功能都可在<a href="PackagesList.html">包</a>中找到，这些包可通过 <a href="Packages.html">Package Manager</a>（从 Unity 的主菜单中选择 <strong>Window &gt; Package Manager</strong>）进行安装。Package Manager 窗口显示有关每个包的详细信息。</p>
-
-<p><strong>注意：</strong>要查看预览包，请单击 Package Manager 窗口中的 <strong>Advanced</strong> 下拉菜单，然后选择 <strong>Show Preview Packages</strong>。</p>
-
-<p>有关要下载的包的完整列表，请参阅 <a href="AROverview.html">AR 概述</a>和 <a href="VROverview.html">VR 概述</a>页面。</p>
+<p>The <a href="VROverview.html">VR overview</a> page details how to get started creating a VR application, lists the packages you need to download, and offers related links to additional documentation. To start, Unity recommends downloading the <strong>VR Template</strong> from the Unity Hub to create your application for Unity’s supported VR devices.</p>
 
 <h2>API 用法示例</h2>
 
@@ -291,7 +260,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

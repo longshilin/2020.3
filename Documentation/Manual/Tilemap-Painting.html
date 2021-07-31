@@ -14,8 +14,8 @@
 <meta property="og:title" content="在瓦片地图上绘制 - Unity 手册">
 <title>在瓦片地图上绘制 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/ActiveTilemap_highlight.png">
-<meta name="description" content="The following details the steps and tools for painting Tiles on a Tilemap. However, if you are painting an Isometric Tilemap, refer to Creating a Tile Palette for an Isometric Tilemap for specific steps and information.">
-<meta property="og:description" content="The following details the steps and tools for painting Tiles on a Tilemap. However, if you are painting an Isometric Tilemap, refer to Creating a Tile Palette for an Isometric Tilemap for specific steps and information.">
+<meta name="description" content="下文将详细介绍在瓦片地图上绘制瓦片的步骤和工具。但是，如果要绘制等距瓦片地图，请参阅创建用于等距瓦片地图的瓦片面板以了解具体步骤和信息。">
+<meta property="og:description" content="下文将详细介绍在瓦片地图上绘制瓦片的步骤和工具。但是，如果要绘制等距瓦片地图，请参阅创建用于等距瓦片地图的瓦片面板以了解具体步骤和信息。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,41 +175,41 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Unity2D.html">2D</a></li>
 <li><a href="class-Tilemap.html">Tilemap</a></li>
-<li><a href="Tilemap-workflow.html">Tilemap workflow</a></li>
+<li><a href="Tilemap-workflow.html">瓦片地图工作流程</a></li>
 <li>在瓦片地图上绘制</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="Tilemap-Palette.html"></a></span><div class="tip">**Creating** a Tile Palette</div>
+<span class="prev"><a href="Tilemap-Palette.html"></a></span><div class="tip">**创建**瓦片面板</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="TilemapPainting-SelectionTool.html"></a></span><div class="tip">Select Tool</div>
+<span class="next"><a href="TilemapPainting-SelectionTool.html"></a></span><div class="tip">选择工具</div>
 </div>
 </div></div>
 <h1>在瓦片地图上绘制</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>The following details the steps and tools for painting <strong>Tiles</strong> on a <strong>Tilemap</strong>. However, if you are painting an <a href="Tilemap-Isometric.html">Isometric Tilemap</a>, refer to <a href="Tilemap-Isometric-Palette.html">Creating a Tile Palette for an Isometric Tilemap</a> for specific steps and information.</p>
+<p>下文将详细介绍在<strong>瓦片地图</strong>上绘制<strong>瓦片</strong>的步骤和工具。但是，如果要绘制<a href="Tilemap-Isometric.html">等距瓦片地图</a>，请参阅<a href="Tilemap-Isometric-Palette.html">创建用于等距瓦片地图的瓦片面板</a>以了解具体步骤和信息。</p>
 
-<p>To begin painting Tiles, select the Tilemap you want to paint on from the <strong>Active Tilemap</strong> drop-down menu in the <strong>Tilemap Palette</strong> window. Tilemaps created in the Scene’s hierarchy are automatically added to the drop-down menu. Only the currently selected <strong>Active Tilemap</strong> is affected by the <strong>Tile Palette</strong> painting tools.</p>
+<p>要开始绘制瓦片，请从 <strong>Tilemap Palette</strong> 窗口中的 <strong>Active Tilemap</strong> 下拉菜单中选择要绘制瓦片的瓦片地图。场景层级视图中创建的瓦片地图会自动添加到下拉菜单中。只有当前选定的 <strong>Active Tilemap</strong> 会受 <strong>Tile Palette</strong> 绘制工具的影响。</p>
 
 <figure>
 <img src="../uploads/Main/ActiveTilemap_highlight.png" alt="有效瓦片地图 (Active Tilemap)">
 <figcaption>有效瓦片地图 (Active Tilemap)</figcaption>
 </figure>
 
-<p>Tilemap painting tools are found in a row at the top of the <strong>Tile Palette</strong> window. These tools can also be used to edit the <a href="Tilemap-Palette.html">Tile Palette</a> itself.</p>
+<p>瓦片地图绘制工具位于 <strong>Tile Palette</strong> 窗口顶部的一行中。这些工具也可用于编辑 <a href="Tilemap-Palette.html">Tile Palette</a> 本身。</p>
 
 <figure>
 <img src="../uploads/Main/TilePalette_ToolRow.png" alt="工具行">
 <figcaption>工具行</figcaption>
 </figure>
 
-<h2>Painting Tool Shortcuts</h2>
+<h2>绘制工具快捷键</h2>
 
 <table>
 <colgroup>
@@ -263,7 +263,7 @@
 </tr>
 <tr>
 	<td style="text-align:left;">
-<img src="../uploads/Main/PaintBucketTool.png" alt=""> <a href="#Fill">Flood Fill Tool</a>
+<img src="../uploads/Main/PaintBucketTool.png" alt=""> <a href="#Fill">灌填工具</a>
 </td>
 	<td style="text-align:left;">G</td>
 </tr>
@@ -273,66 +273,66 @@
 <h3>选择工具<a name="Select"></a>
 </h3>
 
-<p>Use the <strong>Select Tool</strong> to select a Tile on the Active Tilemap or hold and drag over multiple Tiles to select more at once. The property details of selected Tiles are shown in the Inspector Window. See the <a href="TilemapPainting-SelectionTool.html">Select Tool</a> page for more information about the <a href="https://docs.unity3d.com/Manual/TilemapPainting-SelectionTool.html#GridSelect">Grid Selection Properties</a> and examples of the different <a href="https://docs.unity3d.com/Manual/TilemapPainting-SelectionTool.html#Modify">Modify Tilemap</a> options available.</p>
+<p>使用<strong>选择工具</strong>可选择有效瓦片地图上的瓦片，或按住并在多个瓦片上拖动来一次选择多个瓦片。所选瓦片的属性详细信息将显示在 Inspector 窗口中。有关<a href="https://docs.unity3d.com/Manual/TilemapPainting-SelectionTool.html#GridSelect">网格选择属性</a>和不同 <a href="https://docs.unity3d.com/Manual/TilemapPainting-SelectionTool.html#Modify">Modify Tilemap</a> 可用选项的更多信息，请参阅<a href="TilemapPainting-SelectionTool.html">选择工具</a>页面。</p>
 
 <figure>
-<img src="../uploads/Main/SelectTile_inspector.png" alt="Selecting a Tile on the Tilemap with the Select Tool">
-<figcaption>Selecting a Tile on the Tilemap with the <strong>Select Tool</strong></figcaption>
+<img src="../uploads/Main/SelectTile_inspector.png" alt="使用选择工具选择瓦片地图上的瓦片">
+<figcaption>使用<strong>选择工具</strong>选择瓦片地图上的瓦片</figcaption>
 </figure>
 
-<p>After selecting Tiles with the Select Tool, you can use the <strong><a href="#Move">Move Tool</a></strong> to move selected Tiles to a different position on the Tilemap.</p>
+<p>使用选择工具选择瓦片后，可以使用<strong><a href="#Move">移动工具</a></strong>将选定的瓦片移动到瓦片地图上的不同位置。</p>
 
-<h3>Move Tool<a name="Move"></a>
+<h3>移动工具<a name="Move"></a>
 </h3>
 
-<p>Use the <strong>Move Tool</strong> to move the Select Tool’s Tile selection (the Move Tool cannot select Tiles itself). Hold and drag selected Tiles to another position on the Tilemap.</p>
+<p>使用<strong>移动工具</strong>可移动选择工具所选的瓦片（移动工具不能选择瓦片自身）。按住并将所选瓦片拖动到瓦片地图上的另一个位置。</p>
 
 <figure>
 <img src="../uploads/Main/TilePalette_MoveTool.png" alt="">
 </figure>
 
-<h3>Paintbrush Tool<a name="Brush"></a>
+<h3>画笔工具<a name="Brush"></a>
 </h3>
 
-<p>Use the <strong>Paintbrush Tool</strong> to select a Tile in the Tilemap Palette, or hold and drag over multiple Tiles to select more at once. Then click on any location on the Tilemap in the Scene to begin painting with your selected Tiles. Hold Shift while using the <strong>Paintbrush Tool</strong> to switch to the <strong><a href="#Eraser">Erase Tool</a></strong>.</p>
+<p>使用<strong>画笔工具</strong>选择瓦片地图面板 (Tilemap Palette) 中的瓦片，或按住并在多个瓦片上拖动来一次选择多个瓦片。然后单击场景中瓦片地图上的任何位置即可开始使用所选的瓦片进行绘制。使用<strong>画笔工具</strong>时按住 Shift 可切换到<strong><a href="#Eraser">擦除工具</a></strong>。</p>
 
 <figure>
 <img src="../uploads/Main/TilePalette_PaintTool.png" alt="">
 </figure>
 
-<p>To select and paint with Tiles that are already on the Tilemap instead of the <strong>Tilemap Palette</strong>, hold <strong>Ctrl</strong> as you select Tiles on the Tilemap with the <strong>Paintbrush Tool</strong>. This briefly switches it to the <strong><a href="#Picker">Picker Tool</a></strong> to select the Tiles for painting.</p>
+<p>要使用瓦片地图上已有的瓦片而不是 <strong>Tilemap Palette</strong> 进行选择和绘制，请在使用<strong>画笔工具</strong>在瓦片地图上选择瓦片时按住 <strong>Ctrl</strong>。此时将快速切换到<strong><a href="#Picker">选取器工具</a></strong>以便选择用于绘制的瓦片。</p>
 
-<h3>Box Fill Tool<a name="Rec"></a>
+<h3>框填工具<a name="Rec"></a>
 </h3>
 
-<p>Use the <strong>Box Fill Tool</strong> to select a Tile in the Tilemap Palette, or hold and drag over multiple Tiles to select more at once. Selections made with the other painting tools are also valid. Hold and drag the <strong>Box Fill Tool</strong> over the Tilemap to draw a rectangular shape which fills with the selected Tile(s.)</p>
+<p>使用<strong>框填工具</strong>选择 Tilemap Palette 中的瓦片，或按住并在多个瓦片上拖动来一次选择多个瓦片。使用其他绘制工具进行的选择也有效。按住<strong>框填工具</strong>并在瓦片地图上拖动来绘制一个矩形形状，其中会以选定的瓦片进行填充。</p>
 
 <figure>
 <img src="../uploads/Main/TilePalette_FillBox.png" alt="">
 </figure>
 
-<h3>Picker Tool<a name="Picker"></a>
+<h3>选取器工具<a name="Picker"></a>
 </h3>
 
-<p>Use the <strong>Picker Tool</strong> to pick a Tile from the Tilemap or Tilemap palette; hold and drag over multiple Tiles to select more at once. The active tool switches to the <strong>Paintbrush Tool</strong> once a selection is made, to allow you to paint immediately on the Tilemap with the selected Tile(s).</p>
+<p>使用<strong>选取器工具</strong>从瓦片地图或瓦片地图面板选取瓦片；按住并在多个瓦片上拖动可一次选择多个瓦片。进行选择后，活动工具将切换到<strong>画笔工具</strong>，从而允许使用选定的瓦片立即在瓦片地图上绘制。</p>
 
 <figure>
 <img src="../uploads/Main/Tilemap_PickerTool.png" alt="">
 </figure>
 
-<h3>Eraser Tool<a name="Eraser"></a>
+<h3>橡皮擦工具<a name="Eraser"></a>
 </h3>
 
-<p>Use the <strong>Eraser Tool</strong> to erase Tiles from the Tilemap by selecting them while the tool is enabled. To erase a larger area at once, hold and drag the Eraser Tool to the desired size in the Tilemap Palette, then paint over Tiles you want to delete on the Tilemap.</p>
+<p>使用<strong>橡皮擦工具</strong>可从瓦片地图中删除瓦片，只需在启用该工具时选择要删除的瓦片即可。要一次性擦除更大的区域，请按住擦除工具，根据所需大小在瓦片地图面板中拖动该工具，然后在瓦片地图上绘制要删除的瓦片。</p>
 
 <figure>
 <img src="../uploads/Main/TilePalette_Erase.png" alt="">
 </figure>
 
-<h3>Flood Fill Tool<a name="Fill"></a>
+<h3>灌填工具<a name="Fill"></a>
 </h3>
 
-<p>The <strong>Flood Fill Tool</strong> is used to fill a contiguous area of empty cells or identical Tiles with the selected Tile. Select the Tile to use as the Flood Fill by selecting it from the Tilemap Palette. This tool cannot be used with multiple Tiles.</p>
+<p><strong>灌填工具</strong>使用选定的瓦片填充连续的空单元格或相同瓦片区域。通过从瓦片地图面板中选择瓦片，选择要用于灌填的瓦片。此工具不能用于多个瓦片。</p>
 
 <figure>
 <img src="../uploads/Main/TilePalette_FillTool.png" alt="">
@@ -342,13 +342,13 @@
 
 <p>使用瓦片地图焦点 (Tilemap Focus) 模式可聚焦特定的瓦片地图或网格游戏对象，并淡出场景中的其他游戏对象。在处理多个瓦片地图层时非常有用，可以避免混淆和混乱。</p>
 
-<p>First select the target Tilemap from the <strong>Active Target</strong> dropdown in the <strong>Tilemap Palette</strong> window or from the <strong>Hierarchy</strong> window. The Tilmap Focus On dropdown menu is found at the bottom right of the Scene View.</p>
+<p>首先从 <strong>Tilemap Palette</strong> 窗口或 <strong>Hierarchy</strong> 窗口的 <strong>Active Target</strong> 下拉选单中选择目标瓦片地图。Tilmap Focus On 下拉菜单位于 Scene 视图的右下角。</p>
 
 <figure>
 <img src="../uploads/Main/TilePalette_FocusTilemap.png" alt="">
 </figure>
 
-<p>Select the <strong>Focus On</strong> target from the options in the dropdown menu:</p>
+<p>在下拉菜单的选项中选择 <strong>Focus On</strong> 目标：</p>
 
 <table>
 <colgroup>
@@ -402,7 +402,7 @@
 <figcaption>画笔预览：光标处拾取的瓦片的可视化预览</figcaption>
 </figure>
 
-<p>When painting the Tilemap in the Scene view with the active Brush, a preview of the picked Tile(s) is shown at the cursor location. This is the <strong>Brush preview</strong> that helps you to visualize the placement of the Tiles before painting. Brush previews with multiple Tiles may look different when the cursor hovers over neighboring rows or columns. This is more pronounced on <a href="Tilemap-Hexagonal.html">Hexagonal Tilemaps</a>.</p>
+<p>使用有效画笔在 Scene 视图中绘制瓦片地图时，光标位置会显示所拾取的瓦片的预览。这是<strong>画笔预览</strong>，有助于在绘制之前可视化瓦片布局。当光标悬停在相邻的行或列上时，包含多个瓦片的画笔预览可能看起来有所不同。这种现象在<a href="Tilemap-Hexagonal.html">六边形瓦片地图</a>上更为明显。</p>
 
 <p>使用以下快捷键，可以更改所拾取的瓦片的方向或 z 位置，这可以直观地反映在画笔预览中。</p>
 
@@ -450,25 +450,25 @@
 <hr>
 
 <ul>
-<li><span class="page-history">Updated Fill Tool name to Flood Fill Tool in Unity <a href="https://docs.unity3d.com/2020.2/Documentation/Manual/30_search.html?q=newin20202">2020.2</a> <span class="search-words">NewIn20202</span></span></li>
+<li><span class="page-history">已将填充工具名称更新为灌填工具 Unity <a href="https://docs.unity3d.com/2020.2/Documentation/Manual/30_search.html?q=newin20202">2020.2</a> <span class="search-words">NewIn20202</span></span></li>
 <li><span class="page-edit">2020–01–07</span></li>
-<li><span class="page-history">Updated Select Tool functionality in Unity <a href="https://docs.unity3d.com/2020.1/Documentation/Manual/30_search.html?q=newin20201">2020.1</a> <span class="search-words">NewIn20201</span></span></li>
+<li><span class="page-history">更新了 Unity 中的选择工具功能 <a href="https://docs.unity3d.com/2020.1/Documentation/Manual/30_search.html?q=newin20201">2020.1</a> <span class="search-words">NewIn20201</span></span></li>
 <li><span class="page-history">在 Unity <a href="https://docs.unity3d.com/2018.2/Documentation/Manual/30_search.html?q=newin20183">2018.2</a> 中添加了 Z 位置编辑器 <span class="search-words">NewIn20182</span></span></li>
 <li><span class="page-history">在 <a href="https://docs.unity3d.com/2017.2/Documentation/Manual/30_search.html?q=newin20172">2017.2</a> 版中添加了瓦片地图 <span class="search-words">NewIn20172</span></span></li>
 </ul>
 <!-- area:authoring -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="Tilemap-Palette.html"></a></span><div class="tip">**Creating** a Tile Palette</div>
+<span class="prev"><a href="Tilemap-Palette.html"></a></span><div class="tip">**创建**瓦片面板</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="TilemapPainting-SelectionTool.html"></a></span><div class="tip">Select Tool</div>
+<span class="next"><a href="TilemapPainting-SelectionTool.html"></a></span><div class="tip">选择工具</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="ShaderLab：UsePass - Unity 手册">
-<title>ShaderLab：UsePass - Unity 手册</title>
-<meta name="description" content="UsePass 命令使用来自另一个着色器的指定通道。">
-<meta property="og:description" content="UsePass 命令使用来自另一个着色器的指定通道。">
+<meta property="og:title" content="ShaderLab 命令：UsePass - Unity 手册">
+<title>ShaderLab 命令：UsePass - Unity 手册</title>
+<meta name="description" content="UsePass 命令插入来自另一个 Shader 对象的指定通道。可以使用此命令来减少着色器源文件中的代码重复。">
+<meta property="og:description" content="UsePass 命令插入来自另一个 Shader 对象的指定通道。可以使用此命令来减少着色器源文件中的代码重复。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,62 +174,125 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
-<li><a href="ShadersOverview.html">编写着色器</a></li>
-<li><a href="SL-Reference.html">着色器参考</a></li>
-<li><a href="SL-Shader.html">ShaderLab 语法</a></li>
-<li><a href="SL-SubShader.html">ShaderLab：SubShader</a></li>
-<li>ShaderLab：UsePass</li>
+<li><a href="Shaders.html">着色器</a></li>
+<li><a href="shader-writing.html">编写着色器</a></li>
+<li><a href="SL-Reference.html">ShaderLab</a></li>
+<li><a href="shader-shaderlab-commands.html">ShaderLab：命令</a></li>
+<li>ShaderLab 命令：UsePass</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-BindChannels.html"></a></span><div class="tip">ShaderLab：旧版 BindChannels</div>
+<span class="prev"><a href="SL-Stencil.html"></a></span><div class="tip">ShaderLab 命令：模板</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-GrabPass.html"></a></span><div class="tip">ShaderLab：GrabPass</div>
+<span class="next"><a href="SL-GrabPass.html"></a></span><div class="tip">ShaderLab 命令：GrabPass</div>
 </div>
 </div></div>
-<h1>ShaderLab：UsePass</h1>
+<h1>ShaderLab 命令：UsePass</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>UsePass 命令使用来自另一个着色器的指定通道。</p>
+<p>UsePass 命令插入来自另一个 Shader 对象的指定通道。可以使用此命令来减少着色器源文件中的代码重复。</p>
 
-<h2>语法</h2>
+<p>有关在 ShaderLab 代码中向通道添加名称的信息，请参阅 <a href="SL-Name.html">ShaderLab：向通道添加名称</a>。</p>
 
-<pre><code>UsePass "Shader/Name"
+<h2>渲染管线兼容性</h2>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>功能名称</strong></th>
+	<th style="text-align:left;"><strong>内置渲染管线</strong></th>
+	<th style="text-align:left;"><strong>通用渲染管线 (URP)</strong></th>
+	<th style="text-align:left;"><strong>高清渲染管线 (HDRP)</strong></th>
+	<th style="text-align:left;"><strong>自定义 SRP</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>UsePass</strong></td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+</tr>
+</tbody>
+</table>
+
+<h2>用法</h2>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>签名</strong></th>
+	<th style="text-align:left;"><strong>功能</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><code>UsePass "Shader object name/PASS NAME IN UPPERCASE"</code></td>
+	<td style="text-align:left;">从指定的 Shader 对象插入指定的通道。<br><br>如果指定的 Shader 对象包含多个子着色器，Unity 将遍历该子着色器，直到找到第一个包含具有给定名称的通道的受支持的子着色器。有关 Unity 如何确定是否支持某个子着色器的信息，请参阅 <a href="shader-objects.html">Shader 对象简介</a>。<br><br>如果子着色器包含多个同名通道，Unity 将返回它找到的最后一个通道。<br><br>如果 Unity 没有找到匹配的通道，则会显示错误信息。</td>
+</tr>
+</tbody>
+</table>
+
+<h2>示例</h2>
+
+<p>此示例代码创建一个名为 NamedPass 的 Shader 对象，其中包含名为 ExampleNamedPass 的通道。</p>
+
+<pre><code>Shader "Examples/ContainsNamedPass"
+{
+    SubShader
+    {
+        Pass
+        {    
+              Name "ExampleNamedPass"
+            
+              // 此处是通道内容的其余部分。
+        }
+    }
+}
 </code></pre>
 
-<p>插入来自给定着色器的具有给定名称的所有通道。<em>Shader/Name</em> 包含着色器名称和通道名称，以斜杠字符分隔。请注意，系统只会考虑第一个受支持的<a href="SL-SubShader.html">子着色器</a>。</p>
+<p>此示例代码创建一个名为 UseNamedPass 的 Shader 对象，该对象使用上述示例代码中的指定通道。</p>
 
-<h2>详细信息</h2>
-
-<p>一些着色器可能会重复使用其他着色器中的现有通道，从而减少代码复制工作。例如，您可能有一个绘制对象轮廓的着色器通道，并希望在其他着色器中重复使用该通道。UsePass 命令就能实现您的愿望，该命令可包含来自其他着色器的指定通道。例如，以下命令使用来自内置 <em>VertexLit</em> 着色器的名为“SHADOWCASTER”的通道：</p>
-
-<pre><code>UsePass "VertexLit/SHADOWCASTER"
+<pre><code>Shader "Examples/UsesNamedPass"
+{
+    SubShader
+    {
+        UsePass "Examples/ContainsNamedPass/EXAMPLENAMEDPASS"
+    }
+}
 </code></pre>
-
-<p>要让 UsePass 运行，必须为要使用的通道提供一个名称。通道中的 <a href="SL-Name.html">Name</a> 命令可为通道提供名称：</p>
-
-<pre><code>Name "MyPassName"
-</code></pre>
-
-<p>请注意：在内部，所有通道名称均大写，因此 UsePass 必须引用<strong>大写</strong>名称。</p>
-<!-- area:graphics -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-BindChannels.html"></a></span><div class="tip">ShaderLab：旧版 BindChannels</div>
+<span class="prev"><a href="SL-Stencil.html"></a></span><div class="tip">ShaderLab 命令：模板</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-GrabPass.html"></a></span><div class="tip">ShaderLab：GrabPass</div>
+<span class="next"><a href="SL-GrabPass.html"></a></span><div class="tip">ShaderLab 命令：GrabPass</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

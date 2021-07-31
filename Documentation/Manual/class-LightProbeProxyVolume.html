@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
 <li><a href="LightingOverview.html">光照</a></li>
 <li><a href="LightProbes.html">光照探针</a></li>
@@ -269,7 +269,7 @@
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Custom</strong></td>
-	<td style="text-align:left;">A custom bounding box is used. The bounding box is specified in the local-space of the GameObject. The bounding box editing tools are available. You can edit the bounding volume manually by modifying the <strong>Size</strong> and <strong>Origin</strong> values in the UI (see below).</td>
+	<td style="text-align:left;">此模式下使用自定义包围盒。在游戏对象的局部空间中指定包围盒。提供了包围盒编辑工具。可以修改 UI 中的 <strong>Size</strong> 和 <strong>Origin</strong> 值来手动编辑包围体（见下文）。</td>
 </tr>
 </tbody>
 </table>
@@ -299,11 +299,13 @@
 <img src="../uploads/Main/LightProbeProxyVolumeWindow4.png" alt="">
 </figure>
 
-<p><strong>Data Format</strong> specifies which format the associated 3D texture uses. There are two options:</p>
+<p><strong>Data Format</strong> 指定关联的 3D 纹理使用的格式。有两个选项：</p>
+
+<p>*__Float__（默认值）- 纹理使用 32 位浮点通道格式来存储球谐函数系数。</p>
 
 <ul>
-<li><p><strong>Float</strong> (default value) - The texture uses the 32-bit floating-point channel format to store the spherical harmonics coefficients.</p></li>
-<li><p><strong>Half Float</strong> - The texture uses the half-float (16-bit float) channel format to store the spherical harmonics coefficients. The advantage of this format is that half-float linear texture sampling is supported by the majority of devices and the precision difference between this format and the 32-bit floating point channel format is not noticeable. Also, the texture sampling performance on the GPU is better with this data format. </p></li>
+<li>
+<strong>Half Float</strong> - 纹理使用半精度浮点（16 位浮点）通道格式来存储球谐函数系数。这种格式的优点是大多数设备都支持半浮点线性纹理采样，并且这种格式与 32 位浮点通道格式之间的精度差异不明显。此外，这种数据格式对于 GPU 上的纹理采样性能更好。</li>
 </ul>
 
 <h2>比较图像</h2>
@@ -407,7 +409,7 @@ Category {
 
 <h2>硬件要求</h2>
 
-<p>The component requires at least Shader Model 4 graphics hardware and API support, including support for 3D Textures with 32-bit or 16-bit floating-point format and linear filtering.</p>
+<p>该组件至少需要 Shader Model 4 图形硬件和 API 支持，包括对具有 32 位或 16 位浮点格式和线性过滤的 3D 纹理的支持。</p>
 
 <p>要正常工作，场景需要通过__光照探针组__组件来包含光照探针。如果未满足要求，则渲染器或光照探针代理体组件检视面板将显示一条警告消息。</p>
 <!-- area:graphics -->
@@ -422,7 +424,7 @@ Category {
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

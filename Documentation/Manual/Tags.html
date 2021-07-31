@@ -13,7 +13,7 @@
 <meta name="twitter:card" content="summary">
 <meta property="og:title" content="标签 - Unity 手册">
 <title>标签 - Unity 手册</title>
-<meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/TagDropdown1.png">
+<meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/tag-dropdown.png">
 <meta name="description" content="标签 (Tag) 是可分配给一个或多个__游戏对象__的参考词。例如，可为玩家控制的角色定义&amp;#8220;Player&amp;#8221;标签，并为非玩家控制的角色定义&amp;#8220;Enemy&amp;#8221;标签。还可以使用&amp;#8220;Collectable&amp;#8221;标签定义玩家可在场景中收集的物品。">
 <meta property="og:description" content="标签 (Tag) 是可分配给一个或多个__游戏对象__的参考词。例如，可为玩家控制的角色定义&amp;#8220;Player&amp;#8221;标签，并为非玩家控制的角色定义&amp;#8220;Enemy&amp;#8221;标签。还可以使用&amp;#8220;Collectable&amp;#8221;标签定义玩家可在场景中收集的物品。">
 <meta name="author" content="Unity Technologies">
@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UnityOverview.html">在 Unity 中操作</a></li>
 <li><a href="CreatingGameplay.html">创建游戏玩法</a></li>
 <li><a href="GameObjects.html">游戏对象</a></li>
@@ -183,7 +183,7 @@
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="DeactivatingGameObjects.html"></a></span><div class="tip">Deactivating GameObjects</div>
+<span class="prev"><a href="DeactivatingGameObjects.html"></a></span><div class="tip">停用游戏对象</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="StaticObjects.html"></a></span><div class="tip">静态游戏对象</div>
@@ -201,15 +201,6 @@
 
 <p>通过设置 <a href="../ScriptReference/GameObject.FindWithTag.html">GameObject.FindWithTag()</a> 函数，可以查找包含所需标签的游戏对象。以下示例便使用了 GameObject.FindWithTag()。该函数在具有“Respawn”标签的游戏对象位置实例化 <code>respawnPrefab</code>：</p>
 
-<p>JavaScript：</p>
-
-<pre><code>var respawnPrefab : GameObject;
-var respawn = GameObject.FindWithTag ("Respawn");
-Instantiate (respawnPrefab, respawn.position, respawn.rotation);
-</code></pre>
-
-<p>C#：</p>
-
 <pre><code>using UnityEngine;
 using System.Collections;
 
@@ -219,7 +210,7 @@ public class Example : MonoBehaviour {
     void Start() {
         if (respawn == null)
             respawn = GameObject.FindWithTag("Respawn");
-        
+
         Instantiate(respawnPrefab, respawn.transform.position, respawn.transform.rotation) as GameObject;
     }
 }
@@ -230,7 +221,7 @@ public class Example : MonoBehaviour {
 <p>在 <strong>Inspector</strong> 中，游戏对象的名称下面会显示 <strong>Tag</strong> 和 <strong>Layer</strong> 下拉菜单。</p>
 
 <figure>
-<img src="../uploads/Main/TagDropdown1.png" alt="">
+<img src="../uploads/Main/tag-dropdown.png" alt="">
 </figure>
 
 <p>要创建新标签，请选择 <strong>Add Tag…</strong>。随即在 Inspector 中打开<a href="class-TagManager.html">标签和层管理器 (Tag and Layer Manager)</a>。请注意，一旦命名了标签，以后就无法重命名。</p>
@@ -263,7 +254,7 @@ public class Example : MonoBehaviour {
 <!-- area:none -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="DeactivatingGameObjects.html"></a></span><div class="tip">Deactivating GameObjects</div>
+<span class="prev"><a href="DeactivatingGameObjects.html"></a></span><div class="tip">停用游戏对象</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="StaticObjects.html"></a></span><div class="tip">静态游戏对象</div>
@@ -272,7 +263,7 @@ public class Example : MonoBehaviour {
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UnityOverview.html">在 Unity 中操作</a></li>
 <li><a href="CreatingGameplay.html">创建游戏玩法</a></li>
 <li>Unity 中的旋转和方向</li>
@@ -198,7 +198,7 @@
 
 <h3>欧拉角</h3>
 
-<p>Euler angles are represented by three angle values for X, Y and Z that are applied sequentially. To apply an Euler rotation to a particular GameObject, each rotation value is applied in turn, as a rotation around its corresponding axis.</p>
+<p>欧拉角由按顺序应用的 X、Y 和 Z 三个角度值来表示。要将欧拉旋转应用于特定游戏对象，则依次应用每个旋转值，作为围绕其对应轴的旋转。</p>
 
 <ul>
 <li>
@@ -235,19 +235,19 @@
 
 <p>此外还有一个副作用，在 Inspector 中可以输入游戏对象的旋转值，例如 <strong>X：0，Y：365，Z：0</strong>。但是，该值不能表示为四元数，所以进入运行模式时会看到该游戏对象的旋转值变为 <strong>X：0，Y：5，Z：0</strong>。这是因为 Unity 将旋转转换为四元数，而四元数没有“完整的 360 度旋转加 5 度”的概念，而是设置为与旋转结果相同的方向。</p>
 
-<p>To learn more about scripting with the Quaternion class, see the <a href="class-Quaternion.html">Quaternion User Manual page</a> and the <a href="../ScriptReference/Quaternion.html">Quaternion Scripting Reference</a></p>
+<p>要了解有关使用 Quaternion 类编写脚本的更多信息，请参阅<a href="class-Quaternion.html">四元数用户手册页</a>和<a href="../ScriptReference/Quaternion.html">四元数脚本参考</a></p>
 
-<h2>Implications for Animation</h2>
+<h2>对动画的影响</h2>
 
 <p>许多 3D 制作包以及 Unity 自己的内部 <a href="AnimationEditorGuide.html">Animation 窗口</a>均允许使用欧拉角来指定动画期间的旋转。</p>
 
 <p>这些旋转值通常可能超过四元数可表示的范围。例如，如果一个游戏对象旋转 720 度，这可以用欧拉角“X：0，Y：720，Z：0”表示。但这不能通过四元数值来表示。</p>
 
-<h3>Unity’s Animation Window</h3>
+<h3>Unity 的动画窗口</h3>
 
 <p>在 Unity 自己的动画窗口中，有一些选项允许指定如何进行旋转插值：使用四元数插值还是欧拉插值。通过指定欧拉插值，即告诉 Unity 您希望使用角度指定全范围运动。但是，使用四元数旋转，即表示仅希望旋转以特定方向结束，因此 Unity 会使用四元数插值并在最短距离内旋转到达该位置。请参阅<a href="animeditor-AnimationCurves.html">使用动画曲线</a>以了解与此有关的更多信息。</p>
 
-<h3>External Animation Sources</h3>
+<h3>外部动画源</h3>
 
 <p>导入来自外部的动画时，这些文件通常包含欧拉格式的旋转关键帧动画。默认情况下，Unity 会重新采样这些动画，并为动画中的每个帧生成一个新的四元数关键帧，从而避免任何关键帧之间的旋转可能超过四元数的有效范围的情况。</p>
 
@@ -266,7 +266,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

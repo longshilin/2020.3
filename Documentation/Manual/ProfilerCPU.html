@@ -175,11 +175,11 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UnityOverview.html">在 Unity 中操作</a></li>
 <li><a href="analysis.html">分析</a></li>
-<li><a href="Profiler.html">Profiler overview</a></li>
-<li><a href="ProfilerWindow.html">The Profiler window</a></li>
+<li><a href="Profiler.html">性能分析器概述</a></li>
+<li><a href="ProfilerWindow.html">Profiler 窗口</a></li>
 <li>CPU Usage Profiler 模块</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
@@ -214,8 +214,8 @@
 </ul>
 </li>
 <li><a href="#hierarchy">Hierarchy 和 Raw Hierarchy 视图</a></li>
-<li><a href="#call-stacks">Allocation call stacks</a></li>
-<li><a href="#samples">Common markers</a></li>
+<li><a href="#call-stacks">分配调用栈</a></li>
+<li><a href="#samples">常用标记</a></li>
 </ul>
 
 <p><a name="charts"></a></p>
@@ -225,8 +225,8 @@
 <p>CPU Usage Profiler 模块的图表可跟踪应用程序主线程中花费的时间。这些时间被分为九个类别。要更改图表中类别的顺序，可以在图表的图例中拖放这些类别。还可以单击某个类别的有色图例以切换是否显示。</p>
 
 <figure>
-<img src="../uploads/Main/profiler-cpu-window.png" alt="The CPU Usage Profiler module">
-<figcaption>The CPU Usage Profiler module</figcaption>
+<img src="../uploads/Main/profiler-cpu-window.png" alt="CPU Usage Profiler 模块">
+<figcaption>CPU Usage Profiler 模块</figcaption>
 </figure>
 
 <table>
@@ -344,21 +344,21 @@
 <figcaption>CPU Usage Profiler 模块以及 Timeline 视图</figcaption>
 </figure>
 
-<p>The <strong>Timeline</strong> view is the default view for the CPU Usage Profiler module. It contains an overview of where time is spent in your application and how the timings relate to each other. </p>
+<p><strong>Timeline</strong> 视图是 CPU Usage Profiler 模块的默认视图。该视图简单列出了应用程序中所花费的时间情况以及时间的相互关联情况。</p>
 
-<p>The Timeline view displays profiling data from all threads in their own subsections and along the same time axis, unlike the Hierarchy views. The Hierarchy views only display profiling data one thread at a time, defaulting to the main thread. Also, these views only show a sample’s duration, whereas the Timeline view shows at which times each sample occurred.</p>
+<p>与 Hierarchy 视图不同，Timeline 视图沿同一时间轴在各自子部分中显示所有线程的性能分析数据。Hierarchy 视图一次只显示一个线程（默认显示主线程）的性能分析数据。此外，这些视图仅显示样本的持续时间，而 Timeline 视图会显示每个样本发生的时间。</p>
 
-<p>You can use the Timeline view to see how activities on the different threads correlate to each other in their parallel execution. You can see how much or little you are using the different threads, such as the <a href="JobSystem.html">Job System</a>’s worker threads, how work on the threads are queued up, and if any thread is idling (Idle sample) or waiting for another thread or a Job to finish (Wait for x sample).</p>
+<p>使用 Timeline 视图可以查看不同线程上的活动在并行执行过程中如何相互关联。在此处可以了解对不同线程（例如<a href="JobSystem.html">作业系统</a>的工作线程）的使用程度、线程上工作的排队方式以及任何线程是处于空闲状态（Idle 样本）还是在等待另一线程或作业完成（Wait for x 样本）。</p>
 
 <h3>导航和选择项目</h3>
 
-<p>To zoom in on areas of the time axis, use the scroll wheel on your mouse, or press and hold the Alt key while you drag with the right mouse button pressed down. You can also use the ends of the horizontal scrollbar to zoom in. Press the <strong>A</strong> key on your keyboard to reset the zoom so that the entire frame time is visible.</p>
+<p>要放大时间轴的区域，请使用鼠标上的滚轮，或在按住 Alt 键的同时按住鼠标右键进行拖动。也可以使用水平滚动条的两端来放大。按下键盘上的 <strong>A</strong> 键可重置缩放，以便可看到整个帧时间。</p>
 
-<p>Whenever you see a white arrow on the bottom of a thread, you can click it to unfold the thread to show all lines, or click again to show only the top ones. You can also drag the line that separates the threads to readjust how many lines you can see. Double-clicking the line sets the height of the thread’s section to the maximum depth of the call stack. To pan the view, press the middle mouse button, or hold the Alt key (Command key on macOS) and press the left mouse button.</p>
+<p>每当在线程底部看到白色箭头时，都可以单击该箭头来展开线程以便显示所有行，或者再次单击以便仅显示顶部的行。也可以拖动分隔线程的行以重新调整可看到的行数。双击该行可将线程部分的高度设置为调用栈的最大深度。要平移视图，请按鼠标中键，或按住 Alt 键（在 macOS 上为 Command 键），然后按鼠标左键。</p>
 
 <p>要折叠和展开线程组，请单击视图最左侧的线程名称旁的折叠箭头。</p>
 
-<p>To see an item’s contribution to the CPU chart, select it in the lower pane. The Profiler highlights its contribution, and dims the rest of the chart. To deselect the item, click elsewhere in the view. Press the <strong>F</strong> key to focus the current sample you selected, or to show the default zoom level if you’ve selected nothing.</p>
+<p>要查看某一项对 CPU 图表的贡献，请在下方面板中选择这一项。性能分析器会突出显示该项的贡献，并使图表的其余部分变暗。要取消选择该项，请单击视图中的其他位置。按 <strong>F</strong> 键可以聚焦所选的当前样本，或者如果未选择任何项，则会显示默认的缩放水平。</p>
 
 <figure>
 <img src="../uploads/Main/profiler-cpu-selected-module.png" alt="Timeline 视图中的 CPU Usage 模块，并且选择了一项">
@@ -367,36 +367,36 @@
 
 <p>上图中，所选项上的工具提示可以提供更多详细信息，例如所有线程中的实例数和该样本的总时间。<strong>GC.Alloc</strong> 样本显示为红色/洋红色，并显示分配的大小。</p>
 
-<p>To show managed call stacks in the tooltip, navigate to the Profiler window’s toolbar, and select the Call Stacks button. You must enable this property before you profile a frame to display the call stack for a frame. For more information, see the section on <a href="#call-stacks">call stacks</a>.</p>
+<p>要在工具提示中显示托管的调用栈，请导航到 Profiler 窗口的工具栏，然后选择 Call Stacks 按钮。必须先启用此属性，然后对帧进行性能分析以显示帧的调用栈。有关更多信息，请参阅关于<a href="#call-stacks">调用栈</a>的部分。</p>
 
 <p><a name="flow-events"></a></p>
 
 <h3>Flow Events</h3>
 
-<p>To help you visualize how Unity schedules jobs across threads, you can use the <strong>Flow Events</strong> setting. This setting displays the relationship between systems, jobs and threads. To enable this setting, select the <strong>More</strong> menu (⋮) in the top right of the Timeline view pane, and then select <strong>Show Flow Events</strong>.</p>
+<p>为了帮助您直观地了解 Unity 如何跨线程调度作业，您可以使用 <strong>Flow Events</strong> 设置。此设置显示系统、作业和线程之间的关系。要启用此设置，请选择 Timeline 视图窗格的右上角的 <strong>More</strong> menu (⋮) ，然后选择 <strong>Show Flow Events</strong>。</p>
 
-<p>When you enable this setting, the Profiler adds white event markers to the Profiler samples that schedule jobs, or wait on scheduled jobs to complete. It also darkens unrelated samples so that you can more easily visualize the sample you select.</p>
+<p>启用此设置后，性能分析器会将白色事件标记添加到用于调度作业或等待调度作业完成的性能分析器样本。它还会使不相关的样本变暗，以便您可以更容易地看到您选择的样本。</p>
 
-<p>There are three types of arrows the Profiler adds to the samples:</p>
+<p>性能分析器将三种类型的箭头添加到样本中：</p>
 
 <ul>
-<li>Down arrow: Indicates the beginning of a flow, and that this sample scheduled some work.</li>
-<li>Right arrow: Indicates the next item in a flow, and that a different sample scheduled this.</li>
-<li>Up arrow: Indicates the end of a flow, and that the work ended or synchronized on this sample.</li>
+<li>向下箭头：指示流程的开始，并且此样本调度了某些工作。</li>
+<li>向右箭头：指示流程中的下一个项目，并且另一个样本调度了此工作。</li>
+<li>向上箭头：指示流程的结束，以及此样本上的工作已结束或同步。</li>
 </ul>
 
 <figure>
-<img src="../uploads/Main/profiler-flow-events.png" alt="The Timeline CPU Profiler view with Flow Events enabled. Note the white event markers on some of the Profiler samples.">
-<figcaption>The Timeline CPU Profiler view with Flow Events enabled. Note the white event markers on some of the Profiler samples.</figcaption>
+<img src="../uploads/Main/profiler-flow-events.png" alt="启用了 Flow Events 的 Timeline CPU Profiler 视图。请注意某些 Profiler 样本上的白色事件标记。">
+<figcaption>启用了 Flow Events 的 Timeline CPU Profiler 视图。请注意某些 Profiler 样本上的白色事件标记。</figcaption>
 </figure>
 
-<p>When you select a sample, the Profiler connects the relevant flow event markers together with lines. A thicker line highlights the particular flow line you select. For example, if a <code>begin</code> sample points to two other <code>next</code> samples, when you click one of the <code>next</code> samples, the Profiler draws a thicker line to it.</p>
+<p>当您选择一个样本时，Profiler 将相关的流程事件标记用线条连接在一起。粗线条突出显示您选择的特定流程。例如，如果一个 <code>begin</code> 样本指向另外两个 <code>next</code> 样本，当您单击 <code>next</code> 样本之一时，性能分析器会为其绘制一条较粗的线条。</p>
 
-<p>This view is useful to discover the flow of execution of your code, what work was being waited on to complete, and helps you uncover the dependencies of your code in a visual way. </p>
+<p>此视图有助于发现代码的执行流程、等待完成的工作，并帮助您以直观方式发现代码的依赖关系。</p>
 
 <figure>
-<img src="../uploads/Main/profiler-flow-events-selected.png" alt="The Timeline CPU Profiler view with Flow Events enabled and a sample selected.">
-<figcaption>The Timeline CPU Profiler view with Flow Events enabled and a sample selected.</figcaption>
+<img src="../uploads/Main/profiler-flow-events-selected.png" alt="启用了 Flow Events 并选择了样本的 Timeline CPU Profiler 视图。">
+<figcaption>启用了 Flow Events 并选择了样本的 Timeline CPU Profiler 视图。</figcaption>
 </figure>
 
 <p><a name="hierarchy"></a></p>
@@ -461,14 +461,14 @@
 </tbody>
 </table>
 
-<p>To get more information about where your application calls and uses the profiled functions, select the <strong>Details</strong> dropdown at the top right hand corner of the module details pane and choose either <strong>Related Data</strong> or <strong>Calls</strong> view.</p>
+<p>要进一步了解应用程序在何处调用和使用了接受性能分析的函数，请选择模块详细信息面板右上角的 <strong>Details</strong> 下拉选单，然后选择 <strong>Related Data</strong> 或 <strong>Calls</strong> 视图。</p>
 
 <figure>
-<img src="../uploads/Main/profiler-show-related-objects.png" alt="Related Data panel">
-<figcaption><strong>Related Data</strong> panel</figcaption>
+<img src="../uploads/Main/profiler-show-related-objects.png" alt="Related Data 面板">
+<figcaption><strong>Related Data</strong> 面板</figcaption>
 </figure>
 
-<p>The <strong>Related Data</strong> view displays a list of <code>UnityEngine.Objects</code> that use a <a href="../ScriptReference/Unity.Profiling.ProfilerMarker.Begin.html">Begin()</a> overload and are associated with the Profiler sample. Some samples that Unity reports have these associations built in, such as Camera.Render samples that are linked to the Camera GameObject that does the rendering. Unity reports these objects via their instance ID and resolves them to a name in the Profiler window, if you profile in the Editor. When you profile a built player, or load a capture from disk, these names do not appear and the Profiler displays them as <code>N/A</code>.</p>
+<p><strong>Related Data</strong> 视图显示一个 <code>UnityEngine.Objects</code> 列表；此列表中的对象使用 <a href="../ScriptReference/Unity.Profiling.ProfilerMarker.Begin.html">Begin()</a> 重载，而且与性能分析器样本关联。Unity 报告的某些样本内置了这些关联性，例如，已链接到执行渲染的摄像机游戏对象的 Camera.Render 样本。如果在 Editor 中进行性能分析，Unity 将通过这些对象的实例 ID 来报告这些对象，并在 Profiler 窗口中将它们解析为名称。对构建的播放器进行性能分析或从磁盘加载捕获的数据时，这些名称不会显示，并且性能分析器将这些名称显示为 <code>N/A</code>。</p>
 
 <p>单击这些对象之一时，Unity 尝试通过 Scene 层级视图来查找此对象，然后对此对象进行 <a href="../ScriptReference/EditorGUIUtility.PingObject.html">ping</a> 操作。因为此关联性使用实例 ID，所以只有在 Editor 中对应用程序进行性能分析并且该对象仍然存在的情况下，ping 操作才有效。</p>
 
@@ -483,34 +483,34 @@
 
 <p><a name="call-stacks"></a></p>
 
-<h2>Call stacks</h2>
+<h2>调用栈</h2>
 
-<p><a href="../ScriptReference/Unity.Profiling.ProfilerMarker.html">ProfilerMarkers</a> emit a set of samples which the Profiler uses to display and organize profiling information into different chronological and hierarchical views. Any sample displayed in the Profiler window is therefore part of a sample stack.</p>
+<p><a href="../ScriptReference/Unity.Profiling.ProfilerMarker.html">ProfilerMarkers</a> 发出一组样本，性能分析器使用这些样本将性能分析信息显示和组织到不同的时间顺序和层级视图中。因此，Profiler 窗口中显示的任何样本都是样本栈的一部分。</p>
 
-<p>A sample stack differs from a method’s call stack because Unity does not tie every sample to a specific method, nor does it record every call as a sample. <a href="CPUWindow#deep-profiling">Deep Profiling</a> adds a ProfilerMarker to every function call, but it does not add any for native code, plus recording all of these samples comes with a potentially high overhead.</p>
+<p>样本栈与方法的调用栈不同，因为 Unity 不会将每个样本都绑定到特定方法，也不会将每个调用都记录为样本。<a href="CPUWindow#deep-profiling">深度性能分析</a>为每个函数调用添加一个 ProfilerMarker，但它不会为本机代码添加任何内容，而且记录所有这些样本会带来潜在的较大开销。</p>
 
-<p>You can enable the full call stacks for samples that <strong>GC.Alloc</strong>, <strong>UnsafeUtility.Malloc</strong>, <strong>JobHandle.Complete</strong> emit. This is useful if you want to track down where these samples happened, without enabling Deep Profiling and encountering its high overhead. For more information about these markers, see the documentation on <a href="profiler-markers.html">Common Profiler Markers</a>.</p>
+<p>您可以为 <strong>GC.Alloc</strong>、<strong>UnsafeUtility.Malloc</strong>、<strong>JobHandle.Complete</strong> 发出的样本启用完整的调用栈。如果您希望在不启用深度性能分析并避免较大开销的情况下跟踪这些样本的发生位置，这将非常有用。有关这些标记的更多信息，请参阅有关<a href="profiler-markers.html">常见性能分析器标记</a>的文档。</p>
 
-<p>To do this, navigate to the toolbar of the Profiler window and enable the <strong>Call Stacks</strong> button. By default, this enables the call stacks for <strong>GC.Alloc</strong> samples. To enable other call stacks, select the dropdown arrow and enable any of the other markers you would like to see the call stacks for.</p>
+<p>为此，请导航到 Profiler 窗口的工具栏，然后启用 <strong>Call Stacks</strong> 按钮。默认情况下，这会启用 <strong>GC.Alloc</strong> 样本的调用栈。要启用其他调用栈，请选择下拉箭头并启用您希望查看其调用栈的任何其他标记。</p>
 
-<p>You can use this functionality whether you profile in the Editor or on a running player. This only takes effect for the frames you profile after you turn this option on.</p>
+<p>无论是在编辑器中还是在运行的播放器中进行性能分析，都可以使用此功能。此功能仅在您打开此选项后才会对进行性能分析的框架生效。</p>
 
-<p>For example, every scripting heap allocation shows up as a GC.Alloc sample in both the <strong>Hierarchy</strong> view and <strong>Timeline</strong> view. In the Timeline view, it is colored bright magenta. To see a call stack, select the CPU Profiler module and then select a GC.Alloc sample in Timeline view. <strong>Note:</strong> The call stack information does not contain the exact line number within that method but just the line at the beginning of that method.</p>
+<p>例如，每个脚本堆分配在 <strong>Hierarchy</strong> 视图和 <strong>Timeline</strong> 视图中均显示为 GC.Alloc 样本。在 Timeline 视图中，颜色为亮红色。要查看某个调用栈，请选择 CPU Profiler 模块，然后在 Timeline 视图中选择一个 GC.Alloc 样本。<strong>注意：</strong>调用栈信息不包含该方法中的确切行号，而仅包含该方法开头的行。</p>
 
 <figure>
-<img src="../uploads/Main/profiler-cpu-hierarchy-callstack.png" alt="Callstack in the Timeline view (top) and Hierarchy view (bottom)">
-<figcaption>Callstack in the Timeline view (top) and Hierarchy view (bottom)</figcaption>
+<img src="../uploads/Main/profiler-cpu-hierarchy-callstack.png" alt="Timeline 视图（顶部）和 Hierarchy 视图（底部）中的调用栈">
+<figcaption>Timeline 视图（顶部）和 Hierarchy 视图（底部）中的调用栈</figcaption>
 </figure>
 
-<p>To see the full call stack details, while in the Hierarchy or Raw Hierarchy view, set the <strong>Details</strong> view to <strong>Related Data</strong>. This view lists the metadata associated with this sample, which might include a UnityEngine.Object that it was associated with. For any metadata entry that is not associated with a UnityEngine.Object, the name shows up as <strong>N/A</strong> in this panel. When you select an N/A entry, the Profiler displays the meta data, including the call stack in the bottom half of the details view.</p>
+<p>要查看完整的调用栈详细信息，请在 Hierarchy 或 Raw Hierarchy 视图中将 <strong>Details</strong> 视图设置为 <strong>Related Data</strong>。此视图列出了与此样本关联的元数据，其中可能包括与之相关联的 UnityEngine.Object。对于任何不与 UnityEngine.Object 关联的元数据条目，该名称在此面板中显示为 <strong>N/A</strong>。选择 N/A 条目时，性能分析器会在 Details 视图的下半部分中显示元数据，包括调用栈。</p>
 
-<p>For more information about managed allocations, see documentation on <a href="https://docs.unity3d.com/Manual/UnderstandingAutomaticMemoryManagement.html">Understanding Automatic Memory Management.</a></p>
+<p>有关托管分配的更多信息，请参阅关于<a href="https://docs.unity3d.com/Manual/UnderstandingAutomaticMemoryManagement.html">了解自动内存管理</a>的文档。</p>
 
 <p><a name="samples"></a></p>
 
-<h2>Common markers</h2>
+<h2>常用标记</h2>
 
-<p>Unity’s code is instrumented with a large number of Profiler markers that give you insight into what is taking up time in your application. For a full list of the most common markers you might see in your profiling data, see the documentation on <a href="profiler-markers.html">Common Profiler markers</a>.</p>
+<p>Unity 的代码配备了大量性能分析器标记，可用于深入了解应用程序中占用时间的内容。有关您可能在性能分析数据中看到的最常见标记的完整列表，请参阅有关<a href="profiler-markers.html">常用性能分析器标记 </a>的文档。</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="ProfilerAudio.html"></a></span><div class="tip">Audio Profiler 模块</div>
@@ -522,7 +522,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

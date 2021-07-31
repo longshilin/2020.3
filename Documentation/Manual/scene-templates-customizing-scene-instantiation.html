@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Customizing new scene creation - Unity 手册">
-<title>Customizing new scene creation - Unity 手册</title>
-<meta name="description" content="To run custom code when Unity instantiates a new scene from a template, create a Scene Template Pipeline script and connect it to the template. Each time you create a new scene from the template, Unity creates a new instance of the pipeline script as well.">
-<meta property="og:description" content="To run custom code when Unity instantiates a new scene from a template, create a Scene Template Pipeline script and connect it to the template. Each time you create a new scene from the template, Unity creates a new instance of the pipeline script as well.">
+<meta property="og:title" content="自定义新场景创建 - Unity 手册">
+<title>自定义新场景创建 - Unity 手册</title>
+<meta name="description" content="要在 Unity 从模板实例化新场景时运行自定义代码，请创建一个场景模板管线脚本并将其连接到模板。每次从该模板创建新场景时，Unity 也会创建管线脚本的新实例。">
+<meta property="og:description" content="要在 Unity 从模板实例化新场景时运行自定义代码，请创建一个场景模板管线脚本并将其连接到模板。每次从该模板创建新场景时，Unity 也会创建管线脚本的新实例。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,37 +174,35 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UnityOverview.html">在 Unity 中操作</a></li>
 <li><a href="CreatingGameplay.html">创建游戏玩法</a></li>
 <li><a href="CreatingScenes.html">场景</a></li>
-<li><a href="scene-templates.html">Scene Templates</a></li>
-<li>Customizing new scene creation</li>
+<li><a href="scene-templates.html">场景模板</a></li>
+<li>自定义新场景创建</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="scene-templates-editing.html"></a></span><div class="tip">Editing scene templates</div>
+<span class="prev"><a href="scene-templates-editing.html"></a></span><div class="tip">编辑场景模板</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="scene-templates-settings.html"></a></span><div class="tip">Scene template settings</div>
+<span class="next"><a href="scene-templates-settings.html"></a></span><div class="tip">场景模板设置</div>
 </div>
 </div></div>
-<h1>Customizing new scene creation</h1>
+<h1>自定义新场景创建</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>To run custom code when Unity instantiates a new scene from a template, create a Scene Template Pipeline script and connect it to the template. Each time you create a new scene from the template, Unity creates a new instance of the pipeline script as well.</p>
+<p>要在 Unity 从模板实例化新场景时运行自定义代码，请创建一个场景模板管线脚本并将其连接到模板。每次从该模板创建新场景时，Unity 也会创建管线脚本的新实例。</p>
 
-<p>To connect the script to a template:</p>
+<p>要将脚本连接到模板：</p>
 
-<ol>
-<li>Inspect the template to <a href="scene-templates-editing.html">edit its properties</a>.</li>
-<li>Set the <strong>Scene Template Pipeline</strong> property to point to your Scene Template Pipeline script.</li>
-</ol>
+<p>1.查看模板以<a href="scene-templates-editing.html">编辑其属性 </a>。
+2.设置 <strong>Scene Template Pipeline</strong> 属性，使其指向您的场景模板管线脚本。</p>
 
-<p>You can also use the <a href="../ScriptReference/SceneTemplate.SceneTemplateAsset-templatePipeline.html"><code>SceneTemplateAsset.templatePipeline</code></a> method to connect the script to the template via C#.</p>
+<p>您还可以使用 <a href="../ScriptReference/SceneTemplate.SceneTemplateAsset-templatePipeline.html"><code>SceneTemplateAsset.templatePipeline</code></a> 方法通过 C# 将脚本连接到模板。</p>
 
-<p>A Scene Template Pipeline script must derive from the [<code>ISceneTemplatePipeline</code>] interface or [<code>SceneTemplatePipelineAdapter</code>]. It should implement the events you want to react to; for example, <code>BeforeTemplateInstantiation</code> or <code>AfterTemplateInstantiation</code> in the code below.</p>
+<p>场景模板管线脚本必须派生自 [<code>ISceneTemplatePipeline</code>] 接口或 [<code>SceneTemplatePipelineAdapter</code>]。它应该实现您要响应的事件；例如，下面代码中的 <code>BeforeTemplateInstantiation</code> 或 <code>AfterTemplateInstantiation</code>。</p>
 
 <p><strong>示例：</strong></p>
 
@@ -231,60 +229,47 @@ public class DummySceneTemplatePipeline : ISceneTemplatePipeline
 }
 </code></pre>
 
-<h2>Scene Template instantiation sequence</h2>
+<h2>场景模板实例化顺序</h2>
 
-<p>When you create a new scene from a template with cloneable dependencies, Unity performs several file operations. Most of these operations trigger Unity events that you can listen for, and react to, in scripts.</p>
+<p>当您从具有可克隆依赖项的模板创建新场景时，Unity 会执行多个文件操作。大多数这些操作会触发 Unity 事件，您可以在脚本中监听这些事件并进行响应。</p>
 
-<p>The instantiation sequence is as follows:</p>
+<p>实例化顺序如下：</p>
 
-<ol>
-<li>You click <strong>Create</strong> in the <a href="CreatingScenes.html#new-scene-dialog">New Scene dialog</a>. Unity calls the:
+<p>1.在 <a href="CreatingScenes.html#new-scene-dialog">New Scene 对话框</a>中单击 <strong>Create</strong>。Unity 调用：
+ - 场景模板资源。
+ - 模板场景。这是与模板关联的 Unity 场景。
+ - 新场景。这是模板场景的新实例。</p>
 
-<ul>
-<li>Scene template asset.</li>
-<li>Template Scene. This is the Unity Scene associated with the template.</li>
-<li>New Scene. This is a new instance of the template Scene.</li>
-</ul>
-</li>
-<li><p>Unity triggers the <code>ISceneTemplatePipeline.BeforeTemplateInstantiation</code> event for the template asset, and binds the asset to a <code>ISceneTemplatePipeline</code> script that it triggers.</p></li>
-<li><p>Unity triggers the <a href="../ScriptReference/SceneTemplate.SceneTemplateService-newSceneTemplateInstantiating.html"><code>SceneTemplate.NewTemplateInstantiating</code></a> event.</p></li>
-<li><p>Unity creates a new scene that is a copy of the template scene.</p></li>
-<li><p>Unity creates a folder with the same name as the new scene, and copies all cloneable dependencies into that folder.</p></li>
-<li>Unity opens the new scene in memory, and triggers the following events:
+<p>1.Unity 触发模板资源的 <code>ISceneTemplatePipeline.BeforeTemplateInstantiation</code> 事件，并将该资源绑定到它触发的 <code>ISceneTemplatePipeline</code> 脚本。
+1.Unity 触发 <a href="../ScriptReference/SceneTemplate.SceneTemplateService-newSceneTemplateInstantiating.html"><code>SceneTemplate.NewTemplateInstantiating</code></a> 事件。
+1.Unity 创建一个新场景，它是模板场景的副本。
+1.Unity 创建一个与新场景同名的文件夹，并将所有可克隆的依赖项复制到该文件夹中。
+1.Unity 在内存中打开新场景，并触发以下事件：
+ - <a href="../ScriptReference/SceneManagement.EditorSceneManager-sceneOpening.html"><code>EditorSceneManager.sceneOpening</code></a>
+ - <a href="../ScriptReference/MonoBehaviour.OnValidate.html"><code>MonoBehavior.OnValidate</code></a> （在所有实现它的游戏对象上）
+ - <a href="../ScriptReference/SceneManagement.EditorSceneManager-sceneOpened.html"><code>EditorSceneManager.sceneOpened</code></a></p>
 
-<ul>
-<li><a href="../ScriptReference/SceneManagement.EditorSceneManager-sceneOpening.html"><code>EditorSceneManager.sceneOpening</code></a></li>
-<li>
-<a href="../ScriptReference/MonoBehaviour.OnValidate.html"><code>MonoBehavior.OnValidate</code></a> (on all GameObjects that implement it)</li>
-<li><a href="../ScriptReference/SceneManagement.EditorSceneManager-sceneOpened.html"><code>EditorSceneManager.sceneOpened</code></a></li>
-</ul>
-</li>
-<li><p>Unity remaps references to all cloneable assets, so the new scene points to the clones.</p></li>
-<li>Unity saves the new scene, and triggers the following events:
-
-<ul>
-<li><a href="../ScriptReference/SceneManagement.EditorSceneManager-sceneSaving.html"><code>EditorSceneManager.sceneSaving</code></a></li>
-<li><a href="../ScriptReference/SceneManagement.EditorSceneManager-sceneSaved.html"><code>EditorSceneManager.sceneSaved</code></a></li>
-</ul>
-</li>
-<li><p>Unity triggers the <code>ISceneTemplatePipeline.AfterTemplateInstantiation</code> for the template asset, and binds the asset to a <code>ISceneTemplatePipeline</code> script that it triggers.</p></li>
-<li><p>Unity triggers the <a href="../ScriptReference/SceneTemplate.SceneTemplateService-newSceneTemplateInstantiated.html"><code>SceneTemplate.NewTemplateInstantiated</code></a> event.</p></li>
-</ol>
+<p>1.Unity 重新映射对所有可克隆资源的引用，使得新场景指向克隆资源。
+1.Unity 保存新场景，并触发以下事件：
+ - <a href="../ScriptReference/SceneManagement.EditorSceneManager-sceneSaving.html"><code>EditorSceneManager.sceneSaving</code></a>
+ - <a href="../ScriptReference/SceneManagement.EditorSceneManager-sceneSaved.html"><code>EditorSceneManager.sceneSaved</code></a>
+1.Unity 触发模板资源的 <code>ISceneTemplatePipeline.AfterTemplateInstantiation</code>，并将该资源绑定到它触发的 <code>ISceneTemplatePipeline</code> 脚本。
+1.Unity 触发 <a href="../ScriptReference/SceneTemplate.SceneTemplateService-newSceneTemplateInstantiated.html"><code>SceneTemplate.NewTemplateInstantiated</code></a> 事件。</p>
 
 <hr>
 <!-- area:authoring -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="scene-templates-editing.html"></a></span><div class="tip">Editing scene templates</div>
+<span class="prev"><a href="scene-templates-editing.html"></a></span><div class="tip">编辑场景模板</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="scene-templates-settings.html"></a></span><div class="tip">Scene template settings</div>
+<span class="next"><a href="scene-templates-settings.html"></a></span><div class="tip">场景模板设置</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

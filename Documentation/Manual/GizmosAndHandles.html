@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Important Classes - Gizmos &amp; Handles - Unity 手册">
-<title>Important Classes - Gizmos &amp; Handles - Unity 手册</title>
+<meta property="og:title" content="重要的类 - Gizmos 和 Handles - Unity 手册">
+<title>重要的类 - Gizmos 和 Handles - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/ScriptingGizmoExample.png">
-<meta name="description" content="The Gizmos and Handles classes allows you to draw lines and shapes in the Scene view and Game view, as well as interactive handles and controls. These two classes together provide a way for you to extend what is shown in these views and build interactive tools to edit your project in any way you like. For example, rather than entering numbers in the inspector, you could create a draggable circle radius gizmo around a non-player character in a game, which represents the area within which they can hear or see the player.">
-<meta property="og:description" content="The Gizmos and Handles classes allows you to draw lines and shapes in the Scene view and Game view, as well as interactive handles and controls. These two classes together provide a way for you to extend what is shown in these views and build interactive tools to edit your project in any way you like. For example, rather than entering numbers in the inspector, you could create a draggable circle radius gizmo around a non-player character in a game, which represents the area within which they can hear or see the player.">
+<meta name="description" content="Gizmos 和 Handles 类用于在 Scene 视图和 Game 视图绘制线条和形状以及交互式手柄和控件。这两个类共同提供了一种方法来扩展这些视图中显示的内容，并构建交互式工具以您喜欢的任何方式编辑项目。例如，您可以在游戏中围绕非玩家角色创建一个可拖动的圆圈辅助图标，代表它可听到或看到玩家的区域，而不必在 Inspector 中输入数字。">
+<meta property="og:description" content="Gizmos 和 Handles 类用于在 Scene 视图和 Game 视图绘制线条和形状以及交互式手柄和控件。这两个类共同提供了一种方法来扩展这些视图中显示的内容，并构建交互式工具以您喜欢的任何方式编辑项目。例如，您可以在游戏中围绕非玩家角色创建一个可拖动的圆圈辅助图标，代表它可听到或看到玩家的区域，而不必在 Inspector 中输入数字。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,72 +175,72 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="ScriptingSection.html">Scripting</a></li>
-<li><a href="ScriptingImportantClasses.html">Important Classes </a></li>
-<li>Important Classes - Gizmos &amp; Handles</li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="ScriptingSection.html">脚本</a></li>
+<li><a href="ScriptingImportantClasses.html">重要的类</a></li>
+<li>重要的类 - Gizmos 和 Handles</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="class-Debug.html"></a></span><div class="tip">Important Classes - Debug</div>
+<span class="prev"><a href="class-Debug.html"></a></span><div class="tip">重要的类 - Debug</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="unity-architecture.html"></a></span><div class="tip">Unity architecture</div>
+<span class="next"><a href="unity-architecture.html"></a></span><div class="tip">Unity 架构</div>
 </div>
 </div></div>
-<h1>Important Classes - Gizmos &amp; Handles</h1>
+<h1>重要的类 - Gizmos 和 Handles</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>The Gizmos and Handles classes allows you to draw lines and shapes in the Scene view and Game view, as well as interactive handles and controls. These two classes together provide a way for you to extend what is shown in these views and build interactive tools to edit your project in any way you like. For example, rather than entering numbers in the inspector, you could create a draggable circle radius gizmo around a non-player character in a game, which represents the area within which they can hear or see the player.</p>
+<p>Gizmos 和 Handles 类用于在 Scene 视图和 Game 视图绘制线条和形状以及交互式手柄和控件。这两个类共同提供了一种方法来扩展这些视图中显示的内容，并构建交互式工具以您喜欢的任何方式编辑项目。例如，您可以在游戏中围绕非玩家角色创建一个可拖动的圆圈辅助图标，代表它可听到或看到玩家的区域，而不必在 Inspector 中输入数字。</p>
 
-<p>This page provides a simple overview of the Gizmos and Handles classes. For full documentation and an exhaustive reference of every member of the Gizmos and Handles classes, see the script reference pages for <a href="../ScriptReference/Gizmos.html">Gizmos</a> and <a href="../ScriptReference/Handles.html">Handles</a>.</p>
+<p>本页面提供了 Gizmos 和 Handles 类的简单概述。有关 Gizmos 和 Handles 类每个成员的完整文档和详尽参考，请参阅 <a href="../ScriptReference/Gizmos.html">Gizmos</a> 和 <a href="../ScriptReference/Handles.html">Handles</a> 脚本参考页面。</p>
 
 <h2>Gizmos</h2>
 
-<p>The Gizmos class allows you to draw lines, spheres, cubes, icons, textures and meshes into the Scene view to use as debugging, set-up aids, or tools while developing your project.</p>
+<p>Gizmos 类允许您将线条、球体、立方体、图标、纹理和网格绘制到 Scene 视图中，在开发项目时用作调试、设置的辅助手段或工具。</p>
 
-<p>For example, to draw a 10 unit yellow wire cube around a GameObject, you would use this code:</p>
+<p>例如，要在游戏对象周围绘制一个 10 个单位的黄色线框立方体，您可以使用以下代码：</p>
 
 <pre><code>using UnityEngine;
 public class GizmosExample : MonoBehaviour
 {
     void OnDrawGizmosSelected()
     {
-        // Draw a yellow cube at the transform position
+        // 在变换位置绘制一个黄色立方体
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireCube(transform.position, new Vector3(10, 10, 10));
     }
 }
 </code></pre>
 
-<p>And here is how that cube looks when placed on a Directional Light GameObject. </p>
+<p>这是将立方体放置在一个方向光游戏对象上时的外观。</p>
 
 <figure>
-<img src="../uploads/Main/ScriptingGizmoExample.png" alt="A light GameObject which with an extra script applied which draws a cube gizmo around its position">
-<figcaption>A light GameObject which with an extra script applied which draws a cube gizmo around its position</figcaption>
+<img src="../uploads/Main/ScriptingGizmoExample.png" alt="一个应用了额外的脚本的光源游戏对象，该脚本在其位置周围绘制一个立方体辅助图标">
+<figcaption>一个应用了额外的脚本的光源游戏对象，该脚本在其位置周围绘制一个立方体辅助图标</figcaption>
 </figure>
 
-<p>See the <a href="../ScriptReference/Gizmos.html">Gizmos script reference page</a> for the full documentation on how to use Gizmos.</p>
+<p>有关如何使用 Gizmos 的完整文档，请参阅 <a href="../ScriptReference/Gizmos.html">Gizmos 脚本参考页面</a>。</p>
 
 <h2>Handles</h2>
 
-<p>Handles are similar to Gizmos, but provide more functionality in terms of interactivity and manipulation. The 3D controls that Unity itself provides to manipulate items in the Scene view are a combination of Gizmos and Handles. There are a number of built-in Handle GUIs, such as the familiar tools to position, scale and rotate an object via the Transform component. However, you can define your own Handle GUIs to use with custom component editors. Such GUIs can be a very useful way to edit procedurally-generated Scene content, “invisible” items and groups of related objects, such as waypoints and location markers.</p>
+<p>Handles 类似于 Gizmos，但在交互性和操作方面提供了更多功能。Unity 本身提供的用于在 Scene 视图中操作项目的 3D 控件是 Gizmos 和 Handles 的组合。内置的 Handle GUI 有很多，如通过变换组件定位、缩放和旋转对象等熟悉的工具。不过，您可以自行定义 Handle GUI，以与自定义组件编辑器结合使用。此类 GUI 对于编辑以程序方式生成的场景内容、“不可见”项和相关对象的组（如路径点和位置标记）非常实用。</p>
 
-<p>For example, here is how you could create an arc area with an arrowhead handle, allowing you to modify a “shield area” in the scene view:</p>
+<p>例如，以下是如何创建带有箭头手柄的圆弧区域，用于在 Scene 视图中修改 “shield area”：</p>
 
 <pre><code>using UnityEditor;
 using UnityEngine;
 using System.Collections;
 
-//this class should exist somewhere in your project
+//项目中应已包含了此类
 public class WireArcExample : MonoBehaviour
 {
     public float shieldArea;
 }
 
-// Create a 180 degrees wire arc with a ScaleValueHandle attached to the disc
-// that lets you modify the "shieldArea" value in the WireArcExample
+// 使用附加到圆盘的 ScaleValueHandle 创建一个 180 度的线弧，
+// 允许您修改 WireArcExample 中的 "shieldArea" 的值
 [CustomEditor(typeof(WireArcExample))]
 public class DrawWireArc : Editor
 {
@@ -255,23 +255,23 @@ public class DrawWireArc : Editor
 </code></pre>
 
 <figure>
-<img src="../uploads/Main/ScriptingHandlesExample.png" alt="An example of an Arc handle and an Scale handle">
-<figcaption>An example of an Arc handle and an Scale handle</figcaption>
+<img src="../uploads/Main/ScriptingHandlesExample.png" alt="圆弧手柄和缩放手柄的示例">
+<figcaption>圆弧手柄和缩放手柄的示例</figcaption>
 </figure>
 
-<p>See the <a href="../ScriptReference/Handles.html">Handles script reference page</a> for the full documentation on how to use Handles.</p>
+<p>有关如何使用 Handles 的完整文档，请参阅 <a href="../ScriptReference/Handles.html">Handles 脚本参考页面</a>。</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="class-Debug.html"></a></span><div class="tip">Important Classes - Debug</div>
+<span class="prev"><a href="class-Debug.html"></a></span><div class="tip">重要的类 - Debug</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="unity-architecture.html"></a></span><div class="tip">Unity architecture</div>
+<span class="next"><a href="unity-architecture.html"></a></span><div class="tip">Unity 架构</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

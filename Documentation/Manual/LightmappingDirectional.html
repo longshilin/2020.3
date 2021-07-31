@@ -14,8 +14,8 @@
 <meta property="og:title" content="定向模式 - Unity 手册">
 <title>定向模式 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/DirectionalLightmapping1.jpg">
-<meta name="description" content="There are two Directional Modes for lightmaps: Directional and Non-Directional. Both modes are compatible with realtime lightmaps from Unity’s Realtime Global Illumination system, and baked lightmaps from Unity’s Progressive Lightmapper. The default mode is Directional.">
-<meta property="og:description" content="There are two Directional Modes for lightmaps: Directional and Non-Directional. Both modes are compatible with realtime lightmaps from Unity’s Realtime Global Illumination system, and baked lightmaps from Unity’s Progressive Lightmapper. The default mode is Directional.">
+<meta name="description" content="光照贴图有用两种定向模式：方向 (Directional) 和非方向 (Non-Directional)。这两种模式都兼容来自 Unity 实时全局光照系统的实时光照贴图，以及来自 Unity 渐进光照贴图的烘焙光照贴图。默认模式为 Directional。">
+<meta property="og:description" content="光照贴图有用两种定向模式：方向 (Directional) 和非方向 (Non-Directional)。这两种模式都兼容来自 Unity 实时全局光照系统的实时光照贴图，以及来自 Unity 渐进光照贴图的烘焙光照贴图。默认模式为 Directional。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
 <li><a href="LightingOverview.html">光照</a></li>
 <li><a href="Lightmappers.html">光照贴图</a></li>
@@ -193,17 +193,17 @@
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>There are two <strong>Directional Modes</strong> for lightmaps: <strong>Directional</strong> and <strong>Non-Directional</strong>. Both modes are compatible with realtime lightmaps from Unity’s Realtime Global Illumination system, and baked lightmaps from Unity’s Progressive Lightmapper. The default mode is Directional. </p>
+<p>光照贴图有用两种<strong>定向模式</strong>：<strong>方向 (Directional)</strong> 和<strong>非方向 (Non-Directional)</strong>。这两种模式都兼容来自 Unity 实时全局光照系统的实时光照贴图，以及来自 Unity 渐进光照贴图的烘焙光照贴图。默认模式为 Directional。</p>
 
-<p>When you bake a Directional lightmap, Unity generates two lightmap textures. One texture stores information about the intensity and color of the lighting received across the target surface. This is identical to the Non-Directional lightmap. The other texture stores the dominant light direction, along with a factor describing how much of the total light received comes from that dominant direction. </p>
+<p>当您烘焙方向光照贴图时，Unity 会生成两个光照贴图纹理。一个纹理存储有关穿过目标表面接收到的光照的强度和颜色的信息。这与非方向光照贴图相同。另一个纹理存储主光照方向，以及描述接收到的总光照中来自该主方向的比例。</p>
 
-<p>The barrels in this image have baked Non-directional lightmaps. </p>
+<p>此图像中的桶已烘焙了非方向光照贴图。</p>
 
 <figure>
 <img src="../uploads/Main/DirectionalLightmapping1.jpg" alt="">
 </figure>
 
-<p>The barrels in this image have baked Directional lightmaps. </p>
+<p>此图像中的桶已烘焙了方向光照贴图。</p>
 
 <figure>
 <img src="../uploads/Main/DirectionalLightmapping2.jpg" alt="">
@@ -211,20 +211,20 @@
 
 <h2>性能</h2>
 
-<p>Directional mode lightmaps consist of two textures, and shaders sample both textures during rendering. The additional texture increases video memory requirements. Generating the additional directionality texture also has an impact on baking performance.</p>
+<p>方向模式光照贴图由两个纹理组成，着色器在渲染过程中对这两个纹理进行采样。额外的纹理增加了视频内存要求。生成额外的方向性纹理也会影响烘焙性能。</p>
 
-<p>Non-Directional mode lightmaps only include a single texture. As a result, they require less video memory and less storage than Directional maps, and are faster to decode in shaders. These optimizations reduce visual quality.</p>
+<p>非方向模式光照贴图仅包含单个纹理。因此，与方向贴图相比，它们需要的视频内存和存储空间更少，并且在着色器中解码速度更快。这些优化会降低视觉质量。</p>
 
-<h2>Setting your lightmap mode</h2>
+<h2>设置光照贴图模式</h2>
 
-<p>To set the mode in your <a href="https://docs.unity3d.com/2020.1/Documentation/Manual/class-LightingSettings.html"><strong>Lighting Settings Asset</strong></a>, open the Lighting window (<strong>Window</strong> &gt; <strong>Lighting</strong> &gt; <strong>Settings</strong>), click <strong>Scene</strong>, navigate to the <a href="https://docs.unity3d.com/Manual/lighting-window.html#LightmappingSettings">Lightmapping Settings</a>, and select <strong>Directional Mode</strong>. </p>
+<p>要在您的 <a href="https://docs.unity3d.com/2020.1/Documentation/Manual/class-LightingSettings.html"><strong>Lighting Settings Asset</strong></a> 中设置模式，打开 Lighting 窗口 (<strong>Window</strong> &gt; <strong>Lighting</strong> &gt; <strong>Settings</strong>)，单击 <strong>Scene</strong>，导航到 <a href="https://docs.unity3d.com/Manual/lighting-window.html#LightmappingSettings">Lightmapping Settings</a>，并选择 <strong>Directional Mode </strong>。</p>
 
-<p>You can set the lightmap mode for an instance of the Lighting Settings asset which can apply to one or more Scenes. You cannot set the lightmap mode for individual lightmaps. </p>
+<p>您可以将光照贴图模式设置为可应用于一个或多个场景的光照设置资源的实例。您不能为单个光照贴图设置光照贴图模式。</p>
 
-<h2>Using Directional Mode with additive loading</h2>
+<h2>使用具有附加加载的定向模式</h2>
 
-<p>Unity can load Scenes additively. This means you can use <a href="https://docs.unity3d.com/Manual/MultiSceneEditing.html">Multi-Scene editing</a>, for example.
-When you load Scenes additively, all of them must use the same Directional Mode. This includes Scenes that are not baked, such as UI elements or loading screens. Using the same <a href="https://docs.unity3d.com/Manual/class-LightmapParameters.html">Lightmap Parameters asset</a> for all of the Scenes in your project can help you avoid settings conflicts.</p>
+<p>Unity 可以以附加方式加载场景。这意味着您可以使用<a href="https://docs.unity3d.com/Manual/MultiSceneEditing.html">多场景编辑</a>。
+当您以附加方式加载场景时，所有场景都必须使用相同的定向模式。这包括未烘焙的场景，例如 UI 元素或加载屏幕。对于项目中的所有场景使用相同的<a href="https://docs.unity3d.com/Manual/class-LightmapParameters.html">光照贴图参数资源</a>可以帮助您避免设置冲突。</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="class-LightmapParameters.html"></a></span><div class="tip">光照贴图参数资源</div>
@@ -236,7 +236,7 @@ When you load Scenes additively, all of them must use the same Directional Mode.
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

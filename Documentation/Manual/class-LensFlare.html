@@ -14,8 +14,8 @@
 <meta property="og:title" content="镜头光晕 (Lens Flare) - Unity 手册">
 <title>镜头光晕 (Lens Flare) - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/Inspector-LensFlare.png">
-<meta name="description" content="Lens Flares simulate the effect of lights refracting inside a camera lens. You can use them to represent bright lights or, more subtly, to add a bit more atmosphere to your Scene.">
-<meta property="og:description" content="Lens Flares simulate the effect of lights refracting inside a camera lens. You can use them to represent bright lights or, more subtly, to add a bit more atmosphere to your Scene.">
+<meta name="description" content="__镜头光晕__模拟在摄像机镜头内折射光线的效果。它们用于表示非常明亮的光源，或者更巧妙地用于为场景添加更多气氛。">
+<meta property="og:description" content="__镜头光晕__模拟在摄像机镜头内折射光线的效果。它们用于表示非常明亮的光源，或者更巧妙地用于为场景添加更多气氛。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
 <li><a href="comp-Effects.html">视觉效果组件</a></li>
 <li>镜头光晕 (Lens Flare)</li>
@@ -192,29 +192,27 @@
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p><strong>Lens Flares</strong> simulate the effect of lights refracting inside a camera lens. You can use them to represent bright lights or, more subtly, to add a bit more atmosphere to your Scene.</p>
+<p>__镜头光晕__模拟在摄像机镜头内折射光线的效果。它们用于表示非常明亮的光源，或者更巧妙地用于为场景添加更多气氛。</p>
 
 <figure>
 <img src="../uploads/Main/Inspector-LensFlare.png" alt="">
 </figure>
 
-<p>The easiest way to set up a lens flare is to assign a <a href="class-Flare.html">Flare Asset</a> to the <strong>Flare</strong> property of a <a href="class-Light.html">Light</a>. If you do this, Unity automatically tracks the position and direction of the Light. To get more precise control, use this component.</p>
+<p>设置镜头光晕的最简单方法就是为<a href="class-Light.html">光源</a> (Light) 的 <strong>Flare</strong> 属性指定一个<a href="class-Flare.html">光晕资源</a>。这样一来，Unity 会自动跟踪光源的位置和方向。要获得更精确的控制，请使用此组件。</p>
 
-<p>To manually create a lens llare:</p>
+<p>要手动创建镜头光晕，请执行以下操作：</p>
 
-<ol>
-<li>Create a new <strong>GameObject</strong> (menu bar: <strong>GameObject &gt; Create Empty</strong>).</li>
-<li>In the Inspector, click <strong>Add Component &gt; Effects &gt; Lens Flare</strong>.</li>
-<li>Assign a <a href="class-Flare.html">Flare Asset</a> to the <strong>Flare</strong> property.</li>
-</ol>
+<p>1.创建一个新的__游戏对象__（菜单栏：__GameObject &gt; Create Empty__）。
+2.在 Inspector 中单击 <strong>Add Component &gt; Effects &gt; Lens Flare</strong>。
+3.为 <strong>Flare</strong> 属性指定一个<a href="class-Flare.html">光晕资源</a>。</p>
 
-<p>If you want a <a href="class-Camera.html">Camera</a> to see lens flares, attach a <a href="class-FlareLayer.html">Flare Layer</a> component to the Camera’s GameObject.</p>
+<p>如果希望镜头光晕出现在<a href="class-Camera.html">摄像机</a>，请将一个<a href="class-FlareLayer.html">光晕层</a>组件附加到摄像机的游戏对象。</p>
 
-<p>To see the lens flare effect in the <strong>Scene View</strong>, enable the Effect toggle in the Scene View toolbar and, in the drop-down, enable <strong>Flares</strong>.</p>
+<p>要在 <strong>Scene 视图__中查看镜头光晕的效果，请在 Scene 视图工具栏中启用效果开关，并在下拉选单中启用 </strong>Flares__。</p>
 
 <figure>
-<img src="../uploads/Main/LensFlare-FXButton.png" alt="Enable the Effect toggle to view lens flares in the Scene view">
-<figcaption>Enable the Effect toggle to view lens flares in the Scene view</figcaption>
+<img src="../uploads/Main/LensFlare-FXButton.png" alt="启用效果开关以便在 Scene 视图中查看镜头光晕">
+<figcaption>启用效果开关以便在 Scene 视图中查看镜头光晕</figcaption>
 </figure>
 
 <h2>属性</h2>
@@ -235,27 +233,27 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><strong>Flare</strong></td>
-	<td style="text-align:left;">The Flare to render. It is this Asset, and not the Lens Flare component, that controls most of the lens flare’s appearance. To customize the lens flare’s appearance, open the assigned <a href="class-Flare.html">Flare Asset</a> in the Inspector. Here, you can view and edit any of the Flare’s properties. For information on what each property controls, see the <a href="class-Flare.html">Flare documentation</a>. Unity includes pre-configured Flares for you to use in the <a href="AssetTypes.html#Standard">Standard Assets package</a>.</td>
+	<td style="text-align:left;">要渲染的光晕。正是这个资源，而不是 Lens Flare 组件，控制着镜头光晕的大部分外观。要自定义镜头光晕的外观，请在 Inspector 中打开指定的<a href="class-Flare.html">光晕资源</a>。这里，您可以查看和编辑 Flare 的任何属性。有关每个属性的控制内容的信息，请参阅 <a href="class-Flare.html">Flare 文档</a>。Unity 在<a href="AssetTypes.html#Standard">标准资源包</a>中提供了几个预先配置的光晕以供使用。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Color</strong></td>
-	<td style="text-align:left;">The color to tint the Flare to. You can use this to make the lens flare better fit the Scene’s mood.</td>
+	<td style="text-align:left;">要将光晕着色成的颜色。可用于使镜头光晕更好地适应场景的氛围。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Brightness</strong></td>
-	<td style="text-align:left;">The size and brightness the lens flare appears.</td>
+	<td style="text-align:left;">镜头光晕呈现出的大小和亮度。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Fade Speed</strong></td>
-	<td style="text-align:left;">The speed at which Unity fades the lens flare in and out.</td>
+	<td style="text-align:left;">Unity 淡入和淡出镜头光晕的速度。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Ignore Layers</strong></td>
-	<td style="text-align:left;">A mask that determins which Layers can see the lens flare.</td>
+	<td style="text-align:left;">一个确定哪些图层可以看到镜头光晕的遮罩。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Directional</strong></td>
-	<td style="text-align:left;">Indicates whether Unity orients the Flare along the positive z-axis of the GameObject. It appears as if it was infinitely far away, and does not track the GameObject’s position, only the direction of its z-axis.</td>
+	<td style="text-align:left;">指示 Unity 是否使光晕的方向沿游戏对象的正 z 轴。光晕看起来好像是无限远，不会跟踪游戏对象的位置，只跟踪 z 轴的方向。</td>
 </tr>
 </tbody>
 </table>
@@ -263,10 +261,9 @@
 <h2>详细信息</h2>
 
 <ul>
-<li>If you use a very bright lens flare, make sure its direction fits with your Scene’s primary light source.</li>
-<li>To design your own Flares, create a Flare Asset. To do this, click <strong>Assets &gt; Create &gt; Lens Flare</strong>.</li>
-<li>
-<strong>Colliders</strong> block lens flares. A Collider between the Flare GameObject and the Camera hides the lens flare, even if the Collider does not have a <strong>Mesh Renderer</strong>. If the Collider is marked as Trigger, it only blocks the lens flare if <strong>Physics.queriesHitTriggers</strong> is true.</li>
+<li>如果使用非常明亮的镜头光晕，请确保其方向与场景的主光源相适应。</li>
+<li>要设计自己的光晕，请创建一个光晕资源。为此，单击 <strong>Assets &gt; Create &gt; Lens Flare</strong>。</li>
+<li>镜头光晕会被__碰撞体__阻挡。光晕游戏对象和摄像机之间的碰撞体即使没有__网格渲染器__，也会隐藏光晕。如果碰撞体被标记为触发器 (Trigger)，仅当 <strong>Physics.queriesHitTriggers</strong> 为 true 时，该碰撞体才会阻挡镜头光晕。</li>
 </ul>
 <!-- area:graphics -->
 <div class="nextprev clear">
@@ -280,7 +277,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

@@ -14,8 +14,8 @@
 <meta property="og:title" content="瓦片地图渲染器 (Tilemap Renderer) - Unity 手册">
 <title>瓦片地图渲染器 (Tilemap Renderer) - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/2D_Tilemap_Render_properties.png">
-<meta name="description" content="The Tilemap Renderer component is part of the Tilemap GameObject. It determines how Tiles set on the Tilemap are rendered.">
-<meta property="og:description" content="The Tilemap Renderer component is part of the Tilemap GameObject. It determines how Tiles set on the Tilemap are rendered.">
+<meta name="description" content="Tilemap Renderer 组件是 Tilemap 游戏对象的一部分。它确定 Tilemap 上设置的 Tiles 的渲染方式。">
+<meta property="og:description" content="Tilemap Renderer 组件是 Tilemap 游戏对象的一部分。它确定 Tilemap 上设置的 Tiles 的渲染方式。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Unity2D.html">2D</a></li>
 <li><a href="class-Tilemap.html">Tilemap</a></li>
 <li>瓦片地图渲染器 (Tilemap Renderer)</li>
@@ -192,7 +192,7 @@
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>The <strong>Tilemap Renderer</strong> component is part of the <a href="Tilemap-CreatingTilemaps.html">Tilemap GameObject</a>. It determines how <strong>Tiles</strong> set on the <strong>Tilemap</strong> are rendered.</p>
+<p><strong>Tilemap Renderer</strong> 组件是 <a href="Tilemap-CreatingTilemaps.html">Tilemap 游戏对象</a>的一部分。它确定 <strong>Tilemap</strong> 上设置的 <strong>Tiles</strong> 的渲染方式。</p>
 
 <figure>
 <img src="../uploads/Main/2D_Tilemap_Render_properties.png" alt="">
@@ -226,7 +226,7 @@
 </tr>
 <tr>
 	<td style="text-align:left;">    Individual</td>
-	<td style="text-align:left;">The Renderer renders each Tile individually, taking into account their location and sorting order. This mode enables the Sprites on the Tiles to interact with other Renderers in the scene or with a <a href="https://docs.unity3d.com/Manual/Tilemap-Isometric-RenderModes.html#CustomAxis">Custom Sorting Axis</a>.</td>
+	<td style="text-align:left;">渲染器单独渲染每个瓦片，并且考虑它们的位置和排序顺序。此模式使瓦片上的精灵能够与场景中的其他渲染器或与<a href="https://docs.unity3d.com/Manual/Tilemap-Isometric-RenderModes.html#CustomAxis">自定义排序轴</a>进行交互。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Detect Chunk Culling Bounds</strong></td>
@@ -242,11 +242,11 @@
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Chunk Culling Bounds</strong></td>
-	<td style="text-align:left;">Enabled when Manual is selected above. Enter the values (in Unity units) that the culling bounds are extended by.</td>
+	<td style="text-align:left;">如果选择了上面的 Manual，则会启用。输入剔除边界扩展的值（采用 Unity 单位）。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Sorting Layer</strong></td>
-	<td style="text-align:left;">Set the <a href="https://docs.unity3d.com/Manual/class-TagManager.html#SortingLayers">Sorting Layer</a> of the Tilemap. Select an existing Sorting Layer from the drop-down box, or create a new Sorting Layer.</td>
+	<td style="text-align:left;">设置瓦片地图的 <a href="https://docs.unity3d.com/Manual/class-TagManager.html#SortingLayers">Sorting Layer)</a>。从下拉框中选择现有的排序图层，或创建新的排序图层。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Order in Layer</strong></td>
@@ -254,7 +254,7 @@
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Mask Interaction</strong></td>
-	<td style="text-align:left;">Set how the Tilemap Renderer behaves when it interacts with a <a href="https://docs.unity3d.com/Manual/class-SpriteMask.html">Sprite Mask</a>.</td>
+	<td style="text-align:left;">设置 Tilemap Renderer 在与<a href="https://docs.unity3d.com/Manual/class-SpriteMask.html">精灵遮罩</a>交互时的行为方式。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">    None</td>
@@ -262,21 +262,19 @@
 </tr>
 <tr>
 	<td style="text-align:left;">    Visible Inside Mask</td>
-	<td style="text-align:left;">The Tilemap Renderer only renders areas of the Tilemap that the Sprite Mask overlays.</td>
+	<td style="text-align:left;">Tilemap Renderer 仅渲染 Sprite Mask 覆盖的 Tilemap 区域。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">    Visible Outside Mask</td>
-	<td style="text-align:left;">The Tilemap Renderer renders the Tilemap entirely but subtracts the areas the Sprite Mask overlays.</td>
+	<td style="text-align:left;">Tilemap Renderer 完全渲染 Tilemap，但减去 Sprite Mask 覆盖的区域。</td>
 </tr>
 </tbody>
 </table>
 
 <hr>
 
-<ul>
-<li><span class="page-history">Page content and screenshots updated for <a href="https://docs.unity3d.com/2020.1/Documentation/Manual/30_search.html?q=newin20201">2020.1</a> <span class="search-words">NewIn20201</span></span></li>
-<li><span class="page-history">在 <a href="https://docs.unity3d.com/2017.2/Documentation/Manual/30_search.html?q=newin20172">2017.2</a> 版中添加了瓦片地图 <span class="search-words">NewIn20172</span></span></li>
-</ul>
+<p><em><span class="page-history">页面内容和屏幕截图更新于 <a href="https://docs.unity3d.com/2020.1/Documentation/Manual/30_search.html?q=newin20201">2020.1</a><span class="search-words"> NewIn20201</span></span>
+</em> <span class="page-history">在 <a href="https://docs.unity3d.com/2017.2/Documentation/Manual/30_search.html?q=newin20172">2017.2</a> 版中添加了瓦片地图 <span class="search-words">NewIn20172</span></span></p>
 <!-- area:authoring -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -289,7 +287,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

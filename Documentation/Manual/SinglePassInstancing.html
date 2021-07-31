@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="XR.html">XR</a></li>
 <li><a href="SinglePassStereoRendering.html">单通道立体渲染（双宽渲染）</a></li>
 <li>单通道实例化渲染</li>
@@ -213,7 +213,7 @@
 </li>
 </ul>
 
-<p><strong>Note:</strong> Unity doesn’t support Single Pass Stereo Instancing in the Legacy Render Pipeline when using Deferred Rendering.</p>
+<p><strong>注意：</strong>使用延迟渲染时，Unity 不支持旧版渲染管线中的单通道立体实例化。</p>
 
 <p>要启用此功能，请打开 <strong>Player</strong> 设置（选择 <strong>Edit</strong> &gt; <strong>Project Settings__，然后选择 </strong>Player__ 类别）。在 <strong>Player</strong> 设置中，导航到底部的 <strong>XR Settings</strong> 面板，选中 <strong>Virtual Reality Supported</strong> 选项，然后从 <strong>Stereo Rendering Method</strong> 下拉菜单中选择 <strong>Single Pass Instanced (Preview)</strong>。</p>
 
@@ -370,8 +370,6 @@ fixed4 frag (v2f i) : SV_Target
 
 <p>使用 <a href="../ScriptReference/Graphics.DrawProcedural.html">Graphics.DrawProceduralIndirect()</a> 和 <a href="../ScriptReference/Graphics.DrawProceduralIndirect.html">CommandBuffer.DrawProceduralIndirect()</a> 方法在 GPU 上绘制完全程序化的几何体时，必须注意这两个方法都从计算缓冲区接收参数。这意味着在运行时很难增加实例计数。要增加实例计数，必须手动使计算缓冲区中包含的实例计数加倍。</p>
 
-<p>请参阅<a href="SL-VertexFragmentShaderExamples.html">顶点和片元着色器示例</a>以了解有关如何编写着色器代码的更多信息。</p>
-
 <h2>调试着色器</h2>
 
 <p>以下着色器代码将游戏对象渲染为绿色（用户左眼）和红色（右眼）。此着色器对于调试立体渲染非常有用，因为它可用于验证所有立体图形是否正常工作。</p>
@@ -451,7 +449,7 @@ fixed4 frag (v2f i) : SV_Target
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

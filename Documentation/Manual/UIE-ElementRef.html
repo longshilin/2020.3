@@ -174,9 +174,9 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="UIToolkits.html">Creating user interfaces (UI)</a></li>
-<li><a href="UIElements.html">UI Toolkit</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="UIToolkits.html">创建用户界面 (UI)</a></li>
+<li><a href="UIElements.html">UI 工具包</a></li>
 <li><a href="UIE-UXML.html">UXML 格式</a></li>
 <li>UXML 元素参考</li>
 </ul></div>
@@ -202,14 +202,15 @@
 <col style="text-align:left;">
 <col style="text-align:left;">
 <col style="text-align:left;">
+<col style="text-align:left;">
 </colgroup>
 
 <thead>
 <tr>
 	<th style="text-align:left;"><strong>Element</strong></th>
-	<th style="text-align:left;"><strong>Function</strong></th>
-	<th style="text-align:left;"><strong>Namespace</strong></th>
-	<th style="text-align:left;"><strong>Permitted child elements</strong></th>
+	<th style="text-align:left;"><strong>功能</strong></th>
+	<th style="text-align:left;"><strong>命名空间</strong></th>
+	<th style="text-align:left;"><strong>允许的子元素</strong></th>
 	<th style="text-align:left;"><strong>Attributes</strong></th>
 </tr>
 </thead>
@@ -217,21 +218,21 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><code>VisualElement</code></td>
-	<td style="text-align:left;">The base class for all visual elements.</td>
+	<td style="text-align:left;">所有视觉元素的基类。</td>
 	<td style="text-align:left;"><code>UnityEngine.UIElements</code></td>
-	<td style="text-align:left;">Any number of <code>VisualElement</code>
+	<td style="text-align:left;">任意数量的 <code>VisualElement</code>
 </td>
 	<td style="text-align:left;">
-<code>class</code>: A list of space separated names.<br><code>style</code>: USS directives to style the element.<br><code>name</code>: A unique string identifier for this element.<br><code>picking-mode</code>: Set to <code>Position</code> or <code>Ignore</code>. The default value is <code>Position</code>.<br><code>tooltip</code>: When the mouse hovers the element a string displays.<br><code>focusable</code>: A boolean that indicates whether the element is focusable. The default is set to <code>false</code> (not focusable). This replaces the obsolete <code>focus-index</code> element.<br><code>tabindex</code>: An integer that defines the tabbing position of the element and the position in the tree. A positive value increases tabbing priority. The default is 0. This replaces the obsolete <code>focus-index</code> element.<br><code>view-data-key</code> : A string that defines the key used for serialization of the element.<br>This element also accepts any other attribute.</td>
+<code>class</code>: A list of space separated names. <br><code>style</code>: USS directives to style the element.<br><code>name</code>: A unique string identifier for this element.<br><code>picking-mode</code>: Set to <code>Position</code> or <code>Ignore</code>. The default value is <code>Position</code>.<br><code>tooltip</code>: When the mouse hovers the element a string displays.<br><code>focusable</code>: A Boolean that indicates whether the element is focusable. The default is set to <code>false</code> (not focusable). This replaces the obsolete <code>focus-index</code> element.<br><code>tabindex</code>: An integer that defines the tabbing position of the element and the position in the tree. A positive value increases tabbing priority. The default is 0. This replaces the obsolete <code>focus-index</code> element.<br><code>view-data-key</code> : A string that defines the key used for serialization of the element.<br>This element also accepts any other attribute.</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>BindableElement</code></td>
-	<td style="text-align:left;">An element that can be bound to a <code>SerializedProperty</code>. The value of the property and the value displayed are synchronized.</td>
+	<td style="text-align:left;">可绑定到 <code>SerializedProperty</code> 的元素。属性的值和显示的值是同步的。</td>
 	<td style="text-align:left;"><code>UnityEngine.UIElements</code></td>
-	<td style="text-align:left;">Any number of <code>VisualElement</code>
+	<td style="text-align:left;">任意数量的 <code>VisualElement</code>
 </td>
 	<td style="text-align:left;">
-<code>binding-path</code>: The path of the property that this element is bound to.</td>
+<code>binding-path</code>：此元素绑定到的属性的路径。</td>
 </tr>
 </tbody>
 </table>
@@ -244,14 +245,15 @@
 <col style="text-align:left;">
 <col style="text-align:left;">
 <col style="text-align:left;">
+<col style="text-align:left;">
 </colgroup>
 
 <thead>
 <tr>
 	<th style="text-align:left;"><strong>Element</strong></th>
-	<th style="text-align:left;"><strong>Function</strong></th>
-	<th style="text-align:left;"><strong>Namespace</strong></th>
-	<th style="text-align:left;"><strong>Permitted child elements</strong></th>
+	<th style="text-align:left;"><strong>功能</strong></th>
+	<th style="text-align:left;"><strong>命名空间</strong></th>
+	<th style="text-align:left;"><strong>允许的子元素</strong></th>
 	<th style="text-align:left;"><strong>Attributes</strong></th>
 </tr>
 </thead>
@@ -259,52 +261,54 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><code>Box</code></td>
-	<td style="text-align:left;">This element is similar to <code>VisualElement</code> but draws a box around its content.</td>
+	<td style="text-align:left;">此元素与 <code>VisualElement</code> 类似，但在其内容周围绘制一个框。</td>
 	<td style="text-align:left;"><code>UnityEngine.UIElements</code></td>
-	<td style="text-align:left;">Any number of <code>VisualElement</code>
+	<td style="text-align:left;">任意数量的 <code>VisualElement</code>
 </td>
-	<td style="text-align:left;">All attributes of <code>VisualElement</code>
-</td>
+	<td style="text-align:left;">
+<code>VisualElement</code> 的所有属性</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>TextElement</code></td>
-	<td style="text-align:left;">An element that displays text.</td>
+	<td style="text-align:left;">用于显示文本的元素。</td>
 	<td style="text-align:left;"><code>UnityEngine.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>VisualElement</code><br><code>text</code>: The text the element should display.</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>VisualElement</code> 的所有属性<br><code>text</code>：元素应该显示的文本。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>Label</code></td>
-	<td style="text-align:left;">A text label.</td>
+	<td style="text-align:left;">文本标签。</td>
 	<td style="text-align:left;"><code>UnityEngine.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>TextElement</code>
-</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>TextElement</code> 的所有属性</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>Image</code></td>
-	<td style="text-align:left;">Displays an image.</td>
+	<td style="text-align:left;">显示图像。</td>
 	<td style="text-align:left;"><code>UnityEngine.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>VisualElement</code>
-</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>VisualElement</code> 的所有属性</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>IMGUIContainer</code></td>
-	<td style="text-align:left;">Draws <a href="GUIScriptingGuide.html">IMGUI</a> content</td>
+	<td style="text-align:left;">绘制 <a href="GUIScriptingGuide.html">IMGUI</a> 内容</td>
 	<td style="text-align:left;"><code>UnityEngine.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>VisualElement</code><br><code>focus-index</code> default value is <code>0</code><br> <code>focusable</code> default value is <code>true</code>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>VisualElement</code> 的所有属性<br><code>focus-index</code> 默认值为 <code>0</code><br> <code>focusable</code> 默认值为 <code>true</code>
 </td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>Foldout</code></td>
-	<td style="text-align:left;">An element that has a toggle button to show or hide its content.</td>
+	<td style="text-align:left;">一个元素，具有开关按钮来显示或隐藏其内容。</td>
 	<td style="text-align:left;"><code>UnityEngine.UIElements</code></td>
-	<td style="text-align:left;">Any number of <code>VisualElement</code>
+	<td style="text-align:left;">任意数量的 <code>VisualElement</code>
 </td>
-	<td style="text-align:left;">All attributes of <code>BindableElement</code>
-</td>
+	<td style="text-align:left;">
+<code>BindableElement</code> 的所有属性</td>
 </tr>
 </tbody>
 </table>
@@ -317,14 +321,15 @@
 <col style="text-align:left;">
 <col style="text-align:left;">
 <col style="text-align:left;">
+<col style="text-align:left;">
 </colgroup>
 
 <thead>
 <tr>
 	<th style="text-align:left;"><strong>Element</strong></th>
-	<th style="text-align:left;"><strong>Function</strong></th>
-	<th style="text-align:left;"><strong>Namespace</strong></th>
-	<th style="text-align:left;"><strong>Permitted child elements</strong></th>
+	<th style="text-align:left;"><strong>功能</strong></th>
+	<th style="text-align:left;"><strong>命名空间</strong></th>
+	<th style="text-align:left;"><strong>允许的子元素</strong></th>
 	<th style="text-align:left;"><strong>Attributes</strong></th>
 </tr>
 </thead>
@@ -332,27 +337,29 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><code>Template</code></td>
-	<td style="text-align:left;">A reference to another UXML template that can be instantiated using the <code>Instance</code> element.</td>
+	<td style="text-align:left;">引用另一个可使用 <code>Instance</code> 元素进行实例化的 UXML 模板。</td>
 	<td style="text-align:left;"><code>UnityEngine.UIElements</code></td>
-	<td style="text-align:left;">None</td>
+	<td style="text-align:left;">无</td>
 	<td style="text-align:left;">
-<code>name</code>: A unique string identifier for this element<br><code>path</code>: The path of the UXML file to load</td>
+<code>name</code>：此元素的唯一字符串标识符<br><code>path</code>：要加载的 UXML 文件的路径</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>Instance</code></td>
-	<td style="text-align:left;">Instance of a <code>Template</code>
-</td>
-	<td style="text-align:left;"><code>UnityEngine.UIElements</code></td>
-	<td style="text-align:left;">None</td>
 	<td style="text-align:left;">
-<code>template</code>: The <code>name</code> of the <code>Template</code> to instantiate</td>
+<code>Template</code> 的实例</td>
+	<td style="text-align:left;"><code>UnityEngine.UIElements</code></td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>template</code>：要实例化的 <code>Template</code> 的 <code>name</code>
+</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>TemplateContainer</code></td>
-	<td style="text-align:left;">A template container.</td>
+	<td style="text-align:left;">模板容器。</td>
 	<td style="text-align:left;"><code>UnityEngine.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>BindableElement</code><br><code>template</code>: A string identifier for this template</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>BindableElement</code> 的所有属性<br><code>template</code>：此模板的字符串标识符</td>
 </tr>
 </tbody>
 </table>
@@ -365,14 +372,15 @@
 <col style="text-align:left;">
 <col style="text-align:left;">
 <col style="text-align:left;">
+<col style="text-align:left;">
 </colgroup>
 
 <thead>
 <tr>
 	<th style="text-align:left;"><strong>Element</strong></th>
-	<th style="text-align:left;"><strong>Function</strong></th>
-	<th style="text-align:left;"><strong>Namespace</strong></th>
-	<th style="text-align:left;"><strong>Permitted child elements</strong></th>
+	<th style="text-align:left;"><strong>功能</strong></th>
+	<th style="text-align:left;"><strong>命名空间</strong></th>
+	<th style="text-align:left;"><strong>允许的子元素</strong></th>
 	<th style="text-align:left;"><strong>Attributes</strong></th>
 </tr>
 </thead>
@@ -380,112 +388,124 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><code>BaseField&lt;T&gt;</code></td>
-	<td style="text-align:left;">The abstract base class of all fields.</td>
+	<td style="text-align:left;">所有字段的抽象基类。</td>
 	<td style="text-align:left;"><code>UnityEngine.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>BindableElement</code><br> <code>focus-index</code> default value is <code>0</code><br> <code>focusable</code> default value is <code>true</code><br> <code>label</code>: The text of the label that is associated with the field</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>BindableElement</code> 的所有属性<br> <code>focus-index</code> 默认值为 <code>0</code><br> <code>focusable</code> 默认值为 <code>true</code><br> <code>label</code>：与字段关联的标签的文本</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>BaseFieldTraits&lt;ValueType, UxmlType&gt;</code></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>UnityEngine.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>BaseField&lt;ValueType&gt;</code><br><code>value</code>: The base value of the field, of type <code>ValueType</code>
-</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>BaseField&lt;ValueType&gt;</code> 的所有属性<br><code>value</code>：<code>ValueType</code> 类型的字段的基值</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>Button</code></td>
-	<td style="text-align:left;">A standard push button.</td>
+	<td style="text-align:left;">标准按钮。</td>
 	<td style="text-align:left;"><code>UnityEngine.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>TextElement</code>
-</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>TextElement</code> 的所有属性</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>RepeatButton</code></td>
-	<td style="text-align:left;">A button that executes an action repeatedly while pressed.</td>
+	<td style="text-align:left;">按下时反复执行某项操作的按钮。</td>
 	<td style="text-align:left;"><code>UnityEngine.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>TextElement</code><br> <code>delay</code>: The initial delay in milliseconds before the element executes the action is executed. The default value is <code>0</code><br><code>interval</code>: The interval in milliseconds between repeating each action. The default value is <code>0</code>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>TextElement</code> 的所有属性<br><code>delay</code>：元素执行操作之前的初始延迟（以毫秒为单位）。默认值为 <code>0</code><br><code>interval</code>：每次重复操作之间的间隔（以毫秒为单位）。默认值为 <code>0</code>
 </td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>Toggle</code></td>
-	<td style="text-align:left;">A toggle button, displayed as a checkbox.</td>
+	<td style="text-align:left;">显示为复选框的一个开关按钮。</td>
 	<td style="text-align:left;"><code>UnityEngine.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>BaseFieldTraits&lt;bool, UxmlBoolAttributeDescription&gt;</code><br> <code>text</code> : Right side label of the toggle.</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>BaseFieldTraits&lt;bool, UxmlBoolAttributeDescription&gt;</code> 的所有属性<br> <code>text</code>：开关的右侧标签。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>Scroller</code></td>
-	<td style="text-align:left;">A scroll bar.</td>
+	<td style="text-align:left;">滚动条。</td>
 	<td style="text-align:left;"><code>UnityEngine.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>VisualElement</code><br> <code>low-value</code>: The minimum value of the scroller<br> <code>high-value</code>: The maximum value of the scroller<br> <code>direction</code>: Set to <code>Horizontal</code> or <code>Vertical</code>. The default is <code>Vertical</code>.<br> <code>value</code>: The position of the scroller cursor</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>VisualElement</code> 的所有属性<br> <code>low-value</code>：滚动条的最小值<br> <code>high-value</code>：滚动条的最大值<br> <code>direction</code>：设置为 <code>Horizontal</code> 或 <code>Vertical</code>。默认值为 <code>Vertical</code>。<br> <code>value</code>：滚动条光标的位置</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>Slider</code></td>
-	<td style="text-align:left;">A slider.</td>
+	<td style="text-align:left;">滑动条。</td>
 	<td style="text-align:left;"><code>UnityEngine.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>BaseFieldTraits&lt;float, UxmlFloatAttributeDescription&gt;</code><br> <code>low-value</code>: The minimum value of the slider<br> <code>high-value</code>: The maximum value of the slider<br> <code>direction</code>: Set to <code>Horizontal</code> or <code>Vertical</code>. The default is <code>Horizontal</code>.<br> <code>page-size</code>: The page size of the slider</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>BaseFieldTraits&lt;float, UxmlFloatAttributeDescription&gt;</code> 的所有属性<br> <code>low-value</code>：滑动条的最小值<br> <code>high-value</code>：滑动条的最大值<br> <code>direction</code>：设置为 <code>Horizontal</code> 或 <code>Vertical</code>。默认为<code>Horizontal</code>。<br> <code>page-size</code>：滑动条的页面大小</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>SliderInt</code></td>
-	<td style="text-align:left;">A slider for integer values.</td>
+	<td style="text-align:left;">整数值的滑动条。</td>
 	<td style="text-align:left;"><code>UnityEngine.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>BaseFieldTraits&lt;int, UxmlIntAttributeDescription&gt;</code><br> <code>low-value</code>: The minimum value of the slider<br> <code>high-value</code>: The maximum value of the slider<br> <code>direction</code>: Set to <code>Horizontal</code> or <code>Vertical</code>. The default is <code>Horizontal</code>.<br> <code>page-size</code>: The page size of the slider</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>BaseFieldTraits&lt;int, UxmlIntAttributeDescription&gt;</code> 的所有属性<br> <code>low-value</code>：滑动条的最小值<br> <code>high-value</code>：滑动条的最大值<br> <code>direction</code>：设置为 <code>Horizontal</code> 或 <code>Vertical</code>。默认为<code>Horizontal</code>。<br> <code>page-size</code>：滑动条的页面大小</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>MinMaxSlider</code></td>
-	<td style="text-align:left;">A slider that lets the user specify a minimum and a maximum value.</td>
+	<td style="text-align:left;">让用户指定最小值和最大值的滑动条。</td>
 	<td style="text-align:left;"><code>UnityEngine.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>BaseField&lt;Vector2&gt;</code><br> <code>low-limit</code>: The minimum value of the scroller<br> <code>high-limit</code>: The maximum value of the scroller<br> <code>min-value</code>: The minimum value of the slider cursor<br><code>max-value</code>: The maximum value of the slider cursor</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>BaseField&lt;Vector2&gt;</code> 的所有属性<br> <code>low-limit</code>：滚动条的最小值<br> <code>high-limit</code>：滚动条的最大值<br> <code>min-value</code>：滑动条光标的最小值<br><code>max-value</code>：滑动条光标的最大值</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>EnumField</code></td>
-	<td style="text-align:left;">A field that takes the string values of an underlying <code>Enum</code>.</td>
+	<td style="text-align:left;">一个字段，接受基础 <code>Enum</code> 的字符串值。</td>
 	<td style="text-align:left;"><code>UnityEditor.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>BaseField&lt;Enum&gt;</code><br> <code>type</code>: A string representing the C# type of the underlying <code>Enum</code>. If the type is in a user assembly, the assembly name must be added to the type name: <code>MyNamespace.MyEnum, MyAssembly</code>. The <code>type</code> string is always required. <br><code>value</code>: A string that represents the value of the field</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>BaseField&lt;Enum&gt;</code> 的所有属性<br> <code>type</code>：一个字符串，表示 C# 类型的基础 <code>Enum</code>。如果类型在用户程序集中，则必须将程序集名称添加到类型名称中：<code>MyNamespace.MyEnum, MyAssembly</code>。始终需要 <code>type</code> 字符串。<br><code>value</code>：一个字符串，表示该字段的值</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>MaskField</code></td>
-	<td style="text-align:left;">A popup menu that the user can select a group of values from.</td>
+	<td style="text-align:left;">一个弹出菜单，用户可以从其中选择一组值。</td>
 	<td style="text-align:left;"><code>UnityEditor.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>BaseField&lt;int&gt;</code><br> <code>choices</code>: A comma separated list of up to 32 choices to display in the popup menu<br> <code>value</code>: An integer that represents the value of the field as a 32-bit mask.</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>BaseField&lt;int&gt;</code> 的所有属性<br> <code>choices</code>：显示在弹出菜单中的以逗号分隔的列表（最多 32 个选项）<br> <code>value</code>：一个表示字段值的整数（32 位掩码）。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>LayerField</code></td>
-	<td style="text-align:left;">A popup menu that the user can select a <a href="Layers.html">layer</a> from.</td>
+	<td style="text-align:left;">一个弹出菜单，用户可以从其中选择<a href="Layers.html">图层</a>。</td>
 	<td style="text-align:left;"><code>UnityEditor.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>BaseField&lt;int&gt;</code><br> <code>value</code>: An integer that represents the value of the field (the selected layer number).</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>BaseField&lt;int&gt;</code> 的所有属性<br> <code>value</code>：一个表示字段值的整数（选定的图层编号）。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>LayerMaskField</code></td>
-	<td style="text-align:left;">A popup menu that the user can select a group of <a href="Layers.html">layers</a> from.</td>
+	<td style="text-align:left;">一个弹出菜单，用户可以从其中选择一组<a href="Layers.html">图层</a>。</td>
 	<td style="text-align:left;"><code>UnityEditor.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>MaskField</code>
-</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>MaskField</code> 的所有属性</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>TagField</code></td>
-	<td style="text-align:left;">A popup menu that the user can select a <a href="Tags.html">tag</a> from.</td>
+	<td style="text-align:left;">一个弹出菜单，用户可以从其中选择<a href="Tags.html">标签</a>。</td>
 	<td style="text-align:left;"><code>UnityEditor.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>BaseField&lt;string&gt;</code><br><code>value</code>: A string that represents the value of the field (the selected tag name).</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>BaseField&lt;string&gt;</code> 的所有属性<br> <code>value</code>：一个表示字段值的字符串（选定的标签名称）。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>ProgressBar</code></td>
-	<td style="text-align:left;">A progress bar that shows the progression of an operation.</td>
+	<td style="text-align:left;">一个显示操作进度的进度条。</td>
 	<td style="text-align:left;"><code>UnityEditor.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>BindableElement</code><br><code>low-value</code>: A float that represents the lowest value of the progress bar. The default is 0.<br><code>high-value</code>: A float that represents the highest value of the progress bar. The default is 100.<br><code>title</code>: A string that represents the title of the progress bar.</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>BindableElement</code> 的所有属性<br><code>low-value</code>：一个表示进度条最小值的浮点数。默认值为 0。<br><code>high-value</code>：一个表示进度条最大值的浮点数。默认值为 100。<br><code>title</code>：一个表示进度条标题的字符串。</td>
 </tr>
 </tbody>
 </table>
@@ -498,14 +518,15 @@
 <col style="text-align:left;">
 <col style="text-align:left;">
 <col style="text-align:left;">
+<col style="text-align:left;">
 </colgroup>
 
 <thead>
 <tr>
 	<th style="text-align:left;"><strong>Element</strong></th>
-	<th style="text-align:left;"><strong>Function</strong></th>
-	<th style="text-align:left;"><strong>Namespace</strong></th>
-	<th style="text-align:left;"><strong>Permitted child elements</strong></th>
+	<th style="text-align:left;"><strong>功能</strong></th>
+	<th style="text-align:left;"><strong>命名空间</strong></th>
+	<th style="text-align:left;"><strong>允许的子元素</strong></th>
 	<th style="text-align:left;"><strong>Attributes</strong></th>
 </tr>
 </thead>
@@ -513,113 +534,124 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><code>TextInputBaseField&lt;TValueType&gt;</code></td>
-	<td style="text-align:left;">An abstract base class for all text fields.</td>
+	<td style="text-align:left;">所有文本字段的抽象基类。</td>
 	<td style="text-align:left;"><code>UnityEngine.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>BaseFieldTraits&lt;string, UxmlStringAttributeDescription&gt;</code><br><code>text</code>: The text value of the field<br><code>max-length</code>: The maximum number of characters that the field can contain. Default value of <code>-1</code> sets no limits on the text length.<br> <code>password</code>: A boolean that indicates whether the field content should be shown or displayed using the <code>maskCharacter</code> character. <code>false</code> is the default setting.<br><code>mask-character</code>: A character that displays the field content when <code>password</code> is <code>true</code>. Default is the character <code>*</code>.<br><code>readonly</code>: A boolean that indicates that the field is read-only. The default value is <code>false</code>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>BaseFieldTraits&lt;string, UxmlStringAttributeDescription&gt;</code> 的所有属性<br><code>text</code>：字段的文本值<br><code>max-length</code>：该字段可以包含的最大字符数。默认值 (<code>-1</code>) 表示对文本长度不设限制。<br> <code>password</code>：一个布尔值，指示是否应使用 <code>maskCharacter</code> 字符来显示字段内容。默认设置为 <code>false</code>。<br><code>mask-character</code>：一个字符，在 <code>password</code> 为 <code>true</code> 时显示字段内容。默认值为字符 <code>*</code>。<br><code>readonly</code>：一个布尔值，指示该字段为只读字段。默认值为 <code>false</code>
 </td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>TextField</code></td>
-	<td style="text-align:left;">An editable text field.</td>
+	<td style="text-align:left;">一个可编辑的文本字段。</td>
 	<td style="text-align:left;"><code>UnityEngine.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>TextInputBaseField&lt;string&gt;</code><br> <code>multiline</code>: A boolean that indicates whether the text field displays its text on multiple lines. Set to <code>true</code> to display on multiple lines, or set to <code>false</code> to display or on a single line, ignoring any line break in the text. <code>false</code> is the default.</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>TextInputBaseField&lt;string&gt;</code> 的所有属性<br> <code>multiline</code>：一个布尔值，指示文本字段是否将文本显示为多行。设置为 <code>true</code> 可显示为多行，或者设置为 <code>false</code> 可显示为单行并忽略文本中的任何换行符。默认值为 <code>false</code>。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>IntegerField</code></td>
-	<td style="text-align:left;">A text field that accepts an integer (32-bit) value.</td>
+	<td style="text-align:left;">一个文本字段，可接受整数（32 位）值。</td>
 	<td style="text-align:left;"><code>UnityEditor.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>BaseFieldTraits&lt;int, UxmlIntAttributeDescription&gt;</code>
-</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>BaseFieldTraits&lt;int, UxmlIntAttributeDescription&gt;</code> 的所有属性</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>LongField</code></td>
-	<td style="text-align:left;">A text field that accepts a long integer (64 bits) value.</td>
+	<td style="text-align:left;">一个文本字段，可接受长整数（64 位）值。</td>
 	<td style="text-align:left;"><code>UnityEditor.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>BaseFieldTraits&lt;long, UxmlLongAttributeDescription&gt;</code>
-</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>BaseFieldTraits&lt;long, UxmlLongAttributeDescription&gt;</code> 的所有属性</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>FloatField</code></td>
-	<td style="text-align:left;">A text field that accepts a single precision floating point value.</td>
+	<td style="text-align:left;">一个文本字段，可接受单精度浮点值。</td>
 	<td style="text-align:left;"><code>UnityEditor.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>BaseFieldTraits&lt;float, UxmlFloatAttributeDescription&gt;</code>
-</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>BaseFieldTraits&lt;float, UxmlFloatAttributeDescription&gt;</code> 的所有属性</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>DoubleField</code></td>
-	<td style="text-align:left;">A text field that accepts a double precision floating point value.</td>
+	<td style="text-align:left;">一个文本字段，可接受双精度浮点值。</td>
 	<td style="text-align:left;"><code>UnityEditor.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>BaseFieldTraits&lt;double, UxmlDoubleAttributeDescription&gt;</code>
-</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>BaseFieldTraits&lt;double, UxmlDoubleAttributeDescription&gt;</code> 的所有属性</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>Vector2Field</code></td>
-	<td style="text-align:left;">A set of two text fields that accept floating point values to edit the value of a <code>Vector2</code>.</td>
+	<td style="text-align:left;">一组（两个）文本字段，可接受浮点值，用于编辑 <code>Vector2</code> 的值。</td>
 	<td style="text-align:left;"><code>UnityEditor.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>BaseField&lt;Vector2&gt;</code><br><code>x</code>: The value of the X coordinate<br><code>y</code>: The value of the Y coordinate</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>BaseField&lt;Vector2&gt;</code> 的所有属性<br><code>x</code>：X 坐标值<br><code>y</code>：Y 坐标值</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>Vector2IntField</code></td>
-	<td style="text-align:left;">A set of two text fields that accept integer values to edit the value of a <code>Vector2Int</code>.</td>
+	<td style="text-align:left;">一组（两个）文本字段，可接受整数值，用于编辑 <code>Vector2Int</code> 的值。</td>
 	<td style="text-align:left;"><code>UnityEditor.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>BaseField&lt;Vector2Int&gt;</code><br><code>x</code>: The value of the X coordinate<br><code>y</code>: The value of the Y coordinate</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>BaseField&lt;Vector2Int&gt;</code> 的所有属性<br><code>x</code>：X 坐标值<br><code>y</code>：Y 坐标值</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>Vector3Field</code></td>
-	<td style="text-align:left;">A set of three text fields that accept floating point values to edit the value of a <code>Vector3</code>.</td>
+	<td style="text-align:left;">一组（三个）文本字段，可接受浮点值，用于编辑 <code>Vector3</code> 的值。</td>
 	<td style="text-align:left;"><code>UnityEditor.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>BaseField&lt;Vector3&gt;</code><br><code>x</code>: The value of the X coordinate<br><code>y</code>: The value of the Y coordinate<br><code>z</code>: The value of the Z coordinate</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>BaseField&lt;Vector3&gt;</code> 的所有属性<br><code>x</code>：X 坐标值<br><code>y</code>：Y 坐标值<br><code>z</code>：Z 坐标值</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>Vector3IntField</code></td>
-	<td style="text-align:left;">A set of three text fields that accept integer values to edit the value of a <code>Vector3Int</code>.</td>
+	<td style="text-align:left;">一组（三个）文本字段，可接受整数值，用于编辑 <code>Vector3Int</code> 的值。</td>
 	<td style="text-align:left;"><code>UnityEditor.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>BaseField&lt;Vector3Int&gt;</code><br><code>x</code>: The value of the X coordinate<br><code>y</code>: The value of the Y coordinate<br><code>z</code>: The value of the Z coordinate</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>BaseField&lt;Vector3Int&gt;</code> 的所有属性<br><code>x</code>：X 坐标值<br><code>y</code>：Y 坐标值<br><code>z</code>：Z 坐标值</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>Vector4Field</code></td>
-	<td style="text-align:left;">A set of four text fields that accept floating point values to edit the value of a <code>Vector4</code>.</td>
+	<td style="text-align:left;">一组（四个）文本字段，可接受浮点值，用于编辑 <code>Vector4</code> 的值。</td>
 	<td style="text-align:left;"><code>UnityEditor.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>BaseField&lt;Vector4&gt;</code><br><code>x</code>: The value of the X coordinate<br><code>y</code>: The value of the Y coordinate<br><code>z</code>: The value of the Z coordinate<br><code>w</code>: The value of the W coordinate</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>BaseField&lt;Vector4&gt;</code> 的所有属性<br><code>x</code>：X 坐标值<br><code>y</code>：Y 坐标值<br><code>z</code>：Z 坐标值<br><code>w</code>：W 坐标值</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>RectField</code></td>
-	<td style="text-align:left;">A set of four text fields that accept floating point values to edit the value of a rectangle.</td>
+	<td style="text-align:left;">一组（四个）文本字段，可接受浮点值，用于编辑矩形的值。</td>
 	<td style="text-align:left;"><code>UnityEditor.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>BaseField&lt;Rect&gt;</code><br><code>x</code>: The value of the top left corner X coordinate<br><code>y</code>: The value of the top left corner Y coordinate<br><code>w</code>: The width of the rectangle<br> <code>h</code>: the height of the rectangle</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>BaseField&lt;Rect&gt;</code> 的所有属性<br><code>x</code>：左上角 X 坐标的值<br><code>y</code>：左上角 Y 坐标的值<br><code>w</code>：矩形的宽度<br> <code>h</code>：矩形的高度</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>RectIntField</code></td>
-	<td style="text-align:left;">A set of four text fields that accept integer values to edit the value of a rectangle.</td>
+	<td style="text-align:left;">一组（四个）文本字段，可接受整数值，用于编辑矩形的值。</td>
 	<td style="text-align:left;"><code>UnityEditor.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>BaseField&lt;RectInt&gt;</code><br><code>x</code>: The value of the top left corner X coordinate<br><code>y</code>: The value of the top left corner Y coordinate<br><code>w</code>: The width of the rectangle<br> <code>h</code>: the height of the rectangle</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>BaseField&lt;RectInt&gt;</code> 的所有属性<br><code>x</code>：左上角 X 坐标的值<br><code>y</code>：左上角 Y 坐标的值<br><code>w</code>：矩形的宽度<br> <code>h</code>：矩形的高度</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>BoundsField</code></td>
-	<td style="text-align:left;">A set of six text fields that accept floating point values to edit the value of a bounding rectangle.</td>
+	<td style="text-align:left;">一组（六个）文本字段，可接受浮点值，用于编辑边界矩形的值。</td>
 	<td style="text-align:left;"><code>UnityEditor.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>BaseField&lt;Bounds&gt;</code><br><code>cx</code>: The value of the center X coordinate<br><code>cy</code>: The value of the center Y coordinate<br><code>cz</code>: The value of the center Z coordinate<br><code>ex</code>: The value of the extent X coordinate<br><code>ey</code>: The value of the extent Y coordinate<br><code>ez</code>: The value of the extent Z coordinate</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>BaseField&lt;Bounds&gt;</code> 的所有属性<br><code>cx</code>：中心 X 坐标的值<br><code>cy</code>：中心 Y 坐标的值<br><code>cz</code>：中心 Z 坐标的值<br><code>ex</code>：范围 X 坐标的值<br><code>ey</code>：范围 Y 坐标的值<br><code>ez</code>：范围 Z 坐标的值</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>BoundsIntField</code></td>
-	<td style="text-align:left;">A set of six text fields that accept integer values to edit the value of a bounding rectangle.</td>
+	<td style="text-align:left;">一组（六个）文本字段，可接受整数值，用于编辑边界矩形的值。</td>
 	<td style="text-align:left;"><code>UnityEditor.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>BaseField&lt;BoundsInt&gt;</code><br><code>px</code>: The value of the position X coordinate<br><code>py</code>: The value of the postion Y coordinate<br><code>pz</code>: The value of the position Z coordinate<br><code>sx</code>: The value of the size X coordinate<br><code>sy</code>: The value of the size Y coordinate<br><code>sz</code>: The value of the size Z coordinate</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>BaseField&lt;BoundsInt&gt;</code> 的所有属性<br><code>px</code>：位置 X 坐标的值<br><code>py</code>：位置 Y 坐标的值<br><code>pz</code>：位置 Z 坐标的值<br><code>sx</code>：大小 X 坐标的值<br><code>sy</code>：大小 Y 坐标的值<br><code>sz</code>：大小 Z 坐标的值</td>
 </tr>
 </tbody>
 </table>
@@ -632,14 +664,15 @@
 <col style="text-align:left;">
 <col style="text-align:left;">
 <col style="text-align:left;">
+<col style="text-align:left;">
 </colgroup>
 
 <thead>
 <tr>
 	<th style="text-align:left;"><strong>Element</strong></th>
-	<th style="text-align:left;"><strong>Function</strong></th>
-	<th style="text-align:left;"><strong>Namespace</strong></th>
-	<th style="text-align:left;"><strong>Permitted child elements</strong></th>
+	<th style="text-align:left;"><strong>功能</strong></th>
+	<th style="text-align:left;"><strong>命名空间</strong></th>
+	<th style="text-align:left;"><strong>允许的子元素</strong></th>
 	<th style="text-align:left;"><strong>Attributes</strong></th>
 </tr>
 </thead>
@@ -647,84 +680,92 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><code>PropertyField</code></td>
-	<td style="text-align:left;">A label and a field to edit a value.</td>
+	<td style="text-align:left;">一个标签和一个用于编辑值的字段。</td>
 	<td style="text-align:left;"><code>UnityEditor.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>VisualElement</code><br> <code>binding-path</code>: The path of the property this element is bound to<br> <code>label</code>: The label for the field</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>VisualElement</code> 的所有属性<br> <code>binding-path</code>：此元素绑定到的属性的路径<br> <code>label</code>：字段的标签</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>PropertyControl&lt;int&gt;</code></td>
-	<td style="text-align:left;">A label and a field to edit a value of type <code>int</code>.</td>
+	<td style="text-align:left;">一个标签和一个用于编辑 <code>int</code> 类型值的字段。</td>
 	<td style="text-align:left;"><code>UnityEditor.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>BaseField&lt;int&gt;</code><br> <code>value-type</code>: A string that represents the type of value<br> <code>value</code>: The value for the field</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>BaseField&lt;int&gt;</code> 的所有属性<br> <code>value-type</code>：一个字符串，表示值的类型<br> <code>value</code>：字段的值</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>PropertyControl&lt;long&gt;</code></td>
-	<td style="text-align:left;">A label and a field to edit a value of type <code>long</code>.</td>
+	<td style="text-align:left;">一个标签和一个用于编辑 <code>long</code> 类型值的字段。</td>
 	<td style="text-align:left;"><code>UnityEditor.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>BaseField&lt;long&gt;</code><br> <code>value-type</code>: A string that represents the type of value<br> <code>value</code>: The value for the field</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>BaseField&lt;long&gt;</code> 的所有属性<br> <code>value-type</code>：一个字符串，表示值的类型<br> <code>value</code>：字段的值</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>PropertyControl&lt;float&gt;</code></td>
-	<td style="text-align:left;">A label and a field to edit a value of type <code>float</code>.</td>
+	<td style="text-align:left;">一个标签和一个用于编辑 <code>float</code> 类型值的字段。</td>
 	<td style="text-align:left;"><code>UnityEditor.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>BaseField&lt;float&gt;</code><br> <code>value-type</code>: A string that represents the type of value<br> <code>value</code>: The value for the field</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>BaseField&lt;float&gt;</code> 的所有属性<br> <code>value-type</code>：一个字符串，表示值的类型<br> <code>value</code>：字段的值</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>PropertyControl&lt;double&gt;</code></td>
-	<td style="text-align:left;">A label and a field to edit a value of type <code>double</code>.</td>
+	<td style="text-align:left;">一个标签和一个用于编辑 <code>double</code> 类型值的字段。</td>
 	<td style="text-align:left;"><code>UnityEditor.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>BaseField&lt;double&gt;</code><br> <code>value-type</code>: A string that represents the type of value<br> <code>value</code>: The value for the field</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>BaseField&lt;double&gt;</code> 的所有属性<br> <code>value-type</code>：一个字符串，表示值的类型<br> <code>value</code>：字段的值</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>PropertyControl&lt;string&gt;</code></td>
-	<td style="text-align:left;">A label and a field to edit a value of type <code>string</code>.</td>
+	<td style="text-align:left;">一个标签和一个用于编辑 <code>string</code> 类型值的字段。</td>
 	<td style="text-align:left;"><code>UnityEditor.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>BaseField&lt;string&gt;</code><br> <code>value-type</code>: A string that represents the type of value<br> <code>value</code>: The value for the field</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>BaseField&lt;string&gt;</code> 的所有属性<br> <code>value-type</code>：一个字符串，表示值的类型<br> <code>value</code>：字段的值</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>ColorField</code></td>
-	<td style="text-align:left;">A color picker field.</td>
+	<td style="text-align:left;">拾色器字段。</td>
 	<td style="text-align:left;"><code>UnityEditor.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>BaseFieldTraits&lt;Color, UxmlColorAttributeDescription&gt;</code><br><code>show-eye-dropper</code>: A boolean that indicates whether to show the eye dropper or not. Set to <code>true</code> to display the eye dropper, and <code>false</code> to hide it. By default this is set to <code>true</code>.<br><code>show-alpha</code>: A boolean that indicates whether to show the alpha control. Set to <code>true</code> to show the control or <code>false</code> to hide it. By default this is set to <code>true</code>.<br> <code>hdr</code>: A boolean that indicates whether to use the high dynamic range color picker. Set to <code>true</code> to use the picker. By default this is set to <code>false</code>.</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>BaseFieldTraits&lt;Color, UxmlColorAttributeDescription&gt;</code> 的所有属性<br><code>show-eye-dropper</code>：一个布尔值，指示是否显示取色器。设置为 <code>true</code> 可显示取色器，设置为 <code>false</code> 可隐藏取色器。默认设置为 <code>true</code>。<br><code>show-alpha</code>：一个布尔值，指示是否显示 Alpha 控件。设置为 <code>true</code> 可显示该控件，设置为 <code>false</code> 则将其隐藏。默认设置为 <code>true</code>。<br> <code>hdr</code>：一个布尔值，指示是否使用高动态范围拾色器。设置为 <code>true</code> 可使用拾色器。默认情况下，这设置为 <code>false</code>。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>CurveField</code></td>
-	<td style="text-align:left;">A curve editor field.</td>
+	<td style="text-align:left;">一个曲线编辑器字段。</td>
 	<td style="text-align:left;"><code>UnityEditor.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>BaseField&lt;AnimationCurve&gt;</code>
-</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>BaseField&lt;AnimationCurve&gt;</code> 的所有属性</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>GradientField</code></td>
-	<td style="text-align:left;">A gradient editor field.</td>
+	<td style="text-align:left;">一个渐变编辑器字段。</td>
 	<td style="text-align:left;"><code>UnityEditor.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>BaseField&lt;Gradient&gt;</code>
-</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>BaseField&lt;Gradient&gt;</code> 的所有属性</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>ObjectField</code></td>
-	<td style="text-align:left;">An object selector field.</td>
+	<td style="text-align:left;">一个对象选择器字段。</td>
 	<td style="text-align:left;"><code>UnityEditor.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>BaseField&lt;Object&gt;</code><br> <code>allow-scene-objects</code>: A boolean that indicates whether objects from the scene can be selected. Set to <code>true</code> to enable object selection or <code>false</code> disable it. By default this is set to <code>true</code>.</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>BaseField&lt;Object&gt;</code> 的所有属性<br> <code>allow-scene-objects</code>：一个布尔值，指示是否可以从场景选择对象。设置为 <code>true</code> 可启用对象选择，设置为 <code>false</code> 则将其禁用。默认情况下，这设置为 <code>true</code>。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>InspectorElement</code></td>
-	<td style="text-align:left;">An element that displays a property in an inspector window.</td>
+	<td style="text-align:left;">在 Inspector 窗口中显示属性的元素。</td>
 	<td style="text-align:left;"><code>UnityEditor.UIElements</code></td>
-	<td style="text-align:left;">Any number of <code>VisualElement</code>
+	<td style="text-align:left;">任意数量的 <code>VisualElement</code>
 </td>
-	<td style="text-align:left;">All attributes of <code>BindableElement</code>
-</td>
+	<td style="text-align:left;">
+<code>BindableElement</code> 的所有属性</td>
 </tr>
 </tbody>
 </table>
@@ -737,14 +778,15 @@
 <col style="text-align:left;">
 <col style="text-align:left;">
 <col style="text-align:left;">
+<col style="text-align:left;">
 </colgroup>
 
 <thead>
 <tr>
 	<th style="text-align:left;"><strong>Element</strong></th>
-	<th style="text-align:left;"><strong>Function</strong></th>
-	<th style="text-align:left;"><strong>Namespace</strong></th>
-	<th style="text-align:left;"><strong>Permitted child elements</strong></th>
+	<th style="text-align:left;"><strong>功能</strong></th>
+	<th style="text-align:left;"><strong>命名空间</strong></th>
+	<th style="text-align:left;"><strong>允许的子元素</strong></th>
 	<th style="text-align:left;"><strong>Attributes</strong></th>
 </tr>
 </thead>
@@ -752,60 +794,60 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><code>Toolbar</code></td>
-	<td style="text-align:left;">A container to hold toolbar items.</td>
+	<td style="text-align:left;">用于容纳工具栏项的容器。</td>
 	<td style="text-align:left;"><code>UnityEditor.UIElements</code></td>
-	<td style="text-align:left;">Any <code>VisualElement</code>
+	<td style="text-align:left;">任何 <code>VisualElement</code>
 </td>
-	<td style="text-align:left;">All attributes of <code>VisualElement</code>
-</td>
+	<td style="text-align:left;">
+<code>VisualElement</code> 的所有属性</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>ToolbarButton</code></td>
-	<td style="text-align:left;">A button for the toolbar.</td>
+	<td style="text-align:left;">工具栏的按钮。</td>
 	<td style="text-align:left;"><code>UnityEditor.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>Button</code>
-</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>Button</code> 的所有属性</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>ToolbarToggle</code></td>
-	<td style="text-align:left;">A toggle for the toolbar.</td>
+	<td style="text-align:left;">工具栏的开关。</td>
 	<td style="text-align:left;"><code>UnityEditor.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>Toggle</code>
-</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>Toggle</code> 的所有属性</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>ToolbarMenu</code></td>
-	<td style="text-align:left;">A drop down menu for the toolbar. The menu has a single arrow pointing down.</td>
+	<td style="text-align:left;">工具栏的下拉菜单。菜单有一个向下的箭头。</td>
 	<td style="text-align:left;"><code>UnityEditor.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>TextElement</code>
-</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>TextElement</code> 的所有属性</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>ToolbarSearchField</code></td>
-	<td style="text-align:left;">A search field for the toolbar.</td>
+	<td style="text-align:left;">工具栏的搜索字段。</td>
 	<td style="text-align:left;"><code>UnityEditor.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>VisualElement</code>
-</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>VisualElement</code> 的所有属性</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>ToolbarPopupSearchField</code></td>
-	<td style="text-align:left;">A search field with a popup menu of search options.</td>
+	<td style="text-align:left;">一个带有搜索选项弹出菜单的搜索字段。</td>
 	<td style="text-align:left;"><code>UnityEditor.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>VisualElement</code>
-</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>VisualElement</code> 的所有属性</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>ToolbarSpacer</code></td>
-	<td style="text-align:left;">An element that inserts a fixed amount of whitespace between toolbar buttons.</td>
+	<td style="text-align:left;">一个元素，用于在工具栏按钮之间插入固定数量的空格。</td>
 	<td style="text-align:left;"><code>UnityEditor.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>VisualElement</code>
-</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>VisualElement</code> 的所有属性</td>
 </tr>
 </tbody>
 </table>
@@ -818,14 +860,15 @@
 <col style="text-align:left;">
 <col style="text-align:left;">
 <col style="text-align:left;">
+<col style="text-align:left;">
 </colgroup>
 
 <thead>
 <tr>
 	<th style="text-align:left;"><strong>Element</strong></th>
-	<th style="text-align:left;"><strong>Function</strong></th>
-	<th style="text-align:left;"><strong>Namespace</strong></th>
-	<th style="text-align:left;"><strong>Permitted child elements</strong></th>
+	<th style="text-align:left;"><strong>功能</strong></th>
+	<th style="text-align:left;"><strong>命名空间</strong></th>
+	<th style="text-align:left;"><strong>允许的子元素</strong></th>
 	<th style="text-align:left;"><strong>Attributes</strong></th>
 </tr>
 </thead>
@@ -833,34 +876,37 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><code>ListView</code></td>
-	<td style="text-align:left;">Displays a list of elements.</td>
+	<td style="text-align:left;">显示元素列表。</td>
 	<td style="text-align:left;"><code>UnityEngine.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>VisualElement</code><br><code>item-height</code>: The height in pixels of each item in the list</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>VisualElement</code> 的所有属性<br><code>item-height</code>：列表中每一项的高度（以像素为单位）</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>ScrollView</code></td>
-	<td style="text-align:left;">A scrollable view, with horizontal and vertical scrollers.</td>
+	<td style="text-align:left;">一个带有水平和垂直滚动条的可滚动视图。</td>
 	<td style="text-align:left;"><code>UnityEngine.UIElements</code></td>
-	<td style="text-align:left;">Any number of <code>VisualElement</code>
+	<td style="text-align:left;">任意数量的 <code>VisualElement</code>
 </td>
-	<td style="text-align:left;">All attributes of <code>VisualElement</code><br><code>mode</code>: the mode of the scroll view. By default this is set to <code>ScrollViewMode.Vertical</code><br><code>show-horizontal-scroller</code>: A boolean that indicates whether to show the horizontal scroller. By default this is set to <code>false</code><br> <code>show-vertical-scroller</code>: A boolean that indicates whether to show the vertical scroller. By default this is set to <code>false</code><br> <code>horizontal-page-size</code>: The page size value of the horizontal scroller<br> <code>vertical-page-size</code>: The page size of the vertical scroller</td>
+	<td style="text-align:left;">
+<code>VisualElement</code> 的所有属性<br><code>mode</code>：滚动视图的模式。默认设置为 <code>ScrollViewMode.Vertical</code><br><code>show-horizontal-scroller</code>：一个布尔值，指示是否显示水平滚动条。默认设置为 <code>false</code><br> <code>show-vertical-scroller</code>：一个布尔值，指示是否显示垂直滚动条。默认情况下，这设置为 <code>false</code><br> <code>horizontal-page-size</code>：水平滚动条的页面大小值<br> <code>vertical-page-size</code>：垂直滚动条的页面大小</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>TreeView</code></td>
-	<td style="text-align:left;">A view for displaying elements in a tree hierarchy.</td>
+	<td style="text-align:left;">在树层级视图中显示元素的视图。</td>
 	<td style="text-align:left;"><code>UnityEngine.UIElements</code></td>
-	<td style="text-align:left;">Any number of <code>VisualElement</code>
+	<td style="text-align:left;">任意数量的 <code>VisualElement</code>
 </td>
-	<td style="text-align:left;">All attributes of <code>VisualElement</code><br><code>item-height</code>: The height of an item in the underlying list shown</td>
+	<td style="text-align:left;">
+<code>VisualElement</code> 的所有属性<br><code>item-height</code>：显示的基础列表中的项高度</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>PopupWindow</code></td>
-	<td style="text-align:left;">A UIElements window, displayed on top of other content.</td>
+	<td style="text-align:left;">一个显示在其他内容之上的 UIElements 窗口。</td>
 	<td style="text-align:left;"><code>UnityEditor.UIElements</code></td>
-	<td style="text-align:left;">None</td>
-	<td style="text-align:left;">All attributes of <code>TextElement</code>
-</td>
+	<td style="text-align:left;">无</td>
+	<td style="text-align:left;">
+<code>TextElement</code> 的所有属性</td>
 </tr>
 </tbody>
 </table>
@@ -882,7 +928,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

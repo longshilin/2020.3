@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Important Classes - Time and Framerate Management - Unity 手册">
-<title>Important Classes - Time and Framerate Management - Unity 手册</title>
-<meta name="description" content="Unity&amp;#8217;s Time class provides a number of important basic properties which allow you to work with time-related values in your project.">
-<meta property="og:description" content="Unity&amp;#8217;s Time class provides a number of important basic properties which allow you to work with time-related values in your project.">
+<meta property="og:title" content="重要的类 - 时间和帧率管理 - Unity 手册">
+<title>重要的类 - 时间和帧率管理 - Unity 手册</title>
+<meta name="description" content="Unity 的 Time 类提供许多重要的基本属性，允许您在项目中使用与时间相关的值。">
+<meta property="og:description" content="Unity 的 Time 类提供许多重要的基本属性，允许您在项目中使用与时间相关的值。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,46 +174,46 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="ScriptingSection.html">Scripting</a></li>
-<li><a href="ScriptingImportantClasses.html">Important Classes </a></li>
-<li>Important Classes - Time and Framerate Management</li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="ScriptingSection.html">脚本</a></li>
+<li><a href="ScriptingImportantClasses.html">重要的类</a></li>
+<li>重要的类 - 时间和帧率管理</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="class-ScriptableObject.html"></a></span><div class="tip">ScriptableObject</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="class-Mathf.html"></a></span><div class="tip">Important Classes - Mathf</div>
+<span class="next"><a href="class-Mathf.html"></a></span><div class="tip">重要的类 - Mathf</div>
 </div>
 </div></div>
-<h1>Important Classes - Time and Framerate Management</h1>
+<h1>重要的类 - 时间和帧率管理</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<h2>The Time Class</h2>
+<h2>Time 类</h2>
 
-<p>Unity’s Time class provides a number of important basic properties which allow you to work with time-related values in your project.</p>
+<p>Unity 的 Time 类提供许多重要的基本属性，允许您在项目中使用与时间相关的值。</p>
 
-<p>The descriptions for each member of <a href="../ScriptReference/Time.html">Time script reference page</a> are self explanatory, and that is the best place to learn about them.</p>
+<p><a href="../ScriptReference/Time.html">时间脚本参考页面</a>每个成员的描述是不言自明的，这是了解它们的最佳场所。</p>
 
-<p>Listed here is a small selection of examples to provide an idea of the common and typical uses:</p>
+<p>这里列出了一小部分示例，以提供常见和典型用途的概念：</p>
 
-<p><a href="../ScriptReference/Time.time.html"><code>Time.time</code></a> returns the amount of time since your project started playing.</p>
+<p><a href="../ScriptReference/Time.time.html"><code>Time.time</code></a> 返回自项目开始播放以来的时间量。</p>
 
-<p><a href="../ScriptReference/Time.deltaTime.html"><code>Time.deltaTime</code></a> returns the amount of time that elapsed since the last frame completed.</p>
+<p><a href="../ScriptReference/Time.deltaTime.html"><code>Time.deltaTime</code></a> 返回自上一帧完成以来经过的时间量。</p>
 
-<p><a href="../ScriptReference/Time.timeScale.html"><code>Time.timeScale</code></a> represents the rate at which time elapses. You can read this value, or set it to control how fast time passes, allowing you to create slow-motion effects.</p>
+<p><a href="../ScriptReference/Time.timeScale.html"><code>Time.timeScale</code></a> 表示时间流逝的速率。您可以读取此值，或将其设置为控制时间流逝的速度，从而创建慢动作效果。</p>
 
-<p>For the full list of time-related properties, see the <a href="../ScriptReference/Time.html">Time script reference page</a>. </p>
+<p>有关时间相关属性的完整列表，请参阅<a href="../ScriptReference/Time.html">时间脚本参考页面</a>。</p>
 
-<h2>Framerate Management</h2>
+<h2>帧率管理</h2>
 
 <p>借助 <a href="../ScriptReference/MonoBehaviour.Update.html">Update</a> 函数，可定期通过脚本监控输入和其他事件，并采取适当的操作。例如，可在按下“forward”键时移动一个角色。在处理这种基于时间的动作时要记住的一项重要规则是，游戏的帧率不是恒定的，并且 Update 函数调用之间的时间长度也不是恒定的。</p>
 
 <p>举例来说，假设在一项任务中需要逐步向前移动某个对象，一次一帧。起初看起来好像可以在每帧将对象移动一个固定距离：</p>
 
-<pre><code>//C# script example
+<pre><code>//C# 脚本示例
 using UnityEngine;
 using System.Collections;
 
@@ -228,7 +228,7 @@ public class ExampleScript : MonoBehaviour {
 
 <p>但是，如果帧时间不是恒定的，那么对象看起来会以不规则的速度移动。如果帧时间为 10 毫秒，那么对象将以 <em>distancePerFrame</em> 的距离每秒前进一百次。但如果帧时间增加到 25 毫秒（比如由于 CPU 负载的原因），那么对象每秒只会前进四十次，因此移动的总距离更短。解决方案是通过可从 <a href="../ScriptReference/Time-deltaTime.html">Time.deltaTime</a> 属性读取的帧时间来缩放移动距离大小：</p>
 
-<pre><code>//C# script example
+<pre><code>//C# 脚本示例
 using UnityEngine;
 using System.Collections;
 
@@ -243,7 +243,7 @@ public class ExampleScript : MonoBehaviour {
 
 <p>请注意，此移动距离现在为 <em>distancePerSecond</em> 而不是 <em>distancePerFrame</em>。随着帧率的变化，移动步长大小也会相应改变，因此对象的速度将保持不变。</p>
 
-<h2>Fixed Timestep</h2>
+<h2>固定时间步长</h2>
 
 <p>与主帧更新不同，Unity 的物理系统_会_工作到固定的时间步长，这对于模拟的准确性和一致性很重要。在物理更新开始时，Unity 通过将固定的时间步长值添加到上次物理更新结束的时间来设置“警报”时间。然后，物理系统将执行计算，直到警报响起。</p>
 
@@ -255,13 +255,13 @@ public class ExampleScript : MonoBehaviour {
 
 <p>当然，只有这么多的 CPU 处理能力，但 Unity 可以选择让您有效地减慢物理时间，让帧处理能够赶上来。<strong>Maximum Allowed Timestep</strong> 设置（位于 <a href="class-TimeManager.html">Time</a> 窗口中）可限制 Unity 在指定的帧更新期间处理物理系统和 FixedUpdate 调用所花费的时间。如果帧更新花费的时间超过 <strong>Maximum Allowed Timestep</strong> 设置，则物理引擎将“让时间停止”并让帧处理赶上。一旦帧更新完成，物理引擎将恢复，就好像让时间停止后没有流逝一样。这种情况下的结果是刚体不会像正常情况下那样实时完美移动，而会稍微减慢。然而，物理“时钟”仍将跟踪它们，就像它们正常移动一样。物理时间的减慢通常是不明显的，并且是针对游戏性能的合理折衷。</p>
 
-<h2>Time Scale</h2>
+<h2>时间尺度</h2>
 
 <p>对于特殊效果，例如“子弹时间”，有时减慢游戏时间的流逝会很有用，能够使动画和脚本响应以较低的速率发生。此外，有时可能希望完全冻结游戏时间，就像游戏暂停时一样。Unity 有一个 <em>Time Scale</em> 属性可以控制游戏时间相对于实时时间的进展速度。如果该标度设置为 1.0，则游戏时间与实时时间匹配。值为 2.0 会使 Unity 中的时间流逝速度加倍（即，动作将加速），而值为 0.5 则会将游戏速度减半。值为零将使时间完全“停止”。请注意，时间标度实际上并不会降低执行速度，而只是更改了通过 <a href="../ScriptReference/Time-deltaTime.html">Time.deltaTime</a> 和 <a href="../ScriptReference/Time-fixedDeltaTime.html">Time.fixedDeltaTime</a> 报告给 Update 和 FixedUpdate 函数的时间步长。当游戏时间减慢时，调用 Update 函数的频率可能高于平常，但每帧报告的 <em>deltaTime</em> 步长将会缩短。其他脚本函数不受时间标度的影响，因此您可以在游戏暂停时显示具有正常交互的 GUI。</p>
 
 <p><a href="class-TimeManager.html">Time</a> 窗口有一个属性可用于全局设置时间标度，但使用 <a href="../ScriptReference/Time-timeScale.html">Time.timeScale</a> 属性从脚本设置该值通常更有用：</p>
 
-<pre><code>//C# script example
+<pre><code>//C# 脚本示例
 using UnityEngine;
 using System.Collections;
 
@@ -282,32 +282,32 @@ public class ExampleScript : MonoBehaviour {
 
 <p>幸运的是，Unity 提供了一个 <a href="../ScriptReference/Time-captureFramerate.html">Capture Framerate</a> 属性可用于解决该问题。该属性的值设置为零以外的任何值时，游戏时间将减慢，而帧更新将以精确的定期时间间隔发出。帧之间的时间间隔等于 1 / Time.captureFramerate，因此如果该值设置为 5.0，则每五分之一秒更新一次。随着对帧率的要求有效降低，在 Update 函数中便有了时间保存截屏或采取其他操作：</p>
 
-<pre><code>//C# script example
+<pre><code>//C# 脚本示例
 using UnityEngine;
 using System.Collections;
 
 public class ExampleScript : MonoBehaviour {
-    // Capture frames as a screenshot sequence. Images are
-    // stored as PNG files in a folder - these can be combined into
-    // a movie using image utility software (eg, QuickTime Pro).
-    // The folder to contain our screenshots.
-    // If the folder exists we will append numbers to create an empty folder.
+    // 捕获帧作为截屏序列。图像
+    //以 PNG 文件的形式存储在文件夹中 - 这些可以
+    //使用图像实用程序软件（例如 QuickTime Pro）组合成电影。
+    // 该文件夹将包含我们的截屏。
+    // 如果该文件夹存在，我们将附加数字来创建一个空文件夹。
     string folder = "ScreenshotFolder";
     int frameRate = 25;
         
     void Start () {
-        // Set the playback framerate (real time will not relate to game time after this).
+        // 设置回放帧率（实时时间将与此后的游戏时间不相关）。
         Time.captureFramerate = frameRate;
         
-        // Create the folder
+        // 创建文件夹
         System.IO.Directory.CreateDirectory(folder);
     }
     
     void Update () {
-        // Append filename to folder name (format is '0005 shot.png"')
+        // 将文件名附加到文件夹名（格式为"0005 shot.png""）
         string name = string.Format("{0}/{1:D04} shot.png", folder, Time.frameCount );
         
-        // Capture the screenshot to the specified file.
+        // 将截屏捕获到指定的文件。
         Application.CaptureScreenshot(name);
     }
 }
@@ -320,13 +320,13 @@ public class ExampleScript : MonoBehaviour {
 <span class="prev"><a href="class-ScriptableObject.html"></a></span><div class="tip">ScriptableObject</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="class-Mathf.html"></a></span><div class="tip">Important Classes - Mathf</div>
+<span class="next"><a href="class-Mathf.html"></a></span><div class="tip">重要的类 - Mathf</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

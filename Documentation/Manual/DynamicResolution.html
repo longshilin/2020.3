@@ -175,9 +175,9 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="CamerasOverview.html">Cameras</a></li>
+<li><a href="CamerasOverview.html">摄像机</a></li>
 <li>动态分辨率</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
@@ -194,9 +194,9 @@
 
 <p>动态分辨率是一种摄像机设置，允许动态缩放单个渲染目标，以便减少 GPU 上的工作负载。在应用程序的帧率降低的情况下，可以逐渐缩小分辨率来保持帧率稳定。如果性能数据表明由于应用程序受 GPU 限制而导致帧率即将降低，则 Unity 会触发此缩放。还可以手动触发缩放，方法是抢占应用程序中 GPU 资源消耗特别高的部分，并通过脚本控制缩放。如果缩放逐渐进行，动态分辨率几乎不可察觉。</p>
 
-<h2>Render pipeline compatibility</h2>
+<h2>渲染管线兼容性</h2>
 
-<p>Dynamic resolution support depends on which <a href="render-pipelines.md">render pipeline</a> your project uses.</p>
+<p>动态分辨率取决于项目使用的<a href="render-pipelines.md">渲染管线</a>。</p>
 
 <table>
 <colgroup>
@@ -209,28 +209,26 @@
 <thead>
 <tr>
 	<th style="text-align:left;"><strong>功能</strong></th>
-	<th style="text-align:left;"><strong>Built-in Render Pipeline</strong></th>
-	<th style="text-align:left;"><strong>Universal Render Pipeline (URP)</strong></th>
+	<th style="text-align:left;"><strong>内置渲染管线</strong></th>
+	<th style="text-align:left;"><strong>通用渲染管线 (URP)</strong></th>
 	<th style="text-align:left;"><strong>高清渲染管线 (HDRP)</strong></th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-	<td style="text-align:left;"><strong>Dynamic resolution</strong></td>
-	<td style="text-align:left;">Yes (1)</td>
-	<td style="text-align:left;">Yes (1)</td>
-	<td style="text-align:left;">Yes (2)</td>
+	<td style="text-align:left;"><strong>动态分辨率</strong></td>
+	<td style="text-align:left;">是 (1)</td>
+	<td style="text-align:left;">是 (1)</td>
+	<td style="text-align:left;">是 (2)</td>
 </tr>
 </tbody>
 </table>
 
 <p><strong>注意</strong>：</p>
 
-<ol>
-<li>The <a href="built-in-render-pipeline.md">Built-in Render Pipeline</a>, and the <a href="universal-render-pipeline.md">Universal Render Pipeline (URP)</a> both support dynamic resolution as described in this document.</li>
-<li>The <a href="high-definition-render-pipeline.md">High Definition Render Pipeline (HDRP)</a> supports dynamic resolution, but you enable and use it in a different way. For information on dynamic resolution in HDRP, see <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Dynamic-Resolution.html">Dynamic resoluton in HDRP</a>.</li>
-</ol>
+<p>1.<a href="built-in-render-pipeline.md">内置渲染管线</a>和<a href="universal-render-pipeline.md">通用渲染管线 (URP)</a> 都支持本文档所述的动态分辨率。
+2.<a href="high-definition-render-pipeline.md">高清渲染管线 (HDRP)</a> 支持动态分辨率，但它的启用和使用方法不同。有关 HDRP 中动态分辨率的信息，请参阅 <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest?subfolder=/manual/Dynamic-Resolution.html">HDRP 中的动态分辨率</a>。</p>
 
 <h2>支持的平台</h2>
 
@@ -396,7 +394,7 @@ public class DynamicResolutionTest : MonoBehaviour
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="事件类型参考 - Unity 手册">
-<title>事件类型参考 - Unity 手册</title>
-<meta name="description" content="本主题将提供每种事件类型的概要。请参阅 API 文档了解每个事件成员及其用途的完整描述。">
-<meta property="og:description" content="本主题将提供每种事件类型的概要。请参阅 API 文档了解每个事件成员及其用途的完整描述。">
+<meta property="og:title" content="事件参考 - Unity 手册">
+<title>事件参考 - Unity 手册</title>
+<meta name="description" content="当用户与 UI 工具包中的元素交互并更改这些元素的状态时，UI 工具包会发送一个事件。例如，以下操作均已关联：">
+<meta property="og:description" content="当用户与 UI 工具包中的元素交互并更改这些元素的状态时，UI 工具包会发送一个事件。例如，以下操作均已关联：">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,324 +174,540 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="UIToolkits.html">Creating user interfaces (UI)</a></li>
-<li><a href="UIElements.html">UI Toolkit</a></li>
-<li><a href="UIE-Events.html">事件系统</a></li>
-<li>事件类型参考</li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="UIToolkits.html">创建用户界面 (UI)</a></li>
+<li><a href="UIElements.html">UI 工具包</a></li>
+<li><a href="UIE-Events.html">事件类型</a></li>
+<li>事件参考</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="UIE-Events-Synthesizing.html"></a></span><div class="tip">合成事件</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="UIE-Controls.html"></a></span><div class="tip">内置控件</div>
+<span class="next"><a href="UIE-Capture-Events.html"></a></span><div class="tip">捕获事件</div>
 </div>
 </div></div>
-<h1>事件类型参考</h1>
+<h1>事件参考</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>本主题将提供每种事件类型的概要。请参阅 API 文档了解每个事件成员及其用途的完整描述。</p>
-
-<h2>捕获事件</h2>
-
-<p>实现 <code>IMouseCaptureEvent</code> 的事件。</p>
-
-<h3>MouseCaptureEvent</h3>
-
-<p>元素接受鼠标捕获时发送 <code>MouseCaptureEvent</code>。</p>
-
-<p><code>target</code>：接受捕获的元素。</p>
-
-<h3>MouseCaptureOutEvent</h3>
-
-<p>元素释放鼠标捕获或以其他方式失去鼠标捕获时发送 <code>MouseCaptureOutEvent</code>。</p>
-
-<p><code>target</code>：失去捕获的元素。</p>
-
-<h2>更改事件</h2>
-
-<p>实现 <code>IChangeEvent</code> 的事件。</p>
-
-<h3>ChangeEvent</h3>
-
-<p><code>ChangeEvent&lt;T&gt;</code> 是元素值更改时发送的通用事件。通常在控件更改时发送。对于 <code>InputEvent</code> 控件，不会针对控件中的每个输入事件发送此事件，而是仅在值更改时发送。通常是控件失去焦点或按下 <code>Enter</code> 键时。</p>
-
-<p><code>&lt;T&gt;</code>
-：值的类型。</p>
-
-<p><code>target</code>
-：发生值更改的元素。</p>
-
-<p><code>previousValue</code>
-：旧控件值。</p>
-
-<p><code>newValue</code>
-：新控件值。</p>
-
-<h2>命令事件</h2>
-
-<p>实现 <code>ICommandEvent</code> 的事件。</p>
-
-<p><code>target</code>
-：获得键盘焦点的元素。如果没有元素获得焦点，则为 null。</p>
-
-<p><code>commandName</code>
-：用于验证或执行的命令。</p>
-
-<h3>ValidateCommandEvent</h3>
-
-<p>此事件由 IMGUI 发送，同时可确定该命令是否由面板中的元素处理。</p>
-
-<h3>ExecuteCommandEvent</h3>
-
-<p>当面板中的元素执行命令时，IMGUI 将发送此事件。</p>
-
-<h2>拖放事件</h2>
-
-<p>拖放操作期间发送的事件。</p>
-
-<h3>DragExitedEvent</h3>
-
-<p>已取消拖放操作。放置目标未接受拖动元素。</p>
-
-<h3>DragUpdatedEvent</h3>
-
-<p>拖动的元素移到放置目标上方。如果放置目标愿意接受拖动的元素，则此事件的回调应设置 <code>DragAndDrop.visualMode</code> 以确保在用户松开鼠标键时发送 <code>DragPerformEvent</code>。</p>
-
-<h3>DragPerformEvent</h3>
-
-<p>拖动的元素已放置在接受它们的目标上。拖放操作现在已完成。</p>
-
-<h3>DragEnterEvent</h3>
-
-<p>拖动的元素进入了新的 <code>VisualElement</code>。具体而言，此事件在拖动操作开始时发送。</p>
-
-<h3>DragLeaveEvent</h3>
-
-<p>拖动的元素离开了当前放置目标。具体而言，此事件在拖动操作结束时发送。</p>
-
-<h2>布局事件</h2>
-
-<h3>GeometryChangedEvent</h3>
-
-<p>当元素的位置或尺寸发生变化时发送的事件。此类型的事件仅发送到事件目标。它们不会传播。</p>
-
-<p><code>target</code>
-：具有新几何形状的元素。</p>
-
-<p><code>oldRect</code>
-：元素先前的位置和尺寸。</p>
-
-<p><code>newRect</code>
-：元素的新位置和尺寸。</p>
-
-<h2>焦点事件</h2>
-
-<p>实现 <code>IFocusEvent</code> 的事件。</p>
-
-<p>在元素获得或失去键盘焦点时发送这些事件。有两组焦点事件：</p>
+<p>当用户与 UI 工具包中的元素交互并更改这些元素的状态时，UI 工具包会发送一个事件。例如，以下操作均已关联：</p>
 
 <ul>
-<li>在焦点发生变化之前沿着传播路径发送 <code>FocusOutEvent</code> 和 <code>FocusInEvent</code> 事件。</li>
-<li>在焦点变化后仅立即将 <code>FocusEvent</code> 和 <code>BlurEvent</code> 事件发送到事件目标。</li>
+<li>调整窗口大小</li>
+<li>选择面板</li>
+<li>按下键盘上的一个键</li>
 </ul>
 
-<h3>FocusOutEvent</h3>
-
-<p>当元素即将失去焦点时发送的事件。</p>
-
-<p><code>target</code>
-：将失去焦点的元素。</p>
-
-<p><code>relatedTarget</code>
-：将获得焦点的元素。</p>
-
-<h3>FocusInEvent</h3>
-
-<p>当元素即将获得焦点时发送的事件。</p>
-
-<p><code>target</code>
-：将获得焦点的元素。</p>
-
-<p><code>relatedTarget</code>
-：将失去焦点的元素。</p>
-
-<h3>BlurEvent</h3>
-
-<p>当元素失去焦点后发送的事件。</p>
-
-<p><code>target</code>
-：失去焦点的元素。</p>
-
-<p><code>relatedTarget</code>
-：获得焦点的元素。</p>
-
-<h3>FocusEvent</h3>
-
-<p>当元素获得焦点后发送的事件。</p>
-
-<p><code>target</code>
-：获得焦点的元素。</p>
-
-<p><code>relatedTarget</code>
-：失去焦点的元素。</p>
-
-<h2>输入事件</h2>
-
-<h3>InputEvent</h3>
-
-<p>将数据输入到视觉元素（通常是控件）时发送的事件。此事件与 <code>ChangeEvent</code> 的不同之处在于，即使控件的值未更改，也会针对控件中的每个输入事件发送此事件。</p>
-
-<p><code>target</code>
-：执行输入的元素。</p>
-
-<p><code>previousData</code>
-：以前的数据。</p>
-
-<p><code>newData</code>
-：新数据。</p>
-
-<h2>键盘事件</h2>
-
-<p>实现 <code>IKeyboardEvent</code> 的事件。</p>
-
-<h3>KeyDownEvent</h3>
-
-<p>用户按下键盘上的键时发送的事件。</p>
-
-<p><code>target</code>
-：具有键盘焦点的元素。如果没有元素具有键盘焦点，则为面板的根元素。</p>
-
-<h3>KeyUpEvent</h3>
-
-<p>用户松开键盘上的键时发送的事件。</p>
-
-<p><code>target</code>
-：具有键盘焦点的元素。如果没有元素具有键盘焦点，则为面板的根元素。</p>
-
-<h2>鼠标事件</h2>
-
-<p>实现 <code>IKeyboardEvent</code> 的事件。</p>
-
-<p>当元素捕获鼠标时，鼠标事件仅发送到进行捕获的元素。无传播。</p>
-
-<h3>MouseDownEvent</h3>
-
-<p>用户按下其中一个鼠标键时发送的事件。</p>
-
-<p><code>target</code>
-：如果一个元素接受了鼠标捕获，此元素便是捕获鼠标的元素。否则是光标下最上层的可选元素。</p>
-
-<h3>MouseUpEvent</h3>
-
-<p>用户松开其中一个鼠标键时发送的事件。</p>
-
-<p><code>target</code>
-：如果一个元素接受了鼠标捕获，此元素便是捕获鼠标的元素。否则是光标下最上层的可选元素。</p>
-
-<h3>MouseMoveEvent</h3>
-
-<p>用户移动鼠标时发送的事件。</p>
-
-<p><code>target</code>
-：如果一个元素接受了鼠标捕获，此元素便是捕获鼠标的元素。否则是光标下最上层的可选元素。</p>
-
-<h3>ContextClickEvent（已弃用）</h3>
-
-<p>用户按下并松开第三个鼠标键时发送的事件。此事件仅用于向后兼容 IMGUI。</p>
-
-<h3>WheelEvent</h3>
-
-<p>用户激活鼠标滚轮时发送的事件。</p>
-
-<p><code>target</code>
-：如果一个元素接受了鼠标捕获，此元素便是捕获鼠标的元素。否则是光标下最上层的可选元素。</p>
-
-<h3>MouseEnterWindowEvent</h3>
-
-<p>鼠标进入窗口时发送的事件。</p>
-
-<p><code>target</code>
-：如果一个元素接受了鼠标捕获，此元素便是捕获鼠标的元素。否则是光标下最上层的可选元素。</p>
-
-<h3>MouseLeaveWindowEvent</h3>
-
-<p>鼠标离开窗口时发送的事件。</p>
-
-<p><code>target</code>
-：如果一个元素接受了鼠标捕获，此元素便是捕获鼠标的元素。否则为 null，因为光标不在元素上方。</p>
-
-<h3>MouseEnterEvent</h3>
-
-<p>鼠标进入元素或其后代之一时发送的事件。此事件与 <code>MouseOverEvent</code> 的不同之处在于，此事件将发送到鼠标进入的每个元素。此事件不会传播。</p>
-
-<p><code>target</code>
-：鼠标光标下的元素或其后代之一。</p>
-
-<h3>MouseLeaveEvent</h3>
-
-<p>鼠标离开元素或其后代之一时发送的事件。此事件与 <code>MouseOutEvent</code> 的不同之处在于，此事件将发送到鼠标退出的每个元素。此事件不会传播。</p>
-
-<p><code>target</code>
-：刚被鼠标光标退出或后代之一被鼠标光标退出的元素。</p>
-
-<h3>MouseOverEvent</h3>
-
-<p>鼠标进入元素时发送的事件。此事件与 <code>MouseEnterEvent</code> 的不同之处在于，此事件仅发送到鼠标进入的元素。.此事件不会传播。</p>
-
-<p><code>target</code>
-：现在位于鼠标光标下的元素。</p>
-
-<h3>MouseOutEvent</h3>
-
-<p>鼠标离开元素时发送的事件。此事件与 <code>MouseLeaveEvent</code> 的不同之处在于，此事件仅发送到鼠标已退出的元素并会传播。</p>
-
-<p><code>target</code>
-：鼠标光标刚退出的元素。</p>
-
-<h3>ContextualMenuPopulateEvent</h3>
-
-<p>当需要使用菜单项填充上下文菜单时由 <code>ContextualMenuManager</code> 发送的事件。</p>
-
-<p><code>target</code>
-：要构建上下文菜单的元素。</p>
-
-<h2>面板事件</h2>
-
-<h3>AttachToPanelEvent</h3>
-
-<p>在元素附加到 <code>IPanel</code> 后立即发送的事件。由于
-面板的设置是递归的，因此元素的所有后代也会
-接收该事件。</p>
-
-<p><code>target</code>
-：要附加到面板的元素。</p>
-
-<h3>DetachFromPanelEvent</h3>
-
-<p>在元素与 <code>IPanel</code> 分离之前发送的事件。由于
-面板的设置是递归的，因此元素的所有后代也会
-接收该事件。</p>
-
-<p><code>target</code>
-：要从面板分离的元素。</p>
-
-<h2>工具提示事件</h2>
-
-<h3>TooltipEvent</h3>
-
-<p>在显示工具提示之前发送的事件。处理程序应该设置 <code>TooltipEvent.tooltip</code> 字符串和 <code>TooltipEvent.rect</code>。</p>
-
-<p><code>target</code>
-：需要显示工具提示的元素。</p>
-
-<h2>IMGUI 事件</h2>
-
-<h3>IMGUIEvent</h3>
-
-<p>用于封装 IMGUI 特有事件的事件。</p>
+<p>事件的设计类似于用于 HTML 元素的<a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">事件接口</a>。</p>
+
+<h2>事件系列</h2>
+
+<p>Event types fit into a hierarchy based on the <a href="../ScriptReference/UIElements.EventBase.html">EventBase</a> class. Each event family implements an interface that defines the common characteristics for all events of the same family. For example, <code>BlurEvent</code> and <code>FocusEvent</code> use the <a href="../ScriptReference/UIElements.FocusEventBase_1.html">FocusEventBase</a> class.</p>
+
+<p>选择下面列出的任何事件类型，以获取有关事件、其父类和 API 文档链接的更多信息。</p>
+
+<ul>
+<li><p><a href="UIE-Capture-Events.html">捕获事件</a></p></li>
+<li><p><a href="UIE-Change-Events.html">更改事件</a></p></li>
+<li><p><a href="UIE-Command-Events.html">命令事件</a></p></li>
+<li><p><a href="UIE-Drag-Events.html">拖放事件</a></p></li>
+<li><p><a href="UIE-Layout-Events.html">布局事件</a></p></li>
+<li><p><a href="UIE-Focus-Events.html">焦点事件</a></p></li>
+<li><p><a href="UIE-Input-Events.html">输入事件</a></p></li>
+<li><p><a href="UIE-Keyboard-Events.html">键盘事件</a></p></li>
+<li><p><a href="UIE-Mouse-Events.html">鼠标事件</a></p></li>
+<li><p><a href="UIE-Panel-Events.html">面板事件</a></p></li>
+<li><p><a href="UIE-Pointer-Events.html">指针事件</a></p></li>
+<li><p><a href="UIE-Tooltip-Events.html">工具提示事件</a></p></li>
+<li><p><a href="UIE-IMGUI-Events.html">IMGUI 事件</a></p></li>
+</ul>
+
+<h2>事件参考表</h2>
+
+<p>下表是每种事件类型的简单概述。有关某个事件的更多信息，请参阅上面列出的页面。</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>事件类型</strong></th>
+	<th style="text-align:left;"><strong>描述</strong></th>
+	<th style="text-align:left;"><strong>涓滴</strong></th>
+	<th style="text-align:left;"><strong>冒泡</strong></th>
+	<th style="text-align:left;"><strong>可取消</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>Capture events</strong></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.MouseCaptureEvent.html">MouseCaptureEvent</a></td>
+	<td style="text-align:left;">当某一元素接受鼠标捕获时发送。</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.MouseCaptureOutEvent.html">MouseCaptureOutEvent</a></td>
+	<td style="text-align:left;">当某一元素释放鼠标捕获或以其他方式失去鼠标捕获时发送。</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.PointerCaptureEvent.html">PointerCaptureEvent</a></td>
+	<td style="text-align:left;">当某一元素捕获指针时发送。</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.PointerCaptureOutEvent.html">PointerCaptureOutEvent</a></td>
+	<td style="text-align:left;">当某一元素释放指针时发送。</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Change events</strong></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.ChangeEvent_1.html">ChangeEvent</a></td>
+	<td style="text-align:left;">当某个元素的值更改时发送的通用事件。</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Command events</strong></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.ValidateCommandEvent.html">ValidateCommandEvent</a></td>
+	<td style="text-align:left;">IMGUI 可确定该命令是否由面板中的某一元素处理时发送此事件。</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.ExecuteCommandEvent.html">ExecuteCommandEvent</a></td>
+	<td style="text-align:left;">当面板中的某一元素应执行命令时，IMGUI 发送此事件。</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>拖动事件</strong></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.DragExitedEvent.html">DragExitedEvent</a></td>
+	<td style="text-align:left;">在拖放过程结束时发送。</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.DragUpdatedEvent.html">DragUpdatedEvent</a></td>
+	<td style="text-align:left;">在拖动的元素移到放置目标上方时发送。</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.DragPerformEvent.html">DragPerformEvent</a></td>
+	<td style="text-align:left;">在拖动的元素放置到可接收目标上方时发送。</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.DragEnterEvent.html">DragEnterEvent</a></td>
+	<td style="text-align:left;">拖动的元素进入了新的 <code>VisualElement</code>。此事件在拖动操作开始时发送。</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.DragLeaveEvent.html">DragLeaveEvent</a></td>
+	<td style="text-align:left;">拖动的元素离开了当前放置目标。此事件在拖动操作结束时发送。</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>焦点事件</strong></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.FocusOutEvent.html">FocusOutEvent</a></td>
+	<td style="text-align:left;">某一元素失去焦点前发送。</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.FocusInEvent.html">FocusInEvent</a></td>
+	<td style="text-align:left;">某一元素获得焦点前发送。</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.BlurEvent.html">BlurEvent</a></td>
+	<td style="text-align:left;">某一元素失去焦点后发送。</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.FocusEvent.html">FocusEvent</a></td>
+	<td style="text-align:left;">某一元素获得焦点后发送。</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>IMGUI 事件</strong></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.IMGUIEvent.html">IMGUIEvent</a></td>
+	<td style="text-align:left;">发送以封装 IMGUI 特定事件。</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>输入事件</strong></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.InputEvent.html">InputEvent</a></td>
+	<td style="text-align:left;">在数据输入到视觉元素（通常是控件）时发送。</td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>键盘事件</strong></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.KeyDownEvent.html">KeyDownEvent</a></td>
+	<td style="text-align:left;">用户按下键盘上的某个键时发送。</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.KeyUpEvent.html">KeyUpEvent</a></td>
+	<td style="text-align:left;">用户松开键盘上的某个键时发送。</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>布局事件</strong></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.GeometryChangedEvent.html">GeometryChangedEvent</a></td>
+	<td style="text-align:left;">当某一元素的位置或尺寸发生变化时发送。</td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>鼠标事件</strong></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.MouseDownEvent.html">MouseDownEvent</a></td>
+	<td style="text-align:left;">当用户按下鼠标键时发送。</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.MouseUpEvent.html">MouseUpEvent</a></td>
+	<td style="text-align:left;">当用户释放鼠标键时发送。</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.MouseMoveEvent.html">MouseMoveEvent</a></td>
+	<td style="text-align:left;">当用户移动鼠标时发送。</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.WheelEvent.html">WheelEvent</a></td>
+	<td style="text-align:left;">当用户激活鼠标滚轮时发送。</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.MouseEnterWindowEvent.html">MouseEnterWindowEvent</a></td>
+	<td style="text-align:left;">当鼠标进入某个窗口时发送。</td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;">Yes</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.MouseLeaveWindowEvent.html">MouseLeaveWindowEvent</a></td>
+	<td style="text-align:left;">当鼠标离开某个窗口时发送。</td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;">Yes</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.MouseEnterEvent.html">MouseEnterEvent</a></td>
+	<td style="text-align:left;">当鼠标进入某一元素或其后代之一时发送。</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;">是</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.MouseLeaveEvent.html">MouseLeaveEvent</a></td>
+	<td style="text-align:left;">当鼠标离开某一元素或其后代之一时发送。</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;">是</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.MouseOverEvent.html">MouseOverEvent</a></td>
+	<td style="text-align:left;">当鼠标进入某一元素时发送。</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.MouseOutEvent.html">MouseOutEvent</a></td>
+	<td style="text-align:left;">当鼠标离开某一元素时发送。</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">
+<a href="../ScriptReference/UIElements.ContextClickEvent.html">ContextClickEvent</a> (obsolete)</td>
+	<td style="text-align:left;">用户按下并松开第三个鼠标键时发送。此事件用于向后兼容 IMGUI。</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>指针事件</strong></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.PointerDownEvent.html">PointerDownEvent</a></td>
+	<td style="text-align:left;">当您按下指针时发送。</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.PointerUpEvent.html">PointerUpEvent</a></td>
+	<td style="text-align:left;">当您松开指针时发送。</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.PointerMoveEvent.html">PointerMoveEvent</a></td>
+	<td style="text-align:left;">当指针状态变化时发送。</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.PointerEnterEvent.html">PointerEnterEvent</a></td>
+	<td style="text-align:left;">当指针进入某一视觉元素或其后代之一时发送。</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;">是</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.PointerLeaveEvent.html">PointerLeaveEvent</a></td>
+	<td style="text-align:left;">当指针离开某一视觉元素及其所有后代时发送。</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;">是</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.PointerOverEvent.html">PointerOverEvent</a></td>
+	<td style="text-align:left;">当指针进入某一视觉元素时发送。</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.PointerOutEvent.html">PointerOutEvent</a></td>
+	<td style="text-align:left;">当指针离开某一视觉元素时发送。</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.PointerStationaryEvent.html">PointerStationaryEvent</a></td>
+	<td style="text-align:left;">当某个指针类型（如触笔或手指）经过操作系统设定的时间量之后未发生变化时发送。</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.PointerCancelEvent.html">PointerCancelEvent</a></td>
+	<td style="text-align:left;">当操作系统取消指针操作时发送。</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>面板事件</strong></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.AttachToPanelEvent.html">AttachToPanelEvent</a></td>
+	<td style="text-align:left;">在元素附加到某个面板后立即发送。</td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="../ScriptReference/UIElements.DetachToPanelEvent.html">DetachFromPanelEvent</a></td>
+	<td style="text-align:left;">在元素即将从某个面板分离时发送。</td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>工具提示事件</strong></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="UIScriptRef:UIElements.TooltipEvent">TooltipEvent</a></td>
+	<td style="text-align:left;">在即将显示某个工具提示时发送。</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;"></td>
+</tr>
+</tbody>
+</table>
 
 <hr>
 
@@ -504,13 +720,13 @@
 <span class="prev"><a href="UIE-Events-Synthesizing.html"></a></span><div class="tip">合成事件</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="UIE-Controls.html"></a></span><div class="tip">内置控件</div>
+<span class="next"><a href="UIE-Capture-Events.html"></a></span><div class="tip">捕获事件</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

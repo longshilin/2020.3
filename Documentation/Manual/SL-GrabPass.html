@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="ShaderLab：GrabPass - Unity 手册">
-<title>ShaderLab：GrabPass - Unity 手册</title>
-<meta name="description" content="GrabPass 是一种特殊通道类型，它把即将绘制对象时的屏幕内容抓取到纹理中。在后续通道中即可使用此纹理，从而执行基于图像的高级效果。">
-<meta property="og:description" content="GrabPass 是一种特殊通道类型，它把即将绘制对象时的屏幕内容抓取到纹理中。在后续通道中即可使用此纹理，从而执行基于图像的高级效果。">
+<meta property="og:title" content="ShaderLab 命令：GrabPass - Unity 手册">
+<title>ShaderLab 命令：GrabPass - Unity 手册</title>
+<meta name="description" content="GrabPass 是一个创建特殊类型通道的命令，该通道将帧缓冲区的内容抓取到纹理中。在后续通道中即可使用此纹理，从而执行基于图像的高级效果。">
+<meta property="og:description" content="GrabPass 是一个创建特殊类型通道的命令，该通道将帧缓冲区的内容抓取到纹理中。在后续通道中即可使用此纹理，从而执行基于图像的高级效果。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,54 +174,108 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
-<li><a href="ShadersOverview.html">编写着色器</a></li>
-<li><a href="SL-Reference.html">着色器参考</a></li>
-<li><a href="SL-Shader.html">ShaderLab 语法</a></li>
-<li><a href="SL-SubShader.html">ShaderLab：SubShader</a></li>
-<li>ShaderLab：GrabPass</li>
+<li><a href="Shaders.html">着色器</a></li>
+<li><a href="shader-writing.html">编写着色器</a></li>
+<li><a href="SL-Reference.html">ShaderLab</a></li>
+<li><a href="shader-shaderlab-commands.html">ShaderLab：命令</a></li>
+<li>ShaderLab 命令：GrabPass</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-UsePass.html"></a></span><div class="tip">ShaderLab：UsePass</div>
+<span class="prev"><a href="SL-UsePass.html"></a></span><div class="tip">ShaderLab 命令：UsePass</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-SubShaderTags.html"></a></span><div class="tip">ShaderLab：子着色器标签 (SubShader Tags)</div>
+<span class="next"><a href="SL-ZClip.html"></a></span><div class="tip">ShaderLab 命令：ZClip</div>
 </div>
 </div></div>
-<h1>ShaderLab：GrabPass</h1>
+<h1>ShaderLab 命令：GrabPass</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>GrabPass 是一种特殊通道类型，它把即将绘制对象时的屏幕内容抓取到纹理中。在后续通道中即可使用此纹理，从而执行基于图像的高级效果。</p>
+<p>GrabPass 是一个创建特殊类型通道的命令，该通道将帧缓冲区的内容抓取到纹理中。在后续通道中即可使用此纹理，从而执行基于图像的高级效果。</p>
 
-<h2>语法</h2>
+<p>此命令会显著增加 CPU 和 GPU 帧时间。除了快速原型制作之外，您通常应该避免使用此命令，并尝试通过其他方式实现您的效果。如果您确实使用了此命令，尽量减少屏幕抓取操作的次数；方法是减少您对该命令的使用，或者使用将屏幕抓取到命名纹理的签名（如果适用）。</p>
 
-<p>GrabPass 包含在<a href="SL-SubShader.html">子着色器</a>内部。它可采用两种形式：</p>
+<h2>渲染管线兼容性</h2>
 
-<ul>
-<li>简单的 <code>GrabPass { }</code> 可将当前屏幕内容抓取到某个纹理中。在随后的通道中可通过 <code>_GrabTexture</code> 名称访问该纹理。注意：这种抓取通道的形式将为使用它的每个对象执行耗时的屏幕抓取操作。</li>
-<li>
-<code>GrabPass { "TextureName" }</code> 可将当前屏幕内容抓取到纹理中，但仅为使用给定纹理名称的第一个对象在每一帧执行一次该操作。在后续通道中可通过给定纹理名称访问该纹理。场景中有多个对象在使用 GrabPass 时，这种方法更高效。</li>
-</ul>
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
 
-<p>此外，GrabPass 还可以使用 <a href="SL-Name.html">Name</a> 和 <a href="SL-PassTags.html">Tags</a> 命令。</p>
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>功能名称</strong></th>
+	<th style="text-align:left;"><strong>内置渲染管线</strong></th>
+	<th style="text-align:left;"><strong>通用渲染管线 (URP)</strong></th>
+	<th style="text-align:left;"><strong>高清渲染管线 (HDRP)</strong></th>
+	<th style="text-align:left;"><strong>自定义 SRP</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>GrabPass</strong></td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">否</td>
+	<td style="text-align:left;">否</td>
+	<td style="text-align:left;">否</td>
+</tr>
+</tbody>
+</table>
+
+<h2>用法</h2>
+
+<p>在 SubShader 代码块中使用此命令。</p>
+
+<p>GrabPass 仅适用于帧缓冲区。您不能使用此命令来获取其他渲染目标、深度缓冲区等的内容。</p>
+
+<p>请注意，这两种不同的签名具有不同的功能和不同的性能影响。使用命名纹理可以显著减少屏幕抓取操作，从而减少此资源密集型命令的影响。</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>签名</strong></th>
+	<th style="text-align:left;"><strong>功能</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><code>GrabPass { }</code></td>
+	<td style="text-align:left;">将帧缓冲区内容抓取到一个纹理中，使您可以在同一个子着色器中的后续通道中使用该纹理。<br><br>使用 <em>_GrabTexture</em> 名称引用该纹理。<br><br>当您使用此签名时，Unity 每次渲染包含此命令的批处理时都会抓取屏幕。这意味着 Unity 可以每帧多次抓取屏幕：每批次一次。</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><code>GrabPass { "ExampleTextureName" }</code></td>
+	<td style="text-align:left;">将帧缓冲区内容抓取到一个纹理中，使您可以在同一帧的后续通道中跨多个子着色器访问该纹理。<br><br>使用给定名称引用该纹理。<br><br>当您使用此签名时，Unity 会在渲染批处理的帧中第一次抓取屏幕，该批处理包含具有给定纹理名称的此命令。</td>
+</tr>
+</tbody>
+</table>
 
 <h2>示例</h2>
 
-<p>以下是反转先前渲染内容的颜色的一种低效方法：</p>
+<p>内置渲染管线的这个示例演示了使用 <code>GrabPass</code> 来反转渲染目标的颜色。请注意，这不是实现此效果的有效方法，仅用于演示 GrabPass 的使用；使用反转混合模式可以更有效地实现相同的效果。</p>
 
 <pre><code>Shader "GrabPassInvert"
 {
     SubShader
     {
-        // 在所有不透明几何体之后绘制自己
+        // 在所有不透明几何体之后绘制
         Tags { "Queue" = "Transparent" }
 
-        // 将对象后面的屏幕抓取到 _BackgroundTexture 中
-        GrabPass
+        // 将对象后面的屏幕抓取到 _BackgroundTexture
+ 中        GrabPass
         {
             "_BackgroundTexture"
         }
@@ -242,9 +296,10 @@
 
             v2f vert(appdata_base v) {
                 v2f o;
-                // 使用 UnityCG.cginc 中的 UnityObjectToClipPos 来计算
+                // 使用 UnityCG.cginc 中的 UnityObjectToClipPos 计算 
                 // 顶点的裁剪空间
                 o.pos = UnityObjectToClipPos(v.vertex);
+
                 // 使用 UnityCG.cginc 中的 ComputeGrabScreenPos 函数
                 // 获得正确的纹理坐标
                 o.grabPos = ComputeGrabScreenPos(o.pos);
@@ -263,33 +318,20 @@
 
     }
 }
+
 </code></pre>
-
-<p>此着色器有两个通道：第一个通道抓取渲染时对象后面的任何内容，然后在第二个通道中应用这些内容。请注意，可使用反转<a href="SL-Blend.html">混合模式</a>更高效地实现相同效果。</p>
-
-<h2>另请参阅</h2>
-
-<ul>
-<li>
-<a href="SL-Pass.html">常规 Pass 命令</a>。</li>
-<li>
-<a href="SL-PlatformDifferences.html">平台差异</a>。</li>
-<li>
-<a href="SL-BuiltinFunctions.html">内置着色器 helper 函数</a>。</li>
-</ul>
-<!-- area:graphics -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-UsePass.html"></a></span><div class="tip">ShaderLab：UsePass</div>
+<span class="prev"><a href="SL-UsePass.html"></a></span><div class="tip">ShaderLab 命令：UsePass</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-SubShaderTags.html"></a></span><div class="tip">ShaderLab：子着色器标签 (SubShader Tags)</div>
+<span class="next"><a href="SL-ZClip.html"></a></span><div class="tip">ShaderLab 命令：ZClip</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

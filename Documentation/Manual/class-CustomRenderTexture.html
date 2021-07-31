@@ -14,8 +14,8 @@
 <meta property="og:title" content="自定义渲染纹理 - Unity 手册">
 <title>自定义渲染纹理 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/CustomRenderTextures-0.png">
-<meta name="description" content="Custom Render Textures are a special type of texture that allow you to update a texture with a shader. They are an extension to Render Textures. You can use Custom Render Textures to create complex simulations like caustics, ripple simulation for rain effects, and liquid splatters.">
-<meta property="og:description" content="Custom Render Textures are a special type of texture that allow you to update a texture with a shader. They are an extension to Render Textures. You can use Custom Render Textures to create complex simulations like caustics, ripple simulation for rain effects, and liquid splatters.">
+<meta name="description" content="自定义渲染纹理是一种特殊类型的纹理，通过它可以使用着色器更新纹理。它们是渲染纹理的扩展。可以使用自定义渲染纹理创建复杂的模拟，如焦散、雨水效果的波纹模拟和液体喷溅。">
+<meta property="og:description" content="自定义渲染纹理是一种特殊类型的纹理，通过它可以使用着色器更新纹理。它们是渲染纹理的扩展。可以使用自定义渲染纹理创建复杂的模拟，如焦散、雨水效果的波纹模拟和液体喷溅。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,9 +175,8 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
 <li><a href="Textures.html">纹理</a></li>
 <li>自定义渲染纹理</li>
 </ul></div>
@@ -193,46 +192,44 @@
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p><strong>Custom Render Textures</strong> are a special type of texture that allow you to update a texture with a shader. They are an extension to <a href="class-RenderTexture.html">Render Textures</a>. You can use Custom Render Textures to create complex simulations like caustics, ripple simulation for rain effects, and liquid splatters.</p>
+<p><strong>自定义渲染纹理</strong>是一种特殊类型的纹理，通过它可以使用着色器更新纹理。它们是<a href="class-RenderTexture.html">渲染纹理</a>的扩展。可以使用自定义渲染纹理创建复杂的模拟，如焦散、雨水效果的波纹模拟和液体喷溅。</p>
 
-<p>The Custom Render Textures feature provides a scripting and Shader framework to help with complicated configuration like varying update frequency, partial or multi-pass updates.</p>
+<p>自定义渲染纹理功能提供脚本和着色器框架，以协助进行复杂的配置，如改变更新频率、部分或多通道更新。</p>
 
-<p>To use this framework you need to assign a Material to the Custom Render Texture asset. Custom Render Textures require a compatible Material. For more information, see <a href="#writing-a-shader-for-a-custom-render-texture">Writing a shader for a Custom Render Texture</a>.</p>
+<p>若要使用此框架，需要向自定义渲染纹理资源分配材质。自定义渲染纹理需要兼容的材质。有关更多信息，请参阅<a href="#writing-a-shader-for-a-custom-render-texture">为自定义渲染纹理编写着色器</a>。</p>
 
-<p>To assign a compatible material to a Custom Render Texture asset:</p>
+<p>若要将兼容材质分配给自定义渲染纹理资源，请执行以下操作：</p>
 
-<ol>
-<li>Create a new Custom Render Texture asset.</li>
-<li>Assign a compatible Material to it in the <strong>Material</strong> property in the <strong>Custom Render Texture</strong> asset.</li>
-</ol>
+<p>1.创建新的自定义渲染纹理资源。
+2.在<strong>自定义渲染纹理</strong>资源的 <strong>Material</strong> 属性中向它分配兼容材质。</p>
 
-<p>This Material updates the content of a texture according to its parameters. </p>
+<p>此材质会根据其参数更新纹理的内容。</p>
 
 <p>本页包含以下信息：</p>
 
 <ul>
-<li><p><a href="#render-pipeline-compatibility">Render Pipeline Compatibility</a></p></li>
+<li><p><a href="#render-pipeline-compatibility">渲染管线兼容性</a></p></li>
 <li>
-<p><a href="#properties">Properties</a></p>
+<p><a href="#properties">属性</a></p>
 
 <ul>
-<li><a href="#render-texture">Render Texture</a></li>
-<li><a href="#custom-render-texture">Custom Render Texture</a></li>
+<li><a href="#render-texture">渲染纹理</a></li>
+<li><a href="#custom-render-texture">自定义渲染纹理</a></li>
 </ul>
 </li>
-<li><p><a href="#exporting-custom-render-texture-to-a-file">Exporting Custom Render Texture to a file</a></p></li>
-<li><p><a href="#update-zones">Update Zones</a></p></li>
-<li><p><a href="#controlling-custom-render-texture-from-script">Controlling Custom Render Texture from Script</a></p></li>
-<li><p><a href="#double-buffered-custom-render-textures">Double Buffered Custom Render Textures</a></p></li>
-<li><p><a href="#chaining-custom-render-textures">Chaining Custom Render Textures</a></p></li>
-<li><p><a href="#writing-a-shader-for-a-custom-render-texture">Writing a shader for a Custom Render Texture</a></p></li>
+<li><p><a href="#exporting-custom-render-texture-to-a-file">将自定义渲染纹理导出到文件</a></p></li>
+<li><p><a href="#update-zones">更新区域</a></p></li>
+<li><p><a href="#controlling-custom-render-texture-from-script">通过脚本控制自定义渲染纹理</a></p></li>
+<li><p><a href="#double-buffered-custom-render-textures">双缓冲自定义渲染纹理</a></p></li>
+<li><p><a href="#chaining-custom-render-textures">链接自定义渲染纹理</a></p></li>
+<li><p><a href="#writing-a-shader-for-a-custom-render-texture">为自定义渲染纹理编写着色器</a></p></li>
 </ul>
 
 <p><a name="render-pipeline-compatibility"></a></p>
 
-<h2>Render Pipeline Compatibility</h2>
+<h2>渲染管线兼容性</h2>
 
-<p>The following table describes the compatibility between the <strong>Custom Render Textures</strong> feature and each render pipeline:</p>
+<p>下表描述了<strong>自定义渲染纹理</strong>功能与每个渲染管线之间的兼容性：</p>
 
 <table>
 <colgroup>
@@ -249,26 +246,24 @@
 	<th style="text-align:left;">内置渲染管线</th>
 	<th style="text-align:left;">通用渲染管线 (URP)</th>
 	<th style="text-align:left;">高清渲染管线 (HDRP)</th>
-	<th style="text-align:left;">Custom Scriptable Render Pipeline (SRP)</th>
+	<th style="text-align:left;">自定义可编程渲染管线 (SRP)</th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-	<td style="text-align:left;">Custom Render Textures</td>
-	<td style="text-align:left;">Yes (1)</td>
-	<td style="text-align:left;">Yes (1)</td>
-	<td style="text-align:left;">Yes (1)</td>
-	<td style="text-align:left;">Yes (1)</td>
+	<td style="text-align:left;">自定义渲染纹理</td>
+	<td style="text-align:left;">是 (1)</td>
+	<td style="text-align:left;">是 (1)</td>
+	<td style="text-align:left;">是 (1)</td>
+	<td style="text-align:left;">是 (1)</td>
 </tr>
 </tbody>
 </table>
 
 <p><strong>注意：</strong></p>
 
-<ol>
-<li>Currently, you can’t create Materials that update and initialize <strong>Custom Render Textures</strong> in <a href="https://docs.unity3d.com/Packages/com.unity.shadergraph@latest">Shader Graph</a>. You can only create Unity shaders that operate on Custom Render Textures by writing <a href="SL-Shader.html">ShaderLab</a> code.</li>
-</ol>
+<p>1.当前无法在 <a href="https://docs.unity3d.com/Packages/com.unity.shadergraph@latest">Shader Graph</a> 中创建更新和初始化<strong>自定义渲染纹理</strong>的材质。只能通过编写 <a href="SL-Shader.html">ShaderLab</a>代码来创建对自定义渲染纹理进行操作的着色器。</p>
 
 <p><a name="properties"></a></p>
 
@@ -278,7 +273,7 @@
 <img src="../uploads/Main/CustomRenderTextures-0.png" alt="">
 </figure>
 
-<p>The <strong>Custom Render Textures</strong> Inspector window displays many of the same properties as the Render Texture Inspector, and some properties specific to <strong>Custom Render Textures</strong>.</p>
+<p><strong>自定义渲染纹理</strong> Inspector 窗口显示许多与渲染纹理 Inspector 相同的属性，以及一些特定于<strong>自定义渲染纹理</strong>的属性。</p>
 
 <p><a name="render-texture"></a></p>
 
@@ -300,19 +295,19 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><strong>Dimension</strong></td>
-	<td style="text-align:left;">Dimension of the Render Texture.</td>
+	<td style="text-align:left;">渲染纹理的尺寸。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">     2D</td>
-	<td style="text-align:left;">Makes the Render Texture two-dimensional.</td>
+	<td style="text-align:left;">使渲染纹理成为二维。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">     Cube</td>
-	<td style="text-align:left;">Makes the Render Texture a cube map.</td>
+	<td style="text-align:left;">使渲染纹理成为立方体贴图。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">     3D</td>
-	<td style="text-align:left;">Makes the Render Texture three-dimensional.</td>
+	<td style="text-align:left;">使渲染纹理成为三维。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Size</strong></td>
@@ -320,51 +315,51 @@
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Color Format</strong></td>
-	<td style="text-align:left;">The format of the Render Texture.</td>
+	<td style="text-align:left;">渲染纹理的格式。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>sRGB (Color Render Texture)</strong></td>
-	<td style="text-align:left;">Enable to allow the Render Texture to use sRGB read/write conversions (Read Only).</td>
+	<td style="text-align:left;">启用可允许渲染纹理使用 sRGB 读/写转换（只读）。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Enable Mip Maps</strong></td>
-	<td style="text-align:left;">Enable this property to allow the Render Texture to use mipmaps.</td>
+	<td style="text-align:left;">启用此属性可允许渲染纹理使用 Mipmap。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Auto generate Mip Maps</strong></td>
-	<td style="text-align:left;">Enable this property to automatically generate mipmaps.</td>
+	<td style="text-align:left;">启用此属性可自动生成 MipMap。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Wrap Mode</strong></td>
-	<td style="text-align:left;">Defines how the Texture behaves when tiled.</td>
+	<td style="text-align:left;">定义纹理平铺时的行为方式。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">     Repeat</td>
-	<td style="text-align:left;">The Texture repeats itself as a tile.</td>
+	<td style="text-align:left;">纹理以瓦片形式重复自身。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">     Clamp</td>
-	<td style="text-align:left;">Unity stretches the edges of the Texture.</td>
+	<td style="text-align:left;">Unity 会拉伸纹理的边缘。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Filter Mode</strong></td>
-	<td style="text-align:left;">Defines how Unity filters the Texture when it is stretched by 3D transformations.</td>
+	<td style="text-align:left;">定义当纹理在通过 3D 变换拉伸时 Unity 如何过滤纹理。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">     Point</td>
-	<td style="text-align:left;">The Texture becomes blocky up close.</td>
+	<td style="text-align:left;">纹理在靠近时变为块状。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">     Bilinear</td>
-	<td style="text-align:left;">The Texture becomes blurry up close.</td>
+	<td style="text-align:left;">纹理在靠近时变得模糊。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">     Trilinear</td>
-	<td style="text-align:left;">Like Bilinear, but the Texture also blurs between different mip levels.</td>
+	<td style="text-align:left;">与 Bilinear 类似，但纹理也在不同的 Mip 级别之间模糊。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Aniso Level</strong></td>
-	<td style="text-align:left;">Increases Texture quality when viewing the texture at a steep angle. Good for floor and ground textures.</td>
+	<td style="text-align:left;">以大角度查看纹理时提高纹理质量。适用于地板和地面纹理。</td>
 </tr>
 </tbody>
 </table>
@@ -373,12 +368,12 @@
 
 <h3>自定义纹理：</h3>
 
-<p>These properties are exclusive to Custom Render Textures. Custom Texture parameters are separated into three categories:</p>
+<p>这些属性是自定义渲染纹理独有的。自定义纹理参数分为三个类别：</p>
 
 <ul>
-<li><p><strong>Material</strong>: Defines what shader is used to update the texture.</p></li>
-<li><p><strong>Initialization</strong>: Controls how the texture is initialized before the shader performs any updates.</p></li>
-<li><p><strong>Update</strong>: Controls how the shader updates the texture.</p></li>
+<li><p><strong>Material</strong>：定义用于更新纹理的着色器。</p></li>
+<li><p><strong>Initialization</strong>：控制在着色器执行更新之前如何初始化纹理。</p></li>
+<li><p><strong>Update</strong>：控制着色器如何更新纹理。</p></li>
 </ul>
 
 <table>
@@ -397,75 +392,75 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><strong>Material</strong></td>
-	<td style="text-align:left;">The Material that Unity uses to update the Custom Render Texture.</td>
+	<td style="text-align:left;">Unity 用于更新自定义渲染纹理的材质。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">     Shader Pass</td>
-	<td style="text-align:left;">The Shader Pass that Unity uses to update the Custom Render Texture. The drop-down shows all passes available in your Material.</td>
+	<td style="text-align:left;">Unity 用于更新自定义渲染纹理的着色器通道。下拉列表会显示材质中可用的所有通道。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Initialization Mode</strong></td>
-	<td style="text-align:left;">The rate at which Unity initializes the texture.</td>
+	<td style="text-align:left;">Unity 初始化纹理的频率。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">     OnLoad</td>
-	<td style="text-align:left;">Unity initializes the texture once upon creation.</td>
+	<td style="text-align:left;">Unity 在创建时初始化纹理一次。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">     Realtime</td>
-	<td style="text-align:left;">Unity initializes the texture every frame.</td>
+	<td style="text-align:left;">Unity 在每一帧初始化纹理。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">     OnDemand</td>
-	<td style="text-align:left;">Unity initializes the texture on demand from the script.</td>
+	<td style="text-align:left;">Unity 通过脚本按需初始化纹理。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Source</strong></td>
-	<td style="text-align:left;">How Unity texture initializes the texture.</td>
+	<td style="text-align:left;">Unity 纹理如何初始化纹理。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">     Texture and Color</td>
-	<td style="text-align:left;">Unity uses a texture multiplied by a color to initialize the texture.</td>
+	<td style="text-align:left;">Unity 使用纹理叠加颜色来初始化纹理。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">         Initialization Color</td>
-	<td style="text-align:left;">Defines the color that Unity uses to initialize the Custom Render Texture. If you also provide an <strong>Initialization Texture</strong>, Unity uses the multiplication of the color and the texture to initialize the Custom Render Texture.</td>
+	<td style="text-align:left;">定义 Unity 用于初始化自定义渲染纹理的颜色。如果还提供了<strong>初始化纹理</strong>，则 Unity 会使用颜色和纹理的叠加来初始化自定义渲染纹理。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">         Initialization Texture</td>
-	<td style="text-align:left;">Defines the texture that Unity uses to initialize the Custom Render Texture. If you also provide an <strong>Initialization Color</strong>, Unity uses the multiplication of the color and the texture to initialize the Custom Render Texture.</td>
+	<td style="text-align:left;">定义 Unity 用于初始化自定义渲染纹理的纹理。如果还提供了<strong>初始化颜色</strong>，则 Unity 会使用颜色和纹理的叠加来初始化自定义渲染纹理。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">     Material</td>
-	<td style="text-align:left;">Unity uses a Material to initialize the texture.</td>
+	<td style="text-align:left;">Unity 使用材质初始化纹理。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">         Initialization Material</td>
-	<td style="text-align:left;">Defines the Material that Unity uses to initialize the Custom Render Texture.</td>
+	<td style="text-align:left;">定义 Unity 用于初始化自定义渲染纹理的材质。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Update Mode</strong></td>
-	<td style="text-align:left;">The rate at which the shader updates the Custom Render Texture.</td>
+	<td style="text-align:left;">着色器更新自定义渲染纹理的频率。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">     OnLoad</td>
-	<td style="text-align:left;">The shader updates the texture once upon creation.</td>
+	<td style="text-align:left;">着色器在创建时更新纹理一次。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">     Realtime</td>
-	<td style="text-align:left;">The shader updates the texture every frame.</td>
+	<td style="text-align:left;">着色器在每一帧更新纹理。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">     OnDemand</td>
-	<td style="text-align:left;">The shader updates the texture on demand from script.</td>
+	<td style="text-align:left;">着色器通过脚本按需更新纹理。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Period</strong></td>
-	<td style="text-align:left;">The amount of time in seconds over which Unity updates a real-time texture. A value of 0.0 updates every frame. This property is only available when the <strong>Update Mode</strong> to property is set to Realtime.</td>
+	<td style="text-align:left;">Unity 更新实时纹理的时间量（以秒为单位）。值 0.0 会更新每一帧。仅当 <strong>Update Mode</strong> 属性设置为 Realtime 时，此属性才可用。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Double Buffered</strong></td>
-	<td style="text-align:left;">Double-buffers the texture. Each update swaps the two buffers. This allows you to read the result of the preceding update in the shader.</td>
+	<td style="text-align:left;">对纹理进行双缓冲。每次更新都会交换两个缓冲区。这样可以在着色器中读取先前更新的结果。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Wrap Update Zones</strong></td>
@@ -473,23 +468,23 @@
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Cubemap Faces</strong></td>
-	<td style="text-align:left;">(Cubemap only) Series of toggle allowing user to enable/disable update on each of the cube map faces.</td>
+	<td style="text-align:left;">（仅限立方体贴图）通过一系列开关允许用户对每个立方体贴图面启用/禁用更新。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Update Zone Space</strong></td>
-	<td style="text-align:left;">The coordinate system where Unity defines the update zones.</td>
+	<td style="text-align:left;">Unity 用于定义更新区域的坐标系。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">     Normalized</td>
-	<td style="text-align:left;">All coordinates and sizes are between 0 and 1 with the top-left corner starting at (0, 0).</td>
+	<td style="text-align:left;">所有坐标和大小都在 0 到 1 之间，左上角从 (0, 0) 开始。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">     Pixel</td>
-	<td style="text-align:left;">All coordinates and sizes are expressed in pixels limited by the width and height of the texture. Top-left corner starting at (0, 0).</td>
+	<td style="text-align:left;">所有坐标和大小都以像素宽度和高度所限制的像素表示。左上角从 (0, 0) 开始。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Update Zone List</strong></td>
-	<td style="text-align:left;">List of update zones for the texture. For more information, see <a href="#update-zones">Update Zones</a>.</td>
+	<td style="text-align:left;">纹理的更新区域列表。有关更多信息，请参阅<a href="#update-zones">更新区域</a>。</td>
 </tr>
 </tbody>
 </table>
@@ -498,21 +493,21 @@
 
 <h2>将自定义渲染纹理导出到文件：</h2>
 
-<p>You can export Custom Render Textures to a PNG or EXR file (depending on the texture format) in the <strong>Export</strong> menu.</p>
+<p>可以通过 <strong>Export</strong> 菜单将自定义渲染纹理导出到 PNG 或 EXR 文件（具体取决于纹理格式）。</p>
 
 <p><a name="update-zones"></a></p>
 
 <h2>更新区域 (Update Zones)：</h2>
 
-<p>When Unity updates a Custom Render Texture, it uses the Material to update the whole texture at once by default. The Custom Render Texture allows you to define zones of partial update. You can use this to define as many zones as you want and the order in which the zones are processed.</p>
+<p>Unity 更新自定义渲染纹理时，默认情况下会使用材质立即更新整个纹理。自定义渲染纹理允许定义部分更新的区域。可以使用此功能根据需要定义多个区域以及处理这些区域的顺序。</p>
 
-<p>You can use update zones for various purposes. For example, you could have multiple small zones to splat water drops on the texture and then do a full pass to simulate the ripples. This can also be used as an optimization when you know that you don’t need to update the full texture.</p>
+<p>可以将更新区域用于各种用途。例如，可以使用多个小区域在纹理上绘制水滴，然后执行完整通道以模拟波纹。此外，如果不需要更新完整纹理，也可以使用此功能作为优化手段。</p>
 
 <figure>
 <img src="../uploads/Main/CustomRenderTextures-1.png" alt="">
 </figure>
 
-<p>Update zones have their own set of properties. The <strong>Update Zone Space</strong> is visible in the display. Coordinates depend on the <strong>Dimension</strong> of the texture: 2D for 2D and Cube textures, or 3D for 3D textures.</p>
+<p>更新区域具有各自的属性集。<strong>Update Zone Space</strong> 会出现在显示中。坐标取决于纹理的 <strong>Dimension</strong> 属性：对于 2D 和立方体纹理为 2D，对于 3D 纹理为 3D。</p>
 
 <table>
 <colgroup>
@@ -530,23 +525,23 @@
 <tbody>
 <tr>
 	<td style="text-align:left;">Center</td>
-	<td style="text-align:left;">The coordinates of the center of the update zone..</td>
+	<td style="text-align:left;">更新区域中心的坐标。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">Size</td>
-	<td style="text-align:left;">The size of the update zone.</td>
+	<td style="text-align:left;">更新区域的大小。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">Rotation</td>
-	<td style="text-align:left;">The orientation of the update zone in degrees (unavailable for 3D textures).</td>
+	<td style="text-align:left;">更新区域的方向（以度为单位，3D 纹理中不可用）。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">Shader Pass</td>
-	<td style="text-align:left;">Defines the Shader Pass to use for this update zone. If you set this property as default, this update zone uses the Shader Pass that you defined in the main part of the inspector. Otherwise it will use the Shader Pass you provide.</td>
+	<td style="text-align:left;">定义用于此更新区域的着色器通道。如果将此属性设置为默认值，则此更新区域会使用在检视面板主要部分中定义的着色器通道。否则，它会使用提供的着色器通道。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">Swap (Double Buffer)</td>
-	<td style="text-align:left;">(Only for Double Buffered textures) When you enable this property, Unity swaps the buffers before processing this update zone.</td>
+	<td style="text-align:left;">（仅适用于双缓冲纹理）启用了此属性时，Unity 在处理此更新区域之前会交换缓冲区。</td>
 </tr>
 </tbody>
 </table>
@@ -555,9 +550,9 @@
 
 <h2>通过脚本控制自定义渲染纹理</h2>
 
-<p>You can access most of the Custom Render Texture functionalities in the Scripting API. You can also change Material parameters, update frequency, update zones, request an update, and more using a script.</p>
+<p>可以在脚本 API 中访问大多数自定义渲染纹理功能。还可以使用脚本更改材质参数、更新频率、更新区域、请求更新等。</p>
 
-<p>When Unity updates or initializes a Custom Render Texture, it uses the current properties to render the next frame. This guarantees that any Material that uses this texture has an up-to-date result. For example, in the following script Unity performs two updates using the second <a href="#update-zones">Update Zone</a> array:</p>
+<p>当 Unity 更新或初始化自定义渲染纹理时，它会使用当前属性来渲染下一帧。这种机制可保证使用此纹理的任何材质都具有最新结果。例如，在以下脚本中，Unity 使用第二个<a href="#update-zones">更新区域</a>数组执行两次更新：</p>
 
 <p><code>customRenderTexture.updateZones = updateZones1;</code></p>
 
@@ -567,45 +562,45 @@
 
 <p><code>customRenderTexture.Update();</code></p>
 
-<p><strong>Note:</strong> Unity does not update or initialize a Custom Render Texture at the same time you call <code>Update()</code> or <code>Initialize()</code>. This is because Unity always updates and initializes a Custom Render Texture at the start of the next frame.</p>
+<p><strong>注意：</strong>Unity 不会在调用 <code>Update()</code> 或 <code>Initialize()</code> 的同时更新或初始化自定义渲染纹理。这是因为 Unity 始终在下一帧开始时更新和初始化自定义渲染纹理。</p>
 
 <p><a name="double-buffered-custom-render-textures"></a></p>
 
 <h2>双缓冲自定义纹理</h2>
 
-<p>You can double-buffer Custom Render Textures. To do this, enable <strong>Double Buffered</strong> in the <a href="#properties">Custom Render Textures component</a>, or use <a href="https://docs.unity3d.com/ScriptReference/CustomRenderTexture-doubleBuffered.html"><code>CustomRenderTexture.doubleBuffered</code></a>.</p>
+<p>可以对自定义渲染纹理进行双缓冲。为此，请在<a href="#properties">自定义渲染纹理组件</a>中启用 <strong>Double Buffered</strong>，或使用 <a href="https://docs.unity3d.com/ScriptReference/CustomRenderTexture-doubleBuffered.html"><code>CustomRenderTexture.doubleBuffered</code></a>。</p>
 
-<p>Double-buffering means that inside one Custom Render Texture there are two textures which Unity can swap after each update. This allows you to read the result of the last update while writing a new result in the Custom Render Texture. </p>
+<p>双缓冲意味着在一个自定义渲染纹理内有两个纹理，Unity 可以在每次更新后交换它们。这种机制可让用户在自定义渲染纹理中写入新结果时读取上次更新的结果。</p>
 
-<p>Double-buffering is particularly useful if the shader needs to use the content the Unity has already written in the texture but can’t mix the values with classic blend modes. This is also required if the shaders have to sample different pixels from the preceding result.</p>
+<p>如果着色器需要使用 Unity 已在纹理中写入的内容但不能将值与经典混合模式混合，则双缓冲尤其有用。如果着色器必须对前一结果中的不同像素进行采样，也需要用到此功能。</p>
 
-<p><strong>Performance warning</strong>: Double-buffering currently involves a copy of the texture at each swap which can lead to a drop in performance depending on the frequency at which it is done and the resolution of the texture.</p>
+<p><strong>性能警告</strong>：双缓冲当前涉及每次交换时进行纹理的复制，这可能导致性能下降，具体取决于其执行频率和纹理分辨率。</p>
 
 <p><a name="chaining-custom-render-textures"></a></p>
 
 <h2>链接自定义渲染纹理</h2>
 
-<p>You can chain Custom Render Textures together. To do this, use a Custom Render Texture as the input for a material that you have assigned to the <strong>Material</strong> or <strong>Initialization Mode &gt; Texture</strong> in another Custom Render Texture.</p>
+<p>可以将自定义渲染纹理链接在一起。为此，请使用自定义渲染纹理作为在另一个自定义渲染纹理中分配给 <strong>Material</strong> 或者 <strong>Initialization Mode &gt; Texture</strong> 的材质的输入。</p>
 
-<p>You can use chained Custom Render Textures to generate a simulation with multiple steps.</p>
+<p>可以使用链接的自定义渲染纹理来生成具有多个步骤的模拟。</p>
 
-<p>Chained Custom Render Textures are dependent on each other. Unity calculates this dependency automatically so that each update happens in the right order. It does this by looking at the materials assigned to the <strong>Material</strong> and <strong>Initialization Mode &gt; Texture</strong> properties in the <strong>Custom Render Textures</strong> inspector window.</p>
+<p>链接的自定义渲染纹理相互依赖。Unity 会自动计算此依赖关系，以便每次更新都按正确顺序进行。为此，它会查看在<strong>自定义渲染纹理</strong> Inspector 窗口中分配给 <strong>Material</strong> 和 <strong>Initialization Mode &gt; Texture</strong> 属性的材质。</p>
 
 <p><a name="writing-a-shader-for-a-custom-render-texture"></a></p>
 
 <h2>为自定义渲染纹理编写着色器</h2>
 
-<p>To update a Custom Render Texture manually, you can write a specialized Custom Render Texture shader.</p>
+<p>若要手动更新自定义渲染纹理，可以编写专门的自定义渲染纹理着色器。</p>
 
-<p>To help you write your Custom Render Texture shaders, here are two example frameworks that contain utility functions and built-in helper variables.</p>
+<p>为了帮助编写自定义渲染纹理着色器，此处提供了两个示例框架，其中包含实用程序函数和内置辅助变量。</p>
 
-<p>The following shader example fills the texture with a color multiplied by a color. When you write a shader for a Custom Render Texture, you must do the following:</p>
+<p>以下着色器示例使用颜色叠加颜色的方式填充纹理。为自定义渲染纹理编写着色器时，必须执行以下操作：</p>
 
 <ul>
 <li>
-<code>#include "UnityCustomRenderTexture.cginc"</code>.</li>
-<li>Use the provided Vertex Shader <code>CustomRenderTextureVertexShader</code>.</li>
-<li>Use the provided input structure <code>v2f_customrendertexture</code> for the pixel shader.</li>
+<code>#include "UnityCustomRenderTexture.cginc"</code>。</li>
+<li>使用提供的顶点着色器 <code>CustomRenderTextureVertexShader</code>。</li>
+<li>为像素着色器使用提供的输入结构 <code>v2f_customrendertexture</code>。</li>
 </ul>
 
 <pre><code>Shader "CustomRenderTexture/Simple"
@@ -642,12 +637,12 @@
 }
 </code></pre>
 
-<p>The following example is a shader for a material you can use to initialize a Custom Render Texture. When you write a shader for an initialization Material, the following steps are mandatory:</p>
+<p>以下示例是可用于初始化自定义渲染纹理的材质的着色器。为初始化材质编写着色器时，必须执行以下步骤：</p>
 
 <ul>
 <li><p><code>#include "UnityCustomRenderTexture.cginc"</code></p></li>
-<li><p>Use the provided Vertex Shader <code>CustomRenderTextureVertexShader</code></p></li>
-<li><p>Use the provided input structure <code>v2f_customrendertexture</code> for the pixel shader.</p></li>
+<li><p>使用提供的顶点着色器 <code>CustomRenderTextureVertexShader</code></p></li>
+<li><p>为像素着色器使用提供的输入结构 <code>v2f_customrendertexture</code>。</p></li>
 </ul>
 
 <pre><code>Shader "CustomRenderTexture/CustomTextureInit"
@@ -685,9 +680,9 @@
 }
 </code></pre>
 
-<p><code>#include "UnityCustomRenderTexture.cginc"</code> gives you access to a set of built-in values. This includes Global values, values from the <code>v2f_customrendertexture</code> structure and values from the <code>v2f_init_customrendertexture</code> structure.</p>
+<p><code>#include "UnityCustomRenderTexture.cginc"</code> 提供对一组内置值的访问。这包括全局值、<code>v2f_customrendertexture</code> 结构中的值以及 <code>v2f_init_customrendertexture</code> 结构中的值。</p>
 
-<p>The <code>v2f_customrendertexture</code> structure accepts the following inputs:</p>
+<p><code>v2f_customrendertexture</code> 结构接受以下输入：</p>
 
 <table>
 <colgroup>
@@ -728,7 +723,7 @@
 </tbody>
 </table>
 
-<p>The <code>v2f_init_customrendertexture</code> structure accepts the following inputs:</p>
+<p><code>v2f_init_customrendertexture</code> 结构接受以下输入：</p>
 
 <table>
 <colgroup>
@@ -754,7 +749,7 @@
 </tbody>
 </table>
 
-<p>The following structures are Global values:</p>
+<p>以下结构是全局值：</p>
 
 <table>
 <colgroup>
@@ -790,12 +785,12 @@
 <tr>
 	<td style="text-align:left;"><code>_CustomRenderTextureCubeFace</code></td>
 	<td style="text-align:left;"><code>float</code></td>
-	<td style="text-align:left;">The index of the current cubemap face that Unity processes (-X, +X, -Y, +Y, -Z, +Z). This only applies to cube maps.</td>
+	<td style="text-align:left;">Unity 处理的当前立方体贴图面的索引（-X、+X、-Y、+Y、-Z、+Z）。这仅适用于立方体贴图。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>_CustomRenderTexture3DSlice</code></td>
 	<td style="text-align:left;"><code>float</code></td>
-	<td style="text-align:left;">Index of the current 3D slice being processed. This only applies to 3D textures.</td>
+	<td style="text-align:left;">正在处理的当前 3D 切片的索引。这仅适用于 3D 纹理。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>_SelfTexture2D</code></td>
@@ -833,7 +828,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

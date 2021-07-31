@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Built-in Unity variables - Unity 手册">
-<title>Built-in Unity variables - Unity 手册</title>
-<meta name="description" content="Unity&amp;#8217;s built-in style sheets define USS variables that specify default values for Editor and runtime UI. You can use these variables in your own style sheets to ensure that your custom interfaces match Unity style.">
-<meta property="og:description" content="Unity&amp;#8217;s built-in style sheets define USS variables that specify default values for Editor and runtime UI. You can use these variables in your own style sheets to ensure that your custom interfaces match Unity style.">
+<meta property="og:title" content="内置 Unity 变量 - Unity 手册">
+<title>内置 Unity 变量 - Unity 手册</title>
+<meta name="description" content="Unity 内置样式表定义了为编辑器和运行时 UI 指定默认值的 USS 变量。可以在自己的样式表中使用这些变量确保自定义界面与 Unity 样式相匹配。">
+<meta property="og:description" content="Unity 内置样式表定义了为编辑器和运行时 UI 指定默认值的 USS 变量。可以在自己的样式表中使用这些变量确保自定义界面与 Unity 样式相匹配。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,53 +174,53 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="UIToolkits.html">Creating user interfaces (UI)</a></li>
-<li><a href="UIElements.html">UI Toolkit</a></li>
-<li><a href="UIE-USS.html">样式和 Unity 样式表</a></li>
-<li><a href="UIE-USS-CustomProperties.html">USS custom properties (variables)</a></li>
-<li>Built-in Unity variables</li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="UIToolkits.html">创建用户界面 (UI)</a></li>
+<li><a href="UIElements.html">UI 工具包</a></li>
+<li><a href="UIE-USS.html">Unity style sheets (USS)</a></li>
+<li><a href="UIE-USS-CustomProperties.html">USS 自定义属性（变量）</a></li>
+<li>内置 Unity 变量</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="UIE-USS-CustomProperties.html"></a></span><div class="tip">USS custom properties (variables)</div>
+<span class="prev"><a href="UIE-USS-CustomProperties.html"></a></span><div class="tip">USS 自定义属性（变量）</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="UIE-USS-WritingStyleSheets.html"></a></span><div class="tip">USS 编写样式表</div>
 </div>
 </div></div>
-<h1>Built-in Unity variables</h1>
+<h1>内置 Unity 变量</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>Unity’s built-in style sheets define USS <a href="UIE-USS-CustomProperties.html">variables</a> that specify default values for Editor and runtime UI. You can use these variables in your own style sheets to ensure that your custom interfaces match Unity style.</p>
+<p>Unity 内置样式表定义了为编辑器和运行时 UI 指定默认值的 USS <a href="UIE-USS-CustomProperties.html">变量</a>。可以在自己的样式表中使用这些变量确保自定义界面与 Unity 样式相匹配。</p>
 
-<p>For information about specific variables, see the <a href="#ListOfUnityVariables">List of built-in Unity variables</a>.</p>
+<p>有关特定变量的信息，请参阅<a href="#ListOfUnityVariables">内置 Unity 变量列表</a>。</p>
 
-<h2>Unity variable names</h2>
+<h2>Unity 变量名称</h2>
 
-<p>Unity uses a specific naming convention for built-in variables to indicate how and where it uses them. A variable name consists of one or more parts, separated by hyphens. Each part consists of one or more words separated by underscores.</p>
+<p>Unity 对内置变量使用特定命名约定来指示如何以及在何处使用这些变量。变量名称由一个或多个部分组成（以连字符分隔）。每个部分由一个或多个的单词组成（以下划线分隔）。</p>
 
-<p><code>--unity-{group}-{role_and_control}-{sub_element}-{pseudo_state_sequence}</code></p>
+<p><code>--unity-{组}-{角色和控件}-{子元素}-{伪状态序列}</code></p>
 
-<p>Each part of the name tells you something about the types of USS rules that use the variable.</p>
+<p>名称的每个部分都告知有关使用变量的 USS 规则类型的一些信息。</p>
 
 <ul>
 <li>
-<a href="#group"><strong>Group:</strong></a> the kind of data the variable represents.</li>
+<a href="#group"><strong>组：</strong></a>变量表示的数据类型。</li>
 <li>
-<a href="#role-and-control"><strong>Role/Control:</strong></a> a conceptual grouping for the elements the variable affects.</li>
+<a href="#role-and-control"><strong>角色/控件：</strong></a>变量影响的元素的概念分组。</li>
 <li>
-<a href="#sub-element"><strong>Sub-Element:</strong></a> the part of an element or control the variable affects.</li>
+<a href="#sub-element"><strong>子元素：</strong></a>变量影响的元素或控件的一部分。</li>
 <li>
-<a href="#pseudo-state-sequence"><strong>Pseudo States:</strong></a> lists the states Unity uses the variable for.</li>
+<a href="#pseudo-state-sequence"><strong>伪状态：</strong></a>列出 Unity 使用变量时的状态。</li>
 </ul>
 
-<p>For example, the following variable name:</p>
+<p>例如，以下变量名称：</p>
 
 <p><code>--unity-colors-button-text-hover</code></p>
 
-<p>Provides the following information about how Unity uses the variable:</p>
+<p>提供有关 Unity 如何使用变量的以下信息：</p>
 
 <table>
 <colgroup>
@@ -233,7 +233,7 @@
 <tr>
 	<th style="text-align:left;"></th>
 	<th style="text-align:left;"><strong>值：</strong></th>
-	<th style="text-align:left;"><strong>Meaning:</strong></th>
+	<th style="text-align:left;"><strong>含义：</strong></th>
 </tr>
 </thead>
 
@@ -241,37 +241,37 @@
 <tr>
 	<td style="text-align:left;"><strong>Group</strong></td>
 	<td style="text-align:left;"><code>colors</code></td>
-	<td style="text-align:left;">The variable represents color data.</td>
+	<td style="text-align:left;">变量表示颜色数据。</td>
 </tr>
 <tr>
-	<td style="text-align:left;"><strong>Role/Control</strong></td>
+	<td style="text-align:left;"><strong>角色/控件</strong></td>
 	<td style="text-align:left;"><code>button</code></td>
-	<td style="text-align:left;">The variable affects buttons.</td>
+	<td style="text-align:left;">变量影响按钮。</td>
 </tr>
 <tr>
-	<td style="text-align:left;"><strong>Sub-Element</strong></td>
+	<td style="text-align:left;"><strong>子元素</strong></td>
 	<td style="text-align:left;"><code>text</code></td>
-	<td style="text-align:left;">The variable affects text. Because its <code>group</code> is <code>colors</code>, you know it affects text color.</td>
+	<td style="text-align:left;">变量影响文本。因为其组是 <code>colors</code>，所以您知道它会影响文本颜色。</td>
 </tr>
 <tr>
-	<td style="text-align:left;"><strong>Pseudo-States</strong></td>
+	<td style="text-align:left;"><strong>伪状态</strong></td>
 	<td style="text-align:left;"><code>hover</code></td>
-	<td style="text-align:left;">Unity uses the variable in styles that it applies to elements when the mouse pointer hovers over them.</td>
+	<td style="text-align:left;">Unity 使用变量时所采用的样式会在鼠标指针悬停在元素上方时应用于元素。</td>
 </tr>
 </tbody>
 </table>
 
-<p>In other words, Unity uses this variable in styles that change the color of button text when a user hovers over the button.</p>
+<p>换句话说，Unity 使用变量时所采用的样式会在用户将鼠标悬停在按钮上方时更改按钮文本颜色。</p>
 
-<p>The rest of this section provides detailed information about each part of the variable name format.</p>
+<p>本部分的其余内容提供有关变量名称格式每个部分的详细信息。</p>
 
 <p><a name="group"></a></p>
 
-<h3>Group</h3>
+<h3>组</h3>
 
-<p>The group specifies what kind of data the variable represents. Each group has several possible <a href="#sub-elements">sub-elements</a>.</p>
+<p>组指定变量表示的数据类型。每个组都有几个可能的<a href="#sub-elements">子元素</a>。</p>
 
-<p>Unity variable names can have the following groups:</p>
+<p>Unity 变量名称可以包含以下组：</p>
 
 <table>
 <colgroup>
@@ -281,47 +281,47 @@
 
 <thead>
 <tr>
-	<th style="text-align:left;"><strong>Group:</strong></th>
-	<th style="text-align:left;"><strong>Used for:</strong></th>
+	<th style="text-align:left;"><strong>组：</strong></th>
+	<th style="text-align:left;"><strong>用于：</strong></th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
 	<td style="text-align:left;"><code>colors</code></td>
-	<td style="text-align:left;">Color properties, such as <code>background-color</code> and <code>border-color</code>
+	<td style="text-align:left;">颜色属性，例如 <code>background-color</code> 和 <code>border-color</code>
 </td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>metrics</code></td>
-	<td style="text-align:left;">Properties that control dimensions and shapes. For example, <code>border-radius</code>, <code>border-width</code>, <code>margin</code>, and <code>padding</code>
+	<td style="text-align:left;">控制尺寸和形状的属性。例如，<code>border-radius</code>、<code>border-width</code>、<code>margin</code> 和 <code>padding</code>
 </td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>icons</code></td>
-	<td style="text-align:left;">Standard Unity icon images</td>
+	<td style="text-align:left;">标准 Unity 图标图像</td>
 </tr>
 </tbody>
 </table>
 
 <p><a name="role-and-control"></a></p>
 
-<h3>Role and Control</h3>
+<h3>角色和控件</h3>
 
-<p>Roles and controls are two ways of grouping elements conceptually.</p>
+<p>角色和控件是在概念上对元素进行分组的两种方式。</p>
 
 <ul>
 <li>
-<strong>Role</strong> refers to a group of elements that have the same purpose, regardless of what type each element is. For example, the <code>error</code> role includes all elements that are involved in displaying an error message to users.</li>
+<strong>角色</strong>指一组具有相同用途的元素，与每个元素所属的类型无关。例如，<code>error</code> 角色包括向用户显示错误消息所涉及的所有元素。</li>
 <li>
-<strong>Control</strong> refers to a group of elements of the same type, regardless of what they do. For example, <code>buttons</code> includes all buttons in the editor.</li>
+<strong>控件</strong>指一组相同类型的元素，与其用途无关。例如，<code>buttons</code> 包括编辑器中的所有按钮。</li>
 </ul>
 
-<p>Every Unity variable has either a role or a control. It cannot have both.</p>
+<p>每个 Unity 变量都具有一个角色或控件。它不能同时具备两者。</p>
 
-<p>Unity variable names can have the following roles and controls:</p>
+<p>Unity 变量名称可以具有以下角色和控件：</p>
 
-<p><strong>Roles:</strong></p>
+<p><strong>角色：</strong></p>
 
 <table>
 <colgroup>
@@ -331,7 +331,7 @@
 
 <thead>
 <tr>
-	<th style="text-align:left;"><strong>Role:</strong></th>
+	<th style="text-align:left;"><strong>角色：</strong></th>
 	<th style="text-align:left;"><strong>描述：</strong></th>
 </tr>
 </thead>
@@ -339,35 +339,35 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><code>default</code></td>
-	<td style="text-align:left;">Default style settings such as text color, background, and margin.</td>
+	<td style="text-align:left;">默认样式设置，例如文本颜色、背景和边距。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>alternated_rows</code></td>
-	<td style="text-align:left;">Elements that display tabular data with alternating row colors. For example, list items in a list view.</td>
+	<td style="text-align:left;">显示具有交替行颜色的表格数据的元素。例如，列表视图中的列表项。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>error</code></td>
-	<td style="text-align:left;">Elements that communicate error states to users.</td>
+	<td style="text-align:left;">向用户传达错误状态的元素。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>highlight</code></td>
-	<td style="text-align:left;">Highlighted parts of the UI. For example, text selections, or selected items in tree views.</td>
+	<td style="text-align:left;">突出显示的 UI 部分。例如，文本选择或树视图中的选定项。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>link</code></td>
-	<td style="text-align:left;">Parts of the UI (typically text) that are clickable links. This is the un-clicked state.</td>
+	<td style="text-align:left;">作为可单击链接的 UI 部分（通常是文本）。这是未单击状态。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>play_mode</code></td>
-	<td style="text-align:left;">Elements displayed when the Editor is in Play mode.</td>
+	<td style="text-align:left;">编辑器处于运行模式时显示的元素。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>visited_link</code></td>
-	<td style="text-align:left;">Parts of the UI, typically text, that are clickable links that a user has already clicked.</td>
+	<td style="text-align:left;">作为用户已单击的可单击链接的 UI 部分（通常是文本）。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>warning</code></td>
-	<td style="text-align:left;">Elements that communicate a warning message to users.</td>
+	<td style="text-align:left;">向用户传达警告消息的元素。</td>
 </tr>
 </tbody>
 </table>
@@ -390,96 +390,96 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><code>app_toolbar</code></td>
-	<td style="text-align:left;">The main Unity toolbar</td>
+	<td style="text-align:left;">Unity 主工具栏</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>app_toolbar_button</code></td>
-	<td style="text-align:left;">Buttons in the main Unity toolbar</td>
+	<td style="text-align:left;">Unity 主工具栏中的按钮</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>box</code></td>
-	<td style="text-align:left;">Boxes used to group elements in the Editor UI</td>
+	<td style="text-align:left;">在编辑器 UI 中用于对元素进行分组的框</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>button</code></td>
-	<td style="text-align:left;">Buttons in the UI, except for toolbars</td>
+	<td style="text-align:left;">UI 中的按钮（工具栏除外）</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>dropdown</code></td>
-	<td style="text-align:left;">Dropdown lists or menus</td>
+	<td style="text-align:left;">下拉列表或菜单</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>helpbox</code></td>
-	<td style="text-align:left;">Boxes used to display help information</td>
+	<td style="text-align:left;">用于显示帮助信息的框</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>input_field</code></td>
-	<td style="text-align:left;">Fields used to input text or numeric values</td>
+	<td style="text-align:left;">用于输入文本或数值的字段</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>label</code></td>
-	<td style="text-align:left;">Text labels in the Editor UI</td>
+	<td style="text-align:left;">编辑器 UI 中的文本标签</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>object_field</code></td>
-	<td style="text-align:left;">Fields used for object values. For example, property values for a GameObject or Asset.</td>
+	<td style="text-align:left;">用于对象值的字段。例如，游戏对象或资源的属性值。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>popup</code></td>
-	<td style="text-align:left;">Popup menu and other popup controls</td>
+	<td style="text-align:left;">弹出菜单和其他弹出控件</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>preview</code></td>
-	<td style="text-align:left;">Views used to display previews. For example, of Assets such as meshes and textures.</td>
+	<td style="text-align:left;">用于显示预览的视图。例如，网格和纹理等资源的预览。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>scrollbar_groove</code></td>
-	<td style="text-align:left;">The background element of a scrollbar in which users drag the scrollbar thumb</td>
+	<td style="text-align:left;">用户在其中拖动滚动条滑块的滚动条的背景元素</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>scrollbar_thumb</code></td>
-	<td style="text-align:left;">The draggable handle element in a scrollbar</td>
+	<td style="text-align:left;">滚动条中的可拖动手柄元素</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>slider_groove</code></td>
-	<td style="text-align:left;">The background element of a slider in which users drag the slider thumb</td>
+	<td style="text-align:left;">用户在其中拖动滑动条滑块的滑动条的背景元素</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>slider_thumb</code></td>
-	<td style="text-align:left;">The draggable handle element in a slider</td>
+	<td style="text-align:left;">滑动条中的可拖动手柄元素</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>slider_thumb_halo</code></td>
-	<td style="text-align:left;">An overlay displayed around the slider thumb when the user drags it</td>
+	<td style="text-align:left;">用户拖动滑动条时显示在滑动条周围的覆盖</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>tab</code></td>
-	<td style="text-align:left;">Tab items in tab controls</td>
+	<td style="text-align:left;">选项卡控件中的选项卡项</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>toolbar</code></td>
-	<td style="text-align:left;">Any Editor toolbar except for the main Unity toolbar (<code>app_toolbar</code>)</td>
+	<td style="text-align:left;">任何编辑器工具栏，Unity 主工具栏 (<code>app_toolbar</code>) 除外</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>toolbar_button</code></td>
-	<td style="text-align:left;">Buttons in an Editor toolbar</td>
+	<td style="text-align:left;">编辑器工具栏中的按钮</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>window</code></td>
-	<td style="text-align:left;">Editor windows</td>
+	<td style="text-align:left;">Editor 窗口</td>
 </tr>
 </tbody>
 </table>
 
 <p><a name="sub-element"></a></p>
 
-<h3>Sub-Element</h3>
+<h3>子元素</h3>
 
-<p>The sub-element is the part of an element that the variable affects. Together with a variable’s <code>group</code>, the sub-element tells you exactly what kind of data the variable represents.</p>
+<p>子元素是变量影响的元素的一部分。子元素与变量的“组”相结合，可确切告知变量表示的数据类型。</p>
 
-<p>For example, when you see a variable name with the <code>colors</code> group and the <code>text</code> sub-element, it means Unity uses the variable in styles that affect text color.</p>
+<p>例如，在看到具有 <code>colors</code> 组和 <code>text</code> 子元素的变量名称时，这表示 Unity 使用变量时所采用的样式会影响文本颜色。</p>
 
-<p>Unity variable names can have the following sub-elements:</p>
+<p>Unity 变量名称可以包含以下子元素：</p>
 
 <table>
 <colgroup>
@@ -490,8 +490,8 @@
 
 <thead>
 <tr>
-	<th style="text-align:left;"><strong>Group:</strong></th>
-	<th style="text-align:left;"><strong>Sub-element:</strong></th>
+	<th style="text-align:left;"><strong>组：</strong></th>
+	<th style="text-align:left;"><strong>子元素：</strong></th>
 	<th style="text-align:left;"><strong>描述：</strong></th>
 </tr>
 </thead>
@@ -503,22 +503,22 @@
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>background</code></td>
-	<td style="text-align:left;">An element’s background color</td>
+	<td style="text-align:left;">元素的背景颜色</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>border</code></td>
-	<td style="text-align:left;">An element’s outer border color</td>
+	<td style="text-align:left;">元素的外边框颜色</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>border_accent</code></td>
-	<td style="text-align:left;">An element’s inner border color. For example, Inspector windows have a two-tone border</td>
+	<td style="text-align:left;">元素的内边框颜色。例如，Inspector 窗口有一个双色调边框</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>text</code></td>
-	<td style="text-align:left;">Text color for elements that display text</td>
+	<td style="text-align:left;">显示文本的元素的文本颜色</td>
 </tr>
 <tr>
 	<td style="text-align:left;" colspan="3"><code>metrics</code></td>
@@ -526,46 +526,46 @@
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>margin_{left, top, right, bottom}</code></td>
-	<td style="text-align:left;">An element’s margin values</td>
+	<td style="text-align:left;">元素的边距值</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>padding_{left, top, right, bottom}</code></td>
-	<td style="text-align:left;">An element’s padding values</td>
+	<td style="text-align:left;">元素的填充值</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>border_{left, top, right, bottom}_width</code></td>
-	<td style="text-align:left;">An element’s border width values</td>
+	<td style="text-align:left;">元素的边框宽度值</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>border_{left_top, left_bottom, right_top, right_bottom}_radius</code></td>
-	<td style="text-align:left;">An element’s border radius values values</td>
+	<td style="text-align:left;">元素的边框半径值</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
-	<td style="text-align:left;"><code>width, height</code></td>
-	<td style="text-align:left;">An element’s width and height values</td>
+	<td style="text-align:left;"><code>width、height</code></td>
+	<td style="text-align:left;">元素的宽度和高度值</td>
 </tr>
 </tbody>
 </table>
 
 <p><a name="pseudo-state-sequence"></a></p>
 
-<h3>Pseudo-States</h3>
+<h3>伪状态</h3>
 
-<p>The pseudo-state sequence is a list of UI states that Unity uses a variable for.</p>
+<p>伪状态序列是 Unity 对其使用变量的 UI 状态列表。</p>
 
-<p>For example, when you see a variable name with the <code>hover</code> pseudo state, it means Unity uses the variable in styles that affect elements when a user hovers the pointer over them.</p>
+<p>例如，看到具有 <code>hover</code> 伪状态的变量名称时，这表示 Unity 使用变量时所采用的样式会在用户将指针悬停在元素上方时影响元素。</p>
 
-<p>For example: <code>--unity-colors-toolbar_button-text-hover</code>.</p>
+<p>例如：<code>--unity-colors-toolbar_button-text-hover</code>。</p>
 
-<p>A variable name can have more than one pseudo-state. Multiple pseudo states appear in alphabetical order, separated by underscores <code>_</code>.</p>
+<p>一个变量名可以具有多个伪状态。多个伪状态按字母顺序出现（以下划线 <code>_</code> 分隔）。</p>
 
-<p>For example: <code>--unity-colors-toolbar_button-text-focus_selected</code>.</p>
+<p>例如：<code>--unity-colors-toolbar_button-text-focus_selected</code>。</p>
 
-<p>Unity variable names can have any combination of the following pseudo-states:</p>
+<p>Unity 变量名称可以具有以下伪状态的任意组合：</p>
 
 <table>
 <colgroup>
@@ -575,50 +575,50 @@
 
 <thead>
 <tr>
-	<th style="text-align:left;"><strong>Pseudo-state:</strong></th>
+	<th style="text-align:left;"><strong>伪状态：</strong></th>
 	<th style="text-align:left;"><strong>描述：</strong></th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-	<td style="text-align:left;">(none)</td>
-	<td style="text-align:left;">Normal state</td>
+	<td style="text-align:left;">（无）</td>
+	<td style="text-align:left;">正常状态</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>checked</code></td>
-	<td style="text-align:left;">A checkbox-type control is checked</td>
+	<td style="text-align:left;">复选框类型控件处于选中状态</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>disabled</code></td>
-	<td style="text-align:left;">A control is disabled</td>
+	<td style="text-align:left;">控件处于禁用状态</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>focus</code></td>
-	<td style="text-align:left;">A control has focus</td>
+	<td style="text-align:left;">控件具有焦点</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>hover</code></td>
-	<td style="text-align:left;">A user hovers over a control</td>
+	<td style="text-align:left;">用户将鼠标悬停在控件上方</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>inactive</code></td>
-	<td style="text-align:left;">A control does not have focus</td>
+	<td style="text-align:left;">控件没有焦点</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>pressed</code></td>
-	<td style="text-align:left;">A control is pressed</td>
+	<td style="text-align:left;">控件被按下</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>selected</code></td>
-	<td style="text-align:left;">A control is selected</td>
+	<td style="text-align:left;">控件处于选定状态</td>
 </tr>
 </tbody>
 </table>
 
 <p><a name="ListOfUnityVariables"></a></p>
 
-<h2>List of built-in Unity variables</h2>
+<h2>内置 Unity 变量的列表</h2>
 <div class="wide-table">
 
 <table>
@@ -635,18 +635,18 @@
 <thead>
 <tr>
 	<th style="text-align:left;"><strong>Group</strong></th>
-	<th style="text-align:left;"><strong>Role/Control</strong></th>
+	<th style="text-align:left;"><strong>角色/控件</strong></th>
 	<th style="text-align:left;"><strong>名称</strong></th>
 	<th style="text-align:left;"><strong>描述</strong></th>
-	<th style="text-align:left;"><strong>Dark Theme</strong></th>
-	<th style="text-align:left;"><strong>Light Theme</strong></th>
-	<th style="text-align:left;"><strong>Runtime Theme</strong></th>
+	<th style="text-align:left;"><strong>深色主题</strong></th>
+	<th style="text-align:left;"><strong>浅色主题</strong></th>
+	<th style="text-align:left;"><strong>运行时主题</strong></th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-	<td style="text-align:left;">metrics</td>
+	<td style="text-align:left;">指标</td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
@@ -658,25 +658,25 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-metrics-default-border_radius</code></td>
-	<td style="text-align:left;">The default border radius for controls</td>
+	<td style="text-align:left;">控件的默认边框半径</td>
 	<td style="text-align:left;"><code>3px</code></td>
 	<td style="text-align:left;"><code>3px</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-metrics-inspector_titlebar-height</code></td>
-	<td style="text-align:left;">The height of a title bar in an Inspector view</td>
+	<td style="text-align:left;">Inspector 视图中标题栏的高度</td>
 	<td style="text-align:left;"><code>22px</code></td>
 	<td style="text-align:left;"><code>22px</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-metrics-single_line-height</code></td>
-	<td style="text-align:left;">The usual height for a single-line Editor control, for example, a one-line text field. See <a href="scriptref:EditorGUIUtility.singleLineHeight"><code>EditorGUIUtility.singleLineHeight</code></a>
+	<td style="text-align:left;">单行编辑器控件（例如单行文本字段）的通常高度。请参阅 <a href="scriptref:EditorGUIUtility.singleLineHeight"><code>EditorGUIUtility.singleLineHeight</code></a>
 </td>
 	<td style="text-align:left;"><code>18px</code></td>
 	<td style="text-align:left;"><code>18px</code></td>
@@ -686,7 +686,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-metrics-single_line_large-height</code></td>
-	<td style="text-align:left;">The usual height for a large single-line Editor control, for example, an Inspector title bar label</td>
+	<td style="text-align:left;">大型单行编辑器控件（例如 Inspector 标题栏标签）的通常高度</td>
 	<td style="text-align:left;"><code>2s0px</code></td>
 	<td style="text-align:left;"><code>20px</code></td>
 	<td style="text-align:left;"><code>20px</code></td>
@@ -695,7 +695,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-metrics-single_line_small-height</code></td>
-	<td style="text-align:left;">The usual height for a small single-line Editor control, for example, a mini toggle or a mini text field</td>
+	<td style="text-align:left;">小型单行编辑器控件（小型开关或小型文本字段）的通常高度</td>
 	<td style="text-align:left;"><code>16px</code></td>
 	<td style="text-align:left;"><code>16px</code></td>
 	<td style="text-align:left;"><code>16px</code></td>
@@ -704,19 +704,19 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-metrics-toolbar-height</code></td>
-	<td style="text-align:left;">The height of a toolbar control</td>
+	<td style="text-align:left;">工具栏控件的高度</td>
 	<td style="text-align:left;"><code>21px</code></td>
 	<td style="text-align:left;"><code>21px</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-metrics-toolbar_button-height</code></td>
-	<td style="text-align:left;">The height of a toolbar button control</td>
+	<td style="text-align:left;">工具栏按钮控件的高度</td>
 	<td style="text-align:left;"><code>20px</code></td>
 	<td style="text-align:left;"><code>20px</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;">colors</td>
@@ -740,10 +740,10 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-alternated_rows-background</code></td>
-	<td style="text-align:left;">The alternate background color for views with alternating row colors</td>
+	<td style="text-align:left;">具有交替行颜色的视图的交替背景颜色</td>
 	<td style="text-align:left;"><code>#3F3F3F</code></td>
 	<td style="text-align:left;"><code>#CACACA</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -758,10 +758,10 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-app_toolbar-background</code></td>
-	<td style="text-align:left;">The background color for the main toolbar</td>
+	<td style="text-align:left;">主工具栏的背景颜色</td>
 	<td style="text-align:left;"><code>#191919</code></td>
 	<td style="text-align:left;"><code>#8A8A8A</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -776,43 +776,43 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-app_toolbar_button-background</code></td>
-	<td style="text-align:left;">The background color for a button in the main toolbar</td>
+	<td style="text-align:left;">主工具栏中按钮的背景颜色</td>
 	<td style="text-align:left;"><code>#383838</code></td>
 	<td style="text-align:left;"><code>#C8C8C8</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-app_toolbar_button-background-checked</code></td>
-	<td style="text-align:left;">The background color for a button in the main toolbar when it is checked</td>
+	<td style="text-align:left;">主工具栏中的按钮在选中时的背景颜色</td>
 	<td style="text-align:left;"><code>#6A6A6A</code></td>
 	<td style="text-align:left;"><code>#656565</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-app_toolbar_button-background-hover</code></td>
-	<td style="text-align:left;">The background color for a button in the main toolbar when the mouse pointer hovers over them</td>
+	<td style="text-align:left;">主工具栏中的按钮在鼠标指针悬停在其上方时的背景颜色</td>
 	<td style="text-align:left;"><code>#424242</code></td>
 	<td style="text-align:left;"><code>#BBBBBB</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-app_toolbar_button-background-pressed</code></td>
-	<td style="text-align:left;">The background color for a button in the main toolbar when it is pressed</td>
+	<td style="text-align:left;">主工具栏中的按钮在被按下时的背景颜色</td>
 	<td style="text-align:left;"><code>#6A6A6A</code></td>
 	<td style="text-align:left;"><code>#656565</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-app_toolbar_button-border</code></td>
-	<td style="text-align:left;">The border color for a button in the main toolbar</td>
+	<td style="text-align:left;">主工具栏中按钮的边框颜色</td>
 	<td style="text-align:left;"><code>#191919</code></td>
 	<td style="text-align:left;"><code>#6B6B6B</code></td>
 	<td style="text-align:left;"><code>#6B6B6B</code></td>
@@ -821,10 +821,10 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-app_toolbar_button-border_accent</code></td>
-	<td style="text-align:left;">The accent border color for a button in the main toolbar</td>
+	<td style="text-align:left;">主工具栏中按钮的强调边框颜色</td>
 	<td style="text-align:left;"><code>#222222</code></td>
 	<td style="text-align:left;"><code>#6B6B6B</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -839,7 +839,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-box-background</code></td>
-	<td style="text-align:left;">The background color for a box control</td>
+	<td style="text-align:left;">框控件的背景颜色</td>
 	<td style="text-align:left;"><code>rgba(40, 40, 40, 0.3019608)</code></td>
 	<td style="text-align:left;"><code>rgba(185, 185, 185, 0.9019608)</code></td>
 	<td style="text-align:left;"><code>#DEDEDE</code></td>
@@ -848,7 +848,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-box-border</code></td>
-	<td style="text-align:left;">The border color for a box control</td>
+	<td style="text-align:left;">框控件的边框颜色</td>
 	<td style="text-align:left;"><code>transparent</code></td>
 	<td style="text-align:left;"><code>transparent</code></td>
 	<td style="text-align:left;"><code>#555555</code></td>
@@ -866,7 +866,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-button-background</code></td>
-	<td style="text-align:left;">The background color for a button control</td>
+	<td style="text-align:left;">按钮控件的背景颜色</td>
 	<td style="text-align:left;"><code>#585858</code></td>
 	<td style="text-align:left;"><code>#E4E4E4</code></td>
 	<td style="text-align:left;"><code>#E4E4E4</code></td>
@@ -875,16 +875,16 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-button-background-focus</code></td>
-	<td style="text-align:left;">The background color for a button control when it has focus</td>
+	<td style="text-align:left;">按钮控件获得焦点时的背景颜色</td>
 	<td style="text-align:left;"><code>#6E6E6E</code></td>
 	<td style="text-align:left;"><code>#BEBEBE</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-button-background-hover</code></td>
-	<td style="text-align:left;">The background color for a button control when the mouse pointer hovers over it</td>
+	<td style="text-align:left;">按钮控件在鼠标指针悬停在其上方时的背景颜色</td>
 	<td style="text-align:left;"><code>#676767</code></td>
 	<td style="text-align:left;"><code>#ECECEC</code></td>
 	<td style="text-align:left;"><code>#ECECEC</code></td>
@@ -893,7 +893,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-button-background-pressed</code></td>
-	<td style="text-align:left;">The background color for a button control when it is pressed</td>
+	<td style="text-align:left;">按钮控件在被按下时的背景颜色</td>
 	<td style="text-align:left;"><code>#353535</code></td>
 	<td style="text-align:left;"><code>#B1B1B1</code></td>
 	<td style="text-align:left;"><code>#6F6F6F</code></td>
@@ -902,41 +902,41 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-button-border</code></td>
-	<td style="text-align:left;">The border color for a button control</td>
+	<td style="text-align:left;">按钮控件的边框颜色</td>
 	<td style="text-align:left;"><code>#303030</code></td>
 	<td style="text-align:left;"><code>#B2B2B2</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-button-border_accent</code></td>
-	<td style="text-align:left;">The border accent color for a button control</td>
+	<td style="text-align:left;">按钮控件的边框强调颜色</td>
 	<td style="text-align:left;"><code>#242424</code></td>
 	<td style="text-align:left;"><code>#939393</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-button-border-pressed</code></td>
-	<td style="text-align:left;">The border color for a button control when it is pressed</td>
+	<td style="text-align:left;">按钮控件在被按下时的边框颜色</td>
 	<td style="text-align:left;"><code>#0D0D0D</code></td>
 	<td style="text-align:left;"><code>#707070</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-button-text</code></td>
-	<td style="text-align:left;">The text color for a button control</td>
+	<td style="text-align:left;">按钮控件的文本颜色</td>
 	<td style="text-align:left;"><code>#EEEEEE</code></td>
 	<td style="text-align:left;"><code>#090909</code></td>
 	<td style="text-align:left;"><code>#101010</code></td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
-	<td style="text-align:left;">default</td>
+	<td style="text-align:left;">缺省选项</td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
@@ -947,25 +947,25 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-default-background</code></td>
-	<td style="text-align:left;">The default background color for controls</td>
+	<td style="text-align:left;">控件的默认背景颜色</td>
 	<td style="text-align:left;"><code>#282828</code></td>
 	<td style="text-align:left;"><code>#A5A5A5</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-default-border</code></td>
-	<td style="text-align:left;">The default border color for controls</td>
+	<td style="text-align:left;">控件的默认边框颜色</td>
 	<td style="text-align:left;"><code>#232323</code></td>
 	<td style="text-align:left;"><code>#999999</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-default-text</code></td>
-	<td style="text-align:left;">The default text color</td>
+	<td style="text-align:left;">默认文本颜色</td>
 	<td style="text-align:left;"><code>#D2D2D2</code></td>
 	<td style="text-align:left;"><code>#090909</code></td>
 	<td style="text-align:left;"><code>#101010</code></td>
@@ -974,10 +974,10 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-default-text-hover</code></td>
-	<td style="text-align:left;">The default text color when the mouse pointer hovers over the text</td>
+	<td style="text-align:left;">鼠标指针悬停在文本上方时的默认文本颜色</td>
 	<td style="text-align:left;"><code>#BDBDBD</code></td>
 	<td style="text-align:left;"><code>#090909</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -992,7 +992,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-dropdown-background</code></td>
-	<td style="text-align:left;">The background color for a dropdown control</td>
+	<td style="text-align:left;">下拉选单控件的背景颜色</td>
 	<td style="text-align:left;"><code>#515151</code></td>
 	<td style="text-align:left;"><code>#DFDFDF</code></td>
 	<td style="text-align:left;"><code>#DFDFDF</code></td>
@@ -1001,7 +1001,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-dropdown-background-hover</code></td>
-	<td style="text-align:left;">The background color for a dropdown control when the mouse pointer hovers over it</td>
+	<td style="text-align:left;">下拉选单控件在鼠标指针悬停在其上方时的背景颜色</td>
 	<td style="text-align:left;"><code>#585858</code></td>
 	<td style="text-align:left;"><code>#E4E4E4</code></td>
 	<td style="text-align:left;"><code>#E8E8E8</code></td>
@@ -1010,7 +1010,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-dropdown-border</code></td>
-	<td style="text-align:left;">The border color for a dropdown control</td>
+	<td style="text-align:left;">下拉选单控件的边框颜色</td>
 	<td style="text-align:left;"><code>#303030</code></td>
 	<td style="text-align:left;"><code>#B2B2B2</code></td>
 	<td style="text-align:left;"><code>#999999</code></td>
@@ -1019,16 +1019,16 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-dropdown-border_accent</code></td>
-	<td style="text-align:left;">The border accent color for a dropdown control</td>
+	<td style="text-align:left;">下拉选单控件的边框强调颜色</td>
 	<td style="text-align:left;"><code>#242424</code></td>
 	<td style="text-align:left;"><code>#939393</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-dropdown-text</code></td>
-	<td style="text-align:left;">The text color for a dropdown control</td>
+	<td style="text-align:left;">下拉选单控件的文本颜色</td>
 	<td style="text-align:left;"><code>#E4E4E4</code></td>
 	<td style="text-align:left;"><code>#090909</code></td>
 	<td style="text-align:left;"><code>#101010</code></td>
@@ -1046,10 +1046,10 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-error-text</code></td>
-	<td style="text-align:left;">The text color for error messages</td>
+	<td style="text-align:left;">错误消息的文本颜色</td>
 	<td style="text-align:left;"><code>#D32222</code></td>
 	<td style="text-align:left;"><code>#5A0000</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -1064,28 +1064,28 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-helpbox-background</code></td>
-	<td style="text-align:left;">The background color for a helpbox control</td>
+	<td style="text-align:left;">帮助框控件的背景颜色</td>
 	<td style="text-align:left;"><code>rgba(96, 96, 96, 0.2039216)</code></td>
 	<td style="text-align:left;"><code>rgba(235, 235, 235, 0.2039216)</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-helpbox-border</code></td>
-	<td style="text-align:left;">The border color for a helpbox control</td>
+	<td style="text-align:left;">帮助框控件的边框颜色</td>
 	<td style="text-align:left;"><code>#232323</code></td>
 	<td style="text-align:left;"><code>#A9A9A9</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-helpbox-text</code></td>
-	<td style="text-align:left;">The text color for a helpbox control</td>
+	<td style="text-align:left;">帮助框控件的文本颜色</td>
 	<td style="text-align:left;"><code>#BDBDBD</code></td>
 	<td style="text-align:left;"><code>#161616</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -1100,46 +1100,46 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-highlight-background</code></td>
-	<td style="text-align:left;">The background color for selected items or selected text</td>
+	<td style="text-align:left;">选定项或选定文本的背景颜色</td>
 	<td style="text-align:left;"><code>#2C5D87</code></td>
 	<td style="text-align:left;"><code>#3A72B0</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-highlight-background-hover</code></td>
-	<td style="text-align:left;">The background color for items when the mouse pointer hovers over them</td>
+	<td style="text-align:left;">项在鼠标指针悬停在其上方时的背景颜色</td>
 	<td style="text-align:left;"><code>rgba(256, 256, 256, 0.0627451)</code></td>
 	<td style="text-align:left;"><code>rgba(0, 0, 0, 0.0627451)</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-highlight-background-inactive</code></td>
-	<td style="text-align:left;">The background color for selected items or selected text when the control does not have focus</td>
+	<td style="text-align:left;">控件没有焦点时选定项或选定文本的背景颜色</td>
 	<td style="text-align:left;"><code>#4D4D4D</code></td>
 	<td style="text-align:left;"><code>#AEAEAE</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-highlight-text</code></td>
-	<td style="text-align:left;">The text color for selected items or selected text</td>
+	<td style="text-align:left;">选定项或选定文本的文本颜色</td>
 	<td style="text-align:left;"><code>#4C7EFF</code></td>
 	<td style="text-align:left;"><code>#0032E6</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-highlight-text-inactive</code></td>
-	<td style="text-align:left;">The text color for selected items or selected text when the control does not have focus</td>
+	<td style="text-align:left;">控件没有焦点时选定项或选定文本的文本颜色</td>
 	<td style="text-align:left;"><code>#FFFFFF</code></td>
 	<td style="text-align:left;"><code>#FFFFFF</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -1154,7 +1154,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-input_field-background</code></td>
-	<td style="text-align:left;">The background color for an input field control</td>
+	<td style="text-align:left;">输入字段控件的背景颜色</td>
 	<td style="text-align:left;"><code>#2A2A2A</code></td>
 	<td style="text-align:left;"><code>#F0F0F0</code></td>
 	<td style="text-align:left;"><code>#F0F0F0</code></td>
@@ -1163,7 +1163,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-input_field-border</code></td>
-	<td style="text-align:left;">The border color for an input field control</td>
+	<td style="text-align:left;">输入字段控件的边框颜色</td>
 	<td style="text-align:left;"><code>#212121</code></td>
 	<td style="text-align:left;"><code>#B7B7B7</code></td>
 	<td style="text-align:left;"><code>#A0A0A0</code></td>
@@ -1172,16 +1172,16 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-input_field-border_accent</code></td>
-	<td style="text-align:left;">The border accent color for an input field control</td>
+	<td style="text-align:left;">输入字段控件的边框强调颜色</td>
 	<td style="text-align:left;"><code>#0D0D0D</code></td>
 	<td style="text-align:left;"><code>#A0A0A0</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-input_field-border-focus</code></td>
-	<td style="text-align:left;">The border color for an input field control when it has focus</td>
+	<td style="text-align:left;">输入字段控件具有焦点时的边框颜色</td>
 	<td style="text-align:left;"><code>#3A79BB</code></td>
 	<td style="text-align:left;"><code>#1D5087</code></td>
 	<td style="text-align:left;"><code>#0C6CCB</code></td>
@@ -1190,7 +1190,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-input_field-border-hover</code></td>
-	<td style="text-align:left;">The border color for an input field control when the mouse pointer hovers over it</td>
+	<td style="text-align:left;">输入字段控件在鼠标指针悬停在其上方时的边框颜色</td>
 	<td style="text-align:left;"><code>#656565</code></td>
 	<td style="text-align:left;"><code>#6C6C6C</code></td>
 	<td style="text-align:left;"><code>#6C6C6C</code></td>
@@ -1208,37 +1208,37 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-inspector_titlebar-background</code></td>
-	<td style="text-align:left;">The background color for a title bar in an Inspector view</td>
+	<td style="text-align:left;">Inspector 视图中标题栏的背景颜色</td>
 	<td style="text-align:left;"><code>#3E3E3E</code></td>
 	<td style="text-align:left;"><code>#CBCBCB</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-inspector_titlebar-background-hover</code></td>
-	<td style="text-align:left;">The background color for a title bar in an Inspector view when the mouse pointer hovers over it</td>
+	<td style="text-align:left;">Inspector 视图中的标题栏在鼠标指针悬停在其上方时的背景颜色</td>
 	<td style="text-align:left;"><code>#474747</code></td>
 	<td style="text-align:left;"><code>#D6D6D6</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-inspector_titlebar-border</code></td>
-	<td style="text-align:left;">The border color for a title bar in an Inspector view</td>
+	<td style="text-align:left;">Inspector 视图中标题栏的边框颜色</td>
 	<td style="text-align:left;"><code>#1A1A1A</code></td>
 	<td style="text-align:left;"><code>#7F7F7F</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-inspector_titlebar-border_accent</code></td>
-	<td style="text-align:left;">The border accent color for a title bar in an Inspector view</td>
+	<td style="text-align:left;">Inspector 视图中标题栏的边框强调颜色</td>
 	<td style="text-align:left;"><code>#303030</code></td>
 	<td style="text-align:left;"><code>#BABABA</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -1253,7 +1253,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-label-text</code></td>
-	<td style="text-align:left;">The text color for a label control</td>
+	<td style="text-align:left;">标签控件的文本颜色</td>
 	<td style="text-align:left;"><code>#C4C4C4</code></td>
 	<td style="text-align:left;"><code>#090909</code></td>
 	<td style="text-align:left;"><code>#3B3B3B</code></td>
@@ -1262,7 +1262,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-label-text-focus</code></td>
-	<td style="text-align:left;">The text color for a label when it has focus</td>
+	<td style="text-align:left;">标签具有焦点时的文本颜色</td>
 	<td style="text-align:left;"><code>#81B4FF</code></td>
 	<td style="text-align:left;"><code>#003C88</code></td>
 	<td style="text-align:left;"><code>#074492</code></td>
@@ -1280,10 +1280,10 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-link-text</code></td>
-	<td style="text-align:left;">The text color for unvisited links</td>
+	<td style="text-align:left;">未访问链接的文本颜色</td>
 	<td style="text-align:left;"><code>#4C7EFF</code></td>
 	<td style="text-align:left;"><code>#4C7EFF</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -1298,7 +1298,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-object_field-background</code></td>
-	<td style="text-align:left;">The background color for an object field control</td>
+	<td style="text-align:left;">对象字段控件的背景颜色</td>
 	<td style="text-align:left;"><code>#282828</code></td>
 	<td style="text-align:left;"><code>#EDEDED</code></td>
 	<td style="text-align:left;"><code>#EDEDED</code></td>
@@ -1307,7 +1307,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-object_field-border</code></td>
-	<td style="text-align:left;">The border color for an object field control</td>
+	<td style="text-align:left;">对象字段控件的边框颜色</td>
 	<td style="text-align:left;"><code>#202020</code></td>
 	<td style="text-align:left;"><code>#B0B0B0</code></td>
 	<td style="text-align:left;"><code>#A0A0A0</code></td>
@@ -1316,7 +1316,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-object_field-border-focus</code></td>
-	<td style="text-align:left;">The border color for an object field control when it has focus</td>
+	<td style="text-align:left;">对象字段控件具有焦点时的边框颜色</td>
 	<td style="text-align:left;"><code>#3A79BB</code></td>
 	<td style="text-align:left;"><code>#1D5087</code></td>
 	<td style="text-align:left;"><code>#0C6CCB</code></td>
@@ -1325,7 +1325,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-object_field-border-hover</code></td>
-	<td style="text-align:left;">The border color for an object field control when the mouse pointer hovers over it</td>
+	<td style="text-align:left;">对象字段控件在鼠标指针悬停在其上方时的边框颜色</td>
 	<td style="text-align:left;"><code>#656565</code></td>
 	<td style="text-align:left;"><code>#6C6C6C</code></td>
 	<td style="text-align:left;"><code>#6C6C6C</code></td>
@@ -1343,7 +1343,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-object_field_button-background</code></td>
-	<td style="text-align:left;">The background color for the button in an object field control</td>
+	<td style="text-align:left;">对象字段控件中按钮的背景颜色</td>
 	<td style="text-align:left;"><code>#373737</code></td>
 	<td style="text-align:left;"><code>#DEDEDE</code></td>
 	<td style="text-align:left;"><code>#DEDEDE</code></td>
@@ -1352,7 +1352,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-object_field_button-background-hover</code></td>
-	<td style="text-align:left;">The background color for the button in an object field control when the mouse pointer hovers over it</td>
+	<td style="text-align:left;">对象字段控件中的按钮在鼠标指针悬停在其上方时的背景颜色</td>
 	<td style="text-align:left;"><code>#4C4C4C</code></td>
 	<td style="text-align:left;"><code>#CCCCCC</code></td>
 	<td style="text-align:left;"><code>#CCCCCC</code></td>
@@ -1370,10 +1370,10 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-play_mode-background</code></td>
-	<td style="text-align:left;">The color used to tint the UI in Play Mode</td>
+	<td style="text-align:left;">用于在运行模式中为 UI 着色的颜色</td>
 	<td style="text-align:left;"><code>#606060</code></td>
 	<td style="text-align:left;"><code>#ECECEC</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -1388,14 +1388,14 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-popup-background</code></td>
-	<td style="text-align:left;">The background color for a popup window</td>
+	<td style="text-align:left;">弹出窗口的背景颜色</td>
 	<td style="text-align:left;"><code>#313131</code></td>
 	<td style="text-align:left;"><code>#C1C1C1</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
-	<td style="text-align:left;">preview</td>
+	<td style="text-align:left;">预览</td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
@@ -1406,28 +1406,28 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-preview-background</code></td>
-	<td style="text-align:left;">The background color for a preview control</td>
+	<td style="text-align:left;">预览控件的背景颜色</td>
 	<td style="text-align:left;"><code>#313131</code></td>
 	<td style="text-align:left;"><code>#C1C1C1</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-preview-border</code></td>
-	<td style="text-align:left;">The border color for a preview control</td>
+	<td style="text-align:left;">预览控件的边框颜色</td>
 	<td style="text-align:left;"><code>#232323</code></td>
 	<td style="text-align:left;"><code>#999999</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-preview-text</code></td>
-	<td style="text-align:left;">The text color for a preview control</td>
+	<td style="text-align:left;">预览控件的文本颜色</td>
 	<td style="text-align:left;"><code>#BDBDBD</code></td>
 	<td style="text-align:left;"><code>#090909</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -1442,10 +1442,10 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-preview_overlay-text</code></td>
-	<td style="text-align:left;">The text color for a preview control overlay</td>
+	<td style="text-align:left;">预览控件覆盖的文本颜色</td>
 	<td style="text-align:left;"><code>#DEDEDE</code></td>
 	<td style="text-align:left;"><code>#FFFFFF</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -1463,7 +1463,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>#303030</code></td>
 	<td style="text-align:left;"><code>#606060</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -1478,19 +1478,19 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-scrollbar_button-background</code></td>
-	<td style="text-align:left;">The background color for a scrollbar’s scroll buttons</td>
+	<td style="text-align:left;">滚动条滚动按钮的背景颜色</td>
 	<td style="text-align:left;"><code>rgba(0, 0, 0, 0.05098039)</code></td>
 	<td style="text-align:left;"><code>rgba(0, 0, 0, 0.05098039)</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-scrollbar_button-background-hover</code></td>
-	<td style="text-align:left;">The background color for a scrollbar’s scroll buttons when the mouse pointer hovers over them</td>
+	<td style="text-align:left;">滚动条滚动按钮在鼠标指针悬停在其上方时的背景颜色</td>
 	<td style="text-align:left;"><code>#494949</code></td>
 	<td style="text-align:left;"><code>#A7A7A7</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -1505,19 +1505,19 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-scrollbar_groove-background</code></td>
-	<td style="text-align:left;">The background color for a scrollbar’s groove (background)</td>
+	<td style="text-align:left;">滚动条凹槽（背景）的背景颜色</td>
 	<td style="text-align:left;"><code>rgba(0, 0, 0, 0.05098039)</code></td>
 	<td style="text-align:left;"><code>rgba(0, 0, 0, 0.05098039)</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-scrollbar_groove-border</code></td>
-	<td style="text-align:left;">The border color for a scrollbar’s groove</td>
+	<td style="text-align:left;">滚动条凹槽的边框颜色</td>
 	<td style="text-align:left;"><code>rgba(0, 0, 0, 0.1019608)</code></td>
 	<td style="text-align:left;"><code>rgba(0, 0, 0, 0.1019608)</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -1532,7 +1532,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-scrollbar_thumb-background</code></td>
-	<td style="text-align:left;">The background color for a scrollbar’s thumb/handle</td>
+	<td style="text-align:left;">滚动条滑块/手柄的背景颜色</td>
 	<td style="text-align:left;"><code>#5F5F5F</code></td>
 	<td style="text-align:left;"><code>#9A9A9A</code></td>
 	<td style="text-align:left;"><code>#9A9A9A</code></td>
@@ -1541,7 +1541,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-scrollbar_thumb-background-hover</code></td>
-	<td style="text-align:left;">The background color for a scrollbar’s thumb/handle when the mouse pointer hovers over it</td>
+	<td style="text-align:left;">滚动条滑块/手柄在鼠标指针悬停在其上方时的背景颜色</td>
 	<td style="text-align:left;"><code>#686868</code></td>
 	<td style="text-align:left;"><code>#8E8E8E</code></td>
 	<td style="text-align:left;"><code>#8E8E8E</code></td>
@@ -1550,7 +1550,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-scrollbar_thumb-border</code></td>
-	<td style="text-align:left;">The border color for a scrollbar’s thumb/handle</td>
+	<td style="text-align:left;">滚动条滑块/手柄的边框颜色</td>
 	<td style="text-align:left;"><code>#323232</code></td>
 	<td style="text-align:left;"><code>#B9B9B9</code></td>
 	<td style="text-align:left;"><code>#9A9A9A</code></td>
@@ -1559,10 +1559,10 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-scrollbar_thumb-border-hover</code></td>
-	<td style="text-align:left;">The border color for a scrollbar’s thumb/handle when the mouse pointer hovers over it</td>
+	<td style="text-align:left;">滚动条滑块/手柄在鼠标指针悬停在其上方时的边框颜色</td>
 	<td style="text-align:left;"><code>#686868</code></td>
 	<td style="text-align:left;"><code>#8E8E8E</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -1577,7 +1577,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-slider_groove-background</code></td>
-	<td style="text-align:left;">The background color for a slider’s groove (background)</td>
+	<td style="text-align:left;">滑动条凹槽（背景）的背景颜色</td>
 	<td style="text-align:left;"><code>#5E5E5E</code></td>
 	<td style="text-align:left;"><code>#8F8F8F</code></td>
 	<td style="text-align:left;"><code>#8F8F8F</code></td>
@@ -1586,7 +1586,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-slider_groove-background-disabled</code></td>
-	<td style="text-align:left;">The background color for a slider’s groove when it is disabled</td>
+	<td style="text-align:left;">滑动条凹槽在处于禁用状态时的背景颜色</td>
 	<td style="text-align:left;"><code>#575757</code></td>
 	<td style="text-align:left;"><code>#A4A4A4</code></td>
 	<td style="text-align:left;"><code>#A4A4A4</code></td>
@@ -1604,7 +1604,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-slider_thumb-background</code></td>
-	<td style="text-align:left;">The background color for a slider’s thumb/handle</td>
+	<td style="text-align:left;">滑动条滑块/手柄的背景颜色</td>
 	<td style="text-align:left;"><code>#999999</code></td>
 	<td style="text-align:left;"><code>#616161</code></td>
 	<td style="text-align:left;"><code>#616161</code></td>
@@ -1613,7 +1613,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-slider_thumb-background-disabled</code></td>
-	<td style="text-align:left;">The background color for a slider’s thumb/handle when it is disabled</td>
+	<td style="text-align:left;">滑动条滑块/手柄在处于禁用状态时的背景颜色</td>
 	<td style="text-align:left;"><code>#666666</code></td>
 	<td style="text-align:left;"><code>#9B9B9B</code></td>
 	<td style="text-align:left;"><code>#9B9B9B</code></td>
@@ -1622,7 +1622,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-slider_thumb-background-hover</code></td>
-	<td style="text-align:left;">The background color for a slider’s thumb/handle when the mouse pointer hovers over it</td>
+	<td style="text-align:left;">滑动条滑块/手柄在鼠标指针悬停在其上方时的背景颜色</td>
 	<td style="text-align:left;"><code>#EAEAEA</code></td>
 	<td style="text-align:left;"><code>#4F4F4F</code></td>
 	<td style="text-align:left;"><code>#4F4F4F</code></td>
@@ -1631,7 +1631,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-slider_thumb-border</code></td>
-	<td style="text-align:left;">The border color for a slider’s thumb</td>
+	<td style="text-align:left;">滑动条滑块的边框颜色</td>
 	<td style="text-align:left;"><code>#999999</code></td>
 	<td style="text-align:left;"><code>#616161</code></td>
 	<td style="text-align:left;"><code>#616161</code></td>
@@ -1640,7 +1640,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-slider_thumb-border-disabled</code></td>
-	<td style="text-align:left;">The border color for a slider’s thumb when it is disabled</td>
+	<td style="text-align:left;">滑动条滑块在处于禁用状态时的边框颜色</td>
 	<td style="text-align:left;"><code>#666666</code></td>
 	<td style="text-align:left;"><code>#666666</code></td>
 	<td style="text-align:left;"><code>#9B9B9B</code></td>
@@ -1658,10 +1658,10 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-slider_thumb_halo-background</code></td>
-	<td style="text-align:left;">The background color for a slider’s thumb halo</td>
+	<td style="text-align:left;">滑动条滑块光环的背景颜色</td>
 	<td style="text-align:left;"><code>rgba(16, 111, 205, 0.5019608)</code></td>
 	<td style="text-align:left;"><code>rgba(12, 108, 203, 0.5019608)</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -1676,37 +1676,37 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-tab-background</code></td>
-	<td style="text-align:left;">The background color for an Editor window tab</td>
+	<td style="text-align:left;">编辑器窗口选项卡的背景颜色</td>
 	<td style="text-align:left;"><code>#353535</code></td>
 	<td style="text-align:left;"><code>#B6B6B6</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-tab-background-checked</code></td>
-	<td style="text-align:left;">The background color for an Editor window tab when it is selected</td>
+	<td style="text-align:left;">编辑器窗口选项卡在处于选定状态时的背景颜色</td>
 	<td style="text-align:left;"><code>#3C3C3C</code></td>
 	<td style="text-align:left;"><code>#CBCBCB</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-tab-background-hover</code></td>
-	<td style="text-align:left;">The background color for an Editor window tab when the mouse pointer hovers over it</td>
+	<td style="text-align:left;">编辑器窗口选项卡在鼠标指针悬停在其上方时的背景颜色</td>
 	<td style="text-align:left;"><code>#303030</code></td>
 	<td style="text-align:left;"><code>#B0B0B0</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-tab-text</code></td>
-	<td style="text-align:left;">The text color for an Editor window tab</td>
+	<td style="text-align:left;">编辑器窗口选项卡的文本颜色</td>
 	<td style="text-align:left;"><code>#BDBDBD</code></td>
 	<td style="text-align:left;"><code>#090909</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -1721,7 +1721,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-toolbar-background</code></td>
-	<td style="text-align:left;">The background color for a toolbar control</td>
+	<td style="text-align:left;">工具栏控件的背景颜色</td>
 	<td style="text-align:left;"><code>#3C3C3C</code></td>
 	<td style="text-align:left;"><code>#CBCBCB</code></td>
 	<td style="text-align:left;"><code>#CBCBCB</code></td>
@@ -1730,10 +1730,10 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-toolbar-border</code></td>
-	<td style="text-align:left;">The border color for a toolbar control</td>
+	<td style="text-align:left;">工具栏控件的边框颜色</td>
 	<td style="text-align:left;"><code>#232323</code></td>
 	<td style="text-align:left;"><code>#999999</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -1748,7 +1748,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-toolbar_button-background</code></td>
-	<td style="text-align:left;">The background color for a toolbar button control</td>
+	<td style="text-align:left;">工具栏按钮控件的背景颜色</td>
 	<td style="text-align:left;"><code>#3C3C3C</code></td>
 	<td style="text-align:left;"><code>#CBCBCB</code></td>
 	<td style="text-align:left;"><code>#CBCBCB</code></td>
@@ -1757,7 +1757,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-toolbar_button-background-checked</code></td>
-	<td style="text-align:left;">The background color for a toolbar button control when it is checked</td>
+	<td style="text-align:left;">工具栏按钮控件在处于选中状态时的背景颜色</td>
 	<td style="text-align:left;"><code>#505050</code></td>
 	<td style="text-align:left;"><code>#EFEFEF</code></td>
 	<td style="text-align:left;"><code>#E1E1E1</code></td>
@@ -1766,7 +1766,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-toolbar_button-background-focus</code></td>
-	<td style="text-align:left;">The background color for a toolbar button control when it has focus</td>
+	<td style="text-align:left;">工具栏按钮控件获得焦点时的背景颜色</td>
 	<td style="text-align:left;"><code>#464646</code></td>
 	<td style="text-align:left;"><code>#C1C1C1</code></td>
 	<td style="text-align:left;"><code>#E1E1E1</code></td>
@@ -1775,7 +1775,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-toolbar_button-background-hover</code></td>
-	<td style="text-align:left;">The background color for a toolbar button control when the mouse pointer hovers over it</td>
+	<td style="text-align:left;">工具栏按钮控件在鼠标指针悬停在其上方时的背景颜色</td>
 	<td style="text-align:left;"><code>#464646</code></td>
 	<td style="text-align:left;"><code>#C1C1C1</code></td>
 	<td style="text-align:left;"><code>#C1C1C1</code></td>
@@ -1784,7 +1784,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-toolbar_button-border</code></td>
-	<td style="text-align:left;">The border color for a toolbar button control</td>
+	<td style="text-align:left;">工具栏按钮控件的边框颜色</td>
 	<td style="text-align:left;"><code>#232323</code></td>
 	<td style="text-align:left;"><code>#999999</code></td>
 	<td style="text-align:left;"><code>#999999</code></td>
@@ -1793,7 +1793,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-toolbar_button-text</code></td>
-	<td style="text-align:left;">The text color for a toolbar button control</td>
+	<td style="text-align:left;">工具栏按钮控件的文本颜色</td>
 	<td style="text-align:left;"><code>#C4C4C4</code></td>
 	<td style="text-align:left;"><code>#090909</code></td>
 	<td style="text-align:left;"><code>#101010</code></td>
@@ -1802,7 +1802,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-toolbar_button-text-checked</code></td>
-	<td style="text-align:left;">The text color for a toolbar button control when it is checked</td>
+	<td style="text-align:left;">工具栏按钮控件在处于选中状态时的文本颜色</td>
 	<td style="text-align:left;"><code>#C4C4C4</code></td>
 	<td style="text-align:left;"><code>#090909</code></td>
 	<td style="text-align:left;"><code>#101010</code></td>
@@ -1811,7 +1811,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-toolbar_button-text-hover</code></td>
-	<td style="text-align:left;">The text color for a toolbar button control</td>
+	<td style="text-align:left;">工具栏按钮控件的文本颜色</td>
 	<td style="text-align:left;"><code>#BDBDBD</code></td>
 	<td style="text-align:left;"><code>#090909</code></td>
 	<td style="text-align:left;"><code>#101010</code></td>
@@ -1829,10 +1829,10 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-visited_link-text</code></td>
-	<td style="text-align:left;">The text color for visited links</td>
+	<td style="text-align:left;">已访问链接的文本颜色</td>
 	<td style="text-align:left;"><code>#FF00FF</code></td>
 	<td style="text-align:left;"><code>#AA00AA</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -1847,10 +1847,10 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-warning-text</code></td>
-	<td style="text-align:left;">The text color for warning messages</td>
+	<td style="text-align:left;">警告消息的文本颜色</td>
 	<td style="text-align:left;"><code>#F4BC02</code></td>
 	<td style="text-align:left;"><code>#333308</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -1865,25 +1865,25 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-window-background</code></td>
-	<td style="text-align:left;">The background color for a window</td>
+	<td style="text-align:left;">窗口的背景颜色</td>
 	<td style="text-align:left;"><code>#383838</code></td>
 	<td style="text-align:left;"><code>#C8C8C8</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-window-border</code></td>
-	<td style="text-align:left;">The border color for a window</td>
+	<td style="text-align:left;">窗口的边框颜色</td>
 	<td style="text-align:left;"><code>#242424</code></td>
 	<td style="text-align:left;"><code>#939393</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>--unity-colors-window-text</code></td>
-	<td style="text-align:left;">The text color for a window</td>
+	<td style="text-align:left;">窗口的文本颜色</td>
 	<td style="text-align:left;"><code>#BDBDBD</code></td>
 	<td style="text-align:left;"><code>#090909</code></td>
 	<td style="text-align:left;"><code>#101010</code></td>
@@ -1904,7 +1904,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>Builtin Skins/DarkSkin/Images/ArrowNavigationLeft.png</code></td>
 	<td style="text-align:left;"><code>Builtin Skins/LightSkin/Images/ArrowNavigationLeft.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -1913,7 +1913,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>Builtin Skins/DarkSkin/Images/ArrowNavigationRight.png</code></td>
 	<td style="text-align:left;"><code>Builtin Skins/LightSkin/Images/ArrowNavigationRight.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -1922,7 +1922,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/d_clear.png</code></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/clear.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -1931,7 +1931,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/d_color_picker.png</code></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/color_picker.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -1940,7 +1940,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>Icons/d_console.erroricon.png</code></td>
 	<td style="text-align:left;"><code>Icons/console.erroricon.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -1949,7 +1949,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>Icons/d_console.erroricon.sml.png</code></td>
 	<td style="text-align:left;"><code>Icons/console.erroricon.sml.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -1958,7 +1958,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>Icons/d_console.infoicon.png</code></td>
 	<td style="text-align:left;"><code>Icons/console.infoicon.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -1967,7 +1967,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>Icons/d_console.infoicon.sml.png</code></td>
 	<td style="text-align:left;"><code>Icons/console.infoicon.sml.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -1976,7 +1976,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>Icons/d_console.warnicon.png</code></td>
 	<td style="text-align:left;"><code>Icons/console.warnicon.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -1985,7 +1985,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>Icons/d_console.warnicon.sml.png</code></td>
 	<td style="text-align:left;"><code>Icons/console.warnicon.sml.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -1994,7 +1994,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/d_dropdown.png</code></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/dropdown.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2003,7 +2003,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/d_dropdown_toggle.png</code></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/dropdown_toggle.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2012,7 +2012,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/d_IN_foldout.png</code></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/IN_foldout.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2021,7 +2021,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/d_IN_foldout_on.png</code></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/IN_foldout_on.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2030,7 +2030,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/d_IN_foldout_focus_on.png</code></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/IN_foldout_focus_on.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2039,7 +2039,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/d_IN_foldout_act_on.png</code></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/IN_foldout_act_on.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2048,7 +2048,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/d_IN_foldout_focus.png</code></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/IN_foldout_focus.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2057,7 +2057,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/d_IN_foldout_act.png</code></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/IN_foldout_act.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2066,7 +2066,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>Icons/d_UnLinked.png</code></td>
 	<td style="text-align:left;"><code>Icons/UnLinked.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2075,7 +2075,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>Icons/d_Linked.png</code></td>
 	<td style="text-align:left;"><code>Icons/Linked.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2084,7 +2084,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>Builtin Skins/DarkSkin/Images/IN LockButton.png</code></td>
 	<td style="text-align:left;"><code>Builtin Skins/LightSkin/Images/IN LockButton.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2093,7 +2093,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>Builtin Skins/DarkSkin/Images/IN LockButton on.png</code></td>
 	<td style="text-align:left;"><code>Builtin Skins/LightSkin/Images/IN LockButton on.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2102,7 +2102,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>Builtin Skins/DarkSkin/Images/IN LockButton on act.png</code></td>
 	<td style="text-align:left;"><code>Builtin Skins/LightSkin/Images/IN LockButton on act.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2111,7 +2111,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>Builtin Skins/DarkSkin/Images/IN LockButton act.png</code></td>
 	<td style="text-align:left;"><code>Builtin Skins/LightSkin/Images/IN LockButton act.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2120,7 +2120,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/d_ol_minus.png</code></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/ol_minus.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2129,7 +2129,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/d_ol_minus_act.png</code></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/ol_minus_act.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2138,7 +2138,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>Builtin Skins/DarkSkin/Images/pane options.png</code></td>
 	<td style="text-align:left;"><code>Builtin Skins/LightSkin/Images/pane options.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2147,7 +2147,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/d_pick.png</code></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/pick.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2156,7 +2156,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/d_ol_plus.png</code></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/ol_plus.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2165,7 +2165,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/d_ol_plus_act.png</code></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/ol_plus_act.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2174,7 +2174,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>Profiler/d_ProfilerTimelineDigDownArrow.png</code></td>
 	<td style="text-align:left;"><code>Profiler/ProfilerTimelineDigDownArrow.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2183,7 +2183,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>Profiler/d_ProfilerTimelineRollUpArrow.png</code></td>
 	<td style="text-align:left;"><code>Profiler/ProfilerTimelineRollUpArrow.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2192,7 +2192,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/d_dropdown.png</code></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/dropdown.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2201,7 +2201,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/d_scrolldown.png</code></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/scrolldown.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2210,7 +2210,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/d_scrollleft.png</code></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/scrollleft.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2219,7 +2219,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/d_scrollright.png</code></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/scrollright.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2228,7 +2228,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/d_scrollup.png</code></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/scrollup.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2237,7 +2237,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/d_search_icon.png</code></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/search_icon.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2246,7 +2246,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/d_search_menu.png</code></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/search_menu.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2255,7 +2255,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>Builtin Skins/DarkSkin/Images/ShurikenToggleNormalOn.png</code></td>
 	<td style="text-align:left;"><code>Builtin Skins/LightSkin/Images/ShurikenToggleNormalOn.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2264,7 +2264,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>Builtin Skins/DarkSkin/Images/ShurikenToggleFocusedOn.png</code></td>
 	<td style="text-align:left;"><code>Builtin Skins/LightSkin/Images/ShurikenToggleFocusedOn.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2273,7 +2273,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>Builtin Skins/DarkSkin/Images/ShurikenToggleHoverOn.png</code></td>
 	<td style="text-align:left;"><code>Builtin Skins/LightSkin/Images/ShurikenToggleHoverOn.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2282,7 +2282,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>Builtin Skins/DarkSkin/Images/ShurikenToggleNormal.png</code></td>
 	<td style="text-align:left;"><code>Builtin Skins/LightSkin/Images/ShurikenToggleNormal.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2291,7 +2291,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>Builtin Skins/DarkSkin/Images/ShurikenToggleFocused.png</code></td>
 	<td style="text-align:left;"><code>Builtin Skins/LightSkin/Images/ShurikenToggleFocused.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2300,7 +2300,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>Builtin Skins/DarkSkin/Images/ShurikenToggleFocusedMixed.png</code></td>
 	<td style="text-align:left;"><code>Builtin Skins/LightSkin/Images/ShurikenToggleFocusedMixed.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2309,7 +2309,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>Builtin Skins/DarkSkin/Images/ShurikenToggleHover.png</code></td>
 	<td style="text-align:left;"><code>Builtin Skins/LightSkin/Images/ShurikenToggleHover.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2318,7 +2318,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>Builtin Skins/DarkSkin/Images/ShurikenToggleHoverMixed.png</code></td>
 	<td style="text-align:left;"><code>Builtin Skins/LightSkin/Images/ShurikenToggleHoverMixed.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2327,7 +2327,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>Builtin Skins/DarkSkin/Images/ShurikenToggleNormalMixed.png</code></td>
 	<td style="text-align:left;"><code>Builtin Skins/LightSkin/Images/ShurikenToggleNormalMixed.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2336,7 +2336,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/d_toggle_on.png</code></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/toggle_on.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2345,7 +2345,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/d_toggle_on_focus.png</code></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/toggle_on_focus.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2354,7 +2354,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/d_toggle_on_hover.png</code></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/toggle_on_hover.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2363,7 +2363,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/d_toggle_on_focus.png</code></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/toggle_on_focus.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2372,7 +2372,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/d_toggle_on_hover.png</code></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/toggle_on_hover.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2381,7 +2381,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/d_toggle_on.png</code></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/toggle_on.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2390,7 +2390,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/d_toggle_bg.png</code></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/toggle_bg.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2399,7 +2399,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/d_toggle_bg_focus.png</code></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/toggle_bg_focus.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2408,7 +2408,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/d_toggle_mixed_bg_focus.png</code></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/toggle_mixed_bg_focus.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2417,7 +2417,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/d_toggle_bg_hover.png</code></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/toggle_bg_hover.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2426,7 +2426,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/d_toggle_mixed_bg_hover.png</code></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/toggle_mixed_bg_hover.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2435,7 +2435,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/d_toggle_mixed_bg.png</code></td>
 	<td style="text-align:left;"><code>UIPackageResources/Images/toggle_mixed_bg.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2444,7 +2444,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>Icons/d_winbtn_win_close.png</code></td>
 	<td style="text-align:left;"><code>Icons/winbtn_win_close.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2453,7 +2453,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>Icons/d_winbtn_win_max.png</code></td>
 	<td style="text-align:left;"><code>Icons/winbtn_win_max.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
@@ -2462,7 +2462,7 @@
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><code>Icons/d_winbtn_win_restore.png</code></td>
 	<td style="text-align:left;"><code>Icons/winbtn_win_restore.png</code></td>
-	<td style="text-align:left;">Undefined</td>
+	<td style="text-align:left;">未定义</td>
 </tr>
 </tbody>
 </table>
@@ -2472,7 +2472,7 @@
 <!-- area:authoring -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="UIE-USS-CustomProperties.html"></a></span><div class="tip">USS custom properties (variables)</div>
+<span class="prev"><a href="UIE-USS-CustomProperties.html"></a></span><div class="tip">USS 自定义属性（变量）</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="UIE-USS-WritingStyleSheets.html"></a></span><div class="tip">USS 编写样式表</div>
@@ -2481,7 +2481,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

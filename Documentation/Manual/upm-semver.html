@@ -174,7 +174,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="PackagesList.html">包</a></li>
 <li><a href="CustomPackages.html">创建自定义包</a></li>
 <li><a href="upm-manifestPkg.html">包清单</a></li>
@@ -198,7 +198,7 @@
 
 <p>开始开发包时，版本号从 <code>0.1.0</code> 开始。MAJOR 版本号 <code>0</code> 保留给包的初始开发阶段。在最初的开发过程中，包 API 经常频繁进行重大更改，因此，在您认为包足够稳定并可以在实际生产中使用之前，请将 MAJOR 版本号保持为 <code>0</code>。</p>
 
-<p>在包正式进入实际生产阶段后，应将 MAJOR 版本递增到 <code>1</code>，并在后续更改时遵循以下准则：</p>
+<p>在包正式准备好可用于生产后，应将 MAJOR 版本递增到 <code>1</code>，并在后续更改时遵循以下准则：</p>
 
 <table>
 <colgroup>
@@ -242,7 +242,7 @@
 
 <ul>
 <li>
-<a href="#general">General assets</a> (such as Audio, Textures, and Models).</li>
+<a href="#general">常规资源</a>（例如音频、纹理和模型）。</li>
 <li><a href="#asmdefs">程序集定义（<em>.asmdef</em> 文件）和预编译的程序集（托管的 <em>.dll</em> 文件）</a></li>
 <li>
 <a href="#manifests">包清单文件</a> (<em>package.json</em>)</li>
@@ -269,7 +269,7 @@
 
 <h2>资源</h2>
 
-<p>A project can reference any asset that is visible to the Asset Database. The Asset Database tracks these assets uniquely using the GUIDs defined in their <em>.meta</em> files.</p>
+<p>项目可以引用资源数据库可见的任何资源。资源数据库使用在 <em>.meta</em> 文件中定义的 GUID 来唯一跟踪这些资源。</p>
 
 <p>将以下某一个更改引入公共 API 中时，需要新的 <strong>MAJOR</strong> 版本，因为它们属于<strong>重大更改</strong>：</p>
 
@@ -302,7 +302,7 @@
 
 <h2>程序集</h2>
 
-<p><a href="ScriptCompilationAssemblyDefinitionFiles.html">Assembly definitions</a> (<em>.asmdef</em>) define a group of scripts which the Unity Editor’s compilation pipeline turns into separate managed assemblies (<em>.dll</em>). These <em>.asmdef</em> assets include properties that drive the resulting assembly’s properties. This includes:</p>
+<p><a href="ScriptCompilationAssemblyDefinitionFiles.html">程序集定义</a> (<em>.asmdef</em>) 定义一组脚本，Unity 编辑器的编译管线会将这些脚本转换成单独的托管程序集 (<em>.dll</em>)。这些 <em>.asmdef</em> 资源包含的属性可驱动生成的程序集的属性。这些方法包括：</p>
 
 <ul>
 <li>导入器设置，例如包含的平台和排除的平台</li>
@@ -469,7 +469,7 @@
 
 <h2>包清单文件</h2>
 
-<p>The <a href="upm-manifestPkg.html">package manifest</a> file (<code>package.json</code>) specifies the name, version, package dependencies, and other metadata about the package itself.</p>
+<p><a href="upm-manifestPkg.html">包清单</a>文件 (<code>package.json</code>) 指定名称、版本、包依赖项以及有关包本身的其他元数据。</p>
 
 <p>本节详细介绍包清单文件中的更改以及对包版本的影响：</p>
 
@@ -486,13 +486,13 @@
 
 <h3>名称更改（不允许）</h3>
 
-<p>Changing the <strong>name</strong> property is the equivalent of removing one package and adding a new package with a different name, and it is not supported. You cannot rename a package by trying to release an update: you have to release it as an entirely new package. Name changes aren’t allowed because existing projects and packages cannot interpret the names as synonyms.</p>
+<p>更改 <strong>name</strong> 属性等同于删除一个包并添加一个不同名称的新包，这是不支持的。不能通过尝试发布更新来重命名包：必须作为一个全新的包来发布。不允许更改名称，因为现有的项目和包无法将这些名称解释为同义词。</p>
 
 <p><a name="mani-dep"></a></p>
 
 <h3>依赖关系更改</h3>
 
-<p>Changing a dependency in a project does not in itself require a different MAJOR or MINOR version, unless it is part of an API change or if the <a href="#autoref">Auto Referenced</a> property is enabled.</p>
+<p>更改项目中的依赖项本身并不需要改变 MAJOR 或 MINOR 版本，除非它是 API 更改的一部分，或者启用了 <a href="#autoref">Auto Referenced</a> 属性。</p>
 
 <p>本节提供了依赖关系更改及其应用上下文的示例（假设已禁用 <a href="#autoref">Auto Referenced</a> 属性，并且除了每种情况所描述的更改以外，没有其他 API 更改）：</p>
 
@@ -563,13 +563,15 @@
 
 <p>如果更改了这些字段，可能表明您所做的更改不仅仅涉及错误修复。请务必考虑新版本中的其他更改是否实际上需要新的 MINOR 或 MAJOR 版本，而不是 PATCH 版本。</p>
 
+<p><strong>注意</strong>：对包清单中的 <strong>unity</strong> 或者 <strong>unityRelease</strong> 属性进行更改，始终需要 MINOR 或 MAJOR 版本。尽管这些属性不会影响包 API 本身，但递增 Unity 版本肯定会使包版本不能在以前的 Unity 编辑器上使用，并且可能会破坏依赖项目或包，而递减 Unity 版本会使包可用于较旧的 Unity 编辑器。</p>
+
 <p><a name="obsolete"></a></p>
 
 <h2>已弃用和过时的 API</h2>
 
 <p>需要从 API 中删除某些功能时，请首先发布至少一个包含弃用功能的 MINOR 版本。这会提醒用户即将删除功能，让他们能够顺利过渡到新的 API。然后，您可以在新的 MAJOR 版本中删除该功能。</p>
 
-<p>If another developer marks a package obsolete with a warning and you enabled <strong>Warnings as Errors</strong> in your project, the obsolete package might technically break your project, even though it is not a true break because the code still works as it did previously.</p>
+<p>如果另一个开发者通过警告将一个包标记为弃用，并且您在项目中启用了 <strong>Warnings as Errors</strong> 属性，则从技术上来讲，弃用的包可能会破坏您的项目，但这不是真正的破坏，因为代码仍然可以像之前一样正常工作。</p>
 
 <p>在这种情况下，您可以选择如何修复警告型错误（按照常规的合理性降序排列）：</p>
 
@@ -577,7 +579,7 @@
 <li>更改您的代码，以便不再使用该 API。</li>
 <li>在 <code>#pragma warning</code> 指令中包裹使用该 API 的代码，以便不再显示该警告。</li>
 <li>禁用 <strong>CS0612 (Obsolete)</strong> 和 <strong>CS0618 (Obsolete with a message)</strong> 警告。</li>
-<li>Disable <strong>Warnings as Errors</strong> in your project.</li>
+<li>在项目中禁用 <strong>Warnings as Errors</strong> 属性。</li>
 </ul>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -590,7 +592,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

@@ -174,7 +174,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="PackagesList.html">包</a></li>
 <li><a href="CustomPackages.html">创建自定义包</a></li>
 <li>向包添加测试</li>
@@ -184,7 +184,7 @@
 <span class="prev"><a href="cus-layout.html"></a></span><div class="tip">包布局</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="upm-manifestPkg.html"></a></span><div class="tip">包清单</div>
+<span class="next"><a href="cus-samples.html"></a></span><div class="tip">为资源包创建示例</div>
 </div>
 </div></div>
 <h1>向包添加测试</h1>
@@ -274,7 +274,7 @@
 
 <p>Editor 测试 <code>.asmdef</code> 文件应如下所示：</p>
 
-<pre><code class="lang-csharp">{
+<pre><code class="lang-json">{
   "name": "MyPackage.Editor.Tests",
   "references": [
     "MyPackage.Editor",
@@ -295,7 +295,7 @@
 
 <p>运行时测试 <code>.asmdef</code> 文件应如下所示：</p>
 
-<pre><code class="lang-csharp">{
+<pre><code class="lang-json">{
   "name": "MyPackage.Tests",
   "references": [
     "MyPackage"
@@ -328,21 +328,21 @@
 
 </code></pre>
 
-<p>This example adds tests for the <strong>com.unity.some-package</strong> and <strong>com.unity.other-package</strong> packages in Unity’s <a href="https://docs.unity3d.com/Packages/com.unity.test-framework@latest">Test Framework</a> package.</p>
+<p>此示例为 Unity 的 <a href="https://docs.unity3d.com/Packages/com.unity.test-framework@latest">Test Framework</a> 包中的 <strong>com.unity.some-package</strong> 和 <strong>com.unity.other-package</strong> 包添加测试。</p>
 
-<p><strong>Note</strong>: You may need to re-import the package, because the test framework doesn’t always immediately pick up changes to the <strong>testables</strong> attribute.</p>
+<p><strong>注意</strong>：可能需要重新导入包，因为 Test Framework 并不总是能立即获取对 <strong>testables</strong> 属性的更改。</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="cus-layout.html"></a></span><div class="tip">包布局</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="upm-manifestPkg.html"></a></span><div class="tip">包清单</div>
+<span class="next"><a href="cus-samples.html"></a></span><div class="tip">为资源包创建示例</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

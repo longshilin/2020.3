@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="PlatformSpecific.html">平台开发</a></li>
 <li><a href="android.html">Android</a></li>
 <li>Android Player 设置</li>
@@ -185,7 +185,7 @@
 <span class="prev"><a href="UnityRemote5.html"></a></span><div class="tip">Unity Remote</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="android-keystore-manager.html"></a></span><div class="tip">Android Keystore Manager</div>
+<span class="next"><a href="android-keystore-manager.html"></a></span><div class="tip">Android 密钥库管理器</div>
 </div>
 </div></div>
 <h1>Android Player 设置</h1>
@@ -624,7 +624,7 @@
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Normal Map Encoding</strong></td>
-	<td style="text-align:left;">Choose XYZ or DXT5nm-style to set the normal map encoding. This affects the encoding scheme and compression format used for normal maps. DXT5nm-style normal maps are of higher quality, but more expensive to decode in shaders.</td>
+	<td style="text-align:left;">选择 XYZ 或 DXT5nm 样式对法线贴图编码进行设置。此设置影响用于法线贴图的编码方案和压缩格式。DXT5nm 样式的法线贴图质量更高，但在着色器中解码成本更高。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Lightmap Encoding</strong></td>
@@ -674,19 +674,19 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><strong>SRGB Write Mode</strong></td>
-	<td style="text-align:left;">Enable this option to allow <code>Graphics.SetSRGBWrite()</code> on Vulkan renderer to toggle the sRGB write mode during the frame. Enabling this has a negative impact on performance.</td>
+	<td style="text-align:left;">启用此选项可允许 Vulkan 渲染器上的 <code>Graphics.SetSRGBWrite()</code> 在帧期间切换 sRGB 写模式。启用此选项对性能有负面影响。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Number of swapchain buffers</strong></td>
-	<td style="text-align:left;">Set this option to 2 for double-bufferin, or 3 for triple-buffering. Double-buffering might have a negative impact on performance.</td>
+	<td style="text-align:left;">将此选项设置为 2 表示双缓冲，设置为 3 表示三缓冲。双缓冲可能会对性能产生负面影响。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Acquire swaichain image late as possible</strong></td>
-	<td style="text-align:left;">Enable this option to acquire the backbuffer image right before the image is presented. This might improve performance if double-buffering is selected, but should otherwise be avoided on Android because it introduces additional memory bandwidth costs.</td>
+	<td style="text-align:left;">启用此选项可就在显示图像之前获取后备缓冲区图像。如果选择双缓冲，则这可能会提高性能，但在 Android 上应避免使用，因为它会引入额外的内存带宽成本。</td>
 </tr>
 <tr>
-	<td style="text-align:left;"><strong>Apply display rotation during rendering</strong></td>
-	<td style="text-align:left;">Enable this to perform all rendering in the native orientation of the display. This has a performance benefit on many devices. For more information, see documentation on <a href="vulkan-swapchain-pre-rotation.html">Vulkan swapchain pre-rotation</a>.</td>
+	<td style="text-align:left;"><strong>在渲染期间应用显示旋转</strong></td>
+	<td style="text-align:left;">启用此选项可按显示的原生方向执行所有渲染。这在许多设备上具有性能优势。有关更多信息，请参阅 <a href="vulkan-swapchain-pre-rotation.html">Vulkan 交换链预轮换</a>的相关文档。</td>
 </tr>
 </tbody>
 </table>
@@ -917,8 +917,8 @@
 <h3>Script Compilation</h3>
 
 <figure>
-<img src="../uploads/Main/ProjectSettingsScriptCompilation.png" alt="Script compilation settings for the Android platform">
-<figcaption>Script compilation settings for the Android platform</figcaption>
+<img src="../uploads/Main/ProjectSettingsScriptCompilation.png" alt="Android 平台的脚本编译设置">
+<figcaption>Android 平台的脚本编译设置</figcaption>
 </figure>
 
 <table>
@@ -1062,42 +1062,40 @@
 
 <h2>Publishing Settings</h2>
 
-<p>Use the Publishing Settings to configure how Unity builds your Android app.
-To open the Publishing Settings, go to <strong>Edit</strong> &gt; <strong>Project Settings</strong>, select <strong>Player</strong>, select the <strong>Android</strong> icon, and open the <strong>Publishing Settings</strong> panel. </p>
+<p>使用 Publishing Settings 可配置 Unity 构建 Android 应用程序的方式。
+若要打开 Publishing Settings，请转到 <strong>Edit</strong> &gt; <strong>Project Settings</strong>，选择 <strong>Player</strong>，选择 <strong>Android</strong> 图标，然后打开 <strong>Publishing Settings</strong> 面板。</p>
 
-<p>This section describes the different parts of the Publishing Settings panel and what they do. These include: </p>
+<p>此部分介绍 Publishing Settings 面板的不同部分及其功能。这些资源包括：</p>
 
 <p><a href="#projectkeystore">Project Keystore</a> <br><a href="#projectkey">Project Key</a><br><a href="#build">Build</a><br><a href="#minify">Minify</a> <br><a href="#splitapplicationbinary">Split Application Binary</a></p>
 
 <figure>
-<img src="../uploads/Main/Android-publishing-page.png" alt="Android publishing panel">
-<figcaption>Android publishing panel</figcaption>
+<img src="../uploads/Main/Android-publishing-page.png" alt="Android 发布面板">
+<figcaption>Android 发布面板</figcaption>
 </figure>
 
-<p><strong>Note</strong>: For security reasons, Unity doesn’t save your Keystore or Project Key passwords.</p>
+<p><strong>注意</strong>：出于安全原因，Unity 不会保存密钥库或项目密钥密码。</p>
 
-<p>Use the Keystore Manager window to create, configure and load your keys and keystores.
-You can load existing keystores and keys from either the Keystore Manager or the main Android Publishing panel. If you choose to load these from inside the Keystore Manager, Unity automatically fills the Project Keystore and Project Key fields.<br>
-For further information see documentation on the <a href="android-keystore-manager.html">Keystore Manager</a>.<br>
+<p>使用 Keystore Manager 窗口可创建、配置和加载密钥和密钥库。
+可以从 Keystore Manager 或主 Android 发布面板加载现有密钥库和密钥。如果选择从 Keystore Manager 内部加载这些内容，则 Unity 会自动填充 Project Keystore 和 Project Key 字段。
+有关更多信息，请参阅 <a href="android-keystore-manager.html">Keystore Manager</a> 的相关文档。
 <a name="projectkeystore"></a></p>
 
 <h3>Project Keystore</h3>
 
-<p>A keystore is a container that holds signing keys for application security. For details, see Android developer documentation: <a href="https://developer.android.com/training/articles/keystore">Android keystore system.</a></p>
+<p>密钥库是用于保存签名密钥来实现应用程序安全性的容器。有关详细信息，请参阅 Android 开发者文档：<a href="https://developer.android.com/training/articles/keystore">Android 密钥库系统</a>。</p>
 
-<p>Use the <strong>Project Keystore</strong> settings to choose which keystore to use for the open project. When you load a keystore, Unity loads all of the keys in that keystore.
-To load and use an existing keystore in your open project: </p>
+<p>使用 <strong>Project Keystore</strong> 设置可选择用于打开的项目的密钥库。加载密钥库时，Unity 会加载该密钥库中的所有密钥。
+若要在打开的项目中加载和使用现有密钥库，请执行以下操作：</p>
 
-<ol>
-<li>Enable <strong>Custom Keystore</strong>.</li>
-<li>Open the <strong>Select</strong> dropdown, select <strong>Browse</strong>, and choose a keystore from your file system.</li>
-<li>Enter your <strong>Keystore password</strong>.</li>
-</ol>
+<p>1.启用 <strong>Custom Keystore</strong>。
+2.打开 <strong>Select</strong> 下拉列表，选择 <strong>Browse</strong>，然后从文件系统中选择密钥库。
+3.输入<strong>您的密钥库密码</strong>。</p>
 
-<p>If you don’t have an existing keystore, leave <strong>Custom Keystore</strong> disabled. </p>
+<p>如果没有现有密钥库，请将 <strong>Custom Keystore</strong> 保留为禁用状态。</p>
 
-<p>Unity uses a debug keystore to sign your application.
-A debug keystore is a working keystore. It allows you to sign the application and to test it locally. However, the app store will decline apps signed in this way. This is because the app store is unable to verify the validity and ownership of the application using a debug keystore. </p>
+<p>Unity 使用调试密钥库对应用程序进行签名。
+调试密钥库是一种工作密钥库。通过它可以对应用程序进行签名并在本地进行测试。但是，应用商店会拒绝以这种方式签名的应用程序。这是因为应用商店无法使用调试密钥库验证应用程序的有效性和所有权。</p>
 
 <table>
 <colgroup>
@@ -1115,20 +1113,19 @@ A debug keystore is a working keystore. It allows you to sign the application an
 <tbody>
 <tr>
 	<td style="text-align:left;"><strong>Custom Keystore</strong></td>
-	<td style="text-align:left;">Enable <strong>Custom Keystore</strong> to load and use an existing Keystore.</td>
+	<td style="text-align:left;">启用 <strong>Custom Keystore</strong> 可加载和使用现有密钥库。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Select</strong></td>
-	<td style="text-align:left;">When <strong>Custom Keystore</strong> is enabled, use this to select the keystore you want to use. The keystores below the partition in the <strong>Select</strong> dropdown are stored in a predefined dedicated location. For more details, see <a href="android-keystore-manager.html#keystorelocation">Choosing your keystore location.</a>
-</td>
+	<td style="text-align:left;">启用了 <strong>Custom Keystore</strong> 时，使用此设置可选择要使用的密钥库。<strong>Select</strong> 下拉列表中的分区下的密钥库存储在预定义专用位置中。有关更多详细信息，请参阅<a href="android-keystore-manager.html#keystorelocation">选择密钥库位置</a>。</td>
 </tr>
 <tr>
-	<td style="text-align:left;"><strong>Path</strong></td>
-	<td style="text-align:left;">You do not need to enter your keystore path. Unity provides this based on the keystore you choose.</td>
+	<td style="text-align:left;"><strong>路径</strong></td>
+	<td style="text-align:left;">无需输入密钥库路径。Unity 会基于所选择的密钥库提供此路径。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Password</strong></td>
-	<td style="text-align:left;">Enter your keystore password to load your chosen keystore.</td>
+	<td style="text-align:left;">输入密钥库密码以加载所选的密钥库。</td>
 </tr>
 </tbody>
 </table>
@@ -1137,7 +1134,7 @@ A debug keystore is a working keystore. It allows you to sign the application an
 
 <h3>Project Key</h3>
 
-<p>When you load a keystore, Unity loads all of the keys in that keystore. Use the <strong>Project Key</strong> settings to choose one key from that keystore to use as the active key for the open project. </p>
+<p>加载密钥库时，Unity 会加载该密钥库中的所有密钥。使用 <strong>Project Key</strong> 设置可从该密钥库中选择一个密钥以用作打开的项目的活动密钥。</p>
 
 <table>
 <colgroup>
@@ -1155,11 +1152,11 @@ A debug keystore is a working keystore. It allows you to sign the application an
 <tbody>
 <tr>
 	<td style="text-align:left;"><strong>Alias</strong></td>
-	<td style="text-align:left;">Select the key you want to use for the open project.</td>
+	<td style="text-align:left;">选择要用于打开的项目的密钥。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Password</strong></td>
-	<td style="text-align:left;">Enter your key Password.</td>
+	<td style="text-align:left;">输入密钥密码。</td>
 </tr>
 </tbody>
 </table>
@@ -1168,17 +1165,15 @@ A debug keystore is a working keystore. It allows you to sign the application an
 
 <h3>Build</h3>
 
-<p>By default, Unity builds your application with the Android manifests, Gradle templates and Proguard files provided with the Unity installation. Use the <strong>Build</strong> section of the Android Publishing Settings to change these.</p>
+<p>默认情况下，Unity 使用随 Unity 安装提供的 Android 清单、Gradle 模板和 Proguard 文件构建应用程序。使用 Android Publishing Settings 的 <strong>Build</strong> 部分可更改这些内容。</p>
 
-<p>To use a custom Android manifest, Gradle template or Proguard file:</p>
+<p>若要使用自定义 Android 清单、Gradle 模板或 Proguard 文件，请执行以下操作：</p>
 
-<ol>
-<li>Enable the appropriate checkbox. Unity creates a default file in your project, and the file location appears below the checkbox.</li>
-<li>Open the new file and make your changes.</li>
-<li>Save your changes to this file. Unity automatically uses the changes saved to this file next time it builds the application.</li>
-</ol>
+<p>1.启用相应的复选框。Unity 会在项目中创建一个默认文件，文件位置会出现在复选框下方。
+2.打开新文件并进行更改。
+3.保存对此文件的更改。Unity 下次构建应用程序时会自动使用保存到此文件的更改。</p>
 
-<p>The settings in the Build section only apply to the build process for the current project. </p>
+<p>Build 部分中的设置仅适用于当前项目的构建过程。</p>
 
 <table>
 <colgroup>
@@ -1196,32 +1191,35 @@ A debug keystore is a working keystore. It allows you to sign the application an
 <tbody>
 <tr>
 	<td style="text-align:left;"><strong>Custom Main Manifest</strong></td>
-	<td style="text-align:left;">Customisable version of the Android <code>LibraryManifest.xml</code> file. This file contains important metadata about your Android application. For further information about the responsibilities of the Main/Library Manifest see documentation on <a href="android-manifest.html">Android Manifest.</a>
-</td>
+	<td style="text-align:left;">Android <code>LibraryManifest.xml</code> 文件的可自定义版本。此文件包含有关 Android 应用程序的重要元数据。有关主/库清单的职责的更多信息，请参阅 <a href="android-manifest.html">Android 清单</a>的相关文档。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Custom Launcher Manifest</strong></td>
-	<td style="text-align:left;">Customisable version of the Android <code>LauncherManifest.xml</code> file. This file contains important metadata about your Android application’s launcher. For further information about the responsibilities of the Launcher Manifest see documentation on <a href="android-manifest.html">Android Manifest</a>.</td>
+	<td style="text-align:left;">Android <code>LauncherManifest.xml</code> 文件的可自定义版本。此文件包含有关 Android 应用程序启动器的重要元数据。有关启动器清单的职责的更多信息，请参阅 <a href="android-manifest.html">Android 清单</a>的相关文档。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Custom Main Gradle Template</strong></td>
-	<td style="text-align:left;">Customisable version of the <code>mainTemplate.gradle</code> file. This file contains information on how to build your Android application as a library. For further information see documentation on <a href="android-gradle-overview.html#providingacustomgradlebuildtemple">Providing a custom Gradle Template</a>.</td>
+	<td style="text-align:left;">
+<code>mainTemplate.gradle</code> 文件的可自定义版本。此文件包含有关如何将 Android 应用程序构建为库的信息。有关更多信息，请参阅<a href="android-gradle-overview.html#providingacustomgradlebuildtemple">提供自定义 Gradle 模板</a>的相关文档。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Custom Launcher Gradle Template</strong></td>
-	<td style="text-align:left;">Customisable version of the <code>launcherTemplate.gradle_</code> file. This file contains instructions on how to build your Android application. For further information see documentation on <a href="android-gradle-overview.html">build.gradle templates</a>.</td>
+	<td style="text-align:left;">
+<code>launcherTemplate.gradle_</code> 文件的可自定义版本。此文件包含有关如何构建 Android 应用程序的说明。有关更多信息，请参阅 <a href="android-gradle-overview.html">build.gradle 模板</a>的相关文档。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Custom Base Gradle Template</strong></td>
-	<td style="text-align:left;">Customisable version of the <code>baseProjectTemplate.gradle</code> file. This file contains configuration that is shared between all other templates and Gradle projects. For further information see documentation on <a href="android-gradle-overview.html">build.gradle templates</a>.</td>
+	<td style="text-align:left;">
+<code>baseProjectTemplate.gradle</code> 文件的可自定义版本。此文件包含在所有其他模板与 Gradle 项目之间共享的配置。有关更多信息，请参阅 <a href="android-gradle-overview.html">build.gradle 模板</a>的相关文档。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Custom Gradle Properties Template</strong></td>
-	<td style="text-align:left;">Customisable version of the <code>gradle.properties</code> file. This file contains configuration settings for the Gradle build environment. This includes: <br> - The JVM (Java Virtual Machine) memory configuration. <br>- A property to allow Gradle to build using multiple JVMs.<br>- A property for choosing the tool to do the minification. <br>- A property to not compress native libs when building an app bundle.</td>
+	<td style="text-align:left;">
+<code>gradle.properties</code> 文件的可自定义版本。此文件包含 Gradle 构建环境的配置设置。这包括：<br> - JVM（Java 虚拟机）内存配置。<br>- 允许 Gradle 使用多个 JVM 进行构建的属性。<br>- 用于选择工具进行缩小的属性。<br>- 用于在构建应用程序包时不压缩原生库的属性。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Custom Proguard File</strong></td>
-	<td style="text-align:left;">Customisable version of the proguard.txt file. This file contains configuration settings for the minification process. If minification removes some Java code which should be kept, you should add a rule to keep that code in this file. For further information see documentation on <a href="#minify">Minification</a>.</td>
+	<td style="text-align:left;">proguard.txt 文件的可自定义版本。此文件包含缩小过程的配置设置。如果缩小会移除一些应该保留的 Java 代码，则应添加规则以将该代码保留在此文件中。有关更多信息，请参阅<a href="#minify">缩小</a>的相关文档。</td>
 </tr>
 </tbody>
 </table>
@@ -1230,11 +1228,11 @@ A debug keystore is a working keystore. It allows you to sign the application an
 
 <h3>Minify</h3>
 
-<p>Minification is a process which shrinks, obfuscates and optimises the code in your application. It can reduce the code size and make the code harder to disassemble. Use the Minify settings to define when and how Unity should apply minification to your build.</p>
+<p>缩小是一种缩减、混淆和优化应用程序代码的过程。它可以减小代码大小并使代码更难以反汇编。使用 Minify 设置可定义 Unity 应何时以及如何将缩小应用于构建。</p>
 
-<p>In most cases, it’s good practice to only apply minification to release builds, and not debug builds. This is because minification takes time, and can make the builds slower. It can also make debugging more complicated due to the optimisation that the code undergoes.</p>
+<p>在大多数情况下，仅将缩小应用于发布构建（而不是调试构建）是一种很好的做法。这是因为缩小需要时间，可能会使构建速度变慢。由于代码经过优化，它还会使调试更加复杂。</p>
 
-<p>The settings in the Minify section only apply to the build process for the current project. </p>
+<p>Minify 部分中的设置仅适用于当前项目的构建过程。</p>
 
 <table>
 <colgroup>
@@ -1252,15 +1250,15 @@ A debug keystore is a working keystore. It allows you to sign the application an
 <tbody>
 <tr>
 	<td style="text-align:left;"><strong>Use R8</strong></td>
-	<td style="text-align:left;">By default, Unity uses Proguard for minification. Enable this checkbox to use R8 instead.</td>
+	<td style="text-align:left;">默认情况下，Unity 使用 Proguard 进行缩小。启用此复选框可改为使用 R8。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Release</strong></td>
-	<td style="text-align:left;">Enable this checkbox if you want Unity to minify your application’s code in release builds.</td>
+	<td style="text-align:left;">如果希望 Unity 在发布构建中缩小应用程序的代码，请启用此复选框。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Debug</strong></td>
-	<td style="text-align:left;">Enable this checkbox if you want Unity to minify your application’s code in debug builds.</td>
+	<td style="text-align:left;">如果希望 Unity 在调试构建中缩小应用程序的代码，请启用此复选框。</td>
 </tr>
 </tbody>
 </table>
@@ -1269,7 +1267,7 @@ A debug keystore is a working keystore. It allows you to sign the application an
 
 <h3>Split Application Binary</h3>
 
-<p>Enable the <strong>Split Application Binary</strong> option to split your output package into main (APK) and expansion (OBB) packages. The Google Play Store requires this if you want to publish applications larger than 100 MB.</p>
+<p>启用 <strong>Split Application Binary</strong> 选项可将输出包拆分为主包 (APK) 和扩展包 (OBB) 包。如果要发布大于 100 MB 的应用程序，则 Google Play 应用商店需要此功能。</p>
 
 <p><a name="XR"></a></p>
 
@@ -1347,13 +1345,13 @@ A debug keystore is a working keystore. It allows you to sign the application an
 <span class="prev"><a href="UnityRemote5.html"></a></span><div class="tip">Unity Remote</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="android-keystore-manager.html"></a></span><div class="tip">Android Keystore Manager</div>
+<span class="next"><a href="android-keystore-manager.html"></a></span><div class="tip">Android 密钥库管理器</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

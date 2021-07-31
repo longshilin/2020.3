@@ -14,8 +14,8 @@
 <meta property="og:title" content="瓦片地图 2D 碰撞体 (Tilemap Collider 2D) - Unity 手册">
 <title>瓦片地图 2D 碰撞体 (Tilemap Collider 2D) - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/TilemapCollider2DPropertiesNov.png">
-<meta name="description" content="The Tilemap Collider 2D component generates Collider shapes for Tiles on a Tilemap component on the same GameObject. When you add or remove Tiles on the Tilemap component, the Tilemap Collider 2D updates the Collider shapes during LateUpdate. It batches multiple Tile changes together to ensure minimal impact on performance.">
-<meta property="og:description" content="The Tilemap Collider 2D component generates Collider shapes for Tiles on a Tilemap component on the same GameObject. When you add or remove Tiles on the Tilemap component, the Tilemap Collider 2D updates the Collider shapes during LateUpdate. It batches multiple Tile changes together to ensure minimal impact on performance.">
+<meta name="description" content="Tilemap Collider 2D 组件为同一游戏对象上的 Tilemap 组件的瓦片生成__碰撞体__形状。在 Tilemap 组件中添加或删除瓦片时，Tilemap Collider 2D 组件会在 LateUpdate 期间更新碰撞体形状。它会批量处理多个瓦片的更改，以确保对性能的影响最小。">
+<meta property="og:description" content="Tilemap Collider 2D 组件为同一游戏对象上的 Tilemap 组件的瓦片生成__碰撞体__形状。在 Tilemap 组件中添加或删除瓦片时，Tilemap Collider 2D 组件会在 LateUpdate 期间更新碰撞体形状。它会批量处理多个瓦片的更改，以确保对性能的影响最小。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,15 +175,15 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Unity2D.html">2D</a></li>
 <li><a href="class-Tilemap.html">Tilemap</a></li>
-<li><a href="Tilemap-workflow.html">Tilemap workflow</a></li>
+<li><a href="Tilemap-workflow.html">瓦片地图工作流程</a></li>
 <li>瓦片地图 2D 碰撞体 (Tilemap Collider 2D)</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="TilemapPainting-SelectionTool.html"></a></span><div class="tip">Select Tool</div>
+<span class="prev"><a href="TilemapPainting-SelectionTool.html"></a></span><div class="tip">选择工具</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="Tilemap-Hexagonal.html"></a></span><div class="tip">六边形瓦片地图</div>
@@ -193,13 +193,13 @@
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>The <strong>Tilemap Collider 2D</strong> component generates <strong>Collider</strong> shapes for <a href="#Tilemap-TileAsset">Tiles</a> on a <a href="#class-Tilemap">Tilemap</a> component on the same GameObject. When you add or remove Tiles on the Tilemap component, the Tilemap Collider 2D updates the Collider shapes during <code>LateUpdate</code>. It batches multiple Tile changes together to ensure minimal impact on performance. </p>
+<p><strong>Tilemap Collider 2D</strong> 组件为同一游戏对象上的 <a href="#class-Tilemap">Tilemap</a> 组件的<a href="#Tilemap-TileAsset">瓦片</a>生成__碰撞体__形状。在 Tilemap 组件中添加或删除瓦片时，Tilemap Collider 2D 组件会在 <code>LateUpdate</code> 期间更新碰撞体形状。它会批量处理多个瓦片的更改，以确保对性能的影响最小。</p>
 
-<h2>Tilemap Collider 2D properties</h2>
+<h2>Tilemap Collider 2D 属性</h2>
 
 <figure>
-<img src="../uploads/Main/TilemapCollider2DPropertiesNov.png" alt="Tilemap Collider 2D window">
-<figcaption>Tilemap Collider 2D window</figcaption>
+<img src="../uploads/Main/TilemapCollider2DPropertiesNov.png" alt="Tilemap Collider 2D 窗口">
+<figcaption>Tilemap Collider 2D 窗口</figcaption>
 </figure>
 
 <table>
@@ -218,15 +218,15 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><strong>Max Tile Change Count</strong></td>
-	<td style="text-align:left;">The maximum number of Tile changes (such as adding/removing Tiles to the Tilemap) to accumulate before doing a full Collider rebuild instead of an incremental rebuild. <br><br> A high number of accumulated changes can cause the incremental rebuild of the <strong>Tilemap Collider 2D</strong> to be slower than a full rebuild. Decrease this value to resolve this issue.</td>
+	<td style="text-align:left;">在进行完全碰撞体重建而不是增量重建之前，累积的瓦片更改（如对瓦片地图进行瓦片的添加/删除）的最大数量。<br><br>大量的累积更改会导致 <strong>Tilemap Collider 2D</strong> 增量重建的速度比完全重建要慢。减小此值可解决此问题。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Extrusion Factor</strong></td>
-	<td style="text-align:left;">Set the amount (in Unity world space units) to extrude the Collider shape of each Tile. This minimizes the gaps between the Collider shapes of neighboring Tiles and brings them to within the minimum <strong>Vertex Distance</strong> set in the <strong>Composite Collider 2D</strong>, which can then compose the Tile Colliders together. <br><br>This property is grayed out and disabled by default. It is only available when <a href="#Composite">Used by Composite</a> is enabled, and a <a href="#class-CompositeCollider2D">Composite Collider 2D</a> is attached to the same GameObject.</td>
+	<td style="text-align:left;">设置每个瓦片挤出碰撞体形状的量（采用 Unity 世界空间单位）。这最大限度地减少了相邻瓦片的碰撞体形状之间的间隙，并使它们保持在__Composite Collider 2D__ 中的 <strong>Vertex Distance</strong> 设置的最小范围内，从而将瓦片碰撞体组合在一起。<br><br>默认情况下会禁用此属性，显示为灰色。仅当启用了 <a href="#Composite">Used by Composite</a> 并且同一个游戏对象附加了一个 <a href="#class-CompositeCollider2D">2D 复合碰撞体</a> 时可用。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Material</strong></td>
-	<td style="text-align:left;">A Physics Material that determines properties of <strong>collisions</strong>, such as friction and bounce.</td>
+	<td style="text-align:left;">一种物理材质，可用于确定__碰撞__的属性（例如摩擦和弹性）。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Is Trigger</strong></td>
@@ -234,13 +234,13 @@
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Used by Effector</strong></td>
-	<td style="text-align:left;">Select this check box to make the Tilemap Collider 2D be used by an attached <a href="#Effectors2D">Effector 2D</a>.</td>
+	<td style="text-align:left;">选中此复选框可使 Tilemap Collider 2D 组件由附加的 <a href="#Effectors2D">Effector 2D</a> 组件使用。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">
 <strong>Used by Composite</strong><a name="Composite"></a>
 </td>
-	<td style="text-align:left;">Select this check box to make this Collider be used by an attached Composite Collider 2D.<br><br>When <strong>Used by Composite</strong> is enabled, all properties except Offset are no longer available in the Tilemap Collider 2D component. Instead, the properties are controlled by the attached Composite Collider 2D component.</td>
+	<td style="text-align:left;">选中此复选框可使此碰撞体被附加的 Composite Collider 2D 使用。<br><br>当 <strong>Used by Composite</strong> 启用时，Tilemap Collider 2D 组件中除 Offset 之外的所有属性都不再可用。相反，这些属性由附加的 Composite Collider 2D 组件控制。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Offset</strong></td>
@@ -249,9 +249,9 @@
 </tbody>
 </table>
 
-<h2>Collider Type’s effect on Collider generation</h2>
+<h2>碰撞体类型对碰撞体生成的影响</h2>
 
-<p>The Collider shapes generated for each Tile in the Tilemap depend on the desired Collider type set in the <a href="#Tilemap-TileAsset">Tile Asset’s</a> properties. The component’s shape generation behavior corresponds to the Collider Types in the following ways:</p>
+<p>为 Tilemap 组件中的每个瓦片生成的碰撞体形状取决于<a href="#Tilemap-TileAsset">瓦片资源</a>的属性中设置的所需碰撞体类型。组件的形状生成行为与碰撞体类型的对应关系如下：</p>
 
 <table>
 <colgroup>
@@ -273,7 +273,7 @@
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Sprite</strong></td>
-	<td style="text-align:left;">The Tilemap Collider 2D component generates a Collider shape based on the Sprite assigned to the Tile. The Collider shape is based on the <a href="#CustomPhysicsShape">Custom Physics Shape</a> set for the Sprite.</td>
+	<td style="text-align:left;">Tilemap Collider 2D 组件基于分配给瓦片的精灵生成碰撞体形状。碰撞体形状基于为精灵设置的 <a href="#CustomPhysicsShape">Custom Physics Shape</a>。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Grid</strong></td>
@@ -282,26 +282,24 @@
 </tbody>
 </table>
 
-<h2>Tilemap and Composite Colliders</h2>
+<h2>瓦片地图和复合碰撞体</h2>
 
-<p>You can use the Tilemap Collider 2D component together with the <a href="#class-CompositeCollider2D">Composite Collider 2D</a> component. When you add both components to the same Tilemap, Unity composites the Collider shapes of neighboring Tiles together. This smoothes out the corners and edges between Collider shapes in neighbouring Tiles.</p>
+<p>您可以将 Tilemap Collider 2D 组件与 <a href="#class-CompositeCollider2D">Composite Collider 2D</a> 组件一同使用。当您将这两个组件添加到同一 Tilemap 组件时，Unity 将相邻瓦片的碰撞体形状合成在一起。这样可以平滑过渡相邻瓦片中碰撞体形状之间的角和边。</p>
 
-<p>Using both components together reduces the number of individual Collider shapes involved in a physics update, which reduces the amount of calculations required, and minimizes the impact on performance. </p>
+<p>将这两个组件一起使用会减少物理更新中涉及的单个碰撞体形状的数量，从而减少所需的计算量，并将对性能的影响降至最低。</p>
 
-<h2>Scripting API tips</h2>
+<h2>脚本 API 提示</h2>
 
-<p>If you require immediate changes to happen to the Collider, use <em>TilemapCollider2D.ProcessTilemapChanges</em> to process them immediately. You can use <em>TilemapCollider2D.hasTilemapChanges</em> to check if any processing is required.</p>
+<p>如果您需要将更改立即对碰撞体生效，请使用_TilemapCollider2D.ProcessTilemapChanges_ 立即进行处理。您可以使用 <em>TilemapCollider2D.hasTilemapChanges</em> 检查是否需要任何处理。</p>
 
 <hr>
 
-<ul>
-<li><span class="page-history">New properties added in Unity 2020.1</span></li>
-<li><span class="page-history">在 <a href="https://docs.unity3d.com/2017.2/Documentation/Manual/30_search.html?q=newin20172">2017.2</a> 版中添加了瓦片地图 <span class="search-words">NewIn20172</span></span></li>
-</ul>
+<p><em><span class="page-history">在 Unity 2020.1 中添加了新的属性</span>
+</em> <span class="page-history">在 <a href="https://docs.unity3d.com/2017.2/Documentation/Manual/30_search.html?q=newin20172">2017.2</a> 版中添加了瓦片地图 <span class="search-words">NewIn20172</span></span></p>
 <!-- area:authoring -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="TilemapPainting-SelectionTool.html"></a></span><div class="tip">Select Tool</div>
+<span class="prev"><a href="TilemapPainting-SelectionTool.html"></a></span><div class="tip">选择工具</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="Tilemap-Hexagonal.html"></a></span><div class="tip">六边形瓦片地图</div>
@@ -310,7 +308,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

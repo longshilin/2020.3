@@ -174,7 +174,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="PlatformSpecific.html">平台开发</a></li>
 <li><a href="android.html">Android</a></li>
 <li><a href="PluginsForAndroid.html">构建和使用适用于 Android 的插件</a></li>
@@ -204,7 +204,7 @@
 
 <h2>扩展 UnityPlayerActivity 文件</h2>
 
-<p>在开发 Unity Android 应用程序时，可使用插件来扩展标准的 <code>UnityPlayerActivity</code> 类（这是 Android 上的 Unity Player 的主 Java 类，类似于 Unity iOS 上的 <em>AppController.mm</em>）。应用程序可以覆盖 Android 操作系统和 Unity Android 应用程序之间的任何及所有基本交互。</p>
+<p>When you develop a Unity Android application, you can use plug-ins to extend the standard <code>UnityPlayerActivity</code> class (the primary Java class for the Unity Player on Android, similar to <code>AppController.mm</code> on Unity iOS). An application can override all basic interactions between the Android OS and the Unity Android application.</p>
 
 <p>要覆盖默认活动，请执行以下操作：</p>
 
@@ -213,36 +213,44 @@
 <li>修改 <a href="android-manifest.html">Android 清单</a>以将新 <code>Activity</code> 作为应用程序的入口点。</li>
 </ul>
 
-<p>为实现此目的，最简单的方法是从 Unity 导出项目，然后在 Android Studio 中对 <code>UnityPlayerActivity</code> 类进行必要的修改。</p>
+<p>The easiest way to achieve this is to export your project from Unity, then make the necessary modifications to the <code>UnityPlayerActivity</code> class in Android Studio. Or, you can create a new class, extend it, modify <code>AndroidManifest.xml</code> in the unityLibrary project, and then replace <code>UnityPlayerActivity</code> with your class.</p>
 
-<p>要用新 <code>Activity</code> 创建插件并将其添加到项目，必须执行以下步骤：</p>
+<p>To create a plug-in with your new Activity and add it to your Project, you must perform the following steps:
+1. Extend the UnityPlayerActivity file. This is best done in Android Studio after exporting project from Unity. There are several options:
+* The .java or .kt file containing your activity class can put put into Unity project
+* Create Java library containing your class, compile it and put resulting .jar file into Unity project
+* Create Android library containint your class; this library can be put into Unity project in source code from (by naming the folder to have .androidlib “extension”) or it can be compiled and resulting .aar be put into Unity project</p>
 
-<p>1.扩展 UnityPlayerActivity 文件。默认情况下，<em>UnityPlayerActivity.java</em> 文件位于：<br><br></p>
+<p>To create a plug-in with your new <code>Activity</code> and add it to your Project, perform the following steps:</p>
 
-<pre><code>__Mac：__
+<ol>
+<li>
+<p>Extend the UnityPlayerActivity file. The best way to do this is in Android Studio after exporting your project from Unity. You then have the following options:</p>
 
-*/Applications/Unity/Unity.app/Contents/PlaybackEngines/AndroidPlayer/src/com/unity3d/player*&lt;br/&gt;&lt;br/&gt;
+<ul>
+<li>Put the .java or .kt file that contains your activity class directly into Unity project By default, the file is located at:</li>
+</ul>
 
-__Windows：__
+<p><strong>macOS:</strong></p>
 
-*C:\Program Files\Unity\Editor\Data\PlaybackEngines\AndroidPlayer\src\com\unity3d\player* &lt;br/&gt;&lt;br/&gt;
+<p><code>/Applications/Unity/Unity.app/Contents/PlaybackEngines/AndroidPlayer/src/com/unity3d/player</code></p>
 
-要扩展 `UnityPlayerActivity` 文件，请找到 Unity 附带的 *classes.jar* 文件。该文件位于安装文件夹（Windows 上为 *C:\Program Files\Unity\Editor\Data*，Mac 上为 */Applications/Unity*）的以下其中一个子文件夹中：
+<p><strong>Windows：</strong></p>
 
-* *PlaybackEngines/AndroidPlayer/Variations/mono*
+<p><code>C:\Program Files\Unity\Editor\Data\PlaybackEngines\AndroidPlayer\src\com\unity3d\player</code> </p>
 
-* *il2cpp/Development*
-
-* *Release/Classes/*
-
-找到该文件，然后将 *classes.jar* 添加到 Unity 用于编译新 `Activity` 的类路径中。编译 `Activity` 源文件并将其打包到 JAR 或 AAR 包中，然后将其复制到项目文件夹。
-</code></pre>
-
-<p>1.创建一个新的 Android 清单以将新的 <code>Activity</code> 设置为应用程序的入口点，然后将 <em>AndroidManifest.xml</em> 文件放在项目的 <em>Assets/Plugins/Android</em> 文件夹中。</p>
+<ul>
+<li>Create a Java library that contains your class, compile it and put the resulting .jar file into your Unity project</li>
+<li>
+<a href="https://developer.android.com/studio/projects/android-library">Create an Android library</a> that contains your class. You can then put this library into your Unity project in your source code. To do this, give your folder a name with an .androidlib extension, or it can be compile it and put the resulting .aar file in your Unity project</li>
+</ul>
+</li>
+<li><p>Create a new Android manifest to set the new <code>Activity</code> as the entry point of your application, then place the <code>AndroidManifest.xml</code> file in the <code>Assets/Plugins/Android</code> folder of your Project.</p></li>
+</ol>
 
 <p><a name="#StartupArguments"></a></p>
 
-<h1>从自定义 UnityPlayerActivity 文件指定 Unity 启动参数</h1>
+<h2>Specifying Unity startup arguments from a custom UnityPlayerActivity file</h2>
 
 <p>扩展 <code>UnityPlayerActivity</code> 时，可覆盖 <code>String UnityPlayerActivity.updateUnityCommandLineArguments</code>(String cmdLine) 以将启动参数传递给 Unity。</p>
 
@@ -252,7 +260,7 @@ __Windows：__
 
 <p>下面的示例演示了如何使用该文件根据当前设备选择图形 API：</p>
 
-<pre><code>package com.company.product;
+<pre><code class="lang-java">package com.company.product;
 import com.unity3d.player.UnityPlayerActivity;
 import android.os.Bundle;
 import android.os.Build;
@@ -304,9 +312,9 @@ public class OverrideExample extends UnityPlayerActivity {
 
 <h1>UnityPlayerActivity 示例文件</h1>
 
-<p>以下是 <code>UnityPlayerActivity</code> 文件的示例：</p>
+<p>The following is an example of a <code>UnityPlayerActivity</code> file:</p>
 
-<pre><code>OverrideExample.java:
+<pre><code class="lang-java">OverrideExample.java:
 package com.company.product;
 import com.unity3d.player.UnityPlayerActivity;
 import android.os.Bundle;
@@ -327,9 +335,9 @@ public class OverrideExample extends UnityPlayerActivity {
 }
 </code></pre>
 
-<p>相应的 <em>AndroidManifest.xml</em> 可能如下所示：</p>
+<p>The corresponding <code>AndroidManifest.xml</code> might look like the following:</p>
 
-<pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+<pre><code class="lang-xml">&lt;?xml version="1.0" encoding="utf-8"?&gt;
 &lt;manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.company.product"&gt;
   &lt;application android:icon="@drawable/app_icon" android:label="@string/app_name"&gt;
     &lt;activity android:name="com.YourPackage.name.OverrideExample"
@@ -345,13 +353,19 @@ public class OverrideExample extends UnityPlayerActivity {
 
 </code></pre>
 
+<p>To create a plug-in with your new Activity and add it to your Project, you must perform the following steps:
+1. Extend the UnityPlayerActivity file. This is best done in Android Studio after exporting project from Unity. There are several options:
+* The .java or .kt file containing your activity class can put put into Unity project
+* Create Java library containing your class, compile it and put resulting .jar file into Unity project
+* Create Android library containint your class; this library can be put into Unity project in source code from (by naming the folder to have .androidlib “extension”) or it can be compiled and resulting .aar be put into Unity project
+2. Create a new Android Manifest to set the new Activity as the entry point of your application, then place the AndroidManifest.xml file in the Assets/Plugins/Android folder of your Project.</p>
+
 <hr>
 
 <ul>
 <li><span class="page-history">在 2019.2 中添加了新代码示例。</span></li>
 <li><span class="page-history">针对 Unity 2019.3 或更高版本更新了 AndroidManifest 示例</span></li>
 </ul>
-<!-- area:platforms -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="AndroidJARPlugins.html"></a></span><div class="tip">JAR 插件</div>
@@ -363,7 +377,7 @@ public class OverrideExample extends UnityPlayerActivity {
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

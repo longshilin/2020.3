@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
 <li>高级渲染功能</li>
 <li>加载纹理和网格数据</li>
@@ -215,7 +215,7 @@
 
 <ul>
 <li>在构建时，Unity 将标头数据写入到一个 .res 文件，而将二进制数据写入到另一个单独的 .resS 文件。</li>
-<li>At runtime, when the application needs the texture or mesh, Unity loads the header from the .res file into memory. When the header is in memory, Unity then streams the binary data from the .resS file to the GPU using a fixed-sized ring buffer. Unity streams the binary data using multiple threads, over the course of several frames. Note that on some console platforms where Unity already knows the GPU hardware, Unity skips the ring buffer and loads straight into the GPU memory.</li>
+<li>在运行时，当应用程序需要纹理或网格的时候，Unity 将标头数据从 .res 文件加载到内存中。当标头数据位于内存中时，Unity 随后使用固定大小的环形缓冲区将二进制数据从 .resS 文件流式传输到 GPU。Unity 使用多个线程通过几个帧流式传输二进制数据。请注意，在 Unity 已了解 GPU 硬件的某些游戏主机平台上，Unity 会跳过环形缓冲区并直接加载到 GPU 内存中。</li>
 </ul>
 
 <h2>纹理和网格数据适合的上传管线</h2>
@@ -240,8 +240,8 @@
 <li>粒子系统、地形或网格碰撞体不需要网格顶点/索引数据。</li>
 <li>网格没有<a href="../ScriptReference/Mesh.boneWeights.html">骨骼权重</a>。</li>
 <li>网格<a href="../ScriptReference/MeshTopology.html">拓扑</a>不是<a href="../ScriptReference/MeshTopology.Quads.html">四边形</a>。</li>
-<li>The <a href="../ScriptReference/ModelImporter-meshCompression.html">meshCompression</a> for the mesh asset is set to <a href="../ScriptReference/ModelImporterMeshCompression.Off.html">Off</a>.
-If the build target is Android, LZ4 compression is enabled in the Project’s Build Settings.</li>
+<li>网格资源的 <a href="../ScriptReference/ModelImporter-meshCompression.html">meshCompression</a> 设置为 <a href="../ScriptReference/ModelImporterMeshCompression.Off.html">Off</a>。
+如果构建目标是 Android，在项目的 Build Settings 中启用了 LZ4 压缩。</li>
 </ul>
 
 <p>在所有其他情况下，Unity 会同步加载纹理和网格。</p>
@@ -311,7 +311,7 @@ If the build target is Android, LZ4 compression is enabled in the Project’s Bu
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Shader loading - Unity 手册">
-<title>Shader loading - Unity 手册</title>
-<meta name="description" content="By default, Unity&amp;#8217;s runtime shader loading behavior is:">
-<meta property="og:description" content="By default, Unity&amp;#8217;s runtime shader loading behavior is:">
+<meta property="og:title" content="着色器加载 - Unity 手册">
+<title>着色器加载 - Unity 手册</title>
+<meta name="description" content="默认情况下，Unity 的运行时着色器加载行为如下：">
+<meta property="og:description" content="默认情况下，Unity 的运行时着色器加载行为如下：">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,76 +174,70 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
-<li><a href="ShadersOverview.html">编写着色器</a></li>
-<li><a href="SL-Reference.html">着色器参考</a></li>
-<li><a href="SL-AdvancedTopics.html">高级 ShaderLab 主题</a></li>
-<li>Shader loading</li>
+<li><a href="Shaders.html">着色器</a></li>
+<li><a href="ShadersOverview.html">Shaders core concepts</a></li>
+<li>着色器加载</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="AsynchronousShaderCompilation.html"></a></span><div class="tip">Asynchronous shader compilation in the Unity Editor</div>
+<span class="prev"><a href="AsynchronousShaderCompilation.html"></a></span><div class="tip">异步着色器编译</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="shader-variant-collections.html"></a></span><div class="tip">Shader variant collections</div>
+<span class="next"><a href="shader-variant-collections.html"></a></span><div class="tip">着色器变体集合</div>
 </div>
 </div></div>
-<h1>Shader loading</h1>
+<h1>着色器加载</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>By default, Unity’s runtime shader loading behavior is:</p>
+<p>默认情况下，Unity 的运行时着色器加载行为如下：</p>
 
-<ul>
-<li>When Unity <a href="scenes-working-with.html">loads a scene</a>, or loads content using <a href="LoadingResourcesatRuntime.html">runtime resource loading</a>, it loads all required <a href="SL-Shader.html">Shader objects</a> into CPU memory.</li>
-<li>The first time Unity needs to render geometry using a shader variant, it passes the data for that variant to the graphics driver. The graphics driver creates a representation of that variant on the GPU, and performs any additional work that the platform requires.</li>
-</ul>
+<p>1.当 Unity <a href="scenes-working-with.html">加载场景</a>或使用<a href="LoadingResourcesatRuntime.html">在运行时加载资源</a>功能加载内容时，它会将所有需要的 <a href="SL-Shader.html">Shader 对象</a>加载到 CPU 内存。
+2.Unity 第一次需要使用着色器变体渲染几何体时，它将该变体的数据传递给图形驱动程序。图形驱动程序在 GPU 上创建该变体的表示，并执行平台所需的任何其他工作。</p>
 
-<p>The benefit of this behavior is that there is no upfront GPU memory usage or load time for shader variants. The downside is that there can be visible stalls when a variant is used for the first time, because the graphics driver must create the shader program on the GPU and perform any additional work.</p>
+<p>这种行为的好处是着色器变体没有前期的 GPU 内存使用或加载时间。缺点是第一次使用变体时可能会出现明显的停顿，因为图形驱动程序必须在 GPU 上创建着色器程序并执行任何额外的工作。</p>
 
 <p><a name="prewarming-shader-variants"></a></p>
 
-<h2>Prewarming shader variants</h2>
+<h2>预热着色器变体</h2>
 
-<p>To avoid visible stalls at performance-intensive times, Unity can ask the graphics driver to create GPU representations of shader variants before they are first needed. This is called <strong>prewarming</strong>.</p>
+<p>为避免在性能开销大时出现明显的停顿，Unity 可以要求图形驱动程序在首次需要着色器变体之前创建它们的 GPU 表示形式。这称为<strong>预热</strong>。</p>
 
-<p><strong>Warning:</strong> Check the notes on graphics API support before choosing how to perform prewarming. On modern graphics APIs such as DX12, Vulkan, and Metal, only the experimental <a href="../ScriptReference/Experimental.Rendering.ShaderWarmup.html">ShaderWarmup</a> API is fully supported, because it lets you specify a vertex format. Using the other methods can result in wasted work and GPU memory, without fixing the stalls.</p>
+<p><strong>警告：</strong>在选择如何执行预热之前，请查看有关图形 API 支持的说明。在 DX12、Vulkan 和 Metal 等现代图形 API 上，只有实验性的 <a href="../ScriptReference/Experimental.Rendering.ShaderWarmup.html">ShaderWarmup</a> API 完全支持，因为它允许您指定顶点格式。使用其他方法可能会导致浪费工作和 GPU 内存，而不会避免停顿。</p>
 
-<p>You can perform prewarming in the following ways: </p>
+<p>您可以按照以下方式执行预热：</p>
 
 <ul>
-<li>Prewarm a given Shader object or shader variant collection using the experimental <a href="../ScriptReference/Experimental.Rendering.ShaderWarmup.html">ShaderWarmup</a> API. For graphics API support, see note 1.</li>
-<li>Prewarm shader variant collections on application start, by adding them to the <a href="class-GraphicsSettings.html#shader-loading">Preloaded shaders section of the Graphics Settings window</a>. For graphics API support, see note 2.</li>
-<li>Prewarm a shader variant collection using the <a href="../ScriptReference/ShaderVariantCollection.WarmUp.html">ShaderVariantCollection.WarmUp</a> API. For graphics API support, see note 2.</li>
-<li>Prewarm all variants of all Shader objects currently in memory using the <a href="Shader.WarmupAllShaders">Shader.WarmupAllShaders</a> API. For graphics API support, see note 2.</li>
+<li>使用实验性 <a href="../ScriptReference/Experimental.Rendering.ShaderWarmup.html">ShaderWarmup</a> API 预热给定的 Shader 对象或着色器变体集合。有关图形 API 支持，请参阅注释 1。</li>
+<li>在应用程序启动时预热着色器变体集合，方法是将它们添加到 <a href="class-GraphicsSettings.html#shader-loading">Preloaded shaders section of the Graphics Settings 窗口</a>。有关图形 API 支持，请参阅注释 2。</li>
+<li>使用 <a href="../ScriptReference/ShaderVariantCollection.WarmUp.html">ShaderVariantCollection.WarmUp</a> API 预热着色器变体集合。有关图形 API 支持，请参阅注释 2。</li>
+<li>使用 <a href="Shader.WarmupAllShaders">Shader.WarmupAllShaders</a> API 预热当前内存中的所有 Shader 对象的所有变体。有关图形 API 支持，请参阅注释 2。</li>
 </ul>
 
 <p><strong>注意：</strong></p>
 
-<ol>
-<li>Fully supported on all graphics APIs.</li>
-<li>Fully supported on DX11 and OpenGL. Partially supported on DX12, Vulkan, and Metal; the graphics driver might still need to perform work if the vertex layout and/or the render target setup is different from the data used to prewarm it.</li>
-</ol>
+<p>1.所有图形 API 完全支持。
+2.DX11 和 OpenGL 完全支持。DX12、Vulkan 和 Metal 部分支持；如果顶点布局和/或者渲染目标设置与用于预热它的数据不同，图形驱动程序可能仍需要执行一些工作。</p>
 
-<h2>Profiler markers for shader loading</h2>
+<h2>用于着色器加载的性能分析器标记</h2>
 
-<p>The profiler marker for Unity creating a representation of shader variant data to send to the GPU is <code>Shader.Parse</code>. The profiler marker for uploading the shader program to the GPU, and waiting for the GPU to perform any required work, is <code>CreateGPUProgram</code>.</p>
+<p>性能分析器标记 <code>Shader.Parse</code> 用于表示 Unity 将创建的着色器变量数据表示发送到 GPU。性能分析器标记 <code>CreateGPUProgram</code> 用于表示将着色器程序上传到 GPU 并等待 GPU 执行任何所需工作。</p>
 
-<p>For information on using the Unity Profiler, see <a href="profiler-profiling-applications.html">Profiler your application</a>.</p>
+<p>有关使用 Unity 性能分析器的信息，请参阅<a href="profiler-profiling-applications.html">对应用程序进行性能分析</a>。</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="AsynchronousShaderCompilation.html"></a></span><div class="tip">Asynchronous shader compilation in the Unity Editor</div>
+<span class="prev"><a href="AsynchronousShaderCompilation.html"></a></span><div class="tip">异步着色器编译</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="shader-variant-collections.html"></a></span><div class="tip">Shader variant collections</div>
+<span class="next"><a href="shader-variant-collections.html"></a></span><div class="tip">着色器变体集合</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

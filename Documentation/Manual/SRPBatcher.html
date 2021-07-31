@@ -175,10 +175,10 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
 <li><a href="render-pipelines.html">渲染管线</a></li>
-<li><a href="ScriptableRenderPipeline.html">Scriptable Render Pipeline fundamentals</a></li>
+<li><a href="ScriptableRenderPipeline.html">可编程渲染管线基础知识</a></li>
 <li>可编程渲染管线 SRP Batcher</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
@@ -186,7 +186,7 @@
 <span class="prev"><a href="srp-using-scriptable-render-context.html"></a></span><div class="tip">在可编程渲染管线中调度和执行渲染命令</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="srp-custom.html"></a></span><div class="tip">Creating a custom render pipeline</div>
+<span class="next"><a href="srp-custom.html"></a></span><div class="tip">创建自定义渲染管线</div>
 </div>
 </div></div>
 <h1>可编程渲染管线 SRP Batcher</h1>
@@ -200,7 +200,7 @@
 <figcaption>可编程渲染管线 SRP Batcher 通过许多使用同一着色器变体的材质来加快场景中的 CPU 渲染速度。</figcaption>
 </figure>
 
-<h2>Using the SRP Batcher</h2>
+<h2>使用 SRP Batcher</h2>
 
 <p>要使用 SRP Batcher，项目必须使用<a href="ScriptableRenderPipeline.html">可编程渲染管线</a>。可编程渲染管线可以是：</p>
 
@@ -213,27 +213,23 @@
 <a href="ScriptableRenderPipeline.html">自定义 SRP</a>。</li>
 </ul>
 
-<p>To activate the SRP Batcher in URP: </p>
+<p>要在 URP 中激活 SRP Batcher，请执行以下操作：</p>
 
-<ol>
-<li>In the Project window, select the <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest/index.html?subfolder=/manual/universalrp-asset.html">URP Asset</a>.
-2.在该资源的 Inspector 中，找到 <strong>Advanced</strong> 部分，然后选中 <strong>SRP Batcher</strong> 复选框。</li>
-</ol>
+<p>1.在 Project 窗口中选择 <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest/index.html?subfolder=/manual/universalrp-asset.html">URP 资源</a>。
+2.在该资源的 Inspector 中，找到 <strong>Advanced</strong> 部分，然后选中 <strong>SRP Batcher</strong> 复选框。</p>
 
 <figure>
 <img src="../uploads/Main/SRPBatcher_Asset.png" alt="可以分别在资源中为 URP 或 HDRP 停用 SRP Batcher。默认情况下已启用 SRP Batcher。">
 <figcaption>可以分别在资源中为 URP 或 HDRP 停用 SRP Batcher。默认情况下已启用 SRP Batcher。</figcaption>
 </figure>
 
-<p>In HDRP, the SRP Batcher is enabled by default and you should not disable it. However, if you want to temporarily disable the SRP Batcher for debugging purposes:</p>
+<p>在 HDRP 中，SRP Batcher 默认为启用状态，不应将其禁用。不过，如果需要暂时禁用 SRP Batcher 以进行调试：</p>
 
-<ol>
-<li>In the Project window, select the <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest/index.html?subfolder=/manual/HDRP-Asset.html">HDRP Asset</a>.</li>
-<li>In the Inspector for the Asset, enter <a href="InspectorOptions.html">Debug Mode</a>. This changes how the HDRP Asset displays its properties and makes the SRP Batcher property appear.</li>
-<li>Disable the <strong>SRP Batcher</strong> checkbox.</li>
-</ol>
+<p>1.在 Project 窗口中选择 <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest/index.html?subfolder=/manual/HDRP-Asset.html">HDRP 资源</a>。
+2.在 Asset Inspector 中，输入 <a href="InspectorOptions.html">Debug Mode</a>。这会更改 HDRP 资源显示其属性的方式并使 SRP Batcher 属性出现。
+3.禁用 <strong>SRP Batcher</strong> 复选框。</p>
 
-<p>You can also enable or disable the SRP Batcher at run time. To do this, toggle the following global variable in your C# code:</p>
+<p>也可以在运行时启用或禁用 SRP Batcher。为此，请在 C# 代码中切换以下全局变量：</p>
 
 <pre><code>GraphicsSettings.useScriptableRenderPipelineBatching = true;
 </code></pre>
@@ -251,7 +247,7 @@
 <thead>
 <tr>
 	<th style="text-align:left;"><strong>平台</strong></th>
-	<th style="text-align:center;"><strong>Minimum Unity version required</strong></th>
+	<th style="text-align:center;"><strong>需要的最低 Unity 版本</strong></th>
 </tr>
 </thead>
 
@@ -285,11 +281,11 @@
 	<td style="text-align:center;">2019.2</td>
 </tr>
 <tr>
-	<td style="text-align:left;">OpenGL 4.2 and higher</td>
+	<td style="text-align:left;">OpenGL 4.2 及更高版本</td>
 	<td style="text-align:center;">2019.1</td>
 </tr>
 <tr>
-	<td style="text-align:left;">OpenGL ES 3.1 and higher</td>
+	<td style="text-align:left;">OpenGL ES 3.1 及更高版本</td>
 	<td style="text-align:center;">2019.1</td>
 </tr>
 <tr>
@@ -341,8 +337,8 @@
 
 <ul>
 <li>渲染的对象必须是网格或蒙皮网格。该对象不能是粒子。</li>
-<li>The shader must be compatible with the SRP Batcher. All Lit and Unlit Shaders in HDRP and URP fit this requirement (except for the Particles versions of these shaders).</li>
-<li>The rendered object must not use MaterialPropertyBlocks.</li>
+<li>着色器必须与 SRP Batcher 兼容。HDRP 和 URP 中的所有光照和无光照着色器均符合此要求（这些着色器的“粒子”版本除外）。</li>
+<li>渲染对象不得使用 MaterialPropertyBlocks。</li>
 </ul>
 
 <p>为了使着色器与 SRP Batcher 兼容：</p>
@@ -409,7 +405,7 @@
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><strong>Standard code path (flushes)</strong></td>
-	<td style="text-align:left;">Indicates the time Unity spent rendering objects that are not compatible with the SRP Batcher, such as particles.<br>In this example, the SRP Batcher flushed 81 objects in 0.80ms: 0.09ms for shadow passes and 0.71ms for all other passes.</td>
+	<td style="text-align:left;">指示 Unity 在渲染与 SRP Batcher 不兼容的对象（如粒子）方面花费的时间。<br>在以上示例中，SRP Batcher 在 0.80 毫秒内刷新了 81 个对象：阴影通道为 0.09 毫秒，所有其他通道为 0.71 毫秒。</td>
 </tr>
 <tr>
 	<td style="text-align:left;" colspan="2"><strong>Global Main Loop: (FPS)</strong></td>
@@ -440,13 +436,13 @@
 <span class="prev"><a href="srp-using-scriptable-render-context.html"></a></span><div class="tip">在可编程渲染管线中调度和执行渲染命令</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="srp-custom.html"></a></span><div class="tip">Creating a custom render pipeline</div>
+<span class="next"><a href="srp-custom.html"></a></span><div class="tip">创建自定义渲染管线</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

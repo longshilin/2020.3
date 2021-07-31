@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Virtual Texturing Profiler module - Unity 手册">
-<title>Virtual Texturing Profiler module - Unity 手册</title>
+<meta property="og:title" content="Virtual Texturing Profiler 模块 - Unity 手册">
+<title>Virtual Texturing Profiler 模块 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/profiler-virtual-texturing.png">
-<meta name="description" content="The Virtual Texturing Profiler module displays statistics about Streaming Virtual Texturing in your application. Virtual Texturing reduces the amount of GPU memory that your application uses, and the loading times of textures in your application if you have a lot of high resolution textures in your scene.">
-<meta property="og:description" content="The Virtual Texturing Profiler module displays statistics about Streaming Virtual Texturing in your application. Virtual Texturing reduces the amount of GPU memory that your application uses, and the loading times of textures in your application if you have a lot of high resolution textures in your scene.">
+<meta name="description" content="Virtual Texturing Profiler 模块显示有关您应用程序中的 Streaming Virtual Texturing 的统计信息。如果场景中有大量高分辨率纹理，虚拟纹理会减少应用程序使用的 GPU 内存量以及应用程序中纹理的加载时间。">
+<meta property="og:description" content="Virtual Texturing Profiler 模块显示有关您应用程序中的 Streaming Virtual Texturing 的统计信息。如果场景中有大量高分辨率纹理，虚拟纹理会减少应用程序使用的 GPU 内存量以及应用程序中纹理的加载时间。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,37 +175,37 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UnityOverview.html">在 Unity 中操作</a></li>
 <li><a href="analysis.html">分析</a></li>
-<li><a href="Profiler.html">Profiler overview</a></li>
-<li><a href="ProfilerWindow.html">The Profiler window</a></li>
-<li>Virtual Texturing Profiler module</li>
+<li><a href="Profiler.html">性能分析器概述</a></li>
+<li><a href="ProfilerWindow.html">Profiler 窗口</a></li>
+<li>Virtual Texturing Profiler 模块</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="profiler-video-profiler-module.html"></a></span><div class="tip">Video Profiler 模块</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="profiler-module-editor.html"></a></span><div class="tip">Profiler Module Editor</div>
+<span class="next"><a href="profiler-module-editor.html"></a></span><div class="tip">Profiler Module Editor（性能分析器模块编辑器）</div>
 </div>
 </div></div>
-<h1>Virtual Texturing Profiler module</h1>
+<h1>Virtual Texturing Profiler 模块</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>The Virtual Texturing Profiler module displays statistics about <a href="svt-streaming-virtual-texturing.html">Streaming Virtual Texturing</a> in your application. Virtual Texturing reduces the amount of GPU memory that your application uses, and the loading times of textures in your application if you have a lot of high resolution textures in your scene.</p>
+<p>Virtual Texturing Profiler 模块显示有关您应用程序中的 <a href="svt-streaming-virtual-texturing.html">Streaming Virtual Texturing</a> 的统计信息。如果场景中有大量高分辨率纹理，虚拟纹理会减少应用程序使用的 GPU 内存量以及应用程序中纹理的加载时间。</p>
 
-<p><strong>Note:</strong> To use the Virtual Texturing Profiler module, in your project’s <strong>Player Settings</strong>, you must enable <strong>Virtual Texturing</strong> (<strong>Edit &gt; Project Settings &gt; Player &gt; Other Settings</strong>).</p>
+<p><strong>注意：</strong>要使用 Virtual Texturing Profiler 模块，必须在您的项目的 <strong>Player Settings</strong> 中启用 <strong>Virtual Texturing</strong> (<strong>Edit &gt; Project Settings &gt; Player &gt; Other Settings</strong>)。</p>
 
 <figure>
-<img src="../uploads/Main/profiler-virtual-texturing.png" alt="Virtual Texturing Profiler module">
-<figcaption>Virtual Texturing Profiler module</figcaption>
+<img src="../uploads/Main/profiler-virtual-texturing.png" alt="Virtual Texturing Profiler 模块">
+<figcaption>Virtual Texturing Profiler 模块</figcaption>
 </figure>
 
-<p>The chart displays information about the texture tiles that are on screen while your application is running, and how much memory the textures use. When you select the Virtual Texturing module, the lower pane of the Profiler window displays statistics such as how much cache size the virtual textures use.</p>
+<p>该图表显示有关应用程序运行时屏幕上的纹理图块的信息，以及纹理使用的内存量。当您选择 Virtual Texturing 模块时，Profiler 窗口的下方窗格会显示统计信息，例如虚拟纹理使用的缓存大小。</p>
 
-<p>The Virtual Texturing Profiler module’s chart is divided into the following categories:</p>
+<p>Virtual Texturing Profiler 模块的图表分为四个类别：</p>
 
 <table>
 <colgroup>
@@ -223,23 +223,23 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><strong>Required Tiles</strong></td>
-	<td style="text-align:left;">The number of texture tiles that are visible on screen. These are the tiles that the shaders try to sample to render the current frame.</td>
+	<td style="text-align:left;">在屏幕上可见的纹理图块的数量。这些是着色器尝试采样以渲染当前帧的图块。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Max Cache Mip Bias</strong></td>
-	<td style="text-align:left;">The automatic mipmap bias applied to all textures with the same texture format. If this value is not zero, then the cache is not large enough to hold all of the tiles of that format that are visible. The higher the mip bias, the lower the texture quality.</td>
+	<td style="text-align:left;">自动 Mipmap 偏差应用于具有相同纹理格式的所有纹理。如果此值不为零，则缓存无法容纳该格式的所有可见图块。Mip 偏差越高，纹理质量越低。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Max Cache Demand</strong></td>
-	<td style="text-align:left;">The highest cache demand of all GPU caches this frame.</td>
+	<td style="text-align:left;">所有缓存此帧的 GPU 的最高缓存需求。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Missing Streaming Tiles</strong></td>
-	<td style="text-align:left;">The number of tiles that are currently visible on the screen but that are not in video memory yet. The application streams these tiles from the disk or copies them from main memory as soon as possible.</td>
+	<td style="text-align:left;">当前在屏幕上可见但尚未加载到视频内存中的图块数量。应用程序会尽快从磁盘流式传输或从主内存复制这些图块。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Missing Disk Data</strong></td>
-	<td style="text-align:left;">The remaining data (in bytes) that the application needs to read from the disk to satisfy the current frame.</td>
+	<td style="text-align:left;">应用程序需要从磁盘读取以满足当前帧的剩余数据（以字节为单位）。</td>
 </tr>
 </tbody>
 </table>
@@ -248,9 +248,9 @@
 
 <h2>模块详细信息面板</h2>
 
-<p>When you click on the Virtual Texturing Profiler module, the details pane in the lower half of the window displays further detailed statistics. These statistics are also available via the <a href="../ScriptReference/Unity.Profiling.ProfilerRecorder.html">ProfilerRecorder API</a> and in the <a href="profiler-module-editor.html">Profiler Module Editor</a> so you can add them to a custom Profiler module.</p>
+<p>当您单击 Virtual Texturing Profiler 模块时，窗口下半部分的详细信息窗格会进一步显示详细的统计信息。这些统计信息也可通过 <a href="../ScriptReference/Unity.Profiling.ProfilerRecorder.html">ProfilerRecorder API</a> 及 <a href="profiler-module-editor.html">Profiler Module Editor</a> 获得，因此您可以将它们添加到自定义性能分析器模块中。</p>
 
-<p>The statistics in the details pane are as follows:</p>
+<p>详细信息窗格中的统计信息如下：</p>
 
 <table>
 <colgroup>
@@ -260,7 +260,7 @@
 
 <thead>
 <tr>
-	<th style="text-align:left;"><strong>Statistic</strong></th>
+	<th style="text-align:left;"><strong>统计信息</strong></th>
 	<th style="text-align:left;"><strong>描述</strong></th>
 </tr>
 </thead>
@@ -268,52 +268,52 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><strong>Required Tiles</strong></td>
-	<td style="text-align:left;">The number of texture tiles that are visible on screen. These are the tiles that the shaders try to sample to render the current frame. If all of these tiles are in the GPU caches then Unity renders the frame with the highest possible texture quality for the current cache sizes.<br><br>Unless the Scene is frozen, then some of these tiles are not in the GPU memory yet. In this case, the virtual texturing sample uses a lower quality sample from a higher mipmap that is in memory, until the higher quality sample arrives in memory.<br><br>The cache mipmap bias affects the number of required tiles. If the mipmap bias is not zero for all caches then the number of Required Tiles is lower than the number required for the optimal texture quality.</td>
+	<td style="text-align:left;">在屏幕上可见的纹理图块的数量。这些是着色器尝试采样以渲染当前帧的图块。如果所有这些图块都加载到 GPU 缓存中，则 Unity 会根据当前缓存大小以最高纹理质量渲染帧。<br><br>除非场景被冻结，否则尚有一些图块未加载到 GPU 内存中。在这种情况下，虚拟纹理样本使用来自内存中较高 Mipmap 的较低质量样本，直到更高质量的样本到达内存。<br><br>缓存 Mipmap 偏差会影响所需图块的数量。如果所有缓存的 Mipmap 偏差不为零，则 Required Tiles（所需图块）的数量低于最佳纹理质量所需的数量。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Atlases</strong></td>
-	<td style="text-align:left;">The number of virtual texture spaces or atlases (maximum of 64). Unity atlasses the textures that are streamed with virtual texturing into large virtual texture spaces. This is automatic and transparent.</td>
+	<td style="text-align:left;">虚拟纹理空间或图集的数量（最多 64 个）。Unity 将通过虚拟纹理流式传输的纹理作为图集发送到大型虚拟纹理空间中。此过程是自动和透明的。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Max Cache Mip Bias</strong></td>
-	<td style="text-align:left;">The mip bias of the GPU cache with the highest mip bias. If this is not zero then at least one of the caches is not large enough to hold all of the texture tiles to render the current frame at the optimal texture quality.</td>
+	<td style="text-align:left;">具有最高 Mip 偏差的 GPU 缓存的 Mip 偏差。如果不为零，则至少一个缓存不够大，无法容纳所有纹理图块以最佳纹理质量渲染当前帧。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Max Cache Demand</strong></td>
-	<td style="text-align:left;">The highest cache demand of all GPU caches this frame represented as a percentage of the GPU. The GPU cache that has the highest demand might need to be larger to avoid mipmap biasing for this cache.<br><br>If the Max Cache Demand statistic is a low percentage then the caches might be too large for the current render resolution and content. The main downside of this is that your application is using more GPU memory than it needs but this is not a problem if your application is not memory constrained.</td>
+	<td style="text-align:left;">所有缓存此帧的 GPU 的最高缓存需求，表示为 GPU 的百分比。具有最高需求的 GPU 缓存可能需要更大，以避免此缓存的 Mipmap 偏差。<br><br>如果 Max Cache Demand 统计数据百分比较低，则该缓存对于当前渲染分辨率和内容可能太大。这样做的主要缺点是您的应用程序使用的 GPU 内存超出其需求，但如果您的应用程序不受内存限制，这不是问题。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Total CPU Cache Size</strong></td>
-	<td style="text-align:left;">The amount of memory that Unity allocates to stored texture tiles after it loads them from disk.</td>
+	<td style="text-align:left;">Unity 从磁盘加载纹理图块后分配给存储的纹理图块的内存量。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Total GPU Cache Size</strong></td>
-	<td style="text-align:left;">The size of all GPU caches that the Virtual Texturing module allocated in the selected frame. Unity only creates a GPU cache when a material that uses a texture of that texture format is rendered.</td>
+	<td style="text-align:left;">Virtual Texturing 模块在选定帧中分配的所有 GPU 缓存的大小。Unity 仅在渲染使用该纹理格式的纹理的材质时创建 GPU 缓存。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">
 <strong>Missing Disk Data</strong><br>(Player builds only)</td>
-	<td style="text-align:left;">The remaining data (in bytes) that the application needs to read from disk to satisfy the current frame. There might be more disk read requests queued up from requests in previous frames that aren’t visible anymore. As such, this is the minimum amount of data that is read from disk if no new tiles become visible. The actual amount of data the application reads might be larger.</td>
+	<td style="text-align:left;">应用程序需要从磁盘读取以满足当前帧的剩余数据（以字节为单位）。队列中可能有更多的磁盘读取请求是来自不再可见的前一帧中的请求。因此，这是在没有新图块可见的情况下从磁盘读取的最小数据量。应用程序读取的实际数据量可能更大。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">
 <strong>Missing Streaming Tiles</strong><br>(Player builds only)</td>
-	<td style="text-align:left;">The number of tiles that are currently visible on the screen but that are not in memory yet. These tiles are streamed from disk as soon as possible. This number could be higher if for example the camera moves. It should quickly fall to zero if the scene and camera freeze and no new tiles are visible.</td>
+	<td style="text-align:left;">当前在屏幕上可见但尚未加载到内存中的图块数量。这些图块会尽快从磁盘流式传输。例如，如果摄像机移动，这个数字可能会更高。如果场景和摄像机冻结并且看不到新的图块，它应该很快降到零。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">
 <strong>Read From Disk</strong><br>(Player builds only)</td>
-	<td style="text-align:left;">The number of bytes of disk read operations that Unity completed this frame.</td>
+	<td style="text-align:left;">Unity 完成此帧的磁盘读取操作的字节数。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">
 <strong>% Cache demands</strong><br>(Player builds only)</td>
-	<td style="text-align:left;">The amount of cache demand each <a href="../ScriptReference/Experimental.Rendering.GraphicsFormat.html">graphics format</a> uses. <strong>Note:</strong> This statistic is not available in custom profilers</td>
+	<td style="text-align:left;">每个<a href="../ScriptReference/Experimental.Rendering.GraphicsFormat.html">图形格式</a>使用的缓存需求量。<strong>注意：</strong>此统计信息在自定义性能分析器中不可用</td>
 </tr>
 <tr>
 	<td style="text-align:left;">
 <strong>Mipmap bias per format</strong><br>(Player builds only)</td>
-	<td style="text-align:left;">The amount of mipmap bias cache each <a href="../ScriptReference/Experimental.Rendering.GraphicsFormat.html">graphics format</a> uses. <strong>Note:</strong> This statistic is not available in custom profilers</td>
+	<td style="text-align:left;">每个<a href="../ScriptReference/Experimental.Rendering.GraphicsFormat.html">图形格式</a>使用的 Mipmap 偏差缓存量。<strong>注意：</strong>此统计信息在自定义性能分析器中不可用</td>
 </tr>
 </tbody>
 </table>
@@ -323,13 +323,13 @@
 <span class="prev"><a href="profiler-video-profiler-module.html"></a></span><div class="tip">Video Profiler 模块</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="profiler-module-editor.html"></a></span><div class="tip">Profiler Module Editor</div>
+<span class="next"><a href="profiler-module-editor.html"></a></span><div class="tip">Profiler Module Editor（性能分析器模块编辑器）</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

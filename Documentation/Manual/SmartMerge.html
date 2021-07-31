@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Smart Merge - Unity 手册">
-<title>Smart Merge - Unity 手册</title>
-<meta name="description" content="Unity 包含一个名为 UnityYAMLMerge 的工具，能够以语义正确的方式合并场景和预制件文件。可从命令行中访问该工具，也可将其用于第三方版本控制软件。">
-<meta property="og:description" content="Unity 包含一个名为 UnityYAMLMerge 的工具，能够以语义正确的方式合并场景和预制件文件。可从命令行中访问该工具，也可将其用于第三方版本控制软件。">
+<meta property="og:title" content="Smart merge - Unity 手册">
+<title>Smart merge - Unity 手册</title>
+<meta name="description" content="Use the UnityYAMLMerge tool to merge scene and prefab files in a semantically correct way. The tool can be accessed from the command line and is also available to third-party version control software.">
+<meta property="og:description" content="Use the UnityYAMLMerge tool to merge scene and prefab files in a semantically correct way. The tool can be accessed from the command line and is also available to third-party version control software.">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,11 +174,11 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UnityOverview.html">在 Unity 中操作</a></li>
 <li><a href="EditorFeatures.html">编辑器功能</a></li>
 <li><a href="VersionControl.html">版本控制</a></li>
-<li>Smart Merge</li>
+<li>Smart merge</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -188,15 +188,15 @@
 <span class="next"><a href="MultiSceneEditing.html"></a></span><div class="tip">多场景编辑</div>
 </div>
 </div></div>
-<h1>Smart Merge</h1>
+<h1>Smart merge</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>Unity 包含一个名为 <strong>UnityYAMLMerge</strong> 的工具，能够以语义正确的方式合并场景和预制件文件。可从命令行中访问该工具，也可将其用于第三方版本控制软件。</p>
+<p>Use the <strong>UnityYAMLMerge</strong> tool to merge scene and prefab files in a semantically correct way. The tool can be accessed from the command line and is also available to third-party version control software.</p>
 
-<h2>在 Unity 中设置智能合并</h2>
+<h2>Setting up smart merging in Unity</h2>
 
-<p>在 <a href="class-EditorManager.html">Editor</a> 窗口（菜单：__Edit &gt; Project Settings__，然后选择 <strong>Editor</strong> 类别）中，可以选择第三方版本控制工具（例如 Perforce 或 PlasticSCM）。启用其中一个工具后，将在 <em>Version Control</em> 标题下看到 <em>Smart Merge</em> 菜单。该菜单具有四个选项：</p>
+<p>In the Version Control project settings (menu: <strong>Edit</strong> &gt; <strong>Project Settings</strong> &gt; <strong>Version Control</strong>), when you select a third-party version control tool in the <strong>Mode</strong> field, for example Perforce or PlasticSCM, the <strong>Smart Merge</strong> is displayed. The menu has the following options:</p>
 
 <ul>
 <li>
@@ -207,7 +207,7 @@
 <strong>Ask</strong>：启用智能合并，但发生冲突时显示一个对话框让用户解决冲突（这是默认设置）。</li>
 </ul>
 
-<h2>设置 UnityYAMLMerge 与第三方工具结合使用</h2>
+<h2>Setting up UnityYAMLMerge for use with third-party tools</h2>
 
 <p>UnityYAMLMerge 工具随附于 Unity Editor；假设 Unity 安装在标准位置，则 UnityYAMLMerge 的路径将是：</p>
 
@@ -231,20 +231,20 @@ C:\Program Files (x86)\Unity\Editor\Data\Tools\UnityYAMLMerge.exe
 
 <p>UnityYAMLMerge 附带了一个默认的回退文件（称为 mergespecfile.txt，也在 Tools 文件夹中），用于指定如何处理未解决的冲突或未知文件。此外，还可将其用作不会根据文件扩展名自动选择合并工具的版本控制系统（例如 git）的主要合并工具。默认情况下，mergespecfile.txt 中已列出最常用的工具，但可以编辑此文件以添加新工具或更改选项。</p>
 
-<p>可从命令行中将 UnityYAMLMerge 作为独立工具运行（若要查看该工具的完整使用说明，可在运行时不带任何参数）。下面给出了常见版本控制系统的设置说明。</p>
+<p>You can run UnityYAMLMerge as a standalone tool from the command line (you can see full usage instructions by running it without any arguments). Setup instructions for common version control systems are given below.</p>
 
 <h3>P4V</h3>
 
-<ul>
-<li>选择 Preferences &gt; Merge。</li>
-<li>选择 <em>Other application</em>。</li>
-<li>单击 <em>Add</em> 按钮。</li>
-<li>在 Extension 字段中，输入 <code>.unity</code>。</li>
-<li>在 Application 字段中，输入 UnityYAMLMerge 工具的路径（见下文）。</li>
-<li>在 Arguments 字段中，输入 <code>merge -p %b %1 %2 %r</code>
+<ol>
+<li>Go to Preferences &gt; Merge.</li>
+<li>Select <em>Other application</em>.</li>
+<li>Click the <em>Add</em> button.</li>
+<li>In the extension field, type <code>.unity</code>.</li>
+<li>In the Application field, type the path to the UnityYAMLMerge tool (see above).</li>
+<li>In the Arguments field, type <code>merge -p %b %1 %2 %r</code>
 </li>
-<li>单击 Save。</li>
-</ul>
+<li>Click Save.</li>
+</ol>
 
 <p>然后，按照相同的步骤添加 <code>.prefab</code> 扩展名。</p>
 
@@ -286,11 +286,11 @@ C:\Program Files (x86)\Unity\Editor\Data\Tools\UnityYAMLMerge.exe
 
 <h3>TortoiseGit</h3>
 
-<ul>
-<li>选择 Preferences &gt; Diff Viewer &gt; Merge Tool，然后单击 <em>Advanced</em> 按钮。</li>
-<li>在弹出框的 Extension 字段中，输入 <code>.unity</code>。</li>
-<li>在 External Program 字段中，输入：</li>
-</ul>
+<ol>
+<li>Go to Preferences &gt; Diff Viewer &gt; Merge Tool and click the <strong>Advanced</strong> button.</li>
+<li>In the popup, type <code>.unity</code> in the extension field.</li>
+<li>In the <strong>External Program</strong> field type:</li>
+</ol>
 
 <pre><code>    &lt;path to UnityYAMLMerge&gt; merge -p %base %theirs %mine %merged
 </code></pre>
@@ -299,13 +299,13 @@ C:\Program Files (x86)\Unity\Editor\Data\Tools\UnityYAMLMerge.exe
 
 <h3>PlasticSCM</h3>
 
-<ul>
-<li>选择 Preferences &gt; Merge Tools，然后单击 <em>Add</em> 按钮。</li>
-<li>选择 <em>External</em> 合并工具。</li>
-<li>选择 <em>Use with files that match the following pattern</em>。</li>
-<li>添加 <code>.unity</code> 扩展名。</li>
-<li>输入以下命令：</li>
-</ul>
+<ol>
+<li>Go to Preferences &gt; Merge Tools and click the <strong>Add</strong> button.</li>
+<li>Select <strong>External</strong> merge tool.</li>
+<li>Select <strong>Use with files that match the following pattern</strong>.</li>
+<li>Add the <code>.unity</code> extension.</li>
+<li>Enter the command:</li>
+</ol>
 
 <pre><code>    &lt;path to UnityYAMLMerge&gt; merge -p "@basefile" "@sourcefile"  "@destinationfile" "@output"
 </code></pre>
@@ -314,27 +314,27 @@ C:\Program Files (x86)\Unity\Editor\Data\Tools\UnityYAMLMerge.exe
 
 <h3>SourceTree</h3>
 
-<ul>
-<li>选择 Tools &gt; Options &gt; Diff。</li>
-<li>在 Merge Tool 下拉选单中选择 <em>Custom</em>。</li>
-<li>在 <em>Merge Command</em> 文本字段中，输入 UnityYAMLMerge 的路径。</li>
-<li>在 <em>Arguments</em> 文本字段中，输入 <code>merge -p $BASE $REMOTE $LOCAL $MERGED</code>。</li>
-</ul>
+<ol>
+<li>Go to Tools &gt; Options &gt; Diff.</li>
+<li>Select <strong>Custom</strong> in the Merge Tool dropdown.</li>
+<li>Type the path to UnityYAMLMerge in the <strong>Merge Command</strong> field.</li>
+<li>Type <code>merge -p $BASE $REMOTE $LOCAL $MERGED</code> in the <strong>Arguments</strong> field.</li>
+</ol>
 
-<h2>Configuring mergerules.txt</h2>
+<h2>配置 mergerules.txt</h2>
 
-<p>To customize how UnityYAMLMerge merges files, configure the mergerules.txt file. This is available in the <code>Editor/Data/Tools</code> folder of your Unity installation.
-The various configuration options are as follows.</p>
+<p>要自定义 UnityYAMLMerge 合并文件的方式，请配置 mergerules.txt 文件。该文件位于您的 Unity 安装的 <code>Editor/Data/Tools</code> 文件夹中。
+各种配置选项如下。</p>
 
 <h3>数组</h3>
 
-<p>The arrays configuration section tells UnityYAMLMerge to treat the specified path as an array; either as a “set” with a key value, or as a “plain” array without key values. The default for all arrays is to do a hybrid mode and try to match with some known heuristics.</p>
+<p>arrays 配置部分告知 UnityYAMLMerge 将指定路径视为一个数组；或者作为带有键值的 “set”，或者作为没有键值的 “plain” 数组。所有数组的默认设置是采用混合模式并尝试与一些已知的启发式方法匹配。</p>
 
 <ul>
 <li>&lt;mode&gt; is one of “set” or “plain”</li>
 </ul>
 
-<h4>Example (as per default mergerules file)</h4>
+<h4>示例（根据默认的 mergerules 文件）</h4>
 
 <pre><code>[arrays]
 set *.GameObject.m_Component *.fileID
@@ -345,13 +345,13 @@ plain *.Renderer.m_Materials
 
 <h3>Exclusions</h3>
 
-<p>The exclusions configuration section indicates which paths to exclude from merging. If both sides have been modified, they are then treated as a conflict and will show up for user input.</p>
+<p>exclusions 配置部分指示要从合并中排除哪些路径。如果双方都已修改，则它们将被视为冲突，并将显示给用户输入。</p>
 
 <ul>
 <li>&lt;mode&gt; is one of “include”, “exclude”, “includeIfContains”, “excludeIfContains”</li>
 </ul>
 
-<h4>Example (as per default mergerules file)</h4>
+<h4>示例（根据默认的 mergerules 文件）</h4>
 
 <pre><code>[exclusions]
 exclude *.MeshRenderer.m_Materials.*
@@ -360,14 +360,14 @@ exclude *.SpriteRenderer.m_Color
 include *.ParticleSystem.InitialModule
 exclude *.ParticleSystem.*
 exclude *.ParticleSystem.InitialModule.*
-#excludeDepend *.MonoBehaviour m_Script ^m_
+# excludeDepend *.MonoBehaviour m_Script ^m_
 excludeIfContains *.MonoBehaviour.* x y z
 excludeIfContains *.MonoBehaviour.* r g b
 </code></pre>
 
 <h3>Comparisons</h3>
 
-<p>The comparisons section takes into account negligible differences between float values to ignore per user settings. When enabled, floating point comparison is done relatively to account for relative error. You can configure comparison in the following ways:</p>
+<p>comparisons 部分考虑了浮点值之间可以忽略的差异，以忽略每个用户的设置。启用后，在浮点比较时会考虑相对误差。您可以按照以下方式配置比较：</p>
 
 <ul>
 <li>“float” &lt;float value to compare&gt; (This sets epsilon to a default value close to machine epsilon)</li>
@@ -375,9 +375,9 @@ excludeIfContains *.MonoBehaviour.* r g b
 <li>“float” &lt;float value to compare&gt; &lt;relative comparison value&gt; &lt;absolute comparison cutoff&gt;</li>
 </ul>
 
-<p>The relative comparison value determines epsilon and how comparison will scale with the size of the floats’ relative error. The absolute comparison cutoff determines at which point float comparison switches from absolute to relative from zero (on a graph).</p>
+<p>相对比较值决定了 epsilon 以及比较将如何随着浮点数相对误差的大小而缩放。绝对比较截止值决定了在距离 0 点的哪个位置将浮点比较从绝对切换到相对（在图上）。</p>
 
-<p><strong>Note</strong>: Comparison values should be between float epsilon (~0.00000011921) and 1.0</p>
+<p><strong>注意</strong>：比较值应该在 float epsilon（<sub>0</sub>.00000011921）和 1.0 之间</p>
 
 <h4>示例</h4>
 
@@ -402,7 +402,7 @@ float *.Transform.m_LocalRotation.w
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

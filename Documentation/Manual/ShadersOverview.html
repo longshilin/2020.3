@@ -11,10 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="编写着色器 - Unity 手册">
-<title>编写着色器 - Unity 手册</title>
-<meta name="description" content="Unity 中的着色器可以用三种不同的方式编写：">
-<meta property="og:description" content="Unity 中的着色器可以用三种不同的方式编写：">
+<meta property="og:title" content="Shaders core concepts - Unity 手册">
+<title>Shaders core concepts - Unity 手册</title>
+<meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/shader-core-concepts.png">
+<meta name="description" content="This section contains information on the fundamentals of working with shaders in Unity.">
+<meta property="og:description" content="This section contains information on the fundamentals of working with shaders in Unity.">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,84 +175,91 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
-<li>编写着色器</li>
+<li><a href="Shaders.html">着色器</a></li>
+<li>Shaders core concepts</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="class-CubemapArray.html"></a></span><div class="tip">Cubemap arrays</div>
+<span class="prev"><a href="Shaders.html"></a></span><div class="tip">着色器</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="shader-StandardShader.html"></a></span><div class="tip">标准着色器</div>
+<span class="next"><a href="shader-introduction.html"></a></span><div class="tip">着色器简介</div>
 </div>
 </div></div>
-<h1>编写着色器</h1>
+<h1>Shaders core concepts</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>Unity 中的着色器可以用三种不同的方式编写：</p>
+<p>This section contains information on the fundamentals of working with shaders in Unity.</p>
 
-<h3>表面着色器</h3>
+<figure>
+<img src="../uploads/Main/shader-core-concepts.png" alt="Screenshot from The Heretic.">
+<figcaption>Screenshot from The Heretic.</figcaption>
+</figure>
 
-<p>如果着色器需要受到光照和阴影的影响，则<a href="SL-SurfaceShaders.html">表面着色器</a>是您的最佳选择。表面着色器以简洁的方式使编写复杂的着色器变得容易 - 这是与 Unity 光照管线进行交互的更高级别抽象。大多数表面着色器自动支持前向和延迟光照。您可以用几行 <strong>Cg/HLSL</strong> 编写表面着色器，随后就能在此基础上自动生成更多代码。</p>
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
 
-<p>如果您的着色器与光照没有任何关联，请不要使用表面着色器。对于<a href="PostProcessingOverview.html">后期处理效果</a>或许多特殊效果着色器，表面着色器是次优选项，因为它们会无缘无故进行大量光照计算。</p>
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>页面</strong></th>
+	<th style="text-align:left;"><strong>描述</strong></th>
+</tr>
+</thead>
 
-<h3>顶点和片元着色器</h3>
+<tbody>
+<tr>
+	<td style="text-align:left;"><a href="shader-introduction.html">Shaders introduction</a></td>
+	<td style="text-align:left;">Introductory information about shaders, and key terminology.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="shader-objects.html">The Shader class</a></td>
+	<td style="text-align:left;">An overview of the Shader class, which acts as a wrapper for regular graphics shader programs.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="class-Shader.html">Shader assets</a></td>
+	<td style="text-align:left;">Information about assets that represent an instance of the Shader class.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="shader-compilation.html">Shader compilation</a></td>
+	<td style="text-align:left;">How and when Unity compiles shaders.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="shader-loading.html">Shader loading</a></td>
+	<td style="text-align:left;">How and when Unity loads shaders.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="shader-variant-collections.html">Shader variant collections</a></td>
+	<td style="text-align:left;">Collections of shader variants that you can use when compiling and loading shaders.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="SL-ShaderReplacement.html">Replacing shaders at runtime</a></td>
+	<td style="text-align:left;">In the Built-in Render Pipeline, you can tell a Camera to change the shader that it uses to render certain geometry at runtime.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><a href="class-ComputeShader.html">Compute shaders</a></td>
+	<td style="text-align:left;">Working with compute shaders in Unity.</td>
+</tr>
+</tbody>
+</table>
 
-<p>如果您的着色器不需要与光照交互，或者如果您需要无法由表面着色器处理的非常奇特的效果，则需要使用<a href="SL-ShaderPrograms.html">顶点和片元着色器</a>。以这种方式编写的着色器程序是创建所需效果的最灵活方法（甚至表面着色器也会自动转换为一堆顶点和片元着色器），但这需要付出代价：必须编写更多的代码并且更难以让它与光照互动。这些着色器也是以 <strong>Cg/HLSL</strong> 编写。</p>
-
-<h3>固定函数着色器</h3>
-
-<p>固定函数着色器是传统的着色器语法，用于非常简单的效果。建议编写可编程的着色器，因为这样可以提供更大的灵活性。固定函数着色器完全用一种名为 <strong>ShaderLab</strong> 的语言编写，此语言类似于 Microsoft 的 .FX 文件或 NVIDIA 的 CgFX。在内部，所有固定函数着色器在导入着色器时转换为<a href="SL-ShaderPrograms.html">顶点和片元着色器</a>。</p>
-
-<h2>ShaderLab</h2>
-
-<p>无论您选择哪种类型的着色器，实际的着色器代码始终包含在用于组织着色器结构的 ShaderLab 中。如下所示：</p>
-
-<pre><code>Shader "MyShader" {
-    Properties {
-        _MyTexture ("My Texture", 2D) = "white" { }
-        // 此处还放置颜色或矢量等其他属性
-    }
-    SubShader {
-        // 此处放置
-        // - 表面着色器或
-        // - 顶点和片元着色器或
-        // - 固定函数着色器
-    }
-    SubShader {
-        // 此处放置上述 SubShader 更简单的 "fallback" 版本
-        // 此版本能够在较旧的显卡上运行
-    }
-}
-</code></pre>
-
-<p>我们建议您首先阅读 <a href="SL-Shader.html">ShaderLab 参考</a>中的 ShaderLab 语法的一些基本概念，然后继续学习下面列出的教程。</p>
-
-<p>这些教程包含了大量不同类型着色器的示例。Unity 的<a href="PostProcessingOverview.html">后期处理效果</a>允许您使用着色器创建许多有趣的效果。</p>
-
-<p>请继续阅读着色器的介绍，并查看<a href="SL-Reference.html">着色器参考</a>！</p>
-
-<ul>
-<li><a href="SL-SurfaceShaders.html">表面着色器</a></li>
-<li><a href="SL-ShaderPrograms.html">编写顶点和片元着色器</a></li>
-</ul>
-<!-- area:graphics -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="class-CubemapArray.html"></a></span><div class="tip">Cubemap arrays</div>
+<span class="prev"><a href="Shaders.html"></a></span><div class="tip">着色器</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="shader-StandardShader.html"></a></span><div class="tip">标准着色器</div>
+<span class="next"><a href="shader-introduction.html"></a></span><div class="tip">着色器简介</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

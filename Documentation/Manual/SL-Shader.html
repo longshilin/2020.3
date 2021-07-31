@@ -11,14 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="ShaderLab 语法 - Unity 手册">
-<title>ShaderLab 语法 - Unity 手册</title>
-<meta name="description" content="Unity 中的所有着色器文件都是用名为&amp;#8220;ShaderLab&amp;#8221;的声明性语言编写的。在文件中，通过嵌套括号
-语法声明着色器的各个描述，例如，Material Inspector 中显示的着色器属性，要执行哪些类型的硬件回退，以及要使用哪些类型的混合模式。实际着色器代码
-编写在同一着色器文件中的 CGPROGRAM 代码片段中。有关更多信息，请参阅编写表面着色器和编写顶点和片元着色器。">
-<meta property="og:description" content="Unity 中的所有着色器文件都是用名为&amp;#8220;ShaderLab&amp;#8221;的声明性语言编写的。在文件中，通过嵌套括号
-语法声明着色器的各个描述，例如，Material Inspector 中显示的着色器属性，要执行哪些类型的硬件回退，以及要使用哪些类型的混合模式。实际着色器代码
-编写在同一着色器文件中的 CGPROGRAM 代码片段中。有关更多信息，请参阅编写表面着色器和编写顶点和片元着色器。">
+<meta property="og:title" content="ShaderLab：定义 Shader 对象 - Unity 手册">
+<title>ShaderLab：定义 Shader 对象 - Unity 手册</title>
+<meta name="description" content="要使用 ShaderLab 定义 Shader 对象，可以使用 Shader 代码块。本页面包含有关使用 Shader 代码块的信息。">
+<meta property="og:description" content="要使用 ShaderLab 定义 Shader 对象，可以使用 Shader 代码块。本页面包含有关使用 Shader 代码块的信息。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -178,115 +174,140 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
-<li><a href="ShadersOverview.html">编写着色器</a></li>
-<li><a href="SL-Reference.html">着色器参考</a></li>
-<li>ShaderLab 语法</li>
+<li><a href="Shaders.html">着色器</a></li>
+<li><a href="shader-writing.html">编写着色器</a></li>
+<li><a href="SL-Reference.html">ShaderLab</a></li>
+<li>ShaderLab：定义 Shader 对象</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-SamplerStates.html"></a></span><div class="tip">使用采样器状态</div>
+<span class="prev"><a href="SL-Reference.html"></a></span><div class="tip">ShaderLab</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-Properties.html"></a></span><div class="tip">ShaderLab：Properties</div>
+<span class="next"><a href="SL-Properties.html"></a></span><div class="tip">ShaderLab：定义材质属性</div>
 </div>
 </div></div>
-<h1>ShaderLab 语法</h1>
+<h1>ShaderLab：定义 Shader 对象</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>Unity 中的所有<a href="class-Shader.html">着色器</a>文件都是用名为“ShaderLab”的声明性语言编写的。在文件中，通过嵌套括号
-语法声明着色器的各个描述，例如，Material Inspector 中显示的着色器属性，要执行哪些类型的硬件回退，以及要使用哪些类型的混合模式。实际着色器代码
-编写在同一着色器文件中的 <code>CGPROGRAM</code> 代码片段中。有关更多信息，请参阅<a href="SL-SurfaceShaders.html">编写表面着色器</a>和<a href="SL-ShaderPrograms.html">编写顶点和片元着色器</a>。</p>
+<p>要使用 ShaderLab 定义 Shader 对象，可以使用 <code>Shader</code> 代码块。本页面包含有关使用 <code>Shader</code> 代码块的信息。</p>
 
-<p>本页以及子页面将介绍嵌套括号“ShaderLab”语法。<code>CGPROGRAM</code> 代码片段是用常规
-HLSL/Cg 着色语言编写的，请参阅<a href="SL-ShaderPrograms.html">相关文档页面</a>。</p>
+<p>有关 Shader 对象的工作原理以及 Shader 对象、子着色器与通道之间关系的信息，请参阅 <a href="shader-objects.html">Shader 对象简介</a>。</p>
 
-<p><strong>Shader</strong> 是着色器文件的根命令。每个文件必须定义一个（且仅一个）Shader。Shader 指定当对象的材质使用此着色器时如何渲染此类对象。</p>
+<h2>概述</h2>
 
-<h2>语法</h2>
+<p>Shader 对象是 Unity 特定的概念；它是着色器程序和其他信息的封装器。它允许您在同一个文件中定义多个着色器程序，并告诉 Unity 如何使用它们。</p>
 
-<pre><code>Shader "name" { [Properties] Subshaders [Fallback] [CustomEditor] }
-</code></pre>
+<p>Shader 对象具有嵌套结构；它将信息组织成结构（称为 SubShader 和 Pass）。</p>
 
-<p>定义着色器。此着色器将以指定的<strong>名称</strong>显示在材质检视面板中。着色器可以选择性地定义在材质检视面板中显示的<strong>属性</strong>列表。在此之后是子着色器的列表，以及可选的回退和/或自定义编辑器声明。</p>
+<h2>渲染管线兼容性</h2>
 
-<h2>详细信息</h2>
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
 
-<h3>属性</h3>
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>功能名称</strong></th>
+	<th style="text-align:left;"><strong>内置渲染管线</strong></th>
+	<th style="text-align:left;"><strong>通用渲染管线 (URP)</strong></th>
+	<th style="text-align:left;"><strong>高清渲染管线 (HDRP)</strong></th>
+	<th style="text-align:left;"><strong>自定义 SRP</strong></th>
+</tr>
+</thead>
 
-<p>着色器可以具有<a href="SL-Properties.html">属性</a>列表。着色器中声明的所有属性都会显示在 Unity 中的<a href="class-Material.html">材质检视面板</a>中。典型的属性包括对象颜色、纹理或者着色器要使用的任意值。</p>
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>ShaderLab：Shader 代码块</strong></td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+</tr>
+</tbody>
+</table>
 
-<h3>子着色器和回退</h3>
+<h2>使用 Shader 代码块</h2>
 
-<p>每个着色器均包含一组<a href="SL-SubShader.html">子着色器</a>。必须至少包含一个子着色器。加载着色器时，Unity 将检查子着色器的列表，并选取最终用户的机器支持的第一个子着色器。如果不支持任何子着色器，Unity 将尝试使用<a href="SL-Fallback.html">回退着色器</a>。</p>
+<p>在 <code>Shader</code> 代码块中，可以：</p>
 
-<p>不同显卡具有不同功能。这给游戏开发者带来了一个永恒的问题；您希望游戏在最新款硬件上呈现出色的画面，但又不希望这些出色画面只能在数量仅占 3% 的最新款硬件上呈现。这时候就需要使用子着色器。可创建一个子着色器，使其包含您所能想象的所有奇幻图形特效，然后为型号更老的显卡添加更多子着色器。这些子着色器可能会以更慢的速度来实现您想要的效果，或者可能选择不实现某些细节。</p>
+<ul>
+<li>使用 <code>Properties</code> 代码块定义材质属性。参阅 <a href="SL-Properties.html">ShaderLab：定义材质属性</a>。</li>
+<li>使用 <code>SubShader</code> 代码块定义一个或多个子着色器。请参阅 <a href="SL-SubShader.html">ShaderLab：定义子着色器</a>。</li>
+<li>分配一个<a href="editor-CustomEditors.html">自定义编辑器</a>，它确定着色器资源在 Unity 编辑器中的显示方式。或者，可以为不同的渲染管线分配不同的自定义编辑器。请参阅 <a href="SL-CustomEditor.html">ShaderLab：分配自定义编辑器</a>。</li>
+<li>使用 <code>Fallback</code> 代码块分配一个回退 Shader 对象。参阅 <a href="SL-Fallback.html">ShaderLab：分配回退</a>。</li>
+</ul>
 
-<p>着色器的“细节级别”(LOD) 和“着色器替换”是两种同样基于子着色器的技术，请参阅<a href="SL-ShaderLOD.html">着色器 LOD</a> 和<a href="SL-ShaderReplacement.html">着色器替换</a>以了解想象信息。</p>
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>签名</strong></th>
+	<th style="text-align:left;"><strong>功能</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">
+<code>Shader "&lt;name&gt;"</code><br><code>{</code><br>    <code>&lt;optional: Material properties&gt;</code><br>    <code>&lt;One or more SubShader definitions&gt;</code><br>    <code>&lt;optional: custom editor&gt;</code><br>    <code>&lt;optional: fallback&gt;</code><br><code>}</code>
+</td>
+	<td style="text-align:left;">定义具有给定名称的 Shader 对象。</td>
+</tr>
+</tbody>
+</table>
 
 <h2>示例</h2>
 
-<p>下面是最简单的着色器之一：</p>
+<p>此示例代码演示 Shader 对象的基本语法和结构。示例 Shader 对象有一个包含单个通道的 SubShader。它定义材质属性、一个 CustomEditor 和一个 Fallback。</p>
 
-<pre><code>// 有色顶点光照
-Shader "Simple colored lighting"
+<pre><code>Shader "Examples/ShaderSyntax"
 {
-    // 单个颜色属性
-    Properties {
-        _Color ("Main Color", Color) = (1,.5,.5,1)
+    CustomEditor = "ExampleCustomEditor"
+
+    Properties
+    {
+        // 此处是材质属性声明
     }
-    // 定义一个子着色器
     SubShader
     {
-        // 子着色器中的单个通道
+        // 此处是定义子着色器的其余代码
+
         Pass
         {
-            // 使用固定函数每顶点光照
-            Material
-            {
-                Diffuse [_Color]
-            }
-            Lighting On
+           // 此处是定义通道的代码
         }
     }
+
+    Fallback "ExampleFallbackShader"
 }
 </code></pre>
 
-<p>此着色器定义了颜色属性 <strong>_Color__（在材质检视面板中显示为 _Main Color_），默认值为 </strong>(1,0.5,0.5,1)__。然后，定义了单个子着色器。该子着色器包含一个 <a href="SL-Pass.html">Pass</a>，用于启用固定函数顶点光照并为其设置基本材质。</p>
-
-<p>请参阅<a href="SL-SurfaceShaderExamples.html">表面着色器示例</a>或
-<a href="SL-VertexFragmentShaderExamples.html">顶点和片元着色器示例</a>中提供的更复杂示例。</p>
-
-<h2>另请参阅</h2>
-
-<ul>
-<li>
-<a href="SL-Properties.html">Properties 语法</a>。</li>
-<li>
-<a href="SL-SubShader.html">SubShader 语法</a>。</li>
-<li>
-<a href="SL-Pass.html">Pass 语法</a>。</li>
-<li>
-<a href="SL-Fallback.html">Fallback 语法</a>。</li>
-<li>
-<a href="SL-CustomEditor.html">CustomEditor 语法</a>。</li>
-</ul>
-<!-- area:graphics -->
+<p>For example custom shaders that are compatible with different render pipelines, see <a href="shader-writing-vertex-fragment.html">Example custom shaders</a></p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-SamplerStates.html"></a></span><div class="tip">使用采样器状态</div>
+<span class="prev"><a href="SL-Reference.html"></a></span><div class="tip">ShaderLab</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-Properties.html"></a></span><div class="tip">ShaderLab：Properties</div>
+<span class="next"><a href="SL-Properties.html"></a></span><div class="tip">ShaderLab：定义材质属性</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

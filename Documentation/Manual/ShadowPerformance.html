@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
 <li><a href="LightingOverview.html">光照</a></li>
 <li><a href="Shadows.html">阴影</a></li>
@@ -210,9 +210,13 @@
 
 <p><a name="LightBias"></a> </p>
 
-<h3>Bias 属性</h3>
+<h3>light bias 设置</h3>
 
-<p>为了防止阴影暗斑，可在阴影贴图中的距离上添加 <strong>Bias</strong> 值，从而确保边线上的像素确实符合比较预期，或者确保在渲染到阴影贴图时游戏对象可以沿着自身法线插入一点点。启用阴影后，这些值由 <a href="class-Light.html">Light</a> Inspector 窗口中的 <strong>Bias</strong> 和 <strong>Normal Bias</strong> 属性设定。</p>
+<p>为防止阴影暗斑，可以调整 <strong>light bias</strong> 设置。</p>
+
+<p>可以向阴影贴图中的距离添加偏差，以确保边界线上的像素通过比较，也可以沿其法线将几何体稍微嵌入一点。</p>
+
+<p>在内置渲染管线中，启用阴影后，可以通过 <a href="class-Light.html">Light</a> Inspector 窗口中的 <strong>Bias</strong> 和 <strong>Normal Bias</strong> 属性设置这些值。</p>
 
 <p>不要将 <strong>Bias</strong> 值设置得太高，因为游戏对象附近的阴影周围区域有时会被错误地照亮。这会导致阴影脱离游戏对象，使游戏对象看起来好像飘在地面上方。</p>
 
@@ -291,7 +295,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

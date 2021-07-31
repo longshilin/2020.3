@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Importer Consistency - Unity 手册">
-<title>Importer Consistency - Unity 手册</title>
-<meta name="description" content="Asset importers, including any scripted importers that you write, should produce consistent (deterministic) results. This means they should always produce the same output from the same input and set of dependencies.">
-<meta property="og:description" content="Asset importers, including any scripted importers that you write, should produce consistent (deterministic) results. This means they should always produce the same output from the same input and set of dependencies.">
+<meta property="og:title" content="导入器一致性 - Unity 手册">
+<title>导入器一致性 - Unity 手册</title>
+<meta name="description" content="资源导入器，包括您编写的任何脚本化导入器，应产生一致（确定性）的结果。这意味着它们应始终从相同的输入和依赖集产生相同的输出。">
+<meta property="og:description" content="资源导入器，包括您编写的任何脚本化导入器，应产生一致（确定性）的结果。这意味着它们应始终从相同的输入和依赖集产生相同的输出。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,48 +174,47 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="AssetWorkflow.html">资源工作流程</a></li>
-<li><a href="ImportingAssets.html">导入</a></li>
-<li><a href="ScriptedImporters.html">脚本化导入器 (Scripted Importer)</a></li>
-<li>Importer Consistency</li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="AssetWorkflow.html">Asset Workflow</a></li>
+<li><a href="AssetTypes.html">Supported Asset Types</a></li>
+<li>导入器一致性</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="ScriptedImporters.html"></a></span><div class="tip">脚本化导入器 (Scripted Importer)</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="AssetDatabase.html"></a></span><div class="tip">资源数据库</div>
+<span class="next"><a href="AssetMetadata.html"></a></span><div class="tip">Asset Metadata</div>
 </div>
 </div></div>
-<h1>Importer Consistency</h1>
+<h1>导入器一致性</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>Asset importers, including any scripted importers that you write, should produce consistent (deterministic) results. This means they should always produce the same output from the same input and set of dependencies.</p>
+<p>资源导入器，包括您编写的任何脚本化导入器，应产生一致（确定性）的结果。这意味着它们应始终从相同的输入和依赖集产生相同的输出。</p>
 
-<p>To verify that this is the case for your importers, the Asset Database has two ways that you can check the consistency of the import results of the assets currently in your project. The two ways to check consistency are:</p>
+<p>为了验证您的导入器是否如此，资源数据库提供了两种方法检查当前项目中资源的导入结果的一致性。检查一致性的两种方法是：</p>
 
 <ul>
-<li><p>Manually reimport one or more assets in the Editor</p></li>
-<li><p>Use the <strong>-consistencyCheck</strong> command line argument to open the Editor</p></li>
+<li><p>在编辑器中手动重新导入一项或多项资源</p></li>
+<li><p>使用 <strong>-consistencyCheck</strong> 命令行参数打开编辑器。</p></li>
 </ul>
 
-<h2>Manual reimport consistency checks</h2>
+<h2>手动重新导入一致性检查</h2>
 
-<p>Manually reimporting an asset causes Unity to check whether a new import result matches the previous cached import results.</p>
+<p>手动重新导入资源会使 Unity 检查新的导入结果是否与之前缓存的导入结果匹配。</p>
 
-<p>To start a manual reimport, right-click on an asset and select <strong>Reimport</strong> from the context menu.</p>
+<p>要开始手动重新导入，请右键单击资源并从上下文菜单选择 <strong>Reimport</strong>。</p>
 
-<p>Unity then checks the resulting import for consistency. If it detects inconsistent results, Unity prints a warning in the Console window with details about which importer caused the issue, such as:</p>
+<p>Unity 会检查导入结果的一致性。如果检测到不一致的结果，Unity 会在控制台窗口中打印警告，详细说明导致问题的导入器，例如：</p>
 
 <p><code>Importer(&lt;name of importer&gt;) generated inconsistent result for asset(guid:&lt;guid of the asset&gt;) "&lt;name of asset&gt;"</code></p>
 
-<p>When you reimport a root asset, Unity also reimports and performs the consistency check on its child assets.</p>
+<p>当您重新导入根资源时，Unity 还会对子资源进行重新导入并执行一致性检查。</p>
 
-<h2>Command line consistency checks</h2>
+<h2>命令行一致性检查</h2>
 
-<p>The second way of doing the consistency check is to open Unity with the <strong>-consistencyCheck</strong> command line argument. This performs a consistency check on all assets and importers in the project.</p>
+<p>进行一致性检查的第二种方法是使用 <strong>-consistencyCheck</strong> 命令行参数打开 Unity。这会对项目中的所有资源和导入器执行一致性检查。</p>
 
 <table>
 <colgroup>
@@ -226,45 +225,45 @@
 
 <thead>
 <tr>
-	<th style="text-align:left;">Command line argument</th>
+	<th style="text-align:left;">命令行参数</th>
 	<th style="text-align:left;">描述</th>
-	<th style="text-align:left;">Example(s)</th>
+	<th style="text-align:left;">示例：</th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
 	<td style="text-align:left;"><code>-consistencyCheck</code></td>
-	<td style="text-align:left;">Tells the Editor to perform a consistency check on startup. By default it performs a “local” check (see below).</td>
+	<td style="text-align:left;">告诉编辑器在启动时执行一致性检查。默认情况下，它执行一个“本地”检查（见下文）。</td>
 	<td style="text-align:left;">-consistencyCheck</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>-consistencyCheckSourceMode string</code></td>
-	<td style="text-align:left;">Sets the source for the consistency checker to check against when it compares the asset imports. There are two possible values: “local” or “cacheserver”.<br><br>“local” means that it forces a reimport of all assets locally and checks if imports differ from the previous import.<br><br>“cacheserver” means that it asks the cacheserver for the metadata for the assets and compares if the results locally match what is on the cacheserver. In this case reimporting all assets does not happen.</td>
+	<td style="text-align:left;">设置一致性检查器在对资源导入进行检查时所参照的源。有两个可能的值：“local” 或 “cacheserver”。<br><br>“local” 意味着它强制在本地重新导入所有资源并检查导入结果是否与之前的导入不同。<br><br>“cacheserver” 意味着它向 cacheserver（缓存服务器）询问资源的元数据，并比较本地结果是否与 cacheserver 上的匹配。在这种情况下，不会重新导入所有资源。</td>
 	<td style="text-align:left;">
 <code>-consistencyCheckSourceMode local</code> <br>-consistencyCheckSourceMode cacheserver</td>
 </tr>
 </tbody>
 </table>
 
-<p>Any inconsistencies found during startup are logged to the Console, as well as the Editor log file.</p>
+<p>启动期间发现的任何不一致都会记录到控制台以及编辑器日志文件中。</p>
 
-<p>The consistency checker only checks asset imports that are cacheable. So if you disable caching for your ScriptedImporter then the consistency check for that import will also be disabled. See <a href="../ScriptReference/AssetImporters.ScriptedImporterAttribute.html">AssetImporters.ScriptedImporterAttribute</a> for details on how to disable caching for a scripted importer. </p>
+<p>一致性检查器只检查可缓存的资源导入。因此，如果您禁用 ScriptedImporter 的缓存，则该导入的一致性检查也将被禁用。有关如何禁用脚本化导入器缓存的详细信息，请参阅 <a href="../ScriptReference/AssetImporters.ScriptedImporterAttribute.html">AssetImporters.ScriptedImporterAttribute</a>。</p>
 
-<p>To use the cache server as validation source, see the <a href="UnityAccelerator.html">Unity Accelerator</a> documentation.</p>
+<p>要将缓存服务器用作验证源，请参阅 <a href="UnityAccelerator.html">Unity 加速器</a>文档。</p>
 
-<h3>Editor log</h3>
+<h3>编辑器日志</h3>
 
-<p>When importer inconsistencies are detected, you can find more information about the issue in the Editor log. This includes:</p>
+<p>当检测到导入器不一致时，您可以在编辑器日志中找到有关该问题的更多信息。其中包括：</p>
 
 <ul>
-<li><p>Which asset caused the failed consistency check</p></li>
-<li><p>The GUID of that asset</p></li>
-<li><p>The content hash for the asset import result</p></li>
-<li><p>How it compares to the previous revision of the asset</p></li>
+<li><p>哪个资源导致一致性检查失败</p></li>
+<li><p>该资源的 GUID</p></li>
+<li><p>资源导入结果的内容哈希</p></li>
+<li><p>它与资源的先前修订的比较结果</p></li>
 </ul>
 
-<p>The following is an example of an Editor log that shows importer inconsistencies:</p>
+<p>以下是显示导入器不一致的编辑器日志示例：</p>
 
 <pre><code>ConsistencyChecker - guid: a1945cd7aab67441ba89015f97494624, dependenciesHash.value: fb8cfb407bba82d4daded6031688ba9b, artifactid: 07078a054d3f597b4c2cc47e8e4c0bde, producedFiles[0].extension: , producedFiles[0].contentHash: 8490a5ed35a4361d679e6055a386969e
 
@@ -277,37 +276,37 @@ ConsistencyChecker - guid: a1945cd7aab67441ba89015f97494624, dependenciesHash.va
 Importer(ScriptedImporter:Assembly-CSharp::RandomImporter) generated inconsistent result for asset(guid:a1945cd7aab67441ba89015f97494624) "Assets/first.rand"
 </code></pre>
 
-<p>If the cache server is not available, the consistency checker prints out warnings in the Editor log.</p>
+<p>如果缓存服务器不可用，一致性检查器会在编辑器日志中打印警告。</p>
 
-<p>If a cache server hasn’t been set up for the project, the following message is printed.</p>
+<p>如果尚未为项目设置缓存服务器，则会打印以下消息。</p>
 
 <p><code>ConsistencyChecker - Cacheserver is not enabled</code></p>
 
-<p>If Unity cannot connect to the cache server, this message is printed.</p>
+<p>如果 Unity 无法连接到缓存服务器，则会打印以下消息。</p>
 
 <p><code>ConsistencyChecker - Not connected to accelerator/cacheserver</code></p>
 
-<h2>Debugging</h2>
+<h2>调试</h2>
 
-<p>You can use the tool ‘binary2text’, located in the Data/Tools folder in your Unity Editor installation, to examine the contents of the library folder to see exactly what the importer generated. </p>
+<p>您可以使用‘binary2text’工具（位于 Unity 编辑器安装位置下的 Data/Tools 文件夹中）检查 library 文件夹的内容以查看导入器生成的准确结果。</p>
 
 <p>例如：</p>
 
 <p><code>./Data/Tools/binary2text ./myProject/Library/Artifacts/84/8490a5ed35a4361d679e6055a386969e output_file</code></p>
 
-<p>The hash value is the asset’s content hash. To find the reported inconsistency and see what content was generated during the check, look at the Editor log.</p>
+<p>哈希值是资源的内容哈希。要查找所报告的不一致之处并查看检查期间生成的内容，请查看编辑器日志。</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="ScriptedImporters.html"></a></span><div class="tip">脚本化导入器 (Scripted Importer)</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="AssetDatabase.html"></a></span><div class="tip">资源数据库</div>
+<span class="next"><a href="AssetMetadata.html"></a></span><div class="tip">Asset Metadata</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

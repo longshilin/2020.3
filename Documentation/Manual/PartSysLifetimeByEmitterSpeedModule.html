@@ -14,8 +14,8 @@
 <meta property="og:title" content="Lifetime by Emitter Speed - Unity 手册">
 <title>Lifetime by Emitter Speed - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/part-sys-lifetime-by-emitter-speed-ui.png">
-<meta name="description" content="This module controls the initial lifetime of each particle based on the speed of the emitter when the particle spawns. It multiplies the start lifetime of particles by a value that depends on the speed of the object that spawned them. For most Particle Systems, this is the GameObject velocity, but for sub-emitters, the velocity comes from the parent particle that the sub-emitter particle originated from.">
-<meta property="og:description" content="This module controls the initial lifetime of each particle based on the speed of the emitter when the particle spawns. It multiplies the start lifetime of particles by a value that depends on the speed of the object that spawned them. For most Particle Systems, this is the GameObject velocity, but for sub-emitters, the velocity comes from the parent particle that the sub-emitter particle originated from.">
+<meta name="description" content="该模块根据粒子生成时发射器的速度控制每个粒子的初始生命周期。它将粒子的初始生命周期乘以一个值，该值取决于产生它们的对象的速度。对于大多数粒子系统，此为游戏对象速度，但对于子发射器，速度来自子发射器粒子所源自的父粒子。">
+<meta property="og:description" content="该模块根据粒子生成时发射器的速度控制每个粒子的初始生命周期。它将粒子的初始生命周期乘以一个值，该值取决于产生它们的对象的速度。对于大多数粒子系统，此为游戏对象速度，但对于子发射器，速度来自子发射器粒子所源自的父粒子。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
 <li><a href="ParticleSystems.html">粒子系统</a></li>
 <li><a href="Built-inParticleSystem.html">内置粒子系统</a></li>
@@ -195,7 +195,7 @@
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>This module controls the initial lifetime of each particle based on the speed of the emitter when the particle spawns. It multiplies the start lifetime of particles by a value that depends on the speed of the object that spawned them. For most Particle Systems, this is the GameObject velocity, but for sub-emitters, the velocity comes from the parent particle that the sub-emitter particle originated from.</p>
+<p>该模块根据粒子生成时发射器的速度控制每个粒子的初始生命周期。它将粒子的初始生命周期乘以一个值，该值取决于产生它们的对象的速度。对于大多数粒子系统，此为游戏对象速度，但对于子发射器，速度来自子发射器粒子所源自的父粒子。</p>
 
 <figure>
 <img src="../uploads/Main/part-sys-lifetime-by-emitter-speed-ui.png" alt="">
@@ -219,11 +219,11 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><strong>Multiplier</strong></td>
-	<td style="text-align:left;">The multiplier to apply to the particle’s initial lifetime. The module uses this value differently depending on the curve mode you set. The curve modes are:<br>• <strong>Constant</strong>: Uses the constant multiplier value you set for this property. Using this curve mode ignores the <strong>Speed Range</strong> property.<br>• <strong>Curve</strong>: Takes the emitter’s speed, maps it to a value between 0 and 1 based on the <strong>Speed Range</strong>, then uses the normalized value to sample the curve.<br>• <strong>Random Between Two Constants</strong>: Sets a random multiplier for each particle between the two values you set for this property. Using this curve mode ignores the <strong>Speed Range</strong> property.<br>• <strong>Random Between Two Curves</strong>: Takes the emitter’s speed, maps it to a value between 0 and 1 based on the <strong>Speed Range</strong>, then uses the normalized value to sample each curve. For each particle, the module sets the multiplier to a random value between the two samples.</td>
+	<td style="text-align:left;">应用于粒子初始生命周期的乘数。该模块根据您设置的曲线模式以不同的方式使用此值。曲线模式为：<br>&amp;# 8226; <strong>Constant</strong>：使用您为此属性设置的常数乘数值。使用此曲线模式会忽略 <strong>Speed Range</strong> 属性。<br>• <strong>Curve</strong>：获取发射器的速度，根据 <strong>Speed Range</strong> 将其映射到 0 到 1 之间的值，然后使用归一化值对曲线进行采样。<br>• <strong>Random Between Two Constants</strong>：为每个粒子设置介于您为此属性设置的两个值之间的随机乘数。使用此曲线模式会忽略 <strong>Speed Range</strong> 属性。<br>• <strong>Random Between Two Curves</strong>：获取发射器的速度，根据 <strong>Speed Range</strong> 将其映射到 0 到 1 之间的值，然后使用归一化值对每条曲线进行采样。对于每个粒子，该模块将乘数设置为两个样本之间的随机值。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Speed Range</strong></td>
-	<td style="text-align:left;">The minimum and maximum emitter speeds the Particle System maps to a value along the <strong>Multiplier</strong> curve. If the emitter’s speed is equal to the first value, the multiplier is the value at the start of the curve. If the emitter’s speed is equal to the second value, the multiplier is the value at the end of the curve.<br>This property is only relevant if the curve mode for <strong>Multiplier</strong> is set to <strong>Curve</strong> or <strong>Random Between Two Curves</strong>.</td>
+	<td style="text-align:left;">粒子系统映射到 <strong>Multiplier</strong> 曲线的值的最小和最大发射器速度。如果发射器的速度等于第一个值，则乘数是曲线起始处的值。如果发射器的速度等于第二个值，则乘数是曲线末端的值。<br>此属性仅在 <strong>Multiplier</strong> 的曲线模式设置为 <strong>Curve</strong> 或者 <strong>Random Between Two Curves</strong> 时才相关。</td>
 </tr>
 </tbody>
 </table>
@@ -239,7 +239,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

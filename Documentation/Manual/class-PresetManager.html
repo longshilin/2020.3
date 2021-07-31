@@ -14,8 +14,8 @@
 <meta property="og:title" content="Preset Manager - Unity 手册">
 <title>Preset Manager - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/preset-reference.png">
-<meta name="description" content="The Preset Manager is a window in Project Settings (menu: Edit &gt; Project Settings &gt; Preset Manager) that allows you to manage custom Presets you create to specify default properties when you add a component to a GameObject or a new Asset to your project. The default Presets you define override Unity&amp;#8217;s default settings.">
-<meta property="og:description" content="The Preset Manager is a window in Project Settings (menu: Edit &gt; Project Settings &gt; Preset Manager) that allows you to manage custom Presets you create to specify default properties when you add a component to a GameObject or a new Asset to your project. The default Presets you define override Unity&amp;#8217;s default settings.">
+<meta name="description" content="Preset Manager 是 Project Settings 中的一个窗口（菜单：__Edit__ &gt; Project Settings &gt; __Preset Manager__），用于管理自定义预设，当您将组件添加到游戏对象或将新资源添加到您的项目时，自定义预设将指定默认属性。您定义的默认预设会覆盖 Unity 的默认设置。">
+<meta property="og:description" content="Preset Manager 是 Project Settings 中的一个窗口（菜单：__Edit__ &gt; Project Settings &gt; __Preset Manager__），用于管理自定义预设，当您将组件添加到游戏对象或将新资源添加到您的项目时，自定义预设将指定默认属性。您定义的默认预设会覆盖 Unity 的默认设置。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UnityOverview.html">在 Unity 中操作</a></li>
 <li><a href="EditorFeatures.html">编辑器功能</a></li>
 <li><a href="comp-ManagerGroup.html">Project Settings</a></li>
@@ -193,17 +193,17 @@
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>The Preset Manager is a window in Project Settings (menu: <strong>Edit</strong> &gt; <strong>Project Settings</strong> &gt; <strong>Preset Manager</strong>) that allows you to manage custom <a href="Presets.html">Presets</a> you create to specify default properties when you add a component to a GameObject or a new Asset to your project. The default Presets you define override Unity’s default settings. </p>
+<p>Preset Manager 是 Project Settings 中的一个窗口（菜单：__Edit__ &gt; <strong>Project Settings</strong> &gt; __Preset Manager__），用于管理自定义<a href="Presets.html">预设</a>，当您将组件添加到游戏对象或将新资源添加到您的项目时，自定义预设将指定默认属性。您定义的默认预设会覆盖 Unity 的默认设置。</p>
 
-<p><strong>Note:</strong> You cannot set the default properties for Project settings, Preferences settings, or native Assets such as Materials, Animations, or SpriteSheets.</p>
+<p>__注意：__不能为项目设置、偏好设置或本机资源（如材质、动画或精灵图集）设置默认属性。</p>
 
-<p>In addition to using default Presets when creating new components and importing Assets, Unity applies default Presets when you use the <strong>Reset</strong> command in the Component Context Menu in the <a href="UsingTheInspector.html">Inspector</a> window.</p>
+<p>除了在创建新组件和导入资源时使用默认预设之外，使用 <a href="UsingTheInspector.html">Inspector</a> 窗口的组件上下文菜单中的 <strong>Reset</strong> 命令时，Unity 也会使用默认预设。</p>
 
-<h2>Preset Manager reference</h2>
+<h2>Preset Manager 参考</h2>
 
 <figure>
-<img src="../uploads/Main/preset-reference.png" alt="Preset Manager window">
-<figcaption>Preset Manager window</figcaption>
+<img src="../uploads/Main/preset-reference.png" alt="Preset Manager 窗口">
+<figcaption>Preset Manager 窗口</figcaption>
 </figure>
 
 <table>
@@ -222,75 +222,71 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><strong>Filter</strong></td>
-	<td style="text-align:left;">Use the <strong>Filter</strong> field to define which components or importers the Preset is applied to.</td>
+	<td style="text-align:left;">使用 <strong>Filter</strong> 字段来定义预设应用于哪些组件或导入器。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Preset</strong></td>
-	<td style="text-align:left;">Use the <strong>Preset</strong> field to set the Preset you want to use. By default, a Preset applies to all components or asset importers of that Preset type once you create it. If you want to only apply it to specific components or asset types, use the <strong>Filter</strong> field to define when to apply the Preset.</td>
+	<td style="text-align:left;">使用 <strong>Preset</strong> 字段设置要使用的预设。默认情况下，预设会在您创建后应用于该预设类型的所有组件或资源导入器。如果您只想将其应用于特定组件或资源类型，请使用 <strong>Filter</strong> 字段来定义何时应用预设。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Add Default Preset</strong></td>
-	<td style="text-align:left;">Select this button choose the <strong>Importer</strong>, <strong>Component</strong>, or <strong>ScriptableObject</strong>) to add a Preset to. If you choose <strong>Importer</strong> or <strong>Component</strong>, select the type of asset importer or component you want to create a Preset for.</td>
+	<td style="text-align:left;">选择此按钮选择要为其添加预设的__导入器<strong>、</strong>组件__或者 <strong>ScriptableObject</strong> 。如果您选择__导入器__或者__组件__，选择要为其创建预设的资源导入器或组件的类型。</td>
 </tr>
 </tbody>
 </table>
 
-<h2>Assigning a Preset for default settings</h2>
+<h2>为默认设置指定预设</h2>
 
-<p>To specify a Preset to use for default settings in the Preset Manager:</p>
+<p>要在 Preset Manager 中指定要用于默认设置的预设：</p>
 
 <p>1.如果项目中还没有用于默认设置的预设，请<a href="Presets.html">创建一个</a>。</p>
 
-<ol>
-<li><p>Open the Preset Manager by choosing <strong>Edit &gt; Project Settings</strong>, and selecting the <strong>Preset Manager</strong>.</p></li>
-<li><p>Select <strong>Add Default Preset</strong> and select a default type.<br>The Preset type you choose appears in the <strong>Preset Manager</strong> list.<br>
-<img src="../uploads/Main/preset-manager-add-type.png" alt="Select a Preset type"></p></li>
-<li><p>In the Preset field, click the <strong>Preset selector</strong> (circle icon).</p></li>
-<li><p>From the <strong>Select Preset</strong> window, choose a Preset for this Preset type. <br> Alternatively, you can also drag and drop a Preset from the <strong>Project</strong> window into the Preset field. <br></p></li>
-<li><p>If you want to add another Preset field to the list, click the <strong>Add</strong> (<strong>+</strong>) tab.<br>
- <img src="../uploads/Main/preset-manager-add-default-presets.png" alt="Choose a Preset"></p></li>
-</ol>
+<p>2.通过选择 <strong>Edit &gt; Project Settings__，然后选择 </strong>Preset Manager__ 打开 Preset Manager。
+3.选择 <strong>Add Default Preset</strong> 并选择默认类型。<br>您选择的预设类型出现在 <strong>Preset Manager</strong> 列表中。<br>
+<img src="../uploads/Main/preset-manager-add-type.png" alt="选择预设类型"></p>
 
-<p><strong>Note:</strong> If you set a default Preset for Transform components, Unity does not use the Position values when you create a new GameObject. Instead, it sets the default Position values to the center of the Scene view. To set the Position values to those of the default Preset, select the Transform component’s <strong>More items</strong> button (<strong>⋮</strong>) and select <strong>Reset</strong>.</p>
+<p>4.在 Preset 字段中，单击__Preset selector__（圆圈图标）。
+5.从 <strong>Select Preset</strong> 窗口，为此预设类型选择一个预设。<br>或者，您也可以将预设从 <strong>Project</strong> 窗口拖放到 Preset 字段中。<br>
+6.若要向列表中添加另一个 Preset 字段，请单击 <strong>Add</strong> (<strong>+</strong>) 选项卡。<br>
+ <img src="../uploads/Main/preset-manager-add-default-presets.png" alt="选择一个预设"></p>
 
-<h2>Assigning Presets via the Inspector window</h2>
+<p><strong>注意：__创建新游戏对象时，对于变换组件，Unity 不会使用默认预设中的 Position 值。相反，它将默认位置值设置为 Scene 视图的中心。要将 Position 值设置为默认预设的值，请选择变换组件的 </strong>More items__ 按钮 (<strong>⋮</strong>) 并选择 <strong>Reset</strong>。</p>
 
-<p>You can also add and remove Presets to use for default settings via the <strong>Inspector</strong> window.</p>
+<h2>通过 Inspector 窗口指定预设</h2>
 
-<p>To add a default Preset:</p>
+<p>您还可以通过 <strong>Inspector</strong> 窗口添加并删除用于默认设置的预设。</p>
+
+<p>添加默认预设：</p>
 
 <p>1.在 <strong>Project</strong> 窗口中选择一个预设。</p>
 
-<ol>
-<li>In the <strong>Inspector</strong> window, click <strong>Add to default</strong>.<br> Unity adds your default Preset to the <strong>Preset Manager</strong>.</li>
-<li>Open the <strong>Preset Manager</strong> to add filters to the Preset or reorder your Preset list.<br>
-<img src="../uploads/Main/presets-add-to-default-from-inspector.png" alt="Add to default (red) in the Inspector window">
-</li>
-</ol>
+<p>2.在 <strong>Inspector</strong> 窗口，单击 <strong>Add to default</strong>。<br>Unity 将您的默认预设添加到 <strong>Preset Manager</strong>。
+3.打开 <strong>Preset Manager</strong> 将过滤器添加到预设或重新排序您的预设列表。<br>
+<img src="../uploads/Main/presets-add-to-default-from-inspector.png" alt="Inspector 窗口中的 Add to default （红色）"></p>
 
-<p>To remove a default Preset:</p>
+<p>删除默认预设：</p>
 
 <p>1.在 <strong>Project</strong> 窗口中选择一个预设。
-2. In the <strong>Inspector</strong> window, click <strong>Remove from</strong>.</p>
+2.在 <strong>Inspector</strong> 窗口中，单击 <strong>Remove from</strong>。</p>
 
-<h2>Adding filters</h2>
+<h2>添加过滤器</h2>
 
-<p>By default, a Preset applies to all components or asset importers of that Preset type once it is created. If you want to only apply it to specific components or asset types, you can use the Filter field to define when to apply the Preset.</p>
+<p>默认情况下，预设会在创建后应用于该预设类型的所有组件或资源导入器。如果您只想将其应用于特定组件或资源类型，可以使用 Filter 字段来定义何时应用预设。</p>
 
-<p>Filters allow you to create multiple Presets for a given type, and apply them to specific components or importers based on whether those components and importers meet the filter criteria. You can filter by file names, directories, and file extensions.<br>
-<br>You can also apply <a href="Presets.html">partial Presets</a> that affect only properties you specify in your components or assets.</p>
+<p>过滤器允许您为给定类型创建多个预设，并根据这些组件和导入器是否满足过滤条件将它们应用到特定组件或导入器。您可以按文件名、目录和文件扩展名进行过滤。
+<br>您也可以应用<a href="Presets.html">部分预设</a>，仅影响您在组件或资源中指定的属性。</p>
 
-<p><strong>Note:</strong> Default Presets in a Preset Type are applied in order from top to bottom. This means that filters at the bottom of the list can override previous filters if not logically ordered.</p>
+<p><strong>注意：</strong>预设类型中的默认预设按从上到下的顺序应用。这意味着如果未按逻辑顺序排列，列表底部的过滤器会覆盖之前的过滤器。</p>
 
 <p>1.通过选择 <strong>Edit &gt; Project Settings__，然后选择 </strong>Preset Manager__ 类别来打开 Preset Manager。
-2. Find the default Preset you want to filter, and enter the search string in the <strong>Filter</strong> field.</p>
+2.找到您要过滤的默认预设，然后在 <strong>Filter</strong> 字段中输入搜索字符串。</p>
 
-<h4>Advanced filter search</h4>
+<h4>高级过滤器搜索</h4>
 
-<p>Presets can use glob search, which is a way to use symbols in your filters to allow for more inclusive import filters. See the table below for a list of symbols you can use. A glob search filter is case-sensitive.<br>
-To create a glob search filter, the syntax is <code>glob:"yoursearchpatternhere".</code>Your filter field must begin <code>glob:</code>, and the search term must be in quotation mark characters. For example, <code>glob:"example-folder/*.fbx"</code> filters for any .fbx file in a folder called example-folder.</p>
+<p>预设可以使用 glob 搜索，这种方法在过滤器中使用符号，从而使导入过滤器的搜索匹配更多内容。有关您可以使用的符号列表，请参阅下表。Glob 搜索过滤器区分大小写。<br>
+要创建 glob 搜索过滤器，语法为 <code>glob:"您的搜索模式"。</code>您的过滤器字段必须以 <code>glob:</code> 开头，并且搜索词必须放在引号字符中。例如，`glob:“example-folder/*.fbx” 的过滤结果是名为 example-folder 的文件夹中的任何 .fbx 文件。</p>
 
-<p>Supported symbols:</p>
+<p>支持的符号：</p>
 
 <table>
 <colgroup>
@@ -301,7 +297,7 @@ To create a glob search filter, the syntax is <code>glob:"yoursearchpatternhere"
 
 <thead>
 <tr>
-	<th style="text-align:left;">Symbol</th>
+	<th style="text-align:left;">符号</th>
 	<th style="text-align:left;">描述</th>
 	<th style="text-align:left;">示例</th>
 </tr>
@@ -310,59 +306,53 @@ To create a glob search filter, the syntax is <code>glob:"yoursearchpatternhere"
 <tbody>
 <tr>
 	<td style="text-align:left;">*</td>
-	<td style="text-align:left;">Matches 0 or more characters in a single path portion (a single path portion is defined as any suite of characters excluding / )</td>
+	<td style="text-align:left;">匹配单一路径部分中的 0 个或多个字符（单一路径部分定义为去除 / 后的任一字符组）</td>
 	<td style="text-align:left;">
-<code>glob:"foldername/*.fbx</code> <br>searches for any .fbx file located in a folder named <em>foldername</em>.</td>
+<code>glob:"foldername/*.fbx</code> <br> 搜索位于名为 <em>foldername</em> 的文件夹中的任何 .fbx 文件。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">?</td>
-	<td style="text-align:left;">Matches 1 character</td>
+	<td style="text-align:left;">匹配 1 个字符</td>
 	<td style="text-align:left;">
-<code>glob:"foldername/filename-?.fbx"</code> <br>searches for any .fbx file located in a folder named <em>foldername</em> that has the name <em>filename-</em> followed by one single character <br>(for example, this would include <em>filename–1.fbx</em>, <em>filename–2.fbx</em>, but not <em>filename–01.fbx</em>).</td>
+<code>glob:"foldername/filename-?.fbx"</code> <br> 搜索位于名为 <em>foldername</em> 的文件夹中满足以下条件的 .fbx 文件：_filename-_ 后跟有一个字符<br>（例如，这将包括 <em>filename–1.fbx</em>、<em>filename–2.fbx_，但不包括 </em>filename–01.fbx_）。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">[…]</td>
-	<td style="text-align:left;">Matches a range of characters, similar to a RegExp range. If the first character of the range is ! or ^ then it matches any character not in the range.</td>
+	<td style="text-align:left;">匹配一系列字符，类似于一个 RegExp 范围。如果该范围的第一个字符是 ! 或 ^，则匹配该范围之外的任何字符。</td>
 	<td style="text-align:left;">
-<code>glob:"foldername/file[...]1.fbx"</code> <br>searches for any .fbx file located in a folder named <em>foldername</em> that has a name that begins file and ends with <em>1</em> <br>(for example, this would include <em>file–1.fbx</em>, <em>file–01.fbx</em>, but not <em>file–2.fbx</em>).</td>
-</tr>
-<tr>
-	<td style="text-align:left;">(pattern|pat*|pat?erN)</td>
-	<td style="text-align:left;">Use searches inside parentheses, separated by a vertical pipe character (meaning “or”), to indicate that filter results can match one of the search patterns.</td>
-	<td style="text-align:left;">
-<code>glob:("foldername/*.fbx"\|"foldername/filename-?.fbx")</code> <br>searches for any .fbx file located in a folder named <em>foldername</em>, or any .fbx file located in a folder named <em>foldername</em> that has the name <em>filename-</em> followed by one single character.</td>
+<code>glob:"foldername/file[...]1.fbx"</code> <br>搜索位于名为 <em>foldername</em> 的文件夹中满足以下条件的 .fbx 文件：以 file 开头，以 <em>1</em> 结尾<br>（例如，这将包括 <em>file–1.fbx</em>、<em>file–01.fbx_，但不包括_file–2.fbx_）。|
+(pattern|pat*|pat?erN) | 使用括号内以垂直管道字符（意思是“或”）分隔的搜索，表示过滤结果可以匹配其中的搜索模式之一。|<code>glob:("foldername/*.fbx"\|"foldername/filename-?.fbx")</code> <br>searches for any .fbx file located in a folder named </em>foldername<em>, or any .fbx file located in a folder named </em>foldername_ that has the name <em>filename-</em> followed by one single character.</td>
 </tr>
 <tr>
 	<td style="text-align:left;">**</td>
-	<td style="text-align:left;">Matches zero or more directories and subdirectories searching for matches.</td>
+	<td style="text-align:left;">搜索匹配项时匹配零个或多个的目录和子目录。</td>
 	<td style="text-align:left;">
-<code>glob:"foldername/**.fbx</code> <br>searches for any .fbx file located in a folder named <em>foldername</em>. or its subfolders.</td>
+<code>glob:"foldername/**.fbx</code> <br> 搜索位于名为 <em>foldername</em> 的文件夹及其子文件夹中的任何 .fbx 文件。</td>
 </tr>
 </tbody>
 </table>
 
-<h2>Editing the list of default Presets</h2>
+<h2>编辑默认预设列表</h2>
 
-<p>This section describes how to toggle, move and remove Presets in the Preset Manager’s default Preset list for each Preset type.</p>
+<p>本节介绍如何在 Preset Manager 的默认预设列表中为每种预设类型切换、移动和删除预设。</p>
 
 <ul>
 <li>
-<strong>Reorder a Preset list:</strong> Select the handle (<strong>=</strong>) of the default Preset that you want to move, and drag it to the new position.</li>
+<strong>对预设列表重新排序：</strong> 选择要移动的默认预设的手柄 (<strong>=</strong>) ，然后将其拖动到新位置。</li>
 <li>
-<strong>Remove a Preset:</strong> Select the handle (<strong>=</strong>) of the default Preset that you want to remove, then click the Remove (<strong>-</strong>) button to remove the selected Preset.</li>
+<strong>删除一个预设：</strong> 选择要移除的默认预设的手柄（__ =__），然后单击 Remove (<strong>-</strong>) 按钮删除选定的预设。</li>
 <li>
-<strong>Remove a Preset type:</strong> Remove all Presets assigned to that default Preset type.</li>
+<strong>删除一个预设类型：</strong> 删除指定默认预设类型的所有预设。</li>
 </ul>
 
-<h2>Disabling and enabling default Presets</h2>
+<h2>禁用和启用默认预设</h2>
 
-<p>You can temporarily disable/enable a default Preset without losing filter settings.</p>
+<p>您可以暂时禁用/启用默认预设而不会丢失过滤器设置。</p>
 
-<ol>
-<li><p>Open the Preset Manager by choosing <strong>Edit &gt; Project Settings</strong>, and then selecting the <strong>Preset Manager</strong> category.</p></li>
-<li><p>Clear the check box to the left of the default Preset to disable the Preset. Select the check box to enable.<br>
-<img src="../uploads/Main/preset-manager-enable-preset.png" alt="Disable or enable a Preset"></p></li>
-</ol>
+<p>1.通过选择 <strong>Edit &gt; Project Settings__，然后选择 </strong>Preset Manager__ 类别来打开 Preset Manager。</p>
+
+<p>2.清除默认预设左侧的复选框以禁用预设。选中复选框则启用。<br>
+<img src="../uploads/Main/preset-manager-enable-preset.png" alt="禁用或启用预设"></p>
 
 <hr>
 
@@ -382,7 +372,7 @@ To create a glob search filter, the syntax is <code>glob:"yoursearchpatternhere"
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

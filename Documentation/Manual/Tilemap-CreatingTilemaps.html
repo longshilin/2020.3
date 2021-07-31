@@ -14,8 +14,8 @@
 <meta property="og:title" content="创建瓦片地图 (Tilemap) - Unity 手册">
 <title>创建瓦片地图 (Tilemap) - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/Tilemap_choices.png">
-<meta name="description" content="A Tilemap is a GameObject you place your selected Tiles on. Create a default (rectangular) Tilemap by going to GameObject &gt; 2D Object &gt; Tilemap. If you do not have these options, then the 2D Tilemap Editor package may not be installed. If so, download the 2D Tilemap Editor package from the Package Manager.">
-<meta property="og:description" content="A Tilemap is a GameObject you place your selected Tiles on. Create a default (rectangular) Tilemap by going to GameObject &gt; 2D Object &gt; Tilemap. If you do not have these options, then the 2D Tilemap Editor package may not be installed. If so, download the 2D Tilemap Editor package from the Package Manager.">
+<meta name="description" content="瓦片地图是用于放置所选瓦片的游戏对象。通过转到 GameObject &gt; 2D Object &gt; Tilemap 可以创建默认（矩形）__瓦片地图。如果看不到这些选项，则表示可能未安装 2D Tilemap Editor__ 包。如果确实如此，请通过 Package Manager 下载 2D Tilemap Editor 包。">
+<meta property="og:description" content="瓦片地图是用于放置所选瓦片的游戏对象。通过转到 GameObject &gt; 2D Object &gt; Tilemap 可以创建默认（矩形）__瓦片地图。如果看不到这些选项，则表示可能未安装 2D Tilemap Editor__ 包。如果确实如此，请通过 Package Manager 下载 2D Tilemap Editor 包。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,15 +175,15 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Unity2D.html">2D</a></li>
 <li><a href="class-Tilemap.html">Tilemap</a></li>
-<li><a href="Tilemap-workflow.html">Tilemap workflow</a></li>
+<li><a href="Tilemap-workflow.html">瓦片地图工作流程</a></li>
 <li>创建瓦片地图 (Tilemap)</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="Tilemap-workflow.html"></a></span><div class="tip">Tilemap workflow</div>
+<span class="prev"><a href="Tilemap-workflow.html"></a></span><div class="tip">瓦片地图工作流程</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="Tilemap-CreatingTiles.html"></a></span><div class="tip">创建瓦片</div>
@@ -193,9 +193,9 @@
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>A Tilemap is a GameObject you place your selected Tiles on. Create a default (rectangular) <strong>Tilemap</strong> by going to <strong>GameObject &gt; 2D Object &gt; Tilemap</strong>. If you do not have these options, then the <strong>2D Tilemap Editor</strong> package may not be installed. If so, download the <strong>2D Tilemap Editor</strong> package from the <a href="Packages.html">Package Manager</a>. </p>
+<p>瓦片地图是用于放置所选瓦片的游戏对象。通过转到 <strong>GameObject &gt; 2D Object &gt; Tilemap</strong> 可以创建默认（矩形）__瓦片地图<strong>。如果看不到这些选项，则表示可能未安装 </strong>2D Tilemap Editor__ 包。如果确实如此，请通过 <a href="Packages.html">Package Manager</a> 下载 <strong>2D Tilemap Editor</strong> 包。</p>
 
-<p>Select the ‘Tilemap’ option to create the default rectangular Tilemap. Refer to the respective pages for <a href="Tilemap-Hexagonal.html">Hexagonal</a> and <a href="Tilemap-Isometric.html">Isometric</a> Tilemaps for more information on their uses and their options.</p>
+<p>选择“Tilemap”选项可创建默认的矩形瓦片地图。有关 <a href="Tilemap-Hexagonal.html">Hexagonal</a> 和 <a href="Tilemap-Isometric.html">Isometric</a> 瓦片地图及其用法和选项的更多信息，请参阅其相应的页面。</p>
 
 <figure>
 <img src="../uploads/Main/Tilemap_choices.png" alt="">
@@ -213,25 +213,23 @@
 <img src="../uploads/Main/CreatingTilemaps-7.png" alt="">
 </figure>
 
-<p>Create additional Tilemaps by selecting the Grid GameObject or the Tilemap GameObject, and then go to the menu: <strong>GameObject</strong> &gt; <strong>2D Object</strong> &gt; <strong>Tilemaps</strong>, or right-click on the selected GameObject and go to <strong>2D Object</strong> &gt; <strong>Tilemap</strong> to add another Tilemap as a child to the same parent Grid.</p>
+<p>通过选择 Grid 游戏对象或 Tilemap 游戏对象创建额外的瓦片地图，然后转到菜单：__GameObject__ &gt; <strong>2D Object</strong> &gt; <strong>Tilemaps__，或右键单击选定的游戏对象并转到 </strong>2D Object__ &gt; <strong>Tilemap</strong> 将另一个瓦片地图作为子项添加到同一个父网格。</p>
 
 <figure>
 <img src="../uploads/Main/CreatingTilemaps-9.png" alt="">
 </figure>
 
-<p>Once the Tilemap(s) are created, adjust the <a href="class-Grid.html">Grid</a> property settings to adjust the properties of its Tilemap children, such as Cell Size or the type of layout of the child Tilemaps. These also affects attached components such as the <a href="class-TilemapRenderer.html">Tilemap Renderer</a> and <a href="class-TilemapCollider2D.html">Tilemap Collider 2D</a> components.</p>
+<p>创建瓦片地图后，调整 <a href="class-Grid.html">Grid</a> 属性设置从而调整其瓦片地图子项的属性，如 Cell Size 或子瓦片地图的布局类型。这些也会影响附加组件，如 <a href="class-TilemapRenderer.html">Tilemap Renderer</a> 和 <a href="class-TilemapCollider2D.html">Tilemap Collider 2D</a> 组件。</p>
 
 <hr>
 
-<ul>
-<li><span class="page-history">Page content and screenshots updated for <a href="https://docs.unity3d.com/2020.1/Documentation/Manual/30_search.html?q=newin20201">2020.1</a> <span class="search-words">NewIn20201</span></span></li>
-<li><span class="page-edit"> 2D Tilemap Editor 不再随 Editor 安装过程一起安装，而是必须从 Package Manager 下载。<a href="https://docs.unity3d.com/2019.2/Documentation/Manual/30_search.html?q=newin20183">2019.2</a> <span class="search-words">NewIn20192</span></span></li>
-<li><span class="page-history">在 <a href="https://docs.unity3d.com/2017.2/Documentation/Manual/30_search.html?q=newin20172">2017.2</a> 版中添加了瓦片地图 <span class="search-words">NewIn20172</span></span></li>
-</ul>
+<p><em><span class="page-history">页面内容和屏幕截图更新于 <a href="https://docs.unity3d.com/2020.1/Documentation/Manual/30_search.html?q=newin20201">2020.1</a><span class="search-words"> NewIn20201</span></span>
+</em> <span class="page-edit"> 2D Tilemap Editor 不再随 Editor 安装过程一起安装，而是必须从 Package Manager 下载。<a href="https://docs.unity3d.com/2019.2/Documentation/Manual/30_search.html?q=newin20183">2019.2</a> <span class="search-words">NewIn20192</span></span>
+* <span class="page-history">在 <a href="https://docs.unity3d.com/2017.2/Documentation/Manual/30_search.html?q=newin20172">2017.2</a> 版中添加了瓦片地图 <span class="search-words">NewIn20172</span></span></p>
 <!-- area:authoring -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="Tilemap-workflow.html"></a></span><div class="tip">Tilemap workflow</div>
+<span class="prev"><a href="Tilemap-workflow.html"></a></span><div class="tip">瓦片地图工作流程</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="Tilemap-CreatingTiles.html"></a></span><div class="tip">创建瓦片</div>
@@ -240,7 +238,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

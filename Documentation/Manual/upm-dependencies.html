@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Dependency and resolution - Unity 手册">
-<title>Dependency and resolution - Unity 手册</title>
+<meta property="og:title" content="依赖和解析 - Unity 手册">
+<title>依赖和解析 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/upm-dependencies.svg">
-<meta name="description" content="When you work in the Package Manager window, you can install packages from several sources (a registry, a local folder or tarball, and a Git URL). However, while the Package Manager installs packages from these sources seamlessly, it first has to make a series of calculations to decide which version to install, and which other packages and versions to install to support it.">
-<meta property="og:description" content="When you work in the Package Manager window, you can install packages from several sources (a registry, a local folder or tarball, and a Git URL). However, while the Package Manager installs packages from these sources seamlessly, it first has to make a series of calculations to decide which version to install, and which other packages and versions to install to support it.">
+<meta name="description" content="当您在 Package Manager 窗口中工作时，可以安装来自多个来源的包（注册表，本地文件夹或者 tarball 以及 Git URL）。然而，虽然 Package Manager 从这些源无缝安装包，但它首先必须进行一系列计算来决定安装哪个版本，以及安装其他哪些包和版本来支持它。">
+<meta property="og:description" content="当您在 Package Manager 窗口中工作时，可以安装来自多个来源的包（注册表，本地文件夹或者 tarball 以及 Git URL）。然而，虽然 Package Manager 从这些源无缝安装包，但它首先必须进行一系列计算来决定安装哪个版本，以及安装其他哪些包和版本来支持它。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,40 +175,40 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="PackagesList.html">包</a></li>
 <li><a href="Packages.html">Unity 的 Package Manager</a></li>
 <li><a href="upm-concepts.html">概念</a></li>
-<li>Dependency and resolution</li>
+<li>依赖和解析</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="upm-lifecycle.html"></a></span><div class="tip">Package states and lifecycle</div>
+<span class="prev"><a href="upm-lifecycle.html"></a></span><div class="tip">包状态和生命周期</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="upm-cache.html"></a></span><div class="tip">全局缓存</div>
 </div>
 </div></div>
-<h1>Dependency and resolution</h1>
+<h1>依赖和解析</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>When you work in the Package Manager window, you can install packages from several sources (a <a href="upm-ui-install.html">registry</a>, a local <a href="upm-ui-local.html">folder</a> or <a href="upm-ui-tarball.html">tarball</a>, and a <a href="upm-ui-giturl.html">Git URL</a>). However, while the Package Manager installs packages from these sources seamlessly, it first has to make a series of calculations to decide which version to install, and which other packages and versions to install to support it. </p>
+<p>当您在 Package Manager 窗口中工作时，可以安装来自多个来源的包（<a href="upm-ui-install.html">注册表</a>，本地<a href="upm-ui-local.html">文件夹</a>或者 <a href="upm-ui-tarball.html">tarball</a> 以及 <a href="upm-ui-giturl.html">Git URL</a>）。然而，虽然 Package Manager 从这些源无缝安装包，但它首先必须进行一系列计算来决定安装哪个版本，以及安装其他哪些包和版本来支持它。</p>
 
-<p>When you select a package version to install through the Package Manager window, you are adding a <strong>dependency</strong> to your <a href="upm-manifestPrj.html">project manifest</a>. This is a declaration that you need a specific version of a particular package in order for the project to work. Dependencies that appear in your <a href="upm-manifestPrj.html">project manifest</a> are called “direct” dependencies. </p>
+<p>当您通过 Package Manager 窗口选择要安装的包版本时，请向您的<a href="upm-manifestPrj.html">项目清单</a>添加一个__依赖项__。这是一个声明，您需要特定包的特定版本才能使项目正常工作。出现在您的依赖项中<a href="upm-manifestPrj.html">项目清单</a>称为“直接”依赖项。</p>
 
-<p>Packages can also require other packages in order to work. These are called “indirect”, or transitive, dependencies. The package developer adds these dependencies to the <a href="upm-manifestPkg.html">package’s manifest</a> during development. For example, there are several 2D packages that share functionality: both the 2D Animation and 2D Sprite Shape packages depend on the 2D Common package.</p>
+<p>包也可能需要其他包才能工作。这些被称为“间接”或传递性依赖项。包开发人员在开发过程中将这些依赖项添加到<a href="upm-manifestPkg.html">包的清单</a>中。例如，在下图中，<code>alembic@1.0.7</code> 包依赖于 <code>timeline@1.0.0</code> 包，因此 timeline 包是一个“间接”依赖项。另一方面，该项目依赖于 <code>cinemachine@2.6.0</code> 和 <code>alembic@1.0.7</code> 包，所以它们都是“直接”依赖项。</p>
 
-<p><img src="../uploads/Main/upm-dependencies.svg" alt="A diagram showing both direct and indirect dependencies"></p>
+<p><img src="../uploads/Main/upm-dependencies.svg" alt="显示直接依赖项和间接依赖项的图"></p>
 
-<p>When you add a package version as a dependency, that version is not necessarily the version that the Package Manager installs, because it has to consider all of the dependencies in your project, whether direct or indirect. In order to decide which packages to install, the Package Manager constructs a list of every direct and indirect dependency.</p>
+<p>当您将包版本添加为依赖项时，该版本不一定是 Package Manager 安装的版本，因为它必须考虑项目中的所有依赖项，无论是直接的还是间接的。为了决定安装哪些包，Package Manager 构建了一个列表，列出每个直接和间接依赖项。</p>
 
-<p>The Package Manager can only install one package version at a time, so it has to construct a <a href="upm-conflicts.html">dependency graph</a> in order to determine which version of each package to install. When the Package Manager successfully resolves all version conflicts, it saves the resolution in a <a href="upm-conflicts-auto.html">lock file</a> to ensure determinism (so that the same packages are reliably installed every time), and to reduce the amount of time and resources it takes to compute the dependency graph again.</p>
+<p>Package Manager 一次只能安装一个包版本，因此它必须构建一个<a href="upm-conflicts.html">依赖图</a>以确定要安装每个软件包的哪个版本。当 Package Manager 成功解析所有版本冲突时，它会将解析结果保存在一个<a href="upm-conflicts-auto.html">锁定文件</a>中以保证确定性（以便每次都可靠地安装相同的包），并节省再次计算依赖图所需的时间和资源。</p>
 
 <p><br> </p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="upm-lifecycle.html"></a></span><div class="tip">Package states and lifecycle</div>
+<span class="prev"><a href="upm-lifecycle.html"></a></span><div class="tip">包状态和生命周期</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="upm-cache.html"></a></span><div class="tip">全局缓存</div>
@@ -217,7 +217,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

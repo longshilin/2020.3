@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="ShaderLab：通道标签 - Unity 手册">
-<title>ShaderLab：通道标签 - Unity 手册</title>
-<meta name="description" content="通道使用标签来告知它们期望何时以何种方式被渲染到渲染引擎。">
-<meta property="og:description" content="通道使用标签来告知它们期望何时以何种方式被渲染到渲染引擎。">
+<meta property="og:title" content="ShaderLab：为通道分配标签。 - Unity 手册">
+<title>ShaderLab：为通道分配标签。 - Unity 手册</title>
+<meta name="description" content="本页面包含有关在 ShaderLab 代码中使用 Tags 代码块为通道分配标签的信息。它还包含有关使用 LightMode 标签的信息。">
+<meta property="og:description" content="本页面包含有关在 ShaderLab 代码中使用 Tags 代码块为通道分配标签的信息。它还包含有关使用 LightMode 标签的信息。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,106 +174,195 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
-<li><a href="ShadersOverview.html">编写着色器</a></li>
-<li><a href="SL-Reference.html">着色器参考</a></li>
-<li><a href="SL-Shader.html">ShaderLab 语法</a></li>
-<li><a href="SL-SubShader.html">ShaderLab：SubShader</a></li>
-<li><a href="SL-Pass.html">ShaderLab：Pass</a></li>
-<li>ShaderLab：通道标签</li>
+<li><a href="Shaders.html">着色器</a></li>
+<li><a href="shader-writing.html">编写着色器</a></li>
+<li><a href="SL-Reference.html">ShaderLab</a></li>
+<li><a href="SL-Pass.html">ShaderLab：定义一个通道</a></li>
+<li>ShaderLab：为通道分配标签。</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-Blend.html"></a></span><div class="tip">ShaderLab：混合</div>
+<span class="prev"><a href="SL-Name.html"></a></span><div class="tip">ShaderLab：为通道指定名称</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-Stencil.html"></a></span><div class="tip">ShaderLab：模板</div>
+<span class="next"><a href="shader-predefined-pass-tags-built-in.html"></a></span><div class="tip">ShaderLab：内置渲染管线中的预定义通道标签</div>
 </div>
 </div></div>
-<h1>ShaderLab：通道标签</h1>
+<h1>ShaderLab：为通道分配标签。</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>通道使用标签来告知它们期望何时以何种方式被渲染到渲染引擎。</p>
+<p>本页面包含有关在 ShaderLab 代码中使用 <code>Tags</code> 代码块为通道分配标签的信息。它还包含有关使用 <code>LightMode</code> 标签的信息。</p>
 
-<h2>语法</h2>
+<p>有关 Shader 对象的工作原理以及 Shader 对象、子着色器与通道之间关系的信息，请参阅 <a href="ShadersOverview.html">Shader 对象基础</a>。</p>
 
-<pre><code>    Tags { "TagName1" = "Value1" "TagName2" = "Value2" }
+<h2>概述</h2>
+
+<p>标签是可以分配给通道的键值对数据。Unity 使用预定义的标签和值来确定如何以及何时渲染给定的通道。您还可以使用自定义值创建自己的自定义通道标签，并从 C# 代码访问它们。</p>
+
+<p>最常用的预定义通道标签是 <code>LightMode</code> 标签；用于所有渲染管线。其他通道标签因渲染管线而异。有关更多信息，请参阅以下页面：</p>
+
+<p><em>对于内置渲染管线中的预定义通道标签，请参见<a href="shader-predefined-pass-tags-built-in.html">内置渲染管线中的预定义通道标签</a>。
+</em> 有关通用渲染管线 (URP) 中预定义的通道标签，请参阅 <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@11.0/manual/urp-shaders/urp-shaderlab-pass-tags.html#urp-pass-tags-lightmode">URP 通道标签</a>。</p>
+
+<h2>渲染管线兼容性</h2>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>功能名称</strong></th>
+	<th style="text-align:left;"><strong>内置渲染管线</strong></th>
+	<th style="text-align:left;"><strong>通用渲染管线 (URP)</strong></th>
+	<th style="text-align:left;"><strong>高清渲染管线 (HDRP)</strong></th>
+	<th style="text-align:left;"><strong>自定义 SRP</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>ShaderLab：通道标签代码块</strong></td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>ShaderLab：LightMode 通道标签</strong></td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+</tr>
+</tbody>
+</table>
+
+<h2>使用 Tags 代码块</h2>
+
+<p>要在 ShaderLab 中为通道指定标签，您可以在 <code>Pass</code> 代码块内放置一个 <code>Tags</code> 代码块。</p>
+
+<p>请注意，子着色器和通道都使用 <code>Tags</code> 代码块，但其工作方式不同。向通道分配子着色器标签没有效果，反之亦然。区别在于放置 <code>Tags</code> 代码块的位置：</p>
+
+<ul>
+<li>要定义通道标签，请将 <code>Tags</code> 代码块置于 <code>Pass</code> 代码块内部。</li>
+<li>要定义子着色器标签，请将 <code>Tags</code> 代码块置于 <code>SubShader</code> 代码块内部，但是在 <code>Pass</code> 代码块外部。</li>
+</ul>
+
+<p>有关向子着色器分配标签的信息，请参阅<a href="SL-SubShader.html">向子着色器分配标签</a>。</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>签名</strong></th>
+	<th style="text-align:left;"><strong>功能</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><code>Tags {"&lt;name1&gt;" = "&lt;value1&gt;" "&lt;name2&gt;" = "&lt;value2&gt;"}</code></td>
+	<td style="text-align:left;">将给定标签应用于通道。<br><br>可以定义所需数量的标签。</td>
+</tr>
+</tbody>
+</table>
+
+<h2>通过 C# 脚本使用通道标签</h2>
+
+<p>从 C# 脚本访问通道的名称，您可以使用 <a href="../ScriptReference/Shader.FindPassTagValue.html">Shader.FindPassTagValue</a> API。这适用于 Unity 的预定义通道标签，以及您创建的自定义通道标签。</p>
+
+<p><strong>注意：</strong>有几个 API 可以直接与 LightMode 通道标签一起使用。有关更多信息，请参阅<a href="#lightmode-tag-scripts">通过 C# 脚本使用 LightMode 标签</a>。</p>
+
+<p><a name="lightmode-tag"></a></p>
+
+<h2>LightMode 标签</h2>
+
+<p><code>LightMode</code> 标签是一个预定义的通道标签，Unity 使用它来确定是否在给定帧期间执行该通道，在该帧期间 Unity 何时执行该通道，以及 Unity 对输出执行哪些操作。</p>
+
+<p><strong>注意：</strong> <code>LightMode</code> 标签与 <a href="../ScriptReference/Experimental.GlobalIllumination.LightMode.html">LightMode</a> 枚举无关，后者与光照有关。</p>
+
+<p>每个渲染管线都使用 <code>LightMode</code> 标签，但预定义的值及其含义各不相同。有关更多信息，请参阅<a href="#lightmode-tag-syntax">语法和有效值</a>。</p>
+
+<p>在内置渲染管线中，如果不设置 <code>LightMode</code> 标签，Unity 会在没有任何光照或阴影的情况下渲染通道；这本质上相当于 <code>LightMode</code> 的值为 <code>Always</code>。在可编程渲染管线中，您可以使用 <code>SRPDefaultUnlit</code> 值来引用没有 LightMode 标签的通道。</p>
+
+<p><a name="lightmode-tag-syntax"></a></p>
+
+<h3>语法和有效值</h3>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>签名</strong></th>
+	<th style="text-align:left;"><strong>功能</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">“LightMode” = “[value]”</td>
+	<td style="text-align:left;">设置此通道的 LightMode 值。</td>
+</tr>
+</tbody>
+</table>
+
+<p>此标记的有效值取决于渲染管线。</p>
+
+<p><em>对于内置渲染管线中的 LightMode 通道标签，请参见<a href="shader-predefined-pass-tags-built-in.html">内置渲染管线中的预定义通道标签</a>。
+</em> 有关通用渲染管线 (URP) 中的 LightMode 通道标签值，请参阅 <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@11.0/manual/urp-shaders/urp-shaderlab-pass-tags.html#urp-pass-tags-lightmode">URP 通道标签：LightMode</a>。</p>
+
+<p><a name="lightmode-tag-scripts"></a></p>
+
+<h3>通过 C# 脚本使用 LightMode 标签</h3>
+
+<p><a href="../ScriptReference/Material.SetShaderPassEnabled.html">Material.SetShaderPassEnabled</a> 和 <a href="../ScriptReference/ShaderTagId.html">ShaderTagId</a> 使用 <code>LightMode</code> 标签的值来确定 Unity 如何处理给定的通道。</p>
+
+<p>在可编程渲染管线中，您可以为 <code>LightMode</code> 标签创建自定义值。然后，通过配置一个 <a href="../ScriptReference/Rendering.DrawingSettings.html">DrawingSettings</a> 结构，您可以使用这些自定义值来确定在给定 <a href="../ScriptReference/Rendering.ScriptableRenderContext.DrawRenderers.html">ScriptableRenderContext.DrawRenderers</a> 调用期间要绘制哪些通道。有关更多信息和代码示例，请参阅<a href="srp-creating-simple-render-loop.html">在自定义可编程渲染管线中创建一个简单的渲染循环</a>。</p>
+
+<h3>示例</h3>
+
+<pre><code>Shader "Examples/ExampleLightMode"
+{
+    SubShader
+    {
+        Pass
+        {    
+              Tags { "LightMode" = "Always" }
+            
+              // 此处是定义通道的代码的其余部分。
+        }
+    }
+}
 </code></pre>
-
-<p>指定 <strong>TagName1</strong> 具有 <strong>Value1</strong>，<strong>TagName2</strong> 具有 <strong>Value2</strong>。可根据需要添加任意数量的标签。</p>
-
-<h2>详细信息</h2>
-
-<p>从根本上说，标签就是键/值对。在<a href="SL-Pass.html">通道</a>中，标签用于控制此通道在光照管线（环境光、顶点光照、像素光照等等）中具有哪个角色以及某些其他选项。请注意，以下由 Unity 识别的标签_必须_位于 Pass 部分中，不能在 SubShader 中！</p>
-
-<h3>LightMode 标签</h3>
-
-<p><strong>LightMode</strong> 标签定义通道在光照管线中的角色。请参阅<a href="SL-RenderPipeline.html">渲染管线</a>以了解详细信息。很少手动使用这些标签；大部分情况下，需要与光照进行交互的着色器都先编写为<a href="SL-SurfaceShaders.html">表面着色器</a>，然后再处理这些细节。</p>
-
-<p>LightMode 标签的可能值：</p>
-
-<ul>
-<li>
-<strong>Always</strong>：始终渲染；不应用光照。</li>
-<li>
-<strong>ForwardBase</strong>：在<a href="RenderTech-ForwardRendering.html">前向渲染</a>中使用；应用环境光、主方向光、顶点/SH 光源和光照贴图。</li>
-<li>
-<strong>ForwardAdd</strong>：在<a href="RenderTech-ForwardRendering.html">前向渲染</a>中使用；应用附加的每像素光源（每个光源有一个通道）。</li>
-<li>
-<strong>Deferred</strong>：在<a href="RenderTech-DeferredShading.html">延迟渲染</a>中使用；渲染 G 缓冲区。</li>
-<li>
-<strong>ShadowCaster</strong>：将对象深度渲染到阴影贴图或深度纹理中。</li>
-<li>
-<strong>MotionVectors</strong>：用于计算每对象运动矢量。</li>
-<li>
-<strong>PrepassBase</strong>：在<a href="RenderTech-DeferredLighting.html">旧版延迟光照</a>中使用；渲染法线和镜面反射指数。</li>
-<li>
-<strong>PrepassFinal</strong>：在<a href="RenderTech-DeferredLighting.html">旧版延迟光照</a>中使用；通过组合纹理、光照和反光来渲染最终颜色。</li>
-<li>
-<strong>Vertex</strong>：当对象不进行光照贴图时在<a href="RenderTech-VertexLit.html">旧版顶点光照渲染</a>中使用；应用所有顶点光源。</li>
-<li>
-<strong>VertexLMRGBM</strong>：当对象不进行光照贴图时在<a href="RenderTech-VertexLit.html">旧版顶点光照渲染</a>中使用；在光照贴图为 RGBM 编码的平台上（PC 和游戏主机）。</li>
-<li>
-<strong>VertexLM</strong>：当对象不进行光照贴图时在<a href="RenderTech-VertexLit.html">旧版顶点光照渲染</a>中使用；在光照贴图为双 LDR 编码的平台上（移动平台）。</li>
-</ul>
-
-<h3>PassFlags 标签</h3>
-
-<p>一个通道可指示一些标志来更改<a href="SL-RenderPipeline.html">渲染管线</a>向通道传递数据的方式。这可通过使用 <strong>PassFlags</strong> 标签来实现，该标签的值为空格分隔的标志名称。目前支持以下标志：</p>
-
-<ul>
-<li>
-<strong>OnlyDirectional</strong>：在 ForwardBase 通道类型中使用时，此标志的作用是仅允许主方向光和环境光/光照探针数据传递到着色器。这意味着非重要光源的数据将<em>不会</em>传递到顶点光源或球谐函数着色器变量。请参阅<a href="RenderTech-ForwardRendering.html">前向渲染</a>以了解详细信息。</li>
-</ul>
-
-<h3>RequireOptions 标签</h3>
-
-<p>一个通道可指示仅当满足某些外部条件时才渲染该通道。这可通过使用 <strong>RequireOptions</strong> 标签来实现，该标签的值为空格分隔的选项字符串。目前，Unity 支持以下选项：</p>
-
-<ul>
-<li>
-<strong>SoftVegetation</strong>：仅当 <a href="class-QualitySettings.html">Quality</a> 窗口中开启了 Soft Vegetation 时才渲染此通道。</li>
-</ul>
-
-<h2>另请参阅</h2>
-
-<p>也可为子着色器提供标签，请参阅<a href="SL-SubShaderTags.html">子着色器标签</a>。</p>
-<!-- area:graphics -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-Blend.html"></a></span><div class="tip">ShaderLab：混合</div>
+<span class="prev"><a href="SL-Name.html"></a></span><div class="tip">ShaderLab：为通道指定名称</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-Stencil.html"></a></span><div class="tip">ShaderLab：模板</div>
+<span class="next"><a href="shader-predefined-pass-tags-built-in.html"></a></span><div class="tip">ShaderLab：内置渲染管线中的预定义通道标签</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Editing a Prefab in Prefab Mode - Unity 手册">
-<title>Editing a Prefab in Prefab Mode - Unity 手册</title>
+<meta property="og:title" content="在预制件模式下编辑预制件 - Unity 手册">
+<title>在预制件模式下编辑预制件 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/PrefabContextVsIsolation.png">
-<meta name="description" content="To edit a Prefab Asset, open it in Prefab Mode. Prefab Mode allows you to view and edit the contents of the Prefab Asset separately from any other GameObjects in your Scene. Changes that you make in Prefab Mode affect all instances of that Prefab.">
-<meta property="og:description" content="To edit a Prefab Asset, open it in Prefab Mode. Prefab Mode allows you to view and edit the contents of the Prefab Asset separately from any other GameObjects in your Scene. Changes that you make in Prefab Mode affect all instances of that Prefab.">
+<meta name="description" content="要编辑预制件资源，请在预制件模式下将其打开。预制件模式允许查看和编辑预制件资源的内容（独立于场景中的所有其他游戏对象）。在预制件模式下所做的更改会影响该预制件的所有实例。">
+<meta property="og:description" content="要编辑预制件资源，请在预制件模式下将其打开。预制件模式允许查看和编辑预制件资源的内容（独立于场景中的所有其他游戏对象）。在预制件模式下所做的更改会影响该预制件的所有实例。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,11 +175,11 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UnityOverview.html">在 Unity 中操作</a></li>
 <li><a href="CreatingGameplay.html">创建游戏玩法</a></li>
 <li><a href="Prefabs.html">预制件</a></li>
-<li>Editing a Prefab in Prefab Mode</li>
+<li>在预制件模式下编辑预制件</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -189,133 +189,134 @@
 <span class="next"><a href="PrefabInstanceOverrides.html"></a></span><div class="tip">实例覆盖</div>
 </div>
 </div></div>
-<h1>Editing a Prefab in Prefab Mode</h1>
+<h1>在预制件模式下编辑预制件</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>To edit a Prefab Asset, open it in <strong>Prefab Mode</strong>. Prefab Mode allows you to view and edit the contents of the Prefab Asset separately from any other GameObjects in your Scene. Changes that you make in Prefab Mode affect all instances of that Prefab.</p>
+<p>要编辑预制件资源，请在<strong>预制件模式</strong>下将其打开。预制件模式允许查看和编辑预制件资源的内容（独立于场景中的所有其他游戏对象）。在预制件模式下所做的更改会影响该预制件的所有实例。</p>
 
 <p><a name="EnteringAndExiting"></a></p>
 
 <h2>进入和退出预制件模式</h2>
 
-<p>You can edit a Prefab Asset <strong>in isolation</strong>, or <strong>in context</strong>.</p>
+<p>可以<strong>单独</strong>或<strong>在上下文中</strong>编辑预制件资源。</p>
 
 <figure>
-<img src="../uploads/Main/PrefabContextVsIsolation.png" alt="Left: editing a Prefab in isolation. Right: editing a *Prefab in context.">
-<figcaption>Left: editing a Prefab in isolation. Right: editing a *Prefab in context.</figcaption>
+<img src="../uploads/Main/PrefabContextVsIsolation.png" alt="左：单独编辑预制件。右：在上下文中编辑*预制件。">
+<figcaption>左：单独编辑预制件。右：在上下文中编辑*预制件。</figcaption>
 </figure>
 
 <ul>
-<li><p><strong>In isolation:</strong> When you edit a Prefab in isolation, Unity hides the rest of your current working Scene, and you only see the GameObjects that relate to the Prefab itself (plus, optionally, a pre-set <strong>editing environment </strong>- see below).</p></li>
-<li><p><strong>In context:</strong> When you edit a Prefab in context, the rest of your current working Scene remains visible, but locked for editing. </p></li>
+<li><p><strong>单独：</strong>单独编辑预制件时，Unity 会隐藏当前工作场景的其余部分，只能看到与预制件本身相关的游戏对象（以及可选的预设<strong>编辑环境</strong> - 请参阅下文）。</p></li>
+<li><p><strong>在上下文中：</strong>在上下文中编辑预制件时，当前工作场景的其余部分仍然可见，但处于锁定状态，无法编辑。</p></li>
 </ul>
 
-<h3>Editing in isolation</h3>
+<h3>单独编辑</h3>
 
-<p>You can begin to edit a Prefab in Prefab Mode in several ways. To open a Prefab Asset and edit it <strong>in isolation</strong> you can do it in the following ways:</p>
+<p>可以通过多种方式开始在预制件模式下编辑预制件。要打开预制件资源并<strong>单独</strong>进行编辑，可以通过以下方式执行此操作：</p>
 
 <ul>
-<li>Double-click the Prefab Asset in the Project window</li>
-<li>Select a Prefab Asset in the Project window and click the <strong>Open Prefab</strong> button in the <strong>Inspector</strong> window</li>
+<li>在 Project 窗口中双击预制件资源</li>
+<li>在 Project 窗口中选择预制件资源，然后在 <strong>Inspector</strong> 窗口中单击 <strong>Open Prefab</strong> 按钮</li>
 </ul>
 
 <figure>
-<img src="../uploads/Main/PrefabAssetOpenPrefabButton.png" alt="A Prefab Asset selected in the Project window (left), and the Open Prefab button visible in the inspector (right)">
-<figcaption>A Prefab Asset selected in the Project window (left), and the Open Prefab button visible in the inspector (right)</figcaption>
+<img src="../uploads/Main/PrefabAssetOpenPrefabButton.png" alt="在 Project 窗口中选择的预制件资源（左），在 Inspector 中显示的 Open Prefab 按钮（右）">
+<figcaption>在 Project 窗口中选择的预制件资源（左），在 Inspector 中显示的 Open Prefab 按钮（右）</figcaption>
 </figure>
 
-<p>When you enter Prefab Mode in isolation, Unity only shows the contents of that Prefab in the <strong>Scene view</strong> and the Hierarchy window. In the following image, the root of the Prefab is a regular <strong>GameObject</strong> - it doesn’t have the blue Prefab instance icon.</p>
+<p>单独进入预制件模式时，Unity 在 <strong>Scene 视图</strong>和 Hierarchy 窗口中仅显示该预制件的内容。在下图中，预制件的根是常规<strong>游戏对象</strong>：没有蓝色的预制件实例图标。</p>
 
 <figure>
-<img src="../uploads/Main/PrefabsSceneAndHierarchyInPrefabMode.png" alt="The Scene view and Hierarchy, with Prefab Mode in isolation">
-<figcaption>The Scene view and Hierarchy, with Prefab Mode in isolation</figcaption>
+<img src="../uploads/Main/PrefabsSceneAndHierarchyInPrefabMode.png" alt="单独预制件模式下的 Scene 视图和 Hierarchy 窗口">
+<figcaption>单独预制件模式下的 Scene 视图和 Hierarchy 窗口</figcaption>
 </figure>
 
-<p>In Prefab Mode, the <strong>Scene</strong> view displays a breadcrumb bar at the top. The rightmost entry is the currently open Prefab. Use the breadcrumb bar to navigate back to the main Scenes or other Prefab Assets that you might have opened.</p>
+<p>在预制件模式下，<strong>Scene</strong> 视图会在顶部显示一个示踪导航栏。最右边的条目是当前打开的预制件。使用示踪导航栏可导航回主要场景或可能已打开的其他预制件资源。</p>
 
 <figure>
 <img src="../uploads/Main/PrefabsBreadcrumbBar.png" alt="Scene 视图顶部的示踪导航栏，在预制件模式下可见">
 <figcaption>Scene 视图顶部的示踪导航栏，在预制件模式下可见</figcaption>
 </figure>
 
-<p>The <strong>Hierarchy</strong> window displays a Prefab header bar at the top which shows the currently open Prefab. You can use the back arrow in the header bar to navigate back one step, which is equivalent to clicking the previous breadcrumb in the breadcrumb bar in the Scene view.</p>
+<p><strong>Hierarchy</strong> 窗口在顶部显示一个预制件标题栏，其中显示当前打开的预制件。可以使用标题栏中的后退箭头向后导航一步，这相当于单击 Scene 视图的示踪导航栏中的上一级示踪导航。</p>
 
 <figure>
 <img src="../uploads/Main/PrefabsBackArrow.png" alt="Hierarchy 窗口的标题栏中的后退箭头，在预制件模式下可见">
 <figcaption>Hierarchy 窗口的标题栏中的后退箭头，在预制件模式下可见</figcaption>
 </figure>
 
-<h3>Editing in context</h3>
+<h3>在上下文中编辑</h3>
 
-<p>Alternatively, you can open a Prefab Asset <strong>in Context</strong> via an instance of that Prefab. Ways of doing that include:</p>
+<p>或者，可以通过预制件的实例<strong>在上下文中</strong>打开预制件资源。执行该操作的方式包括：</p>
 
 <ul>
-<li>Select a Prefab instance in the Hierarchy window and click the <strong>Open</strong> button in the Inspector window</li>
-<li>Select a Prefab instance in the Hierarchy window and press <strong>P</strong> on the keyboard. This is the default <a href="UnityHotkeys.html">keyboard binding</a>
+<li>在 Hierarchy 窗口中选择预制件实例，然后在 Inspector 窗口中单击 <strong>Open</strong> 按钮</li>
+<li>在 Hierarchy 窗口中选择预制件实例并按键盘上的 <strong>P</strong>。这是默认<a href="UnityHotkeys.html">键盘绑定</a>
 </li>
-<li>Use the <strong>arrow button</strong> next to the Prefab instance in the Hierarchy window</li>
+<li>使用 Hierarchy 窗口中预制件实例旁边的<strong>箭头按钮</strong>
+</li>
 </ul>
 
 <figure>
-<img src="../uploads/Main/PrefabInstanceInspectorOpenButton.png" alt="The Open button in the Inspector when a Prefab Instance is selected">
-<figcaption>The Open button in the Inspector when a Prefab Instance is selected</figcaption>
+<img src="../uploads/Main/PrefabInstanceInspectorOpenButton.png" alt="选择预制件实例时 Inspector 中的 Open 按钮">
+<figcaption>选择预制件实例时 Inspector 中的 Open 按钮</figcaption>
 </figure>
 
 <figure>
-<img src="../uploads/Main/PrefabHierarchyOpenArrow.png" alt="The arrow button next to a Prefab in the Hierarchy window">
-<figcaption>The arrow button next to a Prefab in the Hierarchy window</figcaption>
+<img src="../uploads/Main/PrefabHierarchyOpenArrow.png" alt="Hierarchy 窗口中预制件旁边的箭头按钮">
+<figcaption>Hierarchy 窗口中预制件旁边的箭头按钮</figcaption>
 </figure>
 
-<p>By default, Unity displays the visual representation of the context in gray scale to visually distinguish it from the Prefab contents you edit. However, you can use the <strong>Context:</strong> control in the Prefab bar to set it to any of the following states:</p>
+<p>默认情况下，Unity 以灰度显示上下文的视觉表示，以在视觉上将它与编辑的预制件内容区分开来。但是，可以使用预制件栏中的 <strong>Context:</strong> 控件将它设置为以下任何状态：</p>
 
 <ul>
 <li>
-<strong>Normal</strong> - Shows the context with its normal colors</li>
+<strong>Normal</strong> - 以正常颜色显示上下文</li>
 <li>
-<strong>Gray</strong> - Shows the context in gray scale</li>
+<strong>Gray</strong> - 以灰度显示上下文</li>
 <li>
-<strong>Hidden</strong> - Hides the context entirely so only the Prefab content is visible</li>
+<strong>Hidden</strong> - 完全隐藏上下文，因此只有预制件内容可见</li>
 </ul>
 
 <figure>
-<img src="../uploads/Main/PrefabModeContextControl.png" alt="The Prefab Mode controls in the Prefab bar in at the top of the Scene view, including the Context control and the Show Overrides toggle">
-<figcaption>The Prefab Mode controls in the Prefab bar in at the top of the Scene view, including the Context control and the Show Overrides toggle</figcaption>
+<img src="../uploads/Main/PrefabModeContextControl.png" alt="Scene 视图顶部预制件栏中的预制件模式控件，包括 Context 控件和 Show Overrides 开关">
+<figcaption>Scene 视图顶部预制件栏中的预制件模式控件，包括 Context 控件和 Show Overrides 开关</figcaption>
 </figure>
 
-<p>You cannot select the GameObjects that are part of the context, nor do they show in the Hierarchy. This is so you can focus on editing your Prefab without accidentally selecting other unrelated GameObjects, and without having a cluttered Hierarchy window. However, when you move GameObjects around that are part of the Prefab contents, you can use the snapping features in Unity to snap to GameObjects in the context, provided the context is not set to <strong>Hidden</strong>.</p>
+<p>不能选择属于上下文一部分的游戏对象，它们也不会显示在 Hierarchy 窗口中。这样便可以专注于编辑预制件而不会意外地选择其他不相关的游戏对象，并且没有混乱的 Hierarchy 窗口。但是，移动属于预制件内容一部分的游戏对象时，可以使用 Unity 中的贴靠功能贴靠到上下文中的游戏对象（前提是上下文未设置为 <strong>Hidden</strong>）。</p>
 
-<p>In Prefab Mode in Context, Unity displays the Prefab contents at a position that matches that of the Prefab instance it was opened through. This means that you might preview the root Transform of the Prefab contents with different position and rotation values than the Prefab Asset actually has. </p>
+<p>在上下文中的预制模式下，Unity 会在与用于打开预制件的预制件实例位置匹配的位置处显示预制件内容。这意味着可以在位置和旋转值与预制件资源实际具有的值不同的情况下，预览预制件内容的根变换。</p>
 
-<p>You cannot edit these values in Prefab Mode in Context. If you need to edit them, you can either open the Prefab in isolation, or select the Prefab Asset in the Project window and edit the values in the Inspector.</p>
+<p>无法在上下文中的预制件模式下编辑这些值。如果需要编辑它们，可以单独打开预制件，或者在 Project 窗口中选择预制件资源并在 Inspector 中编辑值。</p>
 
-<p>Apart from the root Transform properties, you can also override other properties of a Prefab instance, which might drastically change its appearance compared to the Prefab Asset it’s an instance of. To preview these overridden values from the Prefab instance, while in Prefab Mode in Context enable the <strong>Show Overrides</strong> toggle in the Prefab bar. While this setting is enabled, any properties that ayou override on the Prefab instance are previewed the same way on the Prefab contexts and you cannot edit them. To edit those properties, disable the <strong>Show Overrides</strong> toggle again.</p>
+<p>除了根变换属性之外，还可以覆盖预制件实例的其他属性，与预制件作为其实例的预制件资源相比，这些属性可能会彻底更改其外观。要从预制件实例预览这些覆盖的值，请在上下文中的预制件模式下，启用预制件栏中的 <strong>Show Overrides</strong> 开关。启用此设置后，对预制件实例覆盖的任何属性都可采用与预制件上下文中相同的方式进行预览，无法编辑它们。要编辑这些属性，请再次禁用 <strong>Show Overrides</strong> 开关。</p>
 
 <p><a name="AutoSave"></a></p>
 
 <h2>Auto Save</h2>
 
-<p>Prefab Mode has an <strong>Auto Save</strong> setting in the top right corner of the Scene view. When it is enabled, Unity automatically saves any changes that you make to a Prefab to the Prefab Asset. <strong>Auto Save</strong> is on by default.</p>
+<p>预制件模式在 Scene 视图的右上角有一个 <strong>Auto Save</strong> 设置。启用此设置后，Unity 会将对预制件进行的任何更改自动保存到预制件资源。默认情况下会启用 <strong>Auto Save</strong>。</p>
 
 <figure>
-<img src="../uploads/Main/PrefabsAutoSave.png" alt="The Auto Save toggle in the upper right corner of the Scene view in Prefab Mode">
-<figcaption>The Auto Save toggle in the upper right corner of the Scene view in Prefab Mode</figcaption>
+<img src="../uploads/Main/PrefabsAutoSave.png" alt="预制件模式下 Scene 视图右上角的 Auto Save 开关">
+<figcaption>预制件模式下 Scene 视图右上角的 Auto Save 开关</figcaption>
 </figure>
 
-<p>If you want to make changes without automatically saving those changes to the Preset Asset, disable the <strong>Auto Save</strong> checkbox. In this case, Unity asks you if you want to save unsaved changes or not when you exit Prefab Mode for the current Prefab. If editing a Prefab in Prefab Mode seems slow, turning off <strong>Auto Save</strong> might help.</p>
+<p>如果希望在进行更改时不自动将这些更改保存到预设资源，请禁用 <strong>Auto Save</strong> 复选框。在这种情况下，当退出当前预制件的预制件模式时，Unity 会询问是否要保存未保存的更改。如果在预制件模式下编辑预制件时看起来很慢，关闭 <strong>Auto Save</strong> 可能会有所帮助。</p>
 
-<h2>Changing between isolation or in context mode</h2>
+<h2>在单独或上下文模式之间更改</h2>
 
-<p>When you open Prefab Mode via a Prefab Asset, Unity displays the contents of the Prefab in isolation. However, when you open Prefab Mode via a Prefab instance in the Hierarchy window, this opens <strong>Prefab Mode in Context</strong>. </p>
+<p>通过预制件资源打开预制件模式时，Unity 会单独显示预制件的内容。但是，在 Hierarchy 窗口中通过预制件实例打开预制件模式时，这会<strong>在上下文中打开预制件模式</strong>。</p>
 
-<p>When you open Prefab Mode this way, you can see the context of the Prefab instance in the Scene view even though you are not editing the instance but rather the Prefab Asset itself. For example, if you open Prefab Mode in Context via a Prefab instance in a Scene, then you can see the surroundings in that Scene while you edit the Prefab. The Prefab is also shown with the same lighting conditions as in the Scene.</p>
+<p>以这种方式打开预制件模式时，可以在 Scene 视图中看到预制件实例的上下文，即使未在编辑实例而是在编辑预制件资源本身。例如，如果在场景中通过预制件实例在上下文中打开预制件模式，则可以在编辑预制件期间，在该场景中看到周围环境。预制件也采用与场景中相同的光照条件进行显示。</p>
 
 <figure>
-<img src="../uploads/Main/PrefabModeContextView.png" alt="A Prefab opened in Prefab Mode in Context, with the surrounding context displayed in gray scale">
-<figcaption>A Prefab opened in Prefab Mode in Context, with the surrounding context displayed in gray scale</figcaption>
+<img src="../uploads/Main/PrefabModeContextView.png" alt="在上下文中的预制件模式下打开的预制件，周围环境上下文以灰度显示">
+<figcaption>在上下文中的预制件模式下打开的预制件，周围环境上下文以灰度显示</figcaption>
 </figure>
 
-<p>If you have a Prefab instance that you do not want to open in context, but want to open in isolation, hold down the <strong>Alt</strong> key and click the <strong>Open</strong> button or the arrow button to open Prefab Mode. You can also set up a custom shortcut in the <strong>Shortcuts</strong> window for the command <strong>Stage &gt; Edit Prefab in Isolation</strong>.</p>
+<p>如果具有不想在上下文中打开，而是想单独打开的预制件实例，请按住 <strong>Alt</strong> 键并单击 <strong>Open</strong> 按钮或箭头按钮以打开预制件模式。还可以在 <strong>Shortcuts</strong> 窗口中为命令 <strong>Stage &gt; Edit Prefab in Isolation</strong> 设置自定义快捷方式。</p>
 
 <p><a name="Undo"></a></p>
 
@@ -327,11 +328,11 @@
 
 <h2>编辑环境</h2>
 
-<p>You can assign a Scene as an <strong>editing environment</strong> to be used with Prefab Mode in Isolation. This allows you to edit your Prefab against a backdrop of your choosing rather than an empty Scene. This can be useful fto see how your Prefab looks against a specific scenery of your choice. Unity only uses this editing environment when you open Prefab Mode in Isolation.</p>
+<p>可以将场景分配为<strong>编辑环境</strong>以便与单独的预制件模式一起使用。这样可以根据所选择的背景（而不是空场景）编辑预制件。这对于了解预制件与所选择的特定景物的对比情况非常有用。仅当单独打开预制件模式时，Unity 才会使用此编辑环境。</p>
 
-<p>You cannot select the GameObjects in the Scene that you assign as the editing environment when in Prefab Mode, nor do they show in the Hierarchy. This is so you can focus on editing your Prefab without accidentally selecting other unrelated GameObjects, and without having a cluttered Hierarchy window.</p>
+<p>在预制件模式下，无法选择指定为编辑环境的场景中的游戏对象，它们也不会在 Hierarchy 窗口中显示。这样便可以专注于编辑预制件而不会意外地选择其他不相关的游戏对象，并且没有混乱的 Hierarchy 窗口。</p>
 
-<p>To set a Scene as the editing environment, open the<a href="https://docs.unity3d.com/Manual/class-EditorManager.html"> Editor</a> window (top menu: <strong>Edit &gt; Project Settings</strong>, then select the <strong>Editor</strong> category) and go to the <strong>Prefab Editing Environment</strong> section. Use the <strong>Regular Environment</strong> setting for “non-UI” Prefabs, and the <strong>UI Environment</strong> setting for UI Prefabs. UI Prefabs are those which have a <a href="https://docs.unity3d.com/Manual/class-RectTransform.html">Rect Transform</a> component on the root, rather than a regular Transform component. “non-UI” Prefabs are those which have a regular Transform component.</p>
+<p>要将场景设置为编辑环境，请打开 <a href="https://docs.unity3d.com/Manual/class-EditorManager.html">Editor</a> 窗口（顶部菜单：<strong>Edit &gt; Project Settings</strong>，然后选择 <strong>Editor</strong> 类别），然后选择 <strong>Prefab Editing Environment</strong> 部分。对于“非 UI”预制件，请使用 <strong>Regular Environment</strong> 设置，而对于 UI 预制件，请使用 <strong>UI Environment</strong> 设置。UI 预制件是根处具有<a href="https://docs.unity3d.com/Manual/class-RectTransform.html">矩形变换</a>组件，而不是常规变换组件的预制件。“非 UI”预制件是具有常规变换组件的预制件。</p>
 
 <figure>
 <img src="../uploads/Main/PrefabsEnvironmentSettings1.png" alt="Editor Project Settings 中的预制件编辑环境设置">
@@ -348,7 +349,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

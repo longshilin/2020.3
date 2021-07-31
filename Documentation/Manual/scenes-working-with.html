@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Creating, loading, and saving Scenes - Unity 手册">
-<title>Creating, loading, and saving Scenes - Unity 手册</title>
+<meta property="og:title" content="创建、加载和保存场景 - Unity 手册">
+<title>创建、加载和保存场景 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/SceneAssetsInProjectView_01.png">
-<meta name="description" content="This page explains how to create, load, and save scenes.">
-<meta property="og:description" content="This page explains how to create, load, and save scenes.">
+<meta name="description" content="本页说明如何创建、加载和保存场景。">
+<meta property="og:description" content="本页说明如何创建、加载和保存场景。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,11 +175,11 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UnityOverview.html">在 Unity 中操作</a></li>
 <li><a href="CreatingGameplay.html">创建游戏玩法</a></li>
 <li><a href="CreatingScenes.html">场景</a></li>
-<li>Creating, loading, and saving Scenes</li>
+<li>创建、加载和保存场景</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -189,41 +189,39 @@
 <span class="next"><a href="MultiSceneEditing.html"></a></span><div class="tip">多场景编辑</div>
 </div>
 </div></div>
-<h1>Creating, loading, and saving Scenes</h1>
+<h1>创建、加载和保存场景</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>This page explains how to <a href="#creating-a-new-scene">create</a>, <a href="#loading-scenes">load</a>, and <a href="#saving-scenes">save</a> scenes.</p>
+<p>本页说明如何<a href="#creating-a-new-scene">创建</a>、<a href="#loading-scenes">加载</a>和<a href="#saving-scenes">保存</a>场景。</p>
 
 <p><a name="creating-aew-scene"></a></p>
 
-<h2>Creating a new scene</h2>
+<h2>创建新场景</h2>
 
-<p>There are several ways to create a new scene:</p>
+<p>可通过多种方法来创建新场景：</p>
 
 <ul>
-<li>Use the <a href="#creating-a-new-scene-from-the-new-scene-dialog">New Scene dialog</a> to create a new scene from a specific scene template.</li>
-<li>Use the <a href="#creating-a-new-scene-from-the-menu">menu</a> or the <a href="#creating-a-new-scene-from-the-project-window">Project window</a> to create new scenes from your Project’s Basic scene template without opening the New Scene dialog.</li>
-<li>Create a scene from a specific template directly <a href="#creating-a-new-scene-from-a-csharp-script">from a C# script</a>.</li>
+<li>使用 <a href="#creating-a-new-scene-from-the-new-scene-dialog">New Scene 对话框</a>从特定场景模板创建新场景。</li>
+<li>使用<a href="#creating-a-new-scene-from-the-menu">菜单</a>或者 <a href="#creating-a-new-scene-from-the-project-window">Project 窗口</a>从项目的 Basic 场景模板创建新场景，无需打开 New Scene 对话框。</li>
+<li>直接<a href="#creating-a-new-scene-from-a-csharp-script">通过一个 C# 脚本</a>从特定模板创建场景。</li>
 </ul>
 
-<p>Unity creates every new scene from a scene template. For information about creating and managing scene templates, see <a href="scene-templates.html">Scene templates</a>.</p>
+<p>Unity 从场景模板创建每个新场景。有关创建和管理场景模板的信息，请参阅<a href="scene-templates.html">场景模板</a>。</p>
 
 <p><a name="creating-a-new-scene-from-the-new-scene-dialog"></a></p>
 
-<h3>Creating a new scene from the New Scene dialog</h3>
+<h3>从 New Scene 对话框创建新场景</h3>
 
-<p>Use the New Scene dialog to create new scenes from specific scene templates in your Project. You can also use the New Scene dialog to find and manage scene templates. For details see <a href="CreatingScenes.html#new-scene-dialog">The New Scene dialog</a>.</p>
+<p>使用 New Scene 对话框在项目中从特定场景模板创建新场景。您还可以使用 New Scene 对话框来查找和管理场景模板。有关详细信息，请参阅 <a href="CreatingScenes.html#new-scene-dialog">New Scene 对话框</a>。</p>
 
-<p>By default, the New Scene dialog opens when you create a new scene from the menu (<strong>File</strong> &gt; <strong>New Scene</strong>) or by using a shortcut (<strong>Ctrl/Cmd + n</strong>).</p>
+<p>默认情况下，从菜单 (<strong>File</strong> &gt; <strong>New Scene</strong>) 或使用快捷方式 (<strong>Ctrl/Cmd + n</strong>) 创建新场景时，将打开 New Scene 对话。</p>
 
-<p>To create a new Scene:</p>
+<p>要创建新场景：</p>
 
-<ol>
-<li>Select a template from the list.</li>
-<li>If you want Unity to load the new scene additively (see note below), enable <strong>Load Additively</strong>.</li>
-<li>Click <strong>Create</strong> to create a new scene from the template.</li>
-</ol>
+<p>1.从列表中选择一个模板。
+1.如果您希望 Unity 以附加方式加载新场景（请参阅下面的注释），请启用 <strong>Load Additively</strong>。
+1.单击 <strong>Create</strong> 从模板创建新场景。</p>
 
 <table>
 <colgroup>
@@ -238,50 +236,48 @@
 
 <tbody>
 <tr>
-	<td style="text-align:left;">Additive loading means that Unity loads the scene in addition to any other scenes you have open. For more information, see <a href="MultiSceneEditing.html">Multi-Scene editing</a>.</td>
+	<td style="text-align:left;">附加方式加载意味着 Unity 会在已打开的任何其他场景之外加载场景。有关更多信息，请参阅<a href="MultiSceneEditing.html">多场景编辑</a>。</td>
 </tr>
 </tbody>
 </table>
 
-<p>If the template does not have any <a href="scene-templates.html#templates-and-scene-dependencies">cloneable dependencies</a>, Unity loads the new scene in memory, but does not save it.</p>
+<p>如果模板没有任何<a href="scene-templates.html#templates-and-scene-dependencies">可克隆的依赖项</a>，Unity 会在内存中加载新场景，但不保存。</p>
 
-<p>If the template has <a href="scene-templates.html#templates-and-scene-dependencies">cloneable dependencies</a>, Unity prompts you to choose a location in the Project to save it to. When you save the scene, Unity creates a folder in the same location, and with the same name as the new scene. It then clones the cloneable dependencies into the new folder, and updates the new scene to use the cloned assets instead of the original assets used by the template scene.</p>
+<p>如果模板有<a href="scene-templates.html#templates-and-scene-dependencies">可克隆的依赖项</a>，Unity 会提示您在项目中选择一个位置保存场景。当您保存场景时，Unity 会在相同位置创建一个与新场景同名的文件夹。然后将可克隆的依赖项克隆到新文件夹中，并更新新场景以使用克隆的资源而不是模板场景使用的原始资源。</p>
 
 <p><a name="creating-a-new-scene-from-the-menu"></a></p>
 
-<h3>Creating a new scene from the menu:</h3>
+<h3>从菜单创建一个新场景：</h3>
 
-<p>Use the menu (<strong>Assets</strong> &gt; <strong>Create</strong> &gt; <strong>Scene</strong>) to create a new scene without opening the New Scene dialog.</p>
+<p>使用菜单 (<strong>Assets</strong> &gt; <strong>Create</strong> &gt; <strong>Scene</strong>) 创建新场景，无需打开 New Scene 对话框。</p>
 
-<p>When you create a new scene from the menu, Unity automatically copies the project’s Basic template, and adds the new scene to whichever folder is currently open in the project window.</p>
+<p>当您从菜单创建新场景时，Unity 会自动复制项目的 Basic 模板，并将新场景添加到 Project 窗口中当前打开的文件夹中。</p>
 
 <p><a name="creating-a-new-scene-from-the-project-window"></a></p>
 
-<h3>Creating a new scene from the project window</h3>
+<h3>从 Project 窗口创建一个新场景</h3>
 
-<p>Use the context menu in the Project window to create a new scene without opening the New Scene dialog.</p>
+<p>使用 Project 窗口中的上下文菜单创建新场景，无需打开 New Scene 对话框。</p>
 
-<ol>
-<li>Navigate to the folder where you want to create the new scene.</li>
-<li>Right click the folder in the left-hand pane, or right-click an empty area in the right hand pane, and select <strong>Create</strong> &gt; <strong>Scene</strong> from the context menu.</li>
-</ol>
+<p>1.导航到要创建新场景的文件夹。
+2.右键单击左侧窗格中的文件夹，或右键单击右侧窗格中的空白区域，然后从上下文菜单选择 <strong>Create</strong> &gt; <strong>Scene</strong>。</p>
 
-<p>When you create a new scene from the menu, Unity automatically copies the project’s Basic template, and adds the new scene to the selected folder.</p>
+<p>当您从菜单创建新场景时，Unity 会自动复制项目的 Basic 模板，并将新场景添加到选定的文件夹中。</p>
 
 <p><a name="creating-a-new-scene-from-a-csharp-script"></a></p>
 
-<h3>Creating a new scene from a C# script</h3>
+<h3>从 C# 脚本创建一个新场景</h3>
 
-<p>To create a new scene from a C# script using a specific scene template, use the <a href="../ScriptReference/SceneTemplate.SceneTemplateService.Instantiate.html"><strong>Instantiate</strong> method</a>.</p>
+<p>要从 C# 脚本使用特定场景模板创建新场景，请使用 <a href="../ScriptReference/SceneTemplate.SceneTemplateService.Instantiate.html"><strong>Instantiate</strong> 方法</a>。</p>
 
 <pre><code class="lang-csharp">Tuple&lt;Scene, SceneAsset&gt; SceneTemplate.Instantiate(SceneTemplateAsset sceneTemplate, bool loadAdditively, string newSceneOutputPath = null);
 </code></pre>
 
-<p>The <code>Instantiate</code> method instantiates a new scene from a scene template. It returns the newly created <code>Scene</code> handle, and its matching <code>SceneAsset</code>. You can create this scene additively. If the scene contains <a href="scene-templates.html#templates-and-scene-dependencies">assets that need to be cloned</a>, you must provide a path for Unity to save the scene to disk.</p>
+<p>该 <code>Instantiate</code> 方法从场景模板中实例化一个新场景。它返回新创建的 <code>Scene</code> 句柄，及其匹配的 <code>SceneAsset</code>。您可以以附加方式创建此场景。如果场景包含<a href="scene-templates.html#templates-and-scene-dependencies">需要克隆的资源</a>，您必须为 Unity 提供将场景保存到磁盘的路径。</p>
 
-<h4>New scene events</h4>
+<h4>新场景的事件</h4>
 
-<p>When you create a new scene from a template, either from a script or using the New Scene dialog, Unity triggers an <a href="../ScriptReference/SceneTemplate.SceneTemplateService-newSceneTemplateInstantiated.html">event</a>. Unity triggers this event after the template is instantiated, and also after it triggers the <a href="../ScriptReference/SceneManagement.EditorSceneManager-newSceneCreated.html"><code>EditorSceneManager.newSceneCreated</code></a> or <a href="../ScriptReference/SceneManagement.EditorSceneManager-sceneOpened.html"><code>EditorSceneManager.sceneOpened</code></a> events.</p>
+<p>当您从模板创建新场景时，无论是从脚本还是使用 New Scene 对话框，Unity 都会触发一个<a href="../ScriptReference/SceneTemplate.SceneTemplateService-newSceneTemplateInstantiated.html">事件</a>。Unity 在模板实例化之后触发这个事件，然后还会触发 <a href="../ScriptReference/SceneManagement.EditorSceneManager-newSceneCreated.html"><code>EditorSceneManager.newSceneCreated</code></a> 或 <a href="../ScriptReference/SceneManagement.EditorSceneManager-sceneOpened.html"><code>EditorSceneManager.sceneOpened</code></a> 事件。</p>
 
 <pre><code class="lang-csharp">
 public class SceneTemplate
@@ -294,33 +290,33 @@ public class SceneTemplate
 
 <p><a name="loading-scenes"></a></p>
 
-<h2>Loading scenes</h2>
+<h2>加载场景</h2>
 
-<p>To open a scene, do one of the following:</p>
+<p>要打开场景，请执行以下操作之一：</p>
 
 <ul>
-<li>In the Project window, double-click the scene asset.</li>
-<li>From the menu, select <strong>File</strong> &gt; <strong>New Scene</strong>
+<li>在 Project 窗口中，双击该场景资源。</li>
+<li>从菜单中选择 <strong>File</strong> &gt; <strong>New Scene</strong>
 </li>
-<li>From the menu, select <strong>File</strong> &gt; <strong>Recent Scenes</strong> &gt; <strong><em>[NAME-OF-SCENE]</em></strong>
+<li>从菜单中选择 <strong>File</strong> &gt; <strong>Recent Scenes</strong> &gt; <strong><em>[场景名称]</em></strong>
 </li>
 </ul>
 
-<p>If your current scene contains unsaved changes, Unity prompts you to save the scene or discard the changes.</p>
+<p>如果当前场景包含未保存的更改，Unity 会询问是要保存该场景还是丢弃更改。</p>
 
-<h3>Opening multiple scenes at once</h3>
+<h3>一次打开多个场景</h3>
 
-<p>You can open multiple scenes for editing at the same time. For details, see <a href="MultiSceneEditing.html">Multi-Scene editing</a>.</p>
+<p>您可以同时打开多个场景进行编辑。有关详细信息，请参阅<a href="MultiSceneEditing.html">多场景编辑</a>。</p>
 
 <p><a name="saving-scenes"></a></p>
 
-<h2>Saving scenes</h2>
+<h2>保存场景</h2>
 
-<p>To save the scene you’re currently working on, choose <strong>File</strong> &gt; <strong>Save Scene</strong> from the menu, or press Ctrl + S (Windows) or Cmd + S (macOS).</p>
+<p>要保存当前正在处理的场景，请从菜单中选择 <strong>File</strong> &gt; <strong>Save Scene</strong>，或按 Ctrl + S (Windows) 或 Cmd + S (macOS)。</p>
 
 <figure>
-<img src="../uploads/Main/SceneAssetsInProjectView_01.png" alt="Saved scene assets visible in the Project window">
-<figcaption>Saved scene assets visible in the Project window</figcaption>
+<img src="../uploads/Main/SceneAssetsInProjectView_01.png" alt="已保存的场景资源在 Project 窗口中可见">
+<figcaption>已保存的场景资源在 Project 窗口中可见</figcaption>
 </figure>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -333,7 +329,7 @@ public class SceneTemplate
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

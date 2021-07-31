@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Local folder or tarball paths - Unity 手册">
-<title>Local folder or tarball paths - Unity 手册</title>
-<meta name="description" content="You can specify a dependency as any local folder or tarball that contains a package. This feature is helpful for local offline development and testing.">
-<meta property="og:description" content="You can specify a dependency as any local folder or tarball that contains a package. This feature is helpful for local offline development and testing.">
+<meta property="og:title" content="本地文件夹或 tarball 路径 - Unity 手册">
+<title>本地文件夹或 tarball 路径 - Unity 手册</title>
+<meta name="description" content="您可以将某个依赖项指定为包含某个包的任何本地文件夹或 tarball 文件。此功能对本地脱机开发和测试很有帮助。">
+<meta property="og:description" content="您可以将某个依赖项指定为包含某个包的任何本地文件夹或 tarball 文件。此功能对本地脱机开发和测试很有帮助。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,48 +174,48 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="PackagesList.html">包</a></li>
 <li><a href="Packages.html">Unity 的 Package Manager</a></li>
 <li><a href="upm-manifestPrj.html">项目清单</a></li>
-<li>Local folder or tarball paths</li>
+<li>本地文件夹或 tarball 路径</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="upm-git.html"></a></span><div class="tip">Git dependencies</div>
+<span class="prev"><a href="upm-git.html"></a></span><div class="tip">Git 依赖关系</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="upm-errors.html"></a></span><div class="tip">故障排除</div>
 </div>
 </div></div>
-<h1>Local folder or tarball paths</h1>
+<h1>本地文件夹或 tarball 路径</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>You can specify a dependency as any local folder or tarball that contains a package. This feature is helpful for local offline development and testing. </p>
+<p>您可以将某个依赖项指定为包含某个包的任何本地文件夹或 tarball 文件。此功能对本地脱机开发和测试很有帮助。</p>
 
-<p><strong>Note</strong>: If you want to reference a package on the local file system as a Git dependency, use the <code>file://&lt;url&gt;</code> format instead. Unity does not support directly referencing a locally-accessible Git repository with a file path. For more information on the <code>file://&lt;url&gt;</code> format, see <a href="upm-git.html">Git dependencies</a>.</p>
+<p><strong>注意</strong>：如果要将本地文件系统上的包作为 Git 依赖项引用，请改用 <code>file://&lt;url&gt;</code> 格式。Unity 不支持使用文件路径直接引用本地可访问的 Git 代码仓库。有关 <code>file://&lt;url&gt;</code> 格式的更多信息，请参阅 <a href="upm-git.html">Git 依赖项</a>。</p>
 
-<p>This section describes how to use the project manifest to set up a local dependency. If you want to use the Package Manager window instead, follow the instructions on these pages: </p>
+<p>本节介绍如何使用项目清单来设置本地依赖项。如果想改用 Package Manager 窗口，请按照以下页面上的说明进行操作：</p>
 
 <ul>
-<li><a href="upm-ui-local.html">Installing a package from a local folder</a></li>
-<li><a href="upm-ui-tarball.html">Installing a package from a local tarball file</a></li>
+<li><a href="upm-ui-local.html">从本地文件夹安装包</a></li>
+<li><a href="upm-ui-tarball.html">从本地 tarball 文件安装包</a></li>
 </ul>
 
-<p>The path reference always begins with the <code>file:</code> prefix, and uses forward slashes (<code>/</code>) for path separators. </p>
+<p>路径引用始终以 <code>file:</code> 前缀开头，并且使用正斜杠 (<code>/</code>) 作为路径分隔符。</p>
 
-<p><strong>Note</strong>: On Windows, you can also use backslashes (<code>\</code>), but only if you escape each one (for example, <code>"file:..\\github\\my_package_folder"</code> or <code>"file:C:\\Users\\my_username\\github\\my_package_folder"</code>). These paths are not as easy to read as the forward slashes, they are prone to typing errors, and you can’t use them anywhere but on a Windows machine. For these reasons, using forward slashes is preferable.</p>
+<p><strong>注意</strong>：在 Windows 上，也可以使用反斜杠 (<code>\</code>)，但前提是将每个反斜杠转义（例如 <code>"file:..\\github\\my_package_folder"</code> 或 <code>"file:C:\\Users\\my_username\\github\\my_package_folder"</code>）。这些路径不像正斜杠那样容易阅读，很容易出现输入错误，而且除了在 Windows 计算机上之外，不能在其他地方使用它们。由于这些原因，最好使用正斜杠。</p>
 
-<p>You can use either absolute paths, or paths that are relative to the project’s <code>Packages</code> folder (that is, the root folder of the project manifest). In other words, a path preceded with two dots (<code>..</code>) refers to the root of the project path, so that <code>../another_folder</code> is a sibling of the <code>Packages</code> folder. </p>
+<p>您可以使用绝对路径，也可以使用相对于项目的 <code>Packages</code> 文件夹（即项目清单的根文件夹）的路径。换句话说，以两个点 (<code>..</code>) 开头的路径是指项目路径的根目录，如 <code>../another_folder</code> 是 <code>Packages</code> 文件夹的同级文件夹。</p>
 
-<p><strong>Tip</strong>: Relative paths with forward-slashes provide better portability across different machines and operating systems when tracking a project and packages in the same repository.</p>
+<p><strong>提示</strong>：当追踪同一代码仓库中的项目和包时，带正斜杠的相对路径可跨不同计算机和操作系统提供更好的可移植性。</p>
 
-<p>For Windows absolute paths, the drive letter and its colon (usually <code>C:</code>) follows the <code>file:</code> prefix but is otherwise identical to Linux or macOS paths.</p>
+<p>对于 Windows 绝对路径，<code>file:</code> 前缀后面是驱动器盘符和冒号（通常为 <code>C:</code>），除此之外，其他部分与 Linux 或 macOS 路径相同。</p>
 
 <h2>相对路径示例</h2>
 
-<p>After the <code>file:</code> prefix, the path is a standard relative path:</p>
+<p>在 <code>file:</code> 前缀后，路径是标准相对路径：</p>
 
 <pre><code class="lang-json">{
   "dependencies": {
@@ -227,7 +227,7 @@
 
 <h2>Linux 或 macOS 中的绝对路径示例</h2>
 
-<p>After the <code>file:</code> prefix, the path is a standard POSIX path, starting with a forward slash <code>/</code>:</p>
+<p>在 <code>file:</code> 前缀之后，路径是标准 POSIX 路径，以正斜杠 <code>/</code> 开头：</p>
 
 <pre><code class="lang-json">{
   "dependencies": {
@@ -239,7 +239,7 @@
 
 <h2>Windows 中的绝对路径示例</h2>
 
-<p>Notice that the drive letter immediately follows the <code>file:</code> prefix:</p>
+<p>请注意，驱动器盘符紧跟在 <code>file:</code> 前缀之后：</p>
 
 <pre><code class="lang-json">{
   "dependencies": {
@@ -252,7 +252,7 @@
 <p><br> </p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="upm-git.html"></a></span><div class="tip">Git dependencies</div>
+<span class="prev"><a href="upm-git.html"></a></span><div class="tip">Git 依赖关系</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="upm-errors.html"></a></span><div class="tip">故障排除</div>
@@ -261,7 +261,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

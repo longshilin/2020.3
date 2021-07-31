@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="ShaderLab：Pass - Unity 手册">
-<title>ShaderLab：Pass - Unity 手册</title>
-<meta name="description" content="Pass 代码块将使游戏对象的几何体被渲染一次。">
-<meta property="og:description" content="Pass 代码块将使游戏对象的几何体被渲染一次。">
+<meta property="og:title" content="ShaderLab：定义一个通道 - Unity 手册">
+<title>ShaderLab：定义一个通道 - Unity 手册</title>
+<meta name="description" content="要在 ShaderLab 中定义通道，请使用 Pass 代码块。本页面包含有关使用 Pass 代码块的信息。有关 Shader 对象的工作原理以及 Shader 对象、子着色器与通道之间关系的信息，请参阅 Shader 对象基础。">
+<meta property="og:description" content="要在 ShaderLab 中定义通道，请使用 Pass 代码块。本页面包含有关使用 Pass 代码块的信息。有关 Shader 对象的工作原理以及 Shader 对象、子着色器与通道之间关系的信息，请参阅 Shader 对象基础。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,170 +174,137 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
-<li><a href="ShadersOverview.html">编写着色器</a></li>
-<li><a href="SL-Reference.html">着色器参考</a></li>
-<li><a href="SL-Shader.html">ShaderLab 语法</a></li>
-<li><a href="SL-SubShader.html">ShaderLab：SubShader</a></li>
-<li>ShaderLab：Pass</li>
+<li><a href="Shaders.html">着色器</a></li>
+<li><a href="shader-writing.html">编写着色器</a></li>
+<li><a href="SL-Reference.html">ShaderLab</a></li>
+<li>ShaderLab：定义一个通道</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-SubShader.html"></a></span><div class="tip">ShaderLab：SubShader</div>
+<span class="prev"><a href="SL-ShaderLOD.html"></a></span><div class="tip">ShaderLab：为子着色器指定 LOD 值</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-CullAndDepth.html"></a></span><div class="tip">ShaderLab 剔除和深度测试</div>
+<span class="next"><a href="SL-Name.html"></a></span><div class="tip">ShaderLab：为通道指定名称</div>
 </div>
 </div></div>
-<h1>ShaderLab：Pass</h1>
+<h1>ShaderLab：定义一个通道</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>Pass 代码块将使游戏对象的几何体被渲染一次。</p>
+<p>要在 ShaderLab 中定义通道，请使用 <code>Pass</code> 代码块。本页面包含有关使用 <code>Pass</code> 代码块的信息。有关 Shader 对象的工作原理以及 Shader 对象、子着色器与通道之间关系的信息，请参阅 <a href="ShadersOverview.html">Shader 对象基础</a>。</p>
 
-<h2>语法</h2>
+<h2>概述</h2>
 
-<pre><code>Pass { [Name and Tags] [RenderSetup] }
-</code></pre>
+<p>通道是 Shader 对象的基本元素。它包含设置 GPU 状态的指令，以及在 GPU 上运行的着色器程序。</p>
 
-<p>基本的 Pass 命令包含渲染状态设置命令的列表。</p>
+<p>Simple Shader objects might contain only a single Pass, but more complex shaders can contain multiple Passes. You can use separate Passes to define parts of your Shader object that work differently; for example, parts that require a change to the render state, different shader programs, or a different <code>LightMode</code> Pass tag.</p>
 
-<h2>名称和标签</h2>
+<p><strong>注意</strong>：在基于可编程渲染管线的渲染管线中，您可以使用 RenderStateBlock 来更改 GPU 上的渲染状态，而无需单独的通道。</p>
 
-<p>一个通道 (Pass) 可以定义一个<a href="SL-Name.html">名称 (Name)</a> 和任意数量的<a href="SL-PassTags.html">标签 (Tags)</a>。这些名称/值字符串用于将通道的意图传达给渲染引擎。</p>
+<h2>渲染管线兼容性</h2>
 
-<h2>渲染状态设置</h2>
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
 
-<p>一个通道将设置图形硬件的各种状态，例如是否应开启 Alpha 混合或是否应使用深度测试。</p>
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>功能名称</strong></th>
+	<th style="text-align:left;"><strong>内置渲染管线</strong></th>
+	<th style="text-align:left;"><strong>通用渲染管线 (URP)</strong></th>
+	<th style="text-align:left;"><strong>高清渲染管线 (HDRP)</strong></th>
+	<th style="text-align:left;"><strong>自定义 SRP</strong></th>
+</tr>
+</thead>
 
-<p>命令如下所示：</p>
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>ShaderLab：Pass 代码块</strong></td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">是</td>
+</tr>
+</tbody>
+</table>
 
-<h3>Cull</h3>
+<h2>使用 Pass 代码块</h2>
 
-<pre><code>Cull Back | Front | Off
-</code></pre>
+<p>要在 ShaderLab 中定义一个常规的通道，您需要在一个 <code>SubShader</code> 代码块中放置一个 <code>Pass</code> 代码块。</p>
 
-<p>设置多边形剔除模式。</p>
-
-<h3>ZTest</h3>
-
-<pre><code>ZTest (Less | Greater | LEqual | GEqual | Equal | NotEqual | Always)
-</code></pre>
-
-<p>设置深度缓冲区测试模式。</p>
-
-<h3>ZWrite</h3>
-
-<pre><code>ZWrite On | Off
-</code></pre>
-
-<p>设置深度缓冲区写入模式。</p>
-
-<h3>Offset</h3>
-
-<pre><code>Offset OffsetFactor, OffsetUnits
-</code></pre>
-
-<p>设置 Z 缓冲区深度偏移。请参阅<a href="SL-CullAndDepth.html">剔除和深度页面</a>的文档以了解更多详细信息。</p>
-
-<p>请参阅<a href="SL-CullAndDepth.html">剔除和深度</a>的文档以了解有关 Cull、ZTest、ZWrite 和 Offset 的更多详细信息。</p>
-
-<h3>Blend</h3>
-
-<pre><code>Blend sourceBlendMode destBlendMode
-Blend sourceBlendMode destBlendMode, alphaSourceBlendMode alphaDestBlendMode
-BlendOp colorOp
-BlendOp colorOp, alphaOp
-AlphaToMask On | Off
-</code></pre>
-
-<p>设置 Alpha 混合、Alpha 操作和 alpha-to-coverage 模式。请参阅有关<a href="SL-Blend.html">混合</a>的文档以了解更多详细信息。</p>
-
-<h3>Conservative Rasterization</h3>
-
-<pre><code>Conservative True | False
-</code></pre>
-
-<p>Set conservative rasterization on and off. Before use, check for hardware support via <a href="../ScriptReference/SystemInfo-supportsConservativeRaster.html"><code>SystemInfo.supportsConservativeRaster</code></a>.</p>
-
-<h3>ColorMask</h3>
-
-<pre><code>ColorMask RGB | A | 0 | R、G、B、A 的任意组合
-</code></pre>
-
-<p>设置颜色通道写入遮罩。写入 <em>ColorMask 0</em> 可关闭对所有颜色通道的渲染。默认模式是
-写入所有通道 (RGBA)，但是对于某些特殊效果，您可能希望不修改某些通道，或完全禁用颜色
-写入。</p>
-
-<p>使用多渲染目标 (MRT) 渲染时，可通过在末尾添加索引（0 到 7）来为每个渲染目标设置不同的颜色遮罩。例如，<code>ColorMask RGB 3</code> 将使渲染目标 #3 仅写入到 RGB 通道。</p>
-
-<h3>旧版固定函数着色器命令</h3>
-
-<p>一些命令用于编写旧版“固定函数样式”着色器。这是视为已弃用的功能，因为编写<a href="SL-SurfaceShaders.html">表面着色器</a>或<a href="SL-ShaderPrograms.html">着色器程序</a>
-可带来更大的灵活性。但是，对于非常简单的着色器，以固定函数样式编写着色器有时会更容易，因此这里提供了命令。请注意，如果不使用固定函数着色器，则会忽略以下所有命令。</p>
-
-<h4>固定函数 Lighting 和 Material</h4>
-
-<pre><code>Lighting On | Off
-Material { Material Block }
-SeparateSpecular On | Off
-Color Color-value
-ColorMaterial AmbientAndDiffuse | Emission
-</code></pre>
-
-<p>所有这些均控制固定函数每顶点光照：它们将其开启，设置材质颜色，开启镜面高光，提供默认颜色（如果顶点光照关闭），并控制网格顶点颜色如何影响光照。请参阅有关<a href="SL-Material.html">材质</a>的文档以了解更多详细信息。</p>
-
-<h4>固定函数 Fog</h4>
-
-<pre><code>Fog { Fog Block }
-</code></pre>
-
-<p>设置固定函数 Fog 的参数。请参阅有关<a href="SL-Fog.html">雾化</a>的文档以了解更多详细信息。</p>
-
-<h4>固定函数 AlphaTest</h4>
-
-<pre><code>AlphaTest (Less | Greater | LEqual | GEqual | Equal | NotEqual | Always) CutoffValue
-</code></pre>
-
-<p>开启固定函数 Alpha 测试。请参阅有关 <a href="SL-AlphaTest.html">Alpha 测试</a>的文档以了解更多详细信息。</p>
-
-<h4>固定函数纹理组合器</h4>
-
-<p>设置渲染状态后，可使用 <a href="SL-SetTexture.html">SetTexture</a> 命令指定多个纹理及其组合模式：</p>
-
-<pre><code>SetTexture textureProperty { combine options }
-</code></pre>
-
-<h2>详细信息</h2>
-
-<p>着色器通过几种方式与 Unity 的渲染管线进行交互；例如，通道可以使用 <a href="SL-PassTags.html">Tags</a> 命令来表明它只应该用于<a href="RenderTech-DeferredShading.html">延迟着色</a>。某些通道也可以在同一个游戏对象上执行多次；例如，在<a href="RenderTech-ForwardRendering.html">前向渲染</a>中，根据影响游戏对象的
-光源数量，将多次执行“ForwardAdd”通道类型。请参阅有关<a href="SL-RenderPipeline.html">渲染管线</a>的文档以了解更多详细信息。</p>
-
-<h2>另请参阅</h2>
-
-<p>有几个特殊的通道可用于重复使用通用功能或实现各种高端效果：</p>
+<p>在 <code>Pass</code> 代码块中，您可以：</p>
 
 <ul>
-<li>
-<a href="SL-UsePass.html">UsePass</a> 包含来自另一个着色器的指定通道。</li>
-<li>
-<a href="SL-GrabPass.html">GrabPass</a> 将屏幕内容抓取到纹理中，以便在之后的通道中使用。</li>
+<li>使用 Name 代码块为通道指定一个名称。请参阅 <a href="SL-Name.html">ShaderLab：为通道指定名称</a>。</li>
+<li>使用 Tags 代码块将数据的键值对分配给通道。请参阅 <a href="SL-PassTags.html">ShaderLab：为通道分配标签</a>。</li>
+<li>使用 ShaderLab 命令执行操作。请参阅 <a href="shader-shaderlab-commands.html">ShaderLab：使用命令</a>。</li>
+<li>使用着色器代码块将着色器代码添加到通道。请参阅 <a href="shader-shaderlab-code-blocks.html">ShaderLab：着色器代码块</a>。</li>
 </ul>
-<!-- area:graphics -->
+
+<p>您还可以使用 <code>UsePass</code> 或 <code>GrabPass</code> 命令定义两种特殊类型的通道。有关这些命令的信息，请参阅 <a href="SL-UsePass.html">ShaderLab 命令：UsePass</a> 或者 <a href="SL-GrabPass.html">ShaderLab 命令：GrabPass</a>。</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>签名</strong></th>
+	<th style="text-align:left;"><strong>功能</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">
+<code>Pass</code><br><code>{</code><br>    <code>&lt;optional: name&gt;</code><br> <code>&lt;optional: tags&gt;</code><br>    <code>&lt;optional: commands&gt;</code><br>   <code>&lt;optional: shader code&gt;</code><br><code>}</code>
+</td>
+	<td style="text-align:left;">定义一个通道。</td>
+</tr>
+</tbody>
+</table>
+
+<h2>示例</h2>
+
+<p>此示例代码演示了用于创建包含单个子着色器的 Shader 对象的语法，而每个子着色器又包含一个通道。</p>
+
+<pre><code>Shader "Examples/SinglePass"
+{
+    SubShader
+    {
+        Pass
+        {                
+              Name "ExamplePassName"
+              Tags { "ExampleTagKey" = "ExampleTagValue" }
+
+              // 此处是 ShaderLab 命令。
+
+              //  此处是 HLSL 代码。
+        }
+    }
+}
+</code></pre>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-SubShader.html"></a></span><div class="tip">ShaderLab：SubShader</div>
+<span class="prev"><a href="SL-ShaderLOD.html"></a></span><div class="tip">ShaderLab：为子着色器指定 LOD 值</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-CullAndDepth.html"></a></span><div class="tip">ShaderLab 剔除和深度测试</div>
+<span class="next"><a href="SL-Name.html"></a></span><div class="tip">ShaderLab：为通道指定名称</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

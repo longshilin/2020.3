@@ -13,8 +13,8 @@
 <meta name="twitter:card" content="summary">
 <meta property="og:title" content="UXML 格式 - Unity 手册">
 <title>UXML 格式 - Unity 手册</title>
-<meta name="description" content="UXML files are text files that define the logical structure of the user interface. The format used in UXML files is inspired by HTML (HyperText Markup Language), XAML (eXtensible Application Markup Language), and XML (eXtensible Markup Language). If you are familiar with these recognized formats, you should notice lots of similarities in UXML. However, the UXML format includes small differences to provide an efficient way to work with Unity.">
-<meta property="og:description" content="UXML files are text files that define the logical structure of the user interface. The format used in UXML files is inspired by HTML (HyperText Markup Language), XAML (eXtensible Application Markup Language), and XML (eXtensible Markup Language). If you are familiar with these recognized formats, you should notice lots of similarities in UXML. However, the UXML format includes small differences to provide an efficient way to work with Unity.">
+<meta name="description" content="Unity Extensible Markup Language (UXML) files are text files that define the structure of the user interface. The UXML format is inspired by HTML, XAML, and XML. If you&amp;#8217;ve worked with these formats before, you&amp;#8217;ll find similarities with UXML. However, the UXML format includes small differences to provide an efficient way to work with Unity.">
+<meta property="og:description" content="Unity Extensible Markup Language (UXML) files are text files that define the structure of the user interface. The UXML format is inspired by HTML, XAML, and XML. If you&amp;#8217;ve worked with these formats before, you&amp;#8217;ll find similarities with UXML. However, the UXML format includes small differences to provide an efficient way to work with Unity.">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,9 +174,9 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="UIToolkits.html">Creating user interfaces (UI)</a></li>
-<li><a href="UIElements.html">UI Toolkit</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="UIToolkits.html">创建用户界面 (UI)</a></li>
+<li><a href="UIElements.html">UI 工具包</a></li>
 <li>UXML 格式</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
@@ -187,32 +187,32 @@
 <span class="next"><a href="UIE-WritingUXMLTemplate.html"></a></span><div class="tip">编写 UXML 模板</div>
 </div>
 </div></div>
-<h1>The UXML format</h1>
+<h1>UXML 格式</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>UXML files are text files that define the logical structure of the user interface. The format used in UXML files is inspired by HTML (HyperText Markup Language), XAML (eXtensible Application Markup Language), and XML (eXtensible Markup Language). If you are familiar with these recognized formats, you should notice lots of similarities in UXML. However, the UXML format includes small differences to provide an efficient way to work with Unity.</p>
+<p>Unity Extensible Markup Language (UXML) files are text files that define the structure of the user interface. The UXML format is inspired by <a href="https://developer.mozilla.org/en-US/docs/Web/HTML">HTML</a>, <a href="https://docs.microsoft.com/en-us/dotnet/desktop/wpf/xaml/?view=netdesktop-5.0">XAML</a>, and <a href="https://developer.mozilla.org/en-US/docs/Web/XML/XML_introduction">XML</a>. If you’ve worked with these formats before, you’ll find similarities with UXML. However, the UXML format includes small differences to provide an efficient way to work with Unity.</p>
 
-<p>This section describes the UXML format that Unity supports and provides details on writing, loading, and defining UXML templates. It also includes information on defining new elements, and how to use UQuery.</p>
+<p>本节介绍 Unity 支持的 UXML 格式，并提供有关编写、加载和定义 UXML 模板的详细信息。还包含有关定义新元素以及如何使用 UQuery 的信息。</p>
 
-<p>UXML makes it is easier for less technical users to build a user interface within Unity. In UXML you can: </p>
+<p>UXML makes it easier for less technical users to build a user interface within Unity. In UXML you can:</p>
 
 <ul>
-<li>define the structure of the user interface (UI) in XML.</li>
-<li>define the UI layout with USS stylesheets.</li>
+<li>以 XML 定义用户界面 (UI) 的结构。</li>
+<li>使用 USS 样式表来定义 UI 布局。</li>
 </ul>
 
-<p>This leaves developers to do technical tasks, such as importing assets, defining logic, and processing data.</p>
+<p>因此，开发者可以将精力集中于执行一些技术性工作，例如导入资源、定义逻辑和处理数据。</p>
 
-<h1>Defining new elements</h1>
+<h2>Defining new elements</h2>
 
-<p>UI Toolkit is extensible. You can define your own user interface components and elements.</p>
+<p>With UI Toolkit, you can define your own user interface components and elements.</p>
 
-<p>Before you can use UXML files to define new elements, you must derive a new class from <code>VisualElement</code> or one of its subclasses, then implement the appropriate functionality within this new class. Your new class must implement a default constructor.</p>
+<p>在使用 UXML 文件来定义新元素之前，必须从 <code>VisualElement</code> 或其子类之一派生一个新类，然后在此新类中实现相应功能。新类必须实现默认构造函数。</p>
 
-<p>For example, the following code derives the new <code>StatusBar</code> class and implements its default constructor:</p>
+<p>例如，以下代码派生新的 <code>StatusBar</code> 类并实现其默认构造函数：</p>
 
-<pre><code>class StatusBar : VisualElement
+<pre><code class="lang-csharp">class StatusBar : VisualElement
 {
     public StatusBar()
     {
@@ -224,11 +224,11 @@
 }
 </code></pre>
 
-<p>In order for UI Toolkit to instantiate a new class when reading a UXML file, you must define a factory for your class. Unless your factory needs to do something special, you can derive the factory from <code>UxmlFactoy&lt;T&gt;</code>. It’s recommended that you put the factory class within your component class.</p>
+<p>为了使 UI 工具包在读取 UXML 文件时实例化一个新类，必须为该类定义一个工厂。除非所需的工厂需要完成一些特殊任务，否则可以从 <code>UxmlFactoy&lt;T&gt;</code> 派生该工厂。建议将工厂类放在组件类中。</p>
 
-<p>For example, the following code demonstrates how to define a factory for the <code>StatusBar</code> class by deriving its factory from <code>UxmlFactory&lt;T&gt;</code>. The factory is named <code>UxmlFactory</code>: </p>
+<p>例如，以下代码演示了如何通过从 <code>UxmlFactory&lt;T&gt;</code> 派生 <code>StatusBar</code> 类的工厂来为该类定义工厂。该工厂名为 <code>UxmlFactory</code>：</p>
 
-<pre><code>class StatusBar : VisualElement
+<pre><code class="lang-csharp">class StatusBar : VisualElement
 {
     public new class UxmlFactory : UxmlFactory&lt;StatusBar&gt; {}
 
@@ -236,22 +236,22 @@
 }
 </code></pre>
 
-<p>With this factory defined, you can use the <code>&lt;StatusBar&gt;</code> element in UXML files.</p>
+<p>定义该工厂后，就可以在 UXML 文件中使用 <code>&lt;StatusBar&gt;</code> 元素。</p>
 
-<h2>Defining attributes on elements</h2>
+<h2>定义元素的属性</h2>
 
-<p>You can define UXML traits for a new class and set its factory to use these traits.</p>
+<p>可为新类定义 UXML 特征，并将其工厂设置为使用这些特征。</p>
 
-<p>For example, the following code demonstrates how to define a UXML traits class to initialize the <code>status</code> property as a property of the <code>StatusBar</code> class. The status property is initialized from XML data.</p>
+<p>For example, the following code demonstrates how to define a UXML traits class to initialize the <code>status</code> property as a property of the <code>StatusBar</code> class. The status property initializes from XML data.</p>
 
-<pre><code>class StatusBar : VisualElement
+<pre><code class="lang-csharp">class StatusBar : VisualElement
 {
     public new class UxmlFactory : UxmlFactory&lt;StatusBar, UxmlTraits&gt; {}
 
     public new class UxmlTraits : VisualElement.UxmlTraits
     {
         UxmlStringAttributeDescription m_Status = new UxmlStringAttributeDescription { name = "status" };
-        
+
         public override IEnumerable&lt;UxmlChildElementDescription&gt; uxmlChildElementsDescription
         {
             get { yield break; }
@@ -268,26 +268,29 @@
 }
 </code></pre>
 
-<p>The <code>UxmlTraits</code> serves two purposes: </p>
+<p><code>UxmlTraits</code> 有两个作用：</p>
 
 <ul>
-<li><p>It is used by the factory to initialize the newly created object.</p></li>
-<li><p>It is analyzed by the schema generation process to get information about the element. This information is translated into XML schema directives.</p></li>
+<li>The factory uses it to initialize the newly created object.</li>
+<li>The schema generation process analyzes it to get information about the element. This information translates into XML schema directives.</li>
 </ul>
 
-<p>The code example above does the following: </p>
+<p>以上代码示例执行以下操作：</p>
 
 <ul>
-<li>The declaration of <code>m_Status</code> defines an XML attribute named <code>status</code>.</li>
-<li>The <code>uxmlChildElementsDescription</code> returns an empty <code>IEnumerable</code> which indicates that <code>StatusBar</code> element has no child.</li>
-<li>The <code>Init()</code> member reads the value of the <code>status</code> attribute in a property bag from the XML parser and sets the <code>StatusBar.status</code> property to this value.</li>
-<li>By placing the <code>UxmlTraits</code> class inside the <code>StatusBar</code> class allows the <code>Init()</code> method to access the private members of <code>StatusBar</code>.</li>
-<li>The new <code>UxmlTraits</code> class inherits from the base class <code>UxmlTraits</code>, so it shares the attributes of the base class.</li>
 <li>
-<code>Init()</code> calls <code>base.Init()</code> to initialize the base class properties.</li>
+<code>m_Status</code> 的声明定义一个名为 <code>status</code> 的 XML 属性。</li>
+<li>
+<code>uxmlChildElementsDescription</code> 返回空的 <code>IEnumerable</code>（表明 <code>StatusBar</code> 元素没有子项）。</li>
+<li>
+<code>Init()</code> 成员从 XML 解析器读取属性包中的 <code>status</code> 属性值，并将 <code>StatusBar.status</code> 属性设置为此值。</li>
+<li>将 <code>UxmlTraits</code> 类置于 <code>StatusBar</code> 类中，让 <code>Init()</code> 方法可以访问 <code>StatusBar</code> 的私有成员。</li>
+<li>新的 <code>UxmlTraits</code> 类继承自基类 <code>UxmlTraits</code>，因此其共享基类的属性。</li>
+<li>
+<code>Init()</code> 调用 <code>base.Init()</code> 来初始化基类属性。</li>
 </ul>
 
-<p>The code example above declares a string attribute with the <code>UxmlStringAttributeDescription</code> class. UI Toolkit supports the following types of attributes and each links a C# type to an XML type:</p>
+<p>以上代码示例使用 <code>UxmlStringAttributeDescription</code> 类声明了一个字符串属性。UI 工具包支持以下类型的属性，每个属性都将 C# 类型链接到 XML 类型：</p>
 
 <table>
 <colgroup>
@@ -297,50 +300,50 @@
 
 <thead>
 <tr>
-	<th style="text-align:left;"><strong>Attribute</strong></th>
-	<th style="text-align:left;"><strong>Attribute value</strong></th>
+	<th style="text-align:left;"><strong>属性</strong></th>
+	<th style="text-align:left;"><strong>属性值</strong></th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
 	<td style="text-align:left;"><code>UxmlStringAttributeDescription</code></td>
-	<td style="text-align:left;">A string</td>
+	<td style="text-align:left;">字符串</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>UxmlFloatAttributeDescription</code></td>
-	<td style="text-align:left;">A single precision floating point value in the range of the C# <code>float</code> type.</td>
+	<td style="text-align:left;">C# <code>float</code> 类型范围内的单精度浮点值。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>UxmlDoubleAttributeDescription</code></td>
-	<td style="text-align:left;">A double precision floating point value in the range of the C# <code>double</code> type.</td>
+	<td style="text-align:left;">C# <code>double</code> 类型范围内的双精度浮点值。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>UxmlIntAttributeDescription</code></td>
-	<td style="text-align:left;">An integer value in the range of the C# <code>int</code> type.</td>
+	<td style="text-align:left;">C# <code>int</code> 类型范围内的整数值。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>UxmlLongAttributeDescription</code></td>
-	<td style="text-align:left;">A long integer value in the range of the C# <code>long</code> type.</td>
+	<td style="text-align:left;">C# <code>long</code> 类型范围内的长整数值。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>UxmlBoolAttributeDescription</code></td>
 	<td style="text-align:left;">
-<code>true</code> or <code>false</code>
+<code>true</code> 或 <code>false</code>
 </td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>UxmlColorAttributeDescription</code></td>
-	<td style="text-align:left;">A string representing a color (<code>#FFFFFF</code>)</td>
+	<td style="text-align:left;">表示颜色的字符串 (<code>#FFFFFF</code>)</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><code>UxmlEnumAttributeDescription&lt;T&gt;</code></td>
-	<td style="text-align:left;">A string representing one of the values for the <code>Enum</code> type <code>T</code>.</td>
+	<td style="text-align:left;">表示 <code>Enum</code> 类型 <code>T</code> 的值之一的字符串。</td>
 </tr>
 </tbody>
 </table>
 
-<p>In the code example above, the <code>uxmlChildElementsDescription</code> returns an empty <code>IEnumerable</code> which indicates that the <code>StatusBar</code> element does not accept children.</p>
+<p>在以上示例中，<code>uxmlChildElementsDescription</code> 返回一个空的 <code>IEnumerable</code>，表示 <code>StatusBar</code> 元素不接受子项。</p>
 
 <p>To have an element accept children of any type, you must override the <code>uxmlChildElementsDescription</code> property. For example, for the <code>StatusBar</code> element to accept children of any type, the <code>uxmlChildElementsDescription</code> property must be specified as follows:</p>
 
@@ -353,41 +356,43 @@
 }
 </code></pre>
 
-<h2>Defining a namespace prefix</h2>
+<h2>定义命名空间前缀</h2>
 
-<p>Once you have defined a new element in C#, you can start using the element in your UXML files. If your new element is defined in a new namespace, you should define a prefix for the namespace. Namespace prefixes are declared as attributes to the root <code>&lt;UXML&gt;</code> element and replace the full namespace name when scoping elements.</p>
+<p>一旦在 C# 中定义了新元素，就可以开始在 UXML 文件中使用该元素。如果在新命名空间中定义新元素，应该为此命名空间定义一个前缀。命名空间前缀声明为根元素 <code>&lt;UXML&gt;</code> 的属性，并在限定元素范围时替换命名空间的全名。</p>
 
-<p>To define a namespace prefix, add a <code>UxmlNamespacePrefix</code> attribute to your assembly for each namespace prefix you want to define.</p>
+<p>要定义命名空间前缀，请将 <code>UxmlNamespacePrefix</code> 属性添加到要定义的每个命名空间前缀的程序集。</p>
 
-<pre><code>[assembly: UxmlNamespacePrefix("My.First.Namespace", "first")]
+<pre><code class="lang-csharp">
+[assembly: UxmlNamespacePrefix("My.First.Namespace", "first")]
 [assembly: UxmlNamespacePrefix("My.Second.Namespace", "second")]
+
 </code></pre>
 
-<p>This can be done at the root level (outside any namespace) of any C# file of the assembly.</p>
+<p>You can do this at the root level (outside any namespace) of any C# file of the assembly.</p>
 
-<p>The schema generation system does the following:</p>
+<p>架构生成系统会执行以下操作：</p>
 
 <ul>
-<li>checks for these attributes and uses them to generate the schema.</li>
-<li>adds the namespace prefix definition as an attribute of the <code>&lt;UXML&gt;</code> element in newly created UXML files</li>
-<li>includes the schema file location for the namespace in its <code>xsi:schemaLocation</code> attribute.</li>
+<li>Checks for these attributes and uses them to generate the schema.</li>
+<li>Adds the namespace prefix definition as an attribute of the <code>&lt;UXML&gt;</code> element in newly created UXML files</li>
+<li>Includes the schema file location for the namespace in its <code>xsi:schemaLocation</code> attribute.</li>
 </ul>
 
 <p>You should update the UXML schema of your project. Select <strong>Assets &gt; Update UXML Schema</strong> to ensure that your text editor recognizes the new element.</p>
 
 <p>The defined prefix is available in the newly created UXML by selecting <strong>Create &gt; UI Toolkit &gt; Editor Window</strong> in the <code>Project/Assets/Editor</code> folder.</p>
 
-<h2>Advanced usage</h2>
+<h2>高级用法</h2>
 
-<h3>Customizing a UXML name</h3>
+<h3>自定义 UXML 名称</h3>
 
-<p>You can customize a UXML name by overriding its <code>IUxmlFactory.uxmlName</code> and <code>IUXmlFactory.uxmlQualifiedName</code> properties. Make sure the <code>uxmlName</code> is unique within your namespace and that the <code>uxmlQualifiedName</code> is unique in your project. </p>
+<p>若要自定义 UXML 名称，可覆盖其 <code>IUxmlFactory.uxmlName</code> 和 <code>IUXmlFactory.uxmlQualifiedName</code> 属性。确保 <code>uxmlName</code> 在命名空间内具有唯一性且 <code>uxmlQualifiedName</code> 在项目中具有唯一性。</p>
 
-<p>If both names are not unique, an exception is thrown when you attempt to load your assembly.</p>
+<p>If both names aren’t unique, an exception is thrown when you attempt to load your assembly.</p>
 
-<p>The following code example demonstrates how to override and custom the UXML name:</p>
+<p>以下代码示例演示了如何覆盖和自定义 UXML 名称：</p>
 
-<pre><code>public class FactoryWithCustomName : UxmlFactory&lt;..., ...&gt;
+<pre><code class="lang-csharp">public class FactoryWithCustomName : UxmlFactory&lt;..., ...&gt;
 {
     public override string uxmlName
     {
@@ -401,23 +406,23 @@
 }
 </code></pre>
 
-<h3>Selecting a factory for an element</h3>
+<h3>为元素选择工厂</h3>
 
-<p>By default, the <code>IUxmlFactory</code> instantiates an element and selects the element using the name of the element. </p>
+<p>默认情况下，<code>IUxmlFactory</code> 会实例化一个元素并使用该元素的名称来选择该元素。</p>
 
-<p>You can make the selection process consider attribute values on the element by overriding <code>IUXmlFactory.AcceptsAttributeBag</code>. The factory will then examine the element attributes to decide if it can instantiate an object for the UXML element. </p>
+<p>可以通过覆盖 <code>IUXmlFactory.AcceptsAttributeBag</code> 使选择过程考虑元素上的属性值。然后，工厂将检查元素属性以决定是否可以为 UXML 元素实例化对象。</p>
 
-<p>This is useful if, for example, your <code>VisualElement</code> class is generic. In this case, the class factory for a specialization of your class could examine the value of a XML <code>type</code> attribute. Depending on the value, instantiation could be accepted or refused. See the implemenatation of <code>PropertyControl&lt;T&gt;</code> for an example.</p>
+<p>This is useful if your <code>VisualElement</code> class is generic. In this case, the class factory for a specialization of your class could examine the value of a XML <code>type</code> attribute. Depending on the value, instantiation can be accepted or refused. For an example, see the implemenatation of <code>PropertyControl&lt;T&gt;</code>.</p>
 
-<p>In the case where more than one factory can instantiate an element, the first registered factory is selected.</p>
+<p>如果有多个工厂可以实例化元素，则会选择第一个已注册的工厂。</p>
 
-<h3>Overriding the default value of a base class attribute</h3>
+<h3>覆盖基类属性的默认值</h3>
 
-<p>You can change the default value of an attribute declared in a base class by setting its <code>defaultValue</code> in the derived <code>UxmlTraits</code> class.</p>
+<p>若要更改基类中声明的属性的默认值，可在派生的 <code>UxmlTraits</code> 类中设置该属性的 <code>defaultValue</code>。</p>
 
-<p>For example, the following code shows how to change the default value of <code>m_TabIndex</code>:</p>
+<p>例如，以下代码演示了如何更改 <code>m_TabIndex</code> 的默认值：</p>
 
-<pre><code>class MyElementTraits : VisualElement.UxmlTraits
+<pre><code class="lang-csharp">class MyElementTraits : VisualElement.UxmlTraits
     {
         public MyElementTraits()
         {
@@ -426,34 +431,27 @@
     }
 </code></pre>
 
-<h3>Accepting any attribute</h3>
+<h3>接受任何属性</h3>
 
-<p>By default, the generated XML schema states that an element can have any attribute. </p>
+<p>默认情况下，生成的 XML 架构会声明元素可以具有任何属性。</p>
 
-<p>Values of attributes, other than those declared in the <code>UxmlTraits</code> class, are not restricted. This is in contrast to XML validators that check that the value of a declared attribute matches its declaration.</p>
+<p>属性值（在 <code>UxmlTraits</code> 类中声明的属性除外）不受限制。这一点与 XML 验证器相反，后者会检查已声明属性的值是否与其声明匹配。</p>
 
-<p>Additional attributes are included in the <code>IUxmlAttributes</code> bag that is passed to the <code>IUxmlFactory.AcceptsAttributBag()</code> and <code>IUxmlFactory.Init()</code> functions. It is up to the factory implementation whether to use these additional attributes. The default behavior is to discard additonal attributes. </p>
+<p>Additional attributes are included in the <code>IUxmlAttributes</code> bag that’s passed to the <code>IUxmlFactory.AcceptsAttributBag()</code> and <code>IUxmlFactory.Init()</code> functions. It’s up to the factory implementation to use these additional attributes. The default behavior is to discard additional attributes.</p>
 
-<p>This means that these additional attributes are not attached to the instantiated <code>VisualElement</code> and these atttibutes are not queryable with <code>UQuery</code>.</p>
+<p>This means that these additional attributes aren’t attached to the instantiated <code>VisualElement</code> and you cannot query these attributes with <code>UQuery</code>.</p>
 
-<p>When defining a new element, you can restrict the accepted attributes to those explicitly declared by setting the <code>UxmlTraits.canHaveAnyAttribute</code> property to <code>false</code> in your <code>UxmlTraits</code> constructor.</p>
+<p>定义新元素时，可以通过在 <code>UxmlTraits</code> 构造函数中将 <code>UxmlTraits.canHaveAnyAttribute</code> 属性设置为 <code>false</code>，将接受的属性限制为显式声明的属性。</p>
 
-<h1>Using Schema definitions</h1>
+<h2>Using Schema definitions</h2>
 
-<p>Schema definition files specify the attributes and which child elements each UXML element can contain. Use schema definition files as a guide for writing correct documents and to validate your documents. </p>
+<p>架构定义文件用于指定属性以及每个 UXML 元素可以包含的子元素。请将架构定义文件用作编写正确文档和验证文档的指南。</p>
 
-<p>In the UXML template file, the <code>xsi:noNamespaceSchemaLocation</code> and <code>xsi:schemaLocation</code> attributes of the <code>&lt;UXML&gt;</code> root element specify where the schema definition files are located. </p>
+<p>In the UXML template file, the <code>xsi:noNamespaceSchemaLocation</code> and <code>xsi:schemaLocation</code> attributes of the <code>&lt;UXML&gt;</code> root element specify the location of the schema definition files.</p>
 
 <p>Select <strong>Assets &gt; Create &gt; UI Toolkit &gt; Editor Window</strong> to automatically update your schema definition with the latest information from the <code>VisualElement</code> sub-classes used by your project. To force an update of the UXML schema files, select <strong>Assets &gt; Update UXML Schema</strong>.</p>
 
-<p><strong>Note</strong>: Some text editors do not recognize the <code>xsi:noNamespaceSchemaLocation</code> attribute. If your text editor cannot find the schema definition files, you should also specify the <code>xsi:schemaLocation</code> attribute.</p>
-
-<hr>
-
-<ul>
-<li><span class="page-edit">2019–05–23 页面已修订</span></li>
-</ul>
-<!-- area:authoring -->
+<p><strong>Note</strong>: Some text editors don’t recognize the <code>xsi:noNamespaceSchemaLocation</code> attribute. If your text editor can’t find the schema definition files, you should also specify the <code>xsi:schemaLocation</code> attribute.</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="UIE-LayoutEngine.html"></a></span><div class="tip">布局引擎</div>
@@ -465,7 +463,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

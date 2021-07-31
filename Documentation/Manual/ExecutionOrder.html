@@ -11,8 +11,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Order of execution for event functions - Unity 手册">
-<title>Order of execution for event functions - Unity 手册</title>
+<meta property="og:title" content="事件函数的执行顺序 - Unity 手册">
+<title>事件函数的执行顺序 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/monobehaviour_flowchart.svg">
 <meta name="description" content="运行 Unity 脚本会按预定顺序执行大量事件函数。本页面将介绍这些事件函数，并说明它们的执行顺序。">
 <meta property="og:description" content="运行 Unity 脚本会按预定顺序执行大量事件函数。本页面将介绍这些事件函数，并说明它们的执行顺序。">
@@ -175,10 +175,10 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="ScriptingSection.html">Scripting</a></li>
-<li><a href="ScriptingConcepts.html">Scripting concepts</a></li>
-<li>Order of execution for event functions</li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="ScriptingSection.html">脚本</a></li>
+<li><a href="ScriptingConcepts.html">脚本概念</a></li>
+<li>事件函数的执行顺序</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -188,7 +188,7 @@
 <span class="next"><a href="EventFunctions.html"></a></span><div class="tip">事件函数</div>
 </div>
 </div></div>
-<h1>Order of execution for event functions</h1>
+<h1>事件函数的执行顺序</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
@@ -236,7 +236,7 @@
 <strong>OnEnable：</strong>（仅在对象处于激活状态时调用）在启用对象后立即调用此函数。在创建 MonoBehaviour 实例时（例如加载关卡或实例化具有脚本组件的游戏对象时）会执行此调用。</li>
 </ul>
 
-<p>Note that for objects added to the scene, the Awake and OnEnable functions for <em>all</em> scripts will be called before Start, Update, etc are called for any of them. Naturally, this cannot be enforced when you instantiate an object during gameplay.</p>
+<p>请注意，对于添加到场景中的对象，在为任何对象调用 Start 和 Update 等函数之前，会为_所有_ 脚本调用 Awake 和 OnEnable 函数。当然，在游戏运行过程中实例化对象时，不能强制执行此调用。</p>
 
 <p><a name="Editor"></a> </p>
 
@@ -244,9 +244,9 @@
 
 <ul>
 <li>
-<strong>Reset:</strong> Reset is called to initialize the script’s properties when it is first attached to an object and also when the <em>Reset</em> command is used.</li>
+<strong>Reset：</strong>调用 Reset 可以在脚本首次附加到对象时以及使用 <em>Reset</em> 命令时初始化脚本的属性。</li>
 <li>
-<strong>OnValidate:</strong> OnValidate is called whenever the script’s properties are set, including when an object is deserialized, which can occur at various times, such as when you open a scene in the Editor and after a domain reload.</li>
+<strong>OnValidate：</strong>每当设置脚本的属性时都会调用 OnValidate，包括反序列化对象时，这可能发生在不同的时间，例如在编辑器中打开场景时和域重新加载后。</li>
 </ul>
 
 <p><a name="BeforeTheFirstFrameUpdate"></a></p>
@@ -258,7 +258,7 @@
 <strong>Start：</strong>仅当启用脚本实例后，才会在第一次帧更新之前调用 Start。</li>
 </ul>
 
-<p>For objects that are part of a scene asset, the Start function is called on all scripts before Update, etc is called for any of them. Naturally, this cannot be enforced when you instantiate an object during gameplay.</p>
+<p>对于场景资源中的对象，在为任何脚本调用 Update 等函数之前，将在所有脚本上调用 Start 函数。当然，在游戏运行过程中实例化对象时，不能强制执行此调用。</p>
 
 <p><a name="InBetweenFrames"></a></p>
 
@@ -281,11 +281,11 @@
 <li><p><strong>LateUpdate：</strong>每帧调用一次 <strong>LateUpdate__（在 </strong>Update__ 完成后）。<strong>LateUpdate</strong> 开始时，在 <strong>Update</strong> 中执行的所有计算便已完成。<strong>LateUpdate</strong> 的常见用途是跟随第三人称摄像机。如果在 <strong>Update</strong> 内让角色移动和转向，可以在 <strong>LateUpdate</strong> 中执行所有摄像机移动和旋转计算。这样可以确保角色在摄像机跟踪其位置之前已完全移动。</p></li>
 </ul>
 
-<p>In general, you should not rely on the order in which the same event function is invoked for different GameObjects — except when the order is explicitly documented or settable. (If you need a more fine-grained control of the player loop, you can use the <a href="../ScriptReference/LowLevel.PlayerLoop.html">PlayerLoop API</a>.) </p>
+<p>通常，不应依赖为不同的游戏对象调用相同事件函数的顺序 - 除非顺序明确记录或可设置。（如果需要对播放器循环进行更细粒度的控制，可以使用 <a href="../ScriptReference/LowLevel.PlayerLoop.html">PlayerLoop API</a>。）</p>
 
-<p>You cannot specify the order in which an event function is called for different instances of the same MonoBehaviour subclass. For example, the <strong>Update</strong> function of one MonoBehaviour might be called before or after the <strong>Update</strong> function for the same MonoBehaviour on another GameObject — including its own parent or child GameObjects. </p>
+<p>不能指定为同一 MonoBehaviour 子类的不同实例调用事件函数的顺序。例如，一个 MonoBehaviour 的 <strong>Update</strong> 函数可能会在另一个游戏对象（包括其父级或子级游戏对象）上的相同 MonoBehaviour 的 <strong>Update</strong> 函数之前或之后调用。</p>
 
-<p>You can specify that the event functions of one MonoBehaviour subclass should be invoked before those of a different subclass (using the Script Execution Order panel of the Project Settings window). For example, if you had two scripts, EngineBehaviour and SteeringBehaviour, you could set the Script Execution Order such that EngineBehaviours always updates before SteeringBehaviours.</p>
+<p>可以指定一个 MonoBehaviour 子类的事件函数应在不同子类的事件函数之前调用（使用 Project Settings 窗口的 Script Execution Order 面板）。例如，如果有两个脚本，EngineBehaviour 和 SteeringBehaviour，可以设置 Script Execution Order，这样 EngineBehaviours 始终在 SteeringBehaviours 之前更新。</p>
 
 <p><a name="AnimationUpdateLoop"></a></p>
 
@@ -357,9 +357,9 @@
 <li>
 <strong>yield</strong> 在下一帧上调用所有 Update 函数后，协程将继续。</li>
 <li>
-<strong>yield WaitForSeconds</strong> Continue after a specified time delay, after all Update functions have been called for the frame.</li>
+<strong>yield WaitForSeconds</strong> 在为帧调用所有 Update 函数后，在指定的时间延迟后继续。</li>
 <li>
-<strong>yield WaitForFixedUpdate</strong> Continue after all FixedUpdate has been called on all scripts. If the coroutine yielded before FixedUpdate, then it resumes after FixedUpdate in the current frame.</li>
+<strong>yield WaitForFixedUpdate</strong> 在所有脚本上调用所有 FixedUpdate 后继续。如果协同程序在 FixedUpdate 之前生成，那么它会在当前帧的 FixedUpdate 之后继续运行。</li>
 <li>
 <strong>yield WWW</strong> 在 WWW 下载完成后继续。</li>
 <li>
@@ -405,7 +405,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

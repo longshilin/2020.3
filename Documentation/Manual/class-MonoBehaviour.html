@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Important Classes - MonoBehaviour - Unity 手册">
-<title>Important Classes - MonoBehaviour - Unity 手册</title>
-<meta name="description" content="The MonoBehaviour class is the base class from which every Unity script derives, by default. When you create a C# script from Unity&amp;#8217;s project window, it automatically inherits from MonoBehaviour, and provides you with a template script. See Creating and Using scripts for more information on this.">
-<meta property="og:description" content="The MonoBehaviour class is the base class from which every Unity script derives, by default. When you create a C# script from Unity&amp;#8217;s project window, it automatically inherits from MonoBehaviour, and provides you with a template script. See Creating and Using scripts for more information on this.">
+<meta property="og:title" content="重要的类 - MonoBehaviour - Unity 手册">
+<title>重要的类 - MonoBehaviour - Unity 手册</title>
+<meta name="description" content="MonoBehaviour 类是一个基类，所有 Unity 脚本都默认派生自该类。当您从 Unity 的项目窗口创建一个 C# 脚本时，它会自动继承 MonoBehaviour，并为您提供模板脚本。请参阅创建和使用脚本以了解更多相关信息。">
+<meta property="og:description" content="MonoBehaviour 类是一个基类，所有 Unity 脚本都默认派生自该类。当您从 Unity 的项目窗口创建一个 C# 脚本时，它会自动继承 MonoBehaviour，并为您提供模板脚本。请参阅创建和使用脚本以了解更多相关信息。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,62 +174,62 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="ScriptingSection.html">Scripting</a></li>
-<li><a href="ScriptingImportantClasses.html">Important Classes </a></li>
-<li>Important Classes - MonoBehaviour</li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="ScriptingSection.html">脚本</a></li>
+<li><a href="ScriptingImportantClasses.html">重要的类</a></li>
+<li>重要的类 - MonoBehaviour</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="class-GameObject.html"></a></span><div class="tip">Important Classes - GameObject</div>
+<span class="prev"><a href="class-GameObject.html"></a></span><div class="tip">重要的类 - GameObject</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="class-Object.html"></a></span><div class="tip">Important Classes - Object</div>
+<span class="next"><a href="class-Object.html"></a></span><div class="tip">重要的类 - Object</div>
 </div>
 </div></div>
-<h1>Important Classes - MonoBehaviour</h1>
+<h1>重要的类 - MonoBehaviour</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>The MonoBehaviour class is the base class from which every Unity script derives, by default. When you create a C# script from Unity’s project window, it automatically inherits from MonoBehaviour, and provides you with a template script. See <a href="CreatingAndUsingScripts.html">Creating and Using scripts</a> for more information on this.</p>
+<p>MonoBehaviour 类是一个基类，所有 Unity 脚本都默认派生自该类。当您从 Unity 的项目窗口创建一个 C# 脚本时，它会自动继承 MonoBehaviour，并为您提供模板脚本。请参阅<a href="CreatingAndUsingScripts.html">创建和使用脚本</a>以了解更多相关信息。</p>
 
-<p>The MonoBehaviour class provides the framework which allows you to attach your script to a GameObject in the editor, as well as providing hooks into useful Events such as <a href="../ScriptReference/MonoBehaviour.Start.html">Start</a> and <a href="../ScriptReference/MonoBehaviour.Update.html">Update</a>.</p>
+<p>MonoBehaviour 类提供了框架，允许您将脚本附加到编辑器中的游戏对象，并提供诸如 <a href="../ScriptReference/MonoBehaviour.Start.html">Start</a> 和 <a href="../ScriptReference/MonoBehaviour.Update.html">Update</a> 等常用事件的挂钩。</p>
 
-<p>For an complete reference of every member of the MonoBehaviour class, and its technical details, see the <a href="../ScriptReference/MonoBehaviour.html">MonoBehaviour script reference</a>.</p>
+<p>有关 MonoBehaviour 类的每个成员及其技术细节的完整参考，请参阅 <a href="../ScriptReference/MonoBehaviour.html">MonoBehaviour 脚本参考</a>。</p>
 
 <h2>协程</h2>
 
-<p>The MonoBehaviour class allows you to start, stop, and manage Coroutines, which are a way to write asynchronous code which can include waiting for a certain amount of time, or for certain actions to complete, while allowing other code to continue executing.</p>
+<p>MonoBehaviour 类允许您启动、停止和管理协程，这是一种编写异步代码的方法，其中包括等待一定时间或某些操作完成，同时允许其他代码继续执行。</p>
 
-<p>For more information about coroutines, see the <a href="Coroutines.html">Coroutines manual page</a> and the <a href="../ScriptReference/MonoBehaviour.StartCoroutine.html">StartCoroutine method script reference</a>.</p>
+<p>有关协程的更多信息，请参阅<a href="Coroutines.html">协程手册页</a>和 <a href="../ScriptReference/MonoBehaviour.StartCoroutine.html">StartCoroutine 方法脚本参考</a>。</p>
 
-<h2>Events</h2>
+<h2>事件</h2>
 
-<p>The MonoBehaviour class provides access to a large collection of event messages, which allows you to execute your code based on what is currently happening in your project. Here are a few of the more common examples. For a list of them all, see the <strong>Messages</strong> section on the <a href="../ScriptReference/MonoBehaviour.html">MonoBehaviour script reference page</a> </p>
+<p>MonoBehaviour 类提供对大量事件消息的访问，允许您根据项目中当前发生的情况执行代码。下面是一些比较常见的例子。有关完整的列表，请参阅 <a href="../ScriptReference/MonoBehaviour.html">MonoBehaviour 脚本参考页面</a> 上的<strong>消息</strong>部分</p>
 
-<p><a href="../ScriptReference/MonoBehaviour.Start.html"><code>Start</code></a> - called when the GameObject begins to exist (either when the Scene is loaded, or the GameObject is instantiated).</p>
+<p><a href="../ScriptReference/MonoBehaviour.Start.html"><code>Start</code></a> - 在游戏对象开始存在时（加载场景或实例化游戏对象时）调用。</p>
 
-<p><a href="../ScriptReference/MonoBehaviour.Update.html"><code>Update</code></a> - called every frame.</p>
+<p><a href="../ScriptReference/MonoBehaviour.Update.html"><code>Update</code></a> - 每帧都会被调用。</p>
 
-<p><a href="../ScriptReference/MonoBehaviour.FixedUpdate.html"><code>FixedUpdate</code></a> - called every physics timestep.</p>
+<p><a href="../ScriptReference/MonoBehaviour.FixedUpdate.html"><code>FixedUpdate</code></a> - 每个物理时间步进调用。</p>
 
-<p><a href="../ScriptReference/MonoBehaviour.OnBecameVisible.html"><code>OnBecameVisible</code></a> and <a href="../ScriptReference/MonoBehaviour.OnBecameInvisible.html"><code>OnBecameInvisible</code></a> - called when a GameObject’s renderer enters or leaves a camera’s view.</p>
+<p><a href="../ScriptReference/MonoBehaviour.OnBecameVisible.html"><code>OnBecameVisible</code></a> 和 <a href="../ScriptReference/MonoBehaviour.OnBecameInvisible.html"><code>OnBecameInvisible</code></a> - 当游戏对象的渲染器进入或离开摄像机的视图时调用。</p>
 
-<p><a href="../ScriptReference/MonoBehaviour.OnCollisionEnter.html"><code>OnCollisionEnter</code></a> and <a href="../ScriptReference/MonoBehaviour.OnTriggerEnter.html"><code>OnTriggerEnter</code></a> - called when physics collisions or triggers occur.</p>
+<p><a href="../ScriptReference/MonoBehaviour.OnCollisionEnter.html"><code>OnCollisionEnter</code></a> 和 <a href="../ScriptReference/MonoBehaviour.OnTriggerEnter.html"><code>OnTriggerEnter</code></a> - 在发生物理碰撞或触发时调用。</p>
 
-<p><a href="../ScriptReference/MonoBehaviour.OnDestroy.html"><code>OnDestroy</code></a> - called when the GameObject is destroyed.</p>
+<p><a href="../ScriptReference/MonoBehaviour.OnDestroy.html"><code>OnDestroy</code></a> - 在销毁游戏对象时调用。</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="class-GameObject.html"></a></span><div class="tip">Important Classes - GameObject</div>
+<span class="prev"><a href="class-GameObject.html"></a></span><div class="tip">重要的类 - GameObject</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="class-Object.html"></a></span><div class="tip">Important Classes - Object</div>
+<span class="next"><a href="class-Object.html"></a></span><div class="tip">重要的类 - Object</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Scene Templates - Unity 手册">
-<title>Scene Templates - Unity 手册</title>
-<meta name="description" content="To create new scenes, Unity copies scene templates. Think of a scene template as a pre-configured scene that contains all of the content you want to start with. For example, the default Basic template usually contains a Camera and a light.">
-<meta property="og:description" content="To create new scenes, Unity copies scene templates. Think of a scene template as a pre-configured scene that contains all of the content you want to start with. For example, the default Basic template usually contains a Camera and a light.">
+<meta property="og:title" content="场景模板 - Unity 手册">
+<title>场景模板 - Unity 手册</title>
+<meta name="description" content="Unity 使用场景模板来创建新场景。场景模板可视为一个预先配置好的场景，其中包含您想要作为创建起点的所有内容。例如，默认的 Basic 模板通常包含一个摄像机和一个光源。">
+<meta property="og:description" content="Unity 使用场景模板来创建新场景。场景模板可视为一个预先配置好的场景，其中包含您想要作为创建起点的所有内容。例如，默认的 Basic 模板通常包含一个摄像机和一个光源。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,54 +174,54 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UnityOverview.html">在 Unity 中操作</a></li>
 <li><a href="CreatingGameplay.html">创建游戏玩法</a></li>
 <li><a href="CreatingScenes.html">场景</a></li>
-<li>Scene Templates</li>
+<li>场景模板</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="MultiSceneEditing.html"></a></span><div class="tip">多场景编辑</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="scene-templates-creating.html"></a></span><div class="tip">Creating scene templates</div>
+<span class="next"><a href="scene-templates-creating.html"></a></span><div class="tip">创建场景模板</div>
 </div>
 </div></div>
-<h1>Scene Templates</h1>
+<h1>场景模板</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>To create new scenes, Unity copies scene templates. Think of a scene template as a pre-configured scene that contains all of the content you want to start with. For example, the default Basic template usually contains a Camera and a light.</p>
+<p>Unity 使用场景模板来创建新场景。场景模板可视为一个预先配置好的场景，其中包含您想要作为创建起点的所有内容。例如，默认的 Basic 模板通常包含一个摄像机和一个光源。</p>
 
-<p>You can create your own scene templates to customize the types of new scene you can create in a project. For example, you might create templates for each level in a game so that everyone working on the project can start their scenes with the correct assets and configuration.</p>
+<p>您可以创建自己的场景模板来自定义可在项目中创建的新场景的类型。例如，您可以为游戏中的每个关卡创建模板，以便参与该项目的每个人都可以使用正确的资源和配置开始创建各自的场景。</p>
 
-<p>You can create a template from any Unity scene. After you create a template, you can create any number of new scenes from it. Like scenes, most scene templates are assets that are stored in the project.</p>
+<p>您可以从任何 Unity 场景创建模板。创建模板后，您可以利用该模板创建任意数量的新场景。与场景一样，大多数场景模板都是存储在项目中的资源。</p>
 
-<p>This page explains important scene template concepts. For more information about creating, editing, and managing scene templates, see the following pages:</p>
+<p>本页面解释了重要的场景模板概念。有关创建、编辑和管理场景模板的更多信息，请参阅以下页面：</p>
 
 <ul>
 <li>
-<a href="scene-templates-creating.html">Creating scene templates</a>: Describes the different ways to create a scene template.</li>
+<a href="scene-templates-creating.html">创建场景模板</a>：描述创建场景模板的不同方法。</li>
 <li>
-<a href="scene-templates-editing.html">Editing scene templates</a>: Explains how to edit Scene template properties.</li>
+<a href="scene-templates-editing.html">编辑场景模板</a>：解释如何编辑场景模板的属性。</li>
 <li>
-<a href="scene-templates-customizing-scene-instantiation.html">Customizing new scene creation</a>: Explains how to attach a script to a scene template so you can run custom code when Unity creates a scene from the template.</li>
+<a href="scene-templates-customizing-scene-instantiation.html">自定义新场景的创建</a>：解释了如何将脚本附加到场景模板，您可以在 Unity 从模板创建场景时运行自定义代码。</li>
 <li>
-<a href="scene-templates-settings.html">Scene template settings</a>: Describes project settings for scene templates. Most of these settings control how Unity closes and references scene dependencies when you create a new scene from a template.</li>
+<a href="scene-templates-settings.html">场景模板设置</a>：描述场景模板的项目设置。这些设置中的大多数用于控制从模板创建新场景时 Unity 如何关闭和引用场景依赖项。</li>
 </ul>
 
 <h2>重要概念</h2>
 
 <p><a name="built-in-templates-and-user-defined-templates"></a></p>
 
-<h3>Built-in templates vs. user-defined templates</h3>
+<h3>内置模板与用户定义的模板</h3>
 
-<p>Most scene templates are user-defined, meaning you create them from your own scenes. User-defined scene templates are assets that Unity stores in the project.</p>
+<p>大多数场景模板都是用户定义的，这意味着您可以从自己的场景中创建它们。用户定义的场景模板是 Unity 存储在项目中的资源。</p>
 
-<p>Unity also ships with built-in templates for each project type. For example, some project types include a Basic template that creates a scene with a Camera and a light, and an Empty template that creates an empty scene.</p>
+<p>Unity 还为每种项目类型提供了内置模板。例如，某些项目类型包括一个 Basic 模板，可创建带有摄像机和光源的场景，以及一个创建空场景的 Empty 模板。</p>
 
-<p>Built-in templates are different from other templates because they are not assets stored in the project, and you cannot modify them.</p>
+<p>内置模板不同于其他模板，因为它们不是项目中存储的资源，您无法对其进行修改。</p>
 
 <table>
 <colgroup>
@@ -236,34 +236,34 @@
 
 <tbody>
 <tr>
-	<td style="text-align:left;">Some Unity packages might also include scene templates that they install when you install the package.</td>
+	<td style="text-align:left;">某些 Unity 包可能还包含一些场景模板，在您安装包时会安装这些模板。</td>
 </tr>
 </tbody>
 </table>
 
 <p><a name="templates-and-scene-dependencies"></a></p>
 
-<h3>Templates and scene dependencies</h3>
+<h3>模板和场景依赖项</h3>
 
-<p>When you create a scene template, you can specify whether Unity clones or references its dependencies (the assets it includes) when you create a new scene from it.</p>
+<p>创建场景模板时，您可以指定在将其用于创建新场景时 Unity 是克隆还是引用其依赖项（它包含的资源）。</p>
 
-<p>To specify which assets Unity clones for a specific template, <a href="scene-templates-editing.html">edit the template’s properties</a>.</p>
+<p>要指定 Unity 为特定模板克隆哪些资源，请<a href="scene-templates-editing.html">编辑模板的属性</a>。</p>
 
-<p>A typical template might contain a mix of cloned and referenced assets. Unity sets several asset types to clone by default.</p>
+<p>典型的模板可能包含克隆资源和引用资源的混合。默认情况下，Unity 设置了几种要克隆的资源类型。</p>
 
-<p>To change whether Unity clones or references a given asset type by default, edit the <a href="scene-templates-settings.html">Scene template project settings</a>.</p>
+<p>要更改默认情况下 Unity 是克隆还是引用给定资源类型，请编辑<a href="scene-templates-settings.html">场景模板项目设置</a>。</p>
 
-<h4>Cloning template assets</h4>
+<h4>克隆模板资源</h4>
 
-<p>Cloned assets are copies of the original assets that the template scene uses. When Unity creates the new scene from the template, it automatically modifies the new scene to use any cloned assets. If you modify the cloned assets, it does not affect the template scene. If you modify the original assets in the template scene, it does not affect the new scene.</p>
+<p>克隆资源是模板场景使用的原始资源的副本。当 Unity 从模板创建新场景时，它会自动修改新场景以使用任何克隆的资源。如果您修改克隆的资源，它不会影响模板场景。如果在模板场景中修改原始资源，则不会影响新场景。</p>
 
-<p>Cloning template assets is useful when you want new scenes to contain a starting set of assets that users might modify.</p>
+<p>当您希望新场景包含用户可能会修改的一组起始资源时，克隆模板资源非常有用。</p>
 
-<h4>Referencing template assets</h4>
+<h4>引用模板资源</h4>
 
-<p>Referenced assets are the original assets that the template scene uses. When Unity creates the new scene from the template, the new scene points to the same assets as the template scene. If you modify those assets, it affects both the new scene and the template scene.</p>
+<p>引用资源是模板场景使用的原始资源。当 Unity 从模板创建新场景时，新场景指向与模板场景相同的资源。如果您修改这些资源，新场景和模板场景都会受到影响。</p>
 
-<p>Referencing template assets is useful when you want new scenes to contain a default set of assets that users build on top of, but do not modify.</p>
+<p>当您希望新场景包含用户作为构建基础但不修改的默认资源集时，引用模板资源非常有用。</p>
 
 <hr>
 <!-- area:authoring -->
@@ -272,13 +272,13 @@
 <span class="prev"><a href="MultiSceneEditing.html"></a></span><div class="tip">多场景编辑</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="scene-templates-creating.html"></a></span><div class="tip">Creating scene templates</div>
+<span class="next"><a href="scene-templates-creating.html"></a></span><div class="tip">创建场景模板</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

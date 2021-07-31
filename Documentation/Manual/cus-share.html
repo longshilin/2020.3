@@ -174,14 +174,14 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="PackagesList.html">包</a></li>
 <li><a href="CustomPackages.html">创建自定义包</a></li>
 <li>共享包</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="cus-legal.html"></a></span><div class="tip">符合法律要求</div>
+<span class="prev"><a href="cus-document.html"></a></span><div class="tip">为您的软件包撰写文档</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="UnityOverview.html"></a></span><div class="tip">在 Unity 中操作</div>
@@ -210,15 +210,15 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><strong>Tarball</strong></td>
-	<td style="text-align:left;">You can distribute a zip or tarball to other Unity users. That way, they can either <a href="upm-ui-tarball.html">install the package from the local tarball</a> directly or decompress the zip or tarball to a local folder on their own computer and <a href="upm-ui-local.html">install it from there</a>.</td>
+	<td style="text-align:left;">可以将包作为 zip 或 tarball 分发给其他的 Unity 用户。这样，他们可以直接<a href="upm-ui-tarball.html">从本地 tarball 安装包</a>，也可以将 zip 或 tarball 解压缩到自己计算机上的本地文件夹中，然后<a href="upm-ui-local.html">从那里安装</a>。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Git URL</strong></td>
-	<td style="text-align:left;">You can distribute a link to your Git repository, using one of the <a href="upm-git.html">supported protocols</a>. Then users can <a href="upm-git.html">install your package using its Git URL</a>, because the Unity Package Manager can fetch packages from Git repository hosting services like GitHub and GitLab.</td>
+	<td style="text-align:left;">可以使用以下<a href="upm-git.html">支持的协议</a>之一分发指向您的 Git 代码仓库的链接。然后，用户可以<a href="upm-git.html">使用包的 Git URL 来安装包</a>，因为 Unity Package Manager 可以从 Git 代码仓库（如 GitHub 和 GitLab）提取包。</td>
 </tr>
 <tr>
-	<td style="text-align:left;"><strong>Scoped Registry</strong></td>
-	<td style="text-align:left;">You can set up a package registry server to host your package and then publish it to that registry using <a href="https://docs.npmjs.com/creating-and-publishing-unscoped-public-packages">npm’s publish</a> command. Your package’s consumers can then set up a <a href="upm-scoped.html">scoped registry</a> configuration in their project to fetch your custom packages from your own package registry.<br><br>Unity Package Manager supports registries based on the “npm” protocol. Make sure that whatever registry server you choose implements the <code>/-/v1/search</code> or <code>/-/all</code> endpoints. <br><br><strong>Warning:</strong> When you set up your own package registry server, make sure you only use features that are compatible with Unity’s Scoped Registries. For example, Unity doesn’t support namespaces using the <code>@scope</code> notation that npm supports.<br><br>Most of the time, anonymous access within a local network is sufficient to fulfill your security requirements. However, if you want more control over who accesses packages via scoped registries, you can enable <a href="https://docs.npmjs.com/about-authentication-tokens">npm authentication</a> for specific users. Your package’s customers can then <a href="upm-config-scoped.html">configure their scoped registries</a> to use their npm authentication tokens.</td>
+	<td style="text-align:left;"><strong>范围注册表</strong></td>
+	<td style="text-align:left;">可以设置一个包注册表服务器来托管包，然后使用 <a href="https://docs.npmjs.com/creating-and-publishing-unscoped-public-packages">npm 的 publish</a> 命令将包发布到这个注册表中。然后包的消费者可以在其项目中设置<a href="upm-scoped.html">范围注册表</a>配置，以从您自己的包注册表中获取您的自定义包。<br><br>Unity Package Manager 支持基于“npm”协议的注册表。确保您选择的注册表服务器实现 <code>/-/v1/search</code> 或 <code>/-/all</code> 终端。<br><br><strong>警告：</strong>设置自己的包注册表服务器时，请确保只使用与 Unity 的 Scoped Registries 兼容的功能。例如，Unity 不支持 npm 支持的使用 <code>@scope</code> 表示法的命名空间。<br><br>大多数情况下，本地网络内的匿名访问足以满足您的安全要求。但是，如果想通过范围注册表更好地控制哪些人可以访问包，可以对特定用户启用 <a href="https://docs.npmjs.com/about-authentication-tokens">npm 身份验证</a>。这样，包的客户可以<a href="upm-config-scoped.html">配置其范围注册表</a>，从而使用其 npm 身份验证令牌。</td>
 </tr>
 </tbody>
 </table>
@@ -226,7 +226,7 @@
 <p><br> </p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="cus-legal.html"></a></span><div class="tip">符合法律要求</div>
+<span class="prev"><a href="cus-document.html"></a></span><div class="tip">为您的软件包撰写文档</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="UnityOverview.html"></a></span><div class="tip">在 Unity 中操作</div>
@@ -235,7 +235,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

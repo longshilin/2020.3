@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="GLSL 着色器程序 - Unity 手册">
-<title>GLSL 着色器程序 - Unity 手册</title>
-<meta name="description" content="除了使用 Cg/HSL 着色器程序之外，还可以直接编写 OpenGL 着色语言 (GLSL) 着色器。">
-<meta property="og:description" content="除了使用 Cg/HSL 着色器程序之外，还可以直接编写 OpenGL 着色语言 (GLSL) 着色器。">
+<meta property="og:title" content="Unity 中的 GLSL - Unity 手册">
+<title>Unity 中的 GLSL - Unity 手册</title>
+<meta name="description" content="除了编写 HLSL 着色器程序，还可以在 Unity 中编写原始 OpenGL 着色语言 (GLSL) 着色器程序。">
+<meta property="og:description" content="除了编写 HLSL 着色器程序，还可以在 Unity 中编写原始 OpenGL 着色语言 (GLSL) 着色器程序。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,29 +174,27 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
-<li><a href="ShadersOverview.html">编写着色器</a></li>
-<li><a href="SL-Reference.html">着色器参考</a></li>
-<li><a href="SL-ShaderPrograms.html">编写顶点和片元着色器</a></li>
-<li>GLSL 着色器程序</li>
+<li><a href="Shaders.html">着色器</a></li>
+<li><a href="shader-writing.html">编写着色器</a></li>
+<li>Unity 中的 GLSL</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-UnityShaderVariables.html"></a></span><div class="tip">内置着色器变量</div>
+<span class="prev"><a href="SL-SamplerStates.html"></a></span><div class="tip">使用采样器状态</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-ShadingLanguage.html"></a></span><div class="tip">Unity 中使用的着色语言</div>
+<span class="next"><a href="shader-writing-vertex-fragment.html"></a></span><div class="tip">Example shaders</div>
 </div>
 </div></div>
-<h1>GLSL 着色器程序</h1>
+<h1>Unity 中的 GLSL</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>除了使用 <a href="SL-ShaderPrograms.html">Cg/HSL 着色器程序</a>之外，还可以直接编写 OpenGL 着色语言 (GLSL) 着色器。</p>
+<p>除了编写 <a href="SL-ShaderPrograms.html">HLSL 着色器程序</a>，还可以在 Unity 中编写原始 OpenGL 着色语言 (GLSL) 着色器程序。</p>
 
-<p>但是，只有需要进行测试时，或者当您知道目标平台仅限于 Mac OS X、OpenGL ES 移动设备或 Linux 时，才建议使用原始 GLSL。在所有正常情况下，Unity will 会在需要时将 Cg/HLSL 交叉编译为优化的 GLSL。</p>
+<p><strong>注意：</strong>在常规工作流程中，不建议或不需要这样做；Unity 会在需要时将您的 HLSL 交叉编译为优化的 GLSL。仅建议将原始 GLSL 用于测试或支持使用 GLSL 的平台上的项目。</p>
 
 <h2>GLSL 代码片段</h2>
 
@@ -229,19 +227,18 @@
 
 <pre><code>gl_FragData[0] = textureExternal(_MainTex, uv);
 </code></pre>
-<!-- area:graphics -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-UnityShaderVariables.html"></a></span><div class="tip">内置着色器变量</div>
+<span class="prev"><a href="SL-SamplerStates.html"></a></span><div class="tip">使用采样器状态</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-ShadingLanguage.html"></a></span><div class="tip">Unity 中使用的着色语言</div>
+<span class="next"><a href="shader-writing-vertex-fragment.html"></a></span><div class="tip">Example shaders</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

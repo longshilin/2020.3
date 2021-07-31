@@ -11,8 +11,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="The Profiler window - Unity 手册">
-<title>The Profiler window - Unity 手册</title>
+<meta property="og:title" content="Profiler 窗口 - Unity 手册">
+<title>Profiler 窗口 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/profiler-window-layout.png">
 <meta name="description" content="要访问 Unity 性能分析器 (Unity Profiler)，请选择 Window &gt; Analysis &gt; Profiler__，或使用键盘快捷键 Ctrl+7__（macOS 上为 __Command+7__）。">
 <meta property="og:description" content="要访问 Unity 性能分析器 (Unity Profiler)，请选择 Window &gt; Analysis &gt; Profiler__，或使用键盘快捷键 Ctrl+7__（macOS 上为 __Command+7__）。">
@@ -175,21 +175,21 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UnityOverview.html">在 Unity 中操作</a></li>
 <li><a href="analysis.html">分析</a></li>
-<li><a href="Profiler.html">Profiler overview</a></li>
-<li>The Profiler window</li>
+<li><a href="Profiler.html">性能分析器概述</a></li>
+<li>Profiler 窗口</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="profiler-markers.html"></a></span><div class="tip">Common Profiler markers</div>
+<span class="prev"><a href="profiler-markers.html"></a></span><div class="tip">常见性能分析器标记</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="ProfilerAudio.html"></a></span><div class="tip">Audio Profiler 模块</div>
 </div>
 </div></div>
-<h1>The Profiler window</h1>
+<h1>Profiler 窗口</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
@@ -205,7 +205,7 @@
 
 <ul>
 <li><a href="#layout">Profiler 窗口布局</a></li>
-<li><a href="#preferences">Profiler Preferences</a></li>
+<li><a href="#preferences">Profiler 首选项</a></li>
 <li>
 <a href="#controls">性能分析器控件</a>
 
@@ -221,7 +221,7 @@
 <li><a href="#frame-charts">性能分析器帧图表</a></li>
 </ul>
 </li>
-<li><a href="#standalone">Standalone Profiler</a></li>
+<li><a href="#standalone">独立性能分析器</a></li>
 <li><a href="#command-line">命令行参数</a></li>
 </ul>
 
@@ -249,9 +249,9 @@
 
 <p><a name="preferences"></a></p>
 
-<h2>Profiler Preferences</h2>
+<h2>Profiler 首选项</h2>
 
-<p>The Preferences window contains additional Profiler window settings as follows:</p>
+<p>Preferences 窗口包含额外的 Profiler 窗口设置，如下所示：</p>
 
 <table>
 <colgroup>
@@ -261,7 +261,7 @@
 
 <thead>
 <tr>
-	<th style="text-align:left;"><strong>Preference</strong></th>
+	<th style="text-align:left;"><strong>首选项</strong></th>
 	<th style="text-align:left;"><strong>描述</strong></th>
 </tr>
 </thead>
@@ -269,7 +269,7 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><strong>Frame count</strong></td>
-	<td style="text-align:left;">Set the maximum number of frames for the Profiler to capture. You can set this number between 300 and 2,000.</td>
+	<td style="text-align:left;">设置性能分析器要捕获的最大帧数。您可以将此数字设置在 300 到 2,000 之间。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Show stats for ‘current frame’</strong></td>
@@ -277,11 +277,11 @@
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Default recording state</strong></td>
-	<td style="text-align:left;">Select which recording state the Profiler should open in. Choose from <strong>Enabled</strong>, <strong>Disabled</strong>, or <strong>Remember</strong>. Enabled keeps the <strong>Record</strong> button enabled between sessions, while <strong>Disbled</strong> disables it, regardless of whether you turn it on or off during your profiling session. The <strong>Remember</strong> state remembers whether you have enabled or disabled the <strong>Record</strong> button during your session and keeps it at its last state next time you open the Profiler window.</td>
+	<td style="text-align:left;">选择性能分析器应该在哪种记录状态下打开。可选择 <strong>Enabled</strong>、<strong>Disabled</strong> 或 <strong>Remember</strong>。Enabled 保持 <strong>Record</strong> 按钮在会话之间启用，而 <strong>Disbled</strong> 则将其禁用，无论您在性能分析会话期间是否将其打开或关闭。<strong>Remember</strong> 状态会记住您是否启用或禁用了 <strong>Record</strong> 按钮，并在您下次打开 Profiler 窗口时保持其上次的状态。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Default editor target mode</strong></td>
-	<td style="text-align:left;">Select what mode the <strong>Attach to Player</strong> dropdown should target by default. Choose from either <strong>Playmode</strong> or <strong>Editor</strong>.</td>
+	<td style="text-align:left;">选择 <strong>Attach to Player</strong> 下拉选单的默认目标模式。可选择 <strong>Playmode</strong> 或 <strong>Editor</strong>。</td>
 </tr>
 </tbody>
 </table>
@@ -313,7 +313,7 @@
 <tbody>
 <tr>
 	<td style="text-align:left;" colspan="2"><strong>Attach to Player</strong></td>
-	<td style="text-align:left;">Select which target to profile your application on. By default, this is set to <strong>Playmode</strong>. You can also select <strong>Editor</strong> to profile the Unity Editor and display the resources that the Editor is currently using.<br> <br> Unity also automatically detects any devices that are running on your network or connected via USB, and displays them in the drop-down. Click <strong>Enter IP</strong> in the drop-down to manually enter the IP address of the device you want to profile your application on. For more information, see <a href="profiler-profiling-applications.html">Profiling your application</a>.</td>
+	<td style="text-align:left;">选择对应用程序进行性能分析时所针对的目标。默认设置为 <strong>Playmode</strong>。也可以选择 <strong>Editor</strong> 以对 Unity Editor 进行性能分析并显示 Editor 当前在使用的资源。<br> <br> Unity 还自动检测网络上正在运行或通过 USB 连接的所有设备，并将这些设备显示在下拉选单中。单击下拉选单中的 <strong>Enter IP</strong> 可手动输入设备的 IP 地址，以便在该设备上对应用程序进行性能分析。有关更多信息，请参阅<a href="profiler-profiling-applications.html">应用程序性能分析</a>。</td>
 </tr>
 <tr>
 	<td style="text-align:left;" colspan="2"><strong>Record</strong></td>
@@ -333,7 +333,7 @@
 </tr>
 <tr>
 	<td style="text-align:left;" colspan="2"><strong>Frame number</strong></td>
-	<td style="text-align:left;">Indicates the frame number you are currently looking at in the Profiler. The number on the left is the current frame selected, and the number on the right is the total number of frames combined that the Profiler collected during your entire Profiling session.</td>
+	<td style="text-align:left;">指示当前在性能分析器中查看的帧的编号。左边的数字是当前选择的帧，右边的数字是性能分析器在整个分析会话期间收集的总帧数。</td>
 </tr>
 <tr>
 	<td style="text-align:left;" colspan="2"><strong>Clear</strong></td>
@@ -349,7 +349,7 @@
 </tr>
 <tr>
 	<td style="text-align:left;" colspan="2"><strong>Call Stacks</strong></td>
-	<td style="text-align:left;">To record call stacks for scripting memory allocations, click this toggle. Frames that the Profiler records when you enable this option have information about the selected samples on the full call stack that lead to a managed scripting allocation, even when <strong>Deep Profile</strong> is not active. By default, the Profiler records the full call stack information for GC.Alloc samples when you enable this setting, but you can change this to a different sample from the dropdown menu (<strong>UnsafeUtility.Malloc</strong>, <strong>JobHandle.Complete</strong>, or <strong>Native Allocations</strong>). For more information, see the <a href="ProfilerCPU.html#allocation-callstacks">Allocation call stacks</a> section of the CPU Usage Profiler module page.</td>
+	<td style="text-align:left;">要记录用于脚本内存分配的调用栈，请单击此开关。启用此选项时，性能分析器记录的帧包含所选样本在完整调用栈的信息；即使在 <strong>Deep Profile</strong> 未激活的情况下，完整调用栈上的这些样本也会导致托管脚本分配。默认情况下，启用此设置时性能分析器记录 GC.Alloc 样本的完整调用栈信息 ，但您可以从下拉菜单中将其更改为另一个样本（<strong>UnsafeUtility.Malloc</strong>、<strong>JobHandle.Complete</strong> 或 <strong>Native Allocations</strong>）。有关更多信息，请参阅“CPU Usage Profiler 模块”页面的<a href="ProfilerCPU.html#allocation-callstacks">分配调用栈</a>部分。</td>
 </tr>
 <tr>
 	<td style="text-align:left;" colspan="2"><strong>Load</strong></td>
@@ -457,7 +457,7 @@
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Physics (2D)</strong></td>
-	<td style="text-align:left;">Similar to the Physics Profiler module, this module displays information about where the physics engine has processed 2D physics in your application. See <a href="profiler-2d-physics-profiler-module.html">2D Physics Profiler module</a>.</td>
+	<td style="text-align:left;">与 Physics Profiler 模块类似，此模块显示应用程序中物理引擎已进行的 2D 物理处理的相关信息。请参阅 <a href="profiler-2d-physics-profiler-module.html">2D Physics Profiler 模块</a>。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">
@@ -471,11 +471,11 @@
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>UI</strong></td>
-	<td style="text-align:left;">Displays information about how Unity handles UI batching for your application, including why and how Unity batches items. See <a href="ProfilerUI.html">UI and UI Details Profiler module</a>.</td>
+	<td style="text-align:left;">显示有关 Unity 如何为应用程序处理 UI 批处理的信息，包括 Unity 为何以及如何对项目进行批处理。请参阅 <a href="ProfilerUI.html">UI 和 UI Details Profiler 模块</a>。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>UI Details</strong></td>
-	<td style="text-align:left;">Similar to the UI Module, this module’s chart adds data about batch and vertices count, as well as markers which include information about user input events that trigger UI changes. See <a href="ProfilerUI.html">UI and UI Details Profiler module</a>
+	<td style="text-align:left;">与 UI 模块类似，此模块的图表添加有关批处理和顶点计数的数据，以及标记（包含有关触发 UI 变化的用户输入事件的信息）。请参阅 <a href="ProfilerUI.html">UI 和 UI Details Profiler 模块</a>
 </td>
 </tr>
 <tr>
@@ -484,7 +484,7 @@
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Virtual Texturing</strong></td>
-	<td style="text-align:left;">Displays statistics about <a href="svt-streaming-virtual-texturing.html">Streaming Virtual Texturing</a> in your application. See the <a href="profiler-virtual-texturing-module.html">Virtual Texturing Profiler module</a>.</td>
+	<td style="text-align:left;">显示有关您的应用程序中<a href="svt-streaming-virtual-texturing.html">串流虚拟纹理</a>的统计信息。请参阅 <a href="profiler-virtual-texturing-module.html">Virtual Texturing Profiler 模块</a>。</td>
 </tr>
 </tbody>
 </table>
@@ -499,7 +499,7 @@
 
 <p>要添加模块，请选择 <strong>Profiler Module</strong> 下拉选单，然后选择要激活的性能分析器。从下拉选单选择性能分析器模块后，这个模块开始收集数据，但是在非激活时段内不显示任何数据。</p>
 
-<p>To avoid the overhead of the GPU Profiler module, it is not active by default. The GPU Profiler module must be active at the start of your application to hook into the graphics driver. If you add it later, it has no effect on most platforms, and the Profiler displays the message “GPU profiling is not supported by the graphics card driver (or it was disabled because of driver bugs)”.</p>
+<p>为了避免 GPU Profiler 模块的开销，默认情况下该模块处于非激活状态。GPU Profiler 模块必须在应用程序启动时处于激活状态，才能挂接到图形驱动程序。如果稍后添加，在大多数平台上均无效，并且性能分析器显示消息：“GPU profiling is not supported by the graphics card driver (or it was disabled because of driver bugs)”。</p>
 
 <p>如果您指示性能分析器收集数据并通过 <a href="../ScriptReference/Profiling.Profiler-logFile.html">Profiler.logFile</a> API 而不是通过 Profiler 窗口将数据发送到磁盘，您可以通过 <a href="../ScriptReference/Profiling.Profiler.SetAreaEnabled.html">Profiler.SetAreaEnabled()</a> 来关闭性能分析器模块。</p>
 
@@ -515,24 +515,24 @@
 
 <p>Unity 自动管理图表的垂直刻度，而且图表会尝试填充窗口的垂直空间。要查看图表中的更多详细信息，可以删除其他性能分析器模块，也可以拖动图表和详细统计信息区域之间的分隔线来增大图表的屏幕区域。</p>
 
-<p>To toggle hiding and displaying a metric in a chart, click the colored square next to its label in its module. This can be useful to identify the causes of spikes. In stacked charts such as the CPU Usage Profiler’s chart, you can reorder the metric labels to affect the stacking order, which helps make more prominent metrics more visible.</p>
+<p>要在图表中切换指标的隐藏和显示，请在相关模块中单击相应标签旁的有色方块。这样可以方便找到出现尖峰的原因。在堆积图表（例如 CPU Usage Profiler 的图表）中，可以将指标标签重新排序以影响堆积顺序，有助于使主要指标更加突出。</p>
 
 <p>每个性能分析器模块收集不同的性能数据指标并将它们显示在单独的图表中。单击某个帧时，Unity 在 Profiler 窗口下半部分的模块详细信息面板中显示有关该帧的更多详细信息。此窗口中的详细信息类型会因选择的性能分析器模块而异。有关每个模块在此区域中显示的特定详细信息的更多信息，请参阅<a href="#modules">性能分析器模块</a>的单独文档。</p>
 
 <p><a name="standalone"></a></p>
 
-<h2>Standalone Profiler</h2>
+<h2>独立性能分析器</h2>
 
-<p>To use the Standalone Profiler, go to <strong>Window &gt; Analysis &gt; Profiler (Standalone process)</strong>. When you select the Standalone Profiler, Unity launches the Profiler outside of the Unity Editor’s process, and instead launches the Profiler in a new, separate process.</p>
+<p>要使用独立性能分析器，请转到 <strong>Window &gt; Analysis &gt; Profiler (Standalone process)</strong>。当您选择独立性能分析器时，Unity 会在 Unity 编辑器进程之外启动性能分析器，在一个新的单独进程中启动性能分析器。</p>
 
-<p>Launching the Profiler in its own dedicated process ensures cleaner Profiler data when you target the Editor or Play mode. It also reduces overhead, because the Profiler isn’t profiling itself or sharing a process with your application or the Editor. The functionality and controls of the Profiler remain the same as when you run the Profiler in the same process as the Editor.</p>
+<p>当您以编辑器或运行模式为目标时，以专用进程启动性能分析器可确保性能分析器数据更加清洁。这样还会减少开销，因为性能分析器不会分析自身或与您的应用程序或编辑器共享进程。性能分析器的功能和控件与同编辑器共用进程运行性能分析器时相同。</p>
 
 <figure>
-<img src="../uploads/Main/profiler-standalone-menut.png" alt="Menu selection for the Standalone Profiler">
-<figcaption>Menu selection for the Standalone Profiler</figcaption>
+<img src="../uploads/Main/profiler-standalone-menut.png" alt="独立性能分析器的菜单选择">
+<figcaption>独立性能分析器的菜单选择</figcaption>
 </figure>
 
-<p>When you start a separate process for the Profiler window, it takes longer to start up than opening it in the same process as the Editor. You cannot dock any Editor windows that are connected to the separate process to the main process’s windows. Additionally, when you restart the Editor, Unity does not re-open the windows in the out-of-process Profiler.</p>
+<p>当您为 Profiler 窗口启动一个单独的进程时，启动时间要长于共用编辑器进程的启动时间。您不能将连接到单独进程的任何编辑器窗口停靠到主进程的窗口。此外，当您重新启动编辑器时，Unity 不会重新打开进程外性能分析器中的窗口。</p>
 
 <p><a name="command-line"></a></p>
 
@@ -580,12 +580,10 @@
 
 <hr>
 
-<ul>
-<li><span class="page-history">Added Out-of-process Profiler in <a href="https://docs.unity3d.com/2020.1/Documentation/Manual/30_search.html?q=newin20201">2020.1</a> <span class="search-words">NewIn20201</span></span></li>
-</ul>
+<p>*<span class="page-history">进程外性能分析器添加于<a href="https://docs.unity3d.com/2020.1/Documentation/Manual/30_search.html?q=newin20201">2020.1</a><span class="search-words"> NewIn20201</span></span></p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="profiler-markers.html"></a></span><div class="tip">Common Profiler markers</div>
+<span class="prev"><a href="profiler-markers.html"></a></span><div class="tip">常见性能分析器标记</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="ProfilerAudio.html"></a></span><div class="tip">Audio Profiler 模块</div>
@@ -594,7 +592,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

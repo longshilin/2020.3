@@ -11,8 +11,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Memory Profiler module - Unity 手册">
-<title>Memory Profiler module - Unity 手册</title>
+<meta property="og:title" content="Memory Profiler 模块 - Unity 手册">
+<title>Memory Profiler 模块 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/profiler-memory-simple-view.png">
 <meta name="description" content="有两种方法可以在 Unity 中分析应用程序的内存使用情况：">
 <meta property="og:description" content="有两种方法可以在 Unity 中分析应用程序的内存使用情况：">
@@ -175,12 +175,12 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UnityOverview.html">在 Unity 中操作</a></li>
 <li><a href="analysis.html">分析</a></li>
-<li><a href="Profiler.html">Profiler overview</a></li>
-<li><a href="ProfilerWindow.html">The Profiler window</a></li>
-<li>Memory Profiler module</li>
+<li><a href="Profiler.html">性能分析器概述</a></li>
+<li><a href="ProfilerWindow.html">Profiler 窗口</a></li>
+<li>Memory Profiler 模块</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -190,7 +190,7 @@
 <span class="next"><a href="ProfilerPhysics.html"></a></span><div class="tip">Physics Profiler 模块</div>
 </div>
 </div></div>
-<h1>Memory Profiler module</h1>
+<h1>Memory Profiler 模块</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
@@ -198,17 +198,17 @@
 
 <ul>
 <li>
-<strong>Memory Profiler module:</strong> This built-in Profiler module gives you basic information on where your application uses memory.</li>
+<strong>Memory Profiler 模块</strong>：这是内置性能分析器模块，可提供有关应用程序内存使用情况的基本信息。</li>
 <li>
-<strong>Memory Profiler package:</strong> This is a separate package that you can add to your Project. It adds an additional Memory Profiler window to the Unity Editor, which you can then use to analyze memory usage in your application in even more detail. You can store and compare snapshots to find memory leaks more easily, or see the memory layout to find memory fragmentation issues.</li>
+<strong>Memory Profiler 包：</strong>这是可以添加到项目中的一个单独的包。这个包会向 Unity Editor 添加一个额外的 Memory Profiler 窗口，然后您可以使用该窗口来更详细地分析应用程序中的内存使用情况。可以存储和比较快照以便更轻松地查出内存泄漏，或者查看内存布局以查出内存碎片问题。</li>
 </ul>
 
-<p>This page covers information on the built-in Memory Profiler module. For more information on the Memory profiler package, see the <a href="https://docs.unity3d.com/Packages/com.unity.memoryprofiler@latest">Memory Profiler documentation</a>.</p>
+<p>本页涵盖有关内置 Memory Profiler 模块的信息。有关 Memory Profiler 包的更多信息，请参阅 <a href="https://docs.unity3d.com/Packages/com.unity.memoryprofiler@latest">Memory Profiler 文档</a>。</p>
 
 <p>Memory Profiler 模块中会显示一些代表应用程序中分配的总内存的计数器。可以使用 Memory 模块来查看信息，例如已加载对象的数量以及每个类别占用的总内存。还可以查看每个性能分析器帧的 GC 分配数。</p>
 
-<p>When you profile your application in the Editor, the information in the Memory module indicates the memory usage in the Editor. These numbers are generally larger than when running on the release platform, because running the Unity Editor uses specific objects that take up memory, and the Editor window itself uses extra memory. Additionally, the Profiler displays memory that it uses, because Unity cannot cleanly separate it from the memory that the Play mode Player uses.
-For more precise numbers and memory usage for your application, connect the Profiler to the running player via the <strong>Attach to Player</strong> menu. This allows you to see the actual usage on the target device.</p>
+<p>在编辑器中对应用程序进行性能分析时，Memory 模块中的信息指示编辑器中的内存使用量。这些数字通常大于在发布平台上运行时的数字，因为运行 Unity Editor 会使用占用内存的特定对象，而 Editor 窗口本身会使用额外的内存。此外，该性能分析器显示它使用的内存，因为 Unity 无法将其与运行模式的播放器所使用的内存完全分开。
+要获得更精确的数值和应用程序内存使用情况，请通过 <strong>Attach to Player</strong> 菜单将性能分析器连接到正在运行的播放器。这样就可以查看目标设备上的实际使用情况。</p>
 
 <h2>图表类别</h2>
 
@@ -230,31 +230,31 @@ For more precise numbers and memory usage for your application, connect the Prof
 <tbody>
 <tr>
 	<td style="text-align:left;"><strong>Total Allocated</strong></td>
-	<td style="text-align:left;">The total memory your application has used.</td>
+	<td style="text-align:left;">应用程序已使用的内存总量。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Texture Memory</strong></td>
-	<td style="text-align:left;">How much memory the <a href="class-TextureImporter.html">Textures</a> in your application have used.</td>
+	<td style="text-align:left;">应用程序中的<a href="class-TextureImporter.html">纹理</a>已使用的内存量。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Mesh Memory</strong></td>
-	<td style="text-align:left;">How much memory the <a href="class-Mesh.html">Meshes</a> in your application have used.</td>
+	<td style="text-align:left;">应用程序中的<a href="class-Mesh.html">网格</a>已使用的内存量。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Material Count</strong></td>
-	<td style="text-align:left;">The number of <a href="Materials.html">Material</a> instances in your application.</td>
+	<td style="text-align:left;">应用程序中的<a href="Materials.html">材质</a>实例数量。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Object Count</strong></td>
-	<td style="text-align:left;">The number of native object instances in your application.</td>
+	<td style="text-align:left;">应用程序中的原生对象实例数量。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>GC Used Memory</strong></td>
-	<td style="text-align:left;">The amount of memory used by the GC heap.</td>
+	<td style="text-align:left;">GC 堆使用的内存量。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>GC Allocated in Frame</strong></td>
-	<td style="text-align:left;">The amount of memory allocated per frame on the GC heap.</td>
+	<td style="text-align:left;">GC 堆中每帧分配的内存量。</td>
 </tr>
 </tbody>
 </table>
@@ -267,13 +267,13 @@ For more precise numbers and memory usage for your application, connect the Prof
 
 <h3>Simple 视图</h3>
 
-<p>The Simple view displays an overview of how Unity uses memory in real-time on a per-frame basis.</p>
+<p>Simple 视图显示每个帧在 Unity 实时内存使用量的概况。</p>
 
-<p>Unity reserves memory pools for allocations to avoid asking the operating system for memory too often. The Profiler displays how much memory is reserved, and how much Unity is using.</p>
+<p>Unity 保留了可供分配的内存池，从而避免过于频繁向操作系统索取内存。性能分析器显示保留了多少内存，以及 Unity 使用了多少。</p>
 
 <figure>
-<img src="../uploads/Main/profiler-memory-simple-view.png" alt="The Simple Memory module view">
-<figcaption>The Simple Memory module view</figcaption>
+<img src="../uploads/Main/profiler-memory-simple-view.png" alt="Memory 模块 Simple 视图">
+<figcaption>Memory 模块 Simple 视图</figcaption>
 </figure>
 
 <p>This information is also available via the <a href="../ScriptReference/Unity.Profiling.ProfilerRecorder.html">ProfilerRecorder API</a> and in the <a href="profiler-module-editor.html">Profiler Module Editor</a> so you can add them to a custom Profiler module.</p>
@@ -287,124 +287,124 @@ For more precise numbers and memory usage for your application, connect the Prof
 
 <thead>
 <tr>
-	<th style="text-align:left;"><strong>Statistic</strong></th>
+	<th style="text-align:left;"><strong>统计信息</strong></th>
 	<th style="text-align:left;"><strong>描述</strong></th>
-	<th style="text-align:left;"><strong>Available in Release Players</strong></th>
+	<th style="text-align:left;"><strong>在发行版播放器中可用</strong></th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
 	<td style="text-align:left;"><strong>Total Used Memory</strong></td>
-	<td style="text-align:left;">Total value of memory that Unity uses and tracks.</td>
+	<td style="text-align:left;">Unity 使用和跟踪的总内存数量。</td>
 	<td style="text-align:left;">是</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Total Reserved Memory</strong></td>
-	<td style="text-align:left;">Total reserved memory that Unity uses for tracking purposes and pool allocations.</td>
+	<td style="text-align:left;">Unity 用于跟踪目的和池分配的总保留内存。</td>
 	<td style="text-align:left;">是</td>
 </tr>
 <tr>
 	<td style="text-align:left;">
 <strong>GC Used Memory</strong><br><br><strong>GC Reserved Memory</strong>
 </td>
-	<td style="text-align:left;">The used heap size and total heap size that managed code uses. This memory is garbage collected.</td>
+	<td style="text-align:left;">托管代码使用的已用堆大小和总堆大小。此内存量是垃圾收集量。</td>
 	<td style="text-align:left;">是</td>
 </tr>
 <tr>
 	<td style="text-align:left;">
 <strong>Gfx Used Memory</strong><br><br><strong>Gfx Reserved Memory</strong>
 </td>
-	<td style="text-align:left;">The estimated amount of memory the driver uses on Textures, render targets, Shaders, and Mesh data.</td>
+	<td style="text-align:left;">驱动程序对纹理、渲染目标、着色器和网格数据使用的估计内存量。</td>
 	<td style="text-align:left;">否</td>
 </tr>
 <tr>
 	<td style="text-align:left;">
 <strong>Audio Used Memory</strong><br><br><strong>Audio Reserved Memory</strong>
 </td>
-	<td style="text-align:left;">The Audio system’s estimated memory usage.</td>
+	<td style="text-align:left;">音频系统的估计内存使用量。</td>
 	<td style="text-align:left;">是</td>
 </tr>
 <tr>
 	<td style="text-align:left;">
 <strong>Video Used Memory</strong><br><br><strong>Video Reserved Memory</strong>
 </td>
-	<td style="text-align:left;">The Video system’s estimated memory usage</td>
+	<td style="text-align:left;">视频系统的估计内存使用量</td>
 	<td style="text-align:left;">是</td>
 </tr>
 <tr>
 	<td style="text-align:left;">
 <strong>Profiler Used Memory</strong><br><br><strong>Profiler Reserved Memory</strong>
 </td>
-	<td style="text-align:left;">The memory the Profiler functionality uses and reserves from the system.</td>
+	<td style="text-align:left;">性能分析器功能使用并从系统中保留的内存。</td>
 	<td style="text-align:left;">是</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>System Used Memory</strong></td>
-	<td style="text-align:left;">The values in the Profiler are different to those displayed in your operating system’s task manager, because the Memory Profiler does not track all memory usage in your system. This includes memory that some drivers and plug-ins use, and memory used for executable code.<br><br> On platforms that support getting the total memory size of the application from the operating system, the <strong>System Memory Usage</strong> is over 0 and is the same size in a task manager.</td>
+	<td style="text-align:left;">性能分析器中的值与操作系统任务管理器中显示的值不同，因为 Memory Profiler 不会跟踪系统中的所有内存使用情况。这包括某些驱动程序和插件使用的内存，以及用于可执行代码的内存。<br><br>在支持从操作系统获取应用程序总内存大小的平台上，<strong>System Memory Usage</strong> 大于 0 并且与任务管理器中的大小相同。</td>
 	<td style="text-align:left;">是</td>
 </tr>
 <tr>
 	<td style="text-align:left;">
 <strong>Texture Count</strong><br><br><strong>Texture Memory</strong>
 </td>
-	<td style="text-align:left;">The total count of loaded textures and memory they use.</td>
+	<td style="text-align:left;">已加载的纹理总数及其使用的内存。</td>
 	<td style="text-align:left;">否</td>
 </tr>
 <tr>
 	<td style="text-align:left;">
 <strong>Mesh Count</strong><br><br><strong>Mesh Memory</strong>
 </td>
-	<td style="text-align:left;">The total count of loaded meshes and memory they use.</td>
+	<td style="text-align:left;">已加载的网格总数及其使用的内存。</td>
 	<td style="text-align:left;">否</td>
 </tr>
 <tr>
 	<td style="text-align:left;">
 <strong>Material Count</strong><br><br><strong>Material Memory</strong>
 </td>
-	<td style="text-align:left;">The total count of loaded materials and memory they use.</td>
+	<td style="text-align:left;">已加载的材质总数及其使用的内存。</td>
 	<td style="text-align:left;">否</td>
 </tr>
 <tr>
 	<td style="text-align:left;">
 <strong>AnimationClip Count</strong><br><br><strong>AnimationClip Memory</strong>
 </td>
-	<td style="text-align:left;">The total count of loaded AnimationClips and memory they use.</td>
+	<td style="text-align:left;">已加载的动画剪辑总数及其使用的内存。</td>
 	<td style="text-align:left;">否</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Asset Count</strong></td>
-	<td style="text-align:left;">The total number of loaded assets.</td>
+	<td style="text-align:left;">已加载的资源总数。</td>
 	<td style="text-align:left;">否</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>GameObject Count</strong></td>
-	<td style="text-align:left;">The total number of <a href="../ScriptReference/GameObject.html">GameObject</a> instances in the scene.</td>
+	<td style="text-align:left;">场景中<a href="../ScriptReference/GameObject.html">游戏对象</a>的总数。</td>
 	<td style="text-align:left;">否</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Scene Object Count</strong></td>
-	<td style="text-align:left;">The total number of dynamic <code>UnityEngine.Object</code>s. This number includes the <strong>GameObject Count</strong>, plus the total number of components, and everything which is not asset in the scene.</td>
+	<td style="text-align:left;">动态 <code>UnityEngine.Object</code> 的总数。此数值包括 <strong>GameObject Count</strong>，加上组件的总数，以及场景中所有非资源内容的数量。</td>
 	<td style="text-align:left;">否</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Object Count</strong></td>
-	<td style="text-align:left;">The total number of native <code>UnityEngine.Object</code>s that your application creates or loads. This number includes the <strong>Scene Object Count</strong>, plus the total number of all assets. If this number rises over time, your application is creating GameObjects or other assets and never destroying or unloading them.</td>
+	<td style="text-align:left;">本机 <code>UnityEngine.Object</code> 总数是您的应用程序创建或加载的数量。此数值包括 <strong>Scene Object Count</strong>，加上所有资源的总数。如果此数值随时间推移而上升，表示应用程序创建了一些永不销毁或上载的游戏对象或其他资源。</td>
 	<td style="text-align:left;">否</td>
 </tr>
 <tr>
 	<td style="text-align:left;">
 <strong>GC Allocation In Frame Count</strong><br><br><strong>GC Allocated In Frame</strong>
 </td>
-	<td style="text-align:left;">Amount of managed allocations and its total size in bytes.</td>
+	<td style="text-align:left;">托管分配的数量及其总大小（以字节为单位）。</td>
 	<td style="text-align:left;">否</td>
 </tr>
 </tbody>
 </table>
 
-<h3>Availability in Players</h3>
+<h3>播放器中的可用性</h3>
 
-<p>You can use the <a href="Unity.Profiling.ProfilerRecorder.html">ProfilerRecorder API</a> to access the Memory Profiler module’s counters in Players. The following example contains a simple script that collects “Total Reserved Memory”, “GC Reserved Memory” and “System Used Memory” metrics, and displays those as a GUI.TextArea. The Memory Profiler module information belongs to the ProfilerCategory.Memory Profiler category.</p>
+<p>您可以使用 <a href="Unity.Profiling.ProfilerRecorder.html">ProfilerRecorder API</a> 访问播放器中 Memory Profiler 模块的计数器。以下示例包含一个简单的脚本，该脚本收集“Total Reserved Memory”、“GC Reserved Memory”和“System Used Memory”指标，并将它们显示为 GUI.TextArea.Memory Profiler 模块信息属于 ProfilerCategory.Memory 性能分析器类别。</p>
 
 <pre><code class="language-csharp">using System.Text;
 using Unity.Profiling;
@@ -450,44 +450,44 @@ public class MemoryStatsScript : MonoBehaviour
 }
 </code></pre>
 
-<p>The following screenshot shows the result of adding the script to the <a href="https://assetstore.unity.com/packages/essentials/tutorial-projects/tanks-tutorial-46209">Tanks! tutorial project</a>.</p>
+<p>以下屏幕截图显示了将脚本添加到 <a href="https://assetstore.unity.com/packages/essentials/tutorial-projects/tanks-tutorial-46209">Tanks! 教程项目</a>的结果。</p>
 
 <figure>
-<img src="../uploads/Main/profiler-tanks-memory-overlay.png" alt="Tanks! tutorial with the overlaid memory information">
-<figcaption>Tanks! tutorial with the overlaid memory information</figcaption>
+<img src="../uploads/Main/profiler-tanks-memory-overlay.png" alt="附带内存信息的 Tanks! 教程">
+<figcaption>附带内存信息的 Tanks! 教程</figcaption>
 </figure>
 
-<p>This information is available in Release Players, as are the other high level counters in the table above. If you want to see the selected Memory counters in a custom module in the Profiler window, use the <a href="profiler-module-editor.html">Module Editor</a> to configure the chart.</p>
+<p>此信息在发行版播放器中可用，上表中的其他高级计数器也可用。如果要在 Profiler 窗口的自定义模块中查看选定的内存计数器，请使用<a href="profiler-module-editor.html">模块编辑器</a>配置图表。</p>
 
 <h3>Detailed 视图</h3>
 
-<p>The <strong>Detailed</strong> view provides a snapshot of your application’s current state. Click the <strong>Take Sample</strong> button to capture detailed memory usage for the current target. It takes the Profiler time to get this data, so the <strong>Detailed</strong> view does not give you real-time details. After the Profiler takes a sample, the Profiler window displays a list view where you can explore your application’s memory usage in more detail.</p>
+<p><strong>Detailed</strong> 视图提供了应用程序当前状态的快照。单击 <strong>Take Sample</strong> 按钮可捕获当前目标的详细内存使用情况。性能分析器获取此数据需要时间，因此 <strong>Detailed</strong> 视图不会提供实时详细信息。在性能分析器获取样本之后，Profiler 窗口会显示一个列表视图，您可以在其中更详细地浏览应用程序的内存使用情况。</p>
 
 <figure>
-<img src="../uploads/Main/profiler-memory-detailed-view.png" alt="The Detailed memory module view">
-<figcaption>The Detailed memory module view</figcaption>
+<img src="../uploads/Main/profiler-memory-detailed-view.png" alt="Memory 模块 Detailed 视图">
+<figcaption>Memory 模块 Detailed 视图</figcaption>
 </figure>
 
-<p>Enable the <strong>Gather object references</strong> setting at the top of the module details pane to collect information about what is referencing an object at the time of the snapshot. The Profiler displays this information in the right-hand pane of the window.</p>
+<p>启用模块详细信息面板顶部的 <strong>Gather object references</strong> 设置可以收集有关生成快照时哪些项可能引用了对象的信息。性能分析器将此信息显示在窗口的右侧面板中。</p>
 
-<p>The list view divides objects that use memory into the following categories:</p>
+<p>列表视图将使用内存的对象将分为以下类别：</p>
 
 <ul>
 <li>
-<strong>Other:</strong> Objects that are neither Assets, GameObjects, or components. This includes information such as the memory Unity uses for different systems.</li>
+<strong>Other：</strong>资源、游戏对象或组件以外的对象。其中包括诸如 Unity 用于不同系统的内存之类的信息。</li>
 <li>
 <strong>Not Saved</strong>：标记为 <a href="../ScriptReference/HideFlags.html">DontSave</a> 的对象</li>
 <li>
-<strong>Builtin Resources</strong>: Unity Editor resources or Unity default resources, such as Shaders you have added to the <a href="class-GraphicsSettings.html#Always">Always Included Shaders</a> list of the Graphics settings.</li>
+<strong>Builtin Resources</strong>：Unity 编辑器资源或 Unity 默认资源，例如已添加到 Graphics 设置的 <a href="class-GraphicsSettings.html#Always">Always Included Shaders</a> 列表中的着色器。</li>
 <li>
-<strong>Assets:</strong> Assets referenced from user or native code.</li>
+<strong>Assets：</strong>从用户或原生代码引用的资源。</li>
 <li>
-<strong>Scene Memory</strong>: Objects and attached components.</li>
+<strong>Scene Memory</strong>：对象和附加的组件。</li>
 </ul>
 
-<p>When you click on a GameObject in the Assets or Scene Memory list, it’s highlighted in the Project or Scene view.</p>
+<p>单击 Assets 或 Scene Memory 列表中的游戏对象时，该对象会在 Project 视图或 Scene 视图中突出显示。</p>
 
-<p><strong>Note:</strong> In the <strong>Other</strong> category, memory reported under <code>System.ExecutableAndDlls</code> is read-only memory. The operating system might discard these pages as needed and later reload them from the file system. This generates lower memory usage, and usually does not directly contribute to the operating system’s decision to close your application if it uses too much memory. Some of these pages might also be shared with other applications that are using the same frameworks.</p>
+<p><strong>注意：</strong>在 <strong>Other</strong> 类别中， <code>System.ExecutableAndDlls</code> 下报告的内存为只读内存。操作系统可能会根据需要丢弃这些页面，然后从文件系统重新加载这些页面。这样可以降低内存使用量，而且通常不会直接导致操作系统决定关闭应用程序（如果应用程序使用过多内存）。此外，其中一些页面也可能与使用相同框架的其他应用程序共享。</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="ProfilerGPU.html"></a></span><div class="tip">GPU Usage Profiler 模块</div>
@@ -499,7 +499,7 @@ public class MemoryStatsScript : MonoBehaviour
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

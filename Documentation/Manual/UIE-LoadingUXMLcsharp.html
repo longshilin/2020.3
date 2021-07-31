@@ -174,9 +174,9 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="UIToolkits.html">Creating user interfaces (UI)</a></li>
-<li><a href="UIElements.html">UI Toolkit</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="UIToolkits.html">创建用户界面 (UI)</a></li>
+<li><a href="UIElements.html">UI 工具包</a></li>
 <li><a href="UIE-UXML.html">UXML 格式</a></li>
 <li>从 C# 加载 UXML</li>
 </ul></div>
@@ -207,13 +207,14 @@
 <pre><code>template.CloneTree(parentElement, slots);
 </code></pre>
 
-<p>在上面的语句中，模板中的 <code>&lt;UXML&gt;</code> 元素未转换为 <code>VisualElement</code>。相反，其所有子项都附加到 <code>parentElement</code> 指定的元素。</p>
+<p>In the statement above, the <code>&lt;UXML&gt;</code> element in the template isn’t translated to a<code>VisualElement</code>. Instead, all of its children are attached to the element specified by <code>parentElement</code>.</p>
 
 <p>实例化模板后，即可使用 UQuery（Unity 的 JQuery/Linq 实现）从视觉元素树中检索特定元素。</p>
 
 <p>例如，以下代码演示了如何创建新的 <code>EditorWindow</code> 并加载 UXML 文件作为其内容：</p>
 
-<pre><code>public class MyWindow : EditorWindow  {
+<pre><code class="lang-csharp">
+public class MyWindow : EditorWindow  {
     [MenuItem ("Window/My Window")]
     public static void  ShowWindow () {
         EditorWindow w = EditorWindow.GetWindow(typeof(MyWindow));
@@ -247,7 +248,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UnityOverview.html">在 Unity 中操作</a></li>
 <li><a href="EditorFeatures.html">编辑器功能</a></li>
 <li><a href="comp-ManagerGroup.html">Project Settings</a></li>
@@ -195,8 +195,8 @@
 
 <p>使用 <strong>Editor</strong> 设置（主菜单：<strong>Edit</strong> &gt; <strong>Project Settings</strong>，然后选择 <strong>Editor</strong> 类别）可应用 Unity Editor 全局设置。</p>
 
-<p><img src="../uploads/Main/EditorSettings2020_1a.png" alt="Editor settings">
-<img src="../uploads/Main/EditorSettings2020_1b.png" alt="Editor settings"></p>
+<p><img src="../uploads/Main/EditorSettings2020_1a.png" alt="编辑器设置">
+<img src="../uploads/Main/EditorSettings2020_1b.png" alt="编辑器设置"></p>
 
 <table>
 <colgroup>
@@ -215,7 +215,7 @@
 <tbody>
 <tr>
 	<td style="text-align:left;" colspan="3">
-<strong>Unity Remote</strong><br><br><strong>Note</strong>: Unity Remote is deprecated in 2020.1 and future versions. To test your app on mobile devices, use the <a href="https://docs.unity3d.com/Packages/com.unity.device-simulator@latest">Device Simulator package</a> instead.</td>
+<strong>Unity Remote</strong><br><br><strong>注意</strong>：Unity Remote 已在 2020.1 和未来版本中弃用。要在移动设备上测试您的应用，请改用 <a href="https://docs.unity3d.com/Packages/com.unity.device-simulator@latest">Device Simulator 包</a>。</td>
 </tr>
 <tr>
 	<td style="text-align:left;" colspan="2"><strong>设备</strong></td>
@@ -316,7 +316,7 @@
 </tr>
 <tr>
 	<td style="text-align:left;" colspan="2"><strong>Serialize Inline Mappings On One Line</strong></td>
-	<td style="text-align:left;">Enable this setting to make Unity write references and inline mappings on one line. If this setting is disabled, Unity splits text serialized references over multiple lines when the total characters in a line reach over 80 characters.</td>
+	<td style="text-align:left;">启用此设置可使 Unity 将引用和内联映射写在一行中。如果禁用此设置，当一行中的总字符数超过 80 个字符时，Unity 会将文本序列化引用拆分为多行。</td>
 </tr>
 <tr>
 	<td style="text-align:left;" colspan="3"><strong>Default Behavior Mode</strong></td>
@@ -402,7 +402,7 @@
 </tr>
 <tr>
 	<td style="text-align:left;" colspan="2"><strong>Enable baked cookies support</strong></td>
-	<td style="text-align:left;">For Projects created in Unity 2020.1 or above, baked <a href="Cookies.html">cookies</a> are enabled for Baked Lights and Mixed Lights in the <a href="progressive-lightmapper.html">Progressive Lightmapper</a> by default. For Projects created in versions of Unity prior to 2020.1, baked cookies are disabled for Baked Lights and Mixed Lights in the Progressive Lightmapper by default. This is to provide backwards compatibility.<br><br>Enable this to enable baked cookies for Baked Lights and Mixed Lights in the Progressive Lightmapper.<br><br>For more information, see <a href="Cookies.html">Cookies</a>.</td>
+	<td style="text-align:left;">对于在 Unity 2020.1 或更高版本中创建的项目，默认在<a href="progressive-lightmapper.html">渐进光照贴图</a>中为烘焙光源和混合光源启用烘焙<a href="Cookies.html">剪影</a>。对于在 Unity 2020.1 之前中创建的项目，默认在渐进光照贴图中为烘焙光源和混合光源禁用烘焙剪影。这是为了提供向后兼容性。<br><br>启用此选项可为渐进光照贴图中的烘焙光和混合光启用烘焙剪影。<br><br>有关更多信息，请参阅<a href="Cookies.html">剪影</a>。</td>
 </tr>
 <tr>
 	<td style="text-align:left;" colspan="3"><strong>Sprite Packer</strong></td>
@@ -534,22 +534,22 @@
 </tr>
 <tr>
 	<td style="text-align:left;" colspan="2"><strong>Caching Preprocessor</strong></td>
-	<td style="text-align:left;">Enable this to use the <a href="../ScriptReference/EditorSettings-cachingShaderPreprocessor.html">Caching Shader Preprocessor</a>. The Caching Shader Preprocessor is a shader preprocessor that is optimized for fast compilation. It caches intermediate preprocessing data to speed up shader import and compilation in the Editor.</td>
+	<td style="text-align:left;">When enabled, the Editor uses the <a href="shader-compilation.html#preprocessor">Caching Shader Preprocessor</a> during shader compilation. Otherwise, the Editor uses the previous preprocessor. This corresponds to the <a href="../ScriptReference/EditorSettings-cachingShaderPreprocessor.html">EditorSettings.cachingShaderPreprocessor</a> API.</td>
 </tr>
 <tr>
 	<td style="text-align:left;" colspan="3"><strong>Numbering Scheme</strong></td>
 </tr>
 <tr>
 	<td style="text-align:left;" colspan="2"><strong>Game Object Naming</strong></td>
-	<td style="text-align:left;">Naming scheme for duplicated GameObjects. Duplicated or instantiated GameObjects are named by appending successive numbers to the original object name.</td>
+	<td style="text-align:left;">重复的游戏对象的命名方案。重复或实例化的游戏对象的命名方式是将连续数字附加到原始对象名称后。</td>
 </tr>
 <tr>
 	<td style="text-align:left;" colspan="2"><strong>Game Object Digits</strong></td>
-	<td style="text-align:left;">Sets the amount of digits to use for duplicated GameObject numbers.</td>
+	<td style="text-align:left;">设置用于复制游戏对象的数字的位数。</td>
 </tr>
 <tr>
 	<td style="text-align:left;" colspan="2"><strong>Space Before Number in Asset Names</strong></td>
-	<td style="text-align:left;">Controls whether to insert a space before a number in duplicated Asset names.</td>
+	<td style="text-align:left;">控制是否在重复的资源名称中的数字前插入空格。</td>
 </tr>
 </tbody>
 </table>
@@ -572,7 +572,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

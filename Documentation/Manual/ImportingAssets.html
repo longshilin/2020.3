@@ -175,16 +175,16 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="AssetWorkflow.html">资源工作流程</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="AssetWorkflow.html">Asset Workflow</a></li>
 <li>导入</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="HOWTO-exportpackage.html"></a></span><div class="tip">在项目之间重用资源</div>
+<span class="prev"><a href="AssetWorkflow.html"></a></span><div class="tip">Asset Workflow</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="3D-formats.html"></a></span><div class="tip">Supported model file formats</div>
+<span class="next"><a href="AssetTypes.html"></a></span><div class="tip">Supported Asset Types</div>
 </div>
 </div></div>
 <h1>导入</h1>
@@ -200,7 +200,9 @@
 <figcaption>Unity 项目的基本文件结构</figcaption>
 </figure>
 
-<p>将需要在项目中使用的文件保存或复制到 Assets 文件夹中。可以使用 Unity 内的 __Project 窗口__来查看 Assets 文件夹的内容。因此，如果将文件保存或复制到 Assets 文件夹，Unity 将导入该文件并显示在 Project 窗口中。</p>
+<p>You can save or copy files that you want to use in your Project into the Assets folder. You can use the <strong>Project window</strong> inside Unity to view the contents of your Assets folder. Therefore, if you save or copy a file to your Assets folder, Unity imports it and appears in your Project window.</p>
+
+<p>虽然在 Unity 中可以选择各种方式来压缩、修改或以其他方式处理资源，但在任何情况下，Unity 都不会修改原始的源文件。导入过程会读取源文件，并在内部创建一个可直接用于游戏的资源表示，与所选的导入设置相匹配。如果修改资源的导入设置，或者对 <code>Assets</code> 文件夹中的源文件进行更改，则会导致 Unity 再次重新导入资源以反映这些更改。</p>
 
 <p>Unity 会在文件添加到 Assets 文件夹时自动检测到这些文件，或在修改文件时检测到修改。将任何资源放入 Assets 文件夹时，该资源将显示在 __Project 视图__中。</p>
 
@@ -213,22 +215,13 @@
 
 <p>Project 窗口中显示的项（在大多数情况下）表示计算机上的实际文件，如果在 Unity 中删除它们，则也会从计算机中删除它们。</p>
 
-<figure>
-<img src="../uploads/Main/AssetWorkflowFolderAndProjectWindow.png" alt="计算机上 Unity 项目中的 Assets 文件夹与 Unity 中的 Project 窗口之间的关系">
-<figcaption>计算机上 Unity 项目中的 Assets 文件夹与 Unity 中的 Project 窗口之间的关系</figcaption>
-</figure>
+<p>If you want to bring collections of Assets into your Project from another Unity Project, you can use <a href="AssetPackages.html">Asset packages</a>.</p>
 
-<p>上图显示了 Unity 项目的 Assets 文件夹中的一些文件和文件夹示例。根据需要创建任意数量的文件夹用来组织资源。</p>
+<p><a name="importSettings"></a></p>
 
-<p>上图显示了文件系统中列出的 <strong>.meta</strong> 文件，但这些文件在 Unity 的 Project 窗口中不可见。Unity 会为每个资源和文件夹创建这些 .meta 文件（元文件），但这些文件默认情况下为<a href="https://en.wikipedia.org/wiki/Hidden_file_and_hidden_directory">隐藏</a>状态，因此在文件系统中也看不到它们。</p>
+<h2>Asset Import Settings</h2>
 
-<p>元文件中包含有关资源在项目中的使用方式的重要信息，必须将元文件与其相关的资源文件放在一起，因此，如果在文件系统中移动或重命名资源文件，也必须移动/重命名元文件以进行匹配。</p>
-
-<p>安全移动或重命名资源的最简单方法是始终在 Unity 的 Project 文件夹中执行此操作。这样，Unity 就会自动移动或重命名相应的元文件。如果需要，可以进一步了解 .meta 文件和<a href="BehindtheScenes.html">导入过程中的后台工作情况</a>。</p>
-
-<p>如果要将资源集合带入项目中，可使用<a href="AssetPackages.html">资源包</a>。</p>
-
-<h2>检查资源</h2>
+<p>如果要将资源集合带入项目中，可使用<a href="AssetPackages.html">资源包</a>。如果从 <a href="AssetStore.html">Unity Asset Store</a> 购买或下载资源，可以<a href="upm-ui-import.html">通过 Package Manager 窗口导入资源</a>。</p>
 
 <p>Unity 支持的每种类型的资源都有一组导入设置，这些设置会影响资源的显示或行为方式。要查看资源的导入设置，请在 <strong>Project 视图__中选择该资源。该资源的导入设置将显示在 </strong>Inspector__ 中。显示的选项因所选资源的类型而异。</p>
 
@@ -248,6 +241,49 @@
 
 <p>对于正在开发的跨平台项目，可以覆盖“默认”设置并根据每个具体平台分配不同的导入设置。</p>
 
+<p><a name="processing"></a></p>
+
+<h2>资源处理</h2>
+
+<p>Unity reads and processes any files that you add to the <code>Assets</code> folder, converting the contents of the file to internal game-ready data. The asset files themselves remain unchanged, and the internal data is stored in the project’s <code>Library</code> folder. This data is part of the Unity Editor’s <a href="AssetDatabase.html">Asset Database</a>.</p>
+
+<p>通过使用资源的内部格式，Unity 可以准备好可直接用于游戏的资源版本，以便在 Editor 中在运行时使用，同时将未修改的源文件保留在 <code>Assets</code> 文件夹中。使内部格式与资源文件分开，意味着您可以快速编辑它们并让 Editor 自动获取更改。例如，Photoshop 文件格式很方便，可以将 <code>.psd</code> 文件直接保存到 <code>Assets</code> 文件夹中，但移动设备和 PC 显卡等硬件不能直接处理该格式来渲染为纹理。</p>
+
+<p>Unity 将资源的内部表示形式存储在 <code>Library</code> 文件夹中，该文件夹类似于缓存文件夹。作为用户，切勿手动更改 <code>Library</code> 文件夹，尝试这样做可能会给 Unity Editor 中的项目带来负面影响。但是，只要该项目未在 Unity 中打开，就可以安全删除 <code>Library</code> 文件夹，因为 Unity 可以通过 <code>Assets</code> 和 <code>ProjectSettings</code> 文件夹重新生成其所有数据。这也意味着不应将 <code>Library</code> 文件夹纳入版本控制。</p>
+
+<h2>Complex assets</h2>
+
+<p>In some cases, Unity might create multiple assets while importing a single asset file. For example, this can occur in the following situations:</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>导入情形：</strong></th>
+	<th style="text-align:left;"><strong>Unity 处理文件的方式：</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">3D 文件（例如 FBX 文件）定义材质或包含嵌入的纹理时。</td>
+	<td style="text-align:left;">Unity 将<a href="FBXImporter-Materials.html">材质和嵌入的纹理</a>提取为单独的资源。</td>
+</tr>
+<tr>
+	<td style="text-align:left;">需要将图像文件导入为多个 2D 精灵时。</td>
+	<td style="text-align:left;">使用 2D <a href="SpriteEditor.html">精灵编辑器 (Sprite Editor)</a> 从单个图形图像定义多个精灵。在此情况下，Editor 中定义的每个精灵将在 Project 窗口中显示为单独的精灵资源。</td>
+</tr>
+<tr>
+	<td style="text-align:left;">一个 3D 文件包含多个动画时间轴或多个剪辑时。</td>
+	<td style="text-align:left;">Unity 会根据其<a href="Splittinganimations.html">动画导入设置</a>来自动定义单独的动画时间轴或剪辑。生成的多个动画剪辑将在 Project 窗口中显示为单独的动画剪辑资源。</td>
+</tr>
+</tbody>
+</table>
+
 <h2>另请参阅</h2>
 
 <ul>
@@ -259,19 +295,18 @@
 <li><a href="AudioFiles.html">音频文件</a></li>
 <li><a href="TrackerModules.html">音轨模块</a></li>
 </ul>
-<!-- area:authoring -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="HOWTO-exportpackage.html"></a></span><div class="tip">在项目之间重用资源</div>
+<span class="prev"><a href="AssetWorkflow.html"></a></span><div class="tip">Asset Workflow</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="3D-formats.html"></a></span><div class="tip">Supported model file formats</div>
+<span class="next"><a href="AssetTypes.html"></a></span><div class="tip">Supported Asset Types</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

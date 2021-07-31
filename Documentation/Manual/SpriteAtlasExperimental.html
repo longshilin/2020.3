@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Sprite Atlas version 2 (Experimental) - Unity 手册">
-<title>Sprite Atlas version 2 (Experimental) - Unity 手册</title>
+<meta property="og:title" content="Sprite Atlas 版本 2（实验性） - Unity 手册">
+<title>Sprite Atlas 版本 2（实验性） - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/SprAtlasV2_ProjectSettings.png">
-<meta name="description" content="The current Sprite Atlas packs Textures (from Sprites, Sprites within Textures, and Sprites in folders) into an Atlas Texture. It packs these Textures when it enters Play Mode, or when it builds the Player or an AssetBundle.">
-<meta property="og:description" content="The current Sprite Atlas packs Textures (from Sprites, Sprites within Textures, and Sprites in folders) into an Atlas Texture. It packs these Textures when it enters Play Mode, or when it builds the Player or an AssetBundle.">
+<meta name="description" content="当前的 Sprite Atlas 将纹理（来自精灵、纹理内的精灵和文件夹中的精灵）打包为一个图集纹理。进入运行模式时，或者构建播放器或 AssetBundle 时，它会打包这些纹理。">
+<meta property="og:description" content="当前的 Sprite Atlas 将纹理（来自精灵、纹理内的精灵和文件夹中的精灵）打包为一个图集纹理。进入运行模式时，或者构建播放器或 AssetBundle 时，它会打包这些纹理。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,11 +175,11 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Unity2D.html">2D</a></li>
 <li><a href="Sprites.html">精灵</a></li>
 <li><a href="class-SpriteAtlas.html">精灵图集</a></li>
-<li>Sprite Atlas version 2 (Experimental)</li>
+<li>Sprite Atlas 版本 2（实验性）</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -189,62 +189,59 @@
 <span class="next"><a href="SpritePacker.html"></a></span><div class="tip">Sprite Packer</div>
 </div>
 </div></div>
-<h1>Sprite Atlas version 2 (Experimental)</h1>
+<h1>Sprite Atlas 版本 2（实验性）</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>The current Sprite Atlas packs Textures (from Sprites, Sprites within Textures, and Sprites in folders) into an Atlas Texture. It packs these Textures when it enters Play Mode, or when it builds the Player or an AssetBundle. </p>
+<p>当前的 Sprite Atlas 将纹理（来自精灵、纹理内的精灵和文件夹中的精灵）打包为一个图集纹理。进入运行模式时，或者构建播放器或 AssetBundle 时，它会打包这些纹理。</p>
 
-<p>To configure the packing behavior, go to <strong>Edit &gt; Project Settings &gt; Editor &gt; Sprite Packer </strong>and select an option from the <strong>Mode</strong> drop-down menu.</p>
+<p>要配置打包行为，请转到 <strong>Edit &gt; Project Settings &gt; Editor &gt; Sprite Packer ** 并从 </strong>Mode** 下拉选单选择一个选项。</p>
 
-<p><img src="../uploads/Main/SprAtlasV2_ProjectSettings.png" alt=""><br>Setting the <strong>Sprite Packer Mode</strong> to Sprite Atlas V2 Experimental.</p>
+<p><img src="../uploads/Main/SprAtlasV2_ProjectSettings.png" alt=""><br>将 <strong>Sprite Packer Mode</strong> 设置为 Sprite Atlas V2 Experimental。</p>
 
-<p><a href="AssetDatabase.html">AssetDatabase V1</a> cannot have dependencies, and has no Importer support for named objects, so Unity packs its Sprite Atlases through a custom mechanism and stores the output data of Textures and render data in the <em>Library/AtlasCache</em> folder. </p>
+<p><a href="AssetDatabase.html">AssetDatabase V1</a> 不能有依赖项，也不支持命名对象的导入器，所以 Unity 通过自定义机制打包其精灵图集，并将纹理的输出数据和渲染数据存储在 <em>Library/AtlasCache</em> 文件夹中。</p>
 
-<p>However, Sprite Atlas version 1 does not support the <a href="CacheServer.html">Cache Server</a>. Unity can only cache <a href="AssetDatabase.html">Artifacts</a> (data generated through the import process) stored in the Library folder. As it does not use an <a href="ScriptedImporters.html">importer</a>, the current system cannot use some of the functionalities exposed by <a href="https://docs.unity3d.com/2019.3/Documentation/Manual/AssetDatabase.html">AssetDatabase V2</a> (ADBV2) such as Cache Server support.</p>
+<p>但是，Sprite Atlas 版本 1 不支持<a href="CacheServer.html">缓存服务器 </a>。Unity 只能缓存存储在 Library 文件夹中的 <a href="AssetDatabase.html">Artifact</a>（通过导入过程生成的数据）。由于它不使用<a href="ScriptedImporters.html">导入器</a>，当前系统无法使用由 <a href="https://docs.unity3d.com/2019.3/Documentation/Manual/AssetDatabase.html">AssetDatabase V2</a> (ADBV2) 提供的功能，如缓存服务器支持等。</p>
 
-<p>The v2 experimental system is developed with the following criteria in mind:</p>
+<p>版本 2 实验性系统的开发遵循以下标准：</p>
 
-<ol>
-<li><p>Use an Importer workflow that supports Cache Server and other ADBV2 features. </p></li>
-<li><p>No changes to the Sprite Atlas Runtime Object.</p></li>
-<li><p>Ensure that there is a migration path between current Sprite Atlases to Sprite Atlas V2.</p></li>
-<li><p>No major changes to the UX workflow.</p></li>
-</ol>
+<p>1.使用支持缓存服务器和其他 ADBV2 功能的导入器工作流。</p>
 
-<h2>Sprite Atlas version 2 Inspector properties</h2>
+<p>2.Sprite Atlas 运行时对象没有变化。</p>
 
-<p>There are no changes to the Inspector properties and settings from that of Sprite Atlas v1 except for the following :</p>
+<p>3.确保存在将当前精灵图集迁移到 Sprite Atlas 版本 2 的路径。</p>
 
-<ol>
-<li><p>You cannot drag a folder directly onto <strong>Objects for Packing</strong> to add the contents for packing in Sprite Atlas v2, however dragging Sprites and Textures directly onto the window is still supported.</p></li>
-<li><p>The imported Sprite Atlas object is displayed at the bottom of the Inspector.</p></li>
-</ol>
+<p>4.UX 工作流程没有重大变化。</p>
 
-<p><img src="../uploads/Main/SprAtlasV2_Inspector.png" alt=""><br>Updated Inspector properties.</p>
+<h2>Sprite Atlas 版本 2 Inspector 属性</h2>
 
-<p>To enable the experimental Sprite Atlas v2 mode, go to <strong>Edit &gt; Project Settings &gt; Sprite Packer</strong>, open the <strong>Mode</strong> drop-down menu and select <strong>Sprite Atlas V2 (Experimental) - Enabled</strong>.</p>
+<p>除了以下内容外，与 Sprite Atlas 版本 1 相比，Inspector 属性和设置没有变化：</p>
+
+<p>1.在 Sprite Atlas 版本 2 中，您不能将文件夹直接拖到 <strong>Objects for Packing</strong> 来添加打包内容，但仍支持将精灵和纹理直接拖到窗口上。</p>
+
+<p>2.导入的 Sprite Atlas 对象显示在 Inspector 的底部。</p>
+
+<p><img src="../uploads/Main/SprAtlasV2_Inspector.png" alt=""><br>更新的 Inspector 属性。</p>
+
+<p>要启用实验性 Sprite Atlas 版本 2 模式，请转到 <strong>Edit &gt; Project Settings &gt; Sprite Packer</strong>，打开 <strong>Mode</strong> 下拉选单并选择 <strong>Sprite Atlas V2 (Experimental) - Enabled</strong>。</p>
 
 <figure>
 <img src="../uploads/Main/SprAtlasV2_ProjectSettings.png" alt="">
 </figure>
 
-<p>When you enable the experimental Sprite Atlas v2:</p>
+<p>当您启用实验性 Sprite Atlas 版本 2 时：</p>
 
-<ol>
-<li><p>It becomes the default Mode when you create a Sprite Atlas through the Assets menu (<strong>Assets &gt; Create &gt; Sprite Atlas</strong>).</p></li>
-<li><p>Unity automatically migrates all existing Sprite Atlas v1 Assets to Sprite Atlas v2.</p></li>
-</ol>
+<p>1.当您通过 Assets 菜单创建精灵图集时，它成为默认模式 (<strong>Assets &gt; Create &gt; Sprite Atlas</strong>)。</p>
 
-<p>Due to the automatic migration, you should make a backup of your v1 Sprite Atlases before you enable Sprite Atlas v2. Assets converted to v2 are incompatible with v1, and cannot be converted back.</p>
+<p>2.Unity 自动将所有现有的 Sprite Atlas 版本 1 资源迁移到 Sprite Atlas 版本 2。</p>
 
-<p>Editing Sprite Atlas v2 via scripting is currently not supported.</p>
+<p>由于自动迁移，您应该在启用 Sprite Atlas 版本 2 之前备份版本 1 的精灵图集。转换为版本 2 的资源与版本 1 不兼容，无法转换回来。</p>
+
+<p>目前不支持通过脚本编辑 Sprite Atlas 版本 2。</p>
 
 <hr>
 
-<ul>
-<li><span class="page-history">Sprite Atlas version 2 Experimental has been added for <a href="https://docs.unity3d.com/2020.1/Documentation/Manual/30_search.html?q=newin20201">2020.1</a> <span class="search-words">NewIn20201</span></span></li>
-</ul>
+<p>*<span class="page-history">Sprite Atlas 版本 2（实验性）添加于 <a href="https://docs.unity3d.com/2020.1/Documentation/Manual/30_search.html?q=newin20201">2020.1</a><span class="search-words"> NewIn20201</span></span></p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="SpritePackerModes.html"></a></span><div class="tip">Sprite Packer 模式</div>
@@ -256,7 +253,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

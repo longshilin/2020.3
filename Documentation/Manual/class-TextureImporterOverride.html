@@ -11,8 +11,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Recommended, default, and supported texture compression formats, by platform - Unity 手册">
-<title>Recommended, default, and supported texture compression formats, by platform - Unity 手册</title>
+<meta property="og:title" content="各平台的推荐、默认和支持的纹理压缩格式 - Unity 手册">
+<title>各平台的推荐、默认和支持的纹理压缩格式 - Unity 手册</title>
 <meta name="description" content="本页包含以下信息：">
 <meta property="og:description" content="本页包含以下信息：">
 <meta name="author" content="Unity Technologies">
@@ -174,112 +174,113 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
 <li><a href="Textures.html">纹理</a></li>
 <li><a href="ImportingTextures.html">导入纹理</a></li>
-<li><a href="texture-compression-formats.html">Texture compression formats</a></li>
-<li>Recommended, default, and supported texture compression formats, by platform</li>
+<li><a href="texture-compression-formats.html">纹理压缩格式</a></li>
+<li>各平台的推荐、默认和支持的纹理压缩格式</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="texture-compression-formats.html"></a></span><div class="tip">Texture compression formats</div>
+<span class="prev"><a href="texture-compression-formats.html"></a></span><div class="tip">纹理压缩格式</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="class-RenderTexture.html"></a></span><div class="tip">渲染纹理</div>
 </div>
 </div></div>
-<h1>Recommended, default, and supported texture compression formats, by platform</h1>
+<h1>各平台的推荐、默认和支持的纹理压缩格式</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
 <p>本页包含以下信息：</p>
 
 <ul>
-<li><a href="#terminology">Terminology</a></li>
-<li><a href="#recommended-formats">Recommended texture compression formats, by platform</a></li>
+<li>
+<a href="#terminology">术语</a>
+*<a href="#recommended-formats">各平台的推荐纹理压缩格式</a>
+</li>
 <li><a href="#desktop">桌面端</a></li>
-<li><a href="#ios-and-tvos">iOS and tvOS</a></li>
+<li><a href="#ios-and-tvos">iOS 和 tvOS</a></li>
 <li><a href="#android">Android</a></li>
-<li><a href="#default-formats">Default texture compression formats, by platform</a></li>
-<li><a href="#supported-formats">Supported texture compression formats, by platform</a></li>
+<li><a href="#default-formats">各平台的默认纹理压缩格式</a></li>
+<li><a href="#supported-formats">各平台支持的纹理压缩格式</a></li>
 </ul>
 
-<p>This page does not contain information about console platforms. For information about console platforms, see the platform-specific documentation.</p>
+<p>此页面不包含有关游戏主机平台的信息。有关游戏主机平台的信息，请参阅特定于平台的文档。</p>
 
-<p>For an overview of texture compression formats, see <a href="texture-compression-formats.html">Texture compression formats</a>. For information about texture import settings and how to set up platform-specific overrides, see <a href="class-TextureImporter.html">Texture import settings</a>.</p>
+<p>有关纹理压缩格式的概述，请参阅<a href="texture-compression-formats.html">纹理压缩格式</a>。有关纹理导入设置以及如何设置特定于平台的覆盖的一般信息，请参阅<a href="class-TextureImporter.html">纹理导入设置</a>。</p>
 
 <p><a name="terminology"></a></p>
 
 <h2>术语</h2>
 
-<p>This page uses the following terminology:</p>
+<p>本页用到了以下术语：</p>
 
 <ul>
 <li>
-<strong>Bits per pixel (bpp)</strong> is the amount of storage required for a single texture pixel. Textures with a lower bpp value have a smaller size on disk and in memory. A lower bpp value also means that the GPU can store more pixels in its cache, which results in faster texture access.</li>
-<li>LDR (Low Dynamic Range) refers to most typical images where colors are conceptually between 0.0 (black) and 1.0 (white) values. The majority of image files (such as PNG and JPG) have low dynamic range.</li>
-<li>HDR (High Dynamic Range) refers to special image and texture formats where colors can have a higher range than 0 through 1. Image file formats like .exr or .hdr are often used for HDR image data. At runtime and on the GPU, there are several HDR formats, trading off accuracy, range and memory usage.</li>
+<strong>每像素位数 (bpp)</strong> 表示单个纹理像素所需的存储量。Bpp 值越低的纹理在磁盘和内存中也越小。较低的 bpp 值意味着 GPU 可在缓存中存储更多的像素，从而可以更快地访问纹理。</li>
+<li>LDR（低动态范围）是指最典型的图像，其中颜色在概念上介于 0.0（黑色）和 1.0（白色）值之间。大多数图像文件（例如 PNG 和 JPG）具有低动态范围。</li>
+<li>HDR（高动态范围）是指特殊的图像和纹理格式，其中颜色的范围可以高于 0 到 1。像 .exr 或 .hdr 这样的图像文件格式通常用于 HDR 图像数据。在运行时和 GPU 上，有多种 HDR 格式，分别对精度、范围和内存使用情况进行取舍。</li>
 <li>
-<strong>RGB</strong> is a color model in which red, green and blue combine to reproduce an array of colors.</li>
+<strong>RGB</strong> 是一种颜色模型，通过红色、绿色和蓝色的组合生成一系列颜色。</li>
 <li>
-<strong>RGBA</strong> is a version of <strong>RGB</strong> with an alpha channel, which supports blending and opacity alteration.</li>
+<strong>RGBA</strong> 是具有 Alpha 通道的 <strong>RGB</strong> 版本，支持混合和不透明度更改。</li>
 <li>
-<strong>Variable bit rate (VBR)</strong> means that bits per pixel is not a fixed value, and depends on the actual content instead. VBR only applies to <strong>Crunch compression</strong>, and only texture size on disk. The size in memory is the same as when using the underlying texture format (for example, RGB Compressed DXT1 for RGB Crunched DXT1).</li>
+<strong>可变比特率 (VBR)</strong> 表示每像素的位数不是固定值，而是取决于实际内容。VBR 仅适用于 <strong>Crunch 压缩</strong>，仅限于磁盘上的纹理大小。内存中的大小与使用基础纹理格式时的大小相同（例如，RGB Compressed DXT1 对应 RGB Crunched DXT1）。</li>
 </ul>
 
 <p><a name="recommended-formats"></a></p>
 
-<h2>Recommended texture compression formats, by platform</h2>
+<h2>各平台的推荐纹理压缩格式</h2>
 
 <p><a name="desktop"></a></p>
 
 <h3>桌面端</h3>
 
-<p>For devices with DirectX 11 or better class GPUs, where support for BC7 and BC6H formats is guaranteed to be available, the recommended choice of compression formats is:
-RGB textures - DXT1 at four bits/pixel.
-RGBA textures - BC7 (higher quality, slower to compress) or DXT5 (faster to compress), both at eight bits/pixel.
-HDR textures - BC6H at eight bits/pixel.
-If you need to support DirectX 10 class GPUs on PC (NVIDIA GPUs before 2010, AMD before 2009, Intel before 2012), then DXT5 instead of BC7 would be preferred, since these GPUs do not support BC7 nor BC6H.</p>
+<p>对于具有 DirectX 11 或更高级别 GPU 的设备，可保证支持 BC7 和 BC6H 格式，推荐的压缩格式选择是：
+ RGB 纹理 - DXT1 4 位/像素。
+ RGBA 纹理 - BC7（质量更高，压缩速度较慢）或 DXT5（压缩速度较快），均为 8 位/像素。
+ HDR 纹理 - BC6H 8 位/像素。
+如果您需要在 PC 上支持 DirectX 10 类 GPU（2010 年之前的 NVIDIA GPU，2009 年之前的 AMD，2012 年之前的 Intel），则首选 DXT5（而不是 BC7），因为这些 GPU 不支持 BC7 和 BC6H。</p>
 
-<p>See the <a href="#supported-formats">Supported texture compression formats reference table</a> for detailed information about all supported formats.</p>
+<p>有关所有支持格式的详细信息，请参阅<a href="#supported-formats">支持的纹理压缩格式参考表</a>。</p>
 
 <p><a name="ios-and-tvos"></a></p>
 
-<h3>iOS and tvOS</h3>
+<h3>iOS 和 tvOS</h3>
 
-<p>For Apple devices that use the A8 chip (2014) or above, ATSC is the recommended texture compression format for RGB and RGBA textures. This format allows you to choose between texture quality and size on a granular level: all the way from eight bits/pixel (4x4 block size) down to 0.89 bits/pixel (12x12 block size).
-If support for older devices is needed, or you want additional Crunch compression, then Apple devices support ETC/ETC2 formats starting with A7 chip (2013).
-For even older devices, PVRTC is the compression format to use.
-On iOS, Unity’s default texture compression format is PVRTC, for the broadest possible compatibility. ASTC is preferred, but is not supported on A7 devices (the very first Metal-enabled devices) and will be unpacked at runtime.</p>
+<p>对于使用 A8 芯片 (2014) 或以上的 Apple 设备，ATSC 是 RGB 和 RGBA 纹理的推荐纹理压缩格式。这种格式允许您在粒度级别对纹理质量和大小进行选择：从 8 位/像素（4x4 块大小）开始直至 0.89 位/像素（12x12 块大小）。
+如果需要支持旧设备，或者您想要额外的 Crunch 压缩，从 A7 芯片 (2013) 起的 Apple 设备支持 ETC/ ETC2 格式。
+对于更旧的设备，需要使用 PVRTC 压缩格式。
+在 iOS 上，Unity 的默认纹理压缩格式是 PVRTC，以获得尽可能广泛的兼容性。ASTC 是首选，但在 A7 设备（第一个支持 Metal 的设备）上不受支持，将在运行时解压缩。</p>
 
-<p>See the <a href="#supported-formats">Supported texture compression formats reference table</a> for detailed information about all supported formats.</p>
+<p>有关所有支持格式的详细信息，请参阅<a href="#supported-formats">支持的纹理压缩格式参考表</a>。</p>
 
 <p><a name="android"></a></p>
 
 <h3>Android</h3>
 
-<p>Texture compression support on Android is complicated, and you might need to build several application versions with different <a href="android-BuildProcess.html">sub-targets</a>.</p>
+<p>Android 上的纹理压缩支持很复杂，您可能需要针对不同的<a href="android-BuildProcess.html">子目标</a>构建多个不同版本的应用程序。</p>
 
-<p>Unless your app targets specific hardware that supports a limited range of texture compression formats, you can choose between several compressed and uncompressed formats, which offer different trade-offs.</p>
+<p>除非您的应用针对的是特定硬件，支持有限范围的纹理压缩格式，您可在几种压缩格式和未压缩格式之间进行选择，考虑不同的取舍因素。</p>
 
-<p>For LDR RGB and RGBA textures, most modern Android GPUs support ASTC compression format, including:
-Qualcomm GPUs since Adreno 4xx / Snapdragon 415 (2015)
-ARM GPUs since Mali T624 (2012)
-NVIDIA GPUs since Tegra K1 (2014)
-PowerVR GPUs since GX6250 (2014)
-If you need support for older devices, or you want additional Crunch compression, then all GPUs that run Vulkan or Metal or OpenGL ES 3.0 support ETC2 format. The resulting image quality is quite high, and it supports one- to four-component texture data. OpenGL ES 2 devices do not support the ETC2 format, so Unity decompresses the texture at runtime to the format <a href="class-TextureImporter.html#fallback">ETC2 fallback</a> specifies.
-For even older devices, usually only ETC format is available. The drawback is that there is no direct alpha channel support. For Sprites, Unity offers an option to use ETC1 compression by splitting a texture into two ETC1 textures: one for RGB, one for alpha. To enable this, enable the Android-specific <a href="class-TextureImporter.html#splitalpha">Split Alpha Channel</a> option for the Texture when importing a <a href="class-SpriteAtlas.html">Sprite Atlas</a>. The sprite shader samples both textures and combines them into the final result.
-For HDR textures, ASTC HDR is the only compressed format available on Android devices. ASTC HDR requires Vulkan or <a href="https://opengles.gpuinfo.org/listreports.php?extension=GL_KHR_texture_compression_astc_hdr">GL_KHR_texture_compression_astc_hdr</a> support. ASTC is the most flexible format.</p>
+<p>对于 LDR RGB 和 RGBA 纹理，大多数现代 Android GPU 都支持 ASTC 压缩格式，包括：
+自 Adreno 4xx 的 Qualcomm GPU/Snapdragon 415 (2015)
+ 自 Mali T624 (2012) 的 ARM GPU
+自 Tegra K1 (2014) 的 NVIDIA GPU
+ 自 GX6250 (2014) 的 PowerVR GPU
+如果您需要对旧设备的支持，或者您想要额外的 Crunch 压缩，所有运行 Vulkan 或 Metal 或 OpenGL ES 3.0 的 GPU 都支持 ETC2 格式。产生的图像质量非常高，并且支持一到四分量纹理数据。OpenGL ES 2 设备不支持 ETC2 格式，因此 Unity 在运行时将纹理解压缩为 <a href="class-TextureImporter.html#fallback">ETC2 回退</a>为该格式指定的格式。
+对于更旧的设备，通常只有 ETC 格式可用。缺点是没有直接的 Alpha 通道支持。对于精灵，Unity 提供了一个选项，通过将纹理拆分为两个 ETC1 纹理来使用 ETC1 压缩：一个用于 RGB，一个用于 Alpha。为此，请在导入<a href="class-SpriteAtlas.html">精灵图集</a>时为纹理启用特定于 Android 的 <a href="class-TextureImporter.html#splitalpha">Split Alpha Channel</a> 选项。精灵着色器对两个纹理进行采样并将它们组合成最终结果。
+对于 HDR 纹理，ASTC HDR 是 Android 设备上唯一可用的压缩格式。ASTC HDR 需要 Vulkan 或 <a href="https://opengles.gpuinfo.org/listreports.php?extension=GL_KHR_texture_compression_astc_hdr">GL_KHR_texture_compression_astc_hdr</a> 支持。ASTC 是最灵活的格式。</p>
 
-<p>For devices that don’t support ASTC HDR, all devices running Vulkan, Metal, or OpenGL ES 3.0 support RGB9e5, which is suitable for textures without an alpha channel. If an alpha channel or even wider support is needed, use RGBA Half. This takes twice as much memory as RGB9e5.</p>
+<p>对于不支持 ASTC HDR 的设备，所有运行 Vulkan、Metal 或 OpenGL ES 3.0 的设备都支持 RGB9e5，适用于没有 Alpha 通道的纹理。如果需要 Alpha 通道或更广泛的支持，请使用 RGBA Half。这种格式占用的内存是 RGB9e5 的两倍。</p>
 
-<p>See the <a href="#supported-formats">Supported texture compression formats reference table</a> for detailed information about all supported formats.</p>
+<p>有关所有支持格式的详细信息，请参阅<a href="#supported-formats">支持的纹理压缩格式参考表</a>。</p>
 
 <p><a name="default-formats"></a></p>
 
-<h2>Default texture compression formats, by platform</h2>
+<h2>各平台的默认纹理压缩格式</h2>
 
 <p>下表显示了每个平台使用的默认格式。</p>
 
@@ -306,7 +307,7 @@ For HDR textures, ASTC HDR is the only compressed format available on Android de
 
 <tbody>
 <tr>
-	<td style="text-align:left;"><strong>Windows, Linux, macOS</strong></td>
+	<td style="text-align:left;"><strong>Windows、Linux、macOS</strong></td>
 	<td style="text-align:left;">RGB</td>
 	<td style="text-align:left;">RGB 24 位</td>
 	<td style="text-align:left;">RGB Compressed DXT1</td>
@@ -407,9 +408,9 @@ For HDR textures, ASTC HDR is the only compressed format available on Android de
 
 <p><a name="supported-formats"></a></p>
 
-<h2>Supported texture compression formats, by platform</h2>
+<h2>各平台支持的纹理压缩格式</h2>
 
-<p>The table below shows each compression format available in Unity, and the platforms that support it.</p>
+<p>下表显示了 Unity 中可用的每种压缩格式，以及支持它的平台。</p>
 <div class="wide-table">
 
 <table>
@@ -432,15 +433,15 @@ For HDR textures, ASTC HDR is the only compressed format available on Android de
 <tr>
 	<th style="text-align:left;"><strong>纹理压缩格式</strong></th>
 	<th style="text-align:left;"><strong>描述</strong></th>
-	<th style="text-align:left;"><strong>Channels</strong></th>
+	<th style="text-align:left;"><strong>通道</strong></th>
 	<th style="text-align:left;"><strong>Quality</strong></th>
-	<th style="text-align:left;"><strong>Bits per pixel</strong></th>
-	<th style="text-align:left;"><strong>Size of 1024x1024 texture, in MB</strong></th>
+	<th style="text-align:left;"><strong>每像素位数</strong></th>
+	<th style="text-align:left;"><strong>1024x1024 纹理的大小，以 MB 为单位</strong></th>
 	<th style="text-align:left;"><strong>Windows</strong></th>
 	<th style="text-align:left;"><strong>Mac</strong></th>
 	<th style="text-align:left;"><strong>Linux</strong></th>
 	<th style="text-align:left;"><strong>Android</strong></th>
-	<th style="text-align:left;"><strong>iOS &amp; tvOS</strong></th>
+	<th style="text-align:left;"><strong>iOS 和 tvOS</strong></th>
 	<th style="text-align:left;"><strong>WebGL</strong></th>
 </tr>
 </thead>
@@ -448,13 +449,13 @@ For HDR textures, ASTC HDR is the only compressed format available on Android de
 <tbody>
 <tr>
 	<td style="text-align:left;">RGB(A) Compressed BC7</td>
-	<td style="text-align:left;">Compressed RGB or RGBA</td>
-	<td style="text-align:left;">RGB or RGBA</td>
+	<td style="text-align:left;">压缩 RGB 或 RGBA</td>
+	<td style="text-align:left;">RGB 或 RGBA。</td>
 	<td style="text-align:left;">高</td>
 	<td style="text-align:left;">8</td>
 	<td style="text-align:left;">1</td>
-	<td style="text-align:left;">yes (1)</td>
-	<td style="text-align:left;">yes (1)</td>
+	<td style="text-align:left;">是 (1)</td>
+	<td style="text-align:left;">是 (1)</td>
 	<td style="text-align:left;">是</td>
 	<td style="text-align:left;">no</td>
 	<td style="text-align:left;">no</td>
@@ -462,7 +463,7 @@ For HDR textures, ASTC HDR is the only compressed format available on Android de
 </tr>
 <tr>
 	<td style="text-align:left;">RGBA Compressed DXT5</td>
-	<td style="text-align:left;">Compressed RGBA (also known as BC3)</td>
+	<td style="text-align:left;">压缩 RGBA（也称为 BC3）</td>
 	<td style="text-align:left;">RGBA</td>
 	<td style="text-align:left;">中</td>
 	<td style="text-align:left;">8</td>
@@ -470,29 +471,29 @@ For HDR textures, ASTC HDR is the only compressed format available on Android de
 	<td style="text-align:left;">是</td>
 	<td style="text-align:left;">是</td>
 	<td style="text-align:left;">是</td>
-	<td style="text-align:left;">no (3)</td>
+	<td style="text-align:left;">否 (3)</td>
 	<td style="text-align:left;">no</td>
 	<td style="text-align:left;">部分 (2)</td>
 </tr>
 <tr>
 	<td style="text-align:left;">RGBA Crunched DXT5</td>
-	<td style="text-align:left;">Compressed RGBA, with additional on-disk Crunch compression</td>
+	<td style="text-align:left;">Compressed RGBA，采用额外的磁盘上 Crunch 压缩。</td>
 	<td style="text-align:left;">RGBA</td>
-	<td style="text-align:left;">Low to medium</td>
-	<td style="text-align:left;">Variable</td>
-	<td style="text-align:left;">Variable</td>
+	<td style="text-align:left;">低到中</td>
+	<td style="text-align:left;">可变</td>
+	<td style="text-align:left;">可变</td>
 	<td style="text-align:left;">是</td>
 	<td style="text-align:left;">是</td>
 	<td style="text-align:left;">是</td>
-	<td style="text-align:left;">no (3)</td>
+	<td style="text-align:left;">否 (3)</td>
 	<td style="text-align:left;">no</td>
 	<td style="text-align:left;">部分 (2)</td>
 </tr>
 <tr>
-	<td style="text-align:left;">RGBA 64 bit</td>
-	<td style="text-align:left;">Uncompressed RGBA, very high precision</td>
+	<td style="text-align:left;">RGBA 64 位</td>
+	<td style="text-align:left;">未压缩 RGBA，精度非常高</td>
 	<td style="text-align:left;">RGBA</td>
-	<td style="text-align:left;">Very high</td>
+	<td style="text-align:left;">非常高</td>
 	<td style="text-align:left;">64</td>
 	<td style="text-align:left;">8</td>
 	<td style="text-align:left;">是</td>
@@ -504,7 +505,7 @@ For HDR textures, ASTC HDR is the only compressed format available on Android de
 </tr>
 <tr>
 	<td style="text-align:left;">RGBA 32 位</td>
-	<td style="text-align:left;">Uncompressed RGBA</td>
+	<td style="text-align:left;">未压缩 RGBA</td>
 	<td style="text-align:left;">RGBA</td>
 	<td style="text-align:left;">高</td>
 	<td style="text-align:left;">32</td>
@@ -518,7 +519,7 @@ For HDR textures, ASTC HDR is the only compressed format available on Android de
 </tr>
 <tr>
 	<td style="text-align:left;">RGBA 16 位</td>
-	<td style="text-align:left;">Quantized RGBA</td>
+	<td style="text-align:left;">量化 RGBA</td>
 	<td style="text-align:left;">RGBA</td>
 	<td style="text-align:left;">中</td>
 	<td style="text-align:left;">16</td>
@@ -532,7 +533,7 @@ For HDR textures, ASTC HDR is the only compressed format available on Android de
 </tr>
 <tr>
 	<td style="text-align:left;">RGB Compressed DXT1</td>
-	<td style="text-align:left;">Compressed RGB (also known as BC1)</td>
+	<td style="text-align:left;">压缩 RGB（也称为 BC1）</td>
 	<td style="text-align:left;">RGB</td>
 	<td style="text-align:left;">中</td>
 	<td style="text-align:left;">4</td>
@@ -540,31 +541,31 @@ For HDR textures, ASTC HDR is the only compressed format available on Android de
 	<td style="text-align:left;">是</td>
 	<td style="text-align:left;">是</td>
 	<td style="text-align:left;">是</td>
-	<td style="text-align:left;">no (3)</td>
+	<td style="text-align:left;">否 (3)</td>
 	<td style="text-align:left;">no</td>
 	<td style="text-align:left;">部分 (2)</td>
 </tr>
 <tr>
 	<td style="text-align:left;">RGB Crunched DXT1</td>
-	<td style="text-align:left;">Compressed RGB, with additional on-disk Crunch compression</td>
+	<td style="text-align:left;">压缩 RGB，采用额外的磁盘上 Crunch 压缩。</td>
 	<td style="text-align:left;">RGB</td>
-	<td style="text-align:left;">Low to medium</td>
-	<td style="text-align:left;">Variable</td>
-	<td style="text-align:left;">Variable</td>
+	<td style="text-align:left;">低到中</td>
+	<td style="text-align:left;">可变</td>
+	<td style="text-align:left;">可变</td>
 	<td style="text-align:left;">是</td>
 	<td style="text-align:left;">是</td>
 	<td style="text-align:left;">是</td>
-	<td style="text-align:left;">no (3)</td>
+	<td style="text-align:left;">否 (3)</td>
 	<td style="text-align:left;">no</td>
 	<td style="text-align:left;">部分 (2)</td>
 </tr>
 <tr>
-	<td style="text-align:left;">RGB 48 bit</td>
-	<td style="text-align:left;">Uncompressed RGB, very high precision. Converted to RGBA 64 bit for the GPU</td>
+	<td style="text-align:left;">RGB 48 位</td>
+	<td style="text-align:left;">未压缩 RGB，精度非常高。为 GPU 转换为 RGBA 64 位</td>
 	<td style="text-align:left;">RGB</td>
-	<td style="text-align:left;">Very high</td>
-	<td style="text-align:left;">48 disk, 64 GPU</td>
-	<td style="text-align:left;">6 disk, 8 GPU</td>
+	<td style="text-align:left;">非常高</td>
+	<td style="text-align:left;">48（磁盘），64（GPU）</td>
+	<td style="text-align:left;">6（磁盘），8（GPU）</td>
 	<td style="text-align:left;">是</td>
 	<td style="text-align:left;">是</td>
 	<td style="text-align:left;">是</td>
@@ -574,11 +575,11 @@ For HDR textures, ASTC HDR is the only compressed format available on Android de
 </tr>
 <tr>
 	<td style="text-align:left;">RGB 24 位</td>
-	<td style="text-align:left;">Uncompressed RGB. Converted to RGBA 32 bit for the GPU</td>
+	<td style="text-align:left;">未压缩 RGB。为 GPU 转换为 RGBA 32 位</td>
 	<td style="text-align:left;">RGB</td>
 	<td style="text-align:left;">高</td>
-	<td style="text-align:left;">24 disk, 32 GPU</td>
-	<td style="text-align:left;">3 disk, 4 GPU</td>
+	<td style="text-align:left;">24（磁盘），32（GPU）</td>
+	<td style="text-align:left;">3（磁盘），4（GPU）</td>
 	<td style="text-align:left;">是</td>
 	<td style="text-align:left;">是</td>
 	<td style="text-align:left;">是</td>
@@ -588,7 +589,7 @@ For HDR textures, ASTC HDR is the only compressed format available on Android de
 </tr>
 <tr>
 	<td style="text-align:left;">RGB 16 位</td>
-	<td style="text-align:left;">Quantized RGB</td>
+	<td style="text-align:left;">量化 RGB</td>
 	<td style="text-align:left;">RGB</td>
 	<td style="text-align:left;">中</td>
 	<td style="text-align:left;">16</td>
@@ -602,7 +603,7 @@ For HDR textures, ASTC HDR is the only compressed format available on Android de
 </tr>
 <tr>
 	<td style="text-align:left;">RG Compressed BC5</td>
-	<td style="text-align:left;">Compressed two channel (RG)</td>
+	<td style="text-align:left;">压缩双通道 (RG)</td>
 	<td style="text-align:left;">RG</td>
 	<td style="text-align:left;">高</td>
 	<td style="text-align:left;">8</td>
@@ -615,10 +616,10 @@ For HDR textures, ASTC HDR is the only compressed format available on Android de
 	<td style="text-align:left;">no</td>
 </tr>
 <tr>
-	<td style="text-align:left;">RG 32 bit</td>
-	<td style="text-align:left;">Uncompressed two channel (RG), very high precision</td>
+	<td style="text-align:left;">RG 32 位</td>
+	<td style="text-align:left;">未压缩双通道 (RG)，精度非常高</td>
 	<td style="text-align:left;">RG</td>
-	<td style="text-align:left;">Very high</td>
+	<td style="text-align:left;">非常高</td>
 	<td style="text-align:left;">32</td>
 	<td style="text-align:left;">4</td>
 	<td style="text-align:left;">是</td>
@@ -630,7 +631,7 @@ For HDR textures, ASTC HDR is the only compressed format available on Android de
 </tr>
 <tr>
 	<td style="text-align:left;">R Compressed BC4</td>
-	<td style="text-align:left;">Compressed single channel (R)</td>
+	<td style="text-align:left;">压缩单通道 (R)</td>
 	<td style="text-align:left;">R</td>
 	<td style="text-align:left;">高</td>
 	<td style="text-align:left;">4</td>
@@ -644,7 +645,7 @@ For HDR textures, ASTC HDR is the only compressed format available on Android de
 </tr>
 <tr>
 	<td style="text-align:left;">R 8</td>
-	<td style="text-align:left;">Uncompressed single channel (R)</td>
+	<td style="text-align:left;">未压缩单通道 (R)</td>
 	<td style="text-align:left;">R</td>
 	<td style="text-align:left;">高</td>
 	<td style="text-align:left;">8</td>
@@ -658,9 +659,9 @@ For HDR textures, ASTC HDR is the only compressed format available on Android de
 </tr>
 <tr>
 	<td style="text-align:left;">R 16 位</td>
-	<td style="text-align:left;">Uncompressed single channel (R), very high precision</td>
+	<td style="text-align:left;">未压缩单通道 (R)，精度非常高</td>
 	<td style="text-align:left;">R</td>
-	<td style="text-align:left;">Very high</td>
+	<td style="text-align:left;">非常高</td>
 	<td style="text-align:left;">16</td>
 	<td style="text-align:left;">2</td>
 	<td style="text-align:left;">是</td>
@@ -672,7 +673,7 @@ For HDR textures, ASTC HDR is the only compressed format available on Android de
 </tr>
 <tr>
 	<td style="text-align:left;">Alpha 8</td>
-	<td style="text-align:left;">Uncompressed single channel (A)</td>
+	<td style="text-align:left;">未压缩单通道 (A)</td>
 	<td style="text-align:left;">A</td>
 	<td style="text-align:left;">高</td>
 	<td style="text-align:left;">8</td>
@@ -686,7 +687,7 @@ For HDR textures, ASTC HDR is the only compressed format available on Android de
 </tr>
 <tr>
 	<td style="text-align:left;">RGBA Half</td>
-	<td style="text-align:left;">HDR, half-precision (FP16) RGBA, –64k to +64k range</td>
+	<td style="text-align:left;">HDR，半精度 (FP16) RGBA，–64k 至 +64k 范围</td>
 	<td style="text-align:left;">RGBA</td>
 	<td style="text-align:left;">高</td>
 	<td style="text-align:left;">64</td>
@@ -700,13 +701,13 @@ For HDR textures, ASTC HDR is the only compressed format available on Android de
 </tr>
 <tr>
 	<td style="text-align:left;">RGB Compressed BC6H</td>
-	<td style="text-align:left;">HDR, compressed RGB, 0 to +64k range</td>
+	<td style="text-align:left;">HDR，压缩 RGB，0 到 +64k 范围</td>
 	<td style="text-align:left;">RGB</td>
 	<td style="text-align:left;">高</td>
 	<td style="text-align:left;">8</td>
 	<td style="text-align:left;">1</td>
-	<td style="text-align:left;">yes (1)</td>
-	<td style="text-align:left;">yes (1)</td>
+	<td style="text-align:left;">是 (1)</td>
+	<td style="text-align:left;">是 (1)</td>
 	<td style="text-align:left;">是</td>
 	<td style="text-align:left;">no</td>
 	<td style="text-align:left;">no</td>
@@ -714,7 +715,7 @@ For HDR textures, ASTC HDR is the only compressed format available on Android de
 </tr>
 <tr>
 	<td style="text-align:left;">RGB9e5 32 位共享指数浮点</td>
-	<td style="text-align:left;">HDR, quantized RGB, 0 to +64k range</td>
+	<td style="text-align:left;">HDR，量化 RGB，0 到 +64k 范围</td>
 	<td style="text-align:left;">RGB</td>
 	<td style="text-align:left;">中</td>
 	<td style="text-align:left;">32</td>
@@ -728,21 +729,21 @@ For HDR textures, ASTC HDR is the only compressed format available on Android de
 </tr>
 <tr>
 	<td style="text-align:left;">RGB(A) Compressed ASTC</td>
-	<td style="text-align:left;">Compressed RGB or RGBA, size &amp; quality dependent on block size</td>
-	<td style="text-align:left;">RGB or RGBA</td>
-	<td style="text-align:left;">Low to high</td>
+	<td style="text-align:left;">压缩 RGB 或 RGBA，大小和质量取决于块大小</td>
+	<td style="text-align:left;">RGB 或 RGBA。</td>
+	<td style="text-align:left;">低到高</td>
 	<td style="text-align:left;">12x12: 0.89, 10x10: 1.28, 8x8: 2, 6x6: 3.56, 5x5: 5.12, 4x4: 8</td>
 	<td style="text-align:left;">12x12: 0.11, 10x10: 0.16, 8x8: 0.25, 6x6: 0.45, 5x5: 0.64, 4x4: 1.0</td>
 	<td style="text-align:left;">no</td>
 	<td style="text-align:left;">no</td>
 	<td style="text-align:left;">no</td>
-	<td style="text-align:left;">partial (8)</td>
-	<td style="text-align:left;">yes (10)</td>
+	<td style="text-align:left;">部分 (8)</td>
+	<td style="text-align:left;">是 (10)</td>
 	<td style="text-align:left;">no</td>
 </tr>
 <tr>
 	<td style="text-align:left;">RGBA Compressed ETC2</td>
-	<td style="text-align:left;">Compressed RGBA</td>
+	<td style="text-align:left;">压缩 RGBA</td>
 	<td style="text-align:left;">RGBA</td>
 	<td style="text-align:left;">中</td>
 	<td style="text-align:left;">8</td>
@@ -756,11 +757,11 @@ For HDR textures, ASTC HDR is the only compressed format available on Android de
 </tr>
 <tr>
 	<td style="text-align:left;">RGBA Crunched ETC2</td>
-	<td style="text-align:left;">Compressed RGBA, with additional on-disk Crunch compression</td>
+	<td style="text-align:left;">Compressed RGBA，采用额外的磁盘上 Crunch 压缩。</td>
 	<td style="text-align:left;">RGBA</td>
-	<td style="text-align:left;">Low to medium</td>
-	<td style="text-align:left;">Variable</td>
-	<td style="text-align:left;">Variable</td>
+	<td style="text-align:left;">低到中</td>
+	<td style="text-align:left;">可变</td>
+	<td style="text-align:left;">可变</td>
 	<td style="text-align:left;">no</td>
 	<td style="text-align:left;">no</td>
 	<td style="text-align:left;">no</td>
@@ -770,7 +771,7 @@ For HDR textures, ASTC HDR is the only compressed format available on Android de
 </tr>
 <tr>
 	<td style="text-align:left;">RGB + 1 位 Alpha Compressed ETC2 4 位</td>
-	<td style="text-align:left;">Compressed RGBA, with alpha values fully opaque or fully transparent</td>
+	<td style="text-align:left;">压缩 RGBA，Alpha 值完全不透明或完全透明</td>
 	<td style="text-align:left;">RGBA</td>
 	<td style="text-align:left;">中</td>
 	<td style="text-align:left;">4</td>
@@ -784,7 +785,7 @@ For HDR textures, ASTC HDR is the only compressed format available on Android de
 </tr>
 <tr>
 	<td style="text-align:left;">RGBA Compressed PVRTC 4 位</td>
-	<td style="text-align:left;">Compressed RGBA, texture required to be square</td>
+	<td style="text-align:left;">压缩 RGBA，纹理要求为方形</td>
 	<td style="text-align:left;">RGBA</td>
 	<td style="text-align:left;">中</td>
 	<td style="text-align:left;">4</td>
@@ -792,13 +793,13 @@ For HDR textures, ASTC HDR is the only compressed format available on Android de
 	<td style="text-align:left;">no</td>
 	<td style="text-align:left;">no</td>
 	<td style="text-align:left;">no</td>
-	<td style="text-align:left;">no (12)</td>
+	<td style="text-align:left;">否 (12)</td>
 	<td style="text-align:left;">是</td>
 	<td style="text-align:left;">no</td>
 </tr>
 <tr>
 	<td style="text-align:left;">RGBA Compressed PVRTC 2 位</td>
-	<td style="text-align:left;">Compressed RGBA, texture required to be square</td>
+	<td style="text-align:left;">压缩 RGBA，纹理要求为方形</td>
 	<td style="text-align:left;">RGBA</td>
 	<td style="text-align:left;">低</td>
 	<td style="text-align:left;">2</td>
@@ -806,13 +807,13 @@ For HDR textures, ASTC HDR is the only compressed format available on Android de
 	<td style="text-align:left;">no</td>
 	<td style="text-align:left;">no</td>
 	<td style="text-align:left;">no</td>
-	<td style="text-align:left;">no (12)</td>
+	<td style="text-align:left;">否 (12)</td>
 	<td style="text-align:left;">是</td>
 	<td style="text-align:left;">no</td>
 </tr>
 <tr>
 	<td style="text-align:left;">RGB Compressed ETC2</td>
-	<td style="text-align:left;">Compressed RGB</td>
+	<td style="text-align:left;">压缩 RGB</td>
 	<td style="text-align:left;">RGB</td>
 	<td style="text-align:left;">中</td>
 	<td style="text-align:left;">4</td>
@@ -826,7 +827,7 @@ For HDR textures, ASTC HDR is the only compressed format available on Android de
 </tr>
 <tr>
 	<td style="text-align:left;">RGB Compressed ETC</td>
-	<td style="text-align:left;">Compressed RGB</td>
+	<td style="text-align:left;">压缩 RGB</td>
 	<td style="text-align:left;">RGB</td>
 	<td style="text-align:left;">低</td>
 	<td style="text-align:left;">4</td>
@@ -840,11 +841,11 @@ For HDR textures, ASTC HDR is the only compressed format available on Android de
 </tr>
 <tr>
 	<td style="text-align:left;">RGB Crunched ETC</td>
-	<td style="text-align:left;">Compressed RGB, with additional on-disk Crunch compression</td>
+	<td style="text-align:left;">压缩 RGB，采用额外的磁盘上 Crunch 压缩。</td>
 	<td style="text-align:left;">RGB</td>
 	<td style="text-align:left;">低</td>
-	<td style="text-align:left;">Variable</td>
-	<td style="text-align:left;">Variable</td>
+	<td style="text-align:left;">可变</td>
+	<td style="text-align:left;">可变</td>
 	<td style="text-align:left;">no</td>
 	<td style="text-align:left;">no</td>
 	<td style="text-align:left;">no</td>
@@ -854,7 +855,7 @@ For HDR textures, ASTC HDR is the only compressed format available on Android de
 </tr>
 <tr>
 	<td style="text-align:left;">RGB Compressed PVRTC 4 位</td>
-	<td style="text-align:left;">Compressed RGB, texture required to be square</td>
+	<td style="text-align:left;">压缩 RGB，纹理要求为方形</td>
 	<td style="text-align:left;">RGB</td>
 	<td style="text-align:left;">中</td>
 	<td style="text-align:left;">4</td>
@@ -862,13 +863,13 @@ For HDR textures, ASTC HDR is the only compressed format available on Android de
 	<td style="text-align:left;">no</td>
 	<td style="text-align:left;">no</td>
 	<td style="text-align:left;">no</td>
-	<td style="text-align:left;">no (12)</td>
+	<td style="text-align:left;">否 (12)</td>
 	<td style="text-align:left;">是</td>
 	<td style="text-align:left;">no</td>
 </tr>
 <tr>
 	<td style="text-align:left;">RGB Compressed PVRTC 2 位</td>
-	<td style="text-align:left;">Compressed RGB, texture required to be square</td>
+	<td style="text-align:left;">压缩 RGB，纹理要求为方形</td>
 	<td style="text-align:left;">RGB</td>
 	<td style="text-align:left;">低</td>
 	<td style="text-align:left;">2</td>
@@ -876,13 +877,13 @@ For HDR textures, ASTC HDR is the only compressed format available on Android de
 	<td style="text-align:left;">no</td>
 	<td style="text-align:left;">no</td>
 	<td style="text-align:left;">no</td>
-	<td style="text-align:left;">no (12)</td>
+	<td style="text-align:left;">否 (12)</td>
 	<td style="text-align:left;">是</td>
 	<td style="text-align:left;">no</td>
 </tr>
 <tr>
 	<td style="text-align:left;">RG Compressed EAC 8 位</td>
-	<td style="text-align:left;">Compressed two channel (RG)</td>
+	<td style="text-align:left;">压缩双通道 (RG)</td>
 	<td style="text-align:left;">RG</td>
 	<td style="text-align:left;">高</td>
 	<td style="text-align:left;">8</td>
@@ -896,7 +897,7 @@ For HDR textures, ASTC HDR is the only compressed format available on Android de
 </tr>
 <tr>
 	<td style="text-align:left;">R Compressed EAC 4 位</td>
-	<td style="text-align:left;">Compressed single channel (R)</td>
+	<td style="text-align:left;">压缩单通道 (R)</td>
 	<td style="text-align:left;">R</td>
 	<td style="text-align:left;">高</td>
 	<td style="text-align:left;">4</td>
@@ -910,16 +911,16 @@ For HDR textures, ASTC HDR is the only compressed format available on Android de
 </tr>
 <tr>
 	<td style="text-align:left;">RGB(A) Compressed ASTC HDR</td>
-	<td style="text-align:left;">HDR, compressed RGB or RGBA, size &amp; quality dependent on block size</td>
-	<td style="text-align:left;">RGB or RGBA</td>
-	<td style="text-align:left;">Low to High</td>
+	<td style="text-align:left;">HDR，压缩 RGB 或 RGBA，大小和质量取决于块大小</td>
+	<td style="text-align:left;">RGB 或 RGBA。</td>
+	<td style="text-align:left;">低到高</td>
 	<td style="text-align:left;">12x12: 0.89, 10x10: 1.28, 8x8: 2, 6x6: 3.56, 5x5: 5.12, 4x4: 8</td>
 	<td style="text-align:left;">12x12: 0.11, 10x10: 0.16, 8x8: 0.25, 6x6: 0.45, 5x5: 0.64, 4x4: 1.0</td>
 	<td style="text-align:left;">no</td>
 	<td style="text-align:left;">no</td>
 	<td style="text-align:left;">no</td>
-	<td style="text-align:left;">partial (11)</td>
-	<td style="text-align:left;">partial (11)</td>
+	<td style="text-align:left;">部分 (11)</td>
+	<td style="text-align:left;">部分 (11)</td>
 	<td style="text-align:left;">no</td>
 </tr>
 </tbody>
@@ -928,23 +929,21 @@ For HDR textures, ASTC HDR is the only compressed format available on Android de
 
 <p><strong>注意：</strong></p>
 
-<ol>
-<li>Except on pre-DX11 level GPUs, or macOS when using OpenGL. When not supported, BC6H textures get decompressed to RGBA Half, and BC7 get decompressed to RGBA32 at load time.</li>
-<li>With <a href="LinearLighting.html">linear rendering</a> on web browsers that do not support sRGB DXT, textures are decompressed to RGBA32 at load time.</li>
-<li>Except on Android devices with NVIDIA Tegra GPUs; these do support DXT/BC formats.</li>
-<li>Except on OpenGL ES 2.0 / WebGL 1.</li>
-<li>When on OpenGL ES 2.0 / WebGL 1: requires GL_EXT_texture_rg extension support.</li>
-<li>Requires GL_EXT_texture_norm16 or corresponding Vulkan capability on Android.</li>
-<li>When on OpenGL ES 2.0 / WebGL 1: requires OES_texture_half_float extension support.</li>
-<li>Requires Vulkan or <a href="https://opengles.gpuinfo.org/listreports.php?extension=GL_KHR_texture_compression_astc_ldr">GL_KHR_texture_compression_astc_ldr</a> OpenGL ES extension.</li>
-<li>Except on OpenGL ES 2.0; there ETC2 textures are decompressed into the format <em>ETC2 fallback</em> specifies in the <a href="android-BuildProcess.html">Android Build Settings</a> or on the Android tab for the <a href="class-TextureImporter.html#fallback">Platform-specific overrides</a>.</li>
-<li>Except on Apple A7 chip devices (2013).</li>
-<li>Android: requires <a href="https://opengles.gpuinfo.org/listreports.php?extension=GL_KHR_texture_compression_astc_hdr">GL_KHR_texture_compression_astc_hdr</a> extension. iOS: requires A13 or later chip (2019). When not supported, the texture is decompressed to RGB9E5 format, losing the alpha channel.</li>
-<li>Except on Android devices with Imagination PowerVR GPUs; these do support PVRTC formats.</li>
-</ol>
+<p>1.低于 DX11 级别的 GPU 或使用 OpenGL 时的 macOS 除外。如果不支持，BC6H 纹理在加载时会解压缩为 RGBA Half，而 BC7 在加载时会解压缩为 RGBA32。
+2.在不支持 sRGB DXT 的 Web 浏览器上使用<a href="LinearLighting.html">线性渲染</a>，纹理在加载时被解压缩为 RGBA32。
+3.采用 NVIDIA Tegra GPU 的 Android 设备除外；这些确实支持 DXT/ BC 格式。
+4.OpenGL ES 2.0 / WebGL 1 上除外。
+5.对于 OpenGL ES 2.0/ WebGL 1：需要 GL_EXT_texture_rg 扩展支持。
+6.在 Android 上需要 GL_EXT_texture_norm16 或相应 Vulkan 功能。
+7.对于 OpenGL ES 2.0/ WebGL 1：需要 OES_texture_half_float 扩展支持。
+8.需要 Vulkan 或 <a href="https://opengles.gpuinfo.org/listreports.php?extension=GL_KHR_texture_compression_astc_ldr">GL_KHR_texture_compression_astc_ldr</a> OpenGL ES 扩展。
+9.OpenGL ES 2.0 上除外；这里的 ETC2 纹理被解压缩为在 <a href="android-BuildProcess.html">Android Build Settings</a> 中或 <a href="class-TextureImporter.html#fallback">Platform-specific overrides</a> 的 Android 选项卡上指定的格式 <em>ETC2 回退</em>。
+10.Apple A7 芯片设备 (2013) 上除外。
+11.Android：需要 <a href="https://opengles.gpuinfo.org/listreports.php?extension=GL_KHR_texture_compression_astc_hdr">GL_KHR_texture_compression_astc_hdr</a> 扩展。iOS：需要 A13 或更高版本的芯片 (2019)。如果不支持，则纹理将解压缩为 RGB9E5 格式，从而失去了 Alpha 通道。
+12.采用 Imagination PowerVR GPU 的 Android 设备除外；这些确实支持 PVRTC 格式。</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="texture-compression-formats.html"></a></span><div class="tip">Texture compression formats</div>
+<span class="prev"><a href="texture-compression-formats.html"></a></span><div class="tip">纹理压缩格式</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="class-RenderTexture.html"></a></span><div class="tip">渲染纹理</div>
@@ -953,7 +952,7 @@ For HDR textures, ASTC HDR is the only compressed format available on Android de
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

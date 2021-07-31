@@ -11,8 +11,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="样式和 Unity 样式表 - Unity 手册">
-<title>样式和 Unity 样式表 - Unity 手册</title>
+<meta property="og:title" content="Unity style sheets (USS) - Unity 手册">
+<title>Unity style sheets (USS) - Unity 手册</title>
 <meta name="description" content="每个 VisualElement 都包含样式属性，这些属性用于设置元素的尺寸以及元素在屏幕上的绘制方式，例如 backgroundColor 或 borderColor。">
 <meta property="og:description" content="每个 VisualElement 都包含样式属性，这些属性用于设置元素的尺寸以及元素在屏幕上的绘制方式，例如 backgroundColor 或 borderColor。">
 <meta name="author" content="Unity Technologies">
@@ -174,39 +174,41 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="UIToolkits.html">Creating user interfaces (UI)</a></li>
-<li><a href="UIElements.html">UI Toolkit</a></li>
-<li>样式和 Unity 样式表</li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="UIToolkits.html">创建用户界面 (UI)</a></li>
+<li><a href="UIElements.html">UI 工具包</a></li>
+<li>Unity style sheets (USS)</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="UIE-UQuery.html"></a></span><div class="tip">UQuery</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="UIE-USS-Selectors.html"></a></span><div class="tip">USS Selectors</div>
+<span class="next"><a href="UIE-USS-Selectors.html"></a></span><div class="tip">USS 选择器</div>
 </div>
 </div></div>
-<h1>样式和 Unity 样式表</h1>
+<h1>Unity style sheets (USS)</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
 <p>每个 <code>VisualElement</code> 都包含样式属性，这些属性用于设置元素的尺寸以及元素在屏幕上的绘制方式，例如 <code>backgroundColor</code> 或 <code>borderColor</code>。</p>
 
-<p>样式属性可以在 C# 中设置，也可以在样式表中设置。样式属性在其自己的数据结构（<code>IStyle</code> 接口）中重新分组。</p>
+<p>Style properties are either set in C# or from a style sheet. Style properties have their own data structure (<code>IStyle</code> interface).</p>
 
-<p>UI Toolkit supports style sheets written in USS (Unity style sheet). USS files are text files inspired by Cascading Style Sheets (CSS) from HTML. The USS format is similar to CSS, but USS includes overrides and customizations to work better with Unity. </p>
+<p>UI 工具包支持用 USS（Unity 样式表）编写的样式表。USS 文件是受 HTML 中的层叠样式表 (CSS) 启发的文本文件。USS 格式与 CSS 类似，但 USS 包括一些覆盖和自定义以便于更好地与 Unity 协同工作。</p>
 
 <p>本节详细介绍 USS、其语法以及与 CSS 的差异。</p>
+
+<p>For a quick reference of supported USS properties, see the <a href="UIE-USS-Properties-Reference.html">USS properties reference</a>.</p>
 
 <h2>Unity 样式表的定义</h2>
 
 <p>Unity 样式表 (USS) 的基本构成元素如下：</p>
 
 <ul>
-<li>USS 是被视为资源的文本文件。此文本文件必须具有 <code>.uss</code> 扩展名。</li>
-<li>USS 仅支持样式规则。</li>
-<li>样式规则由选择器和声明块组成。</li>
+<li>USS is a text file recognized as an asset. The text file must have the <code>.uss</code> extension.</li>
+<li>USS only supports style rules.</li>
+<li>Style rules are composed of a selector and a declaration block.</li>
 <li>选择器确定样式规则影响的视觉元素。</li>
 <li>由花括号括起来的声明块包含一个或多个样式声明。每个样式声明都由属性和值组成。每个样式声明以分号结尾。</li>
 <li>每个样式属性的值是一个字面值，在解析时，必须与目标属性名称匹配。</li>
@@ -214,7 +216,7 @@
 
 <p>样式规则的一般语法如下：</p>
 
-<pre><code class="css">selector {
+<pre><code class="lang-css">selector {
   property1:value;
   property2:value;
 }
@@ -222,61 +224,52 @@
 
 <h2>将 USS 附加到视觉元素</h2>
 
-<p>可以将 Unity 样式表 (USS) 附加到任何视觉元素。样式规则适用于视觉元素及其所有后代。必要时，还会自动重新应用样式表。</p>
+<p>You can attach a Unity style sheet (USS) to any visual element. Style rules apply to the visual element and all its descendants. Style sheets are also re-applied automatically when necessary.</p>
 
-<p>应使用标准 Unity API（如 <code>AssetDatabase.Load()</code> 或 <code>Resources.Load()</code>）来加载 <code>StyleSheet</code> 对象。使用 <code>VisualElement.styleSheets.Add()</code> 方法可将样式表附加到视觉元素。</p>
+<p>Load <code>StyleSheet</code> objects with standard Unity APIs such as <code>AssetDatabase.Load()</code> or <code>Resources.Load()</code>. Use the <code>VisualElement.styleSheets.Add()</code> method to attach style sheets to visual elements.</p>
 
 <p>如果在 <code>EditorWindow</code> 运行时修改 USS 文件，则会立即应用样式更改。</p>
 
-<p>The process of style application is transparent to a developer using
-UI Toolkit. Style sheets are re-applied automatically when needed (hierarchy changes, stylesheet reload).</p>
+<p>样式的应用过程对于使用 UI 工具包
+的开发者是透明的。需要时（层级视图更改、样式表重新加载）会自动重新应用样式表。</p>
 
 <h2>样式与规则匹配</h2>
 
-<p>Once a style sheet is defined, it can be applied to a tree of visual elements. </p>
-
-<p>在此过程中，选择器将与元素进行对比，从而解析从 USS 文件应用的属性。如果选择器与元素匹配，则样式声明将应用于元素。</p>
+<p>When you define a style sheet, you can apply it to a <a href="UIE-VisualTree.html">Visual Tree</a>. Selectors match against elements to resolve which properties apply from the USS file. If a selector matches an element, the style declarations apply to the element.</p>
 
 <p>例如，以下规则匹配任何 <code>Button</code> 对象：</p>
 
-<pre><code class="css">Button {
+<pre><code class="lang-css">Button {
   width: 200px;
 }
 </code></pre>
 
 <h2>VisualElement 匹配</h2>
 
-<p>UI Toolkit uses the following criteria to match a visual element with its style rule:</p>
+<p>UI 工具包使用以下条件将视觉元素与其样式规则相匹配：</p>
 
 <ul>
-<li>其 C# 类名（始终是派生层次最深的类）</li>
-<li>字符串形式的 <code>name</code> 属性</li>
-<li>表示为一组字符串的类列表</li>
+<li>Its C# class name (always the most derived class).</li>
+<li>A <code>name</code> property that’s a string.</li>
+<li>A class list represented as a set of strings.</li>
 <li>VisualElement 在视觉树中的祖先和位置。</li>
 </ul>
 
 <p>以上这些特征可用于样式表中的选择器。</p>
 
 <p>如果您熟悉 CSS，应该可以看出其与 HTML 标签名称、<code>id</code> 属性和 <code>class</code> 属性之间的相似性。</p>
-
-<hr>
-
-<ul>
-<li><span class="page-edit">2018–11–02 页面已修订</span></li>
-</ul>
-<!-- area:authoring -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="UIE-UQuery.html"></a></span><div class="tip">UQuery</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="UIE-USS-Selectors.html"></a></span><div class="tip">USS Selectors</div>
+<span class="next"><a href="UIE-USS-Selectors.html"></a></span><div class="tip">USS 选择器</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

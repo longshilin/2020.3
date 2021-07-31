@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="**Creating** a Tile Palette - Unity 手册">
-<title>**Creating** a Tile Palette - Unity 手册</title>
+<meta property="og:title" content="**创建**瓦片面板 - Unity 手册">
+<title>**创建**瓦片面板 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/2D_Tile_Palette_CreateNew.png">
-<meta name="description" content="Place a selection of Tiles onto Tile Palettes so that you can pick Tiles from the Palette to paint on Tilemaps. To create a Tile Palette, open the Tile Palette window by going to Window &gt; 2D &gt; Tile Palette. If you do not have this option, then the 2D Tilemap Editor package may not be installed. If so, download the 2D Tilemap Editor package from the Package Manager.">
-<meta property="og:description" content="Place a selection of Tiles onto Tile Palettes so that you can pick Tiles from the Palette to paint on Tilemaps. To create a Tile Palette, open the Tile Palette window by going to Window &gt; 2D &gt; Tile Palette. If you do not have this option, then the 2D Tilemap Editor package may not be installed. If so, download the 2D Tilemap Editor package from the Package Manager.">
+<meta name="description" content="将选择的一组瓦片放在瓦片面板上，这样您就可以从面板中选择瓦片以在瓦片地图上进行绘制。要创建一个瓦片面板，转到 Window &gt; 2D &gt; Tile Palette，打开 Tile Palette 窗口。如果看不到此选项，则表示可能未安装 2D Tilemap Editor 包。如果确实如此，请通过 Package Manager 下载 2D Tilemap Editor 包。">
+<meta property="og:description" content="将选择的一组瓦片放在瓦片面板上，这样您就可以从面板中选择瓦片以在瓦片地图上进行绘制。要创建一个瓦片面板，转到 Window &gt; 2D &gt; Tile Palette，打开 Tile Palette 窗口。如果看不到此选项，则表示可能未安装 2D Tilemap Editor 包。如果确实如此，请通过 Package Manager 下载 2D Tilemap Editor 包。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,11 +175,11 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Unity2D.html">2D</a></li>
 <li><a href="class-Tilemap.html">Tilemap</a></li>
-<li><a href="Tilemap-workflow.html">Tilemap workflow</a></li>
-<li>**Creating** a Tile Palette</li>
+<li><a href="Tilemap-workflow.html">瓦片地图工作流程</a></li>
+<li>**创建**瓦片面板</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -190,21 +190,21 @@
 </div>
 </div></div>
 <h1>
-<strong>Creating</strong> a Tile Palette</h1>
+<strong>创建</strong>瓦片面板</h1>
 
-<p>Place a selection of Tiles onto <strong>Tile Palettes</strong> so that you can pick Tiles from the Palette to <a href="Tilemap-Painting.html">paint on Tilemaps</a>. To create a <strong>Tile Palette</strong>, open the <strong>Tile Palette</strong> window by going to <strong>Window &gt; 2D &gt; Tile Palette</strong>. If you do not have this option, then the <strong>2D Tilemap Editor</strong> package may not be installed. If so, download the <strong>2D Tilemap Editor</strong> package from the <a href="Packages.html">Package Manager</a>.</p>
+<p>将选择的一组瓦片放在<strong>瓦片面板</strong>上，这样您就可以从面板中选择瓦片以<a href="Tilemap-Painting.html">在瓦片地图上进行绘制</a>。要创建一个<strong>瓦片面板</strong>，转到 <strong>Window &gt; 2D &gt; Tile Palette</strong>，打开 <strong>Tile Palette</strong> 窗口。如果看不到此选项，则表示可能未安装 <strong>2D Tilemap Editor</strong> 包。如果确实如此，请通过 <a href="Packages.html">Package Manager</a> 下载 <strong>2D Tilemap Editor</strong> 包。</p>
 
-<p>The Tile Palette window is empty by default. Select the <strong>New Palette</strong> drop-down menu to open a list of Tile Palettes available in the Project, or for the option to create a new Palette. Select the <strong>Create New Palette</strong> option to create a new Palette.</p>
+<p>默认情况下，Tile Palette 窗口是空的。选择 <strong>New Palette</strong> 下拉选单以打开项目中可用的瓦片面板列表，或用于创建新面板的选项。选择 <strong>Create New Palette</strong> 选项创建新的面板。</p>
 
-<p><img src="../uploads/Main/2D_Tile_Palette_CreateNew.png" alt=""><br>Select the Create New Palette option from the drop-down menu.</p>
+<p><img src="../uploads/Main/2D_Tile_Palette_CreateNew.png" alt=""><br>从下拉选单选择 Create New Palette 选项。</p>
 
-<p>After selecting the option to create a new Tile Palette, the <strong>Create New Palette</strong> dialog box becomes available. It contains the different property settings and options available when creating a new Palette:</p>
+<p>选择创建新瓦片面板的选项后，** Create New Palette** 对话框变为可用。它包含创建新面板时可用的不同属性设置和选项：</p>
 
-<p><img src="../uploads/Main/TilePalette_Options.png" alt=""><br>Create New Palette options.</p>
+<p><img src="../uploads/Main/TilePalette_Options.png" alt=""><br>Create New Palette 的选项。</p>
 
-<p><img src="../uploads/Main/TilePalette_Grid.png" alt=""><br>With expanded Grid options.</p>
+<p><img src="../uploads/Main/TilePalette_Grid.png" alt=""><br>将 Grid 选项展开。</p>
 
-<h2>Create New Palette properties</h2>
+<h2>Create New Palette 属性</h2>
 
 <table>
 <colgroup>
@@ -245,7 +245,7 @@
 	<td style="text-align:left;">如果要为 <a href="Tilemap-Isometric.html">Isometric Z as Y Tilemap</a> 创建面板，请选择此选项。请参阅<a href="Tilemap-Isometric-Palette.html">创建用于等距瓦片地图的瓦片面板</a>以了解更多信息。</td>
 </tr>
 <tr>
-	<td style="text-align:left;">     * Hexagon Type (only available when the Hexagon Grid type is selected)</td>
+	<td style="text-align:left;">     * Hexagon Type（仅当 Grid 类型设置为 Hexagon 时可用）</td>
 	<td style="text-align:left;">选择要将瓦片面板绘制到的六边形瓦片地图的类型。请参阅有关<a href="Tilemap-Hexagonal.html">六边形瓦片地图</a>的文档以了解更多信息。</td>
 </tr>
 <tr>
@@ -254,7 +254,7 @@
 </tr>
 <tr>
 	<td style="text-align:left;">    Automatic</td>
-	<td style="text-align:left;">The Cell Size is automatically set in Unity units and based on the size of the Sprite used to create the Tile Assets. If there are multiple Tiles, the Cell Size is adjusted to match the first Tile from the bottom left of the Palette, so that it fits exactly on a cell.</td>
+	<td style="text-align:left;">Cell Size 以 Unity 单位自动设置，并基于用于创建瓦片资源的精灵的大小。如果有多个瓦片，则会调整 Cell Size 以匹配面板左下角的第一个瓦片，使其完全适合单元格。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">    Manual</td>
@@ -262,42 +262,42 @@
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Sort Mode</strong></td>
-	<td style="text-align:left;">Determines the <a href="../ScriptReference/TransparencySortMode.html">transparency sort mode</a> of Renderers in the Tile Palette.</td>
+	<td style="text-align:left;">确定瓦片面板中的渲染器的<a href="../ScriptReference/TransparencySortMode.html">透明度排序模式</a>。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">    Default</td>
-	<td style="text-align:left;">The default transparency Sort Mode. This mode is determined by the <strong>Graphics Settings</strong> of the project.</td>
+	<td style="text-align:left;">默认透明度排序模式。此模式由项目的<strong>图形设置</strong>决定。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">    Orthographic</td>
-	<td style="text-align:left;">Select this mode to sort Renderers based on the perpendicular distance from the camera to a Renderer in the Tile Palette.</td>
+	<td style="text-align:left;">选择此模式可根据从摄像机到瓦片面板中渲染器的垂直距离对渲染器进行排序。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">    Perspective</td>
-	<td style="text-align:left;">Select this mode to sort Renderers based on the direct distance from the camera to a Renderer in the Tile Palette.</td>
+	<td style="text-align:left;">选择此模式可根据从摄像机到瓦片面板中渲染器的直接距离对渲染器进行排序。</td>
 </tr>
 <tr>
 	<td style="text-align:left;">    Custom Axis Sort</td>
-	<td style="text-align:left;">Select this mode to sort objects based on their distance along a custom axis.</td>
+	<td style="text-align:left;">选择此模式可根据对象沿自定义轴的距离对其进行排序。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Sort Axis</strong></td>
-	<td style="text-align:left;">Set the XYZ values for the sorting axis, if the <strong>Sort Mode</strong> is set to Custom Axis Sort.</td>
+	<td style="text-align:left;">如果 <strong>Sort Mode</strong> 设置为 Custom Axis Sort，则设置排序轴的 XYZ 值。</td>
 </tr>
 </tbody>
 </table>
 
-<p>Name the newly created Palette and select the desired settings, then select the Create button. Select the folder to save the Palette Asset file into when prompted. The newly created Palette is automatically loaded in the Tile Palette window.</p>
+<p>命名新创建的面板并选择所需的设置，然后选择 Create 按钮。出现提示时，选择要将 Palette Asset 文件保存到的文件夹。新创建的面板会自动加载到 Tile Palette 窗口中。</p>
 
-<p><img src="../uploads/Main/2D-TilePalette-blank.png" alt=""><br>A blank Tile Palette</p>
+<p><img src="../uploads/Main/2D-TilePalette-blank.png" alt=""><br>空白瓦片面板</p>
 
-<p>Drag and drop <strong>Textures </strong>or <strong>Sprites</strong> from the <strong>Assets</strong> folder onto the Tile Palette, and choose where to save the new <a href="Tilemap-TileAsset.html">Tile Assets</a> when prompted. New Tile Assets are generated in the selected save location, and the Tiles are placed on the grid of the active Tile Palette window.</p>
+<p>将<strong>纹理</strong>或<strong>精灵</strong>从 <strong>Assets</strong> 文件夹拖放到瓦片面板，并在出现提示时选择保存新的<a href="Tilemap-TileAsset.html">瓦片资源</a>的位置。将在所选文件夹中生成新的瓦片资源，并会将瓦片放置在活动 Tile Palette 窗口的网格中。</p>
 
 <figure>
 <img src="../uploads/Main/Tilemap-CreatingTiles-4.png" alt="">
 </figure>
 
-<p>Use the following shortcuts and actions to navigate the Palette window and began picking Tiles to <a href="">paint on the Tilemap</a> in the Editor window.</p>
+<p>使用以下快捷方式和操作来导航 Palette 窗口，并开始在编辑器窗口中选取瓦片以<a href="">在瓦片地图上绘制</a>。</p>
 
 <table>
 <colgroup>
@@ -307,30 +307,30 @@
 
 <thead>
 <tr>
-	<th style="text-align:left;">Shortcut/Action</th>
+	<th style="text-align:left;">快捷方式/操作</th>
 	<th style="text-align:left;">功能</th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-	<td style="text-align:left;"><strong>Click on a Tile</strong></td>
+	<td style="text-align:left;"><strong>单击一个瓦片</strong></td>
 	<td style="text-align:left;">选择瓦片</td>
 </tr>
 <tr>
-	<td style="text-align:left;"><strong>Select and drag the mouse over multiple Tiles</strong></td>
+	<td style="text-align:left;"><strong>选择并将鼠标拖过多个瓦片</strong></td>
 	<td style="text-align:left;">选择多个瓦片</td>
 </tr>
 <tr>
-	<td style="text-align:left;"><strong>Alt + Left button and drag</strong></td>
+	<td style="text-align:left;"><strong>Alt + 鼠标左键并拖动</strong></td>
 	<td style="text-align:left;">平移</td>
 </tr>
 <tr>
-	<td style="text-align:left;"><strong>Click the wheel button and drag</strong></td>
+	<td style="text-align:left;">__ 单击鼠标中键并拖动__</td>
 	<td style="text-align:left;">平移</td>
 </tr>
 <tr>
-	<td style="text-align:left;"><strong>Rotate the wheel button</strong></td>
+	<td style="text-align:left;"><strong>旋转滚轮键</strong></td>
 	<td style="text-align:left;">放大/缩小</td>
 </tr>
 </tbody>
@@ -338,11 +338,11 @@
 
 <h2>Active Brush Inspector</h2>
 
-<p>The Active Brush inspector is at the bottom of the Tile Palette window. You can use it to change the current active Brush and its properties. This is minimized by default. To expand it, drag the bottom toolbar upwards.</p>
+<p>Active Brush Inspector 位于 Tile Palette 窗口底部。在此处可以更改当前有效的画笔及其属性。默认情况下会最小化。要将其展开，请向上拖动底部的工具栏。</p>
 
-<p><img src="../uploads/Main/DefaultBrush_highlight.png" alt=""><br>Brush drop-down menu highlighted.</p>
+<p><img src="../uploads/Main/DefaultBrush_highlight.png" alt=""><br>Brush 下拉选单突出显示。</p>
 
-<p>Use the <strong>Brush</strong> drop-down menu to change the active Brush from the ‘Default Brush’ to other Brushes, such as <a href="Tilemap-ScriptableBrushes.html">Scriptable Brushes</a>.</p>
+<p>使用 <strong>Brush</strong> 下拉选单可将有效的画笔从 ’Default Brush’（默认画笔）更改为其他画笔，例如<a href="Tilemap-ScriptableBrushes.html">可编程画笔</a>。</p>
 
 <table>
 <colgroup>
@@ -360,71 +360,73 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><strong>Script</strong></td>
-	<td style="text-align:left;">Displays the currently assigned script Asset that provides a fixed set of APIs for Tilemap painting. The default is the <a href="Tilemap-ScriptableBrushes-GridBrushBase.html">GridBrush</a>. Users may use or create their own <a href="Tilemap-ScriptableBrushes.html">Scriptable Brushes</a> which become available from the drop-down menu. The Script property updates to reflect the current active Brush.</td>
+	<td style="text-align:left;">显示当前分配的脚本资源，该资源为瓦片地图的绘制提供一组固定的 API。默认为 <a href="Tilemap-ScriptableBrushes-GridBrushBase.html">GridBrush</a>。用户可以使用或创建自己的<a href="Tilemap-ScriptableBrushes.html">可编写脚本的画笔</a>，以供从下拉选单中使用。Script 属性更新以反映当前活动的画笔。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Flood Fill Contiguous Only</strong></td>
-	<td style="text-align:left;">Enable this property to have the <a href="Tilemap-Painting.html#Fill">Flood Fill tool</a> only affect Tiles on a Tilemap which are both the same as the targeted Tile and are contiguous to each other from the targeted position. When disabled, Flood Fill will change all Tiles which are the same as the targeted Tile on a Tilemap regardless of their position. This only affects the Default Brush.</td>
+	<td style="text-align:left;">启用此属性使<a href="Tilemap-Painting.html#Fill">灌填工具</a>仅影响瓦片地图上与目标瓦片相同且目标位置彼此相邻的瓦片。禁用时，灌填将更改与瓦片地图上的目标图块相同的所有瓦片，无论其位置如何。这仅影响默认画笔。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Lock Z Position</strong></td>
-	<td style="text-align:left;">Enable this property to change the z-position of the active Brush. Disable to prevent any changes to the current z-position of the active Brush.</td>
+	<td style="text-align:left;">启用此属性可更改活动画笔的 z 位置。禁用则防止对活动画笔的当前 z 位置进行任何更改。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Z Position</strong></td>
-	<td style="text-align:left;">Only available when Can Change Z Position is enabled. Enter the desired z-axis value (only whole numbers) for this Brush when painting Tiles, which also adjusts the relative heights of Tiles on a <a href="Tilemap-Isometric-CreateIso.html">Z as Y Isometric Tilemap</a> . Refer to <a href="Tilemap-Isometric-Palette.html">Adjusting the Tile height in the Palette</a> for more information.</td>
+	<td style="text-align:left;">仅在启用 Can Change Z Position 时可用。为此画笔输入绘制瓦片时所需的 z 轴值（仅限整数），这也会调整 <a href="Tilemap-Isometric-CreateIso.html">Z as Y 等距瓦片地图</a> 上瓦片的相对高度。请参阅有关<a href="Tilemap-Isometric-Palette.html">在瓦片面板中调整瓦片高度</a>的文档以了解更多信息。</td>
 </tr>
 </tbody>
 </table>
 
 <h2>编辑瓦片面板 (Tile Palette)</h2>
 
-<p>The tools for picking and painting with Tiles can also be used to edit the Tile Palette directly, allowing you to move and manipulate the Tiles currently placed on the Tile Palette. Select the Palette you want to edit from the ‘Palette’ drop-down menu, then click <strong>Edit</strong> to unlock the Palette for editing.</p>
+<p>拾取和绘制瓦片的工具也可用于直接编辑瓦片面板，允许您移动和操作当前放置在瓦片面板上的瓦片。从 ‘Palette’ 下拉选单中选择一个要编辑的面板，然后单击 <strong>Edit</strong> 将面板解锁以进行编辑。</p>
 
 <figure>
 <img src="../uploads/Main/Edit_highlighted.png" alt="">
 </figure>
 
-<p>Refer to the documentation on <a href="Tilemap-Painting.html">Painting on Tilemaps</a> for the shortcuts and functions of the Palette tools which are available for editing the Palette as well.</p>
+<p>请参阅关于<a href="Tilemap-Painting.html">在瓦片地图上绘制</a>的文档，了解面板工具的快捷方式和功能，这些工具同样可用于编辑面板。</p>
 
-<h2>Creating Palette Assets from existing Grid Prefabs</h2>
+<h2>从现有网格预制件创建面板资源</h2>
 
-<p>You can convert an existing <a href="Prefabs.html">Prefab</a> to a Palette Asset, so that you can use it in the Tile Palette window. To do this, the Prefab must not already be a Palette Asset, and it must have a Grid component on its topmost GameObject.</p>
+<p>您可以将现有的<a href="Prefabs.html">预制件</a>转换为面板资源，以便在 Tile Palette 窗口中使用。为此，预制件不能已经是面板资源，并且在其最顶层的游戏对象上必须有一个 Grid 组件。</p>
 
 <figure>
-<img src="../uploads/Main/ActiveBrush_toolbar.png" alt="The Tile Palette toolbar">
-<figcaption>The Tile Palette toolbar</figcaption>
+<img src="../uploads/Main/ActiveBrush_toolbar.png" alt="Tile Palette 工具栏">
+<figcaption>Tile Palette 工具栏</figcaption>
 </figure>
 
-<p>To convert a Prefab, drag and drop it onto the Tile Palette toolbar (highlighted in the image above). The Editor automatically converts it to a Palette Asset, and adds a Grid Palette Asset. The new Palette Asset has the same name as its source, and you can select it from the Palette drop-down menu.</p>
+<p>要转换预制件，请将其拖放到 Tile Palette 工具栏上（在上图中突出显示）。编辑器会自动将其转换为面板资源，并添加网格面板资源。新的面板资源与其源的名称相同，并可从 Palette 下拉选单中选择。</p>
 
-<h2>Tile Palette Gizmos</h2>
+<h2>瓦片面板小工具</h2>
 
 <figure>
 <img src="../uploads/Main/TilePalette_gizmos.png" alt="">
 </figure>
 
-<p>The Tile Palette can display icons (<a href="GizmosMenu.html">Gizmos</a>) over the current Palette Asset, to help you visualize specific criteria. For example, you can add a Gizmo that displays a special icon for Tiles that contain no Sprites.</p>
+<p>瓦片面板可在当前面板资源上显示图标（<a href="GizmosMenu.html">小工具</a>），以帮助您可视化特定条件。例如，您可以添加一个为不包含精灵的瓦片显示特殊图标的小工具。</p>
 
-<p>To display the default Unity and the Palette Asset’s Gizmos on the Tile Palette, enable the Gizmos toggle (highlighted in the image above). The Tile Palette immediately displays any component with <a href="https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnDrawGizmos.html">MonoBehaviour.OnDrawGizmos()</a> in the Palette Asset.</p>
+<p>要在瓦片面板上显示默认的 Unity 和瓦片资源的小工具，请启用 Gizmos 开关（在上图中突出显示）。瓦片面板会立即显示面板资源中任何带有 <a href="https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnDrawGizmos.html">MonoBehaviour.OnDrawGizmos()</a> 的组件。</p>
 
-<p>To add a component with DrawGizmo to the Palette Asset:</p>
+<p>要将带有 DrawGizmo 的组件添加到面板资源：</p>
 
-<ol>
-<li><p>Select the Palette Asset in the Project window.</p></li>
-<li><p>Open the Palette Asset in <a href="EditingInPrefabMode.html">Prefab Mode</a>.</p></li>
-<li><p>Add the component while in Prefab Mode.</p></li>
-<li><p>Save the Asset while in Prefab Mode.</p></li>
-<li><p>Exit Prefab Mode.</p></li>
-</ol>
+<p>1.在 Project 窗口中选择面板资源。</p>
 
-<h2>Tile Palette contextual menu</h2>
+<p>2.以<a href="EditingInPrefabMode.html">预制件模式</a>打开面板资源。</p>
+
+<p>3.在预制件模式下添加组件。</p>
+
+<p>4.在预制件模式下保存资源。</p>
+
+<p>5.退出预制件模式。</p>
+
+<h2>Tile Palette 上下文菜单</h2>
 
 <figure>
 <img src="../uploads/Main/TilePalette_ContextualMenu.png" alt="">
 </figure>
 
-<p>Right-click on the Tile Palette toolbar to bring up a contextual menu listing several actions you can use to select and locate objects that the Tile Palette interacts with. The available actions are listed below:</p>
+<p>右键单击 Tile Palette 工具栏以显示上下文菜单，其中列出了多个操作，可用于选择和定位与瓦片面板交互的对象。下面列出了可用的操作：</p>
 
 <table>
 <colgroup>
@@ -441,31 +443,29 @@
 
 <tbody>
 <tr>
-	<td style="text-align:left;"><strong>Select Paint Target</strong></td>
-	<td style="text-align:left;">Selects the GameObject in the Hierarchy window that is the current Active Tilemap in the Tile Palette.</td>
+	<td style="text-align:left;"><strong>选择绘制目标</strong></td>
+	<td style="text-align:left;">在 Hierarchy 窗口中选择游戏对象，该对象是瓦片面板中的当前活动瓦片地图。</td>
 </tr>
 <tr>
-	<td style="text-align:left;"><strong>Select Palette Prefab</strong></td>
-	<td style="text-align:left;">Selects the Palette Prefab Asset in the Project window that is currently active in the Tile Palette.</td>
+	<td style="text-align:left;"><strong>选择面板预制件</strong></td>
+	<td style="text-align:left;">在 Project 窗口中选择当前在瓦片面板中处于活动状态的面板预制件资源。</td>
 </tr>
 <tr>
-	<td style="text-align:left;"><strong>Select Tile Asset</strong></td>
-	<td style="text-align:left;">Selects the currently selected Tile Asset in the Project window.</td>
+	<td style="text-align:left;"><strong>选择瓦片资源</strong></td>
+	<td style="text-align:left;">在 Project 窗口中选择当前选定的瓦片资源。</td>
 </tr>
 <tr>
-	<td style="text-align:left;"><strong>Unlock/Lock Palette Editing</strong></td>
-	<td style="text-align:left;">Unlocks or locks the Tile Palette for editing.</td>
+	<td style="text-align:left;"><strong>解锁/锁定面板编辑</strong></td>
+	<td style="text-align:left;">解锁或锁定瓦片面板的编辑。</td>
 </tr>
 </tbody>
 </table>
 
 <hr>
 
-<ul>
-<li><span class="page-history">Added Flood Fill Tool contiguous setting and Tile Palette contextual menu for <a href="https://docs.unity3d.com/2020.2/Documentation/Manual/30_search.html?q=newin20202">2020.2</a> <span class="search-words">NewIn20202</span></span></li>
-<li><span class="page-history">Page content and screenshots updated for <a href="https://docs.unity3d.com/2020.1/Documentation/Manual/30_search.html?q=newin20201">2020.1</a> <span class="search-words">NewIn20201</span></span></li>
-<li><span class="page-history">在 <a href="https://docs.unity3d.com/2017.2/Documentation/Manual/30_search.html?q=newin20172">2017.2</a> 版中添加了瓦片地图 <span class="search-words">NewIn20172</span></span></li>
-</ul>
+<p><em><span class="page-history">灌填工具连续设置和 Tile Palette 上下文菜单添加于 <a href="https://docs.unity3d.com/2020.2/Documentation/Manual/30_search.html?q=newin20202">2020.2</a><span class="search-words"> NewIn20202</span></span>
+</em><span class="page-history">页面内容和屏幕截图更新于 <a href="https://docs.unity3d.com/2020.1/Documentation/Manual/30_search.html?q=newin20201">2020.1</a><span class="search-words"> NewIn20201</span></span>
+* <span class="page-history">在 <a href="https://docs.unity3d.com/2017.2/Documentation/Manual/30_search.html?q=newin20172">2017.2</a> 版中添加了瓦片地图 <span class="search-words">NewIn20172</span></span></p>
 <!-- area:authoring -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -478,7 +478,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

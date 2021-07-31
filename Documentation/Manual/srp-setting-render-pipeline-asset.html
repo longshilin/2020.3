@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Switching render pipelines - Unity 手册">
-<title>Switching render pipelines - Unity 手册</title>
-<meta name="description" content="This page contains information on setting the active render pipeline Unity is using. This information lets you switch to the Built-in Render Pipeline, the Universal Render Pipeline (URP), the High Defintion Render Pipeline (HDRP), or a custom render pipeline.">
-<meta property="og:description" content="This page contains information on setting the active render pipeline Unity is using. This information lets you switch to the Built-in Render Pipeline, the Universal Render Pipeline (URP), the High Defintion Render Pipeline (HDRP), or a custom render pipeline.">
+<meta property="og:title" content="切换渲染管线 - Unity 手册">
+<title>切换渲染管线 - Unity 手册</title>
+<meta name="description" content="本页面包含有关设置 Unity 当前使用的活动渲染管线的信息。此信息可让您切换到内置渲染管线、通用渲染管线 (URP)、高清渲染管线 (HDRP) 或自定义渲染管线。">
+<meta property="og:description" content="本页面包含有关设置 Unity 当前使用的活动渲染管线的信息。此信息可让您切换到内置渲染管线、通用渲染管线 (URP)、高清渲染管线 (HDRP) 或自定义渲染管线。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,69 +174,67 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
 <li><a href="render-pipelines.html">渲染管线</a></li>
-<li>Switching render pipelines</li>
+<li>切换渲染管线</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="render-pipelines-overview.html"></a></span><div class="tip">Render pipelines introduction</div>
+<span class="prev"><a href="render-pipelines-overview.html"></a></span><div class="tip">渲染管线简介</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="built-in-render-pipeline.html"></a></span><div class="tip">Using the Built-in Render Pipeline</div>
+<span class="next"><a href="BestPracticeLightingPipelines.html"></a></span><div class="tip">选择和配置渲染管线和光照解决方案</div>
 </div>
 </div></div>
-<h1>Switching render pipelines</h1>
+<h1>切换渲染管线</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>This page contains information on setting the active render pipeline Unity is using. This information lets you switch to the Built-in Render Pipeline, the Universal Render Pipeline (URP), the High Defintion Render Pipeline (HDRP), or a custom render pipeline. </p>
+<p>本页面包含有关设置 Unity 当前使用的活动渲染管线的信息。此信息可让您切换到内置渲染管线、通用渲染管线 (URP)、高清渲染管线 (HDRP) 或自定义渲染管线。</p>
 
-<p>Note that if you switch to a different render pipeline, you must ensure that the assets and code in your project are compatible with the new render pipeline; otherwise, you might experience errors or unintended visual effects.</p>
+<p>请注意，如果要切换到另一个渲染管线，必须确保项目中的资源和代码兼容新的渲染管线实例，否则，可能会遇到错误或意外的视觉效果。</p>
 
-<p>As soon as you set the active render pipeline in the Unity Editor, Unity begins rendering with it. This includes the Game view, the Scene view, and previews for Materials that are displayed in the Project panel and the Inspector.</p>
+<p>一旦您在 Unity 编辑器中设置了活动渲染管线，Unity 就会开始使用它进行渲染。这包括 Game 视图、Scene 视图，以及 Project 面板和 Inspector 中显示的材质预览。</p>
 
-<h2>Activating the Built-in Render Pipeline</h2>
+<h2>激活内置渲染管线</h2>
 
-<p>To set the active render pipeline to the Built-in Render Pipeline, you must tell Unity that you are not using any Scriptable Render Pipeline based render pipelines. When you have removed all references to these from your project settings, Unity defaults to using the Built-in Render Pipeline.</p>
+<p>要将活动渲染管线设置为内置渲染管线，您必须告知 Unity 您未使用任何基于可编程渲染管线的渲染管线。当您从项目设置中删除所有这些引用后，Unity 默认使用内置渲染管线。</p>
 
-<p>To do this:</p>
+<p>为此需要执行以下操作：</p>
 
-<ol>
-<li>Open the Quality Settings window by navigating to <strong>Edit &gt; Project Settings &gt; Quality</strong>.</li>
-<li>For each quality level, set the <strong>Render Pipeline</strong> field to <strong>None</strong>.</li>
-<li>Open the Graphics Settings window by navigating to <strong>Edit &gt; Project Settings &gt; Graphics</strong>.</li>
-<li>Set the <strong>Scriptable Render Pipeline Setting</strong> field to <strong>None</strong>.</li>
-</ol>
+<p>1.导航到 <strong>Edit &gt; Project Settings &gt; Quality</strong>，从而打开 Quality Settings 窗口。
+2.对于每个质量级别，将 <strong>Render Pipeline</strong> 字段设置为 <strong>None</strong>。
+3.导航到 <strong>Edit &gt; Project Settings &gt; Graphics</strong>，从而打开 Graphics Settings 窗口。
+4.将 <strong>Scriptable Render Pipeline Setting</strong> 字段设置为 <strong>None</strong>。</p>
 
-<h2>Activating URP, HDRP, or a custom render pipeline based on SRP</h2>
+<h2>激活基于 SRP 的 URP、HDRP 或自定义渲染管线</h2>
 
-<p>To set the active render pipeline to one that is based on SRP, you must tell Unity which Render Pipeline Asset to use. A Render Pipeline Asset is an asset that contains data about which render pipeline to use, and how to configure that render pipeline.</p>
+<p>要将活动渲染管线设置为基于 SRP 的渲染管线，您必须告诉 Unity 要使用哪个渲染管线资源。渲染管线资源是一种资源，其中包含有关要使用的渲染管线以及如何配置该渲染管线的数据。</p>
 
-<p>You can have multiple Render Pipeline Assets that tell Unity to use the same render pipeline with different configurations; for example, you might have one that has settings suitable for high-end hardware, and one that has settings suitable for low-end hardware.</p>
+<p>您可以拥有多个渲染管线资源，让 Unity 以不同配置使用同一渲染管线；例如，您可能有一个适合高端硬件的设置，一个适合低端硬件的设置。</p>
 
-<p>For a general introduction to Render Pipeline Assets, see <a href="scriptable-render-pipeline-introduction.html">Scriptable Render Pipeline introduction</a>. For information on Render Pipeline Assets in URP, see <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest/index.html?subfolder=/manual/universalrp-asset.html">The Universal Render Pipeline Asset</a>. For information on Render Pipeline Assets in HDRP, see <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest/index.html?subfolder=/manual/HDRP-Asset.html">The High Defintion Render Pipeline Asset</a>.</p>
+<p>有关渲染管线资源的一般介绍，请参阅<a href="scriptable-render-pipeline-introduction.html">可编程渲染管线简介</a>。有关 URP 中渲染管线资源的信息，请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest/index.html?subfolder=/manual/universalrp-asset.html">通用渲染管线资源</a>。有关 HDRP 中渲染管线资源的信息，请参阅<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest/index.html?subfolder=/manual/HDRP-Asset.html">高清渲染管线资源</a>。</p>
 
-<h3>In the Unity Editor</h3>
+<h3>在 Unity 编辑器中</h3>
 
 <p>1.导航到 <strong>Edit &gt; Project Settings &gt; Graphics</strong>，从而打开 Graphics Settings 窗口。
-2. In your Project folder, locate the Render Pipeline Asset for the render pipeline that you want to use.
-3. Drag the Render Pipeline Asset on to the <strong>Scriptable Render Pipeline Setting</strong> field. This defines the default render pipeline, which Unity uses when there is no override for a given quality level.
-4. Optional, to use a different Render Pipeline Asset for different quality levels: Open the Quality Settings window by navigating to <strong>Edit &gt; Project Settings &gt; Quality</strong>.
-5. Optional, to use a different Render Pipeline Asset for different quality levels: for each quality level, drag the Render Pipeline Asset on to the <strong>Render Pipeline</strong> field.</p>
+2.在 Project 文件夹中，找到要使用的渲染管线的渲染管线资源。
+3.将渲染管线资源拖放到 <strong>Scriptable Render Pipeline Setting</strong> 字段。这样定义了默认渲染管线，在给定质量级别没有覆盖值时，Unity 使用该管线。
+4.可选，要为不同的质量级别使用不同的渲染管线资源：导航到 <strong>Edit &gt; Project Settings &gt; Quality</strong> 打开 Quality Settings 设置窗口。
+5.可选，要为不同的质量级别使用不同的渲染管线资源：对于每个质量级别，将渲染管线资源拖放到 <strong>Render Pipeline</strong> 字段。</p>
 
-<h3>In C# code</h3>
+<h3>在 C# 代码中</h3>
 
-<p>You can set the Render Pipeline Asset using C# code. You can run this code in Edit Mode or Play Mode in the Unity Editor, or at runtime in the built player.</p>
+<p>您可以使用 C#代码设置渲染管线资源。您可以在 Unity 编辑器中以编辑模式或运行模式运行此代码，或者在构建的播放器中在运行时运行此代码。</p>
 
-<p>Because SRP is highly configurable, changing the active Render Pipeline Asset can result in a very minor change, or a very large change (such as switching from URP to HDRP). The performance cost of changing Render Pipeline Asset at runtime varies accordingly.</p>
+<p>由于 SRP 是高度可配置的，因此更改活动的渲染管线资源可能会导致更改差异很大（例如从 URP 切换到 HDRP）。在运行时更改渲染管线资源的性能成本相应地有所不同。</p>
 
-<p>Note that swapping to a new Render Pipeline Asset causes Unity to destroy the current Render Pipeline Instance, and call the new Render Pipeline Asset’s <code>CreatePipeline()</code> method. Depending on the code in your SRP, this might be a computationally resource-intensive operation.</p>
+<p>请注意，切换到新的渲染管线资源会使 Unity 销毁当前的渲染管线实例，并调用新渲染管线资源的 <code>CreatePipeline()</code> 方法。根据 SRP 中的代码，此操作可能在计算上是资源密集型操作。</p>
 
-<p>The following example code shows how to set the default Render Pipeline Asset that is stored in <a href="../ScriptReference/Rendering.GraphicsSettings-renderPipelineAsset.html">GraphicsSettings.renderPipelineAsset</a>. </p>
+<p>以下示例代码显示了如何设置存储在 <a href="../ScriptReference/Rendering.GraphicsSettings-renderPipelineAsset.html">GraphicsSettings.renderPipelineAsset</a> 中的默认渲染管线资源。</p>
 
-<p>Note that if you have assigned Render Pipeline Assets to the quality levels in your project’s Quality Settings, the Render Pipeline Asset for the current quality level overrides the default Render Pipeline Asset. You can update these in C# code in the same way as below, using the <a href="QualitySettings-renderPipeline">QualitySettings-renderPipeline</a> API.</p>
+<p>请注意，如果您已在项目的 Quality Settings 为渲染管线资源指定了质量级别，则当前质量级别的渲染管线资源将覆盖默认渲染管线资源。您可以如以下代码所示的方式在 C# 代码中使用 <a href="QualitySettings-renderPipeline">QualitySettings-renderPipeline</a> API 进行更新。</p>
 
 <pre><code class="c#">using UnityEngine;
 using UnityEngine.Rendering;
@@ -260,16 +258,16 @@ public class SwitchRenderPipelineAsset : MonoBehaviour
 </code></pre>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="render-pipelines-overview.html"></a></span><div class="tip">Render pipelines introduction</div>
+<span class="prev"><a href="render-pipelines-overview.html"></a></span><div class="tip">渲染管线简介</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="built-in-render-pipeline.html"></a></span><div class="tip">Using the Built-in Render Pipeline</div>
+<span class="next"><a href="BestPracticeLightingPipelines.html"></a></span><div class="tip">选择和配置渲染管线和光照解决方案</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

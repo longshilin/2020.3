@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Lighting Settings Asset - Unity 手册">
-<title>Lighting Settings Asset - Unity 手册</title>
-<meta name="description" content="A Lighting Settings Asset represents a saved instance of the LightingSettings class, which stores data for the Baked Global Illumination and the Realtime Global Illumination systems. The Unity Editor uses this data when it precomputes lighting data for a Scene that uses one or both of these systems.">
-<meta property="og:description" content="A Lighting Settings Asset represents a saved instance of the LightingSettings class, which stores data for the Baked Global Illumination and the Realtime Global Illumination systems. The Unity Editor uses this data when it precomputes lighting data for a Scene that uses one or both of these systems.">
+<meta property="og:title" content="光照设置资源 - Unity 手册">
+<title>光照设置资源 - Unity 手册</title>
+<meta name="description" content="光照设置资源表示一个已保存的 LightingSettings 类的实例，用于存储烘焙全局光照系统和实时全局光照系统的数据。Unity 编辑器在为使用这些系统的场景预计算光照数据时使用此数据。">
+<meta property="og:description" content="光照设置资源表示一个已保存的 LightingSettings 类的实例，用于存储烘焙全局光照系统和实时全局光照系统的数据。Unity 编辑器在为使用这些系统的场景预计算光照数据时使用此数据。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,10 +174,10 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
 <li><a href="LightingOverview.html">光照</a></li>
-<li>Lighting Settings Asset</li>
+<li>光照设置资源</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -187,73 +187,65 @@
 <span class="next"><a href="lighting-mode.html"></a></span><div class="tip">光照模式</div>
 </div>
 </div></div>
-<h1>Lighting Settings Asset</h1>
+<h1>光照设置资源</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>A Lighting Settings Asset represents a saved instance of the <a href="../ScriptReference/LightingSettings.html">LightingSettings</a> class, which stores data for the Baked Global Illumination and the Realtime Global Illumination systems. The Unity Editor uses this data when it precomputes lighting data for a Scene that uses one or both of these systems.</p>
+<p>光照设置资源表示一个已保存的 <a href="../ScriptReference/LightingSettings.html">LightingSettings</a> 类的实例，用于存储烘焙全局光照系统和实时全局光照系统的数据。Unity 编辑器在为使用这些系统的场景预计算光照数据时使用此数据。</p>
 
-<p>You can assign the same Lighting Settings Asset or instance of the <code>LightingSettings</code> class to more than one Scene, which makes it easy to share Global Illumination system settings across multiple Scenes.</p>
+<p>您可以为多个场景指定相同的光照设置资源或 <code>LightingSettings</code> 类的实例，这使得跨多个场景共享全局光照系统设置变得容易。</p>
 
-<h2>Creating a Lighting Settings Asset</h2>
+<h2>创建光照设置资源</h2>
 
-<p>There are two ways to create a Lighting Settings Asset in the Unity Editor.</p>
+<p>有两种方法可以在 Unity 编辑器中创建光照设置资源。</p>
 
-<p>To create a Lighting Settings Asset from the Project view:</p>
+<p>要从项目视图创建光照设置资源：</p>
 
-<ol>
-<li>In the Project view, either click the add (+) button, or open the context menu and navigate to <strong>Create</strong>.</li>
-<li>Click <strong>Lighting Settings</strong>. Unity creates a new Lighting Settings Asset in the Project view.</li>
-</ol>
+<p>1.在项目视图中，单击添加 (+) 按钮，或者打开上下文菜单并导航至 <strong>Create</strong>。
+2.单击 <strong>Lighting Settings</strong>。Unity 会在项目视图中创建新的光照设置资源。</p>
 
-<p>To create and automatically assign Lighting Settings Asset from the Lighting window:</p>
+<p>要从 Lighting 窗口创建并自动指定光照设置资源：</p>
 
-<ol>
-<li>Open the Lighting window (menu: <strong>Window &gt; Rendering &gt; Lighting</strong>).</li>
-<li>Open the <strong>Scene</strong> tab.</li>
-<li>Click <strong>New Lighting Asset</strong>. Unity creates a new Lighting Settings Asset in the Project view, and immediately assigns it to the active Scene.</li>
-</ol>
+<p>1.打开 Lighting 窗口（菜单：<strong>Window &gt; Rendering &gt; Lighting</strong>）。
+2.打开 <strong>Scene</strong> 选项卡。
+3.单击 <strong>New Lighting Asset</strong>。Unity 会在项目视图中创建一个新的光照设置资源，并立即将其指定给活动场景。</p>
 
-<p>You can also create a Lighting Settings Asset from a script. To do this, create an instance of the LightingSettings class and either save it to disk, or assign it to a Scene and save that Scene. For more information and code examples, see the <a href="../ScriptReference/LightingSettings.html">LightingSettings API documentation</a>.</p>
+<p>您还可以从脚本创建光照设置资源。为此，请创建一个 LightingSettings 类的实例并将其保存到磁盘，或将其指定给场景并保存该场景。有关更多信息和代码示例，请参阅 <a href="../ScriptReference/LightingSettings.html">LightingSettings API 文档</a>。</p>
 
-<h2>Assigning a Lighting Settings Asset to a Scene</h2>
+<h2>将光照设置资源指定给场景</h2>
 
-<p>To assign a Lighting Settings Asset to a Scene in the Unity Editor:</p>
+<p>要在 Unity 编辑器中为场景指定光照设置资源：</p>
 
-<ol>
-<li>Open the Scene that you want to assign the Lighting Settings Asset to.</li>
-<li>If you have more than one Scene open, ensure that the Scene that you want to assign the Lighting Settings Asset to is the <a href="MultiSceneEditing.html">active Scene</a>.</li>
-<li>Open the Lighting window (menu: <strong>Window &gt; Rendering &gt; Lighting</strong>).</li>
-<li>Open the <strong>Scene</strong> tab.</li>
-<li>Either drag the Lighting Settings Asset to the <strong>Lighting Settings</strong> field, or click the icon to the right of the <strong>Lighting Settings</strong> field and choose the Lighting Settings Asset from the list.</li>
-</ol>
+<p>1.打开要为其指定光照设置资源的场景。
+2.如果您打开了多个场景，请确保您要为其指定光照设置资源的场景是<a href="MultiSceneEditing.html">活动场景</a>。
+3.打开 Lighting 窗口（菜单：<strong>Window &gt; Rendering &gt; Lighting</strong>）。
+4.打开 <strong>Scene</strong> 选项卡。
+5.将光照设置资源拖到 <strong>Lighting Settings</strong> 字段，或单击 <strong>Lighting Settings</strong> 字段右侧的图标，并从列表中选择光照设置资源。</p>
 
-<p>You can also assign a Lighting Settings Asset to the active Scene from a script. To do this, load the Lighting Settings Asset to obtain an instance of the <code>LightingSettings</code> class, then use the <code>Lightmapping.lightingSettings</code> API to assign that <code>LightingSettings</code> instance to the active Scene. For more information and code examples, see the <a href="../ScriptReference/LightingSettings.html">LightingSettings API documentation</a>.</p>
+<p>您还可以从脚本将光照设置资源指定给活动场景。为此，请加载光照设置资源以获取 <code>LightingSettings</code> 类的实例，然后使用"Lightmapping.lightingSettings<code>API 将该</code>LightingSettings` 实例指定给活动场景。有关更多信息和代码示例，请参阅 <a href="../ScriptReference/LightingSettings.html">LightingSettings API 文档</a>。</p>
 
-<h2>Viewing and editing the properties of a Lighting Settings Asset</h2>
+<h2>查看和编辑光照设置资源的属性</h2>
 
-<p>You can view and edit the properties of Lighting Settings Asset in two places in the Unity Editor:</p>
+<p>您可以在 Unity 编辑器中的两个位置查看和编辑光照设置资源的属性：</p>
 
-<ul>
-<li>In the Project view, if you select a Lighting Settings Asset, you can view and edit its properties in the Inspector.</li>
-<li>If the active Scene has a Lighting Settings Asset assigned to it, you can view and edit the properties of that Lighting Settings Asset in the Lighting Window’s Scene tab.</li>
-</ul>
+<p><em>在项目视图中，如果您选择一个光照设置资源，您可以在 Inspector 中查看和编辑其属性。
+</em> 如果活动场景具有为其指定的光照设置资源，您可以在 Lighting 窗口的 Scene 选项卡中查看和编辑该光照设置资源的属性。</p>
 
-<p>You can also read from or write to the properties of a Lighting Settings Asset from a script. To do this, load the Lighting Settings Asset to obtain an instance of the<code>LightingSettings</code> class, and access its properties. For more information and code examples, see the <a href="../ScriptReference/LightingSettings.html">LightingSettings API documentation</a>.</p>
+<p>您还可以从脚本读取或写入光照设置资源的属性。为此，请加载光照设置资源以获取 <code>LightingSettings</code> 类的实例，并访问其属性。有关更多信息和代码示例，请参阅 <a href="../ScriptReference/LightingSettings.html">LightingSettings API 文档</a>。</p>
 
 <p><a name="DefaultLightingSettings"></a></p>
 
-<h2>Default LightingSettings data</h2>
+<h2>默认 LightingSettings 数据</h2>
 
-<p>When a Scene does not have a Lighting Settings Asset assigned to it, Unity uses the default <code>LightingSettings</code> object for that Scene. The default <code>LightingSettings</code> object is an internal, read-only instance of the <code>LightingSettings</code> class.</p>
+<p>当场景没有为其制定的光照设置资源时，Unity 会为该场景使用默认的 <code>LightingSettings</code> 对象。默认的 <code>LightingSettings</code> 对象是一个 <code>LightingSettings</code> 类的内部只读实例。</p>
 
-<p>You cannot make any changes to the <code>LightingSettings</code> data for a Scene that uses the default <code>LightingSettings</code>, but Unity can perform a bake using its settings.</p>
+<p>您不能对使用默认 <code>LightingSettings</code> 的场景的 <code>LightingSettings</code> 数据进行任何更改，但 Unity 可以使用其设置执行烘焙。</p>
 
-<p>To make changes to the <code>LightingSettings</code> data for a Scene, you must use the Unity Editor to create and assign a Lighting Settings Asset, or use a script to create, configure, and assign a <code>LightingSettings</code> object. For more information and code examples, see the <a href="../ScriptReference/LightingSettings.html">LightingSettings API documentation</a>.</p>
+<p>要更改场景的 <code>LightingSettings</code> 数据，您必须使用 Unity 编辑器创建和指定光照设置资源，或使用脚本创建、配置和指定一个 <code>LightingSettings</code> 对象。有关更多信息和代码示例，请参阅 <a href="../ScriptReference/LightingSettings.html">LightingSettings API 文档</a>。</p>
 
 <h2>属性</h2>
 
-<p>When you view the Lighting Settings Asset in the Inspector or the Lighting window, the properties that you can view or edit are divided into the following sections:</p>
+<p>当您在 Inspector 或 Lighting 窗口中查看光照设置资源时，可查看或编辑的属性分为以下部分：</p>
 
 <ul>
 <li><a href="#RealtimeLighting">Realtime Lighting</a></li>
@@ -266,9 +258,9 @@
 
 <h3>Realtime Lighting</h3>
 
-<p>This section contains settings related to the <a href="realtime-gi-using-enlighten.html">Realtime Global Illumination system</a>. This section is visible only when using the Built-in Render Pipeline; Realtime Global Illumination is supported only in the Built-in Render Pipeline, and is not supported in URP or HDRP.</p>
+<p>此部分包含与<a href="realtime-gi-using-enlighten.html">实时全局光照系统</a>相关的设置。此部分仅在使用内置渲染管线时可见；实时全局光照仅在内置渲染管线中受支持，在 URP 或 HDRP 中不受支持。</p>
 
-<p>Note that the Realtime Global Illumination system is deprecated, and will soon be removed. For more information, see <a href="https://blogs.unity3d.com/2019/07/03/enlighten-will-be-replaced-with-a-robust-solution-for-baked-and-real-time-giobal-illumination">the Unity blog</a>.</p>
+<p>请注意，目前已弃用实时全局光照系统，很快就会被删除。想了解更多相关信息，请参阅 <a href="https://blogs.unity3d.com/2019/07/03/enlighten-will-be-replaced-with-a-robust-solution-for-baked-and-real-time-giobal-illumination">Unity 博客</a>。</p>
 
 <table>
 <colgroup>
@@ -286,11 +278,11 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><strong>Realtime Global Illumination (deprecated)</strong></td>
-	<td style="text-align:left;">If this checkbox is ticked, Unity enables the Realtime Global Illumination system in Scenes that use this Lighting Settings Asset.</td>
+	<td style="text-align:left;">如果选中此复选框，Unity 将在使用此光照设置资源的场景中启用实时全局光照系统。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Realtime Environment Lighting</strong></td>
-	<td style="text-align:left;">Enable this property to use the Realtime Global Illumination system to calculate and update ambient light in real-time. Disable this property to use the Baked Global Illumination system to precompute the ambient light in the Editor, and then apply it at runtime.<br><br>This property is only available when both <strong>Realtime Global Illumination</strong> and <strong>Baked Global Illumination</strong> are enabled in the Scene.</td>
+	<td style="text-align:left;">启用此属性以使用实时全局光照系统实时计算和更新环境光。禁用此属性以使用烘焙全局光照系统在编辑器中预先计算环境光，然后在运行时应用它。<br><br>此属性仅当<strong>实时全局光照</strong>和<strong>烘焙全局光照</strong>均在场景中启用时可用。</td>
 </tr>
 </tbody>
 </table>
@@ -299,7 +291,7 @@
 
 <h3>Mixed Lighting</h3>
 
-<p>This section contains settings that affect the behavior of <a href="LightMode-Baked.html">Baked Lights</a> and <a href="LightMode-Mixed.html">Mixed Lights</a> in Scenes that use this Lighting Settings Asset.</p>
+<p>在使用光照设置资源的场景中，此部分包含的设置会影响<a href="LightMode-Baked.html">烘焙光源</a>和<a href="LightMode-Mixed.html">混合光源</a>的行为。</p>
 
 <table>
 <colgroup>
@@ -318,26 +310,26 @@
 <tbody>
 <tr>
 	<td style="text-align:left;" colspan="2"><strong>Baked Global Illumination</strong></td>
-	<td style="text-align:left;">When this setting is enabled, Unity enables the Baked Global Illumination system for the Scenes that use this Lighting Settings Asset. When this setting is disabled, Unity disables the Baked Global Illumination system for the Scenes that use this Lighting Settings Asset.<br><br>When the Baked Global Illumination system is enabled, Unity uses Baked lights in the Scene for lightmapping only, and Mixed lights behave according to the <strong>Lighting Mode</strong> setting. When the Baked Global Illumination system is disabled, Unity forces all Baked and Mixed lights in the Scene to act as though they were Realtime Lights.</td>
+	<td style="text-align:left;">启用此设置后，Unity 将为使用此光照设置资源的场景启用烘焙全局光照系统。禁用此设置时，Unity 会为使用此光照设置资源的场景禁用烘焙全局光照系统。<br><br>当烘焙全局光照系统启用时，Unity 将场景中的烘焙光源仅用于光照贴图，而混合光源的行为取决于 <strong>Lighting Mode</strong> 设置。禁用烘焙全局光照系统后，Unity 会强制场景中的所有烘焙光源和混合光源的行为就像实时光源一样。</td>
 </tr>
 <tr>
 	<td style="text-align:left;" colspan="2"><strong>Lighting Mode</strong></td>
-	<td style="text-align:left;">Specifies which <a href="lighting-mode.html">Lighting Mode</a> Unity uses for all Mixed Lights in the Scenes that use this Lighting Settings Asset.<br><br>When you change the Lighting Mode, you need to re-bake the lighting data for the Scenes that use this Lighting Settings Asset.</td>
+	<td style="text-align:left;">指定 Unity 将哪个 <a href="lighting-mode.html">Lighting Mode</a> 用于场景中使用此光照设置资源的所有混合光源。<br><br>当您更改 Lighting Mode 时，您需要为使用此光照设置资源的场景重新烘焙光照数据。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><strong>Baked Indirect</strong></td>
-	<td style="text-align:left;">Use <a href="LightMode-Mixed-BakedIndirect.html">Baked Indirect Lighting Mode</a> for all Mixed Lights in the Scenes that use this Lighting Settings Asset.</td>
+	<td style="text-align:left;">将 <a href="LightMode-Mixed-BakedIndirect.html">Baked Indirect Lighting Mode</a> 用于场景中使用此光照设置资源的所有混合光源。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><strong>Subtractive</strong></td>
-	<td style="text-align:left;">Use <a href="LightMode-Mixed-Subtractive.html">Subtractive Lighting Mode</a> for all Mixed Lights in the Scenes that use this Lighting Settings Asset.<br><br>Note that Subtractive Lighting Mode is not supported in the High Definition Render Pipeline (HDRP).</td>
+	<td style="text-align:left;">将 <a href="LightMode-Mixed-Subtractive.html">Subtractive Lighting Mode</a> 用于场景中使用此光照设置资源的所有混合光源。<br><br>注意：高清渲染管线 (HDRP) 不支持 Subtractive Lighting Mode。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><strong>Shadowmask</strong></td>
-	<td style="text-align:left;">Use <a href="LightMode-Mixed-Shadowmask.html">Shadowmask Lighting Mode</a> for all Mixed Lights in the Scenes that use this Lighting Settings Asset.<br><br>Note that Shadowmask Lighting Mode is not supported in the Universal Render Pipeline (URP).</td>
+	<td style="text-align:left;">将 <a href="LightMode-Mixed-Shadowmask.html">Shadowmask Lighting Mode</a> 用于场景中使用此光照设置资源的所有混合光源。<br><br>注意：通用渲染管线 (URP) 不支持 Shadowmask Lighting Mode。</td>
 </tr>
 </tbody>
 </table>
@@ -348,13 +340,11 @@
 
 <p>此部分包含与<a href="Lightmappers.html">光照贴图</a>相关的设置。</p>
 
-<p>Lightmapping settings are specific to each lightmapper backend. To see the settings for a lightmapper, see: </p>
+<p>Lightmapping Settings 特定于每个光照贴图后端。要查看光照贴图的设置，请参见：</p>
 
 <ul>
-<li>The <a href="progressive-lightmapper.html">Progressive CPU Lightmapper</a>
-</li>
-<li>The <a href="GPUProgressiveLightmapper.html">Progressive GPU Lightmapper (preview)</a>
-</li>
+<li><a href="progressive-lightmapper.html">渐进 CPU 光照贴图</a></li>
+<li><a href="GPUProgressiveLightmapper.html">渐进 GPU 光照贴图（预览）</a></li>
 <li><a href="GI-Enlighten.html">Enlighten（已弃用）</a></li>
 </ul>
 
@@ -362,7 +352,7 @@
 
 <h3>Auto Generation</h3>
 
-<p>When you view a Lighting Settings Asset in the Inspector, this property is at the top of the Inspector. When you view a Lighting Settings Asset in the Lighting window, this property is at the bottom of the Lighting window, near the <strong>Generate Lighting</strong> button.</p>
+<p>当您在 Inspector 中查看光照设置资源时，此属性位于 Inspector 的顶部。当您在 Lighting 窗口中查看光照设置资源时，此属性位于 Lighting 窗口的底部，在 <strong>Generate Lighting</strong> 按钮附近。 </p>
 
 <table>
 <colgroup>
@@ -380,14 +370,12 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><strong>Auto Generate</strong></td>
-	<td style="text-align:left;">If <strong>Auto Generate</strong> is enabled, Unity precomputes lighting data automatically when you make changes to the Scene.<br><br>This data includes lightmaps for the Baked Global Illumination system, lightmaps for the Realtime Global Illumination system, Light Probes, and Reflection Probes.<br><br>Unity usually begins the bake a few seconds after you make a change to the Scene. If <strong>Auto Generate</strong> is disabled, you must manually invoke a bake yourself, using the <strong>Generate Lighting</strong> button in the Lighting window, or the <a href="../ScriptReference/Lightmapping.Bake.html">Lightmapping.Bake</a> or <a href="../ScriptReference/Lightmapping.BakeAsync.html">Lightmapping.BakeAsync</a> APIs.<br><br>Note that when you precompute lighting data using <strong>Auto Generate</strong>, the precomputed lighting data is not stored as Assets in your Project. It is instead stored in memory, and serialized as part of the Scene.</td>
+	<td style="text-align:left;">如果启用 <strong>Auto Generate</strong> ，Unity 会在您更改场景时自动预计算光照数据。<br><br>该数据包括烘焙全局光照系统的光照贴图、实时全局光照系统的光照贴图、光照探针和反射探针。<br><br> Unity 通常会在您更改场景后几秒钟开始烘焙。如果禁用 __Auto Generate__，您必须自己手动调用烘焙，在 Lighting 窗口中使用 <strong>Generate Lighting</strong> 按钮，或者 <a href="../ScriptReference/Lightmapping.Bake.html">Lightmapping.Bake</a> 或 <a href="../ScriptReference/Lightmapping.BakeAsync.html">Lightmapping.BakeAsync</a> API。<br><br>请注意，当您使用 <strong>Auto Generate</strong> 预先计算的光照数据时，预计算的光照数据不会作为资源存储在您的项目中。相反，它存储在内存中，并作为场景的一部分进行序列化。</td>
 </tr>
 </tbody>
 </table>
 
-<ul>
-<li><span class="page-history">Lighting Settings Asset added in <a href="https://docs.unity3d.com/2020.1/Documentation/Manual/30_search.html?q=newin20201">2020.1</a> <span class="search-words">NewIn20201</span></span></li>
-</ul>
+<p>*<span class="page-history">光照设置资源添加于 <a href="https://docs.unity3d.com/2020.1/Documentation/Manual/30_search.html?q=newin20201">2020.1</a><span class="search-words"> NewIn20201</span></span></p>
 <!-- area:graphics -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -400,7 +388,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

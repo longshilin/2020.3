@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
 <li><a href="LightingOverview.html">光照</a></li>
 <li><a href="Lightmappers.html">光照贴图</a></li>
@@ -259,29 +259,29 @@
 </tr>
 <tr>
 	<td style="text-align:left;" colspan="2"><strong>Margin Method</strong></td>
-	<td style="text-align:left;">Whether you specify the <a href="#PackMargin">Pack Margin</a> manually, or whether Unity automatically calculates it.</td>
+	<td style="text-align:left;">您是否手动指定 <a href="#PackMargin">Pack Margin</a>，或者 Unity 是否自动对其进行计算。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><strong>Manual</strong></td>
-	<td style="text-align:left;">You specify the <a href="#PackMargin">Pack Margin</a> manually.</td>
+	<td style="text-align:left;">您手动指定 <a href="#PackMargin">Pack Margin</a>。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;"><strong>Calculate</strong></td>
-	<td style="text-align:left;">Based on expected lightmap resolution and object scale, Unity calculates a <a href="#PackMargin">Pack Margin</a> just large enough to avoid UV overlaps.</td>
+	<td style="text-align:left;">基于预期的光照贴图分辨率和对象比例，Unity 计算一个足够大的 <a href="#PackMargin">Pack Margin</a> 以避免 UV 重叠。</td>
 </tr>
 <tr>
 	<td style="text-align:left;" colspan="2"><strong>Pack Margin</strong></td>
-	<td style="text-align:left;">The margin between neighboring charts (in pixels), assuming the Mesh takes up the entire 1024x1024 lightmap. You can set this to a value between 1 and 64. A larger value increases the margin, but also increases the amount of space the chart needs. This is set to 4 pixels by default.<br><br>For more information, see <a href="#PackMargin">Pack Margin</a>.<br><br>This property is only visible when <strong>Margin Method</strong> is set to <strong>Manual</strong>.</td>
+	<td style="text-align:left;">在假设网格占据整个 1024x1024 光照贴图的前提下，相邻图表之间的边距（以像素为单位）。您可以将此值设置为 1 到 64 之间的值。较大的值会增加边距，但也会增加图表所需的空间量。默认设置为 4 像素。<br><br>有关更多信息，请参阅 <a href="#PackMargin">Pack Margin</a>。<br><br>此属性仅在将 <strong>Margin Method</strong> 设置为 <strong>Manual</strong> 时可见。</td>
 </tr>
 <tr>
 	<td style="text-align:left;" colspan="2"><strong>Min Lightmap Resolution</strong></td>
-	<td style="text-align:left;">The minimum lightmap resolution (in texels per unit) of the MeshRenderers that use this Mesh, across all Scenes. The lightmap resolution of a MeshRenderer is a combination of the MeshRenderer’s <code>Scale in Lightmap</code> property, and the <code>Lightmap Resolution</code> property of the <a href="class-LightingSettings.html">Lighting Settings Asset</a> of the Scene it appears in.<br><br>For more information, see <a href="#MinResolutionAndScale">Min Lightmap Resolution and Min Object Scale</a>.<br><br>Unity uses this information to calculate pack margin. This property is only visible when <strong>Margin Method</strong> is set to <strong>Calculate</strong>.</td>
+	<td style="text-align:left;">所有场景中使用此网格的 MeshRenderers 的最小光照贴图分辨率（纹理像素/单位）。MeshRenderer 的光照贴图分辨率是以下两个属性的组合：MeshRenderer 的 <code>Scale in Lightmap</code> 属性和其所在场景的<a href="class-LightingSettings.html">光照设置资源</a>的 <code>Lightmap Resolution</code> 属性。<br><br>有关更多信息，请参阅<a href="#MinResolutionAndScale">最小光照贴图分辨率和最小对象比例</a>。<br><br> Unity 使用此信息来计算 Pack Margin。此属性仅在将 <strong>Margin Method</strong> 设置为 <strong>Calculate</strong> 时可见。</td>
 </tr>
 <tr>
 	<td style="text-align:left;" colspan="2"><strong>Min Object Scale</strong></td>
-	<td style="text-align:left;">The minimum transform scale that of the GameObjects that use this Mesh, across all Scenes.<br><br>For more information, see <a href="#MinResolutionAndScale">Min Lightmap Resolution and Min Object Scale</a>.<br><br>Unity uses this information to calculate pack margin. This property is only visible when <strong>Margin Method</strong> is set to <strong>Calculate</strong>.</td>
+	<td style="text-align:left;">在所有场景中使用此网格的游戏对象的最小变换比例。<br><br>有关更多信息，请参阅<a href="#MinResolutionAndScale">最小光照贴图分辨率和最小对象比例</a>。<br><br> Unity 使用此信息来计算 Pack Margin。此属性仅在将 <strong>Margin Method</strong> 设置为 <strong>Calculate</strong> 时可见。</td>
 </tr>
 </tbody>
 </table>
@@ -302,21 +302,19 @@
 
 <p><a name="MinResolutionAndScale"></a></p>
 
-<h2>Min Lightmap Resolution and Min Object Scale</h2>
+<h2>最小光照贴图分辨率和最小对象比例</h2>
 
-<p>Placing UV charts too close together may cause <a href="ProgressiveLightmapper-UVOverlap.html">cross-chart texel bleeding</a> in the final lightmap. Placing charts too far away from each other wastes memory. The ideal packing margin of an object depends on how many lightmap texels are allotted to it.</p>
+<p>将 UV 图表放置得太近可能会导致在最终的光照贴图中出现<a href="ProgressiveLightmapper-UVOverlap.html">图表纹素交叉渗漏</a>。将图表放置得太远会浪费内存。对象的理想打包间距取决于分配给它的光照贴图纹素的数量。</p>
 
-<p>The number of texels that Unity uses for a MeshRenderer depends on the MeshRenderer’s lightmap resolution and transform scale. To calculate a good margin, Unity needs to know the expected minimum values for these properties.</p>
+<p>Unity 用于 MeshRenderer 的纹素数量取决于 MeshRenderer 的光照贴图分辨率和变换比例。为了计算合适的边距，Unity 需要知道这些属性的期望最小值。</p>
 
-<p>A MeshRenderer’s lightmap resolution is a combination of the <code>Lightmap Resolution</code> property of the <a href="class-LightingSettings.html">Lighting Settings Asset</a> for the Scene that the MeshRenderer appears in, and the <code>Scale in Lightmap</code> property of the <a href="class-MeshRenderer.html">MeshRenderer</a>. Note that this means that the same MeshRenderer can have a different lightmap resolution in different Scenes. </p>
+<p>MeshRenderer 的光照贴图分辨率是以下属性的组合：其所在场景的<a href="class-LightingSettings.html">光照设置资源</a>的 <code>Lightmap Resolution</code> 属性和 <a href="class-MeshRenderer.html">MeshRenderer</a> 的 <code>Scale in Lightmap</code> 属性。请注意，这意味着同一个 MeshRenderer 在不同的场景中可以具有不同的光照贴图分辨率。</p>
 
-<p>You can use the Inspector to view the lightmap resolution of a MeshRenderer in a given Scene:</p>
+<p>您可以使用 Inspector 查看给定场景中 MeshRenderer 的光照贴图分辨率：</p>
 
-<ol>
-<li>In the Scene view or Hierarchy, select the GameObject that has the MeshRenderer component.</li>
-<li>In the Inspector, navigate to the MeshRenderer component’s <strong>Lightmapping</strong> section.</li>
-<li>Open the <strong>Baked Lightmap</strong> fold-out. Unity displays the MeshRenderer’s lightmap resolution in the baked lightmap with the label <strong>Lightmap Resolution</strong>, and its transform scale in the baked lightmap with the label <strong>Lightmap Object Scale</strong>.</li>
-</ol>
+<p>1.在 Scene 视图或层次结构中，选择具有 MeshRenderer 组件的游戏对象。
+2.在 Inspector 中，导航到 MeshRenderer 组件的 <strong>Lightmapping</strong> 部分。
+3.打开 <strong>Baked Lightmap</strong> 折叠菜单。Unity 在带有 <strong>Lightmap Resolution</strong> 标签的烘焙光照贴图中显示 MeshRenderer 的光照贴图分辨率，并在带有 <strong>Lightmap Object Scale</strong> 标签的烘焙光照贴图中显示其变换比例。</p>
 
 <h2>角度失真</h2>
 
@@ -334,7 +332,7 @@
 
 <p><span class="page-history">在 <a href="https://docs.unity3d.com/2018.1/Documentation/Manual/30_search.html?q=newin20181">2018.1</a> 版中添加了渐进光照贴图 <span class="search-words">NewIn20181</span></span></p>
 
-<p><span class="page-history">Calculate Pack Margin added in <a href="https://docs.unity3d.com/2020.1/Documentation/Manual/30_search.html?q=newin20201">2020.1</a> <span class="search-words">NewIn20201</span></span></p>
+<p><span class="page-history">计算 Pack Margin 添加于 <a href="https://docs.unity3d.com/2020.1/Documentation/Manual/30_search.html?q=newin20201">2020.1</a><span class="search-words"> NewIn20201</span></span></p>
 <!-- area:graphics -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -347,7 +345,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

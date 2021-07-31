@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Mip Map Streaming - Unity 手册">
-<title>Mip Map Streaming - Unity 手册</title>
+<meta property="og:title" content="Mipmap 串流 - Unity 手册">
+<title>Mipmap 串流 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/TextureStreaming_image_0.png">
-<meta name="description" content="The Mip Map Streaming system gives you control over which mipmap levels Unity loads into memory. This system reduces the total amount of memory Unity needs for Textures, because it only loads the mipmaps Unity needs to render the current Camera position in a Scene, instead of loading all of them by default. It trades a small amount of CPU resources to save a potentially large amount of GPU memory.">
-<meta property="og:description" content="The Mip Map Streaming system gives you control over which mipmap levels Unity loads into memory. This system reduces the total amount of memory Unity needs for Textures, because it only loads the mipmaps Unity needs to render the current Camera position in a Scene, instead of loading all of them by default. It trades a small amount of CPU resources to save a potentially large amount of GPU memory.">
+<meta name="description" content="Mipmap 串流系统可以控制 Unity 加载到内存中的 Mipmap 级别。该系统可减少 Unity 对于纹理所需的内存总量，因为它只加载 Unity 在场景中渲染当前摄像机位置时所需的 Mipmap，而不是默认加载所有 Mipmap。该系统通过消耗少量 CPU 资源来节省潜在的大量 GPU 内存。">
+<meta property="og:description" content="Mipmap 串流系统可以控制 Unity 加载到内存中的 Mipmap 级别。该系统可减少 Unity 对于纹理所需的内存总量，因为它只加载 Unity 在场景中渲染当前摄像机位置时所需的 Mipmap，而不是默认加载所有 Mipmap。该系统通过消耗少量 CPU 资源来节省潜在的大量 GPU 内存。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,10 +175,10 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
 <li><a href="OptimizingGraphicsPerformance.html">优化图形性能</a></li>
-<li>Mip Map Streaming</li>
+<li>Mipmap 串流</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -188,17 +188,17 @@
 <span class="next"><a href="class-StreamingController.html"></a></span><div class="tip">串流控制器 (Streaming Controller)</div>
 </div>
 </div></div>
-<h1>Mip Map Streaming</h1>
+<h1>Mipmap 串流</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>The Mip Map Streaming system gives you control over which mipmap levels Unity loads into memory. This system reduces the total amount of memory Unity needs for Textures, because it only loads the mipmaps Unity needs to render the current Camera position in a Scene, instead of loading all of them by default. It trades a small amount of CPU resources to save a potentially large amount of GPU memory.</p>
+<p>Mipmap 串流系统可以控制 Unity 加载到内存中的 Mipmap 级别。该系统可减少 Unity 对于纹理所需的内存总量，因为它只加载 Unity 在场景中渲染当前摄像机位置时所需的 Mipmap，而不是默认加载所有 Mipmap。该系统通过消耗少量 CPU 资源来节省潜在的大量 GPU 内存。</p>
 
-<p>You can also use the <strong>Memory Budget</strong> to set a total memory limit for all Textures to use in a Project. The Mip Map Streaming system automatically reduces mip map levels to stay within this budget. </p>
+<p>您还可以使用 <strong>Memory Budget（内存预算）</strong> 为项目中使用的所有纹理设置一个总内存限制。Mipmap 串流系统会自动降低 Mipmap 级别来确保不超出此预算范围。</p>
 
-<p>You can use the Mip Map Streaming API to request specific mip map levels for specific Textures. Unity provides sample C# code that duplicates the engine logic for mip map selection, which you can use to override the engine logic for your own Projects. For more details, see <a href="TextureStreaming-API.html">Mip Map Streaming API</a>.</p>
+<p>您可以使用 Mipmap 串流系统 API 为特定纹理请求特定的 Mipmap 级别。Unity 提供了 C# 代码示例，其中会重现 Mipmap 选择方法的引擎逻辑；您可以使用此引擎逻辑来覆盖您自己项目中的引擎逻辑。有关更多详细信息，请参阅 <a href="TextureStreaming-API.html">Mipmap 串流 API</a>。</p>
 
-<p>In Unity’s <a href="https://assetstore.unity.com/packages/essentials/tutorial-projects/viking-village-29140">Viking Village</a> demo project, Mip Map Streaming saves 25–30% of Texture memory, depending on Camera location.</p>
+<p>在 Unity 的 <a href="https://assetstore.unity.com/packages/essentials/tutorial-projects/viking-village-29140">Viking Village</a> 演示项目中，Mipmap 串流可以节省 25–30% 的纹理内存，具体数值取决于摄像机位置。</p>
 
 <figure>
 <img src="../uploads/Main/TextureStreaming_image_0.png" alt="">
@@ -212,53 +212,51 @@
 <img src="../uploads/Main/TextureStreaming_image_1.png" alt="">
 </figure>
 
-<p>When you’ve done this, set up Mip Map Streaming on individual Textures, to allow the Mip Map Streaming system to stream each Texture’s mip maps from the disk into memory. To do this, select the Texture you want to apply Mip Map Streaming to, navigate to the Inspector window and view the Texture Import settings. Open the <strong>Advanced</strong> settings, and enable the <strong>Streaming Mip Maps</strong> checkbox. </p>
+<p>完成此操作后，请在各个纹理上设置 Mipmap 串流，从而让 Mipmap 串流系统将每个纹理的 Mipmap 从磁盘流式传输到内存中。为此，请选择要应用 Mipmap 串流的纹理，导航到 Inspector 窗口，并查看纹理导入设置。打开 <strong>Advanced</strong> 设置，并启用 <strong>Streaming Mip Maps</strong> 复选框。</p>
 
-<p>If you’re developing for Android, you also need to open the <a href="BuildSettings.html">Build Settings</a> and set the <strong>Compression Method</strong> to <strong>LZ4</strong> or <strong>LZ4HC</strong>. Unity requires one of these compression methods for <a href="LoadingTextureandMeshData.html">asynchronous Texture loading</a>, which the Mip Map Streaming system relies upon.</p>
+<p>如果是进行 Android 开发，还需要打开 <a href="BuildSettings.html">Build Settings</a> 并将 <strong>Compression Method</strong> 设置为 <strong>LZ4</strong> 或 <strong>LZ4HC</strong>。Unity 需要使用其中一种压缩方法进行<a href="LoadingTextureandMeshData.html">异步纹理加载</a>，这是 Mipmap 串流系统所必需的操作。</p>
 
-<p>Unity loads mip maps at the highest resolution level possible while observing the Texture <strong>Memory Budget</strong>. For more specific control, or to fine-tune the Mip Map Streaming system’s automatic results, use the C# API to specify mip map levels for each Texture. For more details, see <a href="TextureStreaming-API.html">Mip Map Streaming API</a>.</p>
+<p>Unity 在满足纹理 <strong>Memory Budget（内存预算）</strong> 的同时以最高分辨率级别加载 Mipmap。要进行更具体的控制或微调 Mipmap 串流系统的自动化结果，请使用 C# API 为每个纹理指定 Mipmap 级别。有关更多详细信息，请参阅 <a href="TextureStreaming-API.html">Mipmap 串流 API</a>。</p>
 
 <h2>限制</h2>
 
-<p>You can instruct Mipmap Streaming to calculate the required mipmap levels using one of the following methods: </p>
+<p>您可以指示 Mipmap 串流使用以下方法之一计算所需的 Mipmap 级别：</p>
 
 <ul>
-<li>Assign each Texture to a Material which is itself set on a Unity Renderer.</li>
-<li>Request mip levels manually using <a href="../ScriptReference/Texture2D-requestedMipmapLevel.html">Texture2D.requestedMipmapLevel</a>.</li>
+<li>将每个纹理分配给其自身在 Unity 渲染器上设置的材质。</li>
+<li>使用 <a href="../ScriptReference/Texture2D-requestedMipmapLevel.html">Texture2D.requestedMipmapLevel</a> 手动请求 Mip 级别。</li>
 </ul>
 
-<p>If you don’t instruct Mipmap Streaming to calculate mipmap levels using one of these methods, Unity can’t calculate which mip level to use. This causes Unity to load the texture using low-quality mips that appear blurry.</p>
+<p>如果您不指示 Mipmap 串流使用这些方法之一计算 Mipmap 级别，Unity 将无法计算要使用的 Mip 级别。这会导致 Unity 使用看起来模糊的低质量 Mip 加载纹理。</p>
 
-<p>The following systems don’t use standard Renderers. This means you must manually set the requested mipmaps for these systems or Unity loads the textures they use at low resolution:</p>
+<p>以下系统不使用标准渲染器。这意味着您必须为这些系统手动设置请求的 Mipmap，否则 Unity 会以低分辨率加载它们使用的纹理：</p>
 
 <ul>
 <li>贴花投影器 (Decal Projector) 纹理。</li>
-<li>Reflection probe Textures: Lower resolution mipmaps are a lookup table for roughness. Therefore, if Unity uses a lower mipmap level, it renders materials using the wrong roughness.</li>
-<li>Textures in Unity’s Terrain system: Unity does not support Mipmap Streaming on Terrain Textures. This is because Terrain Textures need to be available at full resolution at all times to allow Unity to tile and blend the textures.</li>
-<li>Shaders that handle texture UV coordinates differently from the Unity built-in shaders. Unity always assumes the textures are sampled using UV0 as stored in the Msh. Any shader based modifications of the texture coordinates, except for the scale and translation (see below), or the use of UV1, are not taken into account.</li>
+<li>反射探针纹理：较低分辨率的 Mipmap 是粗糙度的查找表。因此，如果 Unity 使用较低的 Mipmap 级别，它会使用错误的粗糙度渲染材质。</li>
+<li>Unity 地形系统中的纹理：Unity 不支持地形纹理上的 Mipmap 串流。这是因为地形纹理需要始终以全分辨率提供，以允许 Unity 平铺和混合纹理。</li>
+<li>处理纹理 UV 坐标的着色器与 Unity 内置着色器不同。Unity 始终假定纹理使用存储在 Msh 中的 UV0 进行采样。除了缩放和平移（见下文）或使用 UV1 外，不考虑任何基于着色器的纹理坐标修改。</li>
 </ul>
 
-<p>When a renderer is active, the mesh that renderer uses requires valid UV distribution metrics to calculate the desired mipmap level. Unity calculates distribution metrics automatically as part of the mesh importing process. You can also calculate this in a script using <a href="../ScriptReference/Mesh.GetUVDistributionMetric.html">Mesh.GetUVDistributionMetric</a>. </p>
+<p>当渲染器处于活动状态时，渲染器使用的网格需要有效的 UV 分布指标来计算所需的 Mipmap 级别。作为网格导入过程的一部分，Unity 会自动计算分布指标。您也可以在脚本中使用 <a href="../ScriptReference/Mesh.GetUVDistributionMetric.html">Mesh.GetUVDistributionMetric</a> 进行计算。</p>
 
-<p>When Unity renders a streamed Texture directly with an API (such as <a href="https://docs.unity3d.com/ScriptReference/Graphics.DrawMeshNow.html">Graphics.DrawMeshNow</a>) the system has no renderer bounds or other information to calculate the mip level, so you need to set the Texture mip level explicitly (or disable Mipmap Streaming on this Texture). See documentation on <a href="https://docs.unity3d.com/ScriptReference/Texture2D-requestedMipmapLevel.html">Texture2D.requestedMipmapLevel</a> for more details on how to manually set the mip to load.</p>
+<p>当 Unity 直接使用 API（例如 <a href="https://docs.unity3d.com/ScriptReference/Graphics.DrawMeshNow.html">Graphics.DrawMeshNow</a>）直接渲染串流纹理时，系统没有用于计算 Mip 级别的渲染器边界或其他信息，因此您需要显式设置纹理 Mip 级别（或在此纹理上禁用 Mipmap 串流）。有关如何手动设置要加载的 Mip 的更多详细信息，请参阅有关 <a href="https://docs.unity3d.com/ScriptReference/Texture2D-requestedMipmapLevel.html">Texture2D.requestedMipmapLevel</a> 的文档。</p>
 
 <p><a name="Debugging"> </a></p>
 
-<h2>Debugging Mipmap Streaming</h2>
+<h2>调试 Mipmap 串流</h2>
 
-<p>Unity has a built-in Mipmap Streaming debugging view mode. To access it, click the <a href="ViewModes.html">Scene view control drop-down</a> and select <strong>Texture Streaming</strong>. This view mode tints GameObjects the following colours, depending on their status in the Mipmap Streaming system:</p>
+<p>Unity 具有内置的 Mipmap 串流调试视图模式。要访问此模式，请单击 <a href="ViewModes.html">Scene 视图控制下拉选单</a>，然后选择 <strong>Texture Streaming</strong>。根据游戏对象在 Mipmap 串流系统中的状态，此视图模式将其显示为以下颜色：</p>
 
 <ul>
-<li>
-<strong>Green</strong> for Textures that have reduced mipmaps due to the Mipmap Streaming system.</li>
-<li>
-<strong>Red</strong> for Textures that have fewer mipmaps because the Mipmap Streaming system does not have enough resources to load them all.</li>
+<li>__绿色__表示由于 Mipmap 串流系统而降低了 Mipmap 的纹理。</li>
+<li>__红色__表示由于 Mipmap 串流系统没有足够资源来加载全部 Mipmap 而减少了 Mipmap 的纹理。</li>
 <li>__蓝色__表示未设置为串流的纹理，或者在没有渲染器计算 Mip 级别的情况下的纹理。</li>
 </ul>
 
-<p>You can also write your own custom debug tools and visualizations using the <a href="TextureStreaming-API.html#DebuggingAPI">Debugging API</a></p>
+<p>您还可以使用<a href="TextureStreaming-API.html#DebuggingAPI">调试 API</a> 编写您自己的自定义调试工具。</p>
 
-<p><strong>Important</strong> : If you flag a main texture in your shader using the <a href="https://docs.unity3d.com/ScriptReference/Material-mainTexture.html">MainTexture</a> property attribute, these textures will not be visible in debug mode. To work around this, always use a texture property named <code>_Maintex</code> to indicate the main texture of a material.</p>
+<p>__重要__：如果您使用 <a href="../ScriptReference/Material-mainTexture.html">MainTexture</a> 属性特性在您的着色器中标志了一个主纹理，这些纹理在调试模式下将不可见。要解决此问题，请始终使用名为 <code>_Maintex</code> 的纹理属性指明材质的主纹理。</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="FrameDebugger.html"></a></span><div class="tip">帧调试器</div>
@@ -270,7 +268,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

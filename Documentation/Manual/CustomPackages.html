@@ -174,7 +174,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="PackagesList.html">包</a></li>
 <li>创建自定义包</li>
 </ul></div>
@@ -198,7 +198,7 @@
 <li>将 Unity 提升为可扩展的开放平台。</li>
 </ul>
 
-<p>You can use the Package Manager to define project dependencies, resolve package dependencies, download and add packages as needed, and integrate content in your projects.</p>
+<p>使用 Package Manager 可以定义项目依赖项，解析包依赖关系，根据需要下载和添加包，以及将内容集成到项目中。</p>
 
 <p>有关包的简介以及 Unity Package Manager 工作方式的一般信息，请参阅<a href="Packages.html">包</a>文档。</p>
 
@@ -210,8 +210,10 @@
 <li>C# 脚本</li>
 <li>程序集</li>
 <li>原生插件</li>
-<li>Models, Textures, animation and audio clips, and other assets.</li>
+<li>模型、纹理、动画和音频剪辑以及其他资源。</li>
 </ul>
+
+<p><strong>注意</strong>：Package Manager 不支持包中的流媒体资源。而应使用 <a href="https://docs.unity3d.com/Packages/com.unity.addressables@latest">Addressables</a> 包。</p>
 
 <p>每个包还包含一个<a href="upm-manifestPkg.html">包清单</a>文件，其中包含诸如包名称、其版本、其依赖项列表以及其存储库 URL 之类的信息。</p>
 
@@ -223,9 +225,7 @@
 * [设置本地包](#LocalMe)。
 </code></pre>
 
-<ol>
-<li>Implement your tools, libraries, and any assets your package requires.</li>
-</ol>
+<p>2.实现您的工具、库以及您的包所需的任何资源。</p>
 
 <p>3.确保包的布局遵循 Unity 包的<a href="cus-layout.html">包布局约定</a>。</p>
 
@@ -237,37 +237,49 @@
 
 <p>5.重命名并更新<a href="cus-asmdef.html">程序集定义文件</a>。</p>
 
+<p>6.如果有示例，将<a href="cus-samples.html">示例</a>添加到包。</p>
+
+<pre><code>**注意**：包只能包含示例，不过，如果使用相同的布局和 JSON 结构，也可以将示例作为工具或模板包的一部分包含在内。
+</code></pre>
+
 <p>6.每次发布新版本时，您都可以更新 <code>CHANGELOG.md</code> 文件。每个新功能或错误修复都应在此文件中包含跟踪。有关所选变更日志格式的更多详细信息，请参阅<a href="http://keepachangelog.com/en/1.0.0/">保留变更日志 (Keep a Changelog)</a> 文档。</p>
 
 <pre><code>对于未共享的包，这是可选的操作，但对于共享的包，强烈建议这样做，以便用户知道哪个版本最符合他们的需求。
+
+**提示**：您可以在包的 package.json 清单文件中使用 [changelogUrl](upm-manifestPkg.html#changelogUrl) 属性提供一个指向外部网页（承载该包的更改日志）的链接。
 </code></pre>
 
 <p>7.可以在 <code>LICENSE.md</code> 和 <code>THIRD PARTY NOTICES.md</code> 文件中<a href="cus-legal.html">包含许可证和第三方声明</a>。</p>
 
 <pre><code>对于未共享的包，这是可选的操作，但对于共享的包，强烈建议这样做，以免用户滥用您的包或违反任何第三方许可证的要求。
+
+**提示**：您可以在包的 package.json 清单文件中使用 [licensesUrl](upm-manifestPkg.html#licensesUrl) 属性提供一个指向外部网页（承载该包的许可和第三方声明）的链接。
 </code></pre>
 
-<p>8.<a href="cus-share.html">共享</a>包。</p>
+<p>8.为包<a href="cus-document.html">撰写文档</a>。</p>
+
+<pre><code>**提示**：您可以在包的 package.json 清单文件中使用 [documentationUrl](upm-manifestPkg.html#documentationUrl) 属性提供一个指向外部网页（承载该包的文档）的链接。
+</code></pre>
+
+<p>9.<a href="cus-share.html">共享</a>包。</p>
 
 <p><a name="EmbedMe"></a></p>
 
 <h2>创建新的嵌入式包</h2>
 
-<p>Follow these instructions if you want to create a custom package <a href="upm-embed.html">inside your project folder</a>.</p>
+<p>如果要<a href="upm-embed.html">在项目文件夹内</a>创建自定义包，请遵循以下说明。</p>
 
-<ol>
-<li>
-<p>Open the Unity Hub, and <a href="GettingStarted.html">create an empty project</a> on your computer.</p>
+<p>1.打开 Unity Hub，然后在计算机上<a href="GettingStarted.html">创建一个空项目</a>。</p>
 
-<p>You can also use an existing project on your computer, and <a href="upm-embed.html">embed the package under your project</a> or <a href="upm-ui-local.html">install the package from a local folder</a>. However, starting with a new project makes the package contents less prone to errors.</p>
-</li>
-<li><p>Using your computer’s file manager (for example the Windows File Explorer or the macOS Finder), navigate to your project folder and locate the <code>Packages</code> subfolder.</p></li>
-<li>
-<p>Create a new subfolder for your package inside the <code>Packages</code> folder using a name that matches the <a href="upm-manifestPkg.html#name">package name</a>. For example, if your package is called <code>com.example.mypackage</code>, the subfolder should also be called <code>com.example.mypackage</code>.</p>
+<pre><code>也可以使用计算机上的现有项目，然后[将包嵌入在项目下](upm-embed.html)或[从本地文件夹安装包](upm-ui-local.html)。但是，创建新项目的做法会降低包内容出错的几率。
+</code></pre>
 
-<p><strong>Note</strong>: This is particularly important if your package contains assets, because the <a href="../ScriptReference/AssetDatabase.LoadAssetAtPath.html">AssetDatabase looks for an asset path</a> that matches <code>Packages/&lt;your-package-name&gt;/Assets</code>, regardless of what the actual folder is called. </p>
-</li>
-</ol>
+<p>2.使用计算机的文件管理器（例如 Windows 文件资源管理器或 macOS Finder），导航到项目文件夹，然后找到 <code>Packages</code> 子文件夹。</p>
+
+<p>3.使用与<a href="upm-manifestPkg.html#name">包名称</a>匹配的名称在 <code>Packages</code> 文件夹内为包创建一个新的子文件夹。例如，如果包名为 <code>com.example.mypackage</code>，则子文件夹也应名为 <code>com.example.mypackage</code>。</p>
+
+<pre><code>**注意**：如果包中包含资源，这尤为重要，因为 [AssetDatabase 查找资源路径](../ScriptReference/AssetDatabase.LoadAssetAtPath.html)需要与 `Packages/&lt;your-package-name&gt;/Assets` 匹配，无论实际文件夹的名称是什么。
+</code></pre>
 
 <p>4.打开所选的文本编辑器，然后创建一个名为 <code>package.json</code> 的 JSON 文件。</p>
 
@@ -281,7 +293,7 @@
 
 <h2>创建新的本地包</h2>
 
-<p>Follow these instructions if you want to create a custom package outside your project folder:</p>
+<p>如果要在项目文件夹外创建自定义包，请遵循以下说明：</p>
 
 <p>1.使用计算机的文件管理器（例如 Windows 文件资源管理器或 macOS Finder），为包创建一个文件夹。</p>
 
@@ -296,9 +308,7 @@
 
 <p>5.填写<a href="upm-manifestPkg.html">包清单</a> (<code>package.json</code>) 文件中的所有必填字段。</p>
 
-<ol>
-<li>In Unity, create a new project or open an existing project.</li>
-</ol>
+<p>6.在 Unity 中，创建一个新项目或打开一个现有项目。</p>
 
 <p>7.打开 <a href="Packages.html">Packages</a> 窗口，然后使用刚刚创建的 <code>package.json</code> 文件，按照<a href="upm-ui-local.html">安装本地包</a>的说明操作。</p>
 
@@ -320,7 +330,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

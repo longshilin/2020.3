@@ -14,10 +14,10 @@
 <meta property="og:title" content="串流控制器 (Streaming Controller) - Unity 手册">
 <title>串流控制器 (Streaming Controller) - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/StreamingController.png">
-<meta name="description" content="The Streaming Controller component is part of the Mipmap Streaming system. If you enable the Add All Cameras setting (this is the default setting) in Quality Settings (Edit &gt; Project Settings &gt; Quality) you do not need to use this component.
-If you disabled this setting you will need to add this component to any cameras you want to trigger streaming for. For more details on how to set-up and use the Streaming Controller component, see the documentation page Mipmap Streaming API .">
-<meta property="og:description" content="The Streaming Controller component is part of the Mipmap Streaming system. If you enable the Add All Cameras setting (this is the default setting) in Quality Settings (Edit &gt; Project Settings &gt; Quality) you do not need to use this component.
-If you disabled this setting you will need to add this component to any cameras you want to trigger streaming for. For more details on how to set-up and use the Streaming Controller component, see the documentation page Mipmap Streaming API .">
+<meta name="description" content="Streaming Controller 组件是 Mipmap 串流系统的组成部分。如果启用 Quality 设置 (Edit &gt; Project Settings &gt; Quality) 中的 Add All Cameras 设置（这是默认设置），您不需要使用这个组件。
+如果禁用此设置，则需要将此组件添加到要为其触发串流的所有摄像机。有关如何设置和使用 Streaming Controller 组件的更多详细信息，请参阅 Mipmap 串流 API 文档页面">
+<meta property="og:description" content="Streaming Controller 组件是 Mipmap 串流系统的组成部分。如果启用 Quality 设置 (Edit &gt; Project Settings &gt; Quality) 中的 Add All Cameras 设置（这是默认设置），您不需要使用这个组件。
+如果禁用此设置，则需要将此组件添加到要为其触发串流的所有摄像机。有关如何设置和使用 Streaming Controller 组件的更多详细信息，请参阅 Mipmap 串流 API 文档页面">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -177,30 +177,30 @@ If you disabled this setting you will need to add this component to any cameras 
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
 <li><a href="OptimizingGraphicsPerformance.html">优化图形性能</a></li>
-<li><a href="TextureStreaming.html">Mip Map Streaming</a></li>
+<li><a href="TextureStreaming.html">Mipmap 串流</a></li>
 <li>串流控制器 (Streaming Controller)</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="TextureStreaming.html"></a></span><div class="tip">Mip Map Streaming</div>
+<span class="prev"><a href="TextureStreaming.html"></a></span><div class="tip">Mipmap 串流</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="TextureStreaming-API.html"></a></span><div class="tip">Mip Map Streaming API</div>
+<span class="next"><a href="TextureStreaming-API.html"></a></span><div class="tip">Mipmap 串流 API</div>
 </div>
 </div></div>
 <h1>串流控制器 (Streaming Controller)</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>The Streaming Controller component is part of the <a href="TextureStreaming.html">Mipmap Streaming</a> system. If you enable the <strong>Add All Cameras</strong> setting (this is the default setting) in Quality Settings (<strong>Edit</strong> &gt; <strong>Project Settings</strong> &gt; <strong>Quality</strong>) you do not need to use this component.
-If you disabled this setting you will need to add this component to any cameras you want to trigger streaming for. For more details on how to set-up and use the Streaming Controller component, see the documentation page <a href="TextureStreaming-API.html#ControlCameras">Mipmap Streaming API</a> .</p>
+<p>Streaming Controller 组件是 <a href="TextureStreaming.html">Mipmap 串流</a>系统的组成部分。如果启用 Quality 设置 (<strong>Edit</strong> &gt; <strong>Project Settings</strong> &gt; <strong>Quality</strong>) 中的 <strong>Add All Cameras</strong> 设置（这是默认设置），您不需要使用这个组件。
+如果禁用此设置，则需要将此组件添加到要为其触发串流的所有摄像机。有关如何设置和使用 Streaming Controller 组件的更多详细信息，请参阅 <a href="TextureStreaming-API.html#ControlCameras">Mipmap 串流 API</a> 文档页面</p>
 
 <figure>
-<img src="../uploads/Main/StreamingController.png" alt="The Mipmap Streaming Controller component">
-<figcaption>The Mipmap Streaming Controller component</figcaption>
+<img src="../uploads/Main/StreamingController.png" alt="Mipmap Streaming Controller 组件">
+<figcaption>Mipmap Streaming Controller 组件</figcaption>
 </figure>
 
 <table>
@@ -219,23 +219,23 @@ If you disabled this setting you will need to add this component to any cameras 
 <tbody>
 <tr>
 	<td style="text-align:left;"><strong>Mip Map Bias</strong></td>
-	<td style="text-align:left;">Use this setting to force Unity to load a smaller or larger mipmap level than the one that the Mipmap Streaming system has automatically chosen. Enter a value in this field to set the offset that Unity applies to this mipmap level. Unity adds this offset to all the mipmaps assigned to Textures that are in the Camera’s view. <br><br>For example, if Unity loads a texture at mip 1 and the <strong>Mip Map Bias</strong> is set to 1, this means it will load mip 2 instead.<br><br>To control this setting using the API, use <a href="../ScriptReference/StreamingController-streamingMipmapBias.html">StreamingController.streamingMipmapBias</a>.</td>
+	<td style="text-align:left;">使用此设置可以强制 Unity 加载比 Mipmap 串流系统选择的更小或更大的 Mipmap 级别。在此字段中输入值可设置 Unity 应用于此 Mipmap 级别的偏移。Unity 将此偏移量添加到分配给摄像机视图中纹理的所有 Mipmap。<br><br>例如，如果 Unity 在 mip 1 加载纹理，并且 <strong>Mip Map Bias</strong> 设置为 1，这意味着它将加载 mip 2。<br><br>要使用 API 控制此设置，请使用 <a href="../ScriptReference/StreamingController-streamingMipmapBias.html">StreamingController.streamingMipmapBias</a>。</td>
 </tr>
 </tbody>
 </table>
 <!-- area:graphics -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="TextureStreaming.html"></a></span><div class="tip">Mip Map Streaming</div>
+<span class="prev"><a href="TextureStreaming.html"></a></span><div class="tip">Mipmap 串流</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="TextureStreaming-API.html"></a></span><div class="tip">Mip Map Streaming API</div>
+<span class="next"><a href="TextureStreaming-API.html"></a></span><div class="tip">Mipmap 串流 API</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

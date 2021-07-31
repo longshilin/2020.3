@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="PackagesList.html">包</a></li>
 <li><a href="Packages.html">Unity 的 Package Manager</a></li>
 <li><a href="upm-ui.html">Package Manager 窗口</a></li>
@@ -196,74 +196,74 @@
 <p>在 Package Manager 窗口中，右侧面板显示所选包的详细信息。</p>
 
 <figure>
-<img src="../uploads/Main/PackageManagerUI-DetailsPane.png" alt="Package details for a Unity package (left) and an Asset Store package (right)">
-<figcaption>Package details for a Unity package (left) and an Asset Store package (right)</figcaption>
+<img src="../uploads/Main/PackageManagerUI-DetailsPane.png" alt="Unity 包（左侧）和 Asset Store 资源包（右侧）的包详细信息">
+<figcaption>Unity 包（左侧）和 Asset Store 资源包（右侧）的包详细信息</figcaption>
 </figure>
 
 <p>这些详细信息包括以下信息：</p>
 
 <p><strong>(A)</strong> 显示名称。</p>
 
-<p><strong>(B)</strong> The package author or Asset Store package publisher.</p>
+<p><strong>(B)</strong> 包创作者或者 Asset Store 资源包发布者。</p>
 
-<p><strong>(C)</strong> The <a href="upm-ui-find.html#VersionList">package version</a> and date the package was published to the registry or the Asset Store. If available, any <a href="upm-ui-details.html#Tags">tags</a> that apply to the package also appear after the version and date information.</p>
+<p><strong>(C)</strong> 该包发布到注册表或 Asset Store 的<a href="upm-ui-find.html#VersionList">包版本</a>和日期。如果可用，适用于包的任何<a href="upm-ui-details.html#Tags">标签</a>也会出现在版本和日期信息之后。</p>
 
-<p><strong>(D)</strong> For Unity packages, the links to <a href="upm-docs.html">open the package documentation</a> page, the package change log (if available), and the license information. For Asset Store packages, the links to open the Asset Store package’s official page on the Asset Store, and if available, links to the publisher’s website and their support page.</p>
+<p><strong>(D)</strong> 对于 Unity 包，包含用于<a href="upm-docs.html">打开包文档</a>页面的链接、包变更日志（如果可用）以及许可证信息。对于 Asset Store 资源包，则包含用于在 Asset Store 中打开资源包的链接，以及指向发布者的网站及其支持页面的链接（如果有）。</p>
 
-<p><strong>(E)</strong> A brief description. By default, Unity displays only the first three lines, but you can click the <strong>More</strong> link to see the rest of it.</p>
+<p><strong>(E)</strong> 简要描述。默认情况下，Unity 只显示前三行，但您可以单击 <strong>More</strong> 链接以查看其余部分。</p>
 
-<p><strong>(F)</strong> The name of the package registry. For native Unity packages, this is always “Unity”. For scoped package registries, this matches the <a href="upm-scoped.html#name">name</a> property for this scoped registry in the project manifest.</p>
+<p><strong>(F)</strong> 包注册表的名称。对于原生 Unity 包，这始终是 “Unity”。对于范围包注册表，这与项目清单中的 <a href="upm-scoped.html#name">name</a> 属性匹配。</p>
 
-<p><strong>(G)</strong> Thumbnails of the marketing images, audio, and video available on the Asset Store for Asset Store packages. Click on the link underneath the thumbnails to open the Asset Store package’s official page on the Asset Store.</p>
+<p><strong>(G)</strong> 在 Asset Store 上用于 Asset Store 资源包的营销图像、音频和视频的缩略图。单击缩略图下方的链接可在 Asset Store 上打开 Asset Store 资源包的官方页面。</p>
 
-<p><strong>(H)</strong> Dependency information for Unity packages. By default, this section is hidden, but you can display it by enabling the <a href="class-PackageManager.html#advanced_dependencies">Show Dependencies</a> project setting. </p>
+<p><strong>(H)</strong> Unity 包的依赖关系信息。默认情况下，此部分是隐藏的，但您可以通过启用 <a href="class-PackageManager.html#advanced_dependencies">Show Dependencies</a> 项目设置显示该信息。</p>
 
-<p>This section lists dependencies in two directions:</p>
+<p>本节列出了两个方向的依赖关系：</p>
 
 <ul>
 <li>
-<strong>Is using</strong>: Whether this package depends on another package, and if so, which version. Installed packages display the status of the dependencies after the version number.</li>
+<strong>Is using</strong>：该包是否依赖于另一个包，以及依赖哪个版本（如果是）。安装的包会在版本号之后显示依赖关系的状态。</li>
 <li>
-<strong>Used by</strong>: Whether another package depends on this one, and if so, which version.</li>
+<strong>Used by</strong>：是否有另一个包依赖于该包，以及依赖哪个版本（如果是）。</li>
 </ul>
 
-<p>Packages without dependencies display the message “No dependencies”. </p>
+<p>无依赖项的包则显示消息 “No dependencies”。</p>
 
-<p><strong>(I)</strong> Unity packages that include sample assets display the samples along with an import button. To import the sample code, click the <strong>Import</strong> button next to the sample.</p>
+<p><strong>(I)</strong> 包含示例资源的 Unity 包将显示这些示例以及导入按钮。要导入示例代码，请单击该示例旁边的 <strong>Import</strong> 按钮。</p>
 
-<p><strong>(J)</strong> For Asset Store packages, the following additional information is available here:</p>
+<p><strong>(J)</strong> 对于 Asset Store 资源包，以下附加信息可在此处获得：</p>
 
 <ul>
-<li>The disk space required and the supported versions of Unity.</li>
-<li>The date you purchased the Asset Store package.</li>
-<li>The Asset Store package’s release information, including when it was originally released and when the current version was released.</li>
-<li>Any <a href="AssetPackagesLabels.html">labels you assigned</a> this Asset Store package.</li>
+<li>所需的磁盘空间和支持的 Unity 版本。</li>
+<li>您购买 Asset Store 资源包的日期。
+*Asset Store 资源包的发布信息，包括最初发布的时间和当前版本的发布时间。</li>
+<li>已经分配给这个 Asset Store 资源包的<a href="AssetPackagesLabels.html">标签</a>。</li>
 </ul>
 
-<p><strong>(K)</strong> A button to <a href="upm-ui-install.html">install</a> or <a href="upm-ui-update.html">update</a> a Unity package (or the <strong>Up to date</strong> message if the selected version is already installed.)</p>
+<p><strong>(K)</strong> 用于<a href="upm-ui-install.html">安装</a>或<a href="upm-ui-update.html">更新</a> Unity 包的按钮（如果所选版本已经安装，则显示 <strong>Up to date</strong> 消息。）</p>
 
-<p><strong>(L)</strong> Buttons to <a href="upm-ui-remove.html">remove</a> or <a href="upm-ui-disable.html">disable</a> the Unity package.</p>
+<p><strong>(L)</strong> 用于<a href="upm-ui-remove.html">移除</a>或<a href="upm-ui-disable.html">禁用</a> Unity 包的按钮。</p>
 
-<p><strong>(M)</strong> A button to <a href="upm-ui-import.html">import</a> the Asset Store package.</p>
+<p><strong>(M)</strong> 用于<a href="upm-ui-import.html">导入</a> Asset Store 资源包的按钮。</p>
 
-<p><strong>(N)</strong> Buttons to <a href="upm-ui-import.html">download</a> or <a href="upm-ui-update2.html">update</a> the Asset Store package.</p>
+<p><strong>(N)</strong> 用于<a href="upm-ui-import.html">下载</a>或<a href="upm-ui-update2.html">更新</a> Asset Store 资源包的按钮。</p>
 
 <p><a name="Tags"></a></p>
 
 <h2>标签</h2>
 
-<p>Some packages and Asset Store packages display tags next to the version number. These tags provide information about the source or state of the package:</p>
+<p>某些包和 Asset Store 资源包在版本号旁边显示标签。这些标签提供有关包来源或状态的信息：</p>
 
 <ul>
 <li>
-<a href="upm-concepts.html#Sources">Source</a> tag types indicate where the package originates from (for example, whether it comes from a local folder or is downloaded from the package registry).</li>
+<a href="upm-concepts.html#Sources">来源</a>标签类型指示包的来源（例如，来自本地文件夹还是从包注册表下载的）。</li>
 <li>
-<a href="upm-lifecycle.html">State</a> tag types indicate the package’s stage of the development cycle. For example, whether it is in development, preview, or verified for a specific Unity version.</li>
+<a href="upm-lifecycle.html#States">状态</a>标签类型指示包的开发周期阶段。例如，它是自定义、预览或已针对特定 Unity 版本进行验证。</li>
 <li>
-<a href="AssetStore.html">Asset Store</a> tags indicate that the Asset Store package originated from the Asset Store and may also indicate some special status (for example, deprecated).</li>
+<a href="AssetStore.html">Asset Store</a> 标签指示 Asset Store 资源包源自 Asset Store，并且还可能指示某些特殊状态（例如，已弃用）。</li>
 </ul>
 
-<p>某些来源标签暗示状态标签，反之，某些状态标签也暗示了来源标签（例如，如果您的项目中嵌入了一个包，则 Unity 会自动假定它正在开发中，因此<a href="upm-ui-details.html">详细信息视图</a>中仅显示 <strong>in development</strong> 标签）。</p>
+<p>某些来源标签暗示状态标签，反之，某些状态标签也暗示了来源标签（例如，如果您的项目中嵌入了一个包，则 Unity 会自动假定它是正在开发中的自定义包，因此<a href="upm-ui-details.html">详细信息视图</a>中仅显示 <strong>custom</strong> 标签）。</p>
 
 <p>Package Manager 窗口显示以下值：</p>
 
@@ -294,7 +294,7 @@
 	<td style="text-align:left;">该包处于发布周期的早期阶段。这个包可能没有完整的文档，或者可能没有经过开发团队或 Unity 的质量保证团队全面验证。</td>
 </tr>
 <tr>
-	<td style="text-align:left;"><a href="upm-concepts.html#Develop">in development</a></td>
+	<td style="text-align:left;"><a href="upm-lifecycle.html#Develop">custom</a></td>
 	<td style="text-align:left;">状态</td>
 	<td style="text-align:left;">该包<a href="upm-concepts.html#Embedded">嵌入</a>在您的项目中。</td>
 </tr>
@@ -321,7 +321,7 @@
 </tbody>
 </table>
 
-<p><strong>Note</strong>: If no tag appears beside the Unity package version in the <a href="upm-ui-details.html">details view</a>, that indicates that it was probably verified for a past version of Unity but is not yet verified for this release version.</p>
+<p><strong>注意</strong>：如果<a href="upm-ui-details.html">详细信息视图</a>中的 Unity 包版本旁边没有显示标签，则表明已针对 Unity 的先前版本验证了这个包，但尚未针对当前发布版本进行验证。</p>
 
 <p><br> </p>
 <div class="nextprev clear">
@@ -335,7 +335,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

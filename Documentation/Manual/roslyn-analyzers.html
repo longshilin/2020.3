@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Roslyn analyzers and ruleset files - Unity 手册">
-<title>Roslyn analyzers and ruleset files - Unity 手册</title>
-<meta name="description" content="Use Roslyn analyzers and ruleset files in Unity projects to inspect your code for style, quality, and other issues.">
-<meta property="og:description" content="Use Roslyn analyzers and ruleset files in Unity projects to inspect your code for style, quality, and other issues.">
+<meta property="og:title" content="Roslyn 分析器和规则集文件 - Unity 手册">
+<title>Roslyn 分析器和规则集文件 - Unity 手册</title>
+<meta name="description" content="在 Unity 项目中使用 Roslyn 分析器规则集文件，可检查代码的样式、质量和其他问题。">
+<meta property="og:description" content="在 Unity 项目中使用 Roslyn 分析器规则集文件，可检查代码的样式、质量和其他问题。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,41 +174,41 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="ScriptingSection.html">Scripting</a></li>
-<li><a href="ScriptingSettingUp.html">Setting Up Your Scripting Environment</a></li>
-<li>Roslyn analyzers and ruleset files</li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="ScriptingSection.html">脚本</a></li>
+<li><a href="ScriptingSettingUp.html">设置脚本编写环境</a></li>
+<li>Roslyn 分析器和规则集文件</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="testing-editortestsrunner.html"></a></span><div class="tip">Unit Testing</div>
+<span class="prev"><a href="testing-editortestsrunner.html"></a></span><div class="tip">单元测试。</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="ScriptingConcepts.html"></a></span><div class="tip">Scripting concepts</div>
+<span class="next"><a href="ScriptingConcepts.html"></a></span><div class="tip">脚本概念</div>
 </div>
 </div></div>
-<h1>Roslyn analyzers and ruleset files</h1>
+<h1>Roslyn 分析器和规则集文件</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>Use Roslyn analyzers and ruleset files in Unity projects to inspect your code for style, quality, and other issues.</p>
+<p>在 Unity 项目中使用 Roslyn 分析器规则集文件，可检查代码的样式、质量和其他问题。</p>
 
-<p>You can use existing analyzer libraries to inspect your code, and write your own analyzers to promote the best practices or conventions within your organization. This page explains how to use Roslyn analyzers in an empty Unity Project.</p>
+<p>您可以使用现有分析器库来检查代码，也可以编写自己的分析器来提升组织内的最佳做法或惯例。本页介绍了如何在空的 Unity 项目中使用 Roslyn 分析器。</p>
 
-<h2>Using an existing Roslyn analyzer library</h2>
+<h2>使用现有的 Roslyn 分析器库</h2>
 
-<p>To use an existing Roslyn analyzer library, <a href="https://www.nuget.org/packages/ErrorProne.NET.CoreAnalyzers/">install the ErrorProne.NET.CoreAnalyzers library from NuGet</a> inside your project. Then open the <code>.csproj</code> file. The project has three .dll files included as analyzers:</p>
+<p>要使用现有的 Roslyn 分析器库，请在您的项目中<a href="https://www.nuget.org/packages/ErrorProne.NET.CoreAnalyzers/">安装 NuGet 的 ErrorProne.NET.CoreAnalyzers 库</a>。然后打开 <code>.csproj</code> 文件。该项目包含三个 .dll 文件作为分析器：</p>
 
 <pre><code>  &lt;ItemGroup&gt;
-    &lt;Analyzer Include="packages\ErrorProne.NET.CoreAnalyzers.0.1.2\analyzers\dotnet\cs\ErrorProne.NET.Core.dll" /&gt;
-    &lt;Analyzer Include="packages\ErrorProne.NET.CoreAnalyzers.0.1.2\analyzers\dotnet\cs\ErrorProne.Net.CoreAnalyzers.dll" /&gt;
-    &lt;Analyzer Include="packages\ErrorProne.NET.CoreAnalyzers.0.1.2\analyzers\dotnet\cs\RuntimeContracts.dll" /&gt;
-  &lt;/ItemGroup&gt;
+      &lt;Analyzer Include="packages\ErrorProne.NET.CoreAnalyzers.0.1.2\analyzers\dotnet\cs\ErrorProne.NET.Core.dll" /&gt;
+      &lt;Analyzer Include="packages\ErrorProne.NET.CoreAnalyzers.0.1.2\analyzers\dotnet\cs\ErrorProne.Net.CoreAnalyzers.dll" /&gt;
+      &lt;Analyzer Include="packages\ErrorProne.NET.CoreAnalyzers.0.1.2\analyzers\dotnet\cs\RuntimeContracts.dll" /&gt;
+    &lt;/ItemGroup&gt;
 </code></pre>
 
-<p>Move the three .dll files into the <code>Assets</code> folder (or any folder nested in the <code>Assets</code> folder) in your Unity project. In the Editor, select the .dll file. In the <a href="PluginInspector.html">Plugin Inspector</a>, under <strong>Select platforms for plugin</strong>, disable <strong>Any Platform</strong>. Under <strong>Include platforms</strong>, disable <strong>Editor</strong> and <strong>Standalone</strong> platforms. Then, give all the DLLs a new <a href="Searching.html">Asset Label</a> called <code>RoslynAnalyzer</code>.</p>
+<p>将三个 .dll 文件移动到 Unity 项目中的 <code>Assets</code> 文件夹（或 <code>Assets</code> 文件夹内的任何文件夹）。在编辑器中选择 .dll 文件。在 <a href="PluginInspector.html">Plugin Inspector</a> 中的 <strong>Select platforms for plugin</strong> 下方, 禁用 <strong>Any Platform</strong>。在 <strong>Include platforms</strong> 下方，禁用 <strong>Editor</strong> 和 <strong>Standalone</strong> 平台。然后，为所有 DLL 指定一个名为“RoslynAnalyzer”的新<a href="Searching.html">资源标签</a>。</p>
 
-<p>To test that everything works, save a file named <code>RethrowError.cs</code> with the following code in your project’s <code>Assets</code> folder. This code causes <code>ErrorProne.NET</code> to raise warnings about incorrect exception propagation and suspicious exception handling:</p>
+<p>为了测试一切是否正常，请在项目的 <code>Assets</code> 文件夹中保存一个名为 <code>RethrowError.cs</code> 的文件，其中包含以下代码。此代码导致 <code>ErrorProne.NET</code> 引发有关不正确异常传播和可疑异常处理的警告：</p>
 
 <pre><code class="language-csharp">using System;
 using UnityEngine;
@@ -235,25 +235,25 @@ public class RethrowError : MonoBehaviour
 }
 </code></pre>
 
-<p>Once you do this, you should see the following two warnings in the Console window:</p>
+<p>执行此操作后，您应该会在 Console 窗口中看到以下两个警告：</p>
 
 <pre><code>Assets\RethrowError.cs(14,23): warning EPC12: Suspicious exception handling: only e.Message is observed in exception block.
-Assets\RethrowError.cs(15,19): warning ERP021: Incorrect exception propagation. Use throw; instead.
+Assets\RethrowError.cs(15,19): warning ERP021: Incorrect exception propagation.Use throw; instead.
 </code></pre>
 
-<h2>Analyzer scope</h2>
+<h2>分析器范围</h2>
 
-<p>Analyzers apply globally to any assembly in your project if they’re in the <code>Assets</code> folder, or in a subfolder that doesn’t contain an <a href="ScriptCompilationAssemblyDefinitionFiles.html">assembly definition file</a> in any of their parent folders. If an analyzer is in a folder that contains an assembly definition, or a subfolder of such a folder, the analyzer only applies to the assembly generated from that assembly definition, and to any other assembly that references it.</p>
+<p>如果分析器位于 <code>Assets</code> 文件夹，或者位于一个子文件夹中且其任何父文件夹都不包含<a href="ScriptCompilationAssemblyDefinitionFiles.html">程序集定义文件</a>，分析器将全局应用于您项目的所有程序集。如果分析器位于包含程序集定义的文件夹或此类文件夹的子文件夹中，则分析器仅应用于从该程序集定义生成的程序集以及引用它的任何其他程序集。</p>
 
-<p>This means that a <a href="PackagesList.html">package</a> can supply analyzers that only apply to code that uses the package, for example to help guide package users to use the package API correctly.</p>
+<p>这意味着一个<a href="PackagesList.html">包</a>提供的分析器可仅应用于使用该包的代码，例如帮助指导包的用户正确使用该包的 API。</p>
 
-<h2>Ruleset files</h2>
+<h2>规则集文件</h2>
 
-<p>To define your own rules on how to handle the various warnings and errors that the analyzers in your project raise, you can create a ruleset file. For more information on how to create a custom ruleset, see Microsoft’s Visual Studio documentation on <a href="https://docs.microsoft.com/en-us/visualstudio/code-quality/how-to-create-a-custom-rule-set?view=vs-2019">how to create a custom rule set</a>.</p>
+<p>要定义如何处理项目中的分析器引发的各种警告和错误的规则，您可以创建规则集文件。有关如何创建自定义规则集的更多信息，请参阅 Microsoft 的 Visual Studio 文档<a href="https://docs.microsoft.com/en-us/visualstudio/code-quality/how-to-create-a-custom-rule-set?view=vs-2019">如何创建自定义规则集</a>。</p>
 
-<p>In the <code>Assets</code> root folder, place a ruleset file named <code>Default.ruleset</code>. The rules you define in <code>Default.ruleset</code> apply to all predefined assemblies (for example <code>Assembly-CSharp.dll</code>), and all assemblies that are built using <code>.asmdef</code> files. </p>
+<p>在 <code>Assets</code> 根文件夹中，放置一个名为 <code>Default.ruleset</code> 的规则集文件。您在 <code>Default.ruleset</code> 中定义的规则应用于所有预定义的程序集（例如 <code>Assembly-CSharp.dll</code>），以及所有使用 <code>.asmdef</code> 文件构建的程序集。</p>
 
-<p>To override the rules in <code>Default.ruleset</code> for a predefined assembly, create a <code>.ruleset</code> file in the root folder with the name <code>[PredefinedAssemblyName].ruleset</code>. For example, the rules in <code>Assembly-CSharp.ruleset</code> apply to the code in <code>Assembly-CSharp.dll</code>. Only these <code>.ruleset</code> files are allowed inside the root folder:</p>
+<p>要覆盖用于预定义程序集的 <code>Default.ruleset</code> 中的规则，请在根文件夹中创建一个名为 <code>[PredefinedAssemblyName].ruleset</code> 的 <code>.ruleset</code> 文件。例如，<code>Assembly-CSharp.ruleset</code> 中的规则应用于 <code>Assembly-CSharp.dll</code> 中的代码。根文件夹中只允许使用这些 <code>.ruleset</code> 文件：</p>
 
 <ul>
 <li><code>Default.ruleset</code></li>
@@ -263,23 +263,17 @@ Assets\RethrowError.cs(15,19): warning ERP021: Incorrect exception propagation. 
 <li><code>Assembly-CSharp-Editor-firstpass.ruleset</code></li>
 </ul>
 
-<h3>Workflow: Testing ruleset files in Unity</h3>
+<h3>工作流程：在 Unity 中测试规则集文件</h3>
 
-<p>To test ruleset files in Unity, follow these steps:</p>
+<p>要在 Unity 中测试规则集文件，请执行以下步骤：</p>
 
-<h4>Step 1: Set up the ruleset file</h4>
+<h4>步骤 1：设置规则集文件</h4>
 
-<ol>
-<li>Create a subfolder named <code>Subfolder</code> inside your project’s <code>Assets</code> folder.</li>
-<li>Inside <code>Subfolder</code>:
-
-<ol>
-<li>Create a new <code>.asmdef</code> file.</li>
-<li>Save a duplicate copy of <code>RethrowError.cs</code>.</li>
-</ol>
-</li>
-<li>Create a <code>Default.ruleset</code> file inside <code>Assets</code> with the following code:</li>
-</ol>
+<p>1.在项目的 <code>Assets</code> 文件夹中创建一个名为 <code>Subfolder</code> 的子文件夹。
+1.在 <code>Subfolder</code> 内：
+ 1.创建一个新的 <code>.asmdef</code> 文件。
+ 1.保存 <code>RethrowError.cs</code> 的重复副本。
+1.在 <code>Assets</code> 中创建一个 <code>Default.ruleset</code> 文件，包含如下代码：</p>
 
 <pre><code class="language-xml">&lt;?xml version="1.0" encoding="utf-8"?&gt;
 &lt;RuleSet Name="New Rule Set" Description=" " ToolsVersion="10.0"&gt;
@@ -290,26 +284,26 @@ Assets\RethrowError.cs(15,19): warning ERP021: Incorrect exception propagation. 
 &lt;/RuleSet&gt;
 </code></pre>
 
-<p>The <code>Default.ruleset</code> file defines the following rules:</p>
+<p><code>Default.ruleset</code> 文件定义了以下规则：</p>
 
 <ul>
-<li>Suppress <code>EPC12</code>, the warning about suspicious exception handling.</li>
-<li>Elevate <code>ERP021</code>, the warning about incorrect exception propagation, to an error.</li>
+<li>将关于可疑异常处理的警告的 <code>EPC12</code> 禁止。</li>
+<li>将关于错误异常传播的警告的 <code>ERP021</code> 提升为错误。</li>
 </ul>
 
-<h4>Step 2: Reload the project</h4>
+<h4>第 2 步：重新加载项目</h4>
 
-<p>After adding the ruleset files to your project, reimport any script that lives in an assembly where the rules should apply. This forces Unity to recompile the assembly using the new ruleset files. After recompilation, you should see two messages in the Console window:</p>
+<p>将规则集文件添加到您的项目后，重新导入程序集中需应用规则的任何脚本。这会强制 Unity 使用新的规则集文件重新编译程序集。重新编译后，您应该在 Console 窗口中看到两条消息：</p>
 
-<pre><code>Assets\Subfolder\RethrowError.cs(15,19): error ERP021: Incorrect exception propagation. Use throw; instead.
-Assets\RethrowError.cs(15,19): error ERP021: Incorrect exception propagation. Use throw; instead.
+<pre><code>Assets\Subfolder\RethrowError.cs(15,19): error ERP021: Incorrect exception propagation.Use throw; instead.
+Assets\RethrowError.cs(15,19): error ERP021: Incorrect exception propagation.Use throw; instead.
 </code></pre>
 
-<p>Notice that Unity applies the rules defined in <code>Default.ruleset</code> to both <code>Assets/RethrowError.cs</code> and <code>Assets/Subfolder/RethrowError.cs</code>.</p>
+<p>请注意，Unity 将 <code>Default.ruleset</code> 中定义的规则应用到 <code>Assets/RethrowError.cs</code> 和 <code>Assets/Subfolder/RethrowError.cs</code>。</p>
 
-<h4>Step 3: Add a custom ruleset</h4>
+<h4>第 3 步：添加自定义规则集</h4>
 
-<p>In <code>Assets/Subfolder</code>, create a <code>.ruleset</code> file, and give it any name you like (in this example<code>Hello.ruleset</code>):</p>
+<p>在 <code>Assets/Subfolder</code>，创建一个 <code>.ruleset</code> 文件，并根据您的喜好命名（本例中为 <code>Hello.ruleset</code>）：</p>
 
 <pre><code class="language-xml">&lt;?xml version="1.0" encoding="utf-8"?&gt;
 &lt;RuleSet Name="New Rule Set" Description=" " ToolsVersion="10.0"&gt;
@@ -320,40 +314,41 @@ Assets\RethrowError.cs(15,19): error ERP021: Incorrect exception propagation. Us
 &lt;/RuleSet&gt;
 </code></pre>
 
-<p>This new <code>Hello.ruleset</code> file tells Unity to print both <code>EPC12</code> and <code>ERP021</code> to the Console, without treating them as warnings or errors.</p>
+<p>这个新的 <code>Hello.ruleset</code> 文件告诉 Unity 将 <code>EPC12</code> 和 <code>ERP021</code> 打印到控制台，而不将它们视为警告或错误。</p>
 
-<p>After Unity compiles the project again, you should see these messages in the Console window:</p>
+<p>Unity 再次编译项目后，您会在 Console 窗口中看到以下消息：</p>
 
 <pre><code>Assets\Subfolder\RethrowError.cs(14,23): info EPC12: Suspicious exception handling: only e.Message is observed in exception block.
-Assets\Subfolder\RethrowError.cs(15,19): info ERP021: Incorrect exception propagation. Use throw; instead.
-Assets\RethrowError.cs(15,19): error ERP021: Incorrect exception propagation. Use throw; instead.
+Assets\Subfolder\RethrowError.cs(15,19): info ERP021: Incorrect exception propagation.Use throw; instead.
+Assets\RethrowError.cs(15,19): error ERP021: Incorrect exception propagation.Use throw; instead.
 </code></pre>
 
-<p>The rules in <code>Default.ruleset</code> still apply to <code>Assets\RethrowError.cs</code>, but they no longer apply to <code>Assets\Subfolder\RethrowError.cs</code>, because the rules in <code>Hello.ruleset</code> override them.</p>
+<p><code>Default.ruleset</code> 中的规则仍然应用于 <code>Assets\RethrowError.cs</code>，但它们不再应用于 <code>Assets\Subfolder\RethrowError.cs</code>，因为 <code>Hello.ruleset</code> 中的规则将其覆盖。</p>
 
-<p>For more information on all the allowed ruleset action files, see the Visual Studio documentation on <a href="https://docs.microsoft.com/en-us/visualstudio/code-quality/working-in-the-code-analysis-rule-set-editor?view=vs-2019">Using the code analysis rule set editor</a>.</p>
+<p>有关所有允许的规则集操作文件的更多信息，请参阅 Visual Studio 文档<a href="https://docs.microsoft.com/en-us/visualstudio/code-quality/working-in-the-code-analysis-rule-set-editor?view=vs-2019">使用代码分析规则集编辑器</a>。</p>
 
-<h2>More analyzers</h2>
+<h2>更多分析器</h2>
 
-<p>The following are links to Github repositories of other popular Roslyn analyzer libraries:</p>
+<p>以下是指向其他流行 Roslyn 分析器库的 Github 存储库的链接：</p>
 
 <ul>
-<li><p><a href="https://github.com/Cybermaxs/awesome-analyzers">awesome-analyzers</a></p></li>
-<li><p><a href="https://github.com/dotnet/roslyn-analyzers">dotnet/roslyn-analyzers</a></p></li>
-<li><p><span class="page-history">Added Roslyn analyzer compatibility in <a href="https://docs.unity3d.com/2020.2/Documentation/Manual/30_search.html?q=newin20202">2020.2</a> <span class="search-words">NewIn20202</span></span></p></li>
+<li><a href="https://github.com/Cybermaxs/awesome-analyzers">awesome-analyzers</a></li>
+<li><a href="https://github.com/dotnet/roslyn-analyzers">dotnet/roslyn-analyzers</a></li>
 </ul>
+
+<p>*<span class="page-history">Roslyn 分析器兼容性添加于 <a href="https://docs.unity3d.com/2020.2/Documentation/Manual/30_search.html?q=newin20202">2020.2</a><span class="search-words"> NewIn20202</span></span></p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="testing-editortestsrunner.html"></a></span><div class="tip">Unit Testing</div>
+<span class="prev"><a href="testing-editortestsrunner.html"></a></span><div class="tip">单元测试。</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="ScriptingConcepts.html"></a></span><div class="tip">Scripting concepts</div>
+<span class="next"><a href="ScriptingConcepts.html"></a></span><div class="tip">脚本概念</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

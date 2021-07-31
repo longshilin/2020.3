@@ -14,8 +14,8 @@
 <meta property="og:title" content="Global Illumination Profiler 模块 - Unity 手册">
 <title>Global Illumination Profiler 模块 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/global-illumination-profiler-module.png">
-<meta name="description" content="The Global Illumination Profiler module displays statistics and how much CPU time the real-time Global Illumination (GI) subsystem uses across all worker threads. For more information on Global Illumination, see the documentation on Global Illumination, and for information on Enlighten, see Using Enlighten with Unity.">
-<meta property="og:description" content="The Global Illumination Profiler module displays statistics and how much CPU time the real-time Global Illumination (GI) subsystem uses across all worker threads. For more information on Global Illumination, see the documentation on Global Illumination, and for information on Enlighten, see Using Enlighten with Unity.">
+<meta name="description" content="Global Illumination Profiler 模块显示实时全局光照 (GI) 子系统的统计信息以及在所有工作线程中使用的 CPU 时间。有关全局光照的更多信息，请参阅有关全局光照的文档，有关 Enlighten 的信息，请参阅在 Unity 中使用 Enlighten。">
+<meta property="og:description" content="Global Illumination Profiler 模块显示实时全局光照 (GI) 子系统的统计信息以及在所有工作线程中使用的 CPU 时间。有关全局光照的更多信息，请参阅有关全局光照的文档，有关 Enlighten 的信息，请参阅在 Unity 中使用 Enlighten。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,11 +175,11 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UnityOverview.html">在 Unity 中操作</a></li>
 <li><a href="analysis.html">分析</a></li>
-<li><a href="Profiler.html">Profiler overview</a></li>
-<li><a href="ProfilerWindow.html">The Profiler window</a></li>
+<li><a href="Profiler.html">性能分析器概述</a></li>
+<li><a href="ProfilerWindow.html">Profiler 窗口</a></li>
 <li>Global Illumination Profiler 模块</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
@@ -194,9 +194,9 @@
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>The Global Illumination Profiler module displays statistics and how much CPU time the real-time Global Illumination (GI) subsystem uses across all worker threads. For more information on Global Illumination, see the documentation on <a href="GlobalIllumination">Global Illumination</a>, and for information on Enlighten, see <a href="https://docs.unity3d.com/uploads/ExpertGuides/Using_Enlighten_with_Unity.pdf">Using Enlighten with Unity</a>.</p>
+<p>Global Illumination Profiler 模块显示实时全局光照 (GI) 子系统的统计信息以及在所有工作线程中使用的 CPU 时间。有关全局光照的更多信息，请参阅有关<a href="GlobalIllumination">全局光照</a>的文档，有关 Enlighten 的信息，请参阅<a href="https://docs.unity3d.com/uploads/ExpertGuides/Using_Enlighten_with_Unity.pdf">在 Unity 中使用 Enlighten</a>。</p>
 
-<p><em><strong>Note:</strong> The Global Illumination Profiler module uses Enlighten, which is deprecated and will soon be removed. Refer to the <a href="https://blogs.unity3d.com/2019/07/03/enlighten-will-be-replaced-with-a-robust-solution-for-baked-and-real-time-giobal-illumination/?_ga=2.18102969.1097697343.1579009477-711743213.1554818596">Unity blog</a> for more information. As an alternative, use <a href="GPUProgressiveLightmapper.html">Progressive GPU Lightmapper (Preview)</a> or <a href="CPUProgressiveLightmapper">Progressive CPU Lightmapper</a>.</em></p>
+<p><em><strong>注意：</strong>Global Illumination Profiler 模块使用 Enlighten，但 Enlighten 已被弃用，很快就会删除。请参阅 <a href="https://blogs.unity3d.com/2019/07/03/enlighten-will-be-replaced-with-a-robust-solution-for-baked-and-real-time-giobal-illumination/?_ga=2.18102969.1097697343.1579009477-711743213.1554818596">Unity 博客</a>了解更多信息。作为替代方案，可以使用 <a href="GPUProgressiveLightmapper.html">Progressive GPU Lightmapper（预览）</a>或 <a href="CPUProgressiveLightmapper">Progressive CPU Lightmapper</a>。</em></p>
 
 <figure>
 <img src="../uploads/Main/global-illumination-profiler-module.png" alt="Global Illumination Profiler 模块">
@@ -205,7 +205,7 @@
 
 <h2>图表类别</h2>
 
-<p>The Global Illumination Profiler module’s chart tracks the time the GI subsystem spent on all worker threads. The timings are divided into 10 categories. To change the order of the categories in the chart, you can drag and drop them in the chart’s legend. You can also click a category’s colored legend to toggle its display.</p>
+<p>Global Illumination Profiler 模块的图表可跟踪 GI 子系统在所有工作线程中使用的时间。这些时间被分为 10 个类别。要更改图表中类别的顺序，可以在图表的图例中拖放这些类别。还可以单击某个类别的有色图例以切换是否显示。</p>
 
 <table>
 <colgroup>
@@ -251,7 +251,7 @@
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Dynamic Objects</strong></td>
-	<td style="text-align:left;">更新<a href="BestPracticeMakingBelievableVisuals9.html">动态游戏对象</a>所用的时间。</td>
+	<td style="text-align:left;">更新动态游戏对象所用的时间。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Other Commands</strong></td>
@@ -368,7 +368,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

@@ -175,10 +175,9 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
-<li><a href="comp-MeshGroup.html">网格组件</a></li>
+<li><a href="comp-MeshGroup.html">网格</a></li>
 <li>网格渲染器 (Mesh Renderer)</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
@@ -301,21 +300,21 @@
 </tr>
 <tr>
 	<td style="text-align:left;" colspan="2"><strong>Contribute Global Illumination</strong></td>
-	<td style="text-align:left;">Select this property to enable the <a href="StaticObjects.html">Contribute GI flag in the GameObject’s Static Editor Flags</a>. This property includes this GameObject’s <a href="class-MeshRenderer.html">Mesh Renderer</a> in global illumination calculations. These calculations take place while precomputing lighting data at bake time. This property only takes effect if you enable a Global Illumination setting such as <a href="class-LightingSettings.html#MixedLighting">Baked Global Illumination</a> or <a href="class-LightingSettings.html#RealtimeLighting">Realtime Global Illumination</a> for this Scene. This property enables Receive Global Illumination options.</td>
+	<td style="text-align:left;">选择此属性可在游戏对象的 <a href="StaticObjects.html">Static Editor Flags</a> 中启用 Contribute GI 标志。此属性在实时全局光照计算中包含这个游戏对象的<a href="class-MeshRenderer.html">网格渲染器</a>。这些计算是在烘焙时预计算光照数据时进行的。此属性仅在对这个场景启用 Global Illumination 设置（如 <a href="class-LightingSettings.html#MixedLighting">Baked Global Illumination</a> 或 <a href="class-LightingSettings.html#RealtimeLighting">Realtime Global Illumination</a> 时生效。此属性将启用 Receive Global Illumination 选项。</td>
 </tr>
 <tr>
 	<td style="text-align:left;" colspan="2"><strong>Receive Global Illumination</strong></td>
-	<td style="text-align:left;">Select an option to determine whether Unity gathers global illumination data for this <a href="class-MeshRenderer.html">GameObject’s Mesh Renderer</a> from lightmaps or <a href="LightProbes.html">Light Probes</a> at runtime. This selection does not directly affect precomputation. However, when you choose the <strong>Light Probes</strong> option, Unity does not calculate lightmaps for the Renderer during precomputation, which can significantly reduce bake times. This property is only editable if you enable <a href="class-MeshRenderer.html#Lighting">Contribute Global Illumination</a>. <br><br>If <strong>Contribute Global Illumination</strong> is disabled, <strong>Receive Global Illumination</strong> defaults to the Light Probes setting. This property only takes effect if you enable a Global Illumination setting such as <a href="class-LightingSettings.html#MixedLighting">Baked Global Illumination</a> or <a href="class-LightingSettings.html#RealtimeLighting">Realtime Global Illumination</a> for this Scene.</td>
+	<td style="text-align:left;">选择一个选项来确定 Unity 是否在运行时为此<a href="class-MeshRenderer.html">游戏对象的网格渲染器</a>从光照贴图或<a href="LightProbes.html">光照探针</a>收集全局光照数据。此选择不会影响预计算。但是，当您选择 <strong>Light Probes</strong> 选项时，Unity 在预计算期间不会为渲染器计算光照贴图，这可以显着减少烘焙时间。此属性仅在您启用 <a href="class-MeshRenderer.html#Lighting">Contribute Global Illumination</a> 时才可编辑。<br><br>如果 <strong>Contribute Global Illumination</strong> 被禁用，<strong>Receive Global Illumination</strong> 默认为 Light Probes 设置。此属性仅在对这个场景启用 Global Illumination 设置（如 <a href="class-LightingSettings.html#MixedLighting">Baked Global Illumination</a> 或 <a href="class-LightingSettings.html#RealtimeLighting">Realtime Global Illumination</a> 时生效。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;">Lightmaps</td>
-	<td style="text-align:left;">Select this option if Unity should gather global illumination data for this Mesh Renderer from lightmaps.</td>
+	<td style="text-align:left;">如果 Unity 应从光照贴图为此网格渲染器收集全局光照数据，请选择此选项。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"></td>
 	<td style="text-align:left;">光照探针</td>
-	<td style="text-align:left;">Select this option if Unity should gather global illumination data for this Mesh Renderer from <a href="LightProbes.html">Light Probes</a> in the Scene.</td>
+	<td style="text-align:left;">如果 Unity 应在此场景中从<a href="LightProbes.html">光照探针</a>为此网格渲染器收集全局光照数据，请选择此选项。</td>
 </tr>
 <tr>
 	<td style="text-align:left;" colspan="2"><strong>Prioritize illumination</strong></td>
@@ -383,7 +382,7 @@
 </tbody>
 </table>
 
-<p>When you’ve baked your lighting data (menu: <strong>Window</strong> &gt; <strong>Rendering</strong> &gt; <strong>Lighting</strong> &gt; <strong>Generate Lighting</strong> ), this section also shows the lightmaps in the Scene that this Renderer uses use. Here, you can read relevant information about the Baked Lightmap and the Realtime Lightmap, if applicable.</p>
+<p>烘焙光照数据（菜单：<strong>Window</strong> &gt; <strong>Rendering</strong> &gt; <strong>Lighting</strong> &gt; <strong>Generate Lighting</strong>）后，此部分还将显示这个渲染器在场景中使用的光照贴图。在此处可以查看有关烘焙光照贴图 (Baked Lightmap) 和实时光照贴图 (Realtime Lightmap) 的相关信息（如果适用）。</p>
 
 <figure>
 <img src="../uploads/Main/class-MeshRenderer-2.png" alt="进行烘焙后在场景中显示的光照贴图示例。">
@@ -528,7 +527,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

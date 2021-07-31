@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Creating a simple render loop in a custom render pipeline - Unity 手册">
-<title>Creating a simple render loop in a custom render pipeline - Unity 手册</title>
-<meta name="description" content="A render loop is the term for all of the rendering operations that take place in a single frame. This page contains information on creating a simple render loop in a custom render pipeline that is based on Unity&amp;#8217;s Scriptable Render Pipeline.">
-<meta property="og:description" content="A render loop is the term for all of the rendering operations that take place in a single frame. This page contains information on creating a simple render loop in a custom render pipeline that is based on Unity&amp;#8217;s Scriptable Render Pipeline.">
+<meta property="og:title" content="在自定义渲染管线中创建简单渲染循环 - Unity 手册">
+<title>在自定义渲染管线中创建简单渲染循环 - Unity 手册</title>
+<meta name="description" content="渲染循环是指在单一帧中发生的所有渲染操作的术语。本页面包含有关在基于 Unity 可编程渲染管线的自定义渲染管线中创建简单渲染循环的信息。">
+<meta property="og:description" content="渲染循环是指在单一帧中发生的所有渲染操作的术语。本页面包含有关在基于 Unity 可编程渲染管线的自定义渲染管线中创建简单渲染循环的信息。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,62 +174,54 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
 <li><a href="render-pipelines.html">渲染管线</a></li>
-<li><a href="srp-custom.html">Creating a custom render pipeline</a></li>
-<li>Creating a simple render loop in a custom render pipeline</li>
+<li><a href="srp-custom.html">创建自定义渲染管线</a></li>
+<li>在自定义渲染管线中创建简单渲染循环</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="srp-creating-render-pipeline-asset-and-render-pipeline-instance.html"></a></span><div class="tip">Creating a Render Pipeline Asset and Render Pipeline Instance in a custom render pipeline</div>
+<span class="prev"><a href="srp-creating-render-pipeline-asset-and-render-pipeline-instance.html"></a></span><div class="tip">在自定义渲染管线中创建渲染管线资源和渲染管线实例</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="CamerasOverview.html"></a></span><div class="tip">Cameras</div>
+<span class="next"><a href="CamerasOverview.html"></a></span><div class="tip">摄像机</div>
 </div>
 </div></div>
-<h1>Creating a simple render loop in a custom render pipeline</h1>
+<h1>在自定义渲染管线中创建简单渲染循环</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>A render loop is the term for all of the rendering operations that take place in a single frame. This page contains information on creating a simple render loop in a custom render pipeline that is based on Unity’s Scriptable Render Pipeline.</p>
+<p>渲染循环是指在单一帧中发生的所有渲染操作的术语。本页面包含有关在基于 Unity 可编程渲染管线的自定义渲染管线中创建简单渲染循环的信息。</p>
 
-<p>The code examples on this page demonstrate the basic principles of using the Scriptable Render Pipeline. You can use this information to build your own custom Scriptable Render Pipeline, or to understand how Unity’s prebuilt Scriptable Render Pipelines work. </p>
+<p>本页面上的代码示例演示使用可编程渲染管线的基本原则。可以使用此信息构建自己的自定义可编程渲染管线，或了解 Unity 的预构建可编程渲染管线如何工作。</p>
 
-<h2>Preparing your project</h2>
+<h2>准备项目</h2>
 
-<p>Before you begin writing the code for your render loop, you must prepare your project.</p>
+<p>开始为渲染循环编写代码之前，必须准备好项目。</p>
 
-<p>The steps are as follows:</p>
+<p>步骤如下所示：</p>
 
-<ol>
-<li>
-<a href="#creating-unity-shader">Create an SRP-compatible Unity shader</a>.</li>
-<li>
-<a href="#creating-gameobject">Create one or more GameObjects to render</a>.</li>
-<li>
-<a href="#creating-srp">Create the basic structure of your custom SRP</a>.</li>
-<li>
-<em>Optional:</em> If you plan to extend your simple custom SRP to add more complex functionality, install the SRP Core package. The SRP Core package includes the SRP Core shader library (which you can use to make your Unity shaders SRP Batcher compatible), and utility functions for common operations. For more information, see the <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.core@latest">SRP Core package documentation</a>.</li>
-</ol>
+<p>1.<a href="#creating-unity-shader">创建与 SRP 兼容的着色器</a>。
+2.<a href="#creating-gameobject">创建一个或多个要渲染的游戏对象</a>。
+3.<a href="#creating-srp">创建自定义 SRP 的基本结构</a>。
+4.<em>可选：</em>如果计划扩展简单自定义 SRP 以添加更复杂的功能，请安装 SRP Core 包。SRP Core 包中包含 SRP Core 着色器库（可以用于使着色器与 SRP Batcher 兼容）以及用于常见操作的实用程序函数。有关更多信息，请参阅 <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.core@latest">SRP Core 包文档</a>。</p>
 
 <p><a name="creating-unity-shader"></a></p>
 
-<h3>Creating an SRP-compatible Unity shader</h3>
+<h3>创建与 SRP 兼容的着色器</h3>
 
-<p>In the Scriptable Render Pipeline, you use the LightMode Pass tag in a Unity shader to determine how to draw geometry. For more information on assigning Pass tags to Unity shaders, see <a href="SL-PassTags.html">ShaderLab: assigning tags to a Pass</a>.</p>
+<p>在可编程渲染管线中，使用 <code>LightMode</code> 通道标签确定如何绘制几何体。有关通道标签的更多信息，请参阅 <a href="SL-PassTags.html">ShaderLab：向通道分配标签</a>。</p>
 
-<p>This task shows you how to create a very simple unlit Unity shader with a LightMode Pass tag value of <code>ExampleLightModeTag</code>.</p>
+<p>此任务演示如何创建非常简单的无光照 Shader 对象，其 LightMode 通道标签值为 <code>ExampleLightModeTag</code>。</p>
 
-<ol>
-<li>Create a new Unity shader asset in your project. For instructions on creating a Unity shader asset, see <a href="class-Shader.html">Unity shader assets</a>.</li>
-<li>In your Project view, double click the Unity shader asset to open the Unity shader source code in a text editor.</li>
-<li>Replace the existing shader code with the following:</li>
-</ol>
+<p>1.在项目中创建一个新着色器资源。有关创建着色器资源的说明，请参阅<a href="class-Shader.html">着色器资源</a>。
+2.在 Project 视图中，双击着色器资源以在文本编辑器中打开着色器源代码。
+3.将现有代码替换为以下内容：</p>
 
-<pre><code>// This is a simple unlit Unity shader that is compatible with a custom Scriptable Render Pipeline.
-// It applies a hardcoded color, and demonstrates the use of the LightMode Pass tag.
-// It is not compatible with SRP Batcher.
+<pre><code>// 这定义一个与自定义可编程渲染管线兼容的简单无光照 Shader 对象。
+// 它应用硬编码颜色，并演示 LightMode 通道标签的使用。
+// 它不与 SRP Batcher 兼容。
 
 Shader "Examples/SimpleUnlitColor"
 {
@@ -237,7 +229,7 @@ Shader "Examples/SimpleUnlitColor"
     {
         Pass
         {
-            // The value of the LightMode Pass tag must match the ShaderTagId in ScriptableRenderContext.DrawRenderers
+            // LightMode 通道标签的值必须与 ScriptableRenderContext.DrawRenderers 中的 ShaderTagId 匹配
             Tags { "LightMode" = "ExampleLightModeTag"}
 
             HLSLPROGRAM
@@ -277,62 +269,55 @@ Shader "Examples/SimpleUnlitColor"
 
 <p><a name="creating-gameobject"></a></p>
 
-<h3>Creating a GameObject to render</h3>
+<h3>创建要渲染的游戏对象</h3>
 
-<p>In order to test that your render loop works, you must create something to render. This task shows you how to put GameObjects in your scene that use the SRP-compatible Unity shader that you created in the previous task.</p>
+<p>要测试渲染循环是否可正常工作，必须创建要渲染的内容。此任务演示如何在场景中放置使用在上一个任务中创建的 SRP 兼容着色器的游戏对象。</p>
 
-<ol>
-<li>Create a new material asset in your Unity project. For instructions on creating a material asset, see <a href="class-Material.html">Materials</a>.</li>
-<li>Assign the Unity shader to the material asset. For instructions on assigning a Unity shader to a material asset, see <a href="class-Material.html">Materials</a>.</li>
-<li>Create a cube in your scene. For instructions on creating a cube in your scene, see <a href="PrimitiveObjects.html">Primitive objects</a>.</li>
-<li>Assign the material to it. For instructions on assigning a material to a GameObject, see <a href="class-Material.html">Materials</a>.</li>
-</ol>
+<p>1.在 Unity 项目中创建一个新材质资源。有关说明，请参阅<a href="class-Material.html">材质</a>。
+2.将着色器资源分配给材质资源。有关说明，请参阅<a href="class-Material.html">材质</a>。
+3.在场景中创建一个立方体。有关说明，请参阅<a href="PrimitiveObjects.html">原始对象</a>。
+4.将材质分配给它。有关说明，请参阅<a href="class-Material.html">材质</a>。</p>
 
 <p><a name="creating-srp"></a></p>
 
-<h3>Creating the basic structure of your custom SRP</h3>
+<h3>创建自定义 SRP 的基本结构</h3>
 
-<p>The final stage of preparation is to create the basic source files needed for your custom SRP, and tell Unity to begin rendering using the custom SRP.</p>
+<p>准备的最后阶段是创建自定义 SRP 所需的基本源文件，并告知 Unity 开始使用自定义 SRP 进行渲染。</p>
 
-<ol>
-<li>Create a class that inherits from <code>RenderPipeline</code> and a compatible Render Pipeline Asset, following the instructions in <a href="srp-creating-render-pipeline-asset-and-render-pipeline-instance.html">Creating a Render Pipeline Instance and Render Pipeline Asset</a>
-</li>
-<li>Set the active Render Pipeline Asset, following the instructions in <a href="srp-setting-render-pipeline-asset.html">Setting the active Render Pipeline Asset</a>. Unity will begin rendering using the custom SRP immediately, which means that your Scene view and Game view will be blank until you add code to your custom SRP.</li>
-</ol>
+<p>1.按照<a href="srp-creating-render-pipeline-asset-and-render-pipeline-instance.html">创建渲染管线实例和渲染管线资源</a>中的说明，创建一个继承自 <code>RenderPipeline</code> 的类和一个兼容渲染管线资源。
+2.按照<a href="srp-setting-render-pipeline-asset.html">设置激活的渲染管线资源</a>中的说明，设置激活的渲染管线资源。Unity 会立即开始使用自定义 SRP 进行渲染，这意味着 Scene 视图和 Game 视图会为空白，直到向自定义 SRP 添加代码。</p>
 
-<h2>Creating the render loop</h2>
+<h2>创建渲染循环</h2>
 
-<p>In a simple render loop, the basic operations are:</p>
+<p>在简单渲染循环中，基本操作有：</p>
 
 <ul>
 <li>
-<a href="#clearing">Clearing the render target</a>, which means removing the geometry that was drawn during the last frame.</li>
+<a href="#clearing">清除渲染目标</a>，这意味着移除在最后一帧期间绘制的几何体。</li>
 <li>
-<a href="#culling">Culling</a>, which means filtering out geometry that is not visible to a Camera.</li>
+<a href="#culling">剔除</a>，这意味着过滤掉对摄像机不可见的几何体。</li>
 <li>
-<a href="#drawing">Drawing</a>, which means telling the GPU what geometry to draw, and how to draw it.</li>
+<a href="#drawing">绘制</a>，这意味着向 GPU 告知要绘制的几何体以及如何进行绘制。</li>
 </ul>
 
 <p><a name="clearing"></a></p>
 
-<h3>Clearing the render target</h3>
+<h3>清除渲染目标</h3>
 
-<p>Clearing means removing the things that were drawn during the last frame. The render target is usually the screen; however, you can also render to textures to create a “picture in picture” effect. These examples demonstrate how to render to the screen, which is Unity’s default behavior.</p>
+<p>清除意味着移除在最后一帧期间绘制的内容。渲染目标通常是屏幕；但是，也可以渲染到纹理以创建“画中画”效果。这些示例演示如何渲染到屏幕，这是 Unity 的默认行为。</p>
 
-<p>To clear the render target in the Scriptable Render Pipeline, you do the following:</p>
+<p>要清除可编程渲染管线中的渲染目标，请执行以下操作：</p>
 
-<ol>
-<li>Configure a <code>CommandBuffer</code> with a <code>Clear</code> command.</li>
-<li>Add the <code>CommandBuffer</code> to the queue of commands on the <code>ScriptableRenderContext</code>; to do this, call <a href="../ScriptReference/Rendering.ScriptableRenderContext.ExecuteCommandBuffer.html">ScriptableRenderContext.ExecuteCommandBuffer</a>.</li>
-<li>Instruct the graphics API to perform the queue of commands on the <code>ScriptableRenderContext</code>; to do this, call <a href="../ScriptReference/Rendering.ScriptableRenderContext.Submit.html">ScriptableRenderContext.Submit</a>.</li>
-</ol>
+<p>1.使用 <code>Clear</code> 命令配置 <code>CommandBuffer</code>。
+2.将 <code>CommandBuffer</code> 添加到 <code>ScriptableRenderContext</code> 上的命令队列；为此，请调用 <a href="../ScriptReference/Rendering.ScriptableRenderContext.ExecuteCommandBuffer.html">ScriptableRenderContext.ExecuteCommandBuffer</a>。
+3.指示图形 API 执行 <code>ScriptableRenderContext</code> 上的命令队列；为此，请调用 <a href="../ScriptReference/Rendering.ScriptableRenderContext.Submit.html">ScriptableRenderContext.Submit</a>。</p>
 
-<p>As with all Scriptable Render Pipeline operations, you use the <a href="../ScriptReference/Rendering.RenderPipeline.Render.html">RenderPipeline.Render</a> method as the entry point for this code. This example code demonstrates how to do this:</p>
+<p>与所有可编程渲染管线操作一样，使用 <a href="../ScriptReference/Rendering.RenderPipeline.Render.html">RenderPipeline.Render</a> 方法作为此代码的入口点。此示例代码演示如何执行此操作：</p>
 
 <pre><code class="c#">/* 
-This is a simplified example of a custom Scriptable Render Pipeline.
-It demonstrates how a basic render loop works.
-It shows the clearest workflow, rather than the most efficient runtime performance.
+这是自定义可编程渲染管线的简化示例。
+它演示基本渲染循环的工作方式。
+它演示最清晰的工作流程，而不是最高效的运行时性能。
 */
 
 using UnityEngine;
@@ -343,13 +328,13 @@ public class ExampleRenderPipeline : RenderPipeline {
     }
 
     protected override void Render (ScriptableRenderContext context, Camera[] cameras) {
-        // Create and schedule a command to clear the current render target
+        // 创建并调度命令以清除当前渲染目标
         var cmd = new CommandBuffer();
         cmd.ClearRenderTarget(true, true, Color.black);
         context.ExecuteCommandBuffer(cmd);
         cmd.Release();
 
-        // Instruct the graphics API to perform all scheduled commands
+        // 指示图形 API 执行所有调度的命令
         context.Submit();
     }
 }
@@ -357,24 +342,22 @@ public class ExampleRenderPipeline : RenderPipeline {
 
 <p><a name="culling"></a></p>
 
-<h3>Culling</h3>
+<h3>剔除</h3>
 
-<p>Culling is the process of filtering out geometry that is not visible to a Camera.</p>
+<p>剔除是过滤掉对摄像机不可见的几何体的过程。</p>
 
-<p>To cull in the Scriptable Render Pipeline, you do the following:</p>
+<p>要在可编程渲染管线中进行剔除，请执行以下操作：</p>
 
-<ol>
-<li>Populate a <a href="../ScriptReference/Rendering.ScriptableCullingParameters.html">ScriptableCullingParameters</a> struct with data about a Camera; to do this, call <a href="../ScriptReference/Camera.TryGetCullingParameters.html">Camera.TryGetCullingParameters</a>.</li>
-<li>Optional: Manually update the values of the <code>ScriptableCullingParameters</code> struct.</li>
-<li>Call <a href="../ScriptReference/Rendering.ScriptableRenderContext.Cull.html">ScriptableRenderContext.Cull</a>, and store the results in a <code>CullingResults</code> struct.</li>
-</ol>
+<p>1.使用有关摄像机的数据填充 <a href="../ScriptReference/Rendering.ScriptableCullingParameters.html">ScriptableCullingParameters</a> 结构；为此，请调用 <a href="../ScriptReference/Camera.TryGetCullingParameters.html">Camera.TryGetCullingParameters</a>。
+2.可选：手动更新 <code>ScriptableCullingParameters</code> 结构的值。
+3.调用 <a href="../ScriptReference/Rendering.ScriptableRenderContext.Cull.html">ScriptableRenderContext.Cull</a>，并将结果存储在一个 <code>CullingResults</code> 结构中。</p>
 
-<p>This example code extends the example above, and demonstrates how to clear the render target and then perform a culling operation:</p>
+<p>此示例代码扩展了上面的示例，演示如何清除渲染目标，然后执行剔除操作：</p>
 
 <pre><code class="c#">/* 
-This is a simplified example of a custom Scriptable Render Pipeline.
-It demonstrates how a basic render loop works.
-It shows the clearest workflow, rather than the most efficient runtime performance.
+这是自定义可编程渲染管线的简化示例。
+它演示基本渲染循环的工作方式。
+它演示最清晰的工作流程，而不是最高效的运行时性能。
 */
 
 using UnityEngine;
@@ -385,23 +368,23 @@ public class ExampleRenderPipeline : RenderPipeline {
     }
 
     protected override void Render (ScriptableRenderContext context, Camera[] cameras) {
-        // Create and schedule a command to clear the current render target
+        // 创建并调度命令以清除当前渲染目标
         var cmd = new CommandBuffer();
         cmd.ClearRenderTarget(true, true, Color.black);
         context.ExecuteCommandBuffer(cmd);
         cmd.Release();
 
-        // Iterate over all Cameras
+        // 遍历所有摄像机
         foreach (Camera camera in cameras)
         {
-            // Get the culling parameters from the current Camera
+            // 从当前摄像机获取剔除参数
             camera.TryGetCullingParameters(out var cullingParameters);
 
-            // Use the culling parameters to perform a cull operation, and store the results
+            // 使用剔除参数执行剔除操作，并存储结果
             var cullingResults = context.Cull(ref cullingParameters);
         }
 
-        // Instruct the graphics API to perform all scheduled commands
+        // 指示图形 API 执行所有调度的命令
         context.Submit();
     }
 }
@@ -409,27 +392,24 @@ public class ExampleRenderPipeline : RenderPipeline {
 
 <p><a name="drawing"></a></p>
 
-<h3>Drawing</h3>
+<h3>绘制</h3>
 
-<p>Drawing is the process of instructing the graphics API to draw a given set of geometry with given settings.</p>
+<p>绘制是指示图形 API 使用给定设置绘制一组给定几何体的过程。</p>
 
-<p>To draw in SRP, you do the following:</p>
+<p>要在 SRP 中进行绘制，请执行以下操作：</p>
 
-<ol>
-<li>Perform a culling operation, as described above, and store the results in a <code>CullingResults</code> struct.</li>
-<li>Create and configure <a href="../ScriptReference/Rendering.FilteringSettings.html">FilteringSettings</a> struct, which describes how to filter the culling results.</li>
-<li>Create and configure a <a href="../ScriptReference/DrawingSettings.html">DrawingSettings</a> struct, which describes which geometry to draw and how to draw it.</li>
-<li>
-<em>Optional</em>: By default, Unity sets the render state based on the Unity shader. If you want to override the render state for some or all of the geometry that you are about to draw, you can use a <a href="../ScriptReference/Rendering.RenderStateBlock.html">RenderStateBlock</a> struct to do this.</li>
-<li>Call <a href="../ScriptReference/Rendering.ScriptableRenderContext.DrawRenderers.html">ScriptableRenderContext.DrawRenderers</a>, and pass the structs that you created as parameters. Unity draws the filtered set of geometry, according to the settings.</li>
-</ol>
+<p>1.如上所述执行剔除操作，并将结果存储在 <code>CullingResults</code> 结构中。
+2.创建和配置 <a href="../ScriptReference/Rendering.FilteringSettings.html">FilteringSettings</a> 结构，它描述如何过滤剔除结果。
+3.创建和配置 <a href="../ScriptReference/DrawingSettings.html">DrawingSettings</a> 结构，它描述要绘制的几何体以及如何进行绘制。
+4.<em>可选</em>：默认情况下，Unity 基于 Shader 对象设置渲染状态。如果要覆盖即将绘制的部分或所有几何体的渲染状态，可以使用 <a href="../ScriptReference/Rendering.RenderStateBlock.html">RenderStateBlock</a> 结构执行此操作。
+5.调用 <a href="../ScriptReference/Rendering.ScriptableRenderContext.DrawRenderers.html">ScriptableRenderContext.DrawRenderers</a>，并将创建的结构作为参数进行传递。Unity 根据设置绘制过滤后的几何体集。</p>
 
-<p>This example code builds on the examples above, and demonstrates how to clear the render target, perform a culling operation, and draw the resulting geometry:</p>
+<p>此示例代码基于上面的示例进行构建，演示如何清除渲染目标，执行剔除操作，然后绘制生成的几何体：</p>
 
 <pre><code class="c#">/* 
-This is a simplified example of a custom Scriptable Render Pipeline.
-It demonstrates how a basic render loop works.
-It shows the clearest workflow, rather than the most efficient runtime performance.
+这是自定义可编程渲染管线的简化示例。
+它演示基本渲染循环的工作方式。
+它演示最清晰的工作流程，而不是最高效的运行时性能。
 */
 
 using UnityEngine;
@@ -440,47 +420,47 @@ public class ExampleRenderPipeline : RenderPipeline {
     }
 
     protected override void Render (ScriptableRenderContext context, Camera[] cameras) {
-        // Create and schedule a command to clear the current render target
+        // 创建并调度命令以清除当前渲染目标
         var cmd = new CommandBuffer();
         cmd.ClearRenderTarget(true, true, Color.black);
         context.ExecuteCommandBuffer(cmd);
         cmd.Release();
 
-        // Iterate over all Cameras
+        // 遍历所有摄像机
         foreach (Camera camera in cameras)
         {
-            // Get the culling parameters from the current Camera
+            // 从当前摄像机获取剔除参数
             camera.TryGetCullingParameters(out var cullingParameters);
 
-            // Use the culling parameters to perform a cull operation, and store the results
+            // 使用剔除参数执行剔除操作，并存储结果
             var cullingResults = context.Cull(ref cullingParameters);
 
-            // Update the value of built-in shader variables, based on the current Camera
+            // 基于当前摄像机，更新内置着色器变量的值
             context.SetupCameraProperties(camera);
 
-            // Tell Unity which geometry to draw, based on its LightMode Pass tag value
+            // 基于 LightMode 通道标签值，向 Unity 告知要绘制的几何体
             ShaderTagId shaderTagId = new ShaderTagId("ExampleLightModeTag");
 
-            // Tell Unity how to sort the geometry, based on the current Camera
+            // 基于当前摄像机，向 Unity 告知如何对几何体进行排序
             var sortingSettings = new SortingSettings(camera);
 
-            // Create a DrawingSettings struct that describes which geometry to draw and how to draw it
+            // 创建描述要绘制的几何体以及绘制方式的 DrawingSettings 结构
             DrawingSettings drawingSettings = new DrawingSettings(shaderTagId, sortingSettings);
 
-            // Tell Unity how to filter the culling results, to further specify which geometry to draw
-            // Use FilteringSettings.defaultValue to specify no filtering
+            // 告知 Unity 如何过滤剔除结果，以进一步指定要绘制的几何体
+            // 使用 FilteringSettings.defaultValue 可指定不进行过滤
             FilteringSettings filteringSettings = FilteringSettings.defaultValue;
         
-            // Schedule a command to draw the geometry, based on the settings you have defined
+            // 基于定义的设置，调度命令绘制几何体
             context.DrawRenderers(cullingResults, ref drawingSettings, ref filteringSettings);
 
-            // Schedule a command to draw the Skybox if required
+            // 在需要时调度命令绘制天空盒
             if (camera.clearFlags == CameraClearFlags.Skybox &amp;&amp; RenderSettings.skybox != null)
             {
                 context.DrawSkybox(camera);
             }
 
-            // Instruct the graphics API to perform all scheduled commands
+            // 指示图形 API 执行所有调度的命令
             context.Submit();
         }
     }
@@ -488,16 +468,16 @@ public class ExampleRenderPipeline : RenderPipeline {
 </code></pre>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="srp-creating-render-pipeline-asset-and-render-pipeline-instance.html"></a></span><div class="tip">Creating a Render Pipeline Asset and Render Pipeline Instance in a custom render pipeline</div>
+<span class="prev"><a href="srp-creating-render-pipeline-asset-and-render-pipeline-instance.html"></a></span><div class="tip">在自定义渲染管线中创建渲染管线资源和渲染管线实例</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="CamerasOverview.html"></a></span><div class="tip">Cameras</div>
+<span class="next"><a href="CamerasOverview.html"></a></span><div class="tip">摄像机</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

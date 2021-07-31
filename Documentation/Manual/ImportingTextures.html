@@ -175,9 +175,8 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
 <li><a href="Textures.html">纹理</a></li>
 <li>导入纹理</li>
 </ul></div>
@@ -213,15 +212,15 @@
 <p>以下主题提供了关于导入纹理时的建议，并详细介绍了所有限制：</p>
 
 <ul>
-<li><a href="#HDRTextures">HDR Textures</a></li>
-<li><a href="#TextureSizes">Texture dimension sizes</a></li>
-<li><a href="#Mipmaps">Mip maps</a></li>
-<li><a href="#Normalmaps">Normal maps</a></li>
-<li><a href="#Alphamaps">Alpha maps</a></li>
-<li><a href="#Detailmaps">Detail maps</a></li>
-<li><a href="#Reflections">Reflections (cubemaps)</a></li>
-<li><a href="#AnisotropicFiltering">Anisotropic filtering</a></li>
-<li><a href="#Formats">Supported file formats</a></li>
+<li><a href="#HDRTextures">HDR 纹理</a></li>
+<li><a href="#TextureSizes">纹理尺寸大小</a></li>
+<li><a href="#Mipmaps">Mipmap</a></li>
+<li><a href="#Normalmaps">法线贴图</a></li>
+<li><a href="#Alphamaps">Alpha 贴图</a></li>
+<li><a href="#Detailmaps">细节贴图</a></li>
+<li><a href="#Reflections">反射（立方体贴图）</a></li>
+<li><a href="#AnisotropicFiltering">各向异性过滤</a></li>
+<li><a href="#Formats">支持的文件格式</a></li>
 </ul>
 
 <p><a name="HDRTextures"></a> </p>
@@ -234,7 +233,7 @@
 
 <h3>纹理尺寸大小</h3>
 
-<p>Ideally, Texture dimension sizes should be powers of two on each side (that is, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048 pixels (px), and so on). The Textures do not have to be square; the width can be different from height.</p>
+<p>理想情况下，纹理尺寸大小应该是每边为 2 的幂（即 2、4、8、16、32、64、128、256、512、1024、2048 像素 (px)，以此类推）。纹理不必是正方形；也就是宽度可与高度不同。</p>
 
 <p>在 Unity 中可以使用 NPOT（非 2 的幂）纹理大小。但是，NPOT 纹理大小通常需要稍微多一点的内存，并且 GPU 的采样速度可能更慢，因此，只要有可能，最好使用 2 的幂大小以提高性能。</p>
 
@@ -281,7 +280,7 @@
 
 <ul>
 <li>纹理导入器仅允许您选择最大为 8K 的尺寸大小（即 8192 x 8192 像素）。</li>
-<li>Most <a href="https://en.wikipedia.org/wiki/Mali_(GPU)">Mali GPUs</a> support Texture dimension sizes up to 4K for cubemaps.</li>
+<li>对于立方体贴图，大部分 <a href="https://en.wikipedia.org/wiki/Mali_(GPU)">Mali GPU</a> 都支持最高 4K 的纹理尺寸大小。</li>
 </ul>
 
 <p><a name="Mipmaps"></a> </p>
@@ -292,7 +291,7 @@
 
 <p>启用 Mipmap 会让内存使用量增加 33%，因此，仅当纹理与摄像机之间的距离将发生改变时，才应该对纹理使用 Mipmap。如果纹理与摄像机之间的距离不会改变（比如用于 UI、天空盒等等对象的纹理），则不应对这种纹理使用 Mipmap。</p>
 
-<p>You can control the way that Unity loads mipmaps at runtime using <a href="TextureStreaming.html">Mip Map Streaming</a>.</p>
+<p>可以使用 <a href="TextureStreaming.html">MipMap 串流</a> 来控制 Unity 在运行时加载 Mipmap 的方式。</p>
 
 <p><a name="Normalmaps"></a> </p>
 
@@ -330,7 +329,7 @@
 
 <h3>各向异性过滤</h3>
 
-<p>Anisotropic filtering increases Texture quality when viewed from a grazing angle. This rendering is resource-intensive on the graphics card. Increasing the level of anisotropy is usually a good idea for ground and floor Textures. Use <a href="class-QualitySettings.html">Quality</a> settings to force anisotropic filtering for all Textures or disable it completely. Although, if a texture has its <strong>Aniso level</strong> set to 0 in <a href="#class-TextureImporter">Texture Import Settings</a>, forced anisotropic filtering does not appear on this texture.</p>
+<p>各向异性过滤可提高从掠射角观察时的纹理质量。此渲染在显卡上非常消耗资源。提高各向异性水平通常对于地面和地板纹理而言是一种很好的做法。请使用 <a href="class-QualitySettings.html">Quality</a> 设置强制对所有纹理进行各向异性过滤或完全禁用该功能。尽管如此，如果在 <a href="#class-TextureImporter">Texture Import Settings</a> 中，纹理的 <strong>Aniso level</strong> 设置为 0，强制各向异性过滤不会出现在该纹理上。</p>
 
 <p><img src="../uploads/Main/ImportingTextures-AnisoFiltering.png" alt="在地面纹理上使用各向异性 {没有各向异性（左）| 最大各向异性（右）} "></p>
 
@@ -354,7 +353,7 @@
 <li>TIFF</li>
 </ul>
 
-<p>Unity automatically flattens multi-layer Photoshop PSD or TIFF files on import so that there is no size penalty for your game. This flattening happens to the imported data in Unity, not to the file itself, so you can continue to save and import your PSD or TIFF files without losing any of your work when using these file types natively. This allows you to have one copy of each Texture which you can use in Photoshop, your 3D modelling application, and in Unity. </p>
+<p>Unity 导入多层 Photoshop PSD 或 TIFF 文件后会自动展平，这样就不会在游戏中造成大小损失。这种展平操作发生在 Unity 中导入的数据，而不是文件本身，因此您可以继续保存和导入 PSD 或 TIFF 文件，以原生方式使用这些文件类型时不会丢失任何工作。这样，每个纹理只需要有一个副本，您就可以在 Photoshop、3D 建模应用程序以及 Unity 中使用纹理。</p>
 <!-- area:graphics -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -367,7 +366,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

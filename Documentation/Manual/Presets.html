@@ -14,10 +14,10 @@
 <meta property="og:title" content="预设 - Unity 手册">
 <title>预设 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/PresetAssets.png">
-<meta name="description" content="Presets are assets that you can use to save and apply identical property settings across multiple components, assets, or Project Settings windows. You can also use Presets to specify default settings for new components and default import settings for assets in the Preset Manager
-The Preset Manager supports any importers, components, or scriptable objects you add to the Unity Editor.">
-<meta property="og:description" content="Presets are assets that you can use to save and apply identical property settings across multiple components, assets, or Project Settings windows. You can also use Presets to specify default settings for new components and default import settings for assets in the Preset Manager
-The Preset Manager supports any importers, components, or scriptable objects you add to the Unity Editor.">
+<meta name="description" content="预设是可用于将相同属性设置跨多个组件、资源或项目设置窗口保存和应用的资源。您还可以使用预设在预设管理器中指定新组件的默认设置和资源的默认导入设置。
+预设管理器支持您添加到 Unity 编辑器的任何导入器、组件或脚本化对象。">
+<meta property="og:description" content="预设是可用于将相同属性设置跨多个组件、资源或项目设置窗口保存和应用的资源。您还可以使用预设在预设管理器中指定新组件的默认设置和资源的默认导入设置。
+预设管理器支持您添加到 Unity 编辑器的任何导入器、组件或脚本化对象。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -177,33 +177,32 @@ The Preset Manager supports any importers, components, or scriptable objects you
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="AssetWorkflow.html">资源工作流程</a></li>
-<li><a href="ImportingAssets.html">导入</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="AssetWorkflow.html">Asset Workflow</a></li>
 <li>预设</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="3D-formats.html"></a></span><div class="tip">Supported model file formats</div>
+<span class="prev"><a href="SpecialFolders.html"></a></span><div class="tip">特殊文件夹名称</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="ImportingModelFiles.html"></a></span><div class="tip">导入模型</div>
+<span class="next"><a href="AssetBundlesIntro.html"></a></span><div class="tip">AssetBundle</div>
 </div>
 </div></div>
 <h1>预设</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>Presets are assets that you can use to save and apply identical property settings across multiple components, assets, or <a href="comp-ManagerGroup.html">Project Settings</a> windows. You can also use Presets to specify default settings for new components and default <a href="ImportingAssets.html">import settings</a> for assets in the <a href="class-PresetManager.html">Preset Manager</a>
-The Preset Manager supports any importers, components, or scriptable objects you add to the Unity Editor.</p>
+<p>预设是可用于将相同属性设置跨多个组件、资源或<a href="comp-ManagerGroup.html">项目设置</a>窗口保存和应用的资源。您还可以使用预设在<a href="class-PresetManager.html">预设管理器</a>中指定新组件的默认设置和资源的默认<a href="ImportingAssets.html">导入设置</a>。
+预设管理器支持您添加到 Unity 编辑器的任何导入器、组件或脚本化对象。</p>
 
-<p>You can only apply Presets in the Editor; Unity cannot apply them at run time. You can <a href="SupportingPresets.html">support Presets</a> in your extensions to the Unity Editor.</p>
+<p>You can only apply Presets in the Editor. Presets have no effect at runtime. You can <a href="SupportingPresets.html">support Presets</a> in your extensions to the Unity Editor.</p>
 
-<h2>Saving and applying Presets</h2>
+<h2>保存和应用预设</h2>
 
-<p>Presets allow you to save the property configuration of a component, asset, or Project Settings window as a Preset asset. You can then use this Preset asset to apply the same settings to a different component, asset, or Project Settings window.</p>
+<p>预设允许您将组件、资源或 Project Settings 窗口的属性配置保存为预设资源。然后，您可以使用此预设资源将相同的设置应用到不同的组件、资源或 Project Settings 窗口。</p>
 
-<p>For example, you could edit the properties of a Rigidbody component, save these settings to a Preset asset, then apply that Preset asset to Rigidbody components in other GameObjects. The other components in the GameObjects are not affected; the Preset only applies its settings to the Rigidbody component.</p>
+<p>例如，您可以编辑刚体组件的属性，将这些设置保存到一个预设资源，然后将该预设资源应用到其他游戏对象中的刚体组件。游戏对象中的其他组件不受影响；预设仅将其设置应用于刚体组件。</p>
 
 <p>可将预设存储在项目的 <code>Assets</code> 文件夹中。使用 <a href="ProjectView.html">Project</a> 窗口可查看并选择要在 <strong>Inspector</strong> 中编辑的预设。</p>
 
@@ -214,89 +213,82 @@ The Preset Manager supports any importers, components, or scriptable objects you
 
 <h2>将属性设置保存到预设</h2>
 
-<p>To save property settings to a Preset asset, follow the instructions below. You can save property settings while in Edit mode or in Play mode.</p>
+<p>要将属性设置保存到预设资源，请按照以下说明进行操作。您可以在编辑模式或运行模式下保存属性设置。</p>
 
-<ol>
-<li>Select the GameObject, Asset import settings, or Project Settings window from which you want to reuse settings. When you select it, it appears in the <strong>Inspector</strong> window.</li>
-<li>In the <strong>Inspector</strong> window, configure the properties as you want to save them.</li>
-<li>Click the Preset selector (the slider icon) at the top-right of the <strong>Inspector</strong> window. <br><img src="../uploads/Main/preset-icon.png" alt="">
-</li>
-<li>In the Select Preset window, click <strong>Save current to</strong>. <br><img src="../uploads/Main/presets-select-preset-window.png" alt=""><br>A File Save dialog appears.</li>
-</ol>
+<p>1.选择要重用设置的游戏对象、资源导入设置或 Project Settings 窗口。选择后会出现在 <strong>Inspector</strong> 窗口。
+2.在 <strong>Inspector</strong> 窗口中，根据需要配置属性以保存它们。
+3.单击 <strong>Inspector</strong> 窗口右上角的预设选择器（滑动条图标）。<br><img src="../uploads/Main/preset-icon.png" alt="">
+4.在 Select Preset 窗口中，单击 <strong>Save current to</strong>。<br><img src="../uploads/Main/presets-select-preset-window.png" alt=""><br>显示一个 File Save 对话框。</p>
 
 <p>5.选择新预设的位置，输入其名称，然后单击 <strong>Save</strong>。</p>
 
-<h2>Applying settings from a Preset</h2>
+<h2>应用预设中的设置</h2>
 
-<p>There are two ways to apply a Preset: the <strong>Select Preset</strong> window, or for component Presets, you can also drag and drop a Preset from the <strong>Project</strong> window onto the GameObject that contains that component.</p>
+<p>有两种方法可以应用预设：__Select Preset__ 窗口，或对于组件预设，您还可以将预设从 <strong>Project</strong> 窗口拖放到包含该组件的游戏对象上。</p>
 
 <p><strong>注意：</strong>应用预设会将属性从预设复制到该项。此过程不会将预设链接到该项。对预设所做的更改不会影响先前已应用预设的项。</p>
 
-<p>To apply a Preset via the <strong>Select Preset</strong> window:</p>
+<p>通过 <strong>Select Preset</strong> 窗口应用预设：</p>
 
-<ol>
-<li><p>For GameObjects or assets you want to apply a Preset to, select them so that they appear in the <strong>Inspector</strong> window. For Project Settings that you want to apply a Preset to, open them in the <strong>Project Settings</strong> window.</p></li>
-<li><p>In the <strong>Inspector</strong>, click the Preset selector (the slider icon).</p></li>
-<li>
-<p>In the <strong>Select Preset</strong> window, search for and select the Preset to apply.</p>
+<p>1.对于您想要应用预设的游戏对象或资源，选择它们使其出现在 <strong>Inspector</strong> 窗口中。对于要应用预设的项目设置，请在 <strong>Project Settings</strong> 窗口中将其打开。</p>
 
-<p>Unity applies this Preset to the component, asset, or Project Settings window.</p>
-</li>
-</ol>
+<p>2.在 <strong>Inspector</strong> 中，单击预设选择器（滑动条图标）。</p>
+
+<p>3.在 <strong>Select Preset</strong> 窗口中，搜索并选择要应用的预设。</p>
+
+<pre><code>Unity 将此预设应用到组件、资源或 Project Settings 窗口。
+</code></pre>
 
 <p>4.关闭 <strong>Select Preset</strong> 窗口。</p>
 
-<p>If you apply a component Preset via drag-and-drop, Unity’s behavior depends on the state of your GameObject:</p>
+<p>如果您通过拖放操作应用组件预设，Unity 的行为取决于您的游戏对象的状态：</p>
 
 <ul>
-<li>If you drop the Preset on an existing GameObject in the Hierarchy window, Unity adds a new component and copies properties from the Preset.</li>
-<li>If you drop the Preset on an empty area in the Hierarchy window, Unity creates a new, empty GameObject and adds a component with properties copied from the Preset.</li>
-<li>If you drop the Preset on the Inspector window onto the title of an existing component, Unity copies properties from the Preset.</li>
-<li>If you drop the Preset on an empty area in the Inspector window, Unity adds a new component and copies properties from the Preset.</li>
+<li>如果您将预设放在 Hierarchy 窗口中的现有游戏对象上，Unity 会添加一个新组件并从预设中复制属性。</li>
+<li>如果您将预设放在 Hierarchy 窗口中的空白区域上，Unity 会创建一个新的空游戏对象，并添加一个具有复制自预设的属性的组件。</li>
+<li>如果您将 Inspector 窗口上的预设拖放到现有组件的标题上，Unity 将从该预设复制属性。</li>
+<li>如果您将预设拖放到 Inspector 窗口中的空白区域上，Unity 会添加一个新组件并从预设中复制属性。</li>
 </ul>
 
-<h3>Applying partial Presets</h3>
+<h3>应用部分预设</h3>
 
-<p>You can choose to only apply some properties from a Preset and exclude others. To do this:</p>
+<p>您可以选择仅应用预设中的某些属性并排除其他属性。为此需要执行以下操作：</p>
 
-<ol>
-<li><p>Select your Preset in the <strong>Project</strong> window.</p></li>
-<li><p>In the <strong>Inspector</strong>, right-click a property and choose <strong>Exclude Property</strong>. The window displays a red horizontal line next to excluded properties.<br>
-<img src="../uploads/Main/preset-exclude-property.png" alt=""></p></li>
-<li><p>Apply the Preset to the target component, asset, or Project settings.</p></li>
-</ol>
+<p>1.在 <strong>Project</strong> 窗口中选择您的预设。
+2.在 <strong>Inspector</strong> 中, 右键单击一个属性并选择 <strong>Exclude Property</strong>。该窗口在排除的属性旁边显示一条红色水平线。<br>
+<img src="../uploads/Main/preset-exclude-property.png" alt=""></p>
 
-<p><strong>Note:</strong> To select all or clear all checkboxes in a Preset, select the <strong>More items</strong> menu (<strong>⋮</strong>) or right-click the Preset name, and select <strong>Include all properties</strong> or <strong>Exclude all properties</strong>. You can still adjust individual properties if you need to.</p>
+<p>3.将该预设应用到目标组件、资源或项目设置。</p>
 
-<p>You can also use the Exclude option for Presets that you then set as the default configuration for components and asset importers. See <a href="class-PresetManager.html">Preset Manager</a> for more details on how to do this.</p>
+<p><strong>注意：__要全选或清除预设中的所有复选框，请选择 </strong>More items__ 菜单 (<strong>⋮</strong>) 或右键单击预设名称，然后选择 <strong>Include all properties</strong> 或 <strong>Exclude all properties</strong>。如果需要，您仍然可以调整各个属性。</p>
+
+<p>您还可以对预设使用排除选项，然后将其设置为组件和资源导入器的默认配置。有关如何执行此操作的更多详细信息，请参阅<a href="class-PresetManager.html">预设管理器</a>。</p>
 
 <h2>编辑预设</h2>
 
-<p>To edit a Preset asset, select it from the <strong>Project</strong> window and view it in the <strong>Inspector</strong> window.</p>
+<p>要编辑预设资源，请从 <strong>Project</strong> 窗口进行选择，然后在 <strong>Inspector</strong> 窗口中查看。</p>
 
-<p><strong>Note:</strong> When you change the properties in a Preset, your changes do not affect items you have already applied the Preset to. For example, if you apply a Preset for a Rigidbody component to a GameObject, and then edit the Preset, the settings in the Rigidbody component do not change.</p>
+<p><strong>注意：</strong>当您更改预设中的属性时，您的更改不会影响您已应用该预设的项目。例如，如果将刚体组件的预设应用于游戏对象，然后编辑该预设，则刚体组件中的设置不会更改。</p>
 
 <figure>
-<img src="../uploads/Main/preset-edit-preset.png" alt="Editing a Preset in the Inspector window">
-<figcaption>Editing a Preset in the Inspector window</figcaption>
+<img src="../uploads/Main/preset-edit-preset.png" alt="在 Inspector 窗口中编辑预设">
+<figcaption>在 Inspector 窗口中编辑预设</figcaption>
 </figure>
 
-<h2>Importing Assets using Presets by folder</h2>
+<h2>按文件夹使用预设来导入资源</h2>
 
-<p>You can use a <a href="DefaultPresetsByFolder.html">script</a> to apply a Preset to an Asset based on the location of the Asset in the <em>Project</em> window.</p>
+<p>您可以在 <em>Project</em> 窗口中使用<a href="DefaultPresetsByFolder.html">脚本</a>根据资源的位置将预设应用于该资源。</p>
 
-<h2>Exporting Preset Assets</h2>
+<h2>导出预设资源</h2>
 
-<p>预设可用于简化团队的工作流程。甚至可以使用预设来指定 <a href="comp-ManagerGroup.html">Project Settings</a> 窗口（包括 <strong>Preset</strong> 设置本身）的设置。可使用此功能配置某个项目，然后<a href="HOWTO-exportpackage.html">将其导出</a>作为自定义资源包。团队成员可将此资源包<a href="AssetPackages.html">导入</a>其项目中。</p>
+<p>Use Presets to streamline your team’s workflows. You can even use Presets to specify settings for <a href="comp-ManagerGroup.html">Project Settings</a> windows, including the <strong>Preset</strong> settings themselves. Use this feature to configure a project then <a href="AssetPackagesCreate.html">export it</a> as a custom asset package. Your team members can <a href="AssetPackagesImport.html">import</a> this asset package into their projects.</p>
 
-<ol>
-<li>In the Project window, select the Presets you want to export .</li>
-<li>In the Unity menu, go to <strong>Assets &gt; Export Package</strong>, or right-click inside the Project window and choose <strong>Export Package</strong>.<br>
-The <strong>Exporting package</strong> window displays the items to export.</li>
-<li>If your Presets contain references to assets you want to include in the package, enable <strong>Include dependencies</strong>.</li>
-<li>Click <strong>Export</strong>.</li>
-<li>Choose where you want to store the package, enter a filename, and click <strong>Save</strong>. Unity saves the package as a .unitypackage file.</li>
-</ol>
+<p>1.在 Project 窗口中，选择要导出的预设。
+2.在 Unity 菜单中，转到 <strong>Assets &gt; Export Package__，或在 Project 窗口内右键单击并选择 </strong>Export Package<strong>。<br>
+</strong>Exporting package__ 窗口显示要导出的项目。
+3.如果您的预设包含对要包含在包中的资源的引用，请启用 <strong>Include dependencies</strong>。
+4.单击 <strong>Export</strong>。
+5.选择要存储包的位置，输入文件名，然后单击 <strong>Save</strong>。Unity 将包保存为 .unitypackage 文件。</p>
 
 <h2>对动画状态节点的过渡使用预设</h2>
 
@@ -306,20 +298,20 @@ The <strong>Exporting package</strong> window displays the items to export.</li>
 
 <p><span class="page-edit"> 2017–03–27页面已发布</span></p>
 
-<p><span class="page-history">New feature in <a href="https://docs.unity3d.com/2018.1/Documentation/Manual/30_search.html?q=newin20181">2018.1</a> <span class="search-words">NewIn20181</span></span>
+<p><span class="page-history">新功能，添加于 <a href="https://docs.unity3d.com/2018.1/Documentation/Manual/30_search.html?q=newin20181">2018.1 </a> <span class="search-words">NewIn20181</span></span>
 <!-- area:authoring --></p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="3D-formats.html"></a></span><div class="tip">Supported model file formats</div>
+<span class="prev"><a href="SpecialFolders.html"></a></span><div class="tip">特殊文件夹名称</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="ImportingModelFiles.html"></a></span><div class="tip">导入模型</div>
+<span class="next"><a href="AssetBundlesIntro.html"></a></span><div class="tip">AssetBundle</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

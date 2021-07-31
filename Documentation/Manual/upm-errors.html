@@ -175,14 +175,14 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="PackagesList.html">包</a></li>
 <li><a href="Packages.html">Unity 的 Package Manager</a></li>
 <li>故障排除</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="upm-localpath.html"></a></span><div class="tip">Local folder or tarball paths</div>
+<span class="prev"><a href="upm-localpath.html"></a></span><div class="tip">本地文件夹或 tarball 路径</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="upm-network.html"></a></span><div class="tip">网络问题</div>
@@ -194,19 +194,56 @@
 
 <p>本节提供有关以下问题的信息：</p>
 
-<ul>
-<li><a href="#Errors">Package Manager 窗口中的错误消息</a></li>
-<li><a href="#Linker">Missing MonoBehaviour errors</a></li>
-<li><a href="#Missing">Package Manager 缺失或者窗口无法打开</a></li>
-<li><a href="#Upgrade">将 Unity 升级到新版本后出现的问题</a></li>
-<li><a href="#Failed">包安装失败</a></li>
-<li><a href="#Unrecognized">无法识别包</a></li>
-<li><a href="#HostFXR">Windows 上加载 hostfxr.dll 时出错</a></li>
-<li><a href="#Reset">重置项目的包配置</a></li>
-<li><a href="#ssh-add">Git URL 的身份验证问题</a></li>
-</ul>
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>错误类型：</strong></th>
+	<th style="text-align:left;"><strong>错误消息：</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">一般启动问题</td>
+	<td style="text-align:left;">- <a href="#Errors">Package Manager 窗口中的错误消息</a><br>- <a href="#Missing">Package Manager 缺失或窗口无法打开</a><br>- <a href="#Upgrade">将 Unity 升级到新版本后出现的问题</a><br>- <a href="#Reset">重置项目的包配置</a>
+</td>
+</tr>
+<tr>
+	<td style="text-align:left;">包安装问题</td>
+	<td style="text-align:left;">- <a href="#Failed">包安装失败</a><br>- <a href="#Unrecognized">无法识别包</a>
+</td>
+</tr>
+<tr>
+	<td style="text-align:left;">安装 git 依赖关系时的问题</td>
+	<td style="text-align:left;">- <a href="#git-not-found">未找到“git”可执行文件</a><br>- <a href="#git-lfs">git-lfs：未找到命令</a><br>- <a href="#bad-url">未找到代码仓库</a><br>- <a href="#prompts-disabled">无法读取用户名：终端提示符已禁用</a><br>- <a href="#locked-git">无法更新 Git 版本</a>
+</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Asset Store 资源包 (My Assets)</td>
+	<td style="text-align:left;">- <a href="#failed-http-response">My Assets 上下文中出现“无法解析 Http 响应”</a>
+</td>
+</tr>
+<tr>
+	<td style="text-align:left;">范围注册表</td>
+	<td style="text-align:left;">- <a href="#scoped-missing">Package Manager 窗口中缺少“My Registries”</a>
+</td>
+</tr>
+<tr>
+	<td style="text-align:left;">构建包时的问题</td>
+	<td style="text-align:left;">- <a href="#Linker">缺失 MonoBehaviour 错误</a><br>- <a href="#HostFXR">Windows 上有关 hostfxr.dll 的加载错误</a>
+</td>
+</tr>
+</tbody>
+</table>
 
 <p>如果遇到与网络有关的问题，也可以运行 Unity Package Manager <strong>Diagnostics</strong> 工具。有关更多信息，请参阅<a href="upm-network.html">网络问题</a>。</p>
+
+<p><br> </p>
 
 <p><a name="Errors"></a></p>
 
@@ -218,7 +255,7 @@
 <li>
 <p><strong>系统范围的问题</strong></p>
 
-<p>Error messages that appear in the <a href="upm-ui.html#StatusBar">status bar</a> indicate the Package Manager has detected an issue that is not related to a specific package. For example, if the Package Manager cannot access the <a href="upm-concepts.html#Registry">package registry server</a>, it displays this message in the status bar:</p>
+<p><a href="upm-ui.html#StatusBar">状态栏</a>中显示的错误消息表示 Package Manager 检测到与特定包无关的问题。例如，如果 Package Manager 无法访问<a href="upm-concepts.html#Registry">包注册表服务器</a>，则将在状态栏中显示以下消息：</p>
 
 <figure>
 <img src="../uploads/Main/PackageManagerUI-StatusBar_Network.png" alt="网络错误消息">
@@ -227,7 +264,7 @@
 
 <p>如果您的网络无法访问包注册表服务器，可能是因为网络存在连接问题。您或系统管理员<a href="upm-network.html">修复网络错误</a>后，状态栏将清空。</p>
 
-<p>If your network connection is working, but you are not signed into your <a href="https://id.unity.com/">Unity account</a>, the Package Manager doesn’t display any Asset Store packages. When you try to use the <strong>My Assets</strong> scope, the Package Manager displays an error in the status bar:</p>
+<p>如果您的网络连接正常，但是您没有登录 <a href="https://id.unity.com/">Unity 帐户</a>，则 Package Manager 不会显示任何 Asset Store 资源包。尝试使用 <strong>My Assets</strong> 上下文时，Package Manager 会在状态栏中显示错误：</p>
 
 <figure>
 <img src="../uploads/Main/PackageManagerUI-StatusBar_UnityID.png" alt="已注销 Unity 帐户">
@@ -248,13 +285,15 @@
 </li>
 </ul>
 
+<p><br> </p>
+
 <p><a name="Linker"></a></p>
 
-<h2>Missing MonoBehaviour errors</h2>
+<h2>缺失 MonoBehaviour 错误</h2>
 
-<p>While building, if there are a lot of errors about Missing Behavior, the UnityLinker might be mistakenly stripping out a component that it thinks is unreferenced. It often does this because the stripping level is too aggressive. For example, if you have a prefab in an AssetBundle that references the SpriteShape component in the 2D SpriteShape package, the object might be missing and might generate compiler warnings.</p>
+<p>在构建期间，如果有许多关于缺失行为的错误，则 UnityLinker 可能会错误地剥离它认为未引用的组件。它这样做的原因通常是剥离级别太激进。例如，如果 AssetBundle 中有一个预制件引用 2D SpriteShape 包中的 SpriteShape 组件，则对象可能会缺失并且可能会生成编译器警告。</p>
 
-<p>To fix this, you can either lower the stripping level for the UnityLinker or declare the package’s assemblies inside the <code>link.xml</code> file in order to preserve them from being stripped:</p>
+<p>若要解决此问题，可以降低 UnityLinker 的剥离级别或是在 <code>link.xml</code> 文件内声明包的程序集以便防止剥离它们：</p>
 
 <pre><code class="lang-xml">&lt;linker&gt;
     &lt;assembly fullname="Unity.2D.SpriteShape.Runtime" preserve="all"/&gt;
@@ -262,29 +301,40 @@
  &lt;/linker&gt;
 </code></pre>
 
-<p>For more information on stripping levels and the UnityLinker, see <a href="ManagedCodeStripping.html">Managed code stripping</a>.</p>
+<p>有关剥离级别和 UnityLinker 的更多信息，请参阅<a href="ManagedCodeStripping.html">托管代码剥离</a>。</p>
+
+<p><br> </p>
 
 <p><a name="Missing"></a></p>
 
 <h2>Package Manager 缺失或者窗口无法打开</h2>
 
-<p>如果您的 <code>package.manifest</code> 文件有格式错误，则在 Unity 控制台中将出现类似以下错误：</p>
+<p>Package Manager 窗口可能会移出屏幕或被另一个窗口隐藏。发生这种情况时，Package Manager 窗口似乎无法打开。在这种情况下，可以尝试重置窗口布局 (<strong>Window</strong> &gt; <strong>Layouts</strong> &gt; <strong>Default</strong>) 并重新打开 Package Manager 窗口。</p>
+
+<p>如果 Package Manager 窗口仍未出现，请检查 Unity Console 窗口：</p>
 
 <pre><code>Failed to resolve packages: The file [&lt;project-path&gt;/Packages/manifest.json] is not valid JSON:
   Unexpected token '}' at 44:1
   }
 </code></pre>
 
-<p>You can use the information contained in the error message to fix the JSON. There are a number of online validators that you can use to try to correct the problem. Once you save the corrected file, Unity reloads the Package Manager window.</p>
+<p>此错误消息表明 <code>manifest.json</code> 文件格式错误。它还告诉您 Package Manager 无法解析文件的行号，以便可以修复 JSON。您可以使用许多在线验证器来更正问题。保存更正的文件后，Unity 将重新加载 Package Manager 窗口。</p>
 
-<p>As of 2019.3, your <code>manifest.json</code> file should not contain any references to the <strong>com.unity.package-manager-ui</strong> package. You can either <a href="#Reset">reset your project’s package configuration</a> or remove the following line from the manifest’s dependencies list:</p>
+<p>如果您从早期版本的 Unity 编辑器升级，则包清单文件可能存在其他问题：</p>
+
+<ul>
+<li>
+<p>从 2019.3 开始，您的 <code>manifest.json</code> 文件不应包含对 <strong>com.unity.package-manager-ui</strong> 包的任何引用。可<a href="#Reset">重置项目的包配置</a>或从清单的依赖关系列表中删除以下行：</p>
 
 <pre><code class="lang-json">    "com.unity.package-manager-ui": "2.1.1",
 </code></pre>
-
-<p>If you are still experiencing problems, check to see if your project manifest uses <strong>“exclude”</strong> as a package version. This is an obsolete value for the <a href="upm-manifestPrj.html#dependencies">dependencies</a> property. If you find any lines like these, remove the entire line. Package Manager only installs packages that are explicitly included as a dependency in your project, so once you remove that entry, Package Manager ignores the package and doesn’t install it.</p>
+</li>
+<li><p>检查项目清单是否使用 <strong>“exclude”</strong> 作为包版本。这是 <a href="upm-manifestPrj.html#dependencies">dependencies</a> 属性的过时值。如果找到类似这些的行，请删除整行。Package Manager 仅安装在项目中作为依赖项显式包含的包，因此，一旦删除该条目，Package Manager 将忽略并且不会安装该包。</p></li>
+</ul>
 
 <p>如果 Package Manager 仍然无法加载，请遵循<a href="#Unrecognized">无法识别包</a>和<a href="#Reset">重置项目的包配置</a>下的步骤进行操作。</p>
+
+<p><br> </p>
 
 <p><a name="Upgrade"></a></p>
 
@@ -303,6 +353,8 @@
 <li>作为最后的选择，您可以<a href="#Reset">重置项目</a>（重置为默认的包配置），然后将包逐个添加回来，直到问题得到解决为止。</li>
 </ul>
 
+<p><br> </p>
+
 <p><a name="Failed"></a></p>
 
 <h2>包安装失败</h2>
@@ -318,9 +370,11 @@
 </li>
 </ul>
 
-<p>It might be a problem with the network. Check your <a href="upm-config-network.html#Firewall">firewall</a> and <a href="upm-config-network.html#Proxy">proxy</a> settings.</p>
+<p>可能是网络存在问题。检查您的<a href="upm-config-network.html#Firewall">防火墙</a>和<a href="upm-config-network.html#Proxy">代理</a>设置。</p>
 
 <p>有时，学校、政府机关或受网络保护的工作场所等机构环境会设置代理服务器来控制网络与互联网之间的通信，并使用自己的服务器证书，而 Unity 或 Package Manager 无法识别这些证书。请与您的网络管理员联系。</p>
+
+<p><br> </p>
 
 <p><a name="Unrecognized"></a></p>
 
@@ -342,9 +396,9 @@
 <p>3.使用 <a href="https://brew.sh/">homebrew</a> 来计划和安装 <strong>mono</strong>：</p>
 
 <pre><code>```lang-bash
-  brew update
-    brew install mono # optional
-    brew upgrade mono
+brew update
+brew install mono # optional
+brew upgrade mono
 ```
 </code></pre>
 
@@ -352,11 +406,15 @@
 
 <p>5.如果仍然遇到困难，请尝试重新启动计算机。</p>
 
+<p><br> </p>
+
 <p><a name="HostFXR"></a></p>
 
 <h2>Windows 上加载 hostfxr.dll 时出错</h2>
 
 <p>如果控制台报告说找到了 <code>hostfxr.dll</code> 库，但 Unity 无法从 <code>C:\&lt;path_to_app&gt;\hostfxr.dll</code> 加载该库，那么可以通过安装 <a href="https://support.microsoft.com/en-ca/help/2999226/update-for-universal-c-runtime-in-windows">KB2999226</a> 和 <a href="https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot">KB2533623</a> 补丁在 Windows 7 或 Windows Server 2008 R2 上修正此错误。</p>
+
+<p><br> </p>
 
 <p><a name="Reset"></a></p>
 
@@ -372,6 +430,8 @@
 <img src="../uploads/Main/upm-errors-reset.png" alt="Help &gt; Reset Packages to defaults">
 <figcaption>Help &gt; Reset Packages to defaults</figcaption>
 </figure>
+
+<p><br> </p>
 
 <p><a name="Cloning"></a></p>
 
@@ -390,30 +450,242 @@
 
 <p>4.检查是否成功重置了包。如果成功，则表示您可以安全地对原始项目执行操作。</p>
 
-<p><a name="ssh-add"></a></p>
+<p><br> </p>
 
-<h2>Git URL 的身份验证问题</h2>
+<p><a name="git-not-found"></a></p>
 
-<p>如果使用 SSH 协议<a href="upm-git.html#Git-SSH">通过 Git URL 来安装包</a>，即使您正在后台运行 <strong>ssh-agent</strong> 并且您的 PID 环境变量已正确设置，也可能会遇到来自 Git 的身份验证错误。</p>
+<h2>未找到“git”可执行文件</h2>
 
-<p>尽管您的脚本可以在后台成功启动 <strong>ssh-agent</strong>，但是导出的环境变量仅适用于运行脚本的 Bash shell 以及之后由该脚本启动的任何子进程。这是因为您的脚本无法更改父进程、无关进程或先前创建的子进程中的环境变量。即使脚本位于 <code>.bashrc</code> 中，也只会在 Bash shell 中执行。</p>
+<p>如果尝试从 git URL 安装包，则会出现与此类似的消息：</p>
 
-<p>通过双击 Unity 图标或使用 Hub 启动 Unity 或 Unity Hub（在 Windows 和 macOS 中）时，不会在 shell 中运行，因此不会执行脚本。这意味着 Unity Editor 进程不会设置这些变量，因此 Unity 调用的 Git 进程最终也不会设置这些变量。</p>
+<pre><code class="lang-shell">Cannot perform upm operation: Unable to add package
+[https://github.example.com/myuser/myrepository.git]:
+No 'git' executable was found.Please install Git on your system and restart Unity [NotFound]
+UnityEditor.EditorApplication:Internal_CallUpdateFunctions()
+</code></pre>
 
-<p>要解决此问题，可以执行以下操作之一：</p>
+<p><br> </p>
+
+<p><a name="git-lfs"></a></p>
+
+<h2>git-lfs：未找到命令</h2>
+
+<p>如果尝试下载使用 Git LFS（大型文件存储）的包，则可能会看到以下错误消息：</p>
+
+<pre><code class="lang-shell">Error when executing git command. git-lfs filter-process: command not found.
+</code></pre>
+
+<p>这表明您的计算机上可能未安装 Git LFS。若要确保安装，可以在命令行上进行测试：</p>
+
+<pre><code class="lang-shell">git lfs --version
+</code></pre>
+
+<p>如果看到如下所示的内容，则 Git LFS 已安装：</p>
+
+<pre><code class="lang-shell">git-lfs/2.8.0 (GitHub; darwin amd64; go 1.12.7)
+</code></pre>
+
+<p>否则，可以按照 <a href="https://www.atlassian.com/git/tutorials/git-lfs">Bitbucket</a> <a href="https://git-lfs.github.com/">GitHub</a> 说明进行安装。</p>
+
+<p><br> </p>
+
+<p><a name="bad-url"></a></p>
+
+<h2>Repository not found</h2>
+
+<p>如果您指定了不存在的位置，则在 <a href="Console.html">Unity 控制台</a>中会出现以下类似的消息：</p>
+
+<pre><code>Cannot perform upm operation: Unable to add package [https://mycompany.github.com/gitproject/com.mycompany.mypackage.git]:
+  Error when executing git command. fatal: repository 'https://mycompany.github.com/gitproject/com.mycompany.mypackage.git/' not found
+ [NotFound]
+UnityEditor.EditorApplication:Internal_CallUpdateFunctions() (at /Users/builduser/buildslave/unity/build/Editor/Mono/EditorApplication.cs:310)
+</code></pre>
+
+<p>请检查您的拼写。为了确保使用正确的 URL，请访问代码仓库的页面，然后通过 Clone 按钮复制 URL：</p>
+
+<figure>
+<img src="../uploads/Main/PackageManagerUI-GitURL-locate.png" alt="在 GitHub (A) 和 GitLab (B) 上复制 URL 的位置">
+<figcaption>在 GitHub (A) 和 GitLab (B) 上复制 URL 的位置</figcaption>
+</figure>
+
+<p>单击 GitHub <strong>(A)</strong> 或 GitLab <strong>(B)</strong> 上 URL 右侧的按钮以将 URL 复制到剪贴板。</p>
+
+<p>如果代码仓库的位置正确，则 URL 可能存在另一个问题：</p>
 
 <ul>
-<li>Open a Bash shell first (before opening the Hub) and <a href="CommandLineArguments.html">manually launch the Unity Editor</a> from that shell.</li>
-<li>如果您使用的是 Windows，则可以使用 <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/setx">setx</a> 命令在 Hub 进程启动之前在 Windows 注册表中永久设置环境变量。如果您可以确保脚本在启动时运行一次，并且 Hub 不会与 Windows 一起启动，则此解决方案最有效。例如：</li>
+<li>如果您的目标是特定修订版本，请确保您的修订版本排在最后。例如：<br>
+<code>https://github.example.com/myuser/myrepository1.git#revision</code>
+</li>
+<li>如果您的目标是修订版本并且包不在根处，请确保 <code>path</code> 查询参数位于修订版本锚点之前。例如：<br><code>https://github.example.com/myuser/myrepository.git?path=/example/folder#v1.2.3</code>
+</li>
 </ul>
 
-<pre><code class="lang-bash">  # Expose env variables to native windows
-    setx SSH_AGENT_PID "$SSH_AGENT_PID"
-    setx SSH_AUTH_SOCK "$SSH_AUTH_SOCK"
+<p><br> </p>
+
+<p><a name="prompts-disabled"></a></p>
+
+<h2>Could not read Username: terminal prompts disabled</h2>
+
+<p>如果您尝试从需要身份验证的专用代码仓库安装包，则在 Unity 控制台中会出现以下类似的消息：</p>
+
+<pre><code>Cannot perform upm operation: Unable to add package [https://mycompany.github.com/gitproject/com.mycompany.mypackage.git]:
+  Error when executing git command. fatal: could not read Username for 'https://mycompany.github.com': terminal prompts disabled
+ [NotFound]
+UnityEditor.EditorApplication:Internal_CallUpdateFunctions() (at /Users/builduser/buildslave/unity/build/Editor/Mono/EditorApplication.cs:310)
 </code></pre>
+
+<p>出现此消息可能是由于以下事实：Package Manager 没有提供用来输入 HTTP 的用户名和密码或者输入口令短语来解锁 SSH 密钥的交互式终端或对话框。</p>
+
+<ul>
+<li>
+<p>如果使用 <strong>HTTP(S)</strong>，每次登录 BitBucket、GitHub 或 GitLab 时，都需要在终端或对话框中输入用户名和密码。但是，Package Manager 没有提供用来输入 HTTP(S) 的用户名和密码的交互式终端或对话框。</p>
+
+<p>若要绕过此问题，请使用<a href="#https-auth">适用于的 HTTPS 解决方案</a>中建议的解决方法之一。</p>
+</li>
+<li>
+<p><strong>SSH</strong> 使用一对公有和私有 SSH 密钥。可以将公有 SSH 密钥添加到 <a href="https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/">Bitbucket</a>、<a href="https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh">GitHub</a> 或 <a href="https://gitlab.com/help/ssh/README.md">GitLab</a>，之后无需输入用户名和密码即可访问代码仓库。</p>
+
+<p>但是，如果您设置了一个口令短语来保护 SSH 密钥的安全，则仍然需要在终端或对话框中输入该口令短语以便授权密钥。在这种情况下，可以<a href="#ssh-add">使用 SSH 代理</a>，它可解锁您的 SSH 密钥以代表您向 Package Manager 进行身份验证。</p>
+</li>
+</ul>
+
+<p><br> </p>
+
+<p><a name="https-auth"></a></p>
+
+<h3>适用于 HTTPS 的解决方案</h3>
+
+<p>Package Manager 没有提供用来输入 HTTP(S) 用户名和密码的交互式终端或对话框。要绕过这一点，请使用下列其中一种变通方法：</p>
+
+<ul>
+<li>使用凭据管理器（<a href="https://github.com/Microsoft/Git-Credential-Manager-for-Windows">Git Credential Manager for Windows</a> 或 <a href="https://support.apple.com/en-ca/guide/keychain-access/welcome/mac">OSXKeyChain</a>）。凭据管理器无需使用终端或命令提示符即可处理密码发送。</li>
+<li>从终端或命令提示符窗口中使用 <a href="https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage">git-credentials</a>。然后，从同一终端启动 Hub，以便 Unity 可以访问缓存或存储的凭证。</li>
+<li>请改用 SSH 进行身份验证。如果您在没有口令短语的情况下设置 SSH 密钥，则 Package Manager 不必解密它即可向 Git 服务器进行身份验证。如果您决定使用口令短语增加安全性，则仍然可以在 <a href="#ssh-agent-macos">macOS</a> 或 <a href="#openssh-win">Windows</a> 上使用 <strong>ssh-agent</strong> 应对身份验证问题。</li>
+</ul>
+
+<p><br> </p>
+
+<p><a name="ssh-add"></a></p>
+
+<h3>适用于 SSH 的解决方案</h3>
+
+<p>如果您使用 SSH 协议<a href="upm-git.html#Git-SSH">通过 Git URL 安装包</a>，则可能会从 Git 收到身份验证错误。当您在受口令短语保护的本地计算机上设置私有 SSH 密钥时，通常会发生这种情况。</p>
+
+<p>此问题的解决方案是设置 SSH 代理，它可解锁您的 SSH 密钥以代表您向 Package Manager 进行身份验证。按照与您操作系统对应的部分中的说明进行操作：</p>
+
+<ul>
+<li><a href="#openssh-win">设置 OpenSSH for Windows</a></li>
+<li><a href="#ssh-agent-macos">将 SSH 密钥添加到适用于 macOS 的 SSH 代理</a></li>
+</ul>
+
+<p><br> </p>
+
+<p><a name="openssh-win"></a></p>
+
+<h4>设置 OpenSSH for Windows</h4>
+
+<p>原生 Windows OpenSSH 版本的 <strong>ssh-agent</strong> 比 Git for Windows 默认提供的版本效果更好。此过程说明如何设置 OpenSSH 客户端并将密钥添加到其 ssh-agent。如果使用 Git for Windows，则还可以使原生 Windows OpenSSH 优先于 Git for Windows SSH 代理：</p>
+
+<p>1.通过在 Windows Settings <strong>Optional features</strong> 窗口（<strong>Start</strong> &gt; <strong>Settings</strong>，然后搜索“Optional features”）中进行搜索，确保安装了 OpenSSH 客户端。这适用于 Windows 10+。</p>
+
+<p>2.检查 <code>%PATH%</code> 环境变量以确保显示原生 Windows OpenSSH 位置（例如 <code>C:\WINDOWS\System32\OpenSSH\</code>）。</p>
+
+<pre><code>**注意**：如果已在使用 Git for Windows，请确保在 `%PATH%` 变量中，原生 Windows OpenSSH 位置出现在 Git for Windows SSH 位置之前。这可确保 Windows 使用原生 Windows OpenSSH 代理而不是 Git for Windows SSH 代理。
+</code></pre>
+
+<p>3.在 PowerShell 终端中，启动 <code>ssh-agent</code> 进程并确保它自动启动：</p>
+
+<pre><code>```lang-powershell
+# Set the ssh-agent service to start automatically and manually start it now
+Get-Service ssh-agent | Set-Service -StartupType Automatic
+# Run the ssh-agent process to start the ssh-agent service
+ssh-agent
+```
+</code></pre>
+
+<p>4.在命令行上运行 <code>ssh-add</code>，然后按照说明进行操作，以将密钥导入 ssh-agent 中。默认情况下，代理会添加 <code>%USERPROFILE%\.ssh\id_rsa</code> 密钥并提示您输入密码。</p>
+
+<pre><code>```lang-powershell
+# Import the key
+ssh-add
+```
+
+若要使用不同的密钥，可以将它指定为参数：
+
+```lang-powershell
+# Set the ssh-agent service to start automatically and manually start it now
+ssh-add &lt;your-secure-ssh-key-name&gt;
+```
+
+如果您不记得密钥名称，则可以要求代理列出它们：
+
+```lang-powershell
+ssh-add -l
+```
+</code></pre>
+
+<p>5.如果您安装了 Git for Windows，请重置 <code>%GIT-SSH%</code> 环境变量以确保 Git 始终使用原生 Windows OpenSSH 版本的 ssh-agent：</p>
+
+<pre><code>```lang-powershell
+[Environment]::SetEnvironmentVariable("GIT_SSH", "$((Get-Command ssh).Source)", [System.EnvironmentVariableTarget]::User)
+```
+</code></pre>
+
+<p><br> </p>
+
+<p><a name="ssh-agent-macos"></a></p>
+
+<h4>将 SSH 密钥添加到适用于 macOS 的 SSH 代理</h4>
+
+<p>使用以下命令可将 SSH 密钥添加到在 macOS 系统上运行的 <a href="https://www.ssh.com/ssh/agent">ssh-agent</a>：</p>
+
+<pre><code class="lang-bash">ssh-add -K ~/.ssh/&lt;your-secure-ssh-key-name&gt;
+</code></pre>
+
+<p>运行此命令后，终端会要求输入密码以解锁您的 SSH 密钥，然后将它添加到 macOS 密钥链。但是，一旦您重新启动系统，存储在 ssh-agent 中的每个密钥都会重置。</p>
+
+<p>若要防止在重新启动系统后重新输入密码，请打开 <code>~/.ssh/config</code> 文件（如果找不到，则创建一个），并添加以下内容：</p>
+
+<pre><code class="lang-bash">Host *
+    UseKeychain yes
+    AddKeysToAgent yes
+    IdentityFile ~/.ssh/&lt;your-secure-ssh-key-name&gt;
+</code></pre>
+
+<p>重新启动计算机以应用这些更改。</p>
+
+<p><br> </p>
+
+<p><a name="locked-git"></a></p>
+
+<h2>无法更新 Git 版本</h2>
+
+<p>如果您尝试从代码仓库将 Git 依赖关系更新到较新版本，但它不起作用，则可能是因为您的 Git 依赖关系<a href="upm-conflicts-auto.html">已锁定</a>。如果要从代码仓库将 Git 依赖关系更新到较新版本，请使用 <a href="upm-ui-giturl.html">Add package from git URL</a> 按钮并输入 Git URL。有关更多信息，请参阅<a href="upm-git.html#git-locks">已锁定的 Git 依赖项</a>。</p>
+
+<p><br> </p>
+
+<p><a name="scoped-missing"></a></p>
+
+<h2>Package Manager 窗口中缺少“My Registries”</h2>
+
+<p>并非所有注册表提供程序都与 Unity 的 Package Manager 兼容。如果添加的包注册表服务器未实现 <code>/-/v1/search</code> 或 <code>/-/all</code> 终端，则<a href="upm-scoped.html">范围注册表</a>与 Unity 的 Package Manager 不兼容，不会出现在 Package Manager 窗口的 <a href="">My Registries</a> 上下文中。</p>
+
+<p><br> </p>
+
+<p><a name="failed-http-response"></a></p>
+
+<h2>My Assets 上下文中出现“无法解析 Http 响应”</h2>
+
+<p>如果您在尝试下载 Asset Store 资源包时在 Console 窗口中看到以下消息，则您的 Asset Store 缓存可能存在问题：</p>
+
+<p><code>[PackageManager] Error Failed to parse response.UnityEditor.AsyncHTTPClient![:D](https://forum.unity.com/styles/default/xenforo/clear.png)one(State, Int32)</code></p>
+
+<p>若要解决此问题，请从 <a href="AssetStorePackages.html#asset-location">Asset Store 资源包目录</a>中删除所有下载的资源，然后再次尝试下载资源。</p>
+
+<p><strong>警告</strong>：如果您的项目包含大量资源数据，则重新下载所有内容可能需要大量时间和带宽。</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="upm-localpath.html"></a></span><div class="tip">Local folder or tarball paths</div>
+<span class="prev"><a href="upm-localpath.html"></a></span><div class="tip">本地文件夹或 tarball 路径</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="upm-network.html"></a></span><div class="tip">网络问题</div>
@@ -422,7 +694,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

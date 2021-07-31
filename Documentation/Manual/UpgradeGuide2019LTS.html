@@ -14,8 +14,8 @@
 <meta property="og:title" content="升级到 Unity 2019 LTS - Unity 手册">
 <title>升级到 Unity 2019 LTS - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/upgrade2019-assetpipe01.png">
-<meta name="description" content="Note: Follow the advice in this section in release order. For example, if you need to upgrade your project from 2018 to 2020, read the 2019 upgrade guides to see if there are any changes that you need to make before you read the 2020 upgrade guides.">
-<meta property="og:description" content="Note: Follow the advice in this section in release order. For example, if you need to upgrade your project from 2018 to 2020, read the 2019 upgrade guides to see if there are any changes that you need to make before you read the 2020 upgrade guides.">
+<meta name="description" content="注意：按照版本顺序遵循此部分中的建议。例如，如果需要将项目从 2018 升级到 2020，请在阅读 2020 升级指南之前阅读 2019 升级指南，了解是否需要进行任何更改。">
+<meta property="og:description" content="注意：按照版本顺序遵循此部分中的建议。例如，如果需要将项目从 2018 升级到 2020，请在阅读 2020 升级指南之前阅读 2019 升级指南，了解是否需要进行任何更改。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,14 +175,14 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UnityOverview.html">在 Unity 中操作</a></li>
-<li><a href="UpgradeGuides.html">Upgrading Unity</a></li>
+<li><a href="UpgradeGuides.html">升级 Unity</a></li>
 <li>升级到 Unity 2019 LTS</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="UpgradeGuide2020LTS.html"></a></span><div class="tip">Upgrading to Unity 2020 LTS</div>
+<span class="prev"><a href="UpgradeGuide2020LTS.html"></a></span><div class="tip">升级到 Unity 2020 LTS</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="UpgradeGuide2018LTS.html"></a></span><div class="tip">升级到 Unity 2018 LTS</div>
@@ -193,9 +193,9 @@
 <div class="clear"></div>
 
 <p><a name="TopOfPage"></a>
-<strong>Note</strong>: Follow the advice in this section in release order. For example, if you need to upgrade your project from 2018 to 2020, read the 2019 upgrade guides to see if there are any changes that you need to make before you read the 2020 upgrade guides.</p>
+<strong>注意</strong>：按照版本顺序遵循此部分中的建议。例如，如果需要将项目从 2018 升级到 2020，请在阅读 2020 升级指南之前阅读 2019 升级指南，了解是否需要进行任何更改。</p>
 
-<p>This page lists changes in the Unity 2019 versions which might affect existing projects when you upgrade from any Unity 2018 version to 2019 LTS. If you’re upgrading from a Unity 2017 version, first see the <a href="UpgradeGuide2018LTS.html">Upgrading to Unity 2018 LTS</a> guide.</p>
+<p>本页面列出了从任何 Unity 2018 版本升级到 2019 LTS 时在 Unity 2019 版本中可能对现有项目造成影响的更改。如果要从 Unity 2017 版本升级，请首先参阅<a href="UpgradeGuide2018LTS.html">升级到 Unity 2018 LTS</a> 指南。</p>
 
 <p>请注意，<strong>2019 LTS</strong> 也称为 <strong>2019.4</strong>。</p>
 
@@ -216,8 +216,10 @@
 <li><a href="#Lighting">光照改进</a></li>
 <li><a href="#CompatibilityAttribute">UnityAPICompatibilityVersionAttribute 构造函数更改</a></li>
 <li><a href="#SystemRequirements">更改的系统要求</a></li>
-<li><a href="#Multiplayer">多玩家 (UNet) 高级 API 已移入包中</a></li>
-<li><a href="#UNITY_ADS">UNITY_ADS compiler directive removed</a></li>
+<li>
+<a href="#Multiplayer">多玩家 (UNet) 高级 API 已移入包中</a>
+*<a href="#UNITY_ADS">删除了 UNITY_ADS 编译器指令</a>
+</li>
 </ul>
 
 <hr>
@@ -496,13 +498,13 @@ Unity UI API 文档不再出现在主要的脚本 API 参考中。您可以从 U
 
 <p><a name="UNITY_ADS"></a></p>
 
-<h3>The UNITY_ADS directive was removed</h3>
+<h3>删除了 UNITY_ADS 指令</h3>
 
-<p>As of 2019.4, Unity no automatically defines <code>UNITY_ADS</code>. You need to either stop using <code>UNITY_ADS</code> in your scripts, or create a new custom global #define for it. See the <a href="PlatformDependentCompilation.html#GlobalCustomDefines">Platform Dependent Compilation</a> page for guidance on how to create a new custom global #define.</p>
+<p>截至 2019.4，Unity 没有自动定义 <code>UNITY_ADS</code>。您需要在脚本中停止使用 <code>UNITY_ADS</code>，或为其创建一个新的自定义全局 #define。有关如何创建新的自定义全局 #define 的指南，请参阅 <a href="PlatformDependentCompilation.html#GlobalCustomDefines">Platform Dependent Compilation</a> 页面。</p>
 <!-- area:none -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="UpgradeGuide2020LTS.html"></a></span><div class="tip">Upgrading to Unity 2020 LTS</div>
+<span class="prev"><a href="UpgradeGuide2020LTS.html"></a></span><div class="tip">升级到 Unity 2020 LTS</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="UpgradeGuide2018LTS.html"></a></span><div class="tip">升级到 Unity 2018 LTS</div>
@@ -511,7 +513,7 @@ Unity UI API 文档不再出现在主要的脚本 API 参考中。您可以从 U
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

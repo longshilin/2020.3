@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="ShaderLab：旧版 Fog 命令 - Unity 手册">
-<title>ShaderLab：旧版 Fog 命令 - Unity 手册</title>
-<meta name="description" content="通过 Fog 命令控制 Fog 参数。">
-<meta property="og:description" content="通过 Fog 命令控制 Fog 参数。">
+<meta property="og:title" content="ShaderLab：旧版 Fog - Unity 手册">
+<title>ShaderLab：旧版 Fog - Unity 手册</title>
+<meta name="description" content="注意：此页面上的 ShaderLab 是旧版功能，仅用于向后兼容。如果着色器源文件包含 HLSL 代码，Unity 将完全忽略这些命令。如果着色器源文件不包含 HLSL 代码，Unity 会在导入时将这些命令编译为常规着色器程序。">
+<meta property="og:description" content="注意：此页面上的 ShaderLab 是旧版功能，仅用于向后兼容。如果着色器源文件包含 HLSL 代码，Unity 将完全忽略这些命令。如果着色器源文件不包含 HLSL 代码，Unity 会在导入时将这些命令编译为常规着色器程序。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,87 +174,131 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
-<li><a href="ShadersOverview.html">编写着色器</a></li>
-<li><a href="SL-Reference.html">着色器参考</a></li>
-<li><a href="SL-Shader.html">ShaderLab 语法</a></li>
-<li><a href="SL-SubShader.html">ShaderLab：SubShader</a></li>
-<li><a href="SL-Pass.html">ShaderLab：Pass</a></li>
-<li>ShaderLab：旧版 Fog 命令</li>
+<li><a href="Shaders.html">着色器</a></li>
+<li><a href="shader-writing.html">编写着色器</a></li>
+<li><a href="SL-Reference.html">ShaderLab</a></li>
+<li><a href="shader-shaderlab-commands.html">ShaderLab：命令</a></li>
+<li><a href="shader-shaderlab-legacy.html">ShaderLab 旧版功能</a></li>
+<li>ShaderLab：旧版 Fog</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-AlphaTest.html"></a></span><div class="tip">ShaderLab：旧版 Alpha 测试</div>
+<span class="prev"><a href="shader-shaderlab-legacy.html"></a></span><div class="tip">ShaderLab 旧版功能</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-BindChannels.html"></a></span><div class="tip">ShaderLab：旧版 BindChannels</div>
+<span class="next"><a href="SL-Material.html"></a></span><div class="tip">ShaderLab：旧版光照</div>
 </div>
 </div></div>
-<h1>ShaderLab：旧版 Fog 命令</h1>
+<h1>ShaderLab：旧版 Fog</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>通过 Fog 命令控制 Fog 参数。</p>
+<p><strong>注意</strong>：此页面上的 ShaderLab 是旧版功能，仅用于向后兼容。如果着色器源文件包含 HLSL 代码，Unity 将完全忽略这些命令。如果着色器源文件不包含 HLSL 代码，Unity 会在导入时将这些命令编译为常规着色器程序。</p>
 
-<p>雾化效果根据与摄像机的距离将所生成像素的颜色向下混合为恒定颜色。雾化不会修改混合后像素的 Alpha 值，而只是修改其 RGB 分量。</p>
+<h2>渲染管线兼容性</h2>
 
-<h2>语法</h2>
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
 
-<h3>Fog</h3>
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>功能名称</strong></th>
+	<th style="text-align:left;"><strong>内置渲染管线</strong></th>
+	<th style="text-align:left;"><strong>通用渲染管线 (URP)</strong></th>
+	<th style="text-align:left;"><strong>高清渲染管线 (HDRP)</strong></th>
+	<th style="text-align:left;"><strong>自定义 SRP</strong></th>
+</tr>
+</thead>
 
-<pre><code>    Fog {Fog 命令}
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>旧版雾</strong></td>
+	<td style="text-align:left;">是</td>
+	<td style="text-align:left;">否</td>
+	<td style="text-align:left;">否</td>
+	<td style="text-align:left;">否</td>
+</tr>
+</tbody>
+</table>
+
+<h1>概述</h1>
+
+<p>在使用旧版固定函数样式命令编写的着色器中，使用 Fog 命令可启用或禁用 Unity 的内置雾。</p>
+
+<p>使用 <a href="../ScriptReference/RenderSettings.html">RenderSettings</a> 类或 <a href="lighting-window.html">Lighting 窗口</a> 将项目设置配置为内置雾效果，然后使用此命令可在给定的通道中启用或禁用雾。</p>
+
+<p>雾化效果根据与摄像机的距离将所生成像素的颜色向下混合为给定颜色。雾化不会修改混合后像素的 Alpha 值，而只是修改其 RGB 分量。</p>
+
+<h2>有效参数值</h2>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>参数</strong></th>
+	<th style="text-align:left;"><strong>值</strong></th>
+	<th style="text-align:left;"><strong>功能</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>Mode</strong></td>
+	<td style="text-align:left;"><code>Off</code></td>
+	<td style="text-align:left;">不对此通道应用内置雾。</td>
+</tr>
+<tr>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"><code>Global</code></td>
+	<td style="text-align:left;">根据项目设置，将内置雾应用于此通道。<br><br>请注意，如果在项目设置中禁用了雾，Unity 不会将其应用于此通道。</td>
+</tr>
+</tbody>
+</table>
+
+<h2>示例</h2>
+
+<p>此示例代码演示在 Pass 代码块中使用此命令的语法。</p>
+
+<pre><code>Shader "Examples/FogExample"
+{
+    SubShader
+    {
+         // 此处是定义子着色器的其余代码。
+
+        Pass
+        {    
+              Fog Off
+            
+              // 此处是定义通道的其余代码。
+        }
+    }
+}
 </code></pre>
-
-<p>在花括号中指定 Fog 命令。</p>
-
-<h3>Mode</h3>
-
-<pre><code>    Mode Off | Global | Linear | Exp | Exp2
-</code></pre>
-
-<p>定义雾模式。默认值是 Global，可转换为 Off 或 Exp2，具体取决于是否在渲染设置 (Render Settings) 中开启了雾效。</p>
-
-<h3>Color</h3>
-
-<pre><code>    Color ColorValue
-</code></pre>
-
-<p>设置雾效颜色。</p>
-
-<h3>Density</h3>
-
-<pre><code>    Density FloatValue
-</code></pre>
-
-<p>设置指数雾效的强度。</p>
-
-<h3>Range</h3>
-
-<pre><code>    Range FloatValue, FloatValue
-</code></pre>
-
-<p>设置线性雾效的远近范围。</p>
-
-<h2>详细信息</h2>
-
-<p>默认雾效设置基于 <a href="lighting-window.html">Lighting</a> 窗口中的设置：雾模式为 <strong>Exp2</strong> 还是 __Off__；强度和颜色也是获取自这些设置。</p>
-
-<p>请注意，如果使用<a href="SL-ShaderPrograms.html">片元程序</a>，则仍将应用着色器的雾效设置。如果平台上不存在固定函数雾效功能，Unity 将在运行时修补着色器，以支持请求的雾模式。</p>
-<!-- area:graphics -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="SL-AlphaTest.html"></a></span><div class="tip">ShaderLab：旧版 Alpha 测试</div>
+<span class="prev"><a href="shader-shaderlab-legacy.html"></a></span><div class="tip">ShaderLab 旧版功能</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="SL-BindChannels.html"></a></span><div class="tip">ShaderLab：旧版 BindChannels</div>
+<span class="next"><a href="SL-Material.html"></a></span><div class="tip">ShaderLab：旧版光照</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

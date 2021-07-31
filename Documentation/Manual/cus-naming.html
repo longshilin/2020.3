@@ -174,7 +174,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="PackagesList.html">包</a></li>
 <li><a href="CustomPackages.html">创建自定义包</a></li>
 <li>为包命名</li>
@@ -198,14 +198,17 @@
 <p>正式名称必须遵循 Unity Package Manager 命名约定，也就是使用反向域名表示法。名称必须满足以下条件：</p>
 
 <ul>
-<li>以 <strong>com.&lt;公司名称&gt;</strong> 开头。例如，一个正式的 Unity 包为“<strong>com.unity.timeline</strong>”。</li>
-<li>如果您希望正式名称显示在 UI 中，则长度不能超过 50 个字符。如果包名称不需要出现在 UI 中，则 Unity Package Manager 会将名称长度限制为不超过 214 个字符。</li>
+<li>以 <strong>&lt;域名扩展&gt;.&lt;公司名称&gt;</strong>（例如，<code>com.example</code> 或 <code>net.example</code>）开头，即使公司或网站名称以数字开头也是如此。</li>
+<li>如果您希望正式名称显示在编辑器中，则长度不能超过 50 个字符。如果包名称不需要出现在编辑器中，则 Unity Package Manager 会将名称长度限制为不超过 214 个字符。</li>
 <li>只能包含小写字母、数字、连字符 (-)、下划线 (_) 和句点 (.)</li>
 <li>要指示嵌套的命名空间，请为命名空间添加一个句点作为后缀。例如，“<strong>com.unity.2d.animation</strong>”和“<strong>com.unity.2d.ik</strong>”。</li>
 </ul>
 
+<p>例如，“<strong>com.unity.2d.animation</strong>” 和 “<strong>com.unity.2d.ik</strong>” 是两个 Unity 2D 包的名称，但位于 https://example.net 的自定义包开发人员可能创建一个名为 “<strong>net.example.physics</strong>” 的包。</p>
+
+<p><strong>注意</strong>：这些命名限制仅适用于包名本身，不需要与代码中的命名空间相匹配。例如，您可以使用 <code>Project3dBase</code> 作为名为 <strong>net.example.3d.base</strong> 的包中的命名空间。</p>
+
 <p><br> </p>
-<!-- area:authoring -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="CustomPackages.html"></a></span><div class="tip">创建自定义包</div>
@@ -217,7 +220,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

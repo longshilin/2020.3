@@ -13,8 +13,8 @@
 <meta name="twitter:card" content="summary">
 <meta property="og:title" content="创建 DownloadHandler - Unity 手册">
 <title>创建 DownloadHandler - Unity 手册</title>
-<meta name="description" content="注意：已弃用 UNet，未来会将其删除。一个新系统正在开发中。如需了解更多信息和后续步骤，请参阅此博客文章以及常见问题解答 (FAQ)">
-<meta property="og:description" content="注意：已弃用 UNet，未来会将其删除。一个新系统正在开发中。如需了解更多信息和后续步骤，请参阅此博客文章以及常见问题解答 (FAQ)">
+<meta name="description" content="DownloadHandlers 有多种类型：">
+<meta property="og:description" content="DownloadHandlers 有多种类型：">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,7 +174,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UNet.html">多玩家和联网</a></li>
 <li><a href="UnityWebRequest.html">UnityWebRequest</a></li>
 <li><a href="UnityWebRequest-LLAPI.html">高级操作：使用 LLAPI</a></li>
@@ -192,7 +192,24 @@
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p><strong>注意</strong>：已弃用 UNet，未来会将其删除。一个新系统正在开发中。如需了解更多信息和后续步骤，请参阅此<a href="https://blogs.unity3d.com/2018/08/02/evolving-multiplayer-games-beyond-unet/">博客文章</a>以及<a href="https://support.unity3d.com/hc/en-us/articles/360001252086-UNet-Deprecation-FAQ">常见问题解答 (FAQ)</a></p>
+<table>
+<colgroup>
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">
+<strong>重要</strong>：UNet 是一个已弃用的解决方案，新的多玩家和联网解决方案 (MLAPI) 正在开发中。有关更多信息和后续步骤，请参阅 <a href="https://docs-multiplayer.unity3d.com/">Unity MLAPI 网站</a>上的信息。</td>
+</tr>
+</tbody>
+</table>
 
 <p><code>DownloadHandlers</code> 有多种类型：</p>
 
@@ -208,7 +225,7 @@
 <li>
 <code>DownloadHandlerAudioClip</code> 用于下载音频文件。</li>
 <li>
-<code>DownloadHandlerMovieTexture</code> is used for downloading video files. It’s recommended that you use <a href="../ScriptReference/Video.VideoPlayer.html">VideoPlayer</a> for video download and movie playback since MovieTexture is deprecated.</li>
+<code>DownloadHandlerMovieTexture</code> 用于下载视频文件。由于 MovieTexture 已被弃用，因此建议您使用 <a href="../ScriptReference/Video.VideoPlayer.html">VideoPlayer</a> 进行视频下载和电影播放。</li>
 <li>
 <code>DownloadHandlerScript</code> 是一个特殊类。就其本身而言，不会执行任何操作。但是，此类可由用户定义的类继承。此类接收来自 UnityWebRequest 系统的回调，然后可以使用这些回调在数据从网络到达时执行完全自定义的数据处理。</li>
 </ul>
@@ -234,7 +251,7 @@ public class MyBehaviour : MonoBehaviour {
     }
 
     IEnumerator GetText() {
-        UnityWebRequest www = new UnityWebRequest("http://www.my-server.com");
+        UnityWebRequest www = new UnityWebRequest("https://www.my-server.com");
         www.downloadHandler = new DownloadHandlerBuffer();
         yield return www.SendWebRequest();
 
@@ -305,7 +322,7 @@ public class ImageDownloader : MonoBehaviour {
 
     void Start () {
         _img = GetComponent&lt;UnityEngine.UI.Image&gt;();
-        Download("http://www.mysite.com/myimage.png");
+        Download("https://www.mysite.com/myimage.png");
     }
 
     public void Download(string url) {
@@ -350,7 +367,7 @@ public class MyBehaviour : MonoBehaviour {
     }
 
     IEnumerator GetAssetBundle() {
-        UnityWebRequest www = new UnityWebRequest("http://www.my-server.com");
+        UnityWebRequest www = new UnityWebRequest("https://www.my-server.com");
         DownloadHandlerAssetBundle handler = new DownloadHandlerAssetBundle(www.url, uint.MaxValue);
         www.downloadHandler = handler;
         yield return www.SendWebRequest();
@@ -383,7 +400,7 @@ public class AudioDownloader : MonoBehaviour {
     }
 
     IEnumerator GetAudioClip() {
-        using (var uwr = UnityWebRequestMultimedia.GetAudioClip("http://myserver.com/mysound.ogg", AudioType.OGGVORBIS)) {
+        using (var uwr = UnityWebRequestMultimedia.GetAudioClip("https://myserver.com/mysound.ogg", AudioType.OGGVORBIS)) {
             yield return uwr.SendWebRequest();
             if (uwr.result != UnityWebRequest.Result.Success) {
                 Debug.LogError(uwr.error);
@@ -449,23 +466,23 @@ using UnityEngine.Networking;
 
 public class LoggingDownloadHandler : DownloadHandlerScript {
 
-    // Standard scripted download handler - allocates memory on each ReceiveData callback
+    // 标准脚本化下载处理程序 - 在每个 ReceiveData 回调时分配内存
 
     public LoggingDownloadHandler(): base() {
     }
 
-    // Pre-allocated scripted download handler
-    // reuses the supplied byte array to deliver data.
+    // 预先分配的脚本化下载处理程序
+    // 重用提供的字节数组来传递数据。
     // Eliminates memory allocation.
 
     public LoggingDownloadHandler(byte[] buffer): base(buffer) {
     }
 
-    // Required by DownloadHandler base class. Called when you address the 'bytes' property.
+    // 对于 DownloadHandler 基类而言是必需的。在处理 'bytes' 属性时调用。
 
     protected override byte[] GetData() { return null; }
 
-    // Called once per frame when data has been received from the network.
+    // 从网络收到数据后每帧调用一次。
 
     protected override bool ReceiveData(byte[] data, int dataLength) {
         if(data == null || data.Length &lt; 1) {
@@ -477,13 +494,13 @@ public class LoggingDownloadHandler : DownloadHandlerScript {
         return true;
     }
 
-    // Called when all data has been received from the server and delivered via ReceiveData.
+    // 从服务器收到所有数据并通过 ReceiveData 传递后调用。
 
     protected override void CompleteContent() {
         Debug.Log("LoggingDownloadHandler :: CompleteContent - DOWNLOAD COMPLETE!");
     }
 
-    // Called when a Content-Length header is received from the server.
+    // 从服务器收到 Content-Length 标头时调用。
 
     protected override void ReceiveContentLengthHeader(ulong contentLength) {
         Debug.Log(string.Format("LoggingDownloadHandler :: ReceiveContentLength - length {0}", contentLength));
@@ -502,7 +519,7 @@ public class LoggingDownloadHandler : DownloadHandlerScript {
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

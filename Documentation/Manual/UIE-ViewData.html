@@ -13,14 +13,14 @@
 <meta name="twitter:card" content="summary">
 <meta property="og:title" content="ViewData 持久性 - Unity 手册">
 <title>ViewData 持久性 - Unity 手册</title>
-<meta name="description" content="ViewData API 可解决以下问题：具有特定于 UI 的状态、不是数据的一部分、
-在域重新加载后仍存在和 Editor 重新启动。思路是在每个
-EditorWindow 上有一个持久数据存储。每个 VisualElement 都有
-一个 viewDataKey，必须设置它才能启用 ViewData 持久性。">
-<meta property="og:description" content="ViewData API 可解决以下问题：具有特定于 UI 的状态、不是数据的一部分、
-在域重新加载后仍存在和 Editor 重新启动。思路是在每个
-EditorWindow 上有一个持久数据存储。每个 VisualElement 都有
-一个 viewDataKey，必须设置它才能启用 ViewData 持久性。">
+<meta name="description" content="The ViewData API solves the problem of having a UI-specific state, not part of
+the data, survive domain reload and Editor restarts. The idea is to have a
+persistent data store on each EditorWindow. Each VisualElement has a
+viewDataKey that must be set to enable ViewData persistence.">
+<meta property="og:description" content="The ViewData API solves the problem of having a UI-specific state, not part of
+the data, survive domain reload and Editor restarts. The idea is to have a
+persistent data store on each EditorWindow. Each VisualElement has a
+viewDataKey that must be set to enable ViewData persistence.">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -180,14 +180,14 @@ EditorWindow 上有一个持久数据存储。每个 VisualElement 都有
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="UIToolkits.html">Creating user interfaces (UI)</a></li>
-<li><a href="UIElements.html">UI Toolkit</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="UIToolkits.html">创建用户界面 (UI)</a></li>
+<li><a href="UIElements.html">UI 工具包</a></li>
 <li>ViewData 持久性</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="UIE-IMGUI.html"></a></span><div class="tip">支持 IMGUI</div>
+<span class="prev"><a href="UIE-IMGUI.html"></a></span><div class="tip">IMGUI 支持</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="com.unity.ugui.html"></a></span><div class="tip">Unity UI</div>
@@ -197,10 +197,10 @@ EditorWindow 上有一个持久数据存储。每个 VisualElement 都有
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>ViewData API 可解决以下问题：具有特定于 UI 的状态、不是数据的一部分、
-在域重新加载后仍存在和 Editor 重新启动。思路是在每个
-<code>EditorWindow</code> 上有一个持久数据存储。每个 <code>VisualElement</code> 都有
-一个 <code>viewDataKey</code>，必须设置它才能启用 <code>ViewData</code> 持久性。</p>
+<p>The ViewData API solves the problem of having a UI-specific state, not part of
+the data, survive domain reload and Editor restarts. The idea is to have a
+persistent data store on each <code>EditorWindow</code>. Each <code>VisualElement</code> has a
+<code>viewDataKey</code> that must be set to enable <code>ViewData</code> persistence.</p>
 
 <h2>用法</h2>
 
@@ -208,18 +208,11 @@ EditorWindow 上有一个持久数据存储。每个 VisualElement 都有
 
 <p>只要元素具有有效的 <code>viewDataKey</code>，就可启用视图数据持久性。唯一的例外是一个元素位于其父级的阴影树（而不是其逻辑父级的 <code>contentContainer</code> 的物理子项）中的时候。在此情况下，父级必须为其阴影树中的子项设置自己的 <code>viewDataKey</code> 才会具有持久性。</p>
 
-<p>例如，在 <code>ScrollView</code> 中，每个滚动条都有自己的 <code>viewDataKey</code>，它在 <code>ScrollView</code> 元素中是唯一的。<code>ScrollView</code> 没有设置键时，
-滚动条不会具有持久性。否则，滚动条会将其 <code>viewDataKey</code> 与父级 <code>viewDataKey</code> 组合起来以创建全局唯一键。</p>
-
-<hr>
-
-<ul>
-<li><span class="page-edit">2018–11–02 页面已修订</span></li>
-</ul>
-<!-- area:authoring -->
+<p>For example, in <code>ScrollView</code>, each scroll bar has its own <code>viewDataKey</code> that is unique within the <code>ScrollView</code> element. When the <code>ScrollView</code> has no key set,
+the scroll bars aren’t persistent. Otherwise, the scroll bars will combine their <code>viewDataKey</code> with the parent <code>viewDataKey</code> to create a unique global key.</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="UIE-IMGUI.html"></a></span><div class="tip">支持 IMGUI</div>
+<span class="prev"><a href="UIE-IMGUI.html"></a></span><div class="tip">IMGUI 支持</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="com.unity.ugui.html"></a></span><div class="tip">Unity UI</div>
@@ -228,7 +221,7 @@ EditorWindow 上有一个持久数据存储。每个 VisualElement 都有
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

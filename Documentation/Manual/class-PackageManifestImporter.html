@@ -14,8 +14,8 @@
 <meta property="og:title" content="Package Manifest 窗口 - Unity 手册">
 <title>Package Manifest 窗口 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/class-PackageManifestImporter.png">
-<meta name="description" content="When you click on the package manifest file in the Project view, the Package Manifest window opens:">
-<meta property="og:description" content="When you click on the package manifest file in the Project view, the Package Manifest window opens:">
+<meta name="description" content="在 Project 视图中单击资源包清单文件时，将打开 Package Manifest 窗口：">
+<meta property="og:description" content="在 Project 视图中单击资源包清单文件时，将打开 Package Manifest 窗口：">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="PackagesList.html">包</a></li>
 <li><a href="Packages.html">Unity 的 Package Manager</a></li>
 <li><a href="upm-inspect.html">检查包</a></li>
@@ -193,18 +193,18 @@
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>When you click on the package manifest file in the Project view, the Package Manifest window opens:</p>
+<p>在 Project 视图中单击资源包清单文件时，将打开 Package Manifest 窗口：</p>
 
 <figure>
 <img src="../uploads/Main/class-PackageManifestImporter.png" alt="在 Editor 中检查资源包清单">
 <figcaption>在 Editor 中检查资源包清单</figcaption>
 </figure>
 
-<p><strong>(A)</strong> Click the <strong>Open</strong> button to load this package manifest in your default code editor, such as Visual Studio. Click the <strong>View in Package Manager</strong> button to open the Package Manager window and load this package in the <a href="upm-ui-details.html">details view</a>.</p>
+<p><strong>(A)</strong> 单击 <strong>Open</strong> 按钮可在默认代码编辑器（例如 Visual Studio）中加载此资源包清单。单击 <strong>View in Package Manager</strong> 按钮可打开 Package Manager 窗口并在<a href="upm-ui-details.html">详细信息视图</a>中加载此资源包。如果需要选择其他导入器，请从 <strong>Importer</strong> 下拉菜单选择要使用的包导入器。</p>
 
 <p><strong>(B)</strong> <a href="#Info">Information</a> 部分包含有关这个特定资源包版本的详细信息。</p>
 
-<p><strong>(C)</strong> Use the <strong>Brief Description</strong> text box to specify the text that you want to appear in the <a href="upm-ui-details.html">details view</a> of the Package Manager window. For more information, see the documentation for the <a href="upm-manifestPkg.html#description">description</a> attribute. </p>
+<p><strong>(C)</strong> 使用 <strong>Brief Description</strong> 文本框来指定要在 Package Manager 窗口的<a href="upm-ui-details.html">详细信息视图</a>中显示的文本。有关更多信息，请参阅 <a href="upm-manifestPkg.html#description">description</a> 属性的文档。</p>
 
 <p><strong>(D)</strong> 使用 <a href="#Depend">Dependencies</a> 部分来管理此资源包所依赖的资源包列表。</p>
 
@@ -235,19 +235,27 @@
 <tbody>
 <tr>
 	<td style="text-align:left;"><strong>名称</strong></td>
-	<td style="text-align:left;">此资源包在 Unity 的正式名称。有关更多信息，请参阅 <a href="upm-manifestPkg.html#name">name</a> 属性的文档。</td>
+	<td style="text-align:left;">此资源包的正式<a href="upm-manifestPkg.html#name">名称</a>。对于 Unity 包，这是简称（开头不带 <code>com.unity.</code> 字符串的正式名称。）</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Organization name</strong></td>
+	<td style="text-align:left;">创建了这个包的 <a href="OrgsUnityOrganizations.html">Unity 组织</a>的标识符。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Display name</strong></td>
 	<td style="text-align:left;">在 Project 视图和 Package Manager 中显示的面向用户的名称。有关更多信息，请参阅 <a href="upm-manifestPkg.html#displayName">displayName</a> 属性的文档。</td>
 </tr>
 <tr>
-	<td style="text-align:left;"><strong>Version</strong></td>
-	<td style="text-align:left;">资源包版本号。有关更多信息，请参阅 <a href="upm-manifestPkg.html#version">version</a> 属性的文档。</td>
+	<td style="text-align:left;"><strong>版本</strong></td>
+	<td style="text-align:left;">包版本号。有关更多信息，请参阅 <a href="upm-manifestPkg.html#version">version</a> 属性的文档。</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Type</strong></td>
+	<td style="text-align:left;">包的类型。这些值保留供内部使用。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Minimal Unity version</strong></td>
-	<td style="text-align:left;">启用此选项可以指定这个资源包兼容的最低 Unity 版本。启用此选项时，将显示 <strong>Major</strong>、<strong>Minor</strong> 和 <strong>Release</strong> 属性。<br><br>禁用此选项表示这个资源包与所有 Unity 版本都兼容，并会删除 <strong>Major</strong>、<strong>Minor</strong> 和 <strong>Release</strong> 属性。<br><br>有关更多信息，请参阅 <a href="upm-manifestPkg.html#unity">unity</a> 属性的文档。</td>
+	<td style="text-align:left;">启用此选项可以指定这个包兼容的最低 Unity 版本。如果启用此选项，将显示 <strong>Major</strong>、<strong>Minor</strong> 和 <strong>Release</strong> 属性。<br><br>禁用此选项表示这个包与所有 Unity 版本都兼容，并会删除 <strong>Major</strong>、<strong>Minor</strong> 和 <strong>Release</strong> 属性。<br><br>有关更多信息，请参阅 <a href="upm-manifestPkg.html#unity">unity</a> 属性的文档。</td>
 </tr>
 <tr>
 	<td style="text-align:left;"><strong>Major</strong></td>
@@ -277,18 +285,20 @@
 
 <p>要添加新的依赖项，请执行以下操作：</p>
 
-<p>1.单击<strong>添加</strong> <img src="../uploads/Main/PackageManagerUI-add.png" alt=""> 按钮。此时会在列表中显示一个新行。
-2.填写 <strong>Package name</strong> 和 <strong>Version</strong> 字段。有关更多信息，请参阅 <a href="upm-manifestPkg.html#dependencies">dependencies</a> 属性的文档。</p>
+<p>1.单击添加 Add <img src="../uploads/Main/PackageManagerUI-add.png" alt=""> 按钮。此时会在列表中显示一个新行。
+2.在左边输入包名，在右边输入版本。有关更多信息，请参阅 <a href="upm-manifestPkg.html#dependencies">dependencies</a> 属性的文档。</p>
 
 <p>要删除依赖项，请执行以下操作：</p>
 
-<p>1.在要删除的条目的行上，单击 <strong>Package name</strong> 属性的左侧。
-2.单击<strong>删除</strong> <img src="../uploads/Main/PackageManagerUI-remove.png" alt=""> 按钮。这一行将在列表中消失。</p>
+<p>1.单击要删除的包左侧的选择器 (<code>=</code>)。
+2.单击 Remove <img src="../uploads/Main/PackageManagerUI-remove.png" alt=""> 按钮。这一行将在列表中消失。</p>
+
+<p><br> </p>
 
 <hr>
 
 <ul>
-<li><span class="page-history">在 Unity <a href="https://docs.unity3d.com/2019.1/Documentation/Manual/30_search.html?q=newin20191">2019.1</a> 中添加了自定义资源包 (Custom Packages) <span class="search-words">NewIn20191</span></span></li>
+<li><span class="page-history">在 Unity <a href="https://docs.unity3d.com/2019.1/Documentation/Manual/30_search.html?q=newin20191">2019.1</a> 中添加了自定义包 <span class="search-words">NewIn20191</span></span></li>
 </ul>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
@@ -301,7 +311,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

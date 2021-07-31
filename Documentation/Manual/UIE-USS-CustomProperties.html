@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="USS custom properties (variables) - Unity 手册">
-<title>USS custom properties (variables) - Unity 手册</title>
-<meta name="description" content="USS variables, also called custom properties, define values that you can reuse in other USS rules. You can create variables for any type of USS property.">
-<meta property="og:description" content="USS variables, also called custom properties, define values that you can reuse in other USS rules. You can create variables for any type of USS property.">
+<meta property="og:title" content="USS 自定义属性（变量） - Unity 手册">
+<title>USS 自定义属性（变量） - Unity 手册</title>
+<meta name="description" content="USS 变量，也称为自定义属性，定义了可以在其他 USS 规则中重用的值。您可以为任何类型的 USS 属性创建变量。">
+<meta property="og:description" content="USS 变量，也称为自定义属性，定义了可以在其他 USS 规则中重用的值。您可以为任何类型的 USS 属性创建变量。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,32 +174,32 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="UIToolkits.html">Creating user interfaces (UI)</a></li>
-<li><a href="UIElements.html">UI Toolkit</a></li>
-<li><a href="UIE-USS.html">样式和 Unity 样式表</a></li>
-<li>USS custom properties (variables)</li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="UIToolkits.html">创建用户界面 (UI)</a></li>
+<li><a href="UIElements.html">UI 工具包</a></li>
+<li><a href="UIE-USS.html">Unity style sheets (USS)</a></li>
+<li>USS 自定义属性（变量）</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="UIE-USS-SupportedProperties.html"></a></span><div class="tip">USS 支持的属性</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="UIE-USS-UnityVariables.html"></a></span><div class="tip">Built-in Unity variables</div>
+<span class="next"><a href="UIE-USS-UnityVariables.html"></a></span><div class="tip">内置 Unity 变量</div>
 </div>
 </div></div>
-<h1>USS custom properties (variables)</h1>
+<h1>USS 自定义属性（变量）</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>USS variables, also called custom properties, define values that you can reuse in other USS rules. You can create variables for any type of USS property.</p>
+<p>USS 变量，也称为自定义属性，定义了可以在其他 USS 规则中重用的值。您可以为任何类型的 USS 属性创建变量。</p>
 
-<p>To create a USS variable, prefix its name with a double-hyphen (<code>--</code>).</p>
+<p>要创建 USS 变量，请在其名称前加上双连字符（<code>--</code>）。</p>
 
 <pre><code class="lang-css">--color-1: red;
 </code></pre>
 
-<p>To use a USS variable value in another USS rule, use the <code>var()</code> function to call it.</p>
+<p>要在另一个 USS 规则中使用 USS 变量值，请使用 <code>var()</code> 函数来调用它。</p>
 
 <pre><code class="lang-css">var(--color-1);
 </code></pre>
@@ -217,14 +217,15 @@
 
 <tbody>
 <tr>
-	<td style="text-align:left;">The <code>var()</code> function also accepts an optional default value (see <a href="#specifying-default-values">Specifying default values</a> below).</td>
+	<td style="text-align:left;">
+<code>var()</code> 函数还接受一个可选的默认值（请参阅下方的<a href="#specifying-default-values">指定默认值</a>）。</td>
 </tr>
 </tbody>
 </table>
 
-<p>After you define a variable, you can use it in as many other USS properties as you want. When you update it, all of the USS properties that use it update as well.</p>
+<p>定义变量后，您可以根据需要在任意数量的其他 USS 属性中使用该变量。当您更新该变量时，所有使用它的 USS 属性也会更新。</p>
 
-<p>For example, the following USS snippet defines one style rule that declares two color variables, and two style rules that use those variables.</p>
+<p>例如，以下 USS 代码片段定义了一个声明两个颜色变量的样式规则，以及两个使用这些变量的样式规则。</p>
 
 <pre><code class="lang-css">:root {
   --color-1: blue;
@@ -244,59 +245,57 @@
   }
 </code></pre>
 
-<p>To update the color scheme, you only have to change the two variable values instead of four color values.</p>
+<p>要更新颜色方案，您只需更改两个变量值而不是四个颜色值。</p>
 
-<p>Variables make it easier to manage styles for complex UI, where multiple rules, sometimes in different style sheets, use the same values.</p>
+<p>使用变量可以更轻松地管理复杂 UI 的样式，其中多个规则（有时在不同的样式表中）使用相同的值。</p>
 
 <p><a name="specifying-default-values"></a></p>
 
-<h2>Specifying default values</h2>
+<h2>指定默认值</h2>
 
-<p>The <code>var()</code> function accepts an optional default value. The UI system uses the default value when it cannot resolve the variable. For example, if you remove a variable from a style sheet but forget to remove a reference to it.</p>
+<p><code>var()</code> 函数接受一个可选的默认值。UI 系统在无法解析变量时使用默认值。例如，如果您从样式表中删除一个变量，但忘记删除对它的引用。</p>
 
-<p>To specify a default value for a variable, add it after the variable value, separated by a comma <code>,</code>. The following USS snippet calls the <code>--color-1</code> variable, but if the UI system can’t resolve it, it uses the hex value for red (<code>#FF0000</code>).</p>
+<p>要为变量指定默认值，请将其添加在变量值之后，并以逗号 <code>,</code> 分隔。以下 USS 代码片段调用了 <code>--color-1</code> 变量，但如果 UI 系统无法解析它，它会使用红色的十六进制值 (<code>#FF0000</code>)。</p>
 
 <pre><code class="lang-css">var(--color-1, #FF0000);
 </code></pre>
 
-<h2>Built-in Unity variables</h2>
+<h2>内置 Unity 变量</h2>
 
-<p>Unity’s built-in style sheets define USS variables that set default values for the Editor interface. You can use these variables in your own style sheets to ensure that your custom Editor extensions match Unity style. For details, see [Built-in Unity variables](UIE-USS-UnityVariables.</p>
+<p>Unity 内置样式表定义了为编辑器界面设置默认值的 USS 变量。您可以在自己的样式表中使用这些变量，确保自定义编辑器扩展与 Unity 样式相匹配。有关详细信息，请参阅<a href="UIE-USS-UnityVariables.html">内置 Unity 变量</a>。</p>
 
-<h2>Differences from CSS</h2>
+<h2>与 CSS 的区别</h2>
 
-<p>Variables work almost exactly the same way in USS as they do in CSS. For detailed information about CSS variables, see the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties">MDN documentation</a>.</p>
+<p>变量在 USS 中的工作方式与在 CSS 中的工作方式几乎完全相同。有关 CSS 变量的详细信息，请参阅 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties">MDN 文档</a>。</p>
 
-<p>There are some minor differences that are important to understand.</p>
+<h3>从其他函数调用 USS 变量</h3>
 
-<h3>Calling USS variables from other functions</h3>
-
-<p>Some web browsers support using the <code>var()</code> function inside of other functions, as in the property declaration below:</p>
+<p>某些 Web 浏览器支持使用其他函数内部的 <code>var()</code> 函数，如下面的属性声明：</p>
 
 <pre><code class="lang-css">background-color: rgb(var(--red), 0, 0);
 </code></pre>
 
-<p>Unity does not support this use of <code>var()</code>.</p>
+<p>Unity 不支持 <code>var()</code> 的这种用法。</p>
 
-<h3>Declaring variables in the root selector</h3>
+<h3>在根选择器中声明变量</h3>
 
-<p>A common CSS practice is to declare “global” variables in the <code>:root</code> pseudo-class selector. Because every element in a web page inherits from <code>:root</code>, every selector in a CSS style sheet can call variables declared there.</p>
+<p>CSS 常见做法是在 <code>:root</code> 伪类选择器中声明 “global” 变量。因为网页中的每个元素都继承自 <code>:root</code>，所以 CSS 样式表中的每个选择器都可以调用其中声明的变量。</p>
 
-<p>In Unity, declaring variables in <code>:root</code> works for Editor windows and runtime panels, provided you attach the stylesheet to the root Visual Element of the panel or Editor window. It does not work for Inspector UI.</p>
+<p>在 Unity 中，在 <code>:root</code> 中声明变量适用于编辑器窗口和运行时面板，前提是您将样式表附加到面板或编辑器窗口的根视觉元素。它不适用于 Inspector UI。</p>
 
-<p>In the Inspector, the <code>:root</code> pseudo class is only active on the Inspector window’s root VisualElement. The subtrees you attach style sheets to are much lower in the Inspector hierarchy. Consequently, the <code>:root</code> selector never matches any part of a subtree.</p>
+<p>在 Inspector 中，<code>:root</code> 伪类仅在 Inspector 窗口的根 VisualElement 上处于活动状态。您附加样式表的子树在 Inspector 层级结构中要低得多。因此，<code>:root</code> 选择器永远不会匹配子树的任何部分。</p>
 
-<h4>Simulating :root for custom Inspector UI</h4>
+<h4>模拟 :root 用于自定义 Inspector UI</h4>
 
-<p>You can use a USS class selector as a substitute for the <code>:root</code> selector in custom Inspectors. Create a USS class to declare your variables in, and apply it to the highest element in the hierarchy to which you have access.</p>
+<p>您可以使用 USS 类选择器代替自定义 Inspector 中的 <code>:root</code> 选择器。创建一个 USS 类，以在其中声明您的变量，并将其应用于您有权访问的层级结构中的最高元素。</p>
 
-<p>For example, the following USS snippet defines the following classes:</p>
+<p>例如，以下 USS 代码片段定义了以下类：</p>
 
 <ul>
 <li>
-<code>.root</code> declares a variable.</li>
+<code>.root</code> 声明了一个变量。</li>
 <li>
-<code>.label1</code> calls the variable.</li>
+<code>.label1</code> 调用该变量。</li>
 </ul>
 
 <pre><code class="lang-css">.root {
@@ -308,31 +307,31 @@
 }
 </code></pre>
 
-<p>The following UXML snippet creates a simple container element and assigns the root class to it. The container has a child element, a Label, with the <code>label1</code> class assigned to it.</p>
+<p>以下 UXML 代码片段创建一个简单的容器元素并为其分配根类。容器有一个子元素，一个标签，为其分配的类是 <code>label1</code>。</p>
 
-<p>In the UXML:</p>
+<p>在 UXML 中：</p>
 
 <pre><code class="lang-xml">&lt;UXML xmlns="UnityEngine.UIElements"&gt;
     &lt;VisualElement class="root"&gt;
-        &lt;!-- Including, for example... --&gt;
+        &lt;!-- Including, for example...--&gt;
         &lt;Label class="label1" text="Label text"/&gt;
     &lt;/VisualElement&gt;
 &lt;/UXML&gt;
 </code></pre>
 
-<p>Because the Label inherits from the container, its styles can call any variables defined in the container’s styles.</p>
+<p>因为 Label 继承自容器，它的样式可以调用容器样式中定义的任何变量。</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="UIE-USS-SupportedProperties.html"></a></span><div class="tip">USS 支持的属性</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="UIE-USS-UnityVariables.html"></a></span><div class="tip">Built-in Unity variables</div>
+<span class="next"><a href="UIE-USS-UnityVariables.html"></a></span><div class="tip">内置 Unity 变量</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

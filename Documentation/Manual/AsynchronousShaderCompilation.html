@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Asynchronous shader compilation in the Unity Editor - Unity 手册">
-<title>Asynchronous shader compilation in the Unity Editor - Unity 手册</title>
+<meta property="og:title" content="异步着色器编译 - Unity 手册">
+<title>异步着色器编译 - Unity 手册</title>
 <meta property="og:image" content="https://docs.unity3d.com/cn/2020.3/uploads/Main/cyan_dummy_shaders.png">
-<meta name="description" content="Asynchronous shader compilation is an Editor-only feature that can speed up your workflow when you have complex Unity shaders with lots of shader variants.">
-<meta property="og:description" content="Asynchronous shader compilation is an Editor-only feature that can speed up your workflow when you have complex Unity shaders with lots of shader variants.">
+<meta name="description" content="异步着色器编译是一项仅限于编辑器的功能，当您的 Shader 对象比较复杂，包含大量着色器变体时，此功能可以改进您的工作流程。">
+<meta property="og:description" content="异步着色器编译是一项仅限于编辑器的功能，当您的 Shader 对象比较复杂，包含大量着色器变体时，此功能可以改进您的工作流程。">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -175,219 +175,214 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="Graphics.html">图形</a></li>
-<li><a href="Shaders.html">网格、材质、着色器和纹理</a></li>
-<li><a href="ShadersOverview.html">编写着色器</a></li>
-<li><a href="SL-Reference.html">着色器参考</a></li>
-<li><a href="SL-AdvancedTopics.html">高级 ShaderLab 主题</a></li>
-<li>Asynchronous shader compilation in the Unity Editor</li>
+<li><a href="Shaders.html">着色器</a></li>
+<li><a href="ShadersOverview.html">Shaders core concepts</a></li>
+<li><a href="shader-compilation.html">着色器编译</a></li>
+<li>异步着色器编译</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="shaders-compilation.html"></a></span><div class="tip">Shader compilation</div>
+<span class="prev"><a href="shader-compilation.html"></a></span><div class="tip">着色器编译</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="shader-loading.html"></a></span><div class="tip">Shader loading</div>
+<span class="next"><a href="shader-loading.html"></a></span><div class="tip">着色器加载</div>
 </div>
 </div></div>
-<h1>Asynchronous shader compilation in the Unity Editor</h1>
+<h1>异步着色器编译</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>Asynchronous shader compilation is an Editor-only feature that can speed up your workflow when you have complex Unity shaders with lots of shader variants.</p>
+<p>异步着色器编译是一项仅限于编辑器的功能，当您的 Shader 对象比较复杂，包含大量着色器变体时，此功能可以改进您的工作流程。</p>
 
 <p>本页包含以下信息：</p>
 
 <ul>
-<li><a href="#overview">Overview</a></li>
-<li><a href="#how-it-works">How asynchronous shader compilation works</a></li>
-<li><a href="#enabling-disabling-project">Enabling and disabling asynchronous shader compilation for your project</a></li>
-<li><a href="#enabling-disabling-calls">Enabling and disabling asynchronous shader compilation for specific rendering calls</a></li>
-<li><a href="#advanced-rendering-in-the-editor">Disabling asynchronous shader compilation for a specific Unity shader</a></li>
-<li><a href="#detecting-compilation">Detecting asynchronous shader compilation in the Unity Editor</a></li>
-<li><a href="#advanced-rendering-in-the-editor">Advanced rendering and asynchronous shader compilation</a></li>
-<li><a href="#using-it-in-custom-editor-tools">Custom Editor tools and asynchronous shader compilation</a></li>
+<li><a href="#overview">概述</a></li>
+<li>
+<a href="#how-it-works">异步着色器编译的工作原理</a>
+*<a href="#enabling-disabling-project">为您的项目启用和禁用异步着色器编译</a>
+</li>
+<li><a href="#enabling-disabling-calls">为特定渲染调用启用和禁用异步着色器编译</a></li>
+<li><a href="#disabling-shader">为特定 Shader 对象禁用异步着色器编译</a></li>
+<li>
+<a href="#detecting-compilation">在 Unity 编辑器中检测异步着色器编译</a>
+*<a href="#advanced-rendering-in-the-editor">编辑器中的高级渲染和异步着色器编译</a>
+</li>
+<li><a href="#using-it-in-custom-editor-tools">自定义编辑器工具和异步着色器编译</a></li>
 </ul>
 
 <p><a name="overview"></a></p>
 
 <h2>概述</h2>
 
-<p>Unity shaders can contain of hundreds or thousands of shader variants. If the Editor compiled all variants when loading a Unity shader, the import process would be very slow. Instead, the Editor compiles shader variants on-demand, the first time it encounters them.</p>
+<p>Shader 对象可包含数百或数千个<a href="SL-MultipleProgramVariants.html">着色器变体 </a>。如果编辑器在加载 Shader 对象时编译所有变体，则导入过程将非常缓慢。相反，编辑器会在第一次遇到着色器变体时按需编译它们。</p>
 
-<p>Compiling these shader variants can cause the Editor to stall for milliseconds or even seconds, depending on the graphics API and the complexity of the Unity shader. To avoid these stalls, you can use <strong>Asynchronous Shader Compilation</strong> to compile the shader variants in the background, and use placeholder Unity shaders in the meantime.</p>
+<p>编译这些着色器变体可能会导致编辑器停顿几毫秒甚至几秒，具体取决于图形 API 和 Shader 对象的复杂性。为了避免这些停顿，您可以使用异步着色器编译在后台编译着色器变体，同时使用占位 Shader 对象。</p>
 
 <p><a name="how-it-works"></a></p>
 
-<h2>How asynchronous shader compilation works</h2>
+<h2>异步着色器编译的工作原理</h2>
 
-<p>Asynchronous shader compilation works like this:</p>
+<p>异步着色器编译的工作原理是：</p>
 
-<ol>
-<li>When the Editor first encounters an uncompiled shader variant, it adds the shader variant to a compilation queue on a job thread. The progress bar in the bottom right corner of the Editor shows the status of the compilation queue.</li>
-<li>While the shader variant is loading, Editor renders the geometry with a placeholder Unity shader, which appears as a plain cyan color.</li>
-<li>When the Editor has finished compiling the shader variant, it renders the geometry using the shader variant.</li>
-</ol>
-
-<p>The feature does not have any effect on the standalone Player, because the Editor compiles all the Shader Variants needed by the Player during the build process. </p>
+<p>1.当编辑器第一次遇到未编译的着色器变体时，它会将着色器变体添加到作业线程上的编译队列中。编辑器右下角的进度条会显示编译队列的状态。
+2.在加载着色器变体时，编辑器使用占位着色器渲染几何体，该着色器显示为纯青色。
+3.当编辑器完成对着色器变体的编译后，它会使用着色器变体来渲染几何体。</p>
 
 <figure>
-<img src="../uploads/Main/cyan_dummy_shaders.png" alt="Unity renders shader variants that are still compiling with a cyan dummy Shader until compilation has finished. The bottom right progress bar indicates the compilation queue progress.">
-<figcaption>Unity renders shader variants that are still compiling with a cyan dummy Shader until compilation has finished. The bottom right progress bar indicates the compilation queue progress.</figcaption>
+<img src="../uploads/Main/cyan_dummy_shaders.png" alt="Unity 会渲染仍在用青色虚拟着色器进行编译的着色器变体，直到编译完成。右下角的进度条指示编译队列的进度。">
+<figcaption>Unity 会渲染仍在用青色虚拟着色器进行编译的着色器变体，直到编译完成。右下角的进度条指示编译队列的进度。</figcaption>
 </figure>
 
 <h3>异常</h3>
 
-<p>The following exceptions apply:</p>
+<p>将产生以下异常：</p>
 
-<ul>
-<li>If you draw geometry using <a href="../ScriptReference/Graphics.DrawProcedural.html"><code>DrawProcedural</code></a> or <a href="../ScriptReference/Rendering.CommandBuffer.DrawProcedural.html"><code>CommandBuffer.DrawProcedural</code></a>, the Editor doesn’t use a placeholder Unity shader. Instead, the Editor just skips rendering this geometry until it has compiled the shader variant.</li>
-<li>The Unity Editor does not use asynchronous shader compilation with Blit operations. This is to guarantee correct output in the most common use cases.</li>
-</ul>
+<p><em>如果您使用 <a href="../ScriptReference/Graphics.DrawProcedural.html"><code>DrawProcedural</code></a> 或者 <a href="../ScriptReference/Rendering.CommandBuffer.DrawProcedural.html"><code>CommandBuffer.DrawProcedural</code></a>，编辑器不使用占位着色器。编辑器只是跳过对此几何体的渲染，直到此着色器变体的编译完成为止。
+</em> Unity 编辑器不会使用带有 Blit 操作的异步着色器编译。这是为了保证在最常见的用例中获得正确输出。</p>
 
 <p><a name="enabling-disabling-project"></a></p>
 
-<h2>Enabling and disabling asynchronous shader compilation for your project</h2>
+<h2>为您的项目启用和禁用异步着色器编译</h2>
 
-<p>Asynchronous shader compilation is enabled by default.</p>
+<p>默认情况下已启用异步着色器编译。</p>
 
-<p>To enbale or disable asynchronous shader compilation:</p>
+<p>要利用或禁用异步着色器编译，请执行以下操作：</p>
 
-<ol>
-<li>Go to <strong>Edit &gt; Project Settings.. &gt; Editor</strong>.</li>
-<li>At the bottom of the Editor settings, under <strong>Shader Compilation</strong>, check or uncheck the <strong>Asynchronous Shader Compilation</strong> checkbox.</li>
-</ol>
+<p>1.转到 <strong>Edit &gt; Project Settings &gt; Editor</strong>。
+2.在编辑器设置底部的 <strong>Shader Compilation</strong> 下，取消选中 <strong>Asynchronous Shader Compilation</strong> 复选框。</p>
 
 <figure>
 <img src="../uploads/Main/asynchronous_shader_compilation_ui.png" alt="可以在 Project Settings &amp;gt; Editor &amp;gt; Shader Compilation 下找到 Asynchronous Shader Compilation 的复选框。">
 <figcaption>可以在 <strong>Project Settings &gt; Editor &gt; Shader Compilation</strong> 下找到 <strong>Asynchronous Shader Compilation</strong> 的复选框。</figcaption>
 </figure>
 
-<p><strong>Note:</strong> Enabling and disabling asynchronous shader compilation in this way affects only the Scene and Game views by default. If you want to use it in other scenarios, you can control this via scripts. See [Using asynchronous Shader compilation in <a href="#using-it-in-custom-editor-tools">custom Editor tools</a>.</p>
+<p><strong>注意：</strong>默认情况下，以这种方式启用和禁用异步着色器编译仅影响场景和游戏视图。如果希望将此功能用于编辑器的其他部分，请参阅<a href="#using-it-in-custom-editor-tools">自定义编辑器工具和异步着色器编译</a>。</p>
 
 <p><a name="enabling-disabling-calls"></a></p>
 
-<h2>Enabling and disabling asynchronous shader compilation for specific rendering calls</h2>
+<h2>为特定渲染调用启用和禁用异步着色器编译</h2>
 
-<p>You can enable or disable asynchronous shader compilation for specific rendering commands in your C# scripts. You might use this </p>
+<p>您可以在 C# 脚本中为特定渲染命令启用或禁用异步着色器编译。</p>
 
-<p>The following instructions show you how to enable or disable the feature in an immediate scope, and a CommandBuffer scope.</p>
+<p>以下说明展示了如何在直接作用域和 <a href="../ScriptReference/Rendering.CommandBuffer.html">CommandBuffer 作用域</a>中禁用该功能。</p>
 
 <h4>在直接作用域中</h4>
 
-<p>In an <em>immediate scope</em>, you can use <a href="../ScriptReference/ShaderUtil-allowAsyncCompilation.html"><code>ShaderUtil.allowAsyncCompilation;</code></a>. </p>
+<p>在直接作用域内，您可以使用 <a href="../ScriptReference/ShaderUtil-allowAsyncCompilation.html"><code>ShaderUtil.allowAsyncCompilation</code></a>。</p>
 
-<p>To do this:</p>
+<p>为此需要执行以下操作：</p>
 
-<ol>
-<li>Store the current state of <code>ShaderUtil.allowAsyncCompilation</code> in a variable.</li>
-<li>Before you call the rendering commands, set <code>ShaderUtil.allowAsyncCompilation</code> to <code>false</code>.</li>
-<li>Call the rendering commands.</li>
-<li>After calling the rendering commands, restore <code>ShaderUtil.allowAsyncCompilation</code> back to its previous state.</li>
-</ol>
+<p>1.将 <code>ShaderUtil.allowAsyncCompilation</code> 的当前状态存储在一个变量中。
+2.在调用渲染命令之前，将 <code>ShaderUtil.allowAsyncCompilation</code> 设置为 <code>false</code>。
+3.调用渲染命令。
+4.调用渲染命令后，将 <code>ShaderUtil.allowAsyncCompilation</code> 恢复到之前的状态。</p>
 
 <p>下面是一个伪代码示例：</p>
 
-<pre><code>// Store the current state
+<pre><code>// 存储当前状态
 bool oldState = ShaderUtil.allowAsyncCompilation;
 
-// Disable async compilation
+// 禁用异步编译
 ShaderUtil.allowAsyncCompilation = false;
 
-// Enter your rendering code that should never use the placeholder Unity shader
+// 输入绝不应使用占位着色器的渲染代码
 Graphics.DrawMesh(...);
 
-// Restore the old state
+// 恢复旧状态
 ShaderUtil.allowAsyncCompilation = oldState;
 </code></pre>
 
 <h4>在 CommandBuffer 作用域中</h4>
 
-<p>In a <a href="../ScriptReference/Rendering.CommandBuffer.html"><em>CommandBuffer</em></a> scope, you can use <a href="../ScriptReference/ShaderUtil.SetAsyncCompilation.html"><code>ShaderUtil.SetAsyncCompilation</code></a> and <a href="../ScriptReference/ShaderUtil.RestoreAsyncCompilation.html"><code>ShaderUtil.RestoreAsyncCompilation</code></a>.</p>
+<p>在 <code>CommandBuffer</code> 作用域内，您可以使用 <a href="../ScriptReference/ShaderUtil.SetAsyncCompilation.html"><code>ShaderUtil.SetAsyncCompilation</code></a> 和 <a href="../ScriptReference/ShaderUtil.RestoreAsyncCompilation.html"><code>ShaderUtil.RestoreAsyncCompilation</code></a>。</p>
 
-<ol>
-<li>Immediately before you call the rendering commands, call <code>ShaderUtil.SetAsyncCompilation</code>, and set it to <code>false</code>. Subsequent commands in the CommandBuffer won’t allow asynchronous compilation.</li>
-<li>Add the rendering commands to the CommandBuffer.</li>
-<li>After the rendering commands, call <a href="../ScriptReference/ShaderUtil.RestoreAsyncCompilation.html"><code>Shader.Util.RestoreAsyncCompilation</code></a> to restore the state of asynchronous shader compilation.</li>
-</ol>
+<p>1.在调用渲染命令之前，调用 <code>ShaderUtil.SetAsyncCompilation</code>，并将其设置为 <code>false</code>。CommandBuffer 中的后续命令将不允许异步编译。
+2.将渲染命令添加到 CommandBuffer。
+3.在渲染命令之后，调用 <a href="../ScriptReference/ShaderUtil.RestoreAsyncCompilation.html"><code>Shader.Util.RestoreAsyncCompilation</code></a> 恢复异步着色器编译的状态。</p>
 
-<p>Here is an example:</p>
+<p>下面是一个示例：</p>
 
-<pre><code class="CommandBuffer cmd = new CommandBuffer();">
-// Disable async compilation for subsequent commands
+<pre><code>// 创建 CommandBuffer
+CommandBuffer cmd = new CommandBuffer();
+
+// 禁用后续命令的异步编译
 ShaderUtil.SetAsyncCompilation(cmd, false);
 
-/// Enter your rendering commands that should never use the placeholder Unity shader
+///  输入绝不应使用占位着色器的渲染命令
 cmd.DrawMesh(...);
 
-// Restore the old state
+// 恢复旧状态
 ShaderUtil.RestoreAsyncCompilation(cmd);
 </code></pre>
 
-<h2>Disabling asynchronous compilation for specific Unity shaders</h2>
+<p><a name="disabling-shader"></a></p>
 
-<p>You can disable asynchronous shader compilation for specific Unity shaders by forcing the Editor to always compile them synchronously. This is a good option for data generating Unity shaders that are always present at the start of your rendering, and which are relatively quick to compile. You would most likely need this if you are performing <a href="#advanced-rendering-in-the-editor">advanced rendering</a>.</p>
+<h2>为特定 Shader 对象禁用异步着色器编译</h2>
 
-<p>To force synchronous compilation for a Unity shader, add the <code>#pragma editor_sync_compilation</code> <a href="SL-ShaderPrograms.html">directive</a> to your Unity shader source code.</p>
+<p>通过强制编辑器始终进行同步编译，您可以为特定 Shader 对象禁用异步着色器编译。如果生成数据的 Shader 对象在渲染开始时始终存在且编译速度相对较快，这是一个很好的选择。如果您正在执行<a href="#advanced-rendering-in-the-editor">高级渲染 </a>，很可能需要这样做。</p>
 
-<p><strong>Note:</strong> If you force synchronous compilation for complex Unity shaders that encounter new shader variants in the middle of your rendering, this can stall rendering in the Editor.</p>
+<p>要为特定 Shader 对象强制进行同步编译，请将 <code>#pragma editor_sync_compilation</code> <a href="SL-ShaderPrograms.html">指令</a>添加到您的着色器的源代码中。</p>
+
+<p><strong>注意：</strong>对于在渲染过程中会遇到新变体的复杂 Shader 对象，不要强制进行同步编译；这种情况下会使编辑器中的渲染停顿。</p>
 
 <p><a name="detecting-compilation"></a></p>
 
-<h2>Detecting asynchronous shader compilation</h2>
+<h2>检测异步着色器编译</h2>
 
-<p>You can use C# APIs to monitor the state of asynchronous shader compilation, and perform operations when this state changes.</p>
+<p>您可以使用 C# API 监控异步着色器编译状态，并在此状态更改时执行操作。</p>
 
-<p>This is most likely useful in <a href="#advanced-rendering-in-the-editor">advanced rendering</a>; if the placeholder Unity shader pollutes your generated data, you can discard the polluted data and regenerate a new set with the correct shader variants.</p>
+<p>这很可能会在<a href="#advanced-rendering-in-the-editor">高级渲染</a>中有用。如果占位着色器污染了您生成的数据，您可以等到编译完成，丢弃污染的数据，并使用正确的着色器变体重新生成新的数据集。</p>
 
-<p>If you already know which material you are interested in, you can use <code>ShaderUtil.IsPassCompiled</code> to check the compilation status of the shader variant. When the status changes <em>Uncompiled</em> to <em>Compiled</em>, compilation is complete.</p>
+<p>如果您已知自己感兴趣的材质，可以使用 <code>ShaderUtil.IsPassCompiled</code> 检查着色器变体的编译状态。当状态从 <em>Uncompiled</em> 改变为 <em>Compiled</em> 时，编译完成。</p>
 
-<p>If you do not know which material you are interested in, or if you are interested in more than one material, you can use <code>ShaderUtil.anythingCompiling</code> to detect whether Unity is compiling any shader variants asynchronously. When this changes from <code>true</code> to <code>false</code>, all current compilation is complete.</p>
+<p>如果您不知道自己感兴趣的材质，或者您对不止一种材质感兴趣，可以使用 <code>ShaderUtil.anythingCompiling</code> 检测 Unity 是否正在异步编译任何着色器变体。当状态从 <code>true</code> 变为 <code>false</code> 时，所有当前编译完成。</p>
 
 <p><a name="advanced-rendering-in-the-editor"></a></p>
 
-<h2>Editor 中的高级渲染</h2>
+<h2>编辑器中的高级渲染和异步着色器编译</h2>
 
-<p>Advanced rendering solutions rely on generating data once and reusing it in later frames. If the Editor uses a placeholder Unity shader during this process, it might pollute the generated data. If this happens, you can see the cyan color or other rendering artifacts in your scene, even after the shader variants have finished compiling. </p>
+<p>高级渲染解决方案依赖于生成一次数据并在以后的帧中重复使用。如果编辑器在此过程中使用占位着色器，则可能会污染生成的数据。如果发生此情况，即使在着色器变体完成编译后，也可能会在场景中看到青色或其他渲染瑕疵。</p>
 
-<p>To avoid this, you can:</p>
+<p>为避免这种情况，您可以：</p>
 
 <ul>
-<li><a href="#enabling-disabling-project">Disable asynchronous shader compilation completely for your project</a></li>
-<li><a href="#enabling-disabling-calls">Disable asynchronous shader compilation for specific rendering calls</a></li>
-<li><a href="#advanced-rendering-in-the-editor">Disable asynchronous shader compilation for a specific Unity shader</a></li>
+<li><a href="#enabling-disabling-project">为您的项目完全禁用异步着色器编译</a></li>
+<li><a href="#enabling-disabling-calls">为特定渲染调用禁用异步着色器编译</a></li>
+<li><a href="#disable-shader">为特定 Shader 对象禁用异步着色器编译</a></li>
 <li>
-<a href="#detecting-compilation">Detect when the source of the data pollution has finished compiling</a>, and then re-generate the data.</li>
+<a href="#detecting-compilation">检测数据污染源何时编译完成</a>，然后重新生成数据。</li>
 </ul>
 
 <p><a name="using-it-in-custom-editor-tools"></a></p>
 
-<h2>Custom Editor tools and asynchronous shader compilation</h2>
+<h2>自定义编辑器工具和异步着色器编译</h2>
 
 <p>默认情况下，异步着色器编译功能在 Game 视图和 Scene 视图中有效。如果要在自定义 Editor 工具中使用该功能，可以通过 C# 为自定义工具启用该功能。</p>
 
-<p>To do this, you can <a href="#enabling-disabling-calls">enable asynchronous shader compilation for specific rendering calls</a>.</p>
+<p>为此，您可以<a href="#enabling-disabling-calls">为特定的渲染调用启用异步着色器编译 </a>。</p>
 
 <h3>自定义编译时间渲染</h3>
 
-<p>You can make your custom tools draw something other than the placeholder Unity shader for each material. This way, you can avoid rendering in plain cyan, and instead draw something else while the shader variant compiles. </p>
+<p>可以使自定义工具为每种材质绘制非占位着色器的内容。这样就可以避免使用纯青色来进行渲染，而是在着色器变体进行编译时绘制其他内容。</p>
 
-<p>To check if a specific shader variant has compiled, see <a href="#detecting-compilation">Detecting asynchronous shader compilation</a>.</p>
+<p>要检查特定着色器变体是否已编译，请参阅<a href="#detecting-compilation">检测异步着色器编译 </a>。</p>
 
-<p>To trigger compilation manually, you can use <a href="../ScriptReference/ShaderUtil.CompilePass.html"><code>ShaderUtil.CompilePass</code></a>. This way, you can avoid rendering with the cyan placeholder, and draw something else while the shader variant compiles. </p>
+<p>要手动触发编译，您可以使用 <a href="../ScriptReference/ShaderUtil.CompilePass.html"><code>ShaderUtil.CompilePass</code></a>。这样就可以避免使用青色占位着色器来进行渲染，而是在着色器变体进行编译时绘制其他内容。</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="shaders-compilation.html"></a></span><div class="tip">Shader compilation</div>
+<span class="prev"><a href="shader-compilation.html"></a></span><div class="tip">着色器编译</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="shader-loading.html"></a></span><div class="tip">Shader loading</div>
+<span class="next"><a href="shader-loading.html"></a></span><div class="tip">着色器加载</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

@@ -11,10 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="twitter:card" content="summary">
-<meta property="og:title" content="Creating scene templates - Unity 手册">
-<title>Creating scene templates - Unity 手册</title>
-<meta name="description" content="You can create a new scene template in one of the following ways:">
-<meta property="og:description" content="You can create a new scene template in one of the following ways:">
+<meta property="og:title" content="创建场景模板 - Unity 手册">
+<title>创建场景模板 - Unity 手册</title>
+<meta name="description" content="您可以通过以下方式之一创建新的场景模板：">
+<meta property="og:description" content="您可以通过以下方式之一创建新的场景模板：">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
 <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png">
@@ -174,34 +174,36 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UnityOverview.html">在 Unity 中操作</a></li>
 <li><a href="CreatingGameplay.html">创建游戏玩法</a></li>
 <li><a href="CreatingScenes.html">场景</a></li>
-<li><a href="scene-templates.html">Scene Templates</a></li>
-<li>Creating scene templates</li>
+<li><a href="scene-templates.html">场景模板</a></li>
+<li>创建场景模板</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="scene-templates.html"></a></span><div class="tip">Scene Templates</div>
+<span class="prev"><a href="scene-templates.html"></a></span><div class="tip">场景模板</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="scene-templates-editing.html"></a></span><div class="tip">Editing scene templates</div>
+<span class="next"><a href="scene-templates-editing.html"></a></span><div class="tip">编辑场景模板</div>
 </div>
 </div></div>
-<h1>Creating scene templates</h1>
+<h1>创建场景模板</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>You can create a new scene template in one of the following ways:</p>
+<p>您可以通过以下方式之一创建新的场景模板：</p>
 
 <ul>
-<li>Start an <a href="#creating-an-empty-scene-template">empty template</a>.</li>
-<li>Create a template <a href="#creating-a-template-from-an-existing-scene-asset">from an existing scene asset</a>.</li>
-<li>Create a template <a href="#creating-a-template-from-the-current-scene">from the current scene</a>.</li>
+<li>开始一个<a href="#creating-an-empty-scene-template">空模板 </a>。</li>
+<li>
+<a href="#creating-a-template-from-an-existing-scene-asset">从现有场景资源</a>创建一个模板。</li>
+<li>
+<a href="#creating-a-template-from-the-current-scene">从当前场景</a>创建一个模板。</li>
 </ul>
 
-<p>After you create a template, you can <a href="scene-templates-editing.html">edit its properties</a> or <a href="scenes-working-with.html#creating-a-new-scene-from-the-new-scene-dialog">create new scenes from it</a>.</p>
+<p>创建模板后，您可以<a href="scene-templates-editing.html">编辑其属性</a>或者<a href="scenes-working-with.html#creating-a-new-scene-from-the-new-scene-dialog">从模板创建新场景</a>。</p>
 
 <table>
 <colgroup>
@@ -210,71 +212,72 @@
 
 <thead>
 <tr>
-	<th style="text-align:left;"><strong>Tip:</strong></th>
+	<th style="text-align:left;"><strong>提示：</strong></th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-	<td style="text-align:left;">Before you create a template from a scene, create a folder with the name as the scene, and put any assets you want to clone in it. When you create the template, Unity automatically enables the <strong>Clone</strong> property for those assets. For details, see <a href="scene-templates-editing.html">Editing scene templates</a>.</td>
+	<td style="text-align:left;">在从场景创建模板之前，先使用场景名称创建一个文件夹，然后将要克隆的任何资源放入其中。创建模板时，Unity 会自动为这些资源启用 <strong>Clone</strong>。有关详细信息，请参阅<a href="scene-templates-editing.html">编辑场景模板</a>。</td>
 </tr>
 </tbody>
 </table>
 
 <p><a name="creating-an-empty-scene-template"></a></p>
 
-<h2>Creating an empty scene template</h2>
+<h2>创建一个空的场景模板</h2>
 
-<p>You can create empty scene templates and configure them later. An empty template does not appear in the New Scene dialog until you <a href="scene-templates-editing.html">edit its properties</a> to associate a scene asset to it. </p>
+<p>您可以创建空的场景模板并在以后配置它们。空模板仅在您<a href="scene-templates-editing.html">编辑其属性</a>为其关联场景资源后，才会出现在 New Scene 对话框中。</p>
 
-<p>To create an empty scene template in the current project folder:</p>
+<p>要在当前项目文件夹中创建一个空的场景模板：</p>
 
 <ul>
-<li>From the menu, select <strong>Assets &gt; Create &gt; Scene Template</strong>.</li>
+<li>从菜单中选择 <strong>Assets &gt; Create &gt; Scene Template</strong>。</li>
 </ul>
 
-<p>To create an empty scene template in a specific project folder:</p>
+<p>要在特定项目文件夹中创建一个空的场景模板：</p>
 
-<ol>
-<li><p>Do one of the following:</p></li>
-<li><p>In the Project window, right-click the folder to open the context menu.</p></li>
-<li><p>Open the folder in the Project window, and right-click the asset pane to open the context menu.</p></li>
-<li><p>Select <strong>Create &gt; Scene Template</strong>.</p></li>
-</ol>
+<p>1.执行以下操作之一：</p>
+
+<ul>
+<li>在 Project 窗口中，右键单击文件夹以打开上下文菜单。</li>
+<li>在 Project 窗口中打开文件夹，然后右键单击资源窗格以打开上下文菜单。
+1.选择 <strong>Create &gt; Scene Template</strong>。</li>
+</ul>
 
 <p><a name="creating-a-template-from-an-existing-scene-asset"></a></p>
 
-<h2>Creating a template from an existing scene asset</h2>
+<h2>从现有场景资源创建一个模板</h2>
 
-<p>You can turn any existing scene into a scene template. After you create a template from an existing scene, you might want to <a href="scene-templates-editing.html">edit its properties</a> to specify which of its dependencies Unity clones when you create a new scene from it.</p>
+<p>您可以将任何现有场景转换为场景模板。从现有场景创建模板后，您可能想要<a href="scene-templates-editing.html">编辑其属性</a>指定从该模板创建新场景时 Unity 克隆它的哪些依赖项。</p>
 
-<p>To create a template from an existing scene asset, open the Project window, and do one of the following:</p>
+<p>要从现有场景资源创建模板，请打开 Project 窗口，然后执行以下操作之一：</p>
 
 <ul>
-<li>Right-click a scene asset to open the context menu. Then select <strong>Create &gt; Scene Template From Scene</strong>.</li>
-<li>Select the scene asset, and from the main menu, select <strong>Assets &gt; Create &gt; Scene Template From Scene</strong>.</li>
+<li>右键单击场景资源以打开上下文菜单。然后选择 <strong>Create &gt; Scene Template From Scene</strong>。</li>
+<li>选择场景资源，然后从主菜单中选择 <strong>Assets &gt; Create &gt; Scene Template From Scene</strong>。</li>
 </ul>
 
 <p><a name="creating-a-template-from-the-current-scene"></a></p>
 
-<h2>Creating a template from the current scene</h2>
+<h2>从当前场景创建一个模板</h2>
 
-<p>To create a scene template from the current scene, from the menu, select <strong>File &gt; Save As Scene Template</strong>.</p>
+<p>要从当前场景创建场景模板，请从菜单中选择 <strong>File &gt; Save As Scene Template</strong>。</p>
 
-<p>If you have unsaved changes, Unity prompts you to save the scene before it saves the template.</p>
+<p>如果您有未保存的更改，Unity 会在保存模板之前提示您保存场景。</p>
 
-<p>After you create a template from the current scene, you might want to <a href="scene-templates-editing.html">edit its properties</a> to specify which of its dependencies Unity clones when you create a new scene from it.</p>
+<p>从当前场景创建模板后，您可能想要<a href="scene-templates-editing.html">编辑其属性</a>指定从该模板创建新场景时 Unity 克隆它的哪些依赖项。</p>
 
-<h2>Creating templates from C# scripts</h2>
+<h2>从 C# 脚本创建模板</h2>
 
-<p>You can create scene templates from your C# scripts.</p>
+<p>您可以从 C# 脚本创建场景模板。</p>
 
-<p>To create an empty scene template, use the <a href="../ScriptReference/SceneTemplate.SceneTemplateService.CreateSceneTemplate.html"><strong>CreateSceneTemplate</strong> method</a>.</p>
+<p>要创建一个空的场景模板，请使用 <a href="../ScriptReference/SceneTemplate.SceneTemplateService.CreateSceneTemplate.html"><strong>CreateSceneTemplate</strong> 方法</a>。</p>
 
 <pre><code class="lang-csharp">SceneTemplate.CreateSceneTemplate(string sceneTemplatePath)
 </code></pre>
 
-<p>To create a template from an existing scene, use the <a href="../ScriptReference/SceneTemplate.SceneTemplateService.CreateTemplateFromScene.html"><strong>CreateTemplateFromScene</strong> method</a>. Unity automatically associates the scene with the template, and extracts the scene’s dependencies.</p>
+<p>要从现有场景创建模板，请使用 <a href="../ScriptReference/SceneTemplate.SceneTemplateService.CreateTemplateFromScene.html"><strong>CreateTemplateFromScene</strong> 方法 </a>。Unity 自动将场景与模板关联，并提取场景的依赖项。</p>
 
 <pre><code class="lang-csharp">SceneTemplate.CreateTemplateFromScene(SceneAsset sourceSceneAsset, string sceneTemplatePath);
 </code></pre>
@@ -283,16 +286,16 @@
 <!-- area:authoring -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="scene-templates.html"></a></span><div class="tip">Scene Templates</div>
+<span class="prev"><a href="scene-templates.html"></a></span><div class="tip">场景模板</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="scene-templates-editing.html"></a></span><div class="tip">Editing scene templates</div>
+<span class="next"><a href="scene-templates-editing.html"></a></span><div class="tip">编辑场景模板</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

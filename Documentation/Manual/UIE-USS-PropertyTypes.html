@@ -174,15 +174,15 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
-<li><a href="UIToolkits.html">Creating user interfaces (UI)</a></li>
-<li><a href="UIElements.html">UI Toolkit</a></li>
-<li><a href="UIE-USS.html">样式和 Unity 样式表</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
+<li><a href="UIToolkits.html">创建用户界面 (UI)</a></li>
+<li><a href="UIElements.html">UI 工具包</a></li>
+<li><a href="UIE-USS.html">Unity style sheets (USS)</a></li>
 <li>USS 属性类型</li>
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="UIE-USS-Selectors-Pseudo-Classes.html"></a></span><div class="tip">Pseudo-classes</div>
+<span class="prev"><a href="UIE-USS-Selectors-Pseudo-Classes.html"></a></span><div class="tip">伪类</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="UIE-USS-SupportedProperties.html"></a></span><div class="tip">USS 支持的属性</div>
@@ -196,9 +196,9 @@
 
 <p>使用 USS 时，可为内置的 <code>VisualElement</code> 属性或 UI 代码中的自定义属性指定值。</p>
 
-<p>除了从 USS 文件中读取值之外，还可以使用 <code>VisualElement</code> 的 C# 属性在 C# 中分配内置属性值。在 C# 中分配的值将覆盖 Unity 样式表 (USS) 中的值。</p>
+<p>In addition of reading their values from USS files, you can assign built-in property values in C#, using the C# properties of <code>VisualElement</code>. Values assigned in C# override values from a Unity style sheet (USS).</p>
 
-<p>You can extend USS with <a href="UIE-USS-CustomProperties.html">custom properties</a>. Custom USS Properties require the <code>--</code> prefix.</p>
+<p>可使用<a href="UIE-USS-CustomProperties.html">自定义属性</a> 来扩展 USS。自定义 USS 属性需要 <code>--</code> 前缀。</p>
 
 <h2>属性值</h2>
 
@@ -206,7 +206,7 @@
 
 <h3>长度</h3>
 
-<p>UI Toolkit supports pixels (<code>px</code>) and percentages (<code>%</code>) as units of measurement for length. Pixel values are absolute, while percentages are usually relative to the element’s parent. </p>
+<p>UI 工具包支持像素 (<code>px</code>) 和百分比 (<code>%</code>) 作为长度的度量单位。像素值是绝对值，而百分比通常相对于元素父级。</p>
 
 <p>例如：</p>
 
@@ -217,7 +217,7 @@
 <code>width:50%;</code> 表示宽度为父元素宽度的一半。</li>
 </ul>
 
-<p>It is important to specify the unit of measurement. If you do not specify a unit of measurement, UI Toolkit assumes that the property value is expressed in pixels.</p>
+<p>It’s important to specify the unit of measurement. If you do not specify a unit of measurement, UI Toolkit assumes that the property value is expressed in pixels.</p>
 
 <p><strong>注意：</strong><code>0</code> 是一个不需要度量单位的特殊值。</p>
 
@@ -231,7 +231,7 @@
 
 <h3>颜色</h3>
 
-<p>UI Toolkit supports the following literal color values and functions:</p>
+<p>UI 工具包支持以下字面颜色值和函数：</p>
 
 <ul>
 <li>十六进制值：<code>#FFFF00</code>（rgba，每个通道一个字节）、<code>#0F0</code> (rgb)</li>
@@ -245,39 +245,119 @@
 
 <h3>资源</h3>
 
-<p>可使用 <code>resource()</code> 或 <code>url()</code> 函数来引用资源。例如，指定 <code>background-image: resource("Images/img.png")</code> 可将 <code>Images</code> 目录中的 <code>img.png</code> 指定为背景图像。导入期间将解析引用的资源。</p>
+<p>You can reference project assets such as fonts and textures from your USS files. For example, you might reference a texture to use as the background image for an element.</p>
 
-<p><code>resource()</code> 函数接受位于 <code>Resources</code> 文件夹或 <code>Editor Default Resources</code> 文件夹下的文件，但注意以下几点：</p>
+<p>To reference an asset, you can use either the <code>url()</code> function or the <code>resource()</code> function. Referenced Assets are resolved when the style sheet is imported.</p>
+
+<p>For example, the style declaration below uses the <code>resource()</code> function to reference a texture asset named <code>img.png</code> in the <code>Images</code> directory, and specify it as the background image.</p>
+
+<pre><code class="css">`background-image: resource("Images/img.png");
+</code></pre>
+
+<p>Unity recommends using <code>url()</code> function in most cases. However, the <code>resource()</code> function supports automatically loading different versions of image assets for different screen densities.</p>
+
+<h3>Referencing assets with the url function</h3>
+
+<p>When you reference an asset with the <code>url()</code> function, the path you specify can be relative or absolute:</p>
 
 <ul>
-<li>如果文件位于 <code>Resources</code> 文件夹下，不要包含文件扩展名。例如：<code>background-image: resource("Images/my-image")</code>。</li>
-<li>如果文件位于 <code>Editor Default Resources</code> 下，必须包含文件扩展名。例如：<code>background-image: resource("Images/default-image.png")</code>。</li>
+<li>Relative paths must be relative to the folder that contains the USS file that references the asset.</li>
+<li>Absolute paths are relative to the project.</li>
 </ul>
 
-<p>此外，在加载纹理时，<code>resource()</code> 提供了一种处理高 DPI/Retina 屏幕的便捷方法。如果在同一位置存在具有相同文件名和后缀 <code>@2x</code> 的纹理，Unity 将根据屏幕 DPI 自动加载该纹理。
-例如，如果在 USS 中使用 <code>resource("myimage")</code>，Unity 将加载 <em>Resources/myimage.png</em> 或 <em>Resources/myimage@2x.png</em>。</p>
+<p>The path must include the file extension.</p>
 
-<p><code>url()</code> 函数要求文件路径相对于项目根目录或包含 USS 文件的文件夹。必须包含文件扩展名。在以下示例中，USS 文件位于 <em>Assets\Editor\USS</em> 中，_thumb.png_ 背景图像位于 <em>Assets\Editor\Resources</em> 中：</p>
+<p>For example, let’s say your project has a <code>USS</code> folder that contains all of your style sheets, and a Resources folder that contains all of your image assets.</p>
+
+<pre><code>Assets
+  └─ Editor
+      └─ Resources
+      └─ USS
+</code></pre>
+
+<p>To reference an image named <code>thumb.png</code>, you can use one of the following paths:</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;">Relative path</th>
+	<th style="text-align:left;">Absolute path</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><code>url("../Resources/thumb.png")</code></td>
+	<td style="text-align:left;">
+<code>url("/Assets/Editor/Resources/thumb.png")</code><br><br> <code>url("project:/Assets/Editor/Resources/thumb.png")</code> <br><br> <code>url("project:///Assets/Editor/Resources/thumb.png")</code>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Referencing assets with the resource function</h3>
+
+<p>The <code>resource()</code> function can reference assets in Unity’s resource folders (<code>Resources</code> and <code>Editor Default Resources</code>). You reference an asset by name.</p>
 
 <ul>
-<li>根据 USS 文件的位置，使用以下示例表示相对路径：<code>url("../Resources/thumb.png");</code>
+<li>If the file is in the <code>Editor Default Resources Resources</code> folder, you must include the file extension.</li>
+<li>If the file is in the <code>Resources</code> folder, you must not include the file extension.</li>
+</ul>
+
+<p>例如：</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;">Path to file</th>
+	<th style="text-align:left;">Reference syntax</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><code>Assets/Resources/Images/my-image.png</code></td>
+	<td style="text-align:left;"><code>resource("Images/my-image")</code></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><code>Assets/Editor Default Resources/Images/my-image.png</code></td>
+	<td style="text-align:left;"><code>resource("Images/default-image.png")</code></td>
+</tr>
+</tbody>
+</table>
+
+<h4>Referencing image assets for High DPI/Retina screens</h4>
+
+<p>If you need to support screens with different screen densities (DPI), the <code>resource()</code> function allows you to load the correct versions of texture assets automatically.</p>
+
+<p>You have to:</p>
+
+<ul>
+<li>Make sure that the high DPI versions of your textures have a <code>@2x</code> suffix in their file names. For example the high DPI version of <code>myimage.png</code> should be <code>myimage@2x.png</code>
 </li>
-<li>根据项目的位置，使用以下示例之一表示绝对路径：<code>url("/Assets/Editor/Resources/thumb.png");</code>、<code>url("project:/Assets/Editor/Resources/thumb.png");</code> 或 <code>url("project:///Assets/Editor/Resources/thumb.png");</code> 例如：<code>background-image: url("Images/my-image.png")</code>。</li>
+<li>Place the regular and high DPI versions of the texture assets in the same project folder.</li>
 </ul>
+
+<p>When Unity loads the asset, it automatically chooses the correct version for the current screen DPI.</p>
+
+<p>For example, if you use <code>resource("myimage")</code> in USS, Unity loads either <code>Resources/myimage.png</code> or <code>Resources/myimage@2x.png</code>.</p>
 
 <h3>字符串</h3>
 
 <p>使用引号指定字符串值。例如：<code>--my-property: "foo"</code>。</p>
-
-<hr>
-
-<ul>
-<li><span class="page-edit">2018–11–16 页面已修订</span></li>
-</ul>
-<!-- area:authoring -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="UIE-USS-Selectors-Pseudo-Classes.html"></a></span><div class="tip">Pseudo-classes</div>
+<span class="prev"><a href="UIE-USS-Selectors-Pseudo-Classes.html"></a></span><div class="tip">伪类</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
 <span class="next"><a href="UIE-USS-SupportedProperties.html"></a></span><div class="tip">USS 支持的属性</div>
@@ -286,7 +366,7 @@
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>

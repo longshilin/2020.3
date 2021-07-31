@@ -175,7 +175,7 @@
 <div id="content-wrap" class="content-wrap opened-sidebar"><div class="content-block"><div class="content">
 <div class="section">
 <div class="breadcrumbs clear"><ul>
-<li><a href="UnityManual.html">Unity User Manual 2020.3 (LTS)</a></li>
+<li><a href="UnityManual.html">Unity 用户手册 2020.3 (LTS)</a></li>
 <li><a href="UnityOverview.html">在 Unity 中操作</a></li>
 <li><a href="CreatingGameplay.html">创建游戏玩法</a></li>
 <li><a href="CreatingScenes.html">场景</a></li>
@@ -183,10 +183,10 @@
 </ul></div>
 <div class="mb20"><div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="scenes-working-with.html"></a></span><div class="tip">Creating, loading, and saving Scenes</div>
+<span class="prev"><a href="scenes-working-with.html"></a></span><div class="tip">创建、加载和保存场景</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="scene-templates.html"></a></span><div class="tip">Scene Templates</div>
+<span class="next"><a href="scene-templates.html"></a></span><div class="tip">场景模板</div>
 </div>
 </div></div>
 <h1>多场景编辑</h1>
@@ -327,13 +327,13 @@
 
 <h2>烘焙包含多个场景的导航网格数据</h2>
 
-<p>To bake <strong>Navmesh data</strong> for multiple scenes at once, you should open the scenes that you want to bake, and click the Bake button in the Navigation Window. The navmesh data will be baked into a single asset, shared by all loaded scenes. The data is saved into the folder matching the name of the current active scene (e.g. ActiveSceneName/NavMesh.asset). All loaded scenes will share this navmesh asset. After baking the navmesh, the scenes affected should be saved to make the scene-to-navmesh reference persistent.</p>
+<p>要一次烘焙多个场景的<strong>导航网格数据</strong>，应打开要烘焙的场景，然后单击 Navigation 窗口中的 Bake 按钮。导航网格数据将烘焙到单个资源中，由所有已加载的场景共享。数据将保存到与当前活动场景名称匹配的文件夹中（例如 ActiveSceneName/NavMesh.asset）。所有加载的场景都将共享此导航网格资源。烘焙导航网格后，应保存受影响的场景，使场景到导航网格的引用持久化。</p>
 
 <p>或者，可在 Editor 脚本中使用 <a href="../ScriptReference/AI.NavMeshBuilder.BuildNavMeshForMultipleScenes.html">NavMeshBuilder.BuildNavMeshForMultipleScenes</a> 函数自动为多个场景构建导航网格数据。</p>
 
-<h2>Baking occlusion culling data with multiple Scenes</h2>
+<h2>烘焙包含多个场景的遮挡剔除数据</h2>
 
-<p>To bake <strong>occlusion culling data</strong> for multiple Scenes at once, open the Scenes that you want to bake, open the Occlusion Culling window (menu: <strong>Window</strong> &gt; <strong>Rendering</strong> &gt; <strong>Occlusion Culling</strong>) and click the <strong>Bake</strong> button. The occlusion culling data is saved into an asset called <em>OcclusionCullingData.asset</em> in a folder matching the name of the current active scene. For example <em>Assets/ActiveSceneName/OcclusionCullingData.asset</em>. A reference to the data is added in each open Scene. After baking the occlusion culling data, save the Scenes affected to make the Scene-to-occlusion-data reference persistent.</p>
+<p>要一次烘焙多个场景的<strong>遮挡剔除数据</strong>，请打开要烘焙的场景，打开遮挡剔除窗口（菜单：__Window__ &gt; <strong>Rendering</strong> &gt; <strong>Occlusion Culling__），然后单击 </strong>Bake__ 按钮。遮挡剔除数据将保存到与当前活动场景名称匹配的文件夹内一个名为 <em>OcclusionCullingData.asset</em> 的资源中。例如 <em>Assets/ActiveSceneName/OcclusionCullingData.asset</em>。在每个打开的场景中会添加对数据的引用。烘焙遮挡剔除数据后，应保存受影响的场景，使场景到遮挡数据的引用持久化。</p>
 
 <p>每当以累加方式加载场景时，如果该场景具有与活动场景相同的遮挡数据引用，则会从遮挡数据中初始化该场景的静态渲染器和入口剔除信息。此后，遮挡剔除系统认为所有静态渲染器和入口都已烘焙到单个场景中。</p>
 
@@ -418,16 +418,16 @@
 <!-- area:authoring -->
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
-<span class="prev"><a href="scenes-working-with.html"></a></span><div class="tip">Creating, loading, and saving Scenes</div>
+<span class="prev"><a href="scenes-working-with.html"></a></span><div class="tip">创建、加载和保存场景</div>
 </div>
 <div class="icon tt right" data-distance="-40|-30|top">
-<span class="next"><a href="scene-templates.html"></a></span><div class="tip">Scene Templates</div>
+<span class="next"><a href="scene-templates.html"></a></span><div class="tip">场景模板</div>
 </div>
 </div>
 </div>
 <div class="footer-wrapper">
 <div class="footer clear">
-<div class="copy">版权所有 © 2020 Unity Technologies. Publication 2020.3</div>
+<div class="copy">Copyright © 2021 Unity Technologies. Publication 2020.3</div>
 <div class="menu">
 <a href="https://learn.unity.com/">教程</a><a href="https://answers.unity3d.com">社区答案</a><a href="https://support.unity3d.com/hc/en-us">知识库</a><a href="https://forum.unity3d.com">论坛</a><a href="https://unity3d.com/asset-store">Asset Store</a>
 </div>
